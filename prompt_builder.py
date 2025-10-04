@@ -1,25 +1,89 @@
 """
-Shared module for building AI analysis prompts.
-This ensures consistency between cache generation and regeneration.
+Redesigned prompt builder for NFL team analysis - Version 2.0
+
+New 4-section structure focused on fan engagement:
+1. THE VERDICT - Combined summary + hot take
+2. THE X-FACTOR - Key matchup insights
+3. THE REALITY CHECK - Statistical truth with humor
+4. THE QUOTE THAT NAILS IT - Shareable one-liner
 """
-import random
 import json
 from datetime import datetime
 
+# Handle imports from both relative and absolute paths
+try:
+    from stat_filter import StatFilter
+except ImportError:
+    from scripts.generate_cache.stat_filter import StatFilter
 
-def build_team_stats_json(team_abbr, stats_row, teams_dict):
+
+def calculate_league_rankings(all_stats_df):
+    """
+    Calculate league rankings for key stats across all teams.
+    Returns a dict mapping team_abbr to their rankings.
+
+    For offensive stats: Higher is better (rank 1 = best)
+    For defensive stats: Lower is better (rank 1 = best)
+    """
+    rankings = {}
+
+    # Key stats to rank
+    offensive_stats = [
+        'points_per_game',
+        'total_yards',
+        'passing_yards',
+        'rushing_yards',
+        'third_down_pct',
+        'red_zone_pct',
+        'total_epa'
+    ]
+
+    defensive_stats = [
+        'points_against_per_game',
+        'def_sacks',  # Higher is better for defense
+        'def_interceptions'  # Higher is better for defense
+    ]
+
+    for team in all_stats_df['team_abbr']:
+        rankings[team] = {}
+
+    # Rank offensive stats (higher is better, so rank 1 = highest value)
+    for stat in offensive_stats:
+        if stat in all_stats_df.columns:
+            all_stats_df[f'{stat}_rank'] = all_stats_df[stat].rank(ascending=False, method='min').astype(int)
+            for idx, row in all_stats_df.iterrows():
+                rankings[row['team_abbr']][f'{stat}_rank'] = int(row[f'{stat}_rank'])
+
+    # Rank defensive stats
+    # Points allowed: lower is better
+    if 'points_against_per_game' in all_stats_df.columns:
+        all_stats_df['points_against_per_game_rank'] = all_stats_df['points_against_per_game'].rank(ascending=True, method='min').astype(int)
+        for idx, row in all_stats_df.iterrows():
+            rankings[row['team_abbr']]['points_against_per_game_rank'] = int(row['points_against_per_game_rank'])
+
+    # Sacks and interceptions: higher is better for defense
+    for stat in ['def_sacks', 'def_interceptions']:
+        if stat in all_stats_df.columns:
+            all_stats_df[f'{stat}_rank'] = all_stats_df[stat].rank(ascending=False, method='min').astype(int)
+            for idx, row in all_stats_df.iterrows():
+                rankings[row['team_abbr']][f'{stat}_rank'] = int(row[f'{stat}_rank'])
+
+    return rankings
+
+
+def build_team_stats_json(team_abbr, stats_row, teams_dict, league_rankings=None):
     """
     Convert team stats DataFrame row to structured JSON.
+    Reuses original structure from prompt_builder.py
 
     Args:
-        team_abbr: Team abbreviation (e.g., 'MIN')
-        stats_row: Pandas Series with team stats
-        teams_dict: Dictionary of team info (from load_teams())
-
-    Returns:
-        dict: Hierarchically structured team statistics
+        team_abbr: Team abbreviation
+        stats_row: Row from team stats DataFrame
+        teams_dict: Dictionary of team info
+        league_rankings: Optional dict of league rankings for this team
     """
     team_info = teams_dict[team_abbr]
+    team_ranks = league_rankings.get(team_abbr, {}) if league_rankings else {}
 
     return {
         "team": {
@@ -48,10 +112,12 @@ def build_team_stats_json(team_abbr, stats_row, teams_dict):
         },
         "offense": {
             "scoring": {
-                "points_per_game": round(float(stats_row['points_per_game']), 1)
+                "points_per_game": round(float(stats_row['points_per_game']), 1),
+                "points_per_game_rank": team_ranks.get('points_per_game_rank')
             },
             "passing": {
                 "yards": int(stats_row['passing_yards']),
+                "yards_rank": team_ranks.get('passing_yards_rank'),
                 "touchdowns": int(stats_row['passing_tds']),
                 "interceptions": int(stats_row['interceptions']),
                 "completion_pct": round(float(stats_row['completion_pct']), 1),
@@ -62,12 +128,14 @@ def build_team_stats_json(team_abbr, stats_row, teams_dict):
             },
             "rushing": {
                 "yards": int(stats_row['rushing_yards']),
+                "yards_rank": team_ranks.get('rushing_yards_rank'),
                 "touchdowns": int(stats_row['rushing_tds']),
                 "yards_per_carry": round(float(stats_row['yards_per_carry']), 2),
                 "first_downs": int(stats_row['rushing_first_downs'])
             },
             "total": {
                 "yards": int(stats_row['total_yards']),
+                "yards_rank": team_ranks.get('total_yards_rank'),
                 "yards_per_game": round(float(stats_row['yards_per_game']), 1),
                 "first_downs": int(stats_row['total_first_downs']),
                 "first_downs_per_game": round(float(stats_row['first_downs_per_game']), 1)
@@ -76,12 +144,14 @@ def build_team_stats_json(team_abbr, stats_row, teams_dict):
                 "third_down_attempts": int(stats_row['third_down_attempts']),
                 "third_down_conversions": int(stats_row['third_down_conversions']),
                 "third_down_pct": round(float(stats_row['third_down_pct']), 1),
+                "third_down_pct_rank": team_ranks.get('third_down_pct_rank'),
                 "fourth_down_attempts": int(stats_row['fourth_down_attempts']),
                 "fourth_down_conversions": int(stats_row['fourth_down_conversions']),
                 "fourth_down_pct": round(float(stats_row['fourth_down_pct']), 1),
                 "red_zone_attempts": int(stats_row['red_zone_trips']),
                 "red_zone_touchdowns": int(stats_row['red_zone_tds']),
-                "red_zone_td_pct": round(float(stats_row['red_zone_pct']), 1)
+                "red_zone_td_pct": round(float(stats_row['red_zone_pct']), 1),
+                "red_zone_pct_rank": team_ranks.get('red_zone_pct_rank')
             },
             "turnovers": {
                 "total": int(stats_row['total_turnovers']),
@@ -90,7 +160,16 @@ def build_team_stats_json(team_abbr, stats_row, teams_dict):
         },
         "defense": {
             "scoring": {
-                "points_allowed_per_game": round(float(stats_row['points_against_per_game']), 1)
+                "points_allowed_per_game": round(float(stats_row['points_against_per_game']), 1),
+                "points_allowed_per_game_rank": team_ranks.get('points_allowed_per_game_rank')
+            },
+            "pass_rush": {
+                "sacks": int(stats_row['def_sacks']),
+                "sacks_rank": team_ranks.get('def_sacks_rank')
+            },
+            "takeaways": {
+                "interceptions": int(stats_row['def_interceptions']),
+                "interceptions_rank": team_ranks.get('def_interceptions_rank')
             },
             "efficiency": {
                 "third_down_attempts_against": int(stats_row['third_down_attempts_against']),
@@ -107,6 +186,7 @@ def build_team_stats_json(team_abbr, stats_row, teams_dict):
         "advanced": {
             "epa": {
                 "total": round(float(stats_row['total_epa']), 1),
+                "total_rank": team_ranks.get('total_epa_rank'),
                 "per_game": round(float(stats_row['epa_per_game']), 2),
                 "passing": round(float(stats_row['passing_epa']), 1),
                 "rushing": round(float(stats_row['rushing_epa']), 1)
@@ -121,14 +201,36 @@ def build_injuries_json(team_injuries, opponent_injuries):
         if not injury_list:
             return []
         status_map = {'INA': 'Inactive', 'OUT': 'Out', 'DOUBTFUL': 'Doubtful', 'QUESTIONABLE': 'Questionable'}
-        return [
-            {
-                "name": name,
-                "position": pos,
-                "status": status_map.get(status, status)
-            }
-            for name, pos, status in injury_list
-        ]
+
+        formatted = []
+        for injury in injury_list:
+            # Handle both dict format (from ESPN API) and tuple format (from fallback)
+            if isinstance(injury, dict):
+                name = injury.get('player', 'Unknown')
+                pos = injury.get('position', 'N/A')
+                status = injury.get('status', 'Unknown')
+                injury_type = injury.get('type', '')
+
+                # Build status string with injury type if available
+                status_text = status_map.get(status, status)
+                if injury_type:
+                    status_text = f"{status_text} ({injury_type})"
+
+                formatted.append({
+                    "name": name,
+                    "position": pos,
+                    "status": status_text
+                })
+            else:
+                # Handle legacy tuple format (name, pos, status)
+                name, pos, status = injury
+                formatted.append({
+                    "name": name,
+                    "position": pos,
+                    "status": status_map.get(status, status)
+                })
+
+        return formatted
 
     return {
         "team": format_injuries(team_injuries),
@@ -141,11 +243,19 @@ def build_news_json(team_news, opponent_news):
     def format_news(news_list):
         if not news_list:
             return []
-        return [
-            {"headline": headline}
-            for headline, _ in news_list[:3]  # Max 3 headlines
-            if headline
-        ]
+
+        formatted = []
+        for news in news_list[:3]:  # Max 3 headlines
+            # Handle both dict format (new) and tuple format (legacy)
+            if isinstance(news, dict):
+                headline = news.get('headline', '')
+            else:
+                headline = news[0] if news else ''
+
+            if headline:
+                formatted.append({"headline": headline})
+
+        return formatted
 
     return {
         "team": format_news(team_news),
@@ -154,16 +264,7 @@ def build_news_json(team_news, opponent_news):
 
 
 def build_schedule_json(team_schedule, team_abbr):
-    """
-    Convert schedule information to structured JSON.
-
-    Args:
-        team_schedule: List of all games for this team (dict with game info)
-        team_abbr: Team abbreviation
-
-    Returns:
-        dict: Schedule with completed games and upcoming games
-    """
+    """Convert schedule information to structured JSON."""
     completed_games = []
     upcoming_games = []
 
@@ -184,14 +285,29 @@ def build_schedule_json(team_schedule, team_abbr):
             "away_team": game['away_team']
         }
 
-        # Check if game has been played
-        if game.get('home_score') and game.get('away_score'):
+        # Check if game has been played (handle NaN values)
+        home_score = game.get('home_score')
+        away_score = game.get('away_score')
+
+        # Check if scores are valid (not None, not NaN, not empty string)
+        has_scores = (
+            home_score is not None and
+            away_score is not None and
+            str(home_score).strip() != '' and
+            str(away_score).strip() != '' and
+            str(home_score) != 'nan' and
+            str(away_score) != 'nan'
+        )
+
+        if has_scores:
             # Game completed
+            home_score = int(float(home_score))
+            away_score = int(float(away_score))
             game_info["result"] = "W" if (
-                (is_home and int(game['home_score']) > int(game['away_score'])) or
-                (not is_home and int(game['away_score']) > int(game['home_score']))
+                (is_home and home_score > away_score) or
+                (not is_home and away_score > home_score)
             ) else "L"
-            game_info["score"] = f"{game['home_score']}-{game['away_score']}" if is_home else f"{game['away_score']}-{game['home_score']}"
+            game_info["score"] = f"{home_score}-{away_score}" if is_home else f"{away_score}-{home_score}"
             completed_games.append(game_info)
         else:
             # Game upcoming
@@ -215,16 +331,7 @@ def build_playoff_odds_json(playoff_chance, division_chance, top_seed_chance, sb
 
 
 def build_standings_json(standings_data, teams_dict):
-    """
-    Convert standings data to structured JSON.
-
-    Args:
-        standings_data: Dict with structure {conference: {division: [(team, info), ...]}}
-        teams_dict: Dictionary of team info
-
-    Returns:
-        dict: Hierarchically structured standings
-    """
+    """Convert standings data to structured JSON."""
     standings = {}
 
     for conference in standings_data:
@@ -248,6 +355,46 @@ def build_standings_json(standings_data, teams_dict):
     return standings
 
 
+def build_espn_context_json(espn_context):
+    """
+    Build JSON for ESPN API data (betting lines, weather, etc.)
+
+    Args:
+        espn_context: Dict from ESPNAPIService.get_game_context()
+
+    Returns:
+        dict: Formatted ESPN data
+    """
+    if not espn_context:
+        return {}
+
+    context = {}
+
+    # Betting lines
+    if espn_context.get('betting'):
+        betting = espn_context['betting']
+        context['betting'] = {
+            'spread': betting.get('spread'),
+            'over_under': betting.get('over_under'),
+            'favorite': betting.get('favorite'),
+            'underdog': betting.get('underdog'),
+            'moneyline_favorite': betting.get('moneyline_favorite'),
+            'moneyline_underdog': betting.get('moneyline_underdog')
+        }
+
+    # Weather
+    if espn_context.get('weather'):
+        weather = espn_context['weather']
+        context['weather'] = {
+            'is_indoor': weather.get('is_indoor', False),
+            'temperature': weather.get('temperature'),
+            'condition': weather.get('condition'),
+            'wind_speed': weather.get('wind_speed')
+        }
+
+    return context
+
+
 def build_team_analysis_prompt(
     team_abbr,
     team_stats_row,
@@ -267,34 +414,18 @@ def build_team_analysis_prompt(
     current_week=1,
     standings_data=None,
     team_coordinators=None,
-    opponent_coordinators=None
+    opponent_coordinators=None,
+    espn_context=None,
+    league_rankings=None
 ):
     """
-    Build AI analysis prompt using structured JSON.
+    Build AI analysis prompt using 4-section structure.
 
-    This version uses hierarchical JSON instead of base64 CSV for better
-    AI comprehension and statistical accuracy.
-
-    Args:
-        team_abbr: Team abbreviation (e.g., 'MIN')
-        team_stats_row: Pandas Series with team stats
-        opponent_abbr: Opponent abbreviation (or "NONE")
-        opponent_stats_row: Pandas Series with opponent stats (or None)
-        teams_dict: Dictionary of team info (from load_teams())
-        team_injuries: List of (name, pos, status) tuples
-        opponent_injuries: List of (name, pos, status) tuples
-        team_news: List of (headline, date) tuples
-        opponent_news: List of (headline, date) tuples
-        team_schedule: List of all games for this team (from schedule)
-        playoff_chance: Playoff probability %
-        division_chance: Division win probability %
-        top_seed_chance: #1 seed probability %
-        sb_appearance_chance: Super Bowl appearance probability %
-        sb_win_chance: Super Bowl win probability %
-        current_week: Current NFL week number
-        standings_data: Dict with {conference: {division: [(team, info), ...]}}
-        team_coordinators: Pandas Series with coordinator info (or None)
-        opponent_coordinators: Pandas Series with coordinator info (or None)
+    Sections:
+    1. ai_verdict - Combined engaging summary + bold take
+    2. ai_xfactor - Key matchup insights and what will decide the game
+    3. ai_reality_check - Statistical truth with humor
+    4. ai_quotes - Five shareable quotes that capture the team's season
 
     Returns:
         str: The formatted prompt for AI analysis
@@ -302,8 +433,8 @@ def build_team_analysis_prompt(
     team_info = teams_dict[team_abbr]
 
     # Build all JSON structures
-    team_stats_json = build_team_stats_json(team_abbr, team_stats_row, teams_dict)
-    opponent_stats_json = build_team_stats_json(opponent_abbr, opponent_stats_row, teams_dict) if opponent_abbr != "NONE" and opponent_stats_row is not None else {}
+    team_stats_json = build_team_stats_json(team_abbr, team_stats_row, teams_dict, league_rankings)
+    opponent_stats_json = build_team_stats_json(opponent_abbr, opponent_stats_row, teams_dict, league_rankings) if opponent_abbr != "NONE" and opponent_stats_row is not None else {}
     injuries_json = build_injuries_json(team_injuries, opponent_injuries)
     news_json = build_news_json(team_news, opponent_news)
     schedule_json = build_schedule_json(team_schedule, team_abbr) if team_schedule else {}
@@ -312,8 +443,18 @@ def build_team_analysis_prompt(
         sb_appearance_chance, sb_win_chance
     )
     standings_json = build_standings_json(standings_data, teams_dict) if standings_data else {}
+    espn_context_json = build_espn_context_json(espn_context)
 
-    # Convert to minified JSON strings for prompt
+    # Pre-filter stats to identify impressive/concerning/notable
+    stat_filter = StatFilter()
+    filtered_stats = stat_filter.filter_all_stats(team_stats_row)
+
+    # Get matchup edges if opponent exists
+    matchup_edges = {}
+    if opponent_abbr != "NONE" and opponent_stats_row is not None:
+        matchup_edges = stat_filter.get_matchup_edges(team_stats_row, opponent_stats_row)
+
+    # Convert to JSON strings
     team_stats_str = json.dumps(team_stats_json, separators=(',', ':'))
     opponent_stats_str = json.dumps(opponent_stats_json, separators=(',', ':')) if opponent_abbr != "NONE" else "{}"
     injuries_str = json.dumps(injuries_json, separators=(',', ':'))
@@ -321,6 +462,9 @@ def build_team_analysis_prompt(
     schedule_str = json.dumps(schedule_json, separators=(',', ':'))
     playoff_odds_str = json.dumps(playoff_odds_json, separators=(',', ':'))
     standings_str = json.dumps(standings_json, separators=(',', ':'))
+    espn_context_str = json.dumps(espn_context_json, separators=(',', ':'))
+    filtered_stats_str = json.dumps(filtered_stats, separators=(',', ':'))
+    matchup_edges_str = json.dumps(matchup_edges, separators=(',', ':'))
 
     # Build coaching section
     coaching_section = ""
@@ -343,92 +487,139 @@ COACHING STAFF
   Defensive Coordinator: {opponent_coordinators.get('defensive_coordinator', 'Unknown')}
 """
 
-    # Random comedian/analyst selections for variety
-    roast_comedians_list = "Jeff Ross, Anthony Jeselnik, Dave Attell, Lisa Lampanelli, Jim Norton, Daniel Tosh, Bill Burr, Nikki Glaser, Greg Giraldo"
-    other_comedians_list = "Norm Macdonald, John Mulaney, Aziz Ansari, Hannibal Buress, Whitney Cummings, Maria Bamford, Tig Notaro, Sarah Silverman, Amy Schumer, Jim Jefferies, Louis C.K., Jim Gaffigan, Seth Macfarlane, George Carlin, Steven Wright, Mitch Hedberg, Bill Hicks"
-
-    # Random hot take opening styles for variety
-    hottake_styles = [
-        "Channel Stephen A. Smith's explosive energy",
-        "Write like Skip Bayless defending his most controversial take",
-        "Embody Pat McAfee's enthusiastic, larger-than-life personality",
-        "Write with Shannon Sharpe's confident, folksy storytelling",
-        "Channel Dan Orlovsky's passionate analytical breakdown"
-    ]
-    hottake_style = random.choice(hottake_styles)
-
-    roast_comedians = " and ".join(random.sample(roast_comedians_list.split(", "), 3))
-    other_comedians = " and ".join(random.sample(other_comedians_list.split(", "), 3))
-
-    # Randomly choose comedy style
-    ai_fun_rule = (
-        f"Write in the style of these comedians and writers: {other_comedians}"
-        if random.choice([True, False]) else
-        "Write a fake news story in the style of The Onion or SNL's Weekend Update"
-    )
-
     opponent_name = opponent_stats_json.get('team', {}).get('name', 'NO OPPONENT') if opponent_abbr != "NONE" else "NO OPPONENT"
 
     prompt = f"""{'=' * 70}
-{team_info['city'].upper()} {team_info['mascot'].upper()} ANALYSIS
+{team_info['city'].upper()} {team_info['mascot'].upper()} ANALYSIS - V2.0
 {'=' * 70}
 Current Date: {datetime.now().strftime('%B %d, %Y')}
 Current Season: 2025/26 NFL Season
 Week: {current_week}
 
 {'=' * 70}
-ROLE
+YOUR ROLE & VOICE
 {'=' * 70}
-You are an award-winning NFL analyst combining statistical accuracy with
-entertaining, personality-filled writing. Channel John Madden's enthusiasm,
-Tony Romo's insight, and a stand-up comedian's wit.
+You are "The Armchair Analyst" - a confident, witty NFL expert who combines
+deep statistical knowledge with sharp humor. Think Bill Simmons meets Tony Romo.
 
-{'=' * 70}
-OUTPUT REQUIREMENTS
-{'=' * 70}
-Generate analysis in JSON format with these sections:
+Your voice is:
+- Conversational but insightful
+- Data-driven but never dry
+- Honest (call out weaknesses, celebrate strengths)
+- Funny without trying too hard
+- Focused on what fans actually care about
 
-1. ai_summary
-   - One paragraph overview of the {team_info['city']} {team_info['mascot']} season
-   - Reference current stats and playoff position
-   - Make it engaging and readable
-
-2. ai_hottake
-   - One bold, passionate paragraph
-   - Use facts to support a strong opinion
-   - Style: {hottake_style}
-   - IMPORTANT: Vary your opening - avoid repetitive phrases like "WAKE UP" or "LISTEN"
-
-3. ai_stats
-   - Three statistical insights (3-4 sentences each)
-   - Find interesting narratives in the numbers
-   - Add context and color to raw stats
-
-4. ai_preview
-   - Preview of next game (if applicable)
-   - Discuss implications for playoff/division race
-   - Reference head-to-head context
-
-5. ai_fun
-   - {ai_fun_rule}
-   - Reference real players and stats
-   - Keep it creative and entertaining
-
-6. ai_roast
-   - CRITICAL: Roast the {team_info['city']} {team_info['mascot']}, NOT their opponent
-   - Channel roast comedians like {roast_comedians}
-   - 7-10 jokes written as a comedy routine
-   - Use their season stats and disappointments as material
+CONSISTENCY: Maintain this EXACT voice across ALL sections. Don't shift personas.
 
 {'=' * 70}
-TEAM STATISTICS
+OUTPUT REQUIREMENTS - 4 SECTIONS
+{'=' * 70}
+
+1. ai_verdict
+   - 2-3 paragraphs that tell the COMPLETE story
+   - Start with the bottom line: Are they good? Bad? Frauds? Legit?
+   - Back it up with key stats and context
+   - Include one bold take based on the data
+   - Be direct and engaging - this is what fans check first
+
+   Quality bar:
+   - Should answer "Is this team for real?" definitively
+   - Must cite specific stats to support claims
+   - Avoid generic phrases like "impressive showing" or "solid performance"
+   - Give fans something to argue about
+
+2. ai_xfactor
+   - What will actually decide this game/season?
+   - Focus on specific matchup advantages/disadvantages
+   - Reference betting lines, weather, rest advantages if available
+   - Identify THE key player or unit to watch
+   - Be specific: not "the defense needs to step up" but "can the pass rush
+     generate pressure without blitzing given their 1.8 sacks/game?"
+
+   Quality bar:
+   - Should give fans one concrete thing to watch for
+   - Must be based on actual data, not generic analysis
+   - Explain WHY it matters (stakes, playoff implications, etc.)
+
+3. ai_reality_check
+   - Lead with 2-3 pre-filtered key stats (see FILTERED_STATS below)
+   - Add context and narrative to each stat
+   - Then pivot to humor: what are fans fooling themselves about?
+   - Call out any concerning trends with wit
+   - Keep the ratio: 60% insightful / 40% humorous
+
+   Quality bar:
+   - Stats should reveal something non-obvious
+   - Humor should be clever, not mean-spirited
+   - Must roast the {team_info['city']} {team_info['mascot']}, NOT their opponent
+   - Self-aware fans should nod along, not get defensive
+
+4. ai_quotes
+   - FIVE distinct quotes, each 1-3 sentences (don't default to one sentence!)
+   - Mix of lengths: some can be punchy one-liners, others should be fuller 2-3 sentence observations
+   - Witty observations with substance - NOT just statistical breakdowns
+   - Use stats to INFORM the quip, but DON'T cite numbers directly
+   - Think bar conversation, not broadcast booth analysis
+   - Each should work as a standalone social media quote
+   - Must be specific to THIS team's situation
+   - Think "screenshot and share" quality
+   - Vary the tone: mix clever insights with humor, sarcasm, and truth
+
+   Quality bar:
+   - Quotable and memorable - something a fan would text their friend
+   - NO statistics or percentages in the quotes themselves
+   - VARIETY IS KEY: Mix short punchy quotes with longer, more developed ones
+   - Examples of the VIBE and LENGTH we want:
+     * Short: "Playing like a team that googles 'prevent defense' during timeouts."
+     * Medium: "Their playoff hopes look great on paper until you remember they have to actually play the games. Then it's like watching someone try to assemble IKEA furniture drunk."
+     * Longer: "Every week it's the same story: dominate the first half, build a lead, then proceed to play defense like they're afraid of hurting the opponent's feelings. It's not prevent defense, it's 'please score' defense."
+   - Avoid generic phrases that could apply to any team
+   - NO RECYCLED JOKES: Don't use the same joke/angle you've used before
+   - AVOID STALE TROPES: No "forward pass" jokes, "Madden on rookie mode", "haven't won since X" unless truly remarkable
+   - Each captures a different aspect of their season
+   - Fans should LAUGH, nod, or get angry enough to share
+
+{'=' * 70}
+TEAM STATISTICS (WITH LEAGUE RANKINGS)
 {'=' * 70}
 {team_stats_str}
 
+IMPORTANT: League rankings are included for key stats (e.g., "points_per_game_rank": 5)
+- Rankings are out of 32 teams
+- Rank 1 = best in league, Rank 32 = worst
+- For offense: Lower rank number = better (rank 1 = highest scoring)
+- For defense: Lower rank number = better (rank 1 = fewest points allowed, most sacks, most INTs)
+- ALWAYS use rankings to provide context:
+  * Ranks 1-8: Elite/Top tier
+  * Ranks 9-16: Above average to middle-of-pack
+  * Ranks 17-24: Below average to middle-of-pack
+  * Ranks 25-32: Bottom tier/Really struggling
+- Example: "15th in points allowed" = middle-of-pack defense, NOT "really bad"
+- Example: "28th in points allowed" = actually bad defense
+- Use rankings to give accurate assessments instead of exaggerating weaknesses
+
 {'=' * 70}
-OPPONENT STATISTICS
+OPPONENT STATISTICS (WITH LEAGUE RANKINGS)
 {'=' * 70}
 {opponent_stats_str}
+
+{'=' * 70}
+PRE-FILTERED KEY STATS
+{'=' * 70}
+These stats have been pre-identified as impressive, concerning, or notable.
+Use these as the foundation for ai_reality_check section:
+{filtered_stats_str}
+
+{'=' * 70}
+MATCHUP EDGES
+{'=' * 70}
+Pre-analyzed advantages and disadvantages for this specific matchup:
+{matchup_edges_str}
+
+{'=' * 70}
+ESPN CONTEXT (Betting Lines, Weather, etc.)
+{'=' * 70}
+{espn_context_str}
 
 {'=' * 70}
 SCHEDULE
@@ -462,42 +653,65 @@ CRITICAL RULES
 
 2. Only use stats from the JSON data provided above
 
-3. Stats are in clear hierarchical format - reference them accurately:
-   - Offensive red zone: offense.efficiency.red_zone_td_pct
-   - Defensive red zone: defense.efficiency.red_zone_td_pct_against
+3. Maintain ONE consistent voice (The Armchair Analyst) across all sections
+   - Don't suddenly become Stephen A. Smith in one section and Norm Macdonald in another
+   - Keep the same conversational, witty, insightful tone throughout
 
-4. Response must be valid JSON with proper escaping
+4. Use the PRE-FILTERED STATS as your foundation for ai_reality_check
+   - Don't just list them - add context and narrative
+   - Explain WHY each stat matters
 
-5. Use \\n for line breaks in JSON strings
+5. For ai_xfactor, reference ESPN context if available:
+   - Mention betting spread/over-under
+   - Note weather conditions for outdoor games
+   - Consider rest advantages
 
-6. Current season is 2024/25 - focus on THIS season's performance
+6. Response must be valid JSON with proper escaping
 
-7. HISTORICAL CLAIMS WARNING:
-   Your training data may contain outdated historical narratives about teams.
-   If you reference playoff history or multi-year droughts, be EXTREMELY
-   cautious - many teams have broken old patterns in recent years (2021-2024).
+7. Use \\n for line breaks in JSON strings
 
-   When in doubt about historical claims:
-   - Focus on the current season data provided above
-   - Avoid specific "first time since [year]" claims unless certain
+8. Current season is 2024/25 - focus on THIS season's performance
+
+9. HISTORICAL CLAIMS WARNING:
+   Your training data may contain outdated narratives. When in doubt:
+   - Focus on current season data provided
+   - Avoid "first time since [year]" claims unless certain
    - Don't assume old narratives still apply
+   - BANNED PHRASES: Avoid tired/overused jokes like:
+     * "discovered the forward pass" (especially for Detroit, Cleveland, etc.)
+     * "first winning season since [ancient year]"
+     * Generic "lovable losers" narratives
+   - Be FRESH with your humor - find NEW angles based on THIS season's data
 
-   Examples of outdated narratives to AVOID:
-   - "Haven't won a playoff game since [old year]" (may be outdated)
-   - "Perennial losers" for teams that have recently succeeded
-   - "Never won a [championship/playoff game]" without verification
+10. QUALITY OVER QUANTITY:
+    - Better to write one great insight than three generic ones
+    - Every sentence should add value
+    - Cut anything that sounds like filler
 
 {'=' * 70}
 REQUIRED JSON FORMAT
 {'=' * 70}
 {{
-    "ai_summary": "Single string with \\n for breaks",
-    "ai_hottake": "Single string with \\n for breaks",
-    "ai_stats": "Single string with \\n for breaks",
-    "ai_preview": "Single string with \\n for breaks",
-    "ai_fun": "Single string with \\n for breaks",
-    "ai_roast": "Single string with \\n for breaks"
+    "ai_verdict": "2-3 paragraphs with \\n for breaks",
+    "ai_xfactor": "2-3 paragraphs with \\n for breaks",
+    "ai_reality_check": "2-3 paragraphs with \\n for breaks",
+    "ai_quotes": [
+        "First quote - insightful take on their season",
+        "Second quote - humorous observation",
+        "Third quote - bold prediction or claim",
+        "Fourth quote - different angle or stat-based",
+        "Fifth quote - captures current moment"
+    ]
 }}
+
+IMPORTANT:
+- NO trailing commas after the last field
+- Ensure valid JSON format
+- The ai_quotes field is an ARRAY of 5 strings
+- Each quote should be 12-20 words (shorter is better)
+- NO statistics, percentages, or numbers in the quotes
+- Quotes should be witty observations, not analytical statements
+- The ai_quotes field is LAST and should NOT have a comma after it
 {'=' * 70}
 """
 

@@ -24,7 +24,6 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from ai_service import AIService
 from prompt_builder import build_team_analysis_prompt
-from prompt_builder_v2 import build_team_analysis_prompt_v2
 from espn_api import ESPNAPIService
 from simulate_season import (
     simulate_season,
@@ -394,7 +393,7 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
     teamstats_pd = pd.read_csv(os.path.join(data_dir, 'team_stats.csv'))
 
     # Calculate league rankings for all teams
-    from prompt_builder_v2 import calculate_league_rankings
+    from prompt_builder import calculate_league_rankings
     league_rankings = calculate_league_rankings(teamstats_pd)
 
     # Load coordinators data (optional - script continues if file doesn't exist)
@@ -560,22 +559,73 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
     team_starters_text = team_starters_filtered.to_csv(index=False)
     team_starters_encoded = base64.b64encode(team_starters_text.encode()).decode()
 
-    # Extract key injuries for both teams
-    def get_key_injuries(team_abbr_filter):
-        """Get list of notable injured/inactive players"""
-        injured = team_starters[
-            (team_starters['team_abbr'] == team_abbr_filter) &
-            (team_starters['status'].isin(['INA', 'OUT', 'DOUBTFUL', 'QUESTIONABLE']))
-        ]
-        if injured.empty:
+    # Extract key injuries for both teams from ESPN event summary API
+    def get_injuries_from_espn(espn_event_id, team_abbr_filter):
+        """Get injuries from ESPN event summary API"""
+        if not espn_event_id:
             return []
-        # Focus on skill positions
-        key_positions = ['QB', 'RB', 'WR', 'TE', 'LT', 'RT', 'LDE', 'RDE', 'MLB', 'CB', 'SS', 'FS']
-        injured_key = injured[injured['position'].isin(key_positions)]
-        return [(row['player_name'], row['position'], row['status']) for _, row in injured_key.iterrows()]
 
-    team_injuries = get_key_injuries(team_abbr)
-    opponent_injuries = get_key_injuries(next_opponent) if next_opponent != "NONE" else []
+        try:
+            url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event={espn_event_id}"
+            response = requests.get(url, timeout=5)
+
+            if response.status_code == 200:
+                data = response.json()
+                injury_data = data.get('injuries', [])
+
+                # Find the team's injury data
+                for team_injuries in injury_data:
+                    if team_injuries.get('team', {}).get('abbreviation') == team_abbr_filter:
+                        injuries = []
+                        for injury in team_injuries.get('injuries', []):
+                            player_name = injury.get('athlete', {}).get('displayName', 'Unknown')
+                            position = injury.get('athlete', {}).get('position', {}).get('abbreviation', 'N/A')
+                            status = injury.get('status', 'Unknown')
+                            injury_type = injury.get('details', {}).get('type', '')
+
+                            # Only include significant injury statuses
+                            if status in ['Out', 'Doubtful', 'Questionable', 'Injured Reserve']:
+                                injuries.append({
+                                    'player': player_name,
+                                    'position': position,
+                                    'status': status,
+                                    'type': injury_type
+                                })
+                        return injuries
+                return []
+        except Exception as e:
+            logger.warning(f"Failed to fetch injuries from ESPN for {team_abbr_filter}: {e}")
+            return []
+
+    # Get injuries from ESPN event summary if we have an ESPN ID, otherwise fall back to team_starters
+    team_injuries = []
+    opponent_injuries = []
+
+    if next_game and next_game.get('espn_id'):
+        team_injuries = get_injuries_from_espn(next_game['espn_id'], team_abbr)
+        if next_opponent != "NONE":
+            opponent_injuries = get_injuries_from_espn(next_game['espn_id'], next_opponent)
+
+    # Fallback to team_starters if ESPN data is not available
+    if not team_injuries or (next_opponent != "NONE" and not opponent_injuries):
+        def get_key_injuries_fallback(team_abbr_filter):
+            """Fallback: Get list of notable injured/inactive players from team_starters"""
+            injured = team_starters[
+                (team_starters['team_abbr'] == team_abbr_filter) &
+                (team_starters['status'].isin(['INA', 'OUT', 'DOUBTFUL', 'QUESTIONABLE']))
+            ]
+            if injured.empty:
+                return []
+            # Focus on skill positions
+            key_positions = ['QB', 'RB', 'WR', 'TE', 'LT', 'RT', 'LDE', 'RDE', 'MLB', 'CB', 'SS', 'FS']
+            injured_key = injured[injured['position'].isin(key_positions)]
+            return [{'player': row['player_name'], 'position': row['position'], 'status': row['status'], 'type': ''}
+                    for _, row in injured_key.iterrows()]
+
+        if not team_injuries:
+            team_injuries = get_key_injuries_fallback(team_abbr)
+        if next_opponent != "NONE" and not opponent_injuries:
+            opponent_injuries = get_key_injuries_fallback(next_opponent)
 
     # Fetch recent news headlines for both teams
     def get_team_news(team_abbr_filter):
@@ -589,30 +639,37 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
                 return []
 
             espn_team_id = team_row['espn_api_id'].iloc[0]
-            url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?team={espn_team_id}"
+            team_name = team_row['mascot'].iloc[0]
+            team_city = team_row['city'].iloc[0]
+
+            url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?team={espn_team_id}&limit=20"
 
             response = requests.get(url, timeout=3)
             if response.status_code == 200:
                 data = response.json()
                 articles = data.get('articles', [])
 
-                # Filter out generic NFL-wide headlines
-                generic_patterns = [
-                    'Power Rankings', 'Week 4:', 'Week 5:', 'Week 6:', 'Week 7:', 'Week 8:',
-                    'How NFL', 'Best team arrivals', 'NFL trolls', 'all 32 teams',
-                    'Every game', 'every game', 'How to watch', 'International Series',
-                    'kick-off times', 'Biggest questions', 'takeaways for every'
-                ]
-
+                # Only include headlines that mention the team name, city, or are clearly team-specific
                 team_specific = []
                 for a in articles:
                     headline = a.get('headline', '')
-                    # Skip if it matches any generic pattern
-                    if any(pattern in headline for pattern in generic_patterns):
-                        continue
-                    team_specific.append((headline, a.get('published', '')))
-                    if len(team_specific) >= 3:  # Stop at 3
-                        break
+                    description = a.get('description', '')
+
+                    # Check if headline or description mentions the team
+                    contains_team = (team_name in headline or team_city in headline or
+                                   team_name in description or team_city in description or
+                                   team_abbr_filter in headline or team_abbr_filter in description)
+
+                    # Exclude generic multi-team articles unless they mention this specific team
+                    generic_multi_team = any(pattern in headline for pattern in [
+                        'all 32 teams', 'Every team', 'every team', 'NFL Week', 'Week 5 predictions',
+                        'Week 5 uniforms', 'Latest Madden ratings'
+                    ])
+
+                    if contains_team and not generic_multi_team:
+                        team_specific.append({'headline': headline, 'published': a.get('published', '')})
+                        if len(team_specific) >= 3:  # Stop at 3
+                            break
 
                 return team_specific
             return []
@@ -791,8 +848,8 @@ If {home} wins:
             next_game['away_team']
         )
 
-    # Use V2 prompt builder with new 4-section approach
-    prompt = build_team_analysis_prompt_v2(
+    # Use prompt builder with 4-section approach
+    prompt = build_team_analysis_prompt(
         team_abbr=team_abbr,
         team_stats_row=team_stats_row,
         opponent_abbr=next_opponent,
@@ -1440,6 +1497,86 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
         
     return validate_cache(cache_data)
 
+def deploy_to_netlify():
+    """Deploy data files to who-should-lose-2 repo for Netlify deployment"""
+    logger.info("Deploying data files to who-should-lose-2 repo...")
+
+    # Temporary directory for the repo
+    temp_dir = '/tmp/who-should-lose-2'
+    repo_url = 'https://github.com/obliojoe/who-should-lose-2.git'
+
+    try:
+        # Clone or pull the repo
+        if os.path.exists(temp_dir):
+            logger.info("Pulling latest changes from who-should-lose-2...")
+            subprocess.run(['git', '-C', temp_dir, 'pull'], check=True, capture_output=True)
+        else:
+            logger.info("Cloning who-should-lose-2 repo...")
+            subprocess.run(['git', 'clone', repo_url, temp_dir], check=True, capture_output=True)
+
+        # Create public/data directory if it doesn't exist
+        data_dir = os.path.join(temp_dir, 'public', 'data')
+        os.makedirs(data_dir, exist_ok=True)
+
+        # Files to copy
+        files_to_copy = [
+            'data/analysis_cache.json',
+            'data/team_stats.csv',
+            'data/team_starters.csv',
+            'data/schedule.csv',
+            'data/teams.csv',
+            'data/game_analyses.json',
+            'data/team_notes.csv'
+        ]
+
+        # Optional files
+        optional_files = [
+            'data/standings_cache.json',
+            'data/coordinators.csv',
+            'data/sagarin.csv'
+        ]
+
+        for file in optional_files:
+            if os.path.exists(file):
+                files_to_copy.append(file)
+
+        # Copy files to public/data
+        for file in files_to_copy:
+            if os.path.exists(file):
+                dest = os.path.join(data_dir, os.path.basename(file))
+                shutil.copy2(file, dest)
+                logger.info(f"Copied {file} to {dest}")
+
+        # Git operations
+        os.chdir(temp_dir)
+
+        # Check if there are changes
+        result = subprocess.run(['git', 'status', '--porcelain'],
+                              capture_output=True, text=True)
+
+        if result.stdout.strip():
+            logger.info("Changes detected, committing and pushing...")
+
+            # Add all files in public/data
+            subprocess.run(['git', 'add', 'public/data/'], check=True)
+
+            # Commit
+            commit_msg = f"Update data files - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+            subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
+
+            # Push
+            subprocess.run(['git', 'push'], check=True)
+
+            logger.info("Successfully deployed to who-should-lose-2 repo. Netlify will auto-deploy.")
+        else:
+            logger.info("No changes to deploy.")
+
+        return True
+
+    except Exception as e:
+        logger.error(f"Error deploying to Netlify: {e}")
+        return False
+
 def main():
     parser = argparse.ArgumentParser(description='Generate NFL analysis cache file')
     parser.add_argument('--simulations', type=int, default=1000,
@@ -1458,6 +1595,8 @@ def main():
                       help='Skip generating data files')
     parser.add_argument('--deploy-render', action='store_true',
                       help='Deploy data to Render web host via SSH')
+    parser.add_argument('--deploy-netlify', action='store_true',
+                      help='Deploy data files to who-should-lose-2 repo for Netlify deployment')
     parser.add_argument('--test-mode', action='store_true',
                       help='Run in test mode')
 
@@ -1486,6 +1625,16 @@ def main():
             if not save_team_starters("team_starters.csv"):
                 logger.error("   Error: Failed to generate team starters")
                 sys.exit(1)
+
+        # Fetch coordinators data
+        logger.info("=> Fetching coordinators.csv")
+        try:
+            from fetch_coordinators import save_coordinators_csv
+            with contextlib.redirect_stdout(None):
+                if not save_coordinators_csv():
+                    logger.warning("   Warning: Failed to fetch coordinators - continuing without coordinator data")
+        except Exception as e:
+            logger.warning(f"Error fetching coordinators: {e}... continuing without coordinator data")
 
         # Generate standings cache (before AI analysis so it can potentially use this data)
         logger.info("=> Generating standings_cache.json")
@@ -1516,35 +1665,10 @@ def main():
         regenerate_ai=args.regenerate_ai
     )
 
-    if success and copy_data:
-        logger.info("Success! Copying data files to site directory...")
-        try:
-            # copy data files to local persist folder
-            logger.info("Copying data files to local persist folder in site root...")
-            root_dir = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-            persist_dir = os.path.join(root_dir, 'persist')
-            os.makedirs(persist_dir, exist_ok=True)
-            shutil.copy2('data/analysis_cache.json', os.path.join(persist_dir, 'analysis_cache.json'))
-            shutil.copy2('data/team_stats.csv', os.path.join(persist_dir, 'team_stats.csv'))
-            shutil.copy2('data/team_starters.csv', os.path.join(persist_dir, 'team_starters.csv'))
-            shutil.copy2('data/schedule.csv', os.path.join(persist_dir, 'schedule.csv'))
-            shutil.copy2('data/teams.csv', os.path.join(persist_dir, 'teams.csv'))
-            shutil.copy2('data/game_analyses.json', os.path.join(persist_dir, 'game_analyses.json'))
-            shutil.copy2('data/team_notes.csv', os.path.join(persist_dir, 'team_notes.csv'))
+    # Removed persist directory copying - deployment now handled by --deploy-netlify
 
-            # Copy standings cache if it exists
-            if os.path.exists('data/standings_cache.json'):
-                shutil.copy2('data/standings_cache.json', os.path.join(persist_dir, 'standings_cache.json'))
-
-            # Copy optional files if they exist
-            if os.path.exists('data/coordinators.csv'):
-                shutil.copy2('data/coordinators.csv', os.path.join(persist_dir, 'coordinators.csv'))
-            if os.path.exists('data/sagarin.csv'):
-                shutil.copy2('data/sagarin.csv', os.path.join(persist_dir, 'sagarin.csv'))
-            
-        except Exception as e:
-            logger.error(f"Error copying files to site directory: {e}")
-            files_copied = False
+    if args.deploy_netlify and success:
+        if not deploy_to_netlify():
             success = False
 
     if args.deploy_render:
@@ -1593,6 +1717,7 @@ def main():
     if args.commit:
         try:
             logger.info("RUNNING GIT OPERATIONS...")
+            root_dir = os.getcwd()  # Get current working directory
             os.chdir(root_dir)
 
             # Get current remote URL
@@ -1613,16 +1738,16 @@ def main():
                 subprocess.run(['git', 'config', '--global', 'user.email', "github-actions@github.com"], check=True)
                 subprocess.run(['git', 'config', '--global', 'user.name', "GitHub Actions"], check=True)
 
-            # Files to commit (using absolute paths)
+            # Files to commit - all generated data files
             files_to_commit = [
-                os.path.join(root_dir, 'data/team_stats.csv'),
-                os.path.join(root_dir, 'data/team_starters.csv'),
-                os.path.join(root_dir, 'data/sagarin.csv'),
-                os.path.join(root_dir, 'data/schedule.csv'),
-                os.path.join(root_dir, 'scripts/generate_cache/data/schedule.csv'),
-                os.path.join(root_dir, 'scripts/generate_cache/data/team_stats.csv'),
-                os.path.join(root_dir, 'scripts/generate_cache/data/team_starters.csv'),
-                os.path.join(root_dir, 'scripts/generate_cache/data/sagarin.csv')
+                'data/analysis_cache.json',
+                'data/team_stats.csv',
+                'data/team_starters.csv',
+                'data/sagarin.csv',
+                'data/schedule.csv',
+                'data/standings_cache.json',
+                'data/coordinators.csv',
+                'data/game_analyses.json'
             ]
 
             username = os.environ.get('GH_USERNAME')
@@ -1653,12 +1778,19 @@ def main():
                     subprocess.run(['git', 'reset', '--hard', 'origin/master'], check=True)
 
             # Add and commit files
+            files_added = []
             for file in files_to_commit:
                 if os.path.exists(file):
                     subprocess.run(['git', 'add', file], check=True)
+                    files_added.append(file)
+                    logger.info(f"   Added {file}")
 
-            commit_msg = f"generate_cache.py update ({'remote' if is_ci else 'local'}) - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-            subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
+            if files_added:
+                commit_msg = f"generate_cache.py update ({'remote' if is_ci else 'local'}) - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+                subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
+                logger.info(f"Committed {len(files_added)} files")
+            else:
+                logger.info("No files to commit")
 
             # Push changes with retry logic
             max_retries = 3

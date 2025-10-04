@@ -220,7 +220,7 @@ IMPORTANT: The game data includes detailed statistics, play-by-play, and betting
 
 Do not follow up with any questions. Consider this a final draft that will be shared as-is with the public.
 
-THIS IS THE 2024/2025 NFL SEASON
+THIS IS THE 2025/2026 NFL SEASON
 
 Game Data:
 {game_json}
@@ -229,9 +229,6 @@ Game Data:
     # Format the prompt with the game data
     try:
         prompt = prompt_template.format(game_json=json.dumps(game_data))
-
-        with open(f'data/prompt_{date.today().strftime("%Y-%m-%d")}.txt', 'w', encoding='utf-8') as f:
-            f.write(prompt)
 
         system_prompt = "You are an NFL writer. Your expertise is in writing brief game analyses in multiple voices. You can be a brilliant and serious analyst as easily as a surrealist sports comic. Whether you are writing something serious or ridiculous, you are always accurate in your use of NFL references and statistics. Consider all of the data provided."
 
