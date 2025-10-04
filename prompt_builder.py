@@ -624,6 +624,14 @@ ESPN CONTEXT (Betting Lines, Weather, etc.)
 {'=' * 70}
 SCHEDULE
 {'=' * 70}
+IMPORTANT: The schedule is divided into two sections:
+- "completed": Games that have ALREADY been played (past results)
+- "upcoming": Games that have NOT been played yet (future matchups)
+
+When analyzing head-to-head matchups, count carefully:
+- If a team appears once in "completed" and once in "upcoming", they play TWICE TOTAL
+- The "upcoming" game is the ONLY remaining game between these teams this season
+
 {schedule_str}
 
 {'=' * 70}
