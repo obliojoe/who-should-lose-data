@@ -1724,7 +1724,7 @@ def main():
             # Change back to original directory
             os.chdir(original_dir)
 
-            # Check for CI credentials
+            # Check for credentials in environment
             username = os.environ.get('GH_USERNAME')
             token = os.environ.get('GH_PAT')
 
@@ -1734,19 +1734,15 @@ def main():
                 subprocess.run(['git', 'config', '--global', 'user.email', "github-actions@github.com"], check=True)
                 subprocess.run(['git', 'config', '--global', 'user.name', "GitHub Actions"], check=True)
 
-            # Files to commit - all generated data files
-            files_to_commit = [
-                'data/analysis_cache.json',
-                'data/team_stats.csv',
-                'data/team_starters.csv',
-                'data/sagarin.csv',
-                'data/schedule.csv',
-                'data/standings_cache.json',
-                'data/coordinators.csv',
-                'data/game_analyses.json'
-            ]
+            # If we have credentials, configure git to use them for HTTPS
+            if username and token:
+                logger.info("Using credentials from environment for git authentication")
+                # Set up credential helper with the token
+                subprocess.run(['git', 'config', '--local', 'credential.helper',
+                               f'!f() {{ echo "username={username}"; echo "password={token}"; }}; f'],
+                               check=True)
 
-            # Pull latest changes (use default git authentication)
+            # Pull latest changes
             try:
                 subprocess.run(['git', 'pull'], check=True, capture_output=True)
             except subprocess.CalledProcessError:

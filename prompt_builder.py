@@ -678,7 +678,7 @@ CRITICAL RULES
 
 7. Use \\n for line breaks in JSON strings
 
-8. Current season is 2024/25 - focus on THIS season's performance
+8. Current season is 2025/26 - focus on THIS season's performance
 
 9. HISTORICAL CLAIMS WARNING:
    Your training data may contain outdated narratives. When in doubt:
