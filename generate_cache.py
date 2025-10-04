@@ -1503,7 +1503,7 @@ def deploy_to_netlify():
 
     # Temporary directory for the repo
     temp_dir = '/tmp/who-should-lose-2'
-    repo_url = 'https://github.com/obliojoe/who-should-lose-2.git'
+    repo_url = 'git@github.com:obliojoe/who-should-lose-2.git'
 
     try:
         # Clone or pull the repo
@@ -1578,6 +1578,9 @@ def deploy_to_netlify():
         return False
 
 def main():
+    # Save the original directory at the start
+    original_dir = os.getcwd()
+
     parser = argparse.ArgumentParser(description='Generate NFL analysis cache file')
     parser.add_argument('--simulations', type=int, default=1000,
                       help='Number of simulations to run (default: 1000)')
@@ -1717,20 +1720,12 @@ def main():
     if args.commit:
         try:
             logger.info("RUNNING GIT OPERATIONS...")
-            root_dir = os.getcwd()  # Get current working directory
-            os.chdir(root_dir)
+            # Change back to original directory
+            os.chdir(original_dir)
 
-            # Get current remote URL
-            result = subprocess.run(['git', 'remote', 'get-url', 'origin'], 
-                        capture_output=True, text=True, check=True)
-            current_url = result.stdout.strip()
-            
-            # Convert SSH to HTTPS format if needed
-            if current_url.startswith('git@'):
-                # Convert git@github.com:username/repo.git to https://github.com/username/repo.git
-                https_url = 'https://github.com/' + current_url.split('git@github.com:')[1]
-            else:
-                https_url = current_url
+            # Check for CI credentials
+            username = os.environ.get('GH_USERNAME')
+            token = os.environ.get('GH_PAT')
 
             # Configure git user if in CI environment
             if os.environ.get('CI'):
@@ -1750,84 +1745,30 @@ def main():
                 'data/game_analyses.json'
             ]
 
-            username = os.environ.get('GH_USERNAME')
-            token = os.environ.get('GH_PAT')
-            
-            # Construct credentials URL properly
-            if username and token:
-                # Remove any trailing .git and slashes
-                base_url = https_url.rstrip('.git/') 
-                # Construct proper credentials URL
-                https_url_with_creds = f'https://{username}:{token}@github.com/{username}/who-should-lose.git'
-                logger.info("using credentials for pull")
-                
-                # Pull latest changes
-                try:
-                    subprocess.run(['git', 'pull', https_url_with_creds, 'master'], check=True)
-                except subprocess.CalledProcessError:
-                    logger.info("pull failed, trying to fetch and reset")
-                    subprocess.run(['git', 'fetch', https_url_with_creds], check=True)
-                    subprocess.run(['git', 'reset', '--hard', 'origin/master'], check=True)
-            else:
-                # Pull without credentials
-                try:
-                    subprocess.run(['git', 'pull', 'origin', 'master'], check=True)
-                except subprocess.CalledProcessError:
-                    logger.info("pull failed, trying to fetch and reset")
-                    subprocess.run(['git', 'fetch', 'origin'], check=True)
-                    subprocess.run(['git', 'reset', '--hard', 'origin/master'], check=True)
+            # Pull latest changes (use default git authentication)
+            try:
+                subprocess.run(['git', 'pull'], check=True, capture_output=True)
+            except subprocess.CalledProcessError:
+                logger.info("pull failed, continuing anyway...")
+                pass
 
-            # Add and commit files
-            files_added = []
-            for file in files_to_commit:
-                if os.path.exists(file):
-                    subprocess.run(['git', 'add', file], check=True)
-                    files_added.append(file)
-                    logger.info(f"   Added {file}")
+            # Add ALL data files (whether changed by script or not)
+            subprocess.run(['git', 'add', 'data/'], check=True)
+            logger.info("   Added all files in data/")
 
-            if files_added:
+            # Check if there are staged changes
+            result = subprocess.run(['git', 'diff', '--cached', '--quiet'], capture_output=True)
+            if result.returncode != 0:  # Non-zero means there are changes
                 commit_msg = f"generate_cache.py update ({'remote' if is_ci else 'local'}) - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
                 subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
-                logger.info(f"Committed {len(files_added)} files")
+                logger.info(f"Committed changes to data files")
             else:
-                logger.info("No files to commit")
+                logger.info("No changes to commit")
 
-            # Push changes with retry logic
-            max_retries = 3
-            for attempt in range(max_retries):
-                try:
-                    logger.info("pushing changes")
-                    if username and token:
-                        subprocess.run(['git', 'push', https_url_with_creds], check=True)
-                    else:
-                        subprocess.run(['git', 'push'], check=True)
-                        
-                    # Update local tracking info without affecting working directory
-                    logger.info("updating local tracking information")
-                    if username and token:
-                        subprocess.run(['git', 'remote', 'set-url', 'origin', https_url_with_creds], check=True)
-                        subprocess.run(['git', 'fetch', 'origin'], check=True)
-                        subprocess.run(['git', 'branch', '--set-upstream-to=origin/master', 'master'], check=True)
-                        subprocess.run(['git', 'update-ref', 'refs/remotes/origin/master', 'origin/master'], check=True)
-                    else:
-                        subprocess.run(['git', 'fetch', 'origin'], check=True)
-                        subprocess.run(['git', 'branch', '--set-upstream-to=origin/master', 'master'], check=True)
-                        subprocess.run(['git', 'update-ref', 'refs/remotes/origin/master', 'origin/master'], check=True)
-                    break
-                except subprocess.CalledProcessError as e:
-                    logger.info(f"push failed (attempt {attempt + 1}/{max_retries}), trying to pull and reset")
-                    if attempt == max_retries - 1:
-                        raise e
-                    # If push fails, pull and try again
-                    if username and token:
-                        subprocess.run(['git', 'pull', https_url_with_creds, 'master'], check=True)
-                    else:
-                        subprocess.run(['git', 'pull', 'origin', 'master'], check=True)
-
-            # Restore original URL if needed
-            if current_url.startswith('git@'):
-                logger.info("restoring original URL")
-                subprocess.run(['git', 'remote', 'set-url', 'origin', current_url], check=True)
+            # Push changes (use default git authentication)
+            logger.info("pushing changes")
+            subprocess.run(['git', 'push', '-u', 'origin', 'master'], check=True)
+            logger.info("Successfully committed and pushed changes")
 
         except Exception as e:
             logger.error(f"Script completed, but error during git operations: {e}")
