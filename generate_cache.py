@@ -1150,11 +1150,12 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
             
             # Update cache data with existing values if skipping sims
             if skip_sims:
-                # Preserve the existing number of simulations
+                # Preserve the existing number of simulations and timestamp
                 cache_data['num_simulations'] = existing_cache.get('num_simulations', 0)
+                cache_data['timestamp'] = existing_cache.get('timestamp', datetime.now().isoformat())
                 logger.info(f"Preserving existing simulation count: {cache_data['num_simulations']}")
             else:
-                # Use the new simulation count if running sims
+                # Use the new simulation count if running sims (timestamp already set above)
                 cache_data['num_simulations'] = num_simulations
                 logger.info(f"Using new simulation count: {cache_data['num_simulations']}")
 
