@@ -5214,34 +5214,81 @@
     "broadcast": "TV"
   },
   "401772850": {
-    "timestamp": "2025-10-03 13:14:32",
+    "timestamp": "2025-10-05 14:26:27",
     "game_date": "2025-10-05",
     "home_team": "NYJ",
     "away_team": "DAL",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 22,
+    "away_score": 37,
     "stadium": "MetLife Stadium",
     "home_coach": "Aaron Glenn",
     "away_coach": "Brian Schottenheimer",
-    "analysis_type": "preview",
-    "analysis": "The Jets' season has officially entered crisis mode, sitting at 0-4 and staring down the barrel of franchise infamy as they host a Dallas Cowboys team that's experiencing its own brand of Jekyll and Hyde football. New York hasn't started 0-5 since their disastrous 2020 campaign under Adam Gase, and first-year head coach Aaron Glenn is desperately trying to avoid joining Lou Holtz as the only coaches to begin their Jets tenure with five straight losses. The most damning statistic? Gang Green remains the only NFL team without a single takeaway this season—a stunning indictment of a defense that features plenty of talent but can't seem to make the game-changing plays when it matters most. Meanwhile, Dallas (1-2-1) arrives at MetLife Stadium as slight 1.5-point favorites despite their league-worst defense that's surrendering 432.5 yards per game and has been absolutely torched without Micah Parsons anchoring the pass rush.\n\nThe Cowboys' offensive identity hinges entirely on Dak Prescott's right arm at this point, as the quarterback leads the NFL with 1,119 passing yards while completing an impressive 72.5% of his throws in his return from last year's hamstring injury. With CeeDee Lamb likely sidelined for a second straight week with an ankle injury, Prescott will lean heavily on George Pickens (300 yards, 4 TDs) and a makeshift offensive line that's been decimated by injuries across the board. The Jets' pass defense has actually been respectable, allowing just 208.5 yards per game through the air, but their inability to generate turnovers means they're constantly playing bend-don't-break football that eventually breaks. Justin Fields has shown flashes for New York—471 yards last week alone—but the offense's 31.1% third-down conversion rate and inconsistent red zone execution have left points on the field week after week.\n\nThis feels like a classic \"something's gotta give\" matchup between two underachieving teams desperate to salvage their seasons before October even arrives. The Cowboys' defensive woes are staggering—dead last in total yards allowed, 31st in scoring defense—but they're facing a Jets offense that's managed just 22.5 points per game and seems allergic to explosive plays. Dallas should have just enough firepower to exploit a Jets team that's finding new ways to lose each week, though don't expect style points. Look for Prescott to methodically pick apart New York's secondary while the Jets continue their maddening trend of playing just well enough to keep it close before ultimately falling short in another soul-crushing loss that pushes them closer to historic futility.",
+    "analysis_type": "post_game",
+    "analysis": "The Dallas Cowboys shocked the Jets faithful at MetLife Stadium with a 37-22 victory, covering as 2.5-point underdogs and sending the over (47.5) soaring like a Javonte Williams breakaway run. This wasn't just a win; it was a masterclass in how to take a New York team's lunch money while their quarterback situation continues to resemble a soap opera directed by M. Night Shyamalan. The Cowboys, playing without CeeDee Lamb, apparently discovered that other receivers can catch footballs too—who knew Ryan Flournoy had 114 yards hiding in his back pocket this whole time?\n\nThe real story here was Javonte Williams channeling his inner Barry Sanders with a casual 135 rushing yards and two touchdowns, including a jaw-dropping 66-yard scamper that had Jets defenders looking like they were stuck in quicksand. Meanwhile, Justin Fields completed 32 of 46 passes for 283 yards and two touchdowns, which sounds impressive until you realize the Jets managed just 378 total yards while holding the ball for nearly 35 minutes—the football equivalent of hogging the Xbox controller and still losing at Madden. This loss drops the Jets further into mediocrity, while Dallas somehow keeps finding ways to win games they probably shouldn't, proving once again that Jerry Jones has either made a deal with the devil or discovered the NFL's cheat codes.\n\n**Key Statistics:**\n- **Javonte Williams' Explosion**: 66-yard touchdown run, longest Cowboys rushing TD of the season\n- **Dak's Efficiency**: 18/29 for 237 yards and 4 TDs with a pristine 127.4 passer rating\n- **Jets' Sack Attack**: New York sacked Prescott just once while giving up 5 sacks themselves\n- **Penalty Parade**: Combined 21 penalties for 152 yards, because apparently both teams thought this was flag football\n- **Time of Possession Futility**: Jets held the ball for 34:36 but managed just 22 points",
     "betting": {
-      "spread": 1.5,
-      "over_under": 48.5,
+      "spread": -2.5,
+      "over_under": 47.5,
       "provider": "ESPN BET",
-      "favorite": "DAL"
+      "favorite": "NYJ"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 83,
-      "condition": "Sunny",
-      "wind_speed": 7
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 41.367,
-      "matchup_quality": 38.08,
-      "predicted_point_diff": -3.387,
-      "away_win_prob": 58.301
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "32/46, 283 YDS, 2 TD",
+          "value": 283.0,
+          "player": "Justin Fields",
+          "jersey": "7",
+          "position": "QB",
+          "team": "NYJ"
+        },
+        {
+          "displayValue": "18/29, 237 YDS, 4 TD",
+          "value": 237.0,
+          "player": "Dak Prescott",
+          "jersey": "4",
+          "position": "QB",
+          "team": "DAL"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "16 CAR, 135 YDS, 1 TD",
+          "value": 135.0,
+          "player": "Javonte Williams",
+          "jersey": "33",
+          "position": "RB",
+          "team": "DAL"
+        },
+        {
+          "displayValue": "14 CAR, 113 YDS",
+          "value": 113.0,
+          "player": "Breece Hall",
+          "jersey": "20",
+          "position": "RB",
+          "team": "NYJ"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "6 REC, 114 YDS",
+          "value": 114.0,
+          "player": "Ryan Flournoy",
+          "jersey": "19",
+          "position": "WR",
+          "team": "DAL"
+        },
+        {
+          "displayValue": "6 REC, 71 YDS, 1 TD",
+          "value": 71.0,
+          "player": "Garrett Wilson",
+          "jersey": "5",
+          "position": "WR",
+          "team": "NYJ"
+        }
+      ]
     },
     "broadcast": "TV"
   },
@@ -5278,78 +5325,175 @@
     "broadcast": "TV"
   },
   "401772743": {
-    "timestamp": "2025-10-03 13:15:14",
+    "timestamp": "2025-10-05 14:27:27",
     "game_date": "2025-10-05",
     "home_team": "BAL",
     "away_team": "HOU",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 10,
+    "away_score": 44,
     "stadium": "M&T Bank Stadium",
     "home_coach": "John Harbaugh",
     "away_coach": "DeMeco Ryans",
-    "analysis_type": "preview",
-    "analysis": "The Houston Texans venture into M&T Bank Stadium carrying the kind of defensive momentum that would make Ray Lewis smile, having just pitched a shutout against Tennessee while allowing a league-best 12.8 points per game. Meanwhile, the Baltimore Ravens' defense has gone from feared to flawed faster than you can say \"secondary injuries,\" hemorrhaging 33.3 points per game in a stunning reversal from last Christmas when they held this same Texans offense to just two points. The most compelling storyline centers on Lamar Jackson's hamstring, which has him listed as doubtful and threatens to derail a Ravens offense that's historically gone 9-11 without their dual-threat maestro. If Cooper Rush gets the nod, Baltimore's offensive identity shifts dramatically from explosive to survival mode, though Derrick Henry's history of demolishing Houston defenses (1,578 career rushing yards) offers a potential lifeline.\n\nC.J. Stroud enters this matchup completing an impressive 67.5% of his passes but with a troubling 4-to-3 touchdown-to-interception ratio that suggests the sophomore quarterback is still finding his footing against complex defensive schemes. The Texans' defensive front, led by Danielle Hunter's four sacks, should feast on a Ravens offensive line that's surrendered 15 sacks already, especially if Ronnie Stanley's ankle limits his effectiveness. Baltimore's depleted secondary – missing All-Pro Marlon Humphrey and potentially Kyle Hamilton – faces a stern test against Nico Collins, who's averaging 14.4 yards per catch when healthy. The Ravens' 41.9% third-down conversion rate ranks among the league's best, but Houston's defense has held opponents to just 35.8% on third downs, setting up a crucial battle for sustained drives.\n\nThis feels like the kind of ugly, defensive struggle that would make both defensive coordinators from 2000 proud, with the under looking particularly appealing given both teams' recent offensive struggles. The Texans' road woes (0-2) clash with Baltimore's desperation at 1-3, but Houston's elite defense and Baltimore's cascade of injuries – including potential absences of Jackson, Roquan Smith, and multiple defensive backs – tilt this toward the visitors. Expect DeMeco Ryans to channel his linebacker instincts into a conservative game plan that leans on defense and field position, while Baltimore tries to establish Henry early and often. In a reversal of their Christmas meeting, the Texans should grind out a low-scoring victory that validates their defensive renaissance while exposing just how far the Ravens have fallen from their championship aspirations.",
+    "analysis_type": "post_game",
+    "analysis": "The Houston Texans absolutely demolished a Baltimore Ravens team that looked more like a M*A*S*H unit than an NFL roster, cruising to a 44-10 victory that matched both the most lopsided road win in Texans history and the most embarrassing home loss in Ravens history. With Lamar Jackson watching from the sidelines (along with seemingly half of Baltimore's defensive starters), C.J. Stroud carved up what was left of the Ravens defense like a Thanksgiving turkey, completing an absurd 23 of 27 passes for 244 yards and four touchdowns before taking a well-deserved seat to watch his backups finish the job. The Texans scored on their first EIGHT possessions—that's not a typo, folks—while Cooper Rush threw three interceptions filling in for Jackson, proving once again that the Ravens without their MVP quarterback are about as threatening as a wet paper bag in a hurricane.\n\nThis wasn't just a win; it was a statement game for Houston (2-3), who entered as 2.5-point underdogs and proceeded to cover the spread by approximately the distance from Houston to Mars. The betting line makers clearly didn't get the memo about Baltimore's injury report, which read like the guest list at a hospital ward reunion. Meanwhile, the Ravens (1-4) have now lost 10 of their last 12 games without Jackson, and at this point, they might want to consider bubble-wrapping him between games.\n\n**Key Statistics That Tell the Story:**\n- **23/27, 244 yards, 4 TDs, 0 INTs**: C.J. Stroud's passing line that would make even prime Tom Brady nod in approval (85.2% completion rate!)\n- **417-207**: Total yards advantage for Houston, making this less of a football game and more of a physics lesson in momentum\n- **3 interceptions in 20 attempts**: Cooper Rush's disastrous 58.1 passer rating that made Ravens fans long for the days of Kyle Boller\n- **8 straight scoring drives**: Houston's offensive efficiency that turned M&T Bank Stadium into their personal ATM\n- **2.3 yards per carry**: Derrick Henry's rushing average, proving that even King Henry needs a functioning offensive line and a passing threat to succeed",
     "betting": {
       "spread": 2.5,
-      "over_under": 39.5,
+      "over_under": 41.5,
       "provider": "ESPN BET",
       "favorite": "HOU"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 75,
-      "condition": "Sunny",
-      "wind_speed": 7
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 55.806999999999995,
-      "matchup_quality": 65.825,
-      "predicted_point_diff": 2.361,
-      "away_win_prob": 43.841
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "23/27, 244 YDS, 4 TD",
+          "value": 244.0,
+          "player": "C.J. Stroud",
+          "jersey": "7",
+          "position": "QB",
+          "team": "HOU"
+        },
+        {
+          "displayValue": "14/20, 179 YDS, 3 INT",
+          "value": 179.0,
+          "player": "Cooper Rush",
+          "jersey": "15",
+          "position": "QB",
+          "team": "BAL"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "11 CAR, 61 YDS, 1 TD",
+          "value": 61.0,
+          "player": "Nick Chubb",
+          "jersey": "21",
+          "position": "RB",
+          "team": "HOU"
+        },
+        {
+          "displayValue": "15 CAR, 33 YDS, 1 TD",
+          "value": 33.0,
+          "player": "Derrick Henry",
+          "jersey": "22",
+          "position": "RB",
+          "team": "BAL"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "5 REC, 72 YDS",
+          "value": 72.0,
+          "player": "Zay Flowers",
+          "jersey": "4",
+          "position": "WR",
+          "team": "BAL"
+        },
+        {
+          "displayValue": "4 REC, 64 YDS",
+          "value": 64.0,
+          "player": "Christian Kirk",
+          "jersey": "13",
+          "position": "WR",
+          "team": "HOU"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772851": {
-    "timestamp": "2025-10-03 13:15:37",
+    "timestamp": "2025-10-05 14:27:47",
     "game_date": "2025-10-05",
     "home_team": "IND",
     "away_team": "LV",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 40,
+    "away_score": 6,
     "stadium": "Lucas Oil Stadium",
     "home_coach": "Shane Steichen",
     "away_coach": "Pete Carroll",
-    "analysis_type": "preview",
-    "analysis": "The Indianapolis Colts' home opener feels like a mismatch on paper, with the 3-1 hosts welcoming a reeling Las Vegas Raiders squad that's dropped three straight and can't seem to locate the end zone with GPS coordinates. The Colts are rolling behind their unexpected quarterback Daniel Jones, who's completing passes at a 71.9% clip that would make even the most accurate dart players jealous, while Las Vegas counters with Geno Smith throwing interceptions like he's trying to meet a quota—seven picks against just six touchdowns through four games. The real story here is the ground game, where Jonathan Taylor's league-leading 414 rushing yards will test a Raiders defense that's been surprisingly stout against the run (allowing just 102.8 yards per game), though rookie sensation Ashton Jeanty showed last week he can produce even when getting hit at the line of scrimmage on 71% of his carries.\n\nThe injury report reads like a casualty list from both sides, with the Colts missing key defensive backs Kenny Moore II and Daniel Scott, while the Raiders sweat out game-time decisions on their two best playmakers—Maxx Crosby (questionable with a leg injury) and rookie phenom Brock Bowers (also questionable). If Crosby can't go full speed, this game gets uglier fast for Las Vegas, as Indianapolis's offensive line has surrendered just four sacks all season and won't miss facing the three-time All-Pro at anything less than 100%. The Colts' defense has been opportunistic with a plus-three turnover margin, and facing a Raiders offense that's turned it over eight times already, defensive coordinator Gus Bradley might spend this week installing a turnover chain just for the occasion.\n\nLucas Oil Stadium should be rocking for Shaquille Leonard's halftime jersey retirement, and that emotion combined with the statistical disparities suggests this one won't stay close for long. The Colts rank third in total offense while averaging over 30 points per game; the Raiders counter by ranking 24th in scoring at 19.3 points per contest. Vegas has shown fight—losing by one to Chicago last week proves they won't quit—but unless Jeanty can replicate David Copperfield-level magic tricks and Smith suddenly remembers how to protect the football, Indianapolis should control this game from the second quarter onward. The 6.5-point spread feels conservative for a Colts team that's outscored opponents by 31 points over their last two home games and faces a Raiders squad that hasn't found consistent offense since their lone win in Week 1 at New England.",
+    "analysis_type": "post_game",
+    "analysis": "The Indianapolis Colts absolutely demolished the Las Vegas Raiders 40-6 in a performance that made you wonder if the Raiders' team bus accidentally dropped them off at a demolition derby instead of Lucas Oil Stadium. Daniel Jones, clearly still riding the high of escaping New York, orchestrated a surgical 20-for-29, 212-yard, two-touchdown performance that had Giants fans simultaneously reaching for their remote controls and their therapists' phone numbers. Meanwhile, Jonathan Taylor treated the Raiders' defense like a speed bump convention, rumbling for three touchdowns and even adding a two-point conversion for good measure – because when you're up by 30-plus, why not twist the knife a little deeper?\n\nThe game's complexion changed faster than a Raiders fan's mood when their special teams unit decided to audition for a blooper reel. A blocked punt by Segun Olubi and two Geno Smith interceptions (yes, that Geno Smith, filling in admirably for the Raiders in the \"quarterback who makes poor decisions\" department) turned what should have been a competitive game into a laugher that had Indianapolis fans checking their calendars to make sure it wasn't already playoff season. The 34-point margin of victory was the Colts' largest since 2013, and for Vegas, this fourth straight loss has them looking up at the rest of the AFC West like they're standing at the bottom of the Grand Canyon. As 7.5-point favorites, the Colts didn't just cover – they obliterated the spread like it personally insulted their mothers.\n\n**Key Statistics:**\n- The Raiders' 40-game sack streak ended with a whimper as they failed to touch Daniel Jones even once – the NFL's longest active streak dying a more painful death than Raiders fans' playoff hopes\n- Indianapolis converted four Raiders turnovers (blocked punt, two interceptions, turnover on downs) into touchdowns, showing the kind of efficiency that would make a German engineer weep with joy\n- The Colts went 6-for-6 in the red zone, while the Raiders went 0-for-4, a stat line that perfectly summarizes why one team is 4-1 and the other is googling \"top 2026 draft prospects\"\n- Geno Smith completed 69.4% of his passes but threw two interceptions and took four sacks for -38 yards, proving that completion percentage without context is like a Ferrari without an engine",
     "betting": {
-      "spread": -6.5,
-      "over_under": 48.5,
+      "spread": -7.5,
+      "over_under": 46.5,
       "provider": "ESPN BET",
       "favorite": "IND"
     },
     "weather": {
       "is_indoor": true
     },
-    "predictor": {
-      "home_win_prob": 63.187000000000005,
-      "matchup_quality": 47.08,
-      "predicted_point_diff": 5.202,
-      "away_win_prob": 36.52
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "25/36, 228 YDS, 2 INT",
+          "value": 228.0,
+          "player": "Geno Smith",
+          "jersey": "7",
+          "position": "QB",
+          "team": "LV"
+        },
+        {
+          "displayValue": "20/29, 212 YDS, 2 TD",
+          "value": 212.0,
+          "player": "Daniel Jones",
+          "jersey": "17",
+          "position": "QB",
+          "team": "IND"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "14 CAR, 67 YDS",
+          "value": 67.0,
+          "player": "Ashton Jeanty",
+          "jersey": "2",
+          "position": "RB",
+          "team": "LV"
+        },
+        {
+          "displayValue": "17 CAR, 66 YDS, 3 TD",
+          "value": 66.0,
+          "player": "Jonathan Taylor",
+          "jersey": "28",
+          "position": "RB",
+          "team": "IND"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "4 REC, 62 YDS",
+          "value": 62.0,
+          "player": "Tre Tucker",
+          "jersey": "1",
+          "position": "WR",
+          "team": "LV"
+        },
+        {
+          "displayValue": "2 REC, 55 YDS",
+          "value": 55.0,
+          "player": "Ashton Dulin",
+          "jersey": "16",
+          "position": "WR",
+          "team": "IND"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772852": {
-    "timestamp": "2025-10-03 13:15:58",
+    "timestamp": "2025-10-05 14:28:09",
     "game_date": "2025-10-05",
     "home_team": "CAR",
     "away_team": "MIA",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 27,
+    "away_score": 24,
     "stadium": "Bank of America Stadium",
     "home_coach": "Dave Canales",
     "away_coach": "Mike McDaniel",
-    "analysis_type": "preview",
-    "analysis": "When two teams with matching 1-3 records and sputtering offenses collide in Charlotte, something's got to give—though based on the early returns from this 2024 season, it might just be the under. The Miami Dolphins limp into Bank of America Stadium missing their most explosive weapon, while the Carolina Panthers continue searching for any semblance of consistency in Year 1 of the Dave Canales era.\n\nThe loss of Tyreek Hill to season-ending knee surgery fundamentally alters Miami's offensive DNA. The Dolphins have averaged just 20.8 points per game even with the Cheetah in the lineup, and now Tua Tagovailoa must navigate without his security blanket who commanded defensive attention on every snap. While Jaylen Waddle is a legitimate WR1 talent, Miami's offensive efficiency metrics tell a troubling story: they're completing nearly 69% of their passes but averaging just 6.4 yards per attempt, suggesting a dink-and-dunk approach that lacks explosion. De'Von Achane has been their brightest spot, averaging 4.7 yards per carry and proving to be a dual-threat weapon, but asking him to carry an offense that's converting third downs at a 49% clip while facing eight-man boxes seems optimistic. The Dolphins' defense, meanwhile, has been a sieve, allowing 29.5 points per game and a staggering 158 rushing yards per contest—a particularly concerning stat against a Panthers team that wants to establish the ground game.\n\nCarolina's offensive woes run even deeper, averaging a league-worst 18.8 points per game while Bryce Young continues his sophomore struggles with a 61% completion rate and more interceptions (3) than the Panthers have total offensive touchdowns through the air and ground combined (8). The potential absence of Chuba Hubbard, who's accounted for 217 of the team's 401 rushing yards, could force offensive coordinator Dave Canales to lean more heavily on Young's arm—a proposition that hasn't yielded positive results thus far. Defensively, the Panthers have been surprisingly competent, holding opponents to 23.8 points per game and generating four interceptions, but their inability to generate consistent pass rush (just 2 sacks) and recent 42-point embarrassment against Drake Maye and the Patriots raises questions about their ability to capitalize on Miami's offensive limitations. With both teams struggling to find offensive rhythm and the betting line sitting at a modest 44.5 total, expect a grinding, mistake-filled affair where field position and turnovers loom larger than explosive plays. The Dolphins' superior talent should eventually prevail, but this feels like the type of ugly road win that leaves everyone unsatisfied.",
+    "analysis_type": "post_game",
+    "analysis": "**Panthers Stun Dolphins 27-24 in Wild Fourth-Quarter Shootout**\n\nThe Carolina Panthers pulled off a heart-stopping 27-24 upset over the Miami Dolphins at Bank of America Stadium, proving that being a 1.5-point home underdog was just bulletin board material. In a game that featured more momentum swings than a playground set, the Panthers erupted for 14 fourth-quarter points, with Mitchell Evans hauling in the game-winning 4-yard touchdown from Bryce Young with 1:59 remaining. The Dolphins, who led 17-0 in the second quarter and looked ready to cruise to victory, somehow managed to snatch defeat from the jaws of victory in a collapse that would make even the 28-3 Falcons blush.\n\nRico Dowdle turned in a performance worthy of prime-time television, bulldozing his way to 206 rushing yards on 23 carries, including a crucial go-ahead touchdown in the fourth quarter. Meanwhile, Tua Tagovailoa (27/36, 256 yards, 3 TDs) and the Dolphins' offense mysteriously vanished for most of the second half, managing just 7 points after their early explosion. The game perfectly hit the over (44.5), because of course these two teams would wait until the fourth quarter to remember how to score. For Carolina, this victory keeps their slim playoff hopes breathing; for Miami, it's another maddening reminder that consistency remains as elusive as a parking spot at South Beach on a Saturday night.\n\n**Key Statistics:**\n- **Rico Dowdle's Dominance**: 206 rushing yards at 9.0 yards per carry, including a backbreaking 53-yard scamper that set up Carolina's first score\n- **Miami's Ground Game Disaster**: The Dolphins managed just 19 rushing yards on 14 attempts (1.4 YPC), with De'Von Achane limited to 16 yards on 10 carries\n- **Tale of Two Halves**: Miami outscored Carolina 17-10 in the first half but were outscored 17-7 in the second half\n- **Fourth Quarter Fireworks**: The teams combined for 24 points in the final frame after managing just 3 points in the entire third quarter\n- **Bryce Young's Efficiency**: Completed 19 of 30 passes with 2 TDs and just 1 INT, converting both fourth-down attempts including the crucial 4th-and-5 conversion late",
     "betting": {
       "spread": 1.5,
       "over_under": 44.5,
@@ -5357,45 +5501,142 @@
       "favorite": "MIA"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 75,
-      "condition": "Partly sunny",
-      "wind_speed": 8
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 50.871,
-      "matchup_quality": 22.647,
-      "predicted_point_diff": 0.333,
-      "away_win_prob": 48.738
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "27/36, 256 YDS, 3 TD",
+          "value": 256.0,
+          "player": "Tua Tagovailoa",
+          "jersey": "1",
+          "position": "QB",
+          "team": "MIA"
+        },
+        {
+          "displayValue": "19/30, 198 YDS, 2 TD, 1 INT",
+          "value": 198.0,
+          "player": "Bryce Young",
+          "jersey": "9",
+          "position": "QB",
+          "team": "CAR"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "23 CAR, 206 YDS, 1 TD",
+          "value": 206.0,
+          "player": "Rico Dowdle",
+          "jersey": "5",
+          "position": "RB",
+          "team": "CAR"
+        },
+        {
+          "displayValue": "4 CAR, 22 YDS",
+          "value": 22.0,
+          "player": "Trevor Etienne",
+          "jersey": "23",
+          "position": "RB",
+          "team": "CAR"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "6 REC, 110 YDS, 1 TD",
+          "value": 110.0,
+          "player": "Jaylen Waddle",
+          "jersey": "17",
+          "position": "WR",
+          "team": "MIA"
+        },
+        {
+          "displayValue": "5 REC, 78 YDS, 1 TD",
+          "value": 78.0,
+          "player": "Darren Waller",
+          "jersey": "83",
+          "position": "TE",
+          "team": "MIA"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772744": {
-    "timestamp": "2025-10-03 13:16:18",
+    "timestamp": "2025-10-05 14:28:28",
     "game_date": "2025-10-05",
     "home_team": "NO",
     "away_team": "NYG",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 26,
+    "away_score": 14,
     "stadium": "Caesars Superdome",
     "home_coach": "Kellen Moore",
     "away_coach": "Brian Daboll",
-    "analysis_type": "preview",
-    "analysis": "The New Orleans Saints' tailspin has reached catastrophic proportions, and hosting the equally desperate New York Giants on Sunday feels less like a potential remedy and more like two drowning teams fighting over the same life preserver. At 0-4, the Saints have managed the impressive feat of being even worse than their point differential suggests, posting a ghastly -19.1 passing EPA that ranks among the league's most putrid marks. Spencer Rattler, still searching for his first NFL victory through 10 career starts, has been thrust into action with Derek Carr retired, and while offensive coordinator Kellen Moore preaches patience, the rookie's 65.8% completion rate masks an anemic 5.1 yards per attempt that has this offense moving with all the urgency of Bourbon Street traffic at 2 AM.\n\nThe Giants stumble into the Superdome at 1-3, fresh off snapping their three-game skid behind rookie Jaxson Dart's debut heroics against the Chargers. But here's the rub: they'll be without their offensive lifeline Malik Nabers (torn ACL), leaving Dart to distribute to a receiving corps headlined by Darius Slayton and featuring more question marks than a riddler convention. New York's defense has been the lone bright spot, with Brian Burns terrorizing quarterbacks to the tune of five sacks while Dexter Lawrence commands double teams up the middle. They'll feast on a Saints offensive line protecting a quarterback who's completing passes but going nowhere fast – New Orleans' 50% red zone efficiency tells you everything about their inability to finish drives.\n\nThis has all the makings of a rock fight in the Louisiana humidity, with neither offense inspiring confidence and both defenses capable of game-changing plays. Carl Granderson's 4.5 sacks lead a Saints pass rush that should make life miserable for Dart, especially with the Giants converting just 32.7% of their third downs. But New York's defensive front, allowing only 3.97 yards per carry, should stymie Alvin Kamara and force Rattler to beat them through the air – a proposition that feels about as likely as finding a quiet spot on Frenchmen Street. The Giants' superior defense and marginally more functional offense should be enough to eke out an ugly road victory, leaving the Saints to ponder how a season with playoff aspirations devolved into draft position calculations before Halloween.",
+    "analysis_type": "post_game",
+    "analysis": "The New Orleans Saints cruised to a 26-14 victory over the New York Giants at the Caesars Superdome, though calling it \"cruising\" feels generous for a game that featured five Giants turnovers and enough offensive incompetence to make even the most patient fan consider taking up competitive sudoku. The Saints, who entered as slight 2.5-point favorites, covered the spread thanks largely to Jordan Howden's 86-yard fumble return touchdown that essentially put the game away in the fourth quarter—because nothing says \"professional football\" quite like Cam Skattebo coughing up the rock at the goal line when your team desperately needs points.\n\nSpencer Rattler, making his second career start, managed the game efficiently enough (20-30, 225 yards, 1 TD) while the Giants' offense looked like it was being coordinated via group text with spotty cell service. Jaxson Dart threw for two touchdowns but also served up two interceptions to Kool-Aid McKinstry, who clearly had a better read on Dart's intentions than his own receivers did. The Giants' five turnovers (three fumbles, two picks) turned what could have been a competitive divisional matchup into a masterclass in self-destruction. For New Orleans, this win keeps them relevant in the NFC South race, while the Giants continue their march toward another high draft pick and uncomfortable conversations about the future of their coaching staff.\n\n**Key Statistics:**\n- **Turnovers Tell the Tale:** Giants committed 5 turnovers (3 fumbles lost, 2 INTs) to the Saints' 0\n- **Explosive Play Differential:** Rashid Shaheed's 87-yard touchdown reception was the longest play of the game\n- **Red Zone Futility:** Saints went 0-for-3 in the red zone but still won by 12\n- **Defensive Dominance:** The Saints held the Giants to just 3-of-10 on third downs\n- **Special Teams Struggles:** Blake Grupe missed two field goals (52 and 46 yards) but made his four other attempts",
     "betting": {
       "spread": -2.5,
-      "over_under": 41.5,
+      "over_under": 42.5,
       "provider": "ESPN BET",
       "favorite": "NO"
     },
     "weather": {
       "is_indoor": true
     },
-    "predictor": {
-      "home_win_prob": 53.281,
-      "matchup_quality": 18.998,
-      "predicted_point_diff": 1.578,
-      "away_win_prob": 46.347
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "20/30, 225 YDS, 1 TD",
+          "value": 225.0,
+          "player": "Spencer Rattler",
+          "jersey": "2",
+          "position": "QB",
+          "team": "NO"
+        },
+        {
+          "displayValue": "26/40, 202 YDS, 2 TD, 2 INT",
+          "value": 202.0,
+          "player": "Jaxson Dart",
+          "jersey": "6",
+          "position": "QB",
+          "team": "NYG"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "15 CAR, 59 YDS",
+          "value": 59.0,
+          "player": "Cam Skattebo",
+          "jersey": "44",
+          "position": "RB",
+          "team": "NYG"
+        },
+        {
+          "displayValue": "7 CAR, 55 YDS",
+          "value": 55.0,
+          "player": "Jaxson Dart",
+          "jersey": "6",
+          "position": "QB",
+          "team": "NYG"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "4 REC, 114 YDS, 1 TD",
+          "value": 114.0,
+          "player": "Rashid Shaheed",
+          "jersey": "22",
+          "position": "WR",
+          "team": "NO"
+        },
+        {
+          "displayValue": "7 REC, 59 YDS",
+          "value": 59.0,
+          "player": "Chris Olave",
+          "jersey": "12",
+          "position": "WR",
+          "team": "NO"
+        }
+      ]
     },
     "broadcast": "TV"
   },
