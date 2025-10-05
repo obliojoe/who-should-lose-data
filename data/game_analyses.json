@@ -5293,34 +5293,81 @@
     "broadcast": "TV"
   },
   "401772745": {
-    "timestamp": "2025-10-03 13:14:52",
+    "timestamp": "2025-10-05 14:51:15",
     "game_date": "2025-10-05",
     "home_team": "PHI",
     "away_team": "DEN",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 17,
+    "away_score": 21,
     "stadium": "Lincoln Financial Field",
     "home_coach": "Nick Sirianni",
     "away_coach": "Sean Payton",
-    "analysis_type": "preview",
-    "analysis": "The Denver Broncos' defense has been the talk of the league through the first month of the season, leading the NFL with 15 sacks and holding opponents out of the end zone twice already. But they'll face their stiffest test yet in Philadelphia, where the Eagles have rattled off 10 straight victories and boast a perfect 4-0 record despite their offense operating well below last season's championship caliber. While Denver's defense has been elite (allowing just 16.8 points per game), their offense remains a work in progress with rookie quarterback Bo Nix completing 65.7% of his passes but managing just a 6.3 yards per attempt average. The Eagles, meanwhile, are dealing with their own offensive identity crisis – A.J. Brown's cryptic social media posts and measly 50 receiving yards over the past three games have exposed cracks in an attack that's been carried by their defense and special teams rather than the explosive plays that defined their Super Bowl run.\n\nThe key matchup will be Denver's league-leading pass rush against an Eagles offensive line protecting Jalen Hurts, who hasn't thrown a touchdown pass in two weeks and has been sacked nine times already this season. Philadelphia's ground game, featuring Saquon Barkley at just 3.1 yards per carry, desperately needs to find its footing against a Broncos run defense allowing only 99.3 yards per game. On the flip side, J.K. Dobbins finally gave Sean Payton his first 100-yard rusher in 38 games as Denver's coach, and the Broncos will need to establish that ground game early to keep Philadelphia's pass rush at bay and give Nix manageable third downs.\n\nDespite their offensive struggles, the Eagles remain 4.5-point favorites at home, and that feels about right. Philadelphia's defense has been opportunistic with a perfect red zone touchdown percentage allowed (36.4%), and they're getting healthier with only Dallas Goedert questionable after Nakobe Dean was ruled out. The Broncos have shown they can frustrate elite offenses – they didn't allow Cincinnati to cross midfield after an opening field goal drive on Monday night – but asking a rookie quarterback to win on the road in Philadelphia against a team that's 18-0 in games Hurts starts and finishes is a tall order. Expect the Eagles to grind out another ugly victory, leaning on their defense and perhaps a special teams splash play while their offense continues searching for its identity. Denver will keep it close and cover the spread, but Philadelphia's home-field advantage and championship pedigree should be enough to extend their winning streak to 11 games.",
+    "analysis_type": "post_game",
+    "analysis": "The Denver Broncos just delivered a gut punch to Philadelphia that'll have Eagles fans reaching for the Pepto-Bismol alongside their leftover cheesesteaks. Bo Nix and company stormed back from a 17-3 deficit to steal a 21-17 victory at Lincoln Financial Field, handing the Eagles their first loss of the season in a game that featured more twists than an M. Night Shyamalan movie. The Broncos, who entered as 4.5-point underdogs, proved that sometimes the house doesn't always win—especially when Saquon Barkley decides to moonlight as a penalty machine at the worst possible moment.\n\nThis wasn't just a comeback; it was highway robbery in broad daylight. The Eagles had this game wrapped up tighter than Andy Reid's grip on a barbecue menu, until Barkley's illegal shift penalty on fourth down wiped out what would've been a game-sealing 30-yard completion to DeVonta Smith with under six minutes left. Talk about snatching defeat from the jaws of victory! Bo Nix, who looked like he was auditioning for a high school production for three quarters (242 yards but struggled early), suddenly morphed into Joe Montana in the fourth, engineering two touchdown drives including a gutsy 2-point conversion that would make Sean Payton's riverboat gambling ancestors proud. Meanwhile, the Eagles' offense managed just 45 rushing yards and went 2-for-11 on third down, proving that even with weapons like AJ Brown and DeVonta Smith, you can't win games playing like you're stuck in quicksand.\n\n**Key Statistics:**\n- **Penalty Yards:** Denver had 12 penalties for 121 yards compared to Philadelphia's 9 for 55 yards—yet still won\n- **Third Down Efficiency:** Eagles converted just 18% (2/11) while Denver hit 31% (5/16)\n- **Time of Possession:** Denver controlled the clock for 34:17 vs Philadelphia's 25:43\n- **The Killer Stat:** Eagles were 0-for-0 on fourth down attempts thanks to that backbreaking illegal shift penalty\n- **Sacks:** Denver's defense registered 6 sacks for 23 yards lost, while Philly managed just 2 for 14 yards",
     "betting": {
       "spread": -4.5,
-      "over_under": 43.5,
+      "over_under": 44.5,
       "provider": "ESPN BET",
       "favorite": "PHI"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 78,
-      "condition": "Sunny",
-      "wind_speed": 7
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 60.709999999999994,
-      "matchup_quality": 74.307,
-      "predicted_point_diff": 4.111,
-      "away_win_prob": 38.977000000000004
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "23/38, 280 YDS, 2 TD",
+          "value": 280.0,
+          "player": "Jalen Hurts",
+          "jersey": "1",
+          "position": "QB",
+          "team": "PHI"
+        },
+        {
+          "displayValue": "24/39, 242 YDS, 1 TD",
+          "value": 242.0,
+          "player": "Bo Nix",
+          "jersey": "10",
+          "position": "QB",
+          "team": "DEN"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "20 CAR, 79 YDS, 1 TD",
+          "value": 79.0,
+          "player": "J.K. Dobbins",
+          "jersey": "27",
+          "position": "RB",
+          "team": "DEN"
+        },
+        {
+          "displayValue": "6 CAR, 30 YDS",
+          "value": 30.0,
+          "player": "Saquon Barkley",
+          "jersey": "26",
+          "position": "RB",
+          "team": "PHI"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "8 REC, 114 YDS",
+          "value": 114.0,
+          "player": "DeVonta Smith",
+          "jersey": "6",
+          "position": "WR",
+          "team": "PHI"
+        },
+        {
+          "displayValue": "8 REC, 99 YDS",
+          "value": 99.0,
+          "player": "Courtland Sutton",
+          "jersey": "14",
+          "position": "WR",
+          "team": "DEN"
+        }
+      ]
     },
     "broadcast": "TV"
   },
