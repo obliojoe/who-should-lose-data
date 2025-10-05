@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-05T16:21:02.022290",
+  "timestamp": "2025-10-05T17:00:30.192959",
   "standings": {
     "divisional": {
       "AFC": {
@@ -19,8 +19,8 @@
             "points_for": 96,
             "points_against": 98,
             "opponents": [
-              "SEA",
               "NE",
+              "SEA",
               "MIN",
               "NYJ"
             ],
@@ -48,14 +48,14 @@
             "points_for": 61,
             "points_against": 119,
             "opponents": [
-              "CLE",
               "DEN",
-              "MIN",
-              "JAX"
+              "JAX",
+              "CLE",
+              "MIN"
             ],
             "defeated_opponents": [
-              "CLE",
-              "JAX"
+              "JAX",
+              "CLE"
             ],
             "strength_of_schedule": 0.5263157894736842,
             "strength_of_victory": 0.4444444444444444,
@@ -76,11 +76,11 @@
             "points_for": 141,
             "points_against": 177,
             "opponents": [
-              "BUF",
               "HOU",
-              "CLE",
+              "DET",
               "KC",
-              "DET"
+              "BUF",
+              "CLE"
             ],
             "defeated_opponents": [
               "CLE"
@@ -104,10 +104,10 @@
             "points_for": 73,
             "points_against": 123,
             "opponents": [
-              "MIN",
-              "GB",
-              "DET",
               "CIN",
+              "DET",
+              "GB",
+              "MIN",
               "BAL"
             ],
             "defeated_opponents": [
@@ -134,11 +134,11 @@
             "points_for": 163,
             "points_against": 89,
             "opponents": [
-              "LAR",
-              "LV",
-              "TEN",
+              "MIA",
               "DEN",
-              "MIA"
+              "TEN",
+              "LAR",
+              "LV"
             ],
             "defeated_opponents": [
               "TEN",
@@ -165,15 +165,15 @@
             "points_for": 96,
             "points_against": 72,
             "opponents": [
-              "CAR",
-              "SF",
+              "CIN",
               "HOU",
-              "CIN"
+              "SF",
+              "CAR"
             ],
             "defeated_opponents": [
-              "CAR",
+              "HOU",
               "SF",
-              "HOU"
+              "CAR"
             ],
             "strength_of_schedule": 0.5263157894736842,
             "strength_of_victory": 0.5333333333333333,
@@ -194,10 +194,10 @@
             "points_for": 108,
             "points_against": 61,
             "opponents": [
-              "JAX",
-              "LAR",
-              "TEN",
               "TB",
+              "JAX",
+              "TEN",
+              "LAR",
               "BAL"
             ],
             "defeated_opponents": [
@@ -223,10 +223,10 @@
             "points_for": 51,
             "points_against": 120,
             "opponents": [
-              "IND",
-              "HOU",
               "DEN",
-              "LAR"
+              "LAR",
+              "IND",
+              "HOU"
             ],
             "defeated_opponents": [],
             "strength_of_schedule": 0.6,
@@ -250,16 +250,16 @@
             "points_for": 133,
             "points_against": 90,
             "opponents": [
-              "MIA",
-              "BAL",
               "NYJ",
-              "NO"
+              "NO",
+              "MIA",
+              "BAL"
             ],
             "defeated_opponents": [
-              "MIA",
-              "BAL",
               "NYJ",
-              "NO"
+              "NO",
+              "MIA",
+              "BAL"
             ],
             "strength_of_schedule": 0.15,
             "strength_of_victory": 0.15,
@@ -281,13 +281,13 @@
             "points_against": 81,
             "opponents": [
               "PIT",
-              "CAR",
               "MIA",
+              "CAR",
               "LV"
             ],
             "defeated_opponents": [
-              "CAR",
-              "MIA"
+              "MIA",
+              "CAR"
             ],
             "strength_of_schedule": 0.3684210526315789,
             "strength_of_victory": 0.3,
@@ -308,11 +308,11 @@
             "points_for": 107,
             "points_against": 145,
             "opponents": [
-              "CAR",
-              "BUF",
               "NYJ",
               "NE",
-              "IND"
+              "IND",
+              "BUF",
+              "CAR"
             ],
             "defeated_opponents": [
               "NYJ"
@@ -336,11 +336,11 @@
             "points_for": 112,
             "points_against": 157,
             "opponents": [
-              "BUF",
-              "DAL",
-              "MIA",
               "PIT",
-              "TB"
+              "MIA",
+              "TB",
+              "DAL",
+              "BUF"
             ],
             "defeated_opponents": [],
             "strength_of_schedule": 0.6136363636363636,
@@ -364,9 +364,9 @@
             "points_for": 88,
             "points_against": 71,
             "opponents": [
-              "NYG",
               "KC",
               "DEN",
+              "NYG",
               "LV"
             ],
             "defeated_opponents": [
@@ -393,11 +393,11 @@
             "points_for": 117,
             "points_against": 84,
             "opponents": [
-              "TEN",
-              "LAC",
               "PHI",
               "CIN",
-              "IND"
+              "TEN",
+              "IND",
+              "LAC"
             ],
             "defeated_opponents": [
               "TEN",
@@ -423,10 +423,10 @@
             "points_for": 97,
             "points_against": 76,
             "opponents": [
-              "NYG",
+              "PHI",
               "LAC",
-              "BAL",
-              "PHI"
+              "NYG",
+              "BAL"
             ],
             "defeated_opponents": [
               "NYG",
@@ -451,11 +451,11 @@
             "points_for": 83,
             "points_against": 139,
             "opponents": [
-              "CHI",
-              "LAC",
-              "WAS",
               "NE",
-              "IND"
+              "CHI",
+              "IND",
+              "WAS",
+              "LAC"
             ],
             "defeated_opponents": [
               "NE"
@@ -483,14 +483,14 @@
             "points_for": 137,
             "points_against": 88,
             "opponents": [
-              "CLE",
+              "GB",
               "CHI",
-              "BAL",
-              "GB"
+              "CLE",
+              "BAL"
             ],
             "defeated_opponents": [
-              "CLE",
               "CHI",
+              "CLE",
               "BAL"
             ],
             "strength_of_schedule": 0.3611111111111111,
@@ -512,14 +512,14 @@
             "points_for": 104,
             "points_against": 84,
             "opponents": [
-              "CLE",
-              "DET",
+              "WAS",
               "DAL",
-              "WAS"
+              "CLE",
+              "DET"
             ],
             "defeated_opponents": [
-              "DET",
-              "WAS"
+              "WAS",
+              "DET"
             ],
             "strength_of_schedule": 0.4722222222222222,
             "strength_of_victory": 0.625,
@@ -540,16 +540,16 @@
             "points_for": 123,
             "points_against": 97,
             "opponents": [
-              "CHI",
               "PIT",
+              "CIN",
               "ATL",
-              "CLE",
-              "CIN"
+              "CHI",
+              "CLE"
             ],
             "defeated_opponents": [
-              "CLE",
+              "CIN",
               "CHI",
-              "CIN"
+              "CLE"
             ],
             "strength_of_schedule": 0.47619047619047616,
             "strength_of_victory": 0.38461538461538464,
@@ -570,10 +570,10 @@
             "points_for": 101,
             "points_against": 117,
             "opponents": [
-              "DET",
-              "MIN",
               "DAL",
-              "LV"
+              "LV",
+              "MIN",
+              "DET"
             ],
             "defeated_opponents": [
               "DAL",
@@ -600,15 +600,15 @@
             "points_for": 97,
             "points_against": 97,
             "opponents": [
-              "HOU",
-              "ATL",
               "PHI",
-              "NYJ"
+              "ATL",
+              "NYJ",
+              "HOU"
             ],
             "defeated_opponents": [
-              "HOU",
               "ATL",
-              "NYJ"
+              "NYJ",
+              "HOU"
             ],
             "strength_of_schedule": 0.42105263157894735,
             "strength_of_victory": 0.2857142857142857,
@@ -629,14 +629,14 @@
             "points_for": 76,
             "points_against": 86,
             "opponents": [
-              "TB",
               "CAR",
-              "MIN",
-              "WAS"
+              "WAS",
+              "TB",
+              "MIN"
             ],
             "defeated_opponents": [
-              "MIN",
-              "WAS"
+              "WAS",
+              "MIN"
             ],
             "strength_of_schedule": 0.5555555555555556,
             "strength_of_victory": 0.5555555555555556,
@@ -657,11 +657,11 @@
             "points_for": 102,
             "points_against": 119,
             "opponents": [
-              "JAX",
-              "ARI",
               "MIA",
               "ATL",
-              "NE"
+              "JAX",
+              "NE",
+              "ARI"
             ],
             "defeated_opponents": [
               "ATL",
@@ -686,11 +686,11 @@
             "points_for": 92,
             "points_against": 135,
             "opponents": [
-              "BUF",
-              "NYG",
               "ARI",
+              "SF",
               "SEA",
-              "SF"
+              "NYG",
+              "BUF"
             ],
             "defeated_opponents": [
               "NYG"
@@ -716,17 +716,17 @@
             "points_for": 125,
             "points_against": 109,
             "opponents": [
-              "LAR",
+              "TB",
               "DEN",
               "DAL",
               "KC",
-              "TB"
+              "LAR"
             ],
             "defeated_opponents": [
-              "TB",
               "KC",
+              "LAR",
               "DAL",
-              "LAR"
+              "TB"
             ],
             "strength_of_schedule": 0.5869565217391305,
             "strength_of_victory": 0.5833333333333334,
@@ -747,9 +747,9 @@
             "points_for": 107,
             "points_against": 91,
             "opponents": [
-              "NYG",
               "GB",
               "ATL",
+              "NYG",
               "LV"
             ],
             "defeated_opponents": [
@@ -775,11 +775,11 @@
             "points_for": 151,
             "points_against": 154,
             "opponents": [
-              "CHI",
-              "NYG",
               "PHI",
               "NYJ",
-              "GB"
+              "GB",
+              "CHI",
+              "NYG"
             ],
             "defeated_opponents": [
               "NYG",
@@ -804,11 +804,11 @@
             "points_for": 87,
             "points_against": 127,
             "opponents": [
-              "LAC",
               "DAL",
-              "WAS",
               "KC",
-              "NO"
+              "NO",
+              "WAS",
+              "LAC"
             ],
             "defeated_opponents": [
               "LAC"
@@ -836,15 +836,15 @@
             "opponents": [
               "JAX",
               "LAR",
-              "ARI",
+              "NO",
               "SEA",
-              "NO"
+              "ARI"
             ],
             "defeated_opponents": [
+              "NO",
               "LAR",
-              "ARI",
               "SEA",
-              "NO"
+              "ARI"
             ],
             "strength_of_schedule": 0.5454545454545454,
             "strength_of_victory": 0.5,
@@ -867,13 +867,13 @@
             "opponents": [
               "PIT",
               "SF",
-              "ARI",
-              "NO"
+              "NO",
+              "ARI"
             ],
             "defeated_opponents": [
               "PIT",
-              "ARI",
-              "NO"
+              "NO",
+              "ARI"
             ],
             "strength_of_schedule": 0.5555555555555556,
             "strength_of_victory": 0.46153846153846156,
@@ -894,15 +894,15 @@
             "points_for": 123,
             "points_against": 107,
             "opponents": [
-              "TEN",
               "PHI",
               "HOU",
-              "IND",
-              "SF"
+              "TEN",
+              "SF",
+              "IND"
             ],
             "defeated_opponents": [
-              "HOU",
               "TEN",
+              "HOU",
               "IND"
             ],
             "strength_of_schedule": 0.5833333333333334,
@@ -924,14 +924,14 @@
             "points_for": 82,
             "points_against": 74,
             "opponents": [
-              "CAR",
-              "SF",
               "SEA",
-              "NO"
+              "SF",
+              "NO",
+              "CAR"
             ],
             "defeated_opponents": [
-              "CAR",
-              "NO"
+              "NO",
+              "CAR"
             ],
             "strength_of_schedule": 0.5263157894736842,
             "strength_of_victory": 0.3,
@@ -957,16 +957,16 @@
           "points_for": 133,
           "points_against": 90,
           "opponents": [
-            "MIA",
-            "BAL",
             "NYJ",
-            "NO"
+            "NO",
+            "MIA",
+            "BAL"
           ],
           "defeated_opponents": [
-            "MIA",
-            "BAL",
             "NYJ",
-            "NO"
+            "NO",
+            "MIA",
+            "BAL"
           ],
           "strength_of_schedule": 0.15,
           "strength_of_victory": 0.15,
@@ -988,11 +988,11 @@
           "points_for": 163,
           "points_against": 89,
           "opponents": [
-            "LAR",
-            "LV",
-            "TEN",
+            "MIA",
             "DEN",
-            "MIA"
+            "TEN",
+            "LAR",
+            "LV"
           ],
           "defeated_opponents": [
             "TEN",
@@ -1020,9 +1020,9 @@
           "points_for": 88,
           "points_against": 71,
           "opponents": [
-            "NYG",
             "KC",
             "DEN",
+            "NYG",
             "LV"
           ],
           "defeated_opponents": [
@@ -1050,8 +1050,8 @@
           "points_for": 96,
           "points_against": 98,
           "opponents": [
-            "SEA",
             "NE",
+            "SEA",
             "MIN",
             "NYJ"
           ],
@@ -1080,15 +1080,15 @@
           "points_for": 96,
           "points_against": 72,
           "opponents": [
-            "CAR",
-            "SF",
+            "CIN",
             "HOU",
-            "CIN"
+            "SF",
+            "CAR"
           ],
           "defeated_opponents": [
-            "CAR",
+            "HOU",
             "SF",
-            "HOU"
+            "CAR"
           ],
           "strength_of_schedule": 0.5263157894736842,
           "strength_of_victory": 0.5333333333333333,
@@ -1110,11 +1110,11 @@
           "points_for": 117,
           "points_against": 84,
           "opponents": [
-            "TEN",
-            "LAC",
             "PHI",
             "CIN",
-            "IND"
+            "TEN",
+            "IND",
+            "LAC"
           ],
           "defeated_opponents": [
             "TEN",
@@ -1141,14 +1141,14 @@
           "points_for": 61,
           "points_against": 119,
           "opponents": [
-            "CLE",
             "DEN",
-            "MIN",
-            "JAX"
+            "JAX",
+            "CLE",
+            "MIN"
           ],
           "defeated_opponents": [
-            "CLE",
-            "JAX"
+            "JAX",
+            "CLE"
           ],
           "strength_of_schedule": 0.5263157894736842,
           "strength_of_victory": 0.4444444444444444,
@@ -1170,10 +1170,10 @@
           "points_for": 97,
           "points_against": 76,
           "opponents": [
-            "NYG",
+            "PHI",
             "LAC",
-            "BAL",
-            "PHI"
+            "NYG",
+            "BAL"
           ],
           "defeated_opponents": [
             "NYG",
@@ -1200,13 +1200,13 @@
           "points_against": 81,
           "opponents": [
             "PIT",
-            "CAR",
             "MIA",
+            "CAR",
             "LV"
           ],
           "defeated_opponents": [
-            "CAR",
-            "MIA"
+            "MIA",
+            "CAR"
           ],
           "strength_of_schedule": 0.3684210526315789,
           "strength_of_victory": 0.3,
@@ -1228,10 +1228,10 @@
           "points_for": 108,
           "points_against": 61,
           "opponents": [
-            "JAX",
-            "LAR",
-            "TEN",
             "TB",
+            "JAX",
+            "TEN",
+            "LAR",
             "BAL"
           ],
           "defeated_opponents": [
@@ -1258,11 +1258,11 @@
           "points_for": 83,
           "points_against": 139,
           "opponents": [
-            "CHI",
-            "LAC",
-            "WAS",
             "NE",
-            "IND"
+            "CHI",
+            "IND",
+            "WAS",
+            "LAC"
           ],
           "defeated_opponents": [
             "NE"
@@ -1287,11 +1287,11 @@
           "points_for": 141,
           "points_against": 177,
           "opponents": [
-            "BUF",
             "HOU",
-            "CLE",
+            "DET",
             "KC",
-            "DET"
+            "BUF",
+            "CLE"
           ],
           "defeated_opponents": [
             "CLE"
@@ -1316,11 +1316,11 @@
           "points_for": 107,
           "points_against": 145,
           "opponents": [
-            "CAR",
-            "BUF",
             "NYJ",
             "NE",
-            "IND"
+            "IND",
+            "BUF",
+            "CAR"
           ],
           "defeated_opponents": [
             "NYJ"
@@ -1345,10 +1345,10 @@
           "points_for": 73,
           "points_against": 123,
           "opponents": [
-            "MIN",
-            "GB",
-            "DET",
             "CIN",
+            "DET",
+            "GB",
+            "MIN",
             "BAL"
           ],
           "defeated_opponents": [
@@ -1374,11 +1374,11 @@
           "points_for": 112,
           "points_against": 157,
           "opponents": [
-            "BUF",
-            "DAL",
-            "MIA",
             "PIT",
-            "TB"
+            "MIA",
+            "TB",
+            "DAL",
+            "BUF"
           ],
           "defeated_opponents": [],
           "strength_of_schedule": 0.6136363636363636,
@@ -1401,10 +1401,10 @@
           "points_for": 51,
           "points_against": 120,
           "opponents": [
-            "IND",
-            "HOU",
             "DEN",
-            "LAR"
+            "LAR",
+            "IND",
+            "HOU"
           ],
           "defeated_opponents": [],
           "strength_of_schedule": 0.6,
@@ -1429,17 +1429,17 @@
           "points_for": 125,
           "points_against": 109,
           "opponents": [
-            "LAR",
+            "TB",
             "DEN",
             "DAL",
             "KC",
-            "TB"
+            "LAR"
           ],
           "defeated_opponents": [
-            "TB",
             "KC",
+            "LAR",
             "DAL",
-            "LAR"
+            "TB"
           ],
           "strength_of_schedule": 0.5869565217391305,
           "strength_of_victory": 0.5833333333333334,
@@ -1463,15 +1463,15 @@
           "opponents": [
             "JAX",
             "LAR",
-            "ARI",
+            "NO",
             "SEA",
-            "NO"
+            "ARI"
           ],
           "defeated_opponents": [
+            "NO",
             "LAR",
-            "ARI",
             "SEA",
-            "NO"
+            "ARI"
           ],
           "strength_of_schedule": 0.5454545454545454,
           "strength_of_victory": 0.5,
@@ -1495,13 +1495,13 @@
           "opponents": [
             "PIT",
             "SF",
-            "ARI",
-            "NO"
+            "NO",
+            "ARI"
           ],
           "defeated_opponents": [
             "PIT",
-            "ARI",
-            "NO"
+            "NO",
+            "ARI"
           ],
           "strength_of_schedule": 0.5555555555555556,
           "strength_of_victory": 0.46153846153846156,
@@ -1523,15 +1523,15 @@
           "points_for": 97,
           "points_against": 97,
           "opponents": [
-            "HOU",
-            "ATL",
             "PHI",
-            "NYJ"
+            "ATL",
+            "NYJ",
+            "HOU"
           ],
           "defeated_opponents": [
-            "HOU",
             "ATL",
-            "NYJ"
+            "NYJ",
+            "HOU"
           ],
           "strength_of_schedule": 0.42105263157894735,
           "strength_of_victory": 0.2857142857142857,
@@ -1553,14 +1553,14 @@
           "points_for": 137,
           "points_against": 88,
           "opponents": [
-            "CLE",
+            "GB",
             "CHI",
-            "BAL",
-            "GB"
+            "CLE",
+            "BAL"
           ],
           "defeated_opponents": [
-            "CLE",
             "CHI",
+            "CLE",
             "BAL"
           ],
           "strength_of_schedule": 0.3611111111111111,
@@ -1583,14 +1583,14 @@
           "points_for": 104,
           "points_against": 84,
           "opponents": [
-            "CLE",
-            "DET",
+            "WAS",
             "DAL",
-            "WAS"
+            "CLE",
+            "DET"
           ],
           "defeated_opponents": [
-            "DET",
-            "WAS"
+            "WAS",
+            "DET"
           ],
           "strength_of_schedule": 0.4722222222222222,
           "strength_of_victory": 0.625,
@@ -1612,16 +1612,16 @@
           "points_for": 123,
           "points_against": 97,
           "opponents": [
-            "CHI",
             "PIT",
+            "CIN",
             "ATL",
-            "CLE",
-            "CIN"
+            "CHI",
+            "CLE"
           ],
           "defeated_opponents": [
-            "CLE",
+            "CIN",
             "CHI",
-            "CIN"
+            "CLE"
           ],
           "strength_of_schedule": 0.47619047619047616,
           "strength_of_victory": 0.38461538461538464,
@@ -1643,15 +1643,15 @@
           "points_for": 123,
           "points_against": 107,
           "opponents": [
-            "TEN",
             "PHI",
             "HOU",
-            "IND",
-            "SF"
+            "TEN",
+            "SF",
+            "IND"
           ],
           "defeated_opponents": [
-            "HOU",
             "TEN",
+            "HOU",
             "IND"
           ],
           "strength_of_schedule": 0.5833333333333334,
@@ -1674,14 +1674,14 @@
           "points_for": 76,
           "points_against": 86,
           "opponents": [
-            "TB",
             "CAR",
-            "MIN",
-            "WAS"
+            "WAS",
+            "TB",
+            "MIN"
           ],
           "defeated_opponents": [
-            "MIN",
-            "WAS"
+            "WAS",
+            "MIN"
           ],
           "strength_of_schedule": 0.5555555555555556,
           "strength_of_victory": 0.5555555555555556,
@@ -1703,14 +1703,14 @@
           "points_for": 82,
           "points_against": 74,
           "opponents": [
-            "CAR",
-            "SF",
             "SEA",
-            "NO"
+            "SF",
+            "NO",
+            "CAR"
           ],
           "defeated_opponents": [
-            "CAR",
-            "NO"
+            "NO",
+            "CAR"
           ],
           "strength_of_schedule": 0.5263157894736842,
           "strength_of_victory": 0.3,
@@ -1732,11 +1732,11 @@
           "points_for": 151,
           "points_against": 154,
           "opponents": [
-            "CHI",
-            "NYG",
             "PHI",
             "NYJ",
-            "GB"
+            "GB",
+            "CHI",
+            "NYG"
           ],
           "defeated_opponents": [
             "NYG",
@@ -1762,10 +1762,10 @@
           "points_for": 101,
           "points_against": 117,
           "opponents": [
-            "DET",
-            "MIN",
             "DAL",
-            "LV"
+            "LV",
+            "MIN",
+            "DET"
           ],
           "defeated_opponents": [
             "DAL",
@@ -1791,9 +1791,9 @@
           "points_for": 107,
           "points_against": 91,
           "opponents": [
-            "NYG",
             "GB",
             "ATL",
+            "NYG",
             "LV"
           ],
           "defeated_opponents": [
@@ -1820,11 +1820,11 @@
           "points_for": 102,
           "points_against": 119,
           "opponents": [
-            "JAX",
-            "ARI",
             "MIA",
             "ATL",
-            "NE"
+            "JAX",
+            "NE",
+            "ARI"
           ],
           "defeated_opponents": [
             "ATL",
@@ -1850,11 +1850,11 @@
           "points_for": 92,
           "points_against": 135,
           "opponents": [
-            "BUF",
-            "NYG",
             "ARI",
+            "SF",
             "SEA",
-            "SF"
+            "NYG",
+            "BUF"
           ],
           "defeated_opponents": [
             "NYG"
@@ -1879,11 +1879,11 @@
           "points_for": 87,
           "points_against": 127,
           "opponents": [
-            "LAC",
             "DAL",
-            "WAS",
             "KC",
-            "NO"
+            "NO",
+            "WAS",
+            "LAC"
           ],
           "defeated_opponents": [
             "LAC"
@@ -1914,16 +1914,16 @@
             "points_for": 133,
             "points_against": 90,
             "opponents": [
-              "MIA",
-              "BAL",
               "NYJ",
-              "NO"
+              "NO",
+              "MIA",
+              "BAL"
             ],
             "defeated_opponents": [
-              "MIA",
-              "BAL",
               "NYJ",
-              "NO"
+              "NO",
+              "MIA",
+              "BAL"
             ],
             "strength_of_schedule": 0.15,
             "strength_of_victory": 0.15,
@@ -1946,11 +1946,11 @@
             "points_for": 163,
             "points_against": 89,
             "opponents": [
-              "LAR",
-              "LV",
-              "TEN",
+              "MIA",
               "DEN",
-              "MIA"
+              "TEN",
+              "LAR",
+              "LV"
             ],
             "defeated_opponents": [
               "TEN",
@@ -1979,9 +1979,9 @@
             "points_for": 88,
             "points_against": 71,
             "opponents": [
-              "NYG",
               "KC",
               "DEN",
+              "NYG",
               "LV"
             ],
             "defeated_opponents": [
@@ -2010,8 +2010,8 @@
             "points_for": 96,
             "points_against": 98,
             "opponents": [
-              "SEA",
               "NE",
+              "SEA",
               "MIN",
               "NYJ"
             ],
@@ -2043,15 +2043,15 @@
             "points_for": 96,
             "points_against": 72,
             "opponents": [
-              "CAR",
-              "SF",
+              "CIN",
               "HOU",
-              "CIN"
+              "SF",
+              "CAR"
             ],
             "defeated_opponents": [
-              "CAR",
+              "HOU",
               "SF",
-              "HOU"
+              "CAR"
             ],
             "strength_of_schedule": 0.5263157894736842,
             "strength_of_victory": 0.5333333333333333,
@@ -2074,11 +2074,11 @@
             "points_for": 117,
             "points_against": 84,
             "opponents": [
-              "TEN",
-              "LAC",
               "PHI",
               "CIN",
-              "IND"
+              "TEN",
+              "IND",
+              "LAC"
             ],
             "defeated_opponents": [
               "TEN",
@@ -2106,14 +2106,14 @@
             "points_for": 61,
             "points_against": 119,
             "opponents": [
-              "CLE",
               "DEN",
-              "MIN",
-              "JAX"
+              "JAX",
+              "CLE",
+              "MIN"
             ],
             "defeated_opponents": [
-              "CLE",
-              "JAX"
+              "JAX",
+              "CLE"
             ],
             "strength_of_schedule": 0.5263157894736842,
             "strength_of_victory": 0.4444444444444444,
@@ -2138,10 +2138,10 @@
             "points_for": 97,
             "points_against": 76,
             "opponents": [
-              "NYG",
+              "PHI",
               "LAC",
-              "BAL",
-              "PHI"
+              "NYG",
+              "BAL"
             ],
             "defeated_opponents": [
               "NYG",
@@ -2169,13 +2169,13 @@
             "points_against": 81,
             "opponents": [
               "PIT",
-              "CAR",
               "MIA",
+              "CAR",
               "LV"
             ],
             "defeated_opponents": [
-              "CAR",
-              "MIA"
+              "MIA",
+              "CAR"
             ],
             "strength_of_schedule": 0.3684210526315789,
             "strength_of_victory": 0.3,
@@ -2198,10 +2198,10 @@
             "points_for": 108,
             "points_against": 61,
             "opponents": [
-              "JAX",
-              "LAR",
-              "TEN",
               "TB",
+              "JAX",
+              "TEN",
+              "LAR",
               "BAL"
             ],
             "defeated_opponents": [
@@ -2229,11 +2229,11 @@
             "points_for": 83,
             "points_against": 139,
             "opponents": [
-              "CHI",
-              "LAC",
-              "WAS",
               "NE",
-              "IND"
+              "CHI",
+              "IND",
+              "WAS",
+              "LAC"
             ],
             "defeated_opponents": [
               "NE"
@@ -2259,11 +2259,11 @@
             "points_for": 141,
             "points_against": 177,
             "opponents": [
-              "BUF",
               "HOU",
-              "CLE",
+              "DET",
               "KC",
-              "DET"
+              "BUF",
+              "CLE"
             ],
             "defeated_opponents": [
               "CLE"
@@ -2289,11 +2289,11 @@
             "points_for": 107,
             "points_against": 145,
             "opponents": [
-              "CAR",
-              "BUF",
               "NYJ",
               "NE",
-              "IND"
+              "IND",
+              "BUF",
+              "CAR"
             ],
             "defeated_opponents": [
               "NYJ"
@@ -2319,10 +2319,10 @@
             "points_for": 73,
             "points_against": 123,
             "opponents": [
-              "MIN",
-              "GB",
-              "DET",
               "CIN",
+              "DET",
+              "GB",
+              "MIN",
               "BAL"
             ],
             "defeated_opponents": [
@@ -2349,11 +2349,11 @@
             "points_for": 112,
             "points_against": 157,
             "opponents": [
-              "BUF",
-              "DAL",
-              "MIA",
               "PIT",
-              "TB"
+              "MIA",
+              "TB",
+              "DAL",
+              "BUF"
             ],
             "defeated_opponents": [],
             "strength_of_schedule": 0.6136363636363636,
@@ -2377,10 +2377,10 @@
             "points_for": 51,
             "points_against": 120,
             "opponents": [
-              "IND",
-              "HOU",
               "DEN",
-              "LAR"
+              "LAR",
+              "IND",
+              "HOU"
             ],
             "defeated_opponents": [],
             "strength_of_schedule": 0.6,
@@ -2408,17 +2408,17 @@
             "points_for": 125,
             "points_against": 109,
             "opponents": [
-              "LAR",
+              "TB",
               "DEN",
               "DAL",
               "KC",
-              "TB"
+              "LAR"
             ],
             "defeated_opponents": [
-              "TB",
               "KC",
+              "LAR",
               "DAL",
-              "LAR"
+              "TB"
             ],
             "strength_of_schedule": 0.5869565217391305,
             "strength_of_victory": 0.5833333333333334,
@@ -2443,15 +2443,15 @@
             "opponents": [
               "JAX",
               "LAR",
-              "ARI",
+              "NO",
               "SEA",
-              "NO"
+              "ARI"
             ],
             "defeated_opponents": [
+              "NO",
               "LAR",
-              "ARI",
               "SEA",
-              "NO"
+              "ARI"
             ],
             "strength_of_schedule": 0.5454545454545454,
             "strength_of_victory": 0.5,
@@ -2474,15 +2474,15 @@
             "points_for": 97,
             "points_against": 97,
             "opponents": [
-              "HOU",
-              "ATL",
               "PHI",
-              "NYJ"
+              "ATL",
+              "NYJ",
+              "HOU"
             ],
             "defeated_opponents": [
-              "HOU",
               "ATL",
-              "NYJ"
+              "NYJ",
+              "HOU"
             ],
             "strength_of_schedule": 0.42105263157894735,
             "strength_of_victory": 0.2857142857142857,
@@ -2505,14 +2505,14 @@
             "points_for": 137,
             "points_against": 88,
             "opponents": [
-              "CLE",
+              "GB",
               "CHI",
-              "BAL",
-              "GB"
+              "CLE",
+              "BAL"
             ],
             "defeated_opponents": [
-              "CLE",
               "CHI",
+              "CLE",
               "BAL"
             ],
             "strength_of_schedule": 0.3611111111111111,
@@ -2540,13 +2540,13 @@
             "opponents": [
               "PIT",
               "SF",
-              "ARI",
-              "NO"
+              "NO",
+              "ARI"
             ],
             "defeated_opponents": [
               "PIT",
-              "ARI",
-              "NO"
+              "NO",
+              "ARI"
             ],
             "strength_of_schedule": 0.5555555555555556,
             "strength_of_victory": 0.46153846153846156,
@@ -2569,14 +2569,14 @@
             "points_for": 104,
             "points_against": 84,
             "opponents": [
-              "CLE",
-              "DET",
+              "WAS",
               "DAL",
-              "WAS"
+              "CLE",
+              "DET"
             ],
             "defeated_opponents": [
-              "DET",
-              "WAS"
+              "WAS",
+              "DET"
             ],
             "strength_of_schedule": 0.4722222222222222,
             "strength_of_victory": 0.625,
@@ -2599,16 +2599,16 @@
             "points_for": 123,
             "points_against": 97,
             "opponents": [
-              "CHI",
               "PIT",
+              "CIN",
               "ATL",
-              "CLE",
-              "CIN"
+              "CHI",
+              "CLE"
             ],
             "defeated_opponents": [
-              "CLE",
+              "CIN",
               "CHI",
-              "CIN"
+              "CLE"
             ],
             "strength_of_schedule": 0.47619047619047616,
             "strength_of_victory": 0.38461538461538464,
@@ -2633,15 +2633,15 @@
             "points_for": 123,
             "points_against": 107,
             "opponents": [
-              "TEN",
               "PHI",
               "HOU",
-              "IND",
-              "SF"
+              "TEN",
+              "SF",
+              "IND"
             ],
             "defeated_opponents": [
-              "HOU",
               "TEN",
+              "HOU",
               "IND"
             ],
             "strength_of_schedule": 0.5833333333333334,
@@ -2665,14 +2665,14 @@
             "points_for": 76,
             "points_against": 86,
             "opponents": [
-              "TB",
               "CAR",
-              "MIN",
-              "WAS"
+              "WAS",
+              "TB",
+              "MIN"
             ],
             "defeated_opponents": [
-              "MIN",
-              "WAS"
+              "WAS",
+              "MIN"
             ],
             "strength_of_schedule": 0.5555555555555556,
             "strength_of_victory": 0.5555555555555556,
@@ -2695,14 +2695,14 @@
             "points_for": 82,
             "points_against": 74,
             "opponents": [
-              "CAR",
-              "SF",
               "SEA",
-              "NO"
+              "SF",
+              "NO",
+              "CAR"
             ],
             "defeated_opponents": [
-              "CAR",
-              "NO"
+              "NO",
+              "CAR"
             ],
             "strength_of_schedule": 0.5263157894736842,
             "strength_of_victory": 0.3,
@@ -2725,11 +2725,11 @@
             "points_for": 151,
             "points_against": 154,
             "opponents": [
-              "CHI",
-              "NYG",
               "PHI",
               "NYJ",
-              "GB"
+              "GB",
+              "CHI",
+              "NYG"
             ],
             "defeated_opponents": [
               "NYG",
@@ -2756,10 +2756,10 @@
             "points_for": 101,
             "points_against": 117,
             "opponents": [
-              "DET",
-              "MIN",
               "DAL",
-              "LV"
+              "LV",
+              "MIN",
+              "DET"
             ],
             "defeated_opponents": [
               "DAL",
@@ -2786,9 +2786,9 @@
             "points_for": 107,
             "points_against": 91,
             "opponents": [
-              "NYG",
               "GB",
               "ATL",
+              "NYG",
               "LV"
             ],
             "defeated_opponents": [
@@ -2816,11 +2816,11 @@
             "points_for": 102,
             "points_against": 119,
             "opponents": [
-              "JAX",
-              "ARI",
               "MIA",
               "ATL",
-              "NE"
+              "JAX",
+              "NE",
+              "ARI"
             ],
             "defeated_opponents": [
               "ATL",
@@ -2847,11 +2847,11 @@
             "points_for": 92,
             "points_against": 135,
             "opponents": [
-              "BUF",
-              "NYG",
               "ARI",
+              "SF",
               "SEA",
-              "SF"
+              "NYG",
+              "BUF"
             ],
             "defeated_opponents": [
               "NYG"
@@ -2877,11 +2877,11 @@
             "points_for": 87,
             "points_against": 127,
             "opponents": [
-              "LAC",
               "DAL",
-              "WAS",
               "KC",
-              "NO"
+              "NO",
+              "WAS",
+              "LAC"
             ],
             "defeated_opponents": [
               "LAC"
