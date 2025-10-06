@@ -678,7 +678,9 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     ai_test = AIService()
     provider_info = f"Using AI provider: {ai_test.model_provider}, model: {ai_test.model}"
     logger.info(provider_info)
-    logger.info(f"Processing {total_games} game(s) with up to {max_workers} worker(s)")
+    logger.info(f"GAME_ANALYSIS_WORKERS env var: {os.environ.get('GAME_ANALYSIS_WORKERS', '3')}")
+    logger.info(f"Calculated max_workers: {max_workers}")
+    logger.info(f"Processing {total_games} game(s) with {max_workers} parallel worker(s)")
 
     # Temporarily increase log level to suppress AI service initialization logs
     ai_logger = logging.getLogger('ai_service')
