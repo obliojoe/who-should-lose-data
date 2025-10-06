@@ -297,6 +297,24 @@ python generate_cache.py --simulations 1000 --skip-game-ai
 python generate_cache.py --test-mode --simulations 10
 ```
 
+### Environment Variables
+
+**`AI_ANALYSIS_WORKERS`** (default: 3)
+Number of parallel workers for team AI analysis generation. Higher values speed up processing but increase API load.
+
+```bash
+# Run with 5 parallel workers
+AI_ANALYSIS_WORKERS=5 python generate_cache.py --simulations 1000
+```
+
+**`GAME_ANALYSIS_WORKERS`** (default: 3)
+Number of parallel workers for game AI analysis (recaps and previews). Higher values speed up processing but increase API/ESPN load.
+
+```bash
+# Run with 5 parallel workers
+GAME_ANALYSIS_WORKERS=5 python generate_cache.py --regenerate-game-ai "all"
+```
+
 ### Adding New Options
 1. Add argument to parser in `generate_cache.py` main()
 2. Update this README
@@ -304,7 +322,7 @@ python generate_cache.py --test-mode --simulations 10
 
 ### Code Structure
 - `generate_cache.py` - Main pipeline orchestration
-- `generate_analyses.py` - Game AI analysis logic
+- `generate_analyses.py` - Game AI analysis logic (parallelized with ThreadPoolExecutor)
 - `simulate_season.py` - Monte Carlo simulation engine
 - `ai_service.py` - AI model API wrapper
 - `calculate_standings_cache.py` - NFL standings calculations

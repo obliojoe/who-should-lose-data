@@ -456,6 +456,140 @@ def load_team_season_stats(away_team_abbr, home_team_abbr):
         logger.error(f"Error loading team stats: {e}")
         return {}
 
+def _process_single_game(game, analyses, force_reanalyze, current_date, week_from_now):
+    """
+    Worker function to process a single game analysis.
+    Returns tuple: (game_id, analysis_dict) or (game_id, None) if failed/skipped.
+    """
+    game_id = str(game['espn_id'])
+    game_date = datetime.strptime(game['game_date'], '%Y-%m-%d')
+
+    # Determine if game is completed or upcoming
+    is_completed = not (pd.isna(game['home_score']) or pd.isna(game['away_score']) or \
+                      str(game['home_score']).strip() == '' or str(game['away_score']).strip() == '')
+
+    is_upcoming = not is_completed and game_date >= current_date and game_date <= week_from_now
+
+    # Check if we need to regenerate:
+    # 1. If force_reanalyze is True
+    # 2. If no analysis exists yet
+    # 3. If existing analysis is a preview but game is now completed
+    needs_analysis = (
+        force_reanalyze or
+        game_id not in analyses or
+        (is_completed and analyses[game_id].get('analysis_type') == 'preview')
+    )
+
+    if not needs_analysis:
+        logger.info(f" -- {game_id} already has current analysis")
+        return (game_id, None)
+
+    if not (is_completed or is_upcoming):
+        return (game_id, None)
+
+    logger.info(f"=> Processing {game['game_date']} {game['away_team']} @ {game['home_team']} :: {game_id}")
+
+    # Fetch and clean game data
+    game_data = fetch_and_clean_game(game_id)
+    if not game_data:
+        logger.warning(f"Failed to fetch/clean game {game_id}, skipping...")
+        return (game_id, None)
+
+    # Fetch ESPN supplemental data BEFORE generating analysis
+    espn_context = None
+    predictor_data = None
+    leaders_data = None
+    broadcast_info = None
+
+    try:
+        from espn_api import ESPNAPIService
+        espn_service = ESPNAPIService()
+
+        # Get betting/weather (available for all games)
+        espn_context = espn_service.get_game_context(game_id, game['home_team'], game['away_team'])
+
+        # Get predictor data for upcoming games
+        if not is_completed:
+            predictor_data = espn_service.get_predictor_data(game_id)
+
+        # Get leaders data for completed games
+        if is_completed:
+            leaders_data = espn_service.get_game_leaders(game_id)
+
+        # Get broadcast info (available for all)
+        broadcast_info = espn_service.get_broadcast_info(game_id)
+
+    except Exception as e:
+        logger.error(f"Failed to fetch ESPN data for {game_id}: {str(e)}")
+
+    # Add ESPN betting lines to game_data for AI context
+    if espn_context and espn_context.get('betting'):
+        game_data['betting_lines'] = espn_context.get('betting')
+
+    # Add predictor data for previews only
+    if not is_completed and predictor_data:
+        game_data['espn_predictor'] = predictor_data
+
+    # Add comprehensive team season stats from team_stats.csv (previews only)
+    # Note: Only add for upcoming games to avoid anachronistic stats in historical game analysis
+    if not is_completed:
+        team_season_stats = load_team_season_stats(game['away_team'], game['home_team'])
+        if team_season_stats:
+            game_data['team_season_stats'] = team_season_stats
+            logger.info(f"  - Added season stats for {game['away_team']} and {game['home_team']}")
+
+    # Generate analysis or preview with ESPN context
+    if is_completed:
+        logger.info(f"Generating post-game analysis for {game_id}...")
+        analysis = send_to_claude(game_data, game_id)
+        analysis_type = "post_game"
+    else:
+        logger.info(f"Generating game preview for {game_id}...")
+        analysis = send_preview_to_claude(game_data, game_id)
+        analysis_type = "preview"
+
+    if not analysis:
+        logger.warning(f"Failed to generate {analysis_type} for game {game_id}")
+        return (game_id, None)
+
+    # Build analysis dict with metadata
+    analysis_dict = {
+        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "game_date": game['game_date'],
+        "home_team": game['home_team'],
+        "away_team": game['away_team'],
+        "home_score": int(game['home_score']) if is_completed else None,
+        "away_score": int(game['away_score']) if is_completed else None,
+        "stadium": game.get('stadium', ''),
+        "home_coach": game.get('home_coach', ''),
+        "away_coach": game.get('away_coach', ''),
+        "analysis_type": analysis_type,
+        "analysis": analysis
+    }
+
+    # Add ESPN context if available
+    if espn_context:
+        if espn_context.get('betting'):
+            analysis_dict['betting'] = espn_context['betting']
+        if espn_context.get('weather'):
+            analysis_dict['weather'] = espn_context['weather']
+
+    # Add predictor data
+    if predictor_data:
+        analysis_dict['predictor'] = predictor_data
+
+    # Add leaders data
+    if leaders_data:
+        analysis_dict['leaders'] = leaders_data
+
+    # Add broadcast info
+    if broadcast_info:
+        analysis_dict['broadcast'] = broadcast_info
+
+    logger.info(f"✓ {analysis_type.title()} completed for game {game_id}")
+    return (game_id, analysis_dict)
+
+
 def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=False, game_ids=None, regenerate_type=None):
     """
     Analyze completed games and preview upcoming games, saving to a JSON file.
@@ -466,6 +600,9 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
         game_ids: List of ESPN game IDs to regenerate (if specified, only these games are processed)
         regenerate_type: "analysis", "preview", or "all" to filter by analysis type
     """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    from tqdm import tqdm
+
     logger.info("Starting batch_analyze_games function")
     analyses = {}
     if os.path.exists(output_file):
@@ -474,19 +611,19 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
                 analyses = json.load(f)
         except json.JSONDecodeError:
             analyses = {}
-    
+
     schedule_df = pd.read_csv('data/schedule.csv')
     games = schedule_df.to_dict('records')
-    
-    # Get current date without time part      
+
+    # Get current date without time part
     current_date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
     week_from_now = current_date + timedelta(days=7)
-    
+
+    # Filter games based on criteria
+    games_to_process = []
     for game in games:
         game_id = str(game['espn_id'])
         game_date = datetime.strptime(game['game_date'], '%Y-%m-%d')
-
-        logger.info(f" processing - {game['game_date']} {game['away_team']} @ {game['home_team']} :: {game_id}")
 
         # Determine if game is completed or upcoming
         is_completed = not (pd.isna(game['home_score']) or pd.isna(game['away_score']) or \
@@ -506,130 +643,45 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
                 continue
             # 'all' means process everything (no filter)
 
-        # Check if we need to regenerate:
-        # 1. If force_reanalyze is True
-        # 2. If no analysis exists yet
-        # 3. If existing analysis is a preview but game is now completed
-        needs_analysis = (
-            force_reanalyze or 
-            game_id not in analyses or 
-            (is_completed and analyses[game_id].get('analysis_type') == 'preview')
-        )
-        
-        if not needs_analysis:
-            logger.info(f" -- already has current analysis")
-            continue
-            
-        if not (is_completed or is_upcoming):
-            continue
-            
-        logger.info(f"=> {game['game_date']} {game['away_team']} @ {game['home_team']} :: {game_id}")
-        
-        # Fetch and clean game data
-        game_data = fetch_and_clean_game(game_id)
-        if not game_data:
-            logger.info(f"  - Failed to fetch/clean game {game_id}, skipping...")
-            continue
+        games_to_process.append(game)
 
-        # Fetch ESPN supplemental data BEFORE generating analysis
-        espn_context = None
-        predictor_data = None
-        leaders_data = None
-        broadcast_info = None
+    if not games_to_process:
+        logger.info("No games to process")
+        return analyses
 
-        try:
-            from espn_api import ESPNAPIService
-            espn_service = ESPNAPIService()
+    # Parallelize game analysis
+    max_workers = int(os.environ.get('GAME_ANALYSIS_WORKERS', '3'))
+    if max_workers < 1:
+        max_workers = 1
+    total_games = len(games_to_process)
+    max_workers = min(max_workers, total_games)
+    logger.info(f"Processing {total_games} game(s) with up to {max_workers} worker(s)")
 
-            # Get betting/weather (available for all games)
-            espn_context = espn_service.get_game_context(game_id, game['home_team'], game['away_team'])
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit all game analysis tasks
+        future_to_game = {
+            executor.submit(_process_single_game, game, analyses, force_reanalyze, current_date, week_from_now): game
+            for game in games_to_process
+        }
 
-            # Get predictor data for upcoming games
-            if not is_completed:
-                predictor_data = espn_service.get_predictor_data(game_id)
+        with tqdm(total=total_games, desc="Generating game analyses", unit="game") as pbar:
+            for future in as_completed(future_to_game):
+                try:
+                    game_id, analysis_dict = future.result()
+                    if analysis_dict is not None:
+                        # Update analyses dict
+                        analyses[game_id] = analysis_dict
 
-            # Get leaders data for completed games
-            if is_completed:
-                leaders_data = espn_service.get_game_leaders(game_id)
+                        # Save after each successful analysis
+                        with open(output_file, 'w', encoding='utf-8') as f:
+                            json.dump(analyses, f, indent=2, ensure_ascii=False)
+                except Exception as e:
+                    game = future_to_game[future]
+                    logger.error(f"Error processing game {game.get('espn_id')}: {str(e)}")
+                finally:
+                    pbar.update(1)
 
-            # Get broadcast info (available for all)
-            broadcast_info = espn_service.get_broadcast_info(game_id)
-
-        except Exception as e:
-            logger.error(f"Failed to fetch ESPN data: {str(e)}")
-
-        # Add ESPN betting lines to game_data for AI context
-        if espn_context and espn_context.get('betting'):
-            game_data['betting_lines'] = espn_context.get('betting')
-
-        # Add predictor data for previews only
-        if not is_completed and predictor_data:
-            game_data['espn_predictor'] = predictor_data
-
-        # Add comprehensive team season stats from team_stats.csv (previews only)
-        # Note: Only add for upcoming games to avoid anachronistic stats in historical game analysis
-        if not is_completed:
-            team_season_stats = load_team_season_stats(game['away_team'], game['home_team'])
-            if team_season_stats:
-                game_data['team_season_stats'] = team_season_stats
-                logger.info(f"  - Added season stats for {game['away_team']} and {game['home_team']}")
-
-        # Generate analysis or preview with ESPN context
-        if is_completed:
-            logger.info("Generating post-game analysis...")
-            analysis = send_to_claude(game_data, game_id)
-            analysis_type = "post_game"
-        else:
-            logger.info("Generating game preview...")
-            analysis = send_preview_to_claude(game_data, game_id)
-            analysis_type = "preview"
-
-        if analysis:
-            # Store analysis with metadata
-            analyses[game_id] = {
-                "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
-                "game_date": game['game_date'],
-                "home_team": game['home_team'],
-                "away_team": game['away_team'],
-                "home_score": int(game['home_score']) if is_completed else None,
-                "away_score": int(game['away_score']) if is_completed else None,
-                "stadium": game.get('stadium', ''),
-                "home_coach": game.get('home_coach', ''),
-                "away_coach": game.get('away_coach', ''),
-                "analysis_type": analysis_type,
-                "analysis": analysis
-            }
-
-            # Add ESPN context if available
-            if espn_context:
-                if espn_context.get('betting'):
-                    analyses[game_id]['betting'] = espn_context['betting']
-                if espn_context.get('weather'):
-                    analyses[game_id]['weather'] = espn_context['weather']
-
-            # Add predictor data
-            if predictor_data:
-                analyses[game_id]['predictor'] = predictor_data
-
-            # Add leaders data
-            if leaders_data:
-                analyses[game_id]['leaders'] = leaders_data
-
-            # Add broadcast info
-            if broadcast_info:
-                analyses[game_id]['broadcast'] = broadcast_info
-            
-            # Save after each successful analysis
-            with open(output_file, 'w', encoding='utf-8') as f:
-                json.dump(analyses, f, indent=2, ensure_ascii=False)
-            logger.info(f"  - {analysis_type.title()} saved for game {game_id}")
-            
-        else:
-            logger.info(f"  - Failed to generate {analysis_type} for game {game_id}")
-        
-        # Add a small delay between requests
-        time.sleep(1)
-    
+    logger.info(f"Batch analysis complete. Processed {total_games} game(s)")
     return analyses
 
 def main():
