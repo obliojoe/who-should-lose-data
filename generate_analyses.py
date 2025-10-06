@@ -553,8 +553,19 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
         if not analysis:
             logger.error(f"Failed to generate {analysis_type} for {matchup_str} - AI returned empty response")
             return (game_id, None, matchup_str)
+
+        # Check if the analysis is actually an error message (not JSON)
+        if isinstance(analysis, str) and analysis.startswith("RATE_LIMIT_ERROR"):
+            logger.error(f"Rate limit hit while processing {matchup_str}")
+            # Return special tuple to signal rate limit
+            return (game_id, None, matchup_str, "RATE_LIMIT")
+
     except Exception as e:
-        logger.error(f"Error generating {analysis_type if 'analysis_type' in locals() else 'analysis'} for {matchup_str}: {str(e)}")
+        error_msg = str(e)
+        if 'rate' in error_msg.lower() or '429' in error_msg:
+            logger.error(f"Rate limit error for {matchup_str}: {error_msg}")
+            return (game_id, None, matchup_str, "RATE_LIMIT")
+        logger.error(f"Error generating {analysis_type if 'analysis_type' in locals() else 'analysis'} for {matchup_str}: {error_msg}")
         return (game_id, None, matchup_str)
 
     # Build analysis dict with metadata
@@ -694,7 +705,19 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
         with tqdm(total=total_games, desc="Generating game analyses", unit="game") as pbar:
             for future in as_completed(future_to_game):
                 try:
-                    game_id, analysis_dict, matchup_str = future.result()
+                    result = future.result()
+
+                    # Check if rate limit was hit
+                    if len(result) == 4 and result[3] == "RATE_LIMIT":
+                        logger.error("\n🚨 RATE LIMIT DETECTED - Cancelling all remaining tasks...")
+                        # Cancel all pending futures
+                        for f in future_to_game:
+                            f.cancel()
+                        executor.shutdown(wait=False, cancel_futures=True)
+                        logger.error("All tasks cancelled. Exiting...")
+                        os._exit(1)
+
+                    game_id, analysis_dict, matchup_str = result[0], result[1], result[2]
 
                     # Update progress bar with current game
                     pbar.set_postfix_str(matchup_str)

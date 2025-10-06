@@ -212,25 +212,40 @@ class AIService:
                         return "Error: Invalid JSON response from AI", "error"
 
             except Exception as e:
-                # Handle API errors with retry
+                # Handle API errors
                 error_msg = str(e)
                 error_type = type(e).__name__
 
-                # Log first retry attempt immediately at WARNING level
+                # Check if it's a rate limit error
+                is_rate_limit = 'rate' in error_msg.lower() or '429' in error_msg or 'rate_limit_error' in error_msg.lower()
+
+                if is_rate_limit:
+                    # Rate limit errors should NOT retry - exit immediately
+                    logger.error(f"\n{'='*80}")
+                    logger.error(f"🚨 RATE LIMIT ERROR - Stopping all requests immediately!")
+                    logger.error(f"{'='*80}")
+                    logger.error(f"Error: {error_msg}")
+                    logger.error(f"{'='*80}")
+                    logger.error(f"Recommendation: Reduce GAME_ANALYSIS_WORKERS or AI_ANALYSIS_WORKERS")
+                    logger.error(f"Current limit: 400,000 input tokens per minute")
+                    logger.error(f"{'='*80}\n")
+                    # Return error immediately without retry
+                    return f"RATE_LIMIT_ERROR: {error_msg}", "rate_limit"
+
+                # For non-rate-limit errors, log and potentially retry
                 if attempt == 0:
-                    if 'rate' in error_msg.lower() or '429' in error_msg:
-                        logger.warning(f"⚠️  RATE LIMIT hit: {error_msg}")
-                    elif 'overloaded' in error_msg.lower() or '529' in error_msg:
+                    if 'overloaded' in error_msg.lower() or '529' in error_msg:
                         logger.warning(f"⚠️  API OVERLOADED: {error_msg}")
                     else:
                         logger.warning(f"⚠️  API ERROR ({error_type}): {error_msg}")
 
-                if 'overloaded' in error_msg.lower() or 'rate' in error_msg.lower():
+                if 'overloaded' in error_msg.lower():
                     if attempt < max_retries - 1:
-                        wait_time = retry_delay * (2 ** attempt)  # Exponential backoff
+                        wait_time = retry_delay * (2 ** attempt)
                         logger.debug(f"Retrying in {wait_time}s... (attempt {attempt + 2}/{max_retries})")
                         time.sleep(wait_time)
                         continue
+
                 logger.error(f"Error generating AI analysis after {attempt + 1} attempts: {error_msg}")
                 return f"Error during analysis: {error_msg}", "error"
 
