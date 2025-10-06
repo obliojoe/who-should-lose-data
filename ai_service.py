@@ -5,10 +5,15 @@ import logging
 import json
 import time
 from dotenv import load_dotenv
+from token_rate_limiter import TokenRateLimiter
 
 # Load environment variables at the start
 load_dotenv()
 model_provider = 'claude'
+
+# Global rate limiter instance (shared across all AIService instances)
+# Anthropic rate limit: 400,000 input tokens per minute
+rate_limiter = TokenRateLimiter(tokens_per_minute=400000, safety_margin=0.9)
 
 open_ai_model_4o = "gpt-4o"
 open_ai_model_4o_mini = "gpt-4o-mini"
@@ -66,7 +71,11 @@ class AIService:
         if model_provider == 'claude':
             api_key = os.getenv('CLAUDE_API_KEY')
             if api_key:
-                self.client = Anthropic(api_key=api_key)
+                # Disable retries in the Anthropic client - fail immediately
+                self.client = Anthropic(
+                    api_key=api_key,
+                    max_retries=0  # NO RETRIES
+                )
                 self.model = anthropic_model
                 logger.info("Successfully initialized Claude model: " + anthropic_model)
         elif model_provider == 'gpt':
@@ -140,6 +149,12 @@ class AIService:
                 # Add explicit JSON mode instruction to system message
                 json_system_message = system_message + "\n\nIMPORTANT: You MUST respond with ONLY valid JSON. Do not include any text before or after the JSON object. Start your response with { and end with }."
 
+                # Estimate token count (rough estimate: 1 token ≈ 4 characters)
+                estimated_input_tokens = (len(prompt) + len(json_system_message)) // 4
+
+                # Wait if needed to avoid rate limits
+                rate_limiter.wait_if_needed(estimated_input_tokens)
+
                 response = self.client.messages.create(
                     model=self.model,
                     max_tokens=8192,
@@ -147,6 +162,12 @@ class AIService:
                     system=json_system_message,
                     messages=[{"role": "user", "content": prompt}]
                 )
+
+                # Record actual token usage from the response
+                if hasattr(response, 'usage'):
+                    actual_tokens = response.usage.input_tokens
+                    rate_limiter.record_usage(actual_tokens)
+                    logger.debug(f"API call used {actual_tokens:,} input tokens (estimated: {estimated_input_tokens:,})")
 
                 # Check if response was truncated
                 if hasattr(response, 'stop_reason') and response.stop_reason == 'max_tokens':
@@ -238,6 +259,12 @@ class AIService:
         for attempt in range(max_retries):
             try:
                 if self.model_provider == 'claude':
+                    # Estimate token count (rough estimate: 1 token ≈ 4 characters)
+                    estimated_input_tokens = (len(prompt) + len(system_message)) // 4
+
+                    # Wait if needed to avoid rate limits
+                    rate_limiter.wait_if_needed(estimated_input_tokens)
+
                     response = self.client.messages.create(
                         model=self.model,
                         max_tokens=8192,
@@ -245,6 +272,12 @@ class AIService:
                         system=system_message,
                         messages=[{"role": "user", "content": prompt}]
                     )
+
+                    # Record actual token usage from the response
+                    if hasattr(response, 'usage'):
+                        actual_tokens = response.usage.input_tokens
+                        rate_limiter.record_usage(actual_tokens)
+                        logger.debug(f"API call used {actual_tokens:,} input tokens (estimated: {estimated_input_tokens:,})")
 
                     # Check if response was truncated
                     if hasattr(response, 'stop_reason') and response.stop_reason == 'max_tokens':
