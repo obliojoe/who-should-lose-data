@@ -1115,7 +1115,7 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
 
     return total_impact, debug_stats
 
-def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_ai=None, seed=None):
+def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_team_ai=None, seed=None):
     """Generate the analysis cache file"""
     is_ci = os.environ.get('CI') == 'true'  # Check for CI environment
     output_path = Path(output_path)
@@ -1128,17 +1128,17 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
 
     logger.info(f"Starting cache generation with {num_simulations} simulations")
     logger.info(f"Simulations are {'skipped' if skip_sims else 'enabled'}")
-    logger.info(f"AI analysis is {'skipped' if skip_ai else 'enabled'}")
+    logger.info(f"Team AI analysis is {'skipped' if skip_team_ai else 'enabled'}")
 
     # Initialize AI service if needed
     ai_service = None
-    if not skip_ai:
+    if not skip_team_ai:
         ai_service = AIService()
         ai_service.test_mode = test_mode
         success, message = ai_service.test_connection()
         if not success:
             logger.warning(f"AI service connection failed: {message}")
-            logger.warning("Continuing without AI analysis")
+            logger.warning("Continuing without team AI analysis")
             ai_service = None
 
     # Load required data
@@ -1424,15 +1424,20 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
     # PHASE 3: Generate AI analysis
     # Determine which teams need AI analysis
     teams_to_analyze = None
-    if regenerate_ai:
-        # Parse comma-separated list of teams
-        teams_to_analyze = [t.strip().upper() for t in regenerate_ai.split(',')]
-        logger.info(f"Regenerating AI analysis for specific teams: {', '.join(teams_to_analyze)}")
-        # Validate team codes
-        invalid_teams = [t for t in teams_to_analyze if t not in teams]
-        if invalid_teams:
-            logger.error(f"Invalid team codes: {', '.join(invalid_teams)}")
-            sys.exit(1)
+    if regenerate_team_ai:
+        if regenerate_team_ai.lower() == 'all':
+            # Regenerate all teams
+            teams_to_analyze = list(teams.keys())
+            logger.info(f"Regenerating AI analysis for all teams")
+        else:
+            # Parse comma-separated list of teams
+            teams_to_analyze = [t.strip().upper() for t in regenerate_team_ai.split(',')]
+            logger.info(f"Regenerating AI analysis for specific teams: {', '.join(teams_to_analyze)}")
+            # Validate team codes
+            invalid_teams = [t for t in teams_to_analyze if t not in teams]
+            if invalid_teams:
+                logger.error(f"Invalid team codes: {', '.join(invalid_teams)}")
+                sys.exit(1)
 
     # First, preserve all existing AI analysis
     for team_abbr in teams.keys():
@@ -1442,7 +1447,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
             if 'ai_status' in existing_cache['team_analyses'][team_abbr]:
                 cache_data['team_analyses'][team_abbr]['ai_status'] = existing_cache['team_analyses'][team_abbr]['ai_status']
 
-    if (not skip_ai or teams_to_analyze) and ai_service and ai_service.client:
+    if (not skip_team_ai or teams_to_analyze) and ai_service and ai_service.client:
         if teams_to_analyze:
             logger.info(f"Regenerating AI analysis for {len(teams_to_analyze)} team(s)...")
         else:
@@ -1512,8 +1517,8 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
                     finally:
                         pbar.set_postfix(team=team_abbr)
                         pbar.update(1)
-    elif skip_ai and not teams_to_analyze:
-        logger.info("Skipping AI analysis generation (already preserved existing analysis above)")
+    elif skip_team_ai and not teams_to_analyze:
+        logger.info("Skipping team AI analysis generation (already preserved existing analysis above)")
 
 
     # Save cache file
@@ -1610,33 +1615,69 @@ def main():
     original_dir = os.getcwd()
 
     parser = argparse.ArgumentParser(description='Generate NFL analysis cache file')
+
+    # Data Generation Options
+    parser.add_argument('--skip-data', action='store_true',
+                      help='Skip ALL data file generation (schedule, stats, standings, etc.)')
+    parser.add_argument('--data-only', action='store_true',
+                      help='Generate data files only, then exit (skip simulations and AI)')
+
+    # Simulation Options
     parser.add_argument('--simulations', type=int, default=1000,
                       help='Number of simulations to run (default: 1000)')
-    parser.add_argument('--seed', type=int, default=None,
-                      help='Random seed for reproducible results (simulations and AI)')
     parser.add_argument('--skip-sims', action='store_true',
                       help='Skip running new simulations (use existing simulation data)')
+    parser.add_argument('--seed', type=int, default=None,
+                      help='Random seed for reproducible results')
+
+    # AI Analysis Options
+    parser.add_argument('--skip-team-ai', action='store_true',
+                      help='Skip team AI analysis generation')
+    parser.add_argument('--skip-game-ai', action='store_true',
+                      help='Skip game AI analysis generation')
+    parser.add_argument('--regenerate-team-ai', type=str,
+                      help='Regenerate team AI for specific teams (comma-separated abbrs, e.g., "DET,MIN") or "all"')
+    parser.add_argument('--regenerate-game-ai', type=str,
+                      help='Regenerate game AI by ESPN IDs (e.g., "401772856,401772855"), or "analysis", "preview", or "all"')
+
+    # Deprecated Options (kept for backward compatibility)
     parser.add_argument('--skip-ai', action='store_true',
-                      help='Skip generating new AI analysis (preserve existing AI analysis)')
+                      help='DEPRECATED: Use --skip-team-ai and --skip-game-ai instead')
     parser.add_argument('--regenerate-ai', type=str,
-                      help='Regenerate AI analysis for specific teams (comma-separated, e.g., "DET,MIN,ARI")')
+                      help='DEPRECATED: Use --regenerate-team-ai instead')
+    parser.add_argument('--no-copy-data', action='store_true',
+                      help='DEPRECATED: No longer used')
+
+    # Deployment Options
     parser.add_argument('--commit', action='store_true',
                       help='Commit changes to git if successful')
-    parser.add_argument('--no-copy-data', action='store_true',
-                      help='Copy data to site directory'),
-    parser.add_argument('--skip-data', action='store_true',
-                      help='Skip generating data files')
     parser.add_argument('--deploy-render', action='store_true',
                       help='Deploy data to Render web host via SSH')
     parser.add_argument('--deploy-netlify', action='store_true',
                       help='Deploy data files to who-should-lose-2 repo for Netlify deployment')
     parser.add_argument('--test-mode', action='store_true',
-                      help='Run in test mode')
+                      help='Run in test mode (disable AI calls)')
 
     args = parser.parse_args()
-    logger.info(f"args: {args}")    
+    logger.info(f"args: {args}")
 
-    copy_data = not args.no_copy_data
+    # Handle deprecated options with warnings
+    if args.skip_ai:
+        logger.warning("WARNING: --skip-ai is deprecated. Use --skip-team-ai and --skip-game-ai instead.")
+        if not args.skip_team_ai:
+            args.skip_team_ai = True
+        if not args.skip_game_ai:
+            args.skip_game_ai = True
+
+    if args.regenerate_ai:
+        logger.warning("WARNING: --regenerate-ai is deprecated. Use --regenerate-team-ai instead.")
+        if not args.regenerate_team_ai:
+            args.regenerate_team_ai = args.regenerate_ai
+
+    if args.no_copy_data:
+        logger.warning("WARNING: --no-copy-data is deprecated and no longer used.")
+
+    copy_data = True  # Always copy data (no longer configurable)
     
     if not args.skip_data:
         logger.info("Generating data files")
@@ -1678,24 +1719,52 @@ def main():
         except Exception as e:
             logger.error(f"Error generating standings cache: {e}... continuing")
 
-        # run game analyses generation
-        logger.info("=> Generating game_analyses.json")
-        try:
-            with contextlib.redirect_stdout(None):
-                batch_analyze_games(force_reanalyze=False)
-        except Exception as e:
-            logger.error(f"Error generating game analyses: {e}... continuing")
+        # run game analyses generation (unless --skip-game-ai or --data-only)
+        if not args.skip_game_ai and not args.data_only:
+            logger.info("=> Generating game_analyses.json")
+            try:
+                # Determine regeneration parameters
+                game_ids = None
+                regenerate_type = None
+                force_reanalyze = False
+
+                if args.regenerate_game_ai:
+                    if args.regenerate_game_ai.lower() in ['analysis', 'preview', 'all']:
+                        regenerate_type = args.regenerate_game_ai.lower()
+                        force_reanalyze = True
+                    else:
+                        # Treat as comma-separated ESPN IDs
+                        game_ids = [gid.strip() for gid in args.regenerate_game_ai.split(',')]
+                        force_reanalyze = True
+
+                with contextlib.redirect_stdout(None):
+                    batch_analyze_games(
+                        force_reanalyze=force_reanalyze,
+                        game_ids=game_ids,
+                        regenerate_type=regenerate_type
+                    )
+            except Exception as e:
+                logger.error(f"Error generating game analyses: {e}... continuing")
+        elif args.skip_game_ai:
+            logger.info("Skipping game AI analysis generation (--skip-game-ai)")
+        elif args.data_only:
+            logger.info("Skipping game AI analysis generation (--data-only)")
 
     else:
         logger.info("Skipping data files generation")
 
+    # Exit early if --data-only
+    if args.data_only:
+        logger.info("Data generation complete (--data-only mode). Exiting.")
+        return
+
     success = generate_cache(
         num_simulations=args.simulations,
         skip_sims=args.skip_sims,
-        skip_ai=args.skip_ai,
+        skip_team_ai=args.skip_team_ai,
         copy_data=copy_data,
         test_mode=args.test_mode,
-        regenerate_ai=args.regenerate_ai,
+        regenerate_team_ai=args.regenerate_team_ai,
         seed=args.seed
     )
 

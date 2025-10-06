@@ -456,9 +456,15 @@ def load_team_season_stats(away_team_abbr, home_team_abbr):
         logger.error(f"Error loading team stats: {e}")
         return {}
 
-def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=False):
+def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=False, game_ids=None, regenerate_type=None):
     """
     Analyze completed games and preview upcoming games, saving to a JSON file.
+
+    Args:
+        output_file: Path to save analysis JSON
+        force_reanalyze: Force regeneration (overrides existing analysis)
+        game_ids: List of ESPN game IDs to regenerate (if specified, only these games are processed)
+        regenerate_type: "analysis", "preview", or "all" to filter by analysis type
     """
     logger.info("Starting batch_analyze_games function")
     analyses = {}
@@ -479,14 +485,26 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     for game in games:
         game_id = str(game['espn_id'])
         game_date = datetime.strptime(game['game_date'], '%Y-%m-%d')
-        
+
         logger.info(f" processing - {game['game_date']} {game['away_team']} @ {game['home_team']} :: {game_id}")
-        
+
         # Determine if game is completed or upcoming
         is_completed = not (pd.isna(game['home_score']) or pd.isna(game['away_score']) or \
                           str(game['home_score']).strip() == '' or str(game['away_score']).strip() == '')
-        
+
         is_upcoming = not is_completed and game_date >= current_date and game_date <= week_from_now
+
+        # Filter by game IDs if specified
+        if game_ids is not None and game_id not in game_ids:
+            continue
+
+        # Filter by regenerate type if specified
+        if regenerate_type is not None:
+            if regenerate_type == 'analysis' and not is_completed:
+                continue
+            elif regenerate_type == 'preview' and not is_upcoming:
+                continue
+            # 'all' means process everything (no filter)
 
         # Check if we need to regenerate:
         # 1. If force_reanalyze is True
