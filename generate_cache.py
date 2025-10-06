@@ -17,6 +17,7 @@ from pathlib import Path
 import random
 import numpy as np
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from anthropic import Anthropic
 from dotenv import load_dotenv
 import requests
@@ -25,21 +26,15 @@ import pandas as pd
 from ai_service import AIService
 from prompt_builder import build_team_analysis_prompt
 from espn_api import ESPNAPIService
-from simulate_season import (
-    simulate_season,
-    load_teams,
-    load_schedule,
-    load_ratings
-)
+from simulate_season import simulate_season
 from playoff_analysis import get_relevant_games
 from team_starters import save_team_starters
 from tiebreakers import (
     apply_tiebreakers, 
     calculate_win_pct
 )
-from playoff_utils import format_percentage, load_teams, load_schedule, load_ratings, get_data_dir, generate_sagarin_hash
+from playoff_utils import format_percentage, load_teams, load_schedule, get_data_dir, generate_sagarin_hash
 from team_stats import save_team_stats
-from multiprocessing import Pool, cpu_count
 from scrape_sagarin import scrape_sagarin
 import shutil
 from update_scores import update_scores_and_dates
@@ -391,36 +386,56 @@ def get_division_standings(standings_data):
                 })
     return division_standings
 
-def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cache_data):
-    """Generate the AI analysis prompt for a team using the same format as cache generation"""
 
-    schedule = load_schedule()
-
-    # Get the data directory path
+def build_prompt_context(schedule=None):
+    """Load heavy prompt inputs once so they can be reused across teams."""
     data_dir = get_data_dir()
 
-    # filter the starters for the team in question, include the csv header row
+    # Load shared CSV data once
     team_starters = pd.read_csv(os.path.join(data_dir, 'team_starters.csv'))
-    schedule_pd = pd.read_csv(os.path.join(data_dir, 'schedule.csv'))
-    teamstats_pd = pd.read_csv(os.path.join(data_dir, 'team_stats.csv'))
+    schedule_df = pd.read_csv(os.path.join(data_dir, 'schedule.csv'))
+    team_stats_df = pd.read_csv(os.path.join(data_dir, 'team_stats.csv'))
+    teams_df = pd.read_csv(os.path.join(data_dir, 'teams.csv'))
 
-    # Calculate league rankings for all teams
     from prompt_builder import calculate_league_rankings
-    league_rankings = calculate_league_rankings(teamstats_pd)
 
-    # Load coordinators data (optional - script continues if file doesn't exist)
-    coordinators_pd = None
+    context = {
+        'data_dir': data_dir,
+        'team_starters': team_starters,
+        'schedule_df': schedule_df,
+        'team_stats_df': team_stats_df,
+        'league_rankings': calculate_league_rankings(team_stats_df.copy()),
+        'team_notes_df': pd.read_csv(os.path.join(data_dir, 'team_notes.csv')),
+        'schedule_csv': Path(data_dir, 'schedule.csv').read_text(),
+        'teams_df': teams_df,
+        'schedule_list': schedule if schedule is not None else load_schedule(),
+    }
+
     coordinators_path = os.path.join(data_dir, 'coordinators.csv')
     if os.path.exists(coordinators_path):
-        coordinators_pd = pd.read_csv(coordinators_path)
+        context['coordinators_df'] = pd.read_csv(coordinators_path)
     else:
         logger.warning(f"Coordinators file not found at {coordinators_path} - coordinator info will be omitted")
-    team_notes_pd = pd.read_csv(os.path.join(data_dir, 'team_notes.csv'))
+        context['coordinators_df'] = None
 
-    # Load and encode schedule data
-    schedule_data = ''
-    with open(os.path.join(data_dir, 'schedule.csv'), 'r') as f:
-        schedule_data = f.read()
+    return context
+
+
+def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cache_data, standings_data, prompt_context=None):
+    """Generate the AI analysis prompt for a team using the same format as cache generation"""
+
+    prompt_context = prompt_context or build_prompt_context()
+
+    data_dir = prompt_context['data_dir']
+    schedule = prompt_context['schedule_list']
+    schedule_pd = prompt_context['schedule_df']
+    teamstats_pd = prompt_context['team_stats_df']
+    league_rankings = prompt_context['league_rankings']
+    team_notes_pd = prompt_context['team_notes_df']
+    team_starters = prompt_context['team_starters'].copy()
+    schedule_data = prompt_context['schedule_csv']
+    coordinators_pd = prompt_context.get('coordinators_df')
+    teams_df = prompt_context['teams_df']
 
     def get_team_notes(team_abbrs):
         """Get team notes from team_notes.csv"""
@@ -473,8 +488,6 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
                 return f"{qb_name} ({status_text})"
         logger.warning(f"No starting QB found for {team_abbr}!")
         return None
-
-    standings_data = calculate_standings(teams, schedule)
 
     # get head coach and stadium from most recent game in schedule data (the last game where team_abbr is either home or away team and has scores)
     head_coach, stadium = get_team_info_from_schedule(team_abbr)
@@ -651,9 +664,7 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
     def get_team_news(team_abbr_filter):
         """Get recent ESPN headlines for a team (only team-specific, not generic NFL news)"""
         try:
-            # Load teams data with ESPN IDs
-            teams_with_ids = pd.read_csv(os.path.join(data_dir, 'teams.csv'))
-            team_row = teams_with_ids[teams_with_ids['team_abbr'] == team_abbr_filter]
+            team_row = teams_df[teams_df['team_abbr'] == team_abbr_filter]
 
             if team_row.empty or 'espn_api_id' not in team_row.columns:
                 return []
@@ -915,10 +926,12 @@ def get_team_record(standings_data, team_abbr):
     print(f"Team record not found for {team_abbr}")
     return None
 
-def analyze_batch_game_impacts(batch_results, game_impacts):
+def analyze_batch_game_impacts(batch_results, game_impacts, teams):
     """
     Analyze a batch of simulation results to update game impacts.
     """
+    team_items = list(teams.items())
+
     # For each simulation in the batch
     for result in batch_results:
         # Get the playoff teams for quick lookup
@@ -967,10 +980,9 @@ def analyze_batch_game_impacts(batch_results, game_impacts):
                 })
             
             # Update counts for each team
-            teams = load_teams()
-            for team in teams:
+            for team, team_info in team_items:
                 impact = game_impacts[game_id][team]
-                conf = teams[team]['conference']
+                conf = team_info['conference']
                 
                 if home_win:
                     impact['home_wins_count'] += 1
@@ -1126,9 +1138,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
     # Load required data
     teams = load_teams()
     schedule = load_schedule()
-    ratings = load_ratings()
     home_field_advantage = float(scrape_sagarin())
-    standings_data = calculate_standings(teams, schedule)
     sagarin_hash = generate_sagarin_hash()
 
     # Initialize cache structure with empty team analyses
@@ -1265,41 +1275,37 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
         BATCH_SIZE = 1000
         for batch_start in tqdm(range(0, num_simulations, BATCH_SIZE)):
             batch_size = min(BATCH_SIZE, num_simulations - batch_start)
-            batch_results = []
-            
-            # Run one batch of simulations
-            for _ in range(batch_size):
-                result = simulate_season(num_simulations=1, home_field_advantage=home_field_advantage)[0]
-                
+
+            # Run one batch of simulations at a time to reuse loaded data inside simulate_season
+            batch_results = simulate_season(
+                num_simulations=batch_size,
+                home_field_advantage=home_field_advantage
+            )
+
+            for result in batch_results:
                 # Update counters immediately
                 for team in result.get('division_winners', []):
                     playoff_appearances[team] += 1
                     division_wins[team] += 1
-                
+
                 for conf, teams_list in result.get('wild_cards', {}).items():
                     for team in teams_list:
                         playoff_appearances[team] += 1
-                        
+
                 # Add top seed tracking - FIX: Track for each conference separately
                 for conf, order in result.get('playoff_order', {}).items():
                     if order and len(order) > 0:  # Make sure we have a valid order
                         top_seed = order[0]  # First team is top seed
                         top_seed_wins[top_seed] += 1  # Count this as a top seed appearance
-                
+
                 if 'super_bowl' in result:
                     for team in result['super_bowl'].get('teams', []):
                         super_bowl_appearances[team] += 1
                     if 'winner' in result['super_bowl']:
                         super_bowl_wins[result['super_bowl']['winner']] += 1
-                        
-                # Only store the result temporarily for game impact analysis
-                batch_results.append(result)
-            
+
             # Process game impacts for this batch
-            analyze_batch_game_impacts(batch_results, game_impacts)
-            
-            # Clear batch results from memory
-            batch_results.clear()
+            analyze_batch_game_impacts(batch_results, game_impacts, teams)
 
         # After processing all batches, update the cache data with playoff odds
         cache_data['playoff_odds'] = {
@@ -1434,19 +1440,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
         else:
             logger.info("Generating AI analysis for all teams...")
 
-        # Load schedule once before the loop
-        schedule = load_schedule()
-        standings_data = calculate_standings(teams, schedule)
-
-        # Generate division standings once before the loop
-        division_standings = get_division_standings(standings_data)
-
-        # Format division standings string
-        standings_text = ""
-        for division, teams_list in division_standings.items():
-            standings_text += f"\n{division}\n"
-            for team in sorted(teams_list, key=lambda x: x['win_pct'], reverse=True):
-                standings_text += f"{team['team']}: {team['record']}\n"
+        prompt_context = build_prompt_context(schedule)
 
         # Determine which teams to process
         if teams_to_analyze:
@@ -1455,10 +1449,9 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
             teams_to_process = teams
 
         # Generate AI analysis for each team
-        current_team = {'team': ''}
         total_teams = len(teams_to_process)
         is_ci = os.environ.get('CI') == 'true'
-        
+
         # Log CI status
         logger.info(f"CI environment detected: {is_ci}")
         logger.info(f"CI env var value: '{os.environ.get('CI', 'not set')}'")
@@ -1469,48 +1462,48 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
         
         logger.info(f"Progress update settings: mininterval={mininterval}s, miniters={miniters}")
         
-        with tqdm(teams_to_process.items(),
-                 desc="Generating AI analysis",
-                 total=total_teams,
-                 postfix=current_team,
-                 mininterval=mininterval,
-                 miniters=miniters) as pbar:
-            for team_abbr, team_info in pbar:
-                current_team['team'] = team_abbr
-                pbar.set_postfix(team=team_abbr)
-                try:
-                    # Get team record from standings
-                    team_record = get_team_record(standings_data, team_abbr)
+        def run_team_analysis(team_abbr, team_info):
+            team_record = get_team_record(standings_data, team_abbr)
+            prompt = generate_team_analysis_prompt(
+                team_abbr,
+                team_info,
+                team_record,
+                teams,
+                cache_data,
+                standings_data,
+                prompt_context=prompt_context
+            )
+            return ai_service.generate_analysis(prompt)
 
-                    # Generate AI analysis
-                    team_data = cache_data['team_analyses'][team_abbr]
-                    playoff_chance = round(team_data['playoff_chance'], 1)
-                    division_chance = round(team_data['division_chance'], 1)
-                    significant_games = team_data['significant_games'][:3]
-                    
-                    # Format record string
-                    record_str = f"{team_record['wins']}-{team_record['losses']}"
-                    if team_record.get('ties', 0) > 0:
-                        record_str += f"-{team_record['ties']}"
+        max_workers = int(os.environ.get('AI_ANALYSIS_WORKERS', '3'))
+        if max_workers < 1:
+            max_workers = 1
+        max_workers = min(max_workers, total_teams) if total_teams else 1
+        logger.info(f"AI analysis concurrency: up to {max_workers} worker(s)")
 
-                    prompt = generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cache_data)              
-                    
-                    ai_analysis, status = ai_service.generate_analysis(
-                        prompt
-                    )
-                    
-                    cache_data['team_analyses'][team_abbr]['ai_analysis'] = ai_analysis
-                    cache_data['team_analyses'][team_abbr]['ai_status'] = status
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_team = {
+                executor.submit(run_team_analysis, team_abbr, team_info): team_abbr
+                for team_abbr, team_info in teams_to_process.items()
+            }
 
-                    if False: # and team_abbr in ['ARI', 'DEN', 'DET']:
-                        logger.info(f"AI analysis for {team_abbr}:\n{ai_analysis}\n")
-                        logger.info(f"- " * 100)
-                        
-                except Exception as e:
-                    # Log error, set fields, but continue...
-                    logger.error(f"AI analysis failed for {team_abbr}: {e}")
-                    cache_data['team_analyses'][team_abbr]['ai_analysis'] = None
-                    cache_data['team_analyses'][team_abbr]['ai_status'] = 'error'
+            with tqdm(total=total_teams,
+                      desc="Generating AI analysis",
+                      mininterval=mininterval,
+                      miniters=miniters) as pbar:
+                for future in as_completed(future_to_team):
+                    team_abbr = future_to_team[future]
+                    try:
+                        ai_analysis, status = future.result()
+                        cache_data['team_analyses'][team_abbr]['ai_analysis'] = ai_analysis
+                        cache_data['team_analyses'][team_abbr]['ai_status'] = status
+                    except Exception as e:
+                        logger.error(f"AI analysis failed for {team_abbr}: {e}")
+                        cache_data['team_analyses'][team_abbr]['ai_analysis'] = None
+                        cache_data['team_analyses'][team_abbr]['ai_status'] = 'error'
+                    finally:
+                        pbar.set_postfix(team=team_abbr)
+                        pbar.update(1)
     elif skip_ai and not teams_to_analyze:
         logger.info("Skipping AI analysis generation (already preserved existing analysis above)")
 
