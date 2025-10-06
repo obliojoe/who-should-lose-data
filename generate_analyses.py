@@ -8,6 +8,8 @@ import pandas as pd
 from anthropic import Anthropic
 from dotenv import load_dotenv
 import logging
+import signal
+import sys
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -657,7 +659,8 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     max_workers = min(max_workers, total_games)
     logger.info(f"Processing {total_games} game(s) with up to {max_workers} worker(s)")
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+    executor = ThreadPoolExecutor(max_workers=max_workers)
+    try:
         # Submit all game analysis tasks
         future_to_game = {
             executor.submit(_process_single_game, game, analyses, force_reanalyze, current_date, week_from_now): game
@@ -681,7 +684,20 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
                 finally:
                     pbar.update(1)
 
-    logger.info(f"Batch analysis complete. Processed {total_games} game(s)")
+        logger.info(f"Batch analysis complete. Processed {total_games} game(s)")
+    except KeyboardInterrupt:
+        logger.warning("\n\nKeyboardInterrupt received! Cancelling remaining tasks...")
+        # Cancel all pending futures
+        for future in future_to_game:
+            future.cancel()
+        # Shutdown executor immediately without waiting for running tasks
+        executor.shutdown(wait=False, cancel_futures=True)
+        logger.info("Shutdown complete. Exiting...")
+        sys.exit(1)
+    finally:
+        # Ensure executor is always cleaned up
+        executor.shutdown(wait=True)
+
     return analyses
 
 def main():

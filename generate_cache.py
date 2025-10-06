@@ -1494,7 +1494,8 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         max_workers = min(max_workers, total_teams) if total_teams else 1
         logger.info(f"AI analysis concurrency: up to {max_workers} worker(s)")
 
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        executor = ThreadPoolExecutor(max_workers=max_workers)
+        try:
             future_to_team = {
                 executor.submit(run_team_analysis, team_abbr, team_info): team_abbr
                 for team_abbr, team_info in teams_to_process.items()
@@ -1517,6 +1518,18 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                     finally:
                         pbar.set_postfix(team=team_abbr)
                         pbar.update(1)
+        except KeyboardInterrupt:
+            logger.warning("\n\nKeyboardInterrupt received! Cancelling remaining tasks...")
+            # Cancel all pending futures
+            for future in future_to_team:
+                future.cancel()
+            # Shutdown executor immediately without waiting for running tasks
+            executor.shutdown(wait=False, cancel_futures=True)
+            logger.info("Shutdown complete. Exiting...")
+            sys.exit(1)
+        finally:
+            # Ensure executor is always cleaned up
+            executor.shutdown(wait=True)
     elif skip_team_ai and not teams_to_analyze:
         logger.info("Skipping team AI analysis generation (already preserved existing analysis above)")
 
