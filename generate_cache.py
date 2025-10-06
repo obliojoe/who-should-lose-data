@@ -1794,7 +1794,7 @@ def main():
 
             # Push changes (use default git authentication)
             logger.info("pushing changes")
-            subprocess.run(['git', 'push', '-u', 'origin', 'master'], check=True)
+            subprocess.run(['git', 'push', '-u', 'origin', 'main'], check=True)
             logger.info("Successfully committed and pushed changes")
 
         except Exception as e:
