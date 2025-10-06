@@ -651,7 +651,18 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
         max_workers = 1
     total_games = len(games_to_process)
     max_workers = min(max_workers, total_games)
+
+    # Show AI provider/model info once before starting
+    from ai_service import AIService
+    ai_test = AIService()
+    provider_info = f"Using AI provider: {ai_test.provider}, model: {ai_test.model_name}"
+    logger.info(provider_info)
     logger.info(f"Processing {total_games} game(s) with up to {max_workers} worker(s)")
+
+    # Temporarily increase log level to suppress AI service initialization logs
+    ai_logger = logging.getLogger('ai_service')
+    original_level = ai_logger.level
+    ai_logger.setLevel(logging.WARNING)
 
     executor = ThreadPoolExecutor(max_workers=max_workers)
     try:
@@ -694,6 +705,8 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
         logger.info("Shutdown complete. Exiting...")
         sys.exit(1)
     finally:
+        # Restore original log level
+        ai_logger.setLevel(original_level)
         # Ensure executor is always cleaned up
         executor.shutdown(wait=True)
 
