@@ -538,6 +538,10 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
             game_data['team_season_stats'] = team_season_stats
 
     # Generate analysis or preview with ESPN context
+    # Get AI service info for metadata
+    from ai_service import AIService
+    ai_service = AIService()
+
     if is_completed:
         analysis = send_to_claude(game_data, game_id)
         analysis_type = "post_game"
@@ -561,7 +565,9 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
         "home_coach": game.get('home_coach', ''),
         "away_coach": game.get('away_coach', ''),
         "analysis_type": analysis_type,
-        "analysis": analysis
+        "analysis": analysis,
+        "ai_provider": ai_service.model_provider,
+        "ai_model": ai_service.model
     }
 
     # Add ESPN context if available

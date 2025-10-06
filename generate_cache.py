@@ -1446,6 +1446,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                 cache_data['team_analyses'][team_abbr]['ai_analysis'] = existing_cache['team_analyses'][team_abbr]['ai_analysis']
             if 'ai_status' in existing_cache['team_analyses'][team_abbr]:
                 cache_data['team_analyses'][team_abbr]['ai_status'] = existing_cache['team_analyses'][team_abbr]['ai_status']
+            if 'ai_provider' in existing_cache['team_analyses'][team_abbr]:
+                cache_data['team_analyses'][team_abbr]['ai_provider'] = existing_cache['team_analyses'][team_abbr]['ai_provider']
+            if 'ai_model' in existing_cache['team_analyses'][team_abbr]:
+                cache_data['team_analyses'][team_abbr]['ai_model'] = existing_cache['team_analyses'][team_abbr]['ai_model']
 
     if (not skip_team_ai or teams_to_analyze) and ai_service and ai_service.client:
         if teams_to_analyze:
@@ -1511,6 +1515,8 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                         ai_analysis, status = future.result()
                         cache_data['team_analyses'][team_abbr]['ai_analysis'] = ai_analysis
                         cache_data['team_analyses'][team_abbr]['ai_status'] = status
+                        cache_data['team_analyses'][team_abbr]['ai_provider'] = ai_service.model_provider
+                        cache_data['team_analyses'][team_abbr]['ai_model'] = ai_service.model
                     except Exception as e:
                         logger.error(f"AI analysis failed for {team_abbr}: {e}")
                         cache_data['team_analyses'][team_abbr]['ai_analysis'] = None
