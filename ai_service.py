@@ -23,7 +23,7 @@ anthropic_model_sonnet_old = "claude-3-5-sonnet-latest"
 anthropic_model_sonnet_3_7 = "claude-3-7-sonnet-latest"
 anthropic_model_sonnet = "claude-sonnet-4-5"
 anthropic_model_opus = "claude-opus-4-1"
-anthropic_model = anthropic_model_opus  # Using Opus 4.1 based on benchmark results (17.4% faster, better quality)
+anthropic_model = anthropic_model_haiku  # Using Opus 4.1 based on benchmark results (17.4% faster, better quality)
 
 # Create a specific logger for the AI service
 logger = logging.getLogger('ai_service')
@@ -59,21 +59,22 @@ class AIService:
         self.model_provider = model_provider
         self.client = None
         self.test_mode = False
-        
+        self._first_retry_logged = False  # Track if we've logged first retry
+
         logger.info(f"Initializing AI service with provider: {model_provider}")
-        
+
         if model_provider == 'claude':
             api_key = os.getenv('CLAUDE_API_KEY')
             if api_key:
                 self.client = Anthropic(api_key=api_key)
                 self.model = anthropic_model
-                logger.info("Successfully initialized Claude service")
+                logger.info("Successfully initialized Claude model: " + anthropic_model)
         elif model_provider == 'gpt':
             api_key = os.getenv('OPENAI_API_KEY')
             if api_key:
                 self.client = openai.OpenAI(api_key=api_key)
                 self.model = open_ai_model
-                logger.info("Successfully initialized GPT service")
+                logger.info("Successfully initialized GPT model: " + open_ai_model)
             else:
                 logger.error("No API key found for GPT - AI analysis will be disabled")
         
@@ -213,16 +214,24 @@ class AIService:
             except Exception as e:
                 # Handle API errors with retry
                 error_msg = str(e)
-                # Print to console immediately for visibility
-                print(f"ERROR: {error_msg}")
+                error_type = type(e).__name__
+
+                # Log first retry attempt immediately at WARNING level
+                if attempt == 0:
+                    if 'rate' in error_msg.lower() or '429' in error_msg:
+                        logger.warning(f"⚠️  RATE LIMIT hit: {error_msg}")
+                    elif 'overloaded' in error_msg.lower() or '529' in error_msg:
+                        logger.warning(f"⚠️  API OVERLOADED: {error_msg}")
+                    else:
+                        logger.warning(f"⚠️  API ERROR ({error_type}): {error_msg}")
+
                 if 'overloaded' in error_msg.lower() or 'rate' in error_msg.lower():
                     if attempt < max_retries - 1:
                         wait_time = retry_delay * (2 ** attempt)  # Exponential backoff
-                        logger.warning(f"API error: {error_msg}. Retrying in {wait_time}s... (attempt {attempt + 2}/{max_retries})")
+                        logger.debug(f"Retrying in {wait_time}s... (attempt {attempt + 2}/{max_retries})")
                         time.sleep(wait_time)
                         continue
-                logger.error(f"Error generating AI analysis: {error_msg}")
-                print(f"FULL ERROR DETAILS: {repr(e)}")
+                logger.error(f"Error generating AI analysis after {attempt + 1} attempts: {error_msg}")
                 return f"Error during analysis: {error_msg}", "error"
 
         # If we've exhausted all retries
