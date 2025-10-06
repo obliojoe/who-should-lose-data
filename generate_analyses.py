@@ -655,7 +655,7 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     # Show AI provider/model info once before starting
     from ai_service import AIService
     ai_test = AIService()
-    provider_info = f"Using AI provider: {ai_test.provider}, model: {ai_test.model_name}"
+    provider_info = f"Using AI provider: {ai_test.model_provider}, model: {ai_test.model}"
     logger.info(provider_info)
     logger.info(f"Processing {total_games} game(s) with up to {max_workers} worker(s)")
 
