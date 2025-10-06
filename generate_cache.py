@@ -1766,6 +1766,32 @@ def main():
     else:
         logger.info("Skipping data files generation")
 
+    # Handle game AI regeneration when --skip-data is used
+    if args.skip_data and args.regenerate_game_ai and not args.skip_game_ai:
+        logger.info("=> Generating game_analyses.json")
+        try:
+            # Determine regeneration parameters
+            game_ids = None
+            regenerate_type = None
+            force_reanalyze = False
+
+            if args.regenerate_game_ai.lower() in ['analysis', 'preview', 'all']:
+                regenerate_type = args.regenerate_game_ai.lower()
+                force_reanalyze = True
+            else:
+                # Treat as comma-separated ESPN IDs
+                game_ids = [gid.strip() for gid in args.regenerate_game_ai.split(',')]
+                force_reanalyze = True
+
+            with contextlib.redirect_stdout(None):
+                batch_analyze_games(
+                    force_reanalyze=force_reanalyze,
+                    game_ids=game_ids,
+                    regenerate_type=regenerate_type
+                )
+        except Exception as e:
+            logger.error(f"Error generating game analyses: {e}... continuing")
+
     # Exit early if --data-only
     if args.data_only:
         logger.info("Data generation complete (--data-only mode). Exiting.")
