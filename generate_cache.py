@@ -905,12 +905,12 @@ If {home} wins:
     )
 
         
-    if (False and team_abbr == 'ARI' or team_abbr == 'MIN' or team_abbr == 'DET'):
-        logger.info("\n=== AI Prompt ===")
-        logger.info(f"Team: {team_info['city']} {team_info['mascot']}")
-        logger.info("\nPrompt being sent to AI:")
-        logger.info(prompt)
-        logger.info("===================================\n")
+    # if (team_abbr == 'ARI' or team_abbr == 'MIN' or team_abbr == 'DET'):
+    #     logger.info("\n=== AI Prompt ===")
+    #     logger.info(f"Team: {team_info['city']} {team_info['mascot']}")
+    #     logger.info("\nPrompt being sent to AI:")
+    #     logger.info(prompt)
+    #     logger.info("===================================\n")
     
     return prompt
 
