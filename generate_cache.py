@@ -93,6 +93,17 @@ SEED_VALUES = {
     0: 0     # Missed playoffs
 }
 
+
+def get_seed_multiplier_mapping():
+    """Return the seed multiplier mapping used for impact calculations."""
+    multipliers = {
+        str(seed): value
+        for seed, value in sorted(SEED_VALUES.items())
+        if seed != 0
+    }
+    multipliers['Miss'] = SEED_VALUES.get(0, 0)
+    return multipliers
+
 def validate_cache(cache_data):
     """Validate the structure of the cache data"""
     required_keys = {'timestamp', 'num_simulations', 'team_analyses', 'playoff_odds', 'super_bowl'}
@@ -1125,6 +1136,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
         'timestamp': datetime.now().isoformat(),
         'num_simulations': 0,  # Initialize to 0, will be set properly later
         'sagarin_hash': sagarin_hash,
+        'seed_multipliers': get_seed_multiplier_mapping(),
         'team_analyses': {},
         'playoff_odds': {'AFC': {}, 'NFC': {}},
         'super_bowl': {
@@ -1163,10 +1175,15 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
                 cache_data['num_simulations'] = existing_cache.get('num_simulations', 0)
                 cache_data['timestamp'] = existing_cache.get('timestamp', datetime.now().isoformat())
                 logger.info(f"Preserving existing simulation count: {cache_data['num_simulations']}")
+                cache_data['seed_multipliers'] = existing_cache.get(
+                    'seed_multipliers',
+                    cache_data['seed_multipliers']
+                )
             else:
                 # Use the new simulation count if running sims (timestamp already set above)
                 cache_data['num_simulations'] = num_simulations
                 logger.info(f"Using new simulation count: {cache_data['num_simulations']}")
+                cache_data['seed_multipliers'] = get_seed_multiplier_mapping()
 
             for team_abbr in teams:
                 if team_abbr in existing_cache.get('team_analyses', {}):
