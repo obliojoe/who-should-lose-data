@@ -5688,49 +5688,96 @@
     "broadcast": "TV"
   },
   "401772746": {
-    "timestamp": "2025-10-03 13:16:38",
+    "timestamp": "2025-10-05 17:40:17",
     "game_date": "2025-10-05",
     "home_team": "SEA",
     "away_team": "TB",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 35,
+    "away_score": 38,
     "stadium": "Lumen Field",
     "home_coach": "Mike Macdonald",
     "away_coach": "Todd Bowles",
-    "analysis_type": "preview",
-    "analysis": "The Buccaneers' perfect start came crashing down in Philadelphia, but they'll have to quickly shake off that Week 4 disappointment as they travel to the Pacific Northwest for a clash with the surging Seahawks. Tampa Bay's inability to contain the Eagles' passing attack exposed some glaring vulnerabilities in a secondary that's now decimated by injuries – Mike Evans (hamstring) and Jamel Dean (hip) are both out, while safety Tykee Smith remains questionable. Baker Mayfield, who leads the NFL with 77 touchdown passes since 2023, will need to manufacture offense without his Pro Bowl receiver Evans, leaning heavily on rookie sensation Emeka Egbuka (282 yards, 4 TDs) and a hopefully healthier Chris Godwin. The Bucs' rushing attack, which hasn't allowed a single running back to eclipse 50 yards this season, faces its toughest test yet against Kenneth Walker III, who's coming off an 81-yard performance against Arizona.\n\nSeattle's defense has quietly morphed into a takeaway machine under Mike Macdonald, with their seven interceptions tied for second-most in the NFL. The Seahawks have won three straight after their opening loss to San Francisco, and Sam Darnold has been surprisingly efficient, completing 70% of his passes while feeding Jaxon Smith-Njigba, who's emerged as one of the league's most consistent receivers with at least 79 yards in every game this season. The 12th Man advantage at Lumen Field, where Seattle has been nearly unbeatable in recent years, could prove decisive against a Tampa Bay team missing key playmakers on both sides of the ball.\n\nThis shapes up as a defensive struggle with both teams dealing with offensive limitations – Tampa Bay's receiving corps is depleted while Seattle's rushing attack ranks near the bottom of the league. The Seahawks' opportunistic defense and home-field advantage should be enough to grind out a victory, especially if they can force Mayfield into uncomfortable situations without his security blanket in Evans. Expect Seattle to control the clock, capitalize on short fields created by turnovers, and Jason Myers to play a starring role in what could be a field goal festival. The Seahawks should defend their home turf and cover the 4.5-point spread in a game that stays well under the 44.5 total.",
+    "analysis_type": "post_game",
+    "analysis": "The Tampa Bay Buccaneers stunned the Seattle faithful at Lumen Field with a last-second 38-35 victory, courtesy of Chase McLaughlin's 39-yard field goal as time expired—because apparently, this is what happens when two former Jets quarterbacks decide to put on an aerial circus that would make the Blue Angels jealous. Baker Mayfield (29/33, 379 yards, 2 TDs) and Sam Darnold (28/34, 341 yards, 4 TDs, 1 INT) combined for 720 passing yards with just 10 incompletions between them, proving that sometimes the best revenge is living well... and throwing dimes all over the Pacific Northwest. The game swung like a pendulum on steroids, with Seattle erasing a 13-0 deficit to take multiple leads in the second half, including what looked like the winner when Tory Horton hauled in a 21-yard touchdown to put the Seahawks up 35-28 with 3:18 remaining.\n\nBut this is where veteran savvy trumped youthful exuberance. Mayfield orchestrated a lightning-quick drive capped by an 11-yard TD to Sterling Shepard with 1:08 left, and when Darnold's ill-advised throw deflected off Logan Hall's helmet into Lavonte David's waiting arms with 58 seconds remaining, you could practically hear the collective groan from Seattle's 68,804 fans. The Bucs covered as 3.5-point underdogs, and the 73 combined points obliterated the 45.5 over/under like it owed them money. For Tampa Bay (4-1), this road warrior mentality keeps them atop the NFC South; for Seattle (3-2), it's a crushing home loss that stings even more considering they went 4-for-4 in the red zone and still couldn't close the deal.\n\n**Key Statistics:**\n- Ohio State WR showdown: Emeka Egbuka (TB) - 7 catches, 163 yards, 1 TD; Jaxon Smith-Njigba (SEA) - 8 catches, 132 yards, 1 TD\n- Combined QB efficiency: 57/67 (85.1%), 720 yards, 6 TDs, 1 INT\n- Seattle TE AJ Barner: 7 catches, 53 yards, 2 TDs (career day for the rookie)\n- Total yards: Seattle 463, Tampa Bay 426 (897 combined yards of offense)\n- Third down conversions: TB 7/11 (63.6%), SEA 6/9 (66.7%)",
     "betting": {
-      "spread": -4.5,
-      "over_under": 44.5,
+      "spread": -3.5,
+      "over_under": 45.5,
       "provider": "ESPN BET",
       "favorite": "SEA"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 63,
-      "condition": "Partly sunny",
-      "wind_speed": 8
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 53.681999999999995,
-      "matchup_quality": 59.142,
-      "predicted_point_diff": 1.315,
-      "away_win_prob": 45.949
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "29/33, 379 YDS, 2 TD",
+          "value": 379.0,
+          "player": "Baker Mayfield",
+          "jersey": "6",
+          "position": "QB",
+          "team": "TB"
+        },
+        {
+          "displayValue": "28/34, 341 YDS, 4 TD, 1 INT",
+          "value": 341.0,
+          "player": "Sam Darnold",
+          "jersey": "14",
+          "position": "QB",
+          "team": "SEA"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "10 CAR, 86 YDS",
+          "value": 86.0,
+          "player": "Kenneth Walker III",
+          "jersey": "9",
+          "position": "RB",
+          "team": "SEA"
+        },
+        {
+          "displayValue": "14 CAR, 41 YDS, 2 TD",
+          "value": 41.0,
+          "player": "Rachaad White",
+          "jersey": "1",
+          "position": "RB",
+          "team": "TB"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "7 REC, 163 YDS, 1 TD",
+          "value": 163.0,
+          "player": "Emeka Egbuka",
+          "jersey": "2",
+          "position": "WR",
+          "team": "TB"
+        },
+        {
+          "displayValue": "8 REC, 132 YDS, 1 TD",
+          "value": 132.0,
+          "player": "Jaxon Smith-Njigba",
+          "jersey": "11",
+          "position": "WR",
+          "team": "SEA"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772747": {
-    "timestamp": "2025-10-03 13:16:59",
+    "timestamp": "2025-10-05 17:40:40",
     "game_date": "2025-10-05",
     "home_team": "ARI",
     "away_team": "TEN",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 21,
+    "away_score": 22,
     "stadium": "State Farm Stadium",
     "home_coach": "Jonathan Gannon",
     "away_coach": "Brian Callahan",
-    "analysis_type": "preview",
-    "analysis": "The Tennessee Titans are stumbling into the desert carrying more baggage than a Southwest Airlines carousel, and the Arizona Cardinals are licking their wounds after consecutive heartbreakers decided by last-second field goals. When these teams collide Sunday at State Farm Stadium, something's got to give—though with Tennessee averaging a paltry 12.8 points per game and sitting at 0-4 with a ghastly -57.1 EPA, \"giving\" might be all they're capable of doing. Rookie quarterback Cam Ward, the top overall pick who torched college defenses for 158 career touchdown passes, has completed just 51.2% of his throws for 614 yards with a 2-2 TD-INT ratio while absorbing 17 sacks behind a decimated offensive line missing JC Latham and Blake Hance. The Titans have been outscored 47-10 in fourth quarters this season, a stunning collapse pattern that has coach Brian Callahan desperately shuffling play-calling duties and sitting on a scorching 3-18 career record.\n\nArizona enters as 7.5-point favorites despite their own offensive concerns, particularly a backfield that's been ravaged worse than a Vegas buffet at 2 AM. James Conner is done for the year with a foot injury, Trey Benson just landed on injured reserve, leaving the Cardinals to cobble together a ground game with Emari Demercado and practice squad call-ups. The solution might be unleashing Kyler Murray's legs more frequently—he's averaging nearly six yards per carry and, as Jeffery Simmons painfully recalls, has the ankle-breaking ability to turn broken plays into highlight reels. Murray has completed 66.9% of his passes but managed just three total points in first halves during their two losses, a trend that simply won't fly against better competition down the road.\n\nThe Cardinals should handle business at home against a Tennessee team that hasn't won since December and just got blanked 26-0 by Houston. With the Titans converting just 27.8% on third down and Ward still adjusting to NFL speed, Arizona's defense—which has forced six turnovers and recorded eight sacks—should feast. Look for Murray to finally get the offense clicking early, tight end Trey McBride (24 catches, 234 yards) to dominate the middle of the field, and the Cardinals to secure a comfortable victory that gets them back to .500 before the schedule stiffens.",
+    "analysis_type": "post_game",
+    "analysis": "**Titans 22, Cardinals 21** – In a game that looked like it was heading for a blowout, the Tennessee Titans somehow pulled off one of the most improbable comebacks you'll see this season, stunning the Cardinals in Arizona with a last-second 29-yard field goal from Joey Slye. The Cardinals, who were 7.5-point favorites, dominated for three quarters and led 21-6 before completely imploding in the fourth. Kyler Murray's offense managed just 360 total yards and coughed up the ball THREE times via fumbles, including a backbreaking turnover by Emari Demercado at the Tennessee 1-yard line after a 71-yard run that should've iced the game. The real hero for Tennessee? Tyler Lockett, who recovered a fumble in the end zone for a defensive touchdown after Dadrion Taylor-Demerson picked off Cam Ward but immediately fumbled it himself – peak chaos that would make even the football gods dizzy.\n\nThis loss is absolutely devastating for Arizona's playoff hopes, as they let a very beatable Titans team march down the field in the final two minutes despite Tennessee's offense looking utterly anemic for most of the game. The Titans' rookie QB Cam Ward completed just 21 of 39 passes for 265 yards with no touchdowns through the air, but he made just enough plays when it mattered. For Tennessee, this might be fool's gold – they're still a deeply flawed team that needed multiple Cardinals mistakes to barely escape with a win. But hey, in the NFL, sometimes it's better to be lucky than good, and the Titans were definitely the former today.\n\n**Key Stats:**\n- **Turnover Disaster:** Arizona lost the turnover battle 3-2, with all three fumbles proving catastrophic, including Demercado's goal-line fumble that cost them a potential touchdown\n- **Red Zone Efficiency:** Tennessee went just 1-for-2 in the red zone but made it count, while Arizona was 3-for-4 but couldn't capitalize when it mattered most\n- **Clutch Kicking:** Joey Slye hit all three field goal attempts for Tennessee (44, 51, and the game-winning 29-yarder), while missing an extra point that nearly cost them\n- **Ground Game Disparity:** Arizona outrushed Tennessee 168-78, with Demercado's 81 yards on just 3 carries showing what could have been\n- **Fourth Quarter Collapse:** Arizona was outscored 16-0 in the fourth quarter, managing just 15 yards of offense on their final meaningful drive",
     "betting": {
       "spread": -7.5,
       "over_under": 41.5,
@@ -5740,72 +5787,219 @@
     "weather": {
       "is_indoor": true
     },
-    "predictor": {
-      "home_win_prob": 73.026,
-      "matchup_quality": 23.876,
-      "predicted_point_diff": 9.648,
-      "away_win_prob": 26.759
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "21/39, 265 YDS, 1 INT",
+          "value": 265.0,
+          "player": "Cam Ward",
+          "jersey": "1",
+          "position": "QB",
+          "team": "TEN"
+        },
+        {
+          "displayValue": "23/31, 220 YDS",
+          "value": 220.0,
+          "player": "Kyler Murray",
+          "jersey": "1",
+          "position": "QB",
+          "team": "ARI"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "3 CAR, 81 YDS",
+          "value": 81.0,
+          "player": "Emari Demercado",
+          "jersey": "31",
+          "position": "RB",
+          "team": "ARI"
+        },
+        {
+          "displayValue": "14 CAR, 67 YDS, 1 TD",
+          "value": 67.0,
+          "player": "Tony Pollard",
+          "jersey": "20",
+          "position": "RB",
+          "team": "TEN"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "5 REC, 131 YDS",
+          "value": 131.0,
+          "player": "Calvin Ridley",
+          "jersey": "0",
+          "position": "WR",
+          "team": "TEN"
+        },
+        {
+          "displayValue": "4 REC, 98 YDS",
+          "value": 98.0,
+          "player": "Marvin Harrison Jr.",
+          "jersey": "18",
+          "position": "WR",
+          "team": "ARI"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772854": {
-    "timestamp": "2025-10-03 13:17:21",
+    "timestamp": "2025-10-05 17:41:02",
     "game_date": "2025-10-05",
     "home_team": "CIN",
     "away_team": "DET",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 24,
+    "away_score": 37,
     "stadium": "Paycor Stadium",
     "home_coach": "Zac Taylor",
     "away_coach": "Dan Campbell",
-    "analysis_type": "preview",
-    "analysis": "The Detroit Lions' high-octane offense rolls into Cincinnati this Sunday as 10.5-point favorites, and the numbers suggest they might cover with room to spare. Detroit is averaging a league-best 34.3 points per game while the Bengals have mustered just 15.3 points per contest, the second-worst mark in the NFL. The contrast couldn't be starker: Jared Goff is completing an absurd 73.8% of his passes with a 9-2 TD-INT ratio, orchestrating an offense that's converting 73.7% of red zone opportunities and 77.8% on fourth down attempts. Meanwhile, Cincinnati's offense has been a three-and-out machine without Joe Burrow (IR, toe), with Jake Browning throwing five interceptions in two starts while the unit averages a league-worst 4.13 plays per drive. The Bengals have been outscored 76-13 in their last two games, and their defense has been on the field for over 34 minutes per game during that stretch – a recipe for disaster against Detroit's relentless attack featuring the dynamic backfield duo of Jahmyr Gibbs and David Montgomery.\n\nThe matchup to watch will be whether Cincinnati's porous run defense (135.8 yards allowed per game) can slow down Detroit's ground game, which has been protected by an offensive line that hasn't allowed a sack in three straight games – the franchise's first such streak since sacks became official in 1982. Aidan Hutchinson leads a Lions defense that's forcing turnovers and keeping opponents to just 22 points per game, while the Bengals have coughed it up eight times already this season. Ja'Marr Chase desperately needs touches after managing just 264 receiving yards through four games, but with Browning under center and Detroit's pass rush heating up (14 sacks in four games), opportunities might be limited.\n\nThis has all the makings of a statement game for Detroit, who at 3-1 are looking to establish themselves as NFC contenders after their opening loss to Green Bay. The Bengals' home-field advantage at Paycor Stadium means little when you're missing your franchise quarterback and facing a team that just dropped 52 points on Chicago and 38 on Baltimore. ESPN's predictor gives Detroit a 76.3% chance to win, and that might be conservative. Expect the Lions to control both lines of scrimmage, force multiple turnovers, and cruise to a comfortable victory that could approach 20 points if Cincinnati's offense continues its anemic ways. The only question is whether the Bengals can muster enough garbage-time production to keep this from becoming their third consecutive blowout loss.",
+    "analysis_type": "post_game",
+    "analysis": "**Lions Maul Bengals 37-24 in Cincinnati Shootout**\n\nThe Detroit Lions roared into Paycor Stadium as 9.5-point favorites and delivered exactly what the betting public expected, dismantling the Cincinnati Bengals 37-24 in a game that saw more scoring than a pinball machine convention. The Lions (presumably improving their record nicely) turned what was supposed to be a competitive AFC North clash into their personal highlight reel, with Jared Goff looking more comfortable in enemy territory than a couch potato on Super Bowl Sunday. Detroit's offensive symphony hit all the right notes, marching up and down the field like they owned the deed to Cincinnati real estate, while Jake Browning's three interceptions had Bengals fans wondering if Joe Burrow was watching from a hyperbaric chamber somewhere, slowly shaking his head.\n\nThe game's most electrifying moment came courtesy of Ja'Marr Chase, who reminded everyone why he's worth every penny with a spectacular 64-yard touchdown catch that briefly gave Cincinnati life midway through the fourth quarter. But this was Detroit's day from start to finish – they scored on five of their first seven meaningful possessions and made Browning look like he was playing with a controller that had half its buttons missing. The Lions' defense, led by a swarming pass rush that included a safety for good measure, turned Cincinnati's offense into a choose-your-own-adventure book where every choice led to disaster. For Detroit, this statement win on the road proves they're not just playoff contenders but legitimate Super Bowl threats. For Cincinnati, well, let's just say their season is starting to look like a Netflix series that got canceled after one season – lots of potential, terrible execution.\n\n**Key Statistics:**\n- **Goff's Surgical Precision**: 19/23, 258 yards, 3 TDs, 0 INTs, 153.0 passer rating (absolutely demolished Browning's 76.1 rating)\n- **Chase's Heroics in Defeat**: 110 yards and 2 TDs on just 6 catches, single-handedly keeping Cincinnati relevant\n- **Third Down Futility**: Cincinnati converted just 4 of 11 third downs (36%) while Detroit struggled at 2 of 8 (25%), yet still dominated\n- **The Turnover Story**: Cincinnati's 3 turnovers (all Browning INTs) vs Detroit's 1 fumble told the tale\n- **Total Yards**: Detroit's balanced 365 yards vs Cincinnati's 322, with the Lions averaging 6.0 yards per play\n- **Time of Possession**: Detroit controlled the clock for 34:21, grinding Cincinnati into submission",
     "betting": {
-      "spread": 10.5,
-      "over_under": 49.5,
+      "spread": 9.5,
+      "over_under": 48.5,
       "provider": "ESPN BET",
       "favorite": "DET"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 85,
-      "condition": "Sunny",
-      "wind_speed": 7
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 23.506,
-      "matchup_quality": 68.282,
-      "predicted_point_diff": -10.818,
-      "away_win_prob": 76.306
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "19/23, 258 YDS, 3 TD",
+          "value": 258.0,
+          "player": "Jared Goff",
+          "jersey": "16",
+          "position": "QB",
+          "team": "DET"
+        },
+        {
+          "displayValue": "26/40, 251 YDS, 3 TD, 3 INT",
+          "value": 251.0,
+          "player": "Jake Browning",
+          "jersey": "6",
+          "position": "QB",
+          "team": "CIN"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "18 CAR, 65 YDS, 1 TD",
+          "value": 65.0,
+          "player": "David Montgomery",
+          "jersey": "5",
+          "position": "RB",
+          "team": "DET"
+        },
+        {
+          "displayValue": "12 CAR, 54 YDS",
+          "value": 54.0,
+          "player": "Jahmyr Gibbs",
+          "jersey": "0",
+          "position": "RB",
+          "team": "DET"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "6 REC, 110 YDS, 2 TD",
+          "value": 110.0,
+          "player": "Ja'Marr Chase",
+          "jersey": "1",
+          "position": "WR",
+          "team": "CIN"
+        },
+        {
+          "displayValue": "8 REC, 100 YDS",
+          "value": 100.0,
+          "player": "Amon-Ra St. Brown",
+          "jersey": "14",
+          "position": "WR",
+          "team": "DET"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772853": {
-    "timestamp": "2025-10-03 13:17:41",
+    "timestamp": "2025-10-05 17:41:25",
     "game_date": "2025-10-05",
     "home_team": "LAC",
     "away_team": "WAS",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 10,
+    "away_score": 27,
     "stadium": "SoFi Stadium",
     "home_coach": "Jim Harbaugh",
     "away_coach": "Dan Quinn",
-    "analysis_type": "preview",
-    "analysis": "The West Coast showdown between Washington (2-2) and Los Angeles (3-1) presents a fascinating clash of contrasting identities, as the Commanders' explosive offensive attack collides with the Chargers' suffocating defense that's allowing just 17.8 points per game. But the real intrigue lies in the trenches, where both teams are nursing wounds from last week's failures. Washington's pass rush disappeared in Atlanta, mustering a lonely single sack while Michael Penix Jr. carved them up for 313 yards, prompting Dan Quinn to publicly question his own defensive play-calling. Meanwhile, the Chargers' offensive line—already playing musical chairs after Rashawn Slater's season-ending injury—watched helplessly as Justin Herbert took a beating in New York with Joe Alt sidelined. With Alt doubtful for Sunday and the Commanders allowing a ghastly 8.1 yards per pass attempt (third-worst in the NFL), this could become a fascinating study in which struggling unit fails less spectacularly.\n\nThe return of Jayden Daniels adds another layer of complexity to this matchup, as the rookie quarterback gets his homecoming game just 70 miles from where he grew up in San Bernardino. Daniels has been electric when healthy, combining efficient passing (61.7% completion rate) with game-breaking mobility, though Washington's 0-2 road record and tendency to sleepwalk through first quarters should concern the burgundy and gold faithful. The Chargers' defense, which struggled mightily to contain Jaxson Dart's mobility last week, now faces an even more dangerous dual-threat in Daniels. But here's where it gets interesting: Los Angeles has forced just three turnovers all season (all in one game), while Herbert and company are converting a dismal 36% in the red zone despite moving the ball effectively between the 20s.\n\nWith Washington missing key receiving weapons Terry McLaurin and Noah Brown, and the Chargers potentially trotting out their third different left tackle configuration in as many weeks, expect this to devolve into a grind-it-out affair that hinges on field position and coaching adjustments. The Chargers' defense should keep them in it, but if Daniels can exploit their struggles against mobile quarterbacks while Washington's rejuvenated pass rush finds its footing against a patchwork offensive line, the Commanders could steal one on the road. Look for a low-scoring battle where the team that establishes the run and protects the football emerges victorious in what could be an unexpectedly pivotal game for both squads' playoff aspirations.",
+    "analysis_type": "post_game",
+    "analysis": "**Washington Shocks Chargers 27-10 in Penalty-Plagued Meltdown at SoFi**\n\nThe Washington Commanders (3-2) stormed into SoFi Stadium and absolutely pantsed the Los Angeles Chargers 27-10, rattling off 27 unanswered points after trailing 10-0 early. In a game where the Chargers came in as 3.5-point favorites, they instead delivered a masterclass in self-destruction that would make even the Jets blush. Jacory Croskey-Merritt, who apparently decided Sunday was his personal coming-out party, bulldozed his way to 111 rushing yards and two touchdowns on just 14 carries, while Jayden Daniels – playing through a gimpy left knee – coolly orchestrated the comeback with 231 passing yards and added a gorgeous 8-yard TD toss to Deebo Samuel to ice it. The real story? The Chargers' offensive line, which looked more porous than Swiss cheese, allowed Justin Herbert to get sacked five times while he scrambled for his life, actually leading his own team in rushing with 60 yards on four carries (yes, you read that correctly).\n\nThis was supposed to be the Chargers' get-right game after last week's penalty-fest against the Giants, but instead they doubled down on stupid with 10 penalties for 85 yards and two brutal turnovers in Washington territory. The turning point came when Quentin Johnston fumbled away a 19-yard catch in the second quarter, gifting Washington their first possession in Chargers territory and leading to Croskey-Merritt's first score. For a team that entered Week 4 as one of the least penalized in the league, the Chargers have now committed 25 penalties for 192 yards in two straight losses, transforming from disciplined contenders to flag-happy pretenders faster than you can say \"false start.\" With the Dolphins looming next week, Brandon Staley better figure out how to stop his team from beating itself, or this promising season could spiral faster than a Herbert pass into triple coverage.\n\n**Key Stats:**\n- **99-yard TD drive:** Washington's game-sealing touchdown drive covered 99 yards in 13 plays, starting from their own 1-yard line\n- **5.8 yards per rush:** The Commanders dominated on the ground, averaging nearly 6 yards per carry for 163 total rushing yards\n- **16 total sacks allowed:** Herbert has now been sacked 16 times through five games, on pace for a career-worst 54 sacks\n- **9-for-16 on third downs:** The Chargers converted an impressive 56% of their third downs but couldn't overcome their self-inflicted wounds\n- **37 points under the total:** The game finished with just 37 total points, comfortably under the 48.5 over/under",
     "betting": {
       "spread": -3.5,
-      "over_under": 46.5,
+      "over_under": 48.5,
       "provider": "ESPN BET",
       "favorite": "LAC"
     },
     "weather": {
       "is_indoor": true
     },
-    "predictor": {
-      "home_win_prob": 58.903000000000006,
-      "matchup_quality": 73.011,
-      "predicted_point_diff": 3.032,
-      "away_win_prob": 40.77
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "15/26, 231 YDS, 1 TD",
+          "value": 231.0,
+          "player": "Jayden Daniels",
+          "jersey": "5",
+          "position": "QB",
+          "team": "WSH"
+        },
+        {
+          "displayValue": "22/29, 166 YDS, 1 TD, 1 INT",
+          "value": 166.0,
+          "player": "Justin Herbert",
+          "jersey": "10",
+          "position": "QB",
+          "team": "LAC"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "14 CAR, 111 YDS, 2 TD",
+          "value": 111.0,
+          "player": "Jacory Croskey-Merritt",
+          "jersey": "22",
+          "position": "RB",
+          "team": "WSH"
+        },
+        {
+          "displayValue": "4 CAR, 60 YDS",
+          "value": 60.0,
+          "player": "Justin Herbert",
+          "jersey": "10",
+          "position": "QB",
+          "team": "LAC"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "8 REC, 96 YDS, 1 TD",
+          "value": 96.0,
+          "player": "Deebo Samuel",
+          "jersey": "1",
+          "position": "WR",
+          "team": "WSH"
+        },
+        {
+          "displayValue": "5 REC, 58 YDS",
+          "value": 58.0,
+          "player": "Keenan Allen",
+          "jersey": "13",
+          "position": "WR",
+          "team": "LAC"
+        }
+      ]
     },
     "broadcast": "TV"
   },
