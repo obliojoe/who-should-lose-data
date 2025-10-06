@@ -670,6 +670,11 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     original_level = ai_logger.level
     ai_logger.setLevel(logging.WARNING)
 
+    # Also suppress httpx retry logs (from Anthropic SDK)
+    httpx_logger = logging.getLogger('httpx')
+    httpx_original_level = httpx_logger.level
+    httpx_logger.setLevel(logging.WARNING)
+
     executor = ThreadPoolExecutor(max_workers=max_workers)
     try:
         # Submit all game analysis tasks
@@ -708,11 +713,13 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
             future.cancel()
         # Shutdown executor immediately without waiting for running tasks
         executor.shutdown(wait=False, cancel_futures=True)
-        logger.info("Shutdown complete. Exiting...")
-        sys.exit(1)
+        logger.info("Forced shutdown. Exiting immediately...")
+        # Use os._exit to forcefully terminate all threads (including blocked API calls)
+        os._exit(1)
     finally:
-        # Restore original log level
+        # Restore original log levels
         ai_logger.setLevel(original_level)
+        httpx_logger.setLevel(httpx_original_level)
         # Ensure executor is always cleaned up
         executor.shutdown(wait=True)
 

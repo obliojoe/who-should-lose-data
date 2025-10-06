@@ -1531,8 +1531,9 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                 future.cancel()
             # Shutdown executor immediately without waiting for running tasks
             executor.shutdown(wait=False, cancel_futures=True)
-            logger.info("Shutdown complete. Exiting...")
-            sys.exit(1)
+            logger.info("Forced shutdown. Exiting immediately...")
+            # Use os._exit to forcefully terminate all threads (including blocked API calls)
+            os._exit(1)
         finally:
             # Ensure executor is always cleaned up
             executor.shutdown(wait=True)
