@@ -542,15 +542,19 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
     from ai_service import AIService
     ai_service = AIService()
 
-    if is_completed:
-        analysis = send_to_claude(game_data, game_id)
-        analysis_type = "post_game"
-    else:
-        analysis = send_preview_to_claude(game_data, game_id)
-        analysis_type = "preview"
+    try:
+        if is_completed:
+            analysis = send_to_claude(game_data, game_id)
+            analysis_type = "post_game"
+        else:
+            analysis = send_preview_to_claude(game_data, game_id)
+            analysis_type = "preview"
 
-    if not analysis:
-        logger.warning(f"Failed to generate {analysis_type} for {matchup_str}")
+        if not analysis:
+            logger.error(f"Failed to generate {analysis_type} for {matchup_str} - AI returned empty response")
+            return (game_id, None, matchup_str)
+    except Exception as e:
+        logger.error(f"Error generating {analysis_type if 'analysis_type' in locals() else 'analysis'} for {matchup_str}: {str(e)}")
         return (game_id, None, matchup_str)
 
     # Build analysis dict with metadata
@@ -670,10 +674,14 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     original_level = ai_logger.level
     ai_logger.setLevel(logging.WARNING)
 
-    # Also suppress httpx retry logs (from Anthropic SDK)
+    # Also suppress httpx and anthropic retry logs
     httpx_logger = logging.getLogger('httpx')
     httpx_original_level = httpx_logger.level
     httpx_logger.setLevel(logging.WARNING)
+
+    anthropic_logger = logging.getLogger('anthropic')
+    anthropic_original_level = anthropic_logger.level
+    anthropic_logger.setLevel(logging.WARNING)
 
     executor = ThreadPoolExecutor(max_workers=max_workers)
     try:
@@ -720,6 +728,7 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
         # Restore original log levels
         ai_logger.setLevel(original_level)
         httpx_logger.setLevel(httpx_original_level)
+        anthropic_logger.setLevel(anthropic_original_level)
         # Ensure executor is always cleaned up
         executor.shutdown(wait=True)
 
