@@ -1115,11 +1115,17 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
 
     return total_impact, debug_stats
 
-def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_ai=None):
+def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_ai=None, seed=None):
     """Generate the analysis cache file"""
     is_ci = os.environ.get('CI') == 'true'  # Check for CI environment
     output_path = Path(output_path)
-    
+
+    # Generate or use provided seed for reproducibility
+    if seed is None:
+        # Use a random seed but make sure it's a simple integer
+        seed = np.random.randint(0, 2**31 - 1)
+    logger.info(f"Using master seed: {seed}")
+
     logger.info(f"Starting cache generation with {num_simulations} simulations")
     logger.info(f"Simulations are {'skipped' if skip_sims else 'enabled'}")
     logger.info(f"AI analysis is {'skipped' if skip_ai else 'enabled'}")
@@ -1277,9 +1283,11 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
             batch_size = min(BATCH_SIZE, num_simulations - batch_start)
 
             # Run one batch of simulations at a time to reuse loaded data inside simulate_season
+            # Use seed + batch_start to ensure each batch has different but reproducible results
             batch_results = simulate_season(
                 num_simulations=batch_size,
-                home_field_advantage=home_field_advantage
+                home_field_advantage=home_field_advantage,
+                random_seed=seed + batch_start
             )
 
             for result in batch_results:
@@ -1376,10 +1384,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_ai=False, output_
                             'debug_stats': debug_stats
                         })
 
-        # Sort significant games for each team
+        # Sort significant games for each team by date/week then espn_id for consistent ordering across runs
         for team_analysis in cache_data['team_analyses'].values():
             if 'significant_games' in team_analysis:
-                team_analysis['significant_games'].sort(key=lambda x: x['impact'], reverse=True)  # Changed to 'impact'
+                team_analysis['significant_games'].sort(key=lambda x: (x['week'], x['espn_id']))
 
     # After all batches are processed, but before saving
     standings_data = calculate_standings(teams, schedule)
@@ -1604,6 +1612,8 @@ def main():
     parser = argparse.ArgumentParser(description='Generate NFL analysis cache file')
     parser.add_argument('--simulations', type=int, default=1000,
                       help='Number of simulations to run (default: 1000)')
+    parser.add_argument('--seed', type=int, default=None,
+                      help='Random seed for reproducible results (simulations and AI)')
     parser.add_argument('--skip-sims', action='store_true',
                       help='Skip running new simulations (use existing simulation data)')
     parser.add_argument('--skip-ai', action='store_true',
@@ -1685,7 +1695,8 @@ def main():
         skip_ai=args.skip_ai,
         copy_data=copy_data,
         test_mode=args.test_mode,
-        regenerate_ai=args.regenerate_ai
+        regenerate_ai=args.regenerate_ai,
+        seed=args.seed
     )
 
     # Removed persist directory copying - deployment now handled by --deploy-netlify

@@ -472,6 +472,9 @@ def simulate_season(
     include_schedule = test_schedule is not None
 
     seed_sequence = np.random.SeedSequence(random_seed)
+    # Get the actual seed that was used (entropy if random_seed was None)
+    actual_seed = seed_sequence.entropy
+
     child_seeds = seed_sequence.spawn(num_simulations)
     seed_values = [int(child.generate_state(1)[0]) for child in child_seeds] if num_simulations > 0 else []
 
@@ -501,6 +504,8 @@ def simulate_season(
         if schedule_output is not None:
             test_schedule.clear()
             test_schedule.extend(schedule_output)
+
+    logger.info(f"Simulations completed using seed: {actual_seed}")
 
     return results
 
