@@ -1771,6 +1771,11 @@ def main():
         logger.info("Data generation complete (--data-only mode). Exiting.")
         return
 
+    # Exit early if only regenerating game AI (and skipping sims)
+    if args.regenerate_game_ai and args.skip_sims:
+        logger.info("Game AI regeneration complete. Exiting (--skip-sims prevents further processing).")
+        return
+
     success = generate_cache(
         num_simulations=args.simulations,
         skip_sims=args.skip_sims,
