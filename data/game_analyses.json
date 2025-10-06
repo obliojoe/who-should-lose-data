@@ -6004,34 +6004,81 @@
     "broadcast": "TV"
   },
   "401772922": {
-    "timestamp": "2025-10-03 13:18:00",
+    "timestamp": "2025-10-05 21:50:54",
     "game_date": "2025-10-05",
     "home_team": "BUF",
     "away_team": "NE",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 20,
+    "away_score": 23,
     "stadium": "Highmark Stadium",
     "home_coach": "Sean McDermott",
     "away_coach": "Mike Vrabel",
-    "analysis_type": "preview",
-    "analysis": "Welcome to Orchard Park, where the tables have officially turned so hard they've landed somewhere in Lake Erie. The 4-0 Buffalo Bills host the 2-2 New England Patriots on Sunday Night Football in what used to be appointment television for Patriots dominance but now feels more like watching your high school bully work at the mall food court. Buffalo has won 14 straight regular-season home games and sits atop the AFC East with the conference's best record, while New England arrives hoping to string together consecutive wins for the first time since Tom Brady was still deciding which yacht to buy next.\n\nThe storylines write themselves faster than Drake Maye can throw into coverage (73.4% completion rate notwithstanding). Stefon Diggs returns to Buffalo for the first time since his dramatic exit, though his 213 receiving yards lead a Patriots passing attack that's actually been surprisingly competent. Meanwhile, Mike Vrabel faces his own demons in Western New York – he's 0-3 all-time coaching in Buffalo, and his Patriots defense that's allowing just 77.5 rushing yards per game will be tested by James Cook and a Bills ground game averaging 163.5 yards per contest. Josh Allen continues his MVP-caliber campaign with a 70% completion rate and 7-to-1 TD-INT ratio, though Buffalo's defense has shown cracks, particularly against the run where they're surrendering 164.3 yards per game.\n\nThe 8.5-point spread feels about right for a Bills team that's 3-1 ATS and converting red zone trips at a 67% clip while New England struggles inside the 20 (also 67%, but with far fewer opportunities). With Buffalo missing linebackers Dorian Williams and potentially Matt Milano, the Patriots might keep this closer than expected early. But Allen in prime time at home, with a defense that's picked off Maye twice already this season and limited opponents to just 141 passing yards per game? That's a recipe for the Bills to pull away late, cover the spread, and remind everyone that while the Patriots once owned this rivalry, the mortgage has been transferred to new management in Buffalo.",
+    "analysis_type": "post_game",
+    "analysis": "**Patriots Stun Bills 23-20 as Rookie Drake Maye Orchestrates Upset in Buffalo**\n\nThe New England Patriots just pulled off the kind of road upset that gets defensive coordinators fired and makes Vegas bookmakers reach for the antacids, stunning the heavily-favored Buffalo Bills 23-20 at Highmark Stadium. Andy Borregales drilled a 52-yard field goal with 15 seconds remaining to cap off a performance that had Bills Mafia leaving early and Patriots fans wondering if they've finally found their post-Brady answer at quarterback. Drake Maye, making just his second NFL start, carved up Buffalo's defense for 273 yards through the air while completing 73% of his passes, looking more like a seasoned veteran than a rookie who was supposed to be learning behind Jacoby Brissett all season. The Bills, who entered as 7.5-point favorites, managed to cough up the football three times while committing 11 penalties for 90 yards in a masterclass of self-destruction that would make Rex Ryan's Jets proud.\n\nJosh Allen did Josh Allen things, throwing for 253 yards and two touchdowns while adding 53 rushing yards, but his costly interception to Marcus Jones in the third quarter swung momentum permanently in New England's favor. The Patriots' defense, which has been about as intimidating as a wet paper bag for most of the season, somehow held Buffalo to just 5-of-9 on third downs and forced the Bills to settle for field goals in the red zone. This loss drops Buffalo to a disappointing position in the AFC East race, while the Patriots – yes, the PATRIOTS – are suddenly looking like a team nobody wants to face in December. Bill Belichick might be gone, but apparently the voodoo magic of Foxborough travels well to Western New York.\n\n**Key Stats:**\n- The game featured an eye-popping **19 total penalties for 183 yards** – more laundry on the field than a college dorm on Sunday morning\n- Buffalo dominated time of possession (34:31 to 25:29) but scored just 20 points, proving once again that it's not about how long you have the ball, it's what you do with it\n- Despite Buffalo outgaining New England 363-338 in total yards, the Bills' three turnovers to New England's one told the real story\n- The teams combined to go just 4-for-8 in the red zone, with both squads settling for field goals when touchdowns were needed\n- New England converted just 3-of-9 third downs but made them count when it mattered most",
     "betting": {
-      "spread": -8.5,
+      "spread": -7.5,
       "over_under": 48.5,
       "provider": "ESPN BET",
       "favorite": "BUF"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 72,
-      "condition": "Clear",
-      "wind_speed": 5
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 67.203,
-      "matchup_quality": 66.1,
-      "predicted_point_diff": 7.138,
-      "away_win_prob": 32.536
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "22/30, 273 YDS",
+          "value": 273.0,
+          "player": "Drake Maye",
+          "jersey": "10",
+          "position": "QB",
+          "team": "NE"
+        },
+        {
+          "displayValue": "22/31, 253 YDS, 2 TD, 1 INT",
+          "value": 253.0,
+          "player": "Josh Allen",
+          "jersey": "17",
+          "position": "QB",
+          "team": "BUF"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "9 CAR, 53 YDS",
+          "value": 53.0,
+          "player": "Josh Allen",
+          "jersey": "17",
+          "position": "QB",
+          "team": "BUF"
+        },
+        {
+          "displayValue": "15 CAR, 49 YDS",
+          "value": 49.0,
+          "player": "James Cook",
+          "jersey": "4",
+          "position": "RB",
+          "team": "BUF"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "10 REC, 146 YDS",
+          "value": 146.0,
+          "player": "Stefon Diggs",
+          "jersey": "8",
+          "position": "WR",
+          "team": "NE"
+        },
+        {
+          "displayValue": "6 REC, 108 YDS",
+          "value": 108.0,
+          "player": "Dalton Kincaid",
+          "jersey": "86",
+          "position": "TE",
+          "team": "BUF"
+        }
+      ]
     },
     "broadcast": "TV"
   },
