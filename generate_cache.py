@@ -1799,25 +1799,27 @@ def main():
         except Exception as e:
             logger.error(f"Error generating game analyses: {e}... continuing")
 
-    # Exit early if --data-only
-    if args.data_only:
+    # Exit early if --data-only (unless deploy/commit flags are set)
+    if args.data_only and not (args.deploy_netlify or args.deploy_render or args.commit):
         logger.info("Data generation complete (--data-only mode). Exiting.")
         return
 
-    # Exit early if only regenerating game AI (and skipping both sims and team AI)
-    if args.regenerate_game_ai and args.skip_sims and args.skip_team_ai:
-        logger.info("Game AI regeneration complete. Exiting (--skip-sims and --skip-team-ai).")
-        return
+    # Check if we should skip cache generation
+    skip_cache_generation = args.regenerate_game_ai and args.skip_sims and args.skip_team_ai
 
-    success = generate_cache(
-        num_simulations=args.simulations,
-        skip_sims=args.skip_sims,
-        skip_team_ai=args.skip_team_ai,
-        copy_data=copy_data,
-        test_mode=args.test_mode,
-        regenerate_team_ai=args.regenerate_team_ai,
-        seed=args.seed
-    )
+    if skip_cache_generation:
+        logger.info("Skipping cache generation (--regenerate-game-ai with --skip-sims and --skip-team-ai).")
+        success = True  # Set success=True so deploy/commit can proceed
+    else:
+        success = generate_cache(
+            num_simulations=args.simulations,
+            skip_sims=args.skip_sims,
+            skip_team_ai=args.skip_team_ai,
+            copy_data=copy_data,
+            test_mode=args.test_mode,
+            regenerate_team_ai=args.regenerate_team_ai,
+            seed=args.seed
+        )
 
     # Removed persist directory copying - deployment now handled by --deploy-netlify
 
