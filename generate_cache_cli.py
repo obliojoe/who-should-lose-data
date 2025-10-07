@@ -112,19 +112,21 @@ def ask_questions():
     if run_sims:
         sim_choice = ask_choice(
             "How many simulations?",
-            choices=["Quick (100)", "Standard (1,000)", "Full (10,000)", "Custom"],
-            default="Standard (1,000)"
+            choices=["Test (1,000)", "Standard (10,000)", "High (50,000)", "Very High (100,000)", "Custom"],
+            default="Standard (10,000)"
         )
 
-        if "Quick" in sim_choice:
-            options['simulations'] = 100
-        elif "Standard" in sim_choice:
+        if "Test" in sim_choice:
             options['simulations'] = 1000
-        elif "Full" in sim_choice:
+        elif "Standard" in sim_choice:
             options['simulations'] = 10000
+        elif "High" in sim_choice:
+            options['simulations'] = 50000
+        elif "Very High" in sim_choice:
+            options['simulations'] = 100000
         else:
             while True:
-                custom = ask_text("Enter number of simulations", default="1000")
+                custom = ask_text("Enter number of simulations", default="10000")
                 try:
                     options['simulations'] = int(custom)
                     if options['simulations'] > 0:
