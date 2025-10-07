@@ -154,53 +154,59 @@ def ask_questions():
 
     print("\n🤖 AI ANALYSIS - TEAMS")
     print("─" * 60)
-    gen_team_ai = ask_yes_no("Generate team AI analysis?", default=True)
-    options['skip_team_ai'] = not gen_team_ai
+    print("(Team AI should be regenerated whenever simulations or data changes)")
 
-    if gen_team_ai:
-        team_choice = ask_choice(
-            "Which teams?",
-            choices=["All teams", "Specific teams (comma-separated)", "Regenerate all teams", "Regenerate specific teams"],
-            default="All teams"
-        )
+    team_choice = ask_choice(
+        "Regenerate team AI analysis?",
+        choices=["All teams (recommended)", "Specific teams only", "Skip team AI"],
+        default="All teams (recommended)"
+    )
 
-        if "Regenerate all" in team_choice:
+    if "Skip" in team_choice:
+        options['skip_team_ai'] = True
+    elif "Specific" in team_choice:
+        teams = ask_text("Enter team abbreviations (comma-separated, e.g., DET,MIN,GB)", default="")
+        if teams:
+            options['regenerate_team_ai'] = teams
+        else:
+            # If they don't enter any teams, regenerate all
             options['regenerate_team_ai'] = "all"
-        elif "Regenerate specific" in team_choice:
-            teams = ask_text("Enter team abbreviations (comma-separated, e.g., DET,MIN,GB)", default="")
-            if teams:
-                options['regenerate_team_ai'] = teams
-        elif "Specific teams" in team_choice:
-            teams = ask_text("Enter team abbreviations (comma-separated, e.g., DET,MIN,GB)", default="")
-            if teams:
-                options['regenerate_team_ai'] = teams
+    else:  # All teams
+        options['regenerate_team_ai'] = "all"
 
     print("\n🤖 AI ANALYSIS - GAMES")
     print("─" * 60)
-    gen_game_ai = ask_yes_no("Generate game AI analysis?", default=True)
-    options['skip_game_ai'] = not gen_game_ai
+    print("(Game AI is usually generated once and doesn't change)")
 
-    if gen_game_ai:
-        game_choice = ask_choice(
-            "Which games?",
-            choices=["All games", "Analysis only (completed)", "Preview only (upcoming)", "Specific ESPN IDs", "Regenerate all", "Regenerate analysis", "Regenerate preview"],
-            default="All games"
-        )
+    game_choice = ask_choice(
+        "Game AI options:",
+        choices=[
+            "Skip game AI (use existing)",
+            "Generate missing only (new games)",
+            "Regenerate all previews (upcoming games)",
+            "Regenerate all analysis (completed games)",
+            "Regenerate everything (all games)",
+            "Regenerate specific ESPN IDs"
+        ],
+        default="Skip game AI (use existing)"
+    )
 
-        if "Regenerate all" in game_choice:
-            options['regenerate_game_ai'] = "all"
-        elif "Regenerate analysis" in game_choice:
-            options['regenerate_game_ai'] = "analysis"
-        elif "Regenerate preview" in game_choice:
-            options['regenerate_game_ai'] = "preview"
-        elif "Specific ESPN IDs" in game_choice:
-            espn_ids = ask_text("Enter ESPN IDs (comma-separated, e.g., 401772856,401772855)", default="")
-            if espn_ids:
-                options['regenerate_game_ai'] = espn_ids
-        elif "Analysis only" in game_choice:
-            options['regenerate_game_ai'] = "analysis"
-        elif "Preview only" in game_choice:
-            options['regenerate_game_ai'] = "preview"
+    if "Skip" in game_choice:
+        options['skip_game_ai'] = True
+    elif "missing only" in game_choice:
+        # Generate new games, but don't regenerate existing ones
+        # This is the default behavior when neither skip nor regenerate is specified
+        pass
+    elif "all previews" in game_choice:
+        options['regenerate_game_ai'] = "preview"
+    elif "all analysis" in game_choice:
+        options['regenerate_game_ai'] = "analysis"
+    elif "everything" in game_choice:
+        options['regenerate_game_ai'] = "all"
+    elif "specific ESPN IDs" in game_choice:
+        espn_ids = ask_text("Enter ESPN IDs (comma-separated, e.g., 401772856,401772855)", default="")
+        if espn_ids:
+            options['regenerate_game_ai'] = espn_ids
 
     print("\n🚀 DEPLOYMENT")
     print("─" * 60)
