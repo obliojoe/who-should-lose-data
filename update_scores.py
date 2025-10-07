@@ -125,16 +125,16 @@ def update_espn_ids(local_schedule, latest_schedule):
 def update_scores_and_dates(year=2025, update_dates=False):
     """Update schedule.csv with scores from completed games"""
 
-    print("Checking for games to update...")
+    logger.info("Checking for score and date updates...")
 
     # Load current schedule
     local_schedule = pd.read_csv('data/schedule.csv')
-    print(f"Loaded {len(local_schedule)} games from local schedule")
+    logger.debug(f"Loaded {len(local_schedule)} games from local schedule")
 
     # Get latest schedule data from nfl_data_py
-    logger.info(f"import_schedules([{year}])...")
+    logger.debug(f"Loading schedules from nfl_data_py...")
     latest_schedule = nfl.load_schedules([year]).to_pandas()
-    print(f"Loaded {len(latest_schedule)} games from nfl_data_py")
+    logger.debug(f"Loaded {len(latest_schedule)} games from nfl_data_py")
 
     # First, update ESPN IDs
     logger.info("=== Updating ESPN IDs ===")
@@ -158,7 +158,7 @@ def update_scores_and_dates(year=2025, update_dates=False):
                 'home_score': int(game['home_score'])
             }
     
-    print(f"Found {len(completed_games)} completed games in latest data")
+    logger.debug(f"Found {len(completed_games)} completed games in latest data")
     
     # Store score updates
     score_updates = []
@@ -177,7 +177,7 @@ def update_scores_and_dates(year=2025, update_dates=False):
             if espn_date and espn_time and espn_day:  # Only update if we got valid data
                 if (espn_date != game['game_date']) or (espn_time != game['gametime']) or (espn_day != game['weekday']):
                     date_updates.append((idx, espn_date, espn_time, espn_day))
-                    print(f"==> Will update {game['away_team']} @ {game['home_team']} (Week {game['week_num']}): {espn_date} {espn_time} ({espn_day})")
+                    logger.debug(f"Will update date for {game['away_team']} @ {game['home_team']} (Week {game['week_num']}): {espn_date} {espn_time} ({espn_day})")
         
         # Create key to match with completed games using normalized team names
         away_team = normalize_team_name(game['away_team'])
@@ -198,7 +198,7 @@ def update_scores_and_dates(year=2025, update_dates=False):
             # Update if either score is different or missing
             if current_away != latest_scores['away_score'] or current_home != latest_scores['home_score']:
                 score_updates.append((idx, latest_scores['away_score'], latest_scores['home_score']))
-                print(f" => Will update {game['away_team']} @ {game['home_team']} (Week {game['week_num']}):")
+                logger.debug(f"Will update score for {game['away_team']} @ {game['home_team']} (Week {game['week_num']})")
     
     if score_updates:
         # Read the CSV file

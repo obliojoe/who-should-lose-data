@@ -59,21 +59,26 @@ class AIService:
         self.model_provider = model_provider
         self.client = None
         self.test_mode = False
-        
+        self._first_retry_logged = False  # Track if we've logged first retry
+
         logger.info(f"Initializing AI service with provider: {model_provider}")
-        
+
         if model_provider == 'claude':
             api_key = os.getenv('CLAUDE_API_KEY')
             if api_key:
-                self.client = Anthropic(api_key=api_key)
+                # Disable retries in the Anthropic client - fail immediately
+                self.client = Anthropic(
+                    api_key=api_key,
+                    max_retries=0  # NO RETRIES
+                )
                 self.model = anthropic_model
-                logger.info("Successfully initialized Claude service")
+                logger.info("Successfully initialized Claude model: " + anthropic_model)
         elif model_provider == 'gpt':
             api_key = os.getenv('OPENAI_API_KEY')
             if api_key:
                 self.client = openai.OpenAI(api_key=api_key)
                 self.model = open_ai_model
-                logger.info("Successfully initialized GPT service")
+                logger.info("Successfully initialized GPT model: " + open_ai_model)
             else:
                 logger.error("No API key found for GPT - AI analysis will be disabled")
         
@@ -127,106 +132,99 @@ class AIService:
             return False, str(e)
 
     def generate_analysis(self, prompt, system_message="Generate a JSON response based on the prompt provided. The response should be in valid JSON format. No introduction text, no explanations, no comments, no trailing text. Only raw JSON."):
-        """Generate AI analysis using configured provider"""
+        """Generate AI analysis using configured provider - NO RETRIES, fail immediately on any error"""
         if not self.client:
             return "AI analysis unavailable - please configure API key", "disabled"
 
         if self.test_mode:
             return {"response": "AI analysis unavailable - test mode enabled"}, "disabled"
 
-        # Retry logic for API errors
-        max_retries = 3
-        retry_delay = 2
+        try:
+            if self.model_provider == 'claude':
+                # Add explicit JSON mode instruction to system message
+                json_system_message = system_message + "\n\nIMPORTANT: You MUST respond with ONLY valid JSON. Do not include any text before or after the JSON object. Start your response with { and end with }."
 
-        for attempt in range(max_retries):
-            try:
-                if self.model_provider == 'claude':
-                    # Add explicit JSON mode instruction to system message
-                    json_system_message = system_message + "\n\nIMPORTANT: You MUST respond with ONLY valid JSON. Do not include any text before or after the JSON object. Start your response with { and end with }."
+                response = self.client.messages.create(
+                    model=self.model,
+                    max_tokens=8192,
+                    temperature=0.9,
+                    system=json_system_message,
+                    messages=[{"role": "user", "content": prompt}]
+                )
 
-                    response = self.client.messages.create(
-                        model=self.model,
-                        max_tokens=8192,
-                        temperature=0.9,
-                        system=json_system_message,
-                        messages=[{"role": "user", "content": prompt}]
-                    )
+                # Check if response was truncated
+                if hasattr(response, 'stop_reason') and response.stop_reason == 'max_tokens':
+                    logger.error(f"Response was truncated due to max_tokens limit. Consider increasing max_tokens or reducing prompt size.")
+                    return "Error: Response truncated - increase max_tokens", "error"
 
-                    # Check if response was truncated
-                    if hasattr(response, 'stop_reason') and response.stop_reason == 'max_tokens':
-                        logger.error(f"Response was truncated due to max_tokens limit. Consider increasing max_tokens or reducing prompt size.")
-                        return "Error: Response truncated - increase max_tokens", "error"
+                # Extract the raw text from the response
+                raw_text = str(response.content[0].text) if isinstance(response.content, list) else str(response.content)
 
-                    # Extract the raw text from the response
-                    raw_text = str(response.content[0].text) if isinstance(response.content, list) else str(response.content)
+                # Clean up the response by removing any "json" tags and whitespace
+                analysis = raw_text.replace('```json', '').replace('```', '').strip()
 
-                    # Clean up the response by removing any "json" tags and whitespace
-                    analysis = raw_text.replace('```json', '').replace('```', '').strip()
+                # Try to extract JSON if there's extra text
+                if not analysis.startswith('{'):
+                    # Try to find JSON object in response
+                    json_start = analysis.find('{')
+                    json_end = analysis.rfind('}') + 1
+                    if json_start != -1 and json_end > json_start:
+                        analysis = analysis[json_start:json_end]
 
-                    # Try to extract JSON if there's extra text
-                    if not analysis.startswith('{'):
-                        # Try to find JSON object in response
-                        json_start = analysis.find('{')
-                        json_end = analysis.rfind('}') + 1
-                        if json_start != -1 and json_end > json_start:
-                            analysis = analysis[json_start:json_end]
+                # Validate that it's proper JSON
+                try:
+                    json.loads(analysis)  # Test parse
+                    return analysis, "success"
+                except json.JSONDecodeError as e:
+                    logger.error(f"Invalid JSON in AI response (first 500 chars): {analysis[:500]}...")
+                    logger.error(f"Invalid JSON in AI response (last 500 chars): ...{analysis[-500:]}")
+                    logger.error(f"JSON Error: {str(e)}")
+                    logger.error(f"Response length: {len(analysis)} characters")
+                    return "Error: Invalid JSON response from AI", "error"
 
-                    # Validate that it's proper JSON
-                    try:
-                        json.loads(analysis)  # Test parse
-                        return analysis, "success"
-                    except json.JSONDecodeError as e:
-                        logger.error(f"Invalid JSON in AI response (first 500 chars): {analysis[:500]}...")
-                        logger.error(f"Invalid JSON in AI response (last 500 chars): ...{analysis[-500:]}")
-                        logger.error(f"JSON Error: {str(e)}")
-                        logger.error(f"Response length: {len(analysis)} characters")
-                        # Don't return error yet - let retry logic handle it
-                        if attempt < max_retries - 1:
-                            logger.info(f"Retrying... (attempt {attempt + 2}/{max_retries})")
-                            time.sleep(retry_delay * (attempt + 1))
-                            continue
-                        return "Error: Invalid JSON response from AI", "error"
+            elif self.model_provider == 'gpt':
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ]
+                )
+                raw_text = response.choices[0].message.content
 
-                elif self.model_provider == 'gpt':
-                    response = self.client.chat.completions.create(
-                        model=self.model,
-                        messages=[
-                            {"role": "user", "content": prompt}
-                        ]
-                    )
-                    raw_text = response.choices[0].message.content
+                # Clean up the response by removing any "json" tags if present
+                analysis = raw_text.replace('```json', '').replace('```', '').strip()
+                # Validate that it's proper JSON
+                try:
+                    json.loads(analysis)  # Test parse
+                    return analysis, "success"
+                except json.JSONDecodeError as e:
+                    logger.error(f"Invalid JSON in GPT response: {analysis}")
+                    logger.error(f"JSON Error: {str(e)}")
+                    return "Error: Invalid JSON response from AI", "error"
 
-                    # Clean up the response by removing any "json" tags if present
-                    analysis = raw_text.replace('```json', '').replace('```', '').strip()
-                    # Validate that it's proper JSON
-                    try:
-                        json.loads(analysis)  # Test parse
-                        return analysis, "success"
-                    except json.JSONDecodeError:
-                        logger.error(f"Invalid JSON in AI response: {analysis}")
-                        if attempt < max_retries - 1:
-                            logger.info(f"Retrying... (attempt {attempt + 2}/{max_retries})")
-                            time.sleep(retry_delay * (attempt + 1))
-                            continue
-                        return "Error: Invalid JSON response from AI", "error"
+        except Exception as e:
+            # Handle ALL errors immediately - NO RETRIES
+            error_msg = str(e)
+            error_type = type(e).__name__
 
-            except Exception as e:
-                # Handle API errors with retry
-                error_msg = str(e)
-                # Print to console immediately for visibility
-                print(f"ERROR: {error_msg}")
-                if 'overloaded' in error_msg.lower() or 'rate' in error_msg.lower():
-                    if attempt < max_retries - 1:
-                        wait_time = retry_delay * (2 ** attempt)  # Exponential backoff
-                        logger.warning(f"API error: {error_msg}. Retrying in {wait_time}s... (attempt {attempt + 2}/{max_retries})")
-                        time.sleep(wait_time)
-                        continue
-                logger.error(f"Error generating AI analysis: {error_msg}")
-                print(f"FULL ERROR DETAILS: {repr(e)}")
-                return f"Error during analysis: {error_msg}", "error"
+            # Check if it's a rate limit error
+            is_rate_limit = 'rate' in error_msg.lower() or '429' in error_msg or 'rate_limit_error' in error_msg.lower()
 
-        # If we've exhausted all retries
-        return "Error: Failed after all retry attempts", "error" 
+            if is_rate_limit:
+                # Rate limit errors - show clear error and exit
+                logger.error(f"\n{'='*80}")
+                logger.error(f"🚨 RATE LIMIT ERROR - Stopping all requests immediately!")
+                logger.error(f"{'='*80}")
+                logger.error(f"Error: {error_msg}")
+                logger.error(f"{'='*80}")
+                logger.error(f"Recommendation: Reduce GAME_ANALYSIS_WORKERS or AI_ANALYSIS_WORKERS")
+                logger.error(f"Current limit: 400,000 input tokens per minute")
+                logger.error(f"{'='*80}\n")
+                return f"RATE_LIMIT_ERROR: {error_msg}", "rate_limit"
+
+            # For any other error, log and fail immediately
+            logger.error(f"⚠️  API ERROR ({error_type}): {error_msg}")
+            return f"Error during analysis: {error_msg}", "error" 
         
 
     def generate_text(self, prompt, system_message="You are a helpful assistant."):

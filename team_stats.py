@@ -123,7 +123,9 @@ def get_espn_standings_data(teams_df):
         
         # Extract only the fields we don't get from nfl_data_py
         espn_stats = {}
-        for team_data in combined_data:
+        total_teams = len(combined_data)
+        logger.info(f"Fetching standings data for {total_teams} teams...")
+        for idx, team_data in enumerate(combined_data, 1):
             # Get team details
             team_ref = team_data['team']['$ref']
             team_id = team_ref.split('/')[-1].split('?')[0]
@@ -131,7 +133,7 @@ def get_espn_standings_data(teams_df):
             team_id_int = int(team_id)
             team = teams_df[teams_df['espn_api_id'] == team_id_int]
             team_abbr = team['team_abbr'].values[0]
-            logger.info(f"Fetching team details for {team_abbr}...")
+            logger.debug(f"Fetching team details for {team_abbr}... ({idx}/{total_teams})")
             team_response = requests.get(team_ref)
             team_details = team_response.json()
             team_id = team_details['id']
@@ -169,18 +171,13 @@ def get_espn_standings_data(teams_df):
 def generate_team_stats():
     """Generate comprehensive team statistics"""
     # Import data
-    logger.info("Loading nflreadpy team_stats (already aggregated)...")
+    logger.info("Loading team stats, schedules, and play-by-play data...")
     nfl_team_stats = nfl.load_team_stats([2025]).to_pandas()
-
-    logger.info("schedule()...")
     schedule = nfl.load_schedules([2025]).to_pandas()
-    logger.info("pbp_data()...")
     pbp_data = nfl.load_pbp([2025]).to_pandas()
-    logger.info("teams_df()...")
     teams_df = pd.read_csv('data/teams.csv')
-    logger.info("get_espn_standings_data()...")
     espn_stats = get_espn_standings_data(teams_df)
-    logger.info("done!")
+    logger.debug("Data loading complete")
 
     # Create ESPN ID to team abbreviation mapping
     espn_id_to_abbr = dict(zip(teams_df['espn_api_id'].astype(str), teams_df['team_abbr']))

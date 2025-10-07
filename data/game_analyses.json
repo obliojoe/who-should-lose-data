@@ -5846,17 +5846,19 @@
     "broadcast": "TV"
   },
   "401772814": {
-    "timestamp": "2025-10-03 13:18:21",
+    "timestamp": "2025-10-06 21:25:38",
     "game_date": "2025-10-06",
     "home_team": "JAX",
     "away_team": "KC",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 31,
+    "away_score": 28,
     "stadium": "EverBank Stadium",
     "home_coach": "Liam Coen",
     "away_coach": "Andy Reid",
-    "analysis_type": "preview",
-    "analysis": "The spotlight shines bright on Jacksonville Monday night, where the surprising 3-1 Jaguars host Patrick Mahomes and the Kansas City Chiefs in a fascinating clash of momentum versus mystique. While the Chiefs have owned this matchup with eight straight victories dating back to 2009, this isn't your typical David-versus-Goliath narrative. Jacksonville enters with the NFL's most opportunistic defense (13 takeaways through four games) and a ground game averaging 144 yards per contest, fourth-best in the league. Meanwhile, Kansas City limps in at .500 after dropping two of their first three, including a stunning home loss to Philadelphia. The Chiefs' offense has sputtered without suspended speedster Rashee Rice, managing just 229.8 passing yards per game despite Mahomes' respectable 7-to-1 touchdown-to-interception ratio.\n\nThe chess match within the game centers on Jacksonville's ability to control the line of scrimmage against a Kansas City defense that's been surprisingly vulnerable, allowing 127 rushing yards per game. Travis Etienne Jr. has been a revelation, averaging over 6 yards per carry behind an offensive line that, despite multiple questionable injury designations, has paved the way for the Jaguars' physical identity under first-year coach Liam Coen. On the flip side, the Chiefs' defense has been their saving grace, holding opponents to just 19 points per game while forcing turnovers at crucial moments. The X-factor could be Jacksonville's two-way sensation Travis Hunter, whose defensive snaps have been limited but whose mere presence creates matchup headaches that defensive coordinator Steve Spagnuolo must account for.\n\nThis feels like Jacksonville's best chance in years to snap their Chiefs hex, especially at home where the crowd will be electric for prime time. The Jaguars' plus-9 turnover differential compared to Kansas City's plus-3 suggests they're playing the cleaner, more opportunistic football right now. If Jacksonville can establish Etienne early and keep Mahomes from finding his rhythm with Hollywood Brown and Xavier Worthy, they have the formula to pull the upset. But betting against Mahomes in prime time requires either tremendous courage or questionable judgment—the Chiefs have won their last two games by an average of 19 points and seem to be finding their identity just in time. Expect a gritty, physical contest that stays within a touchdown deep into the fourth quarter, where Mahomes' championship DNA likely proves the difference in a game that announces whether Jacksonville is truly ready for the spotlight.",
+    "analysis_type": "post_game",
+    "analysis": "The Kansas City Chiefs escaped Jacksonville with a 28-31 victory that had all the drama of a prime-time thriller and none of the defensive coordination of a Pop Warner practice. The Chiefs, favored by 3.5 points, somehow managed to lose despite outgaining the Jaguars 476-319 and dominating time of possession. This game was the football equivalent of watching someone win a poker hand with a pair of twos against pocket aces – sometimes it's better to be lucky than good, and Jacksonville cashed in when linebacker Devin Lloyd decided to turn into Deion Sanders with a 99-yard pick-six that completely flipped the momentum.\n\nPatrick Mahomes put up a pedestrian 318 yards passing while also leading the Chiefs in rushing with 60 yards because apparently nobody told him quarterbacks aren't supposed to do that at age 29. Meanwhile, Trevor Lawrence channeled his inner Lamar Jackson with two rushing touchdowns, including the game-winner with 23 seconds left, proving that sometimes the best play call is \"forget the playbook and just run.\" The Chiefs' defense, which allowed just 319 total yards, somehow still gave up 31 points – a mathematical anomaly that will have defensive coordinator Steve Spagnuolo reaching for the Pepto-Bismol. This loss might not hurt Kansas City much in the standings, but it's a reminder that in the NFL, any team can beat you on any given Monday, especially when your quarterback throws a pick-six that travels further than most commercial flights.\n\n**Key Statistics:**\n- **Devin Lloyd's 99-yard interception return TD** – The longest defensive touchdown of the season and a franchise record for Jacksonville\n- **Patrick Mahomes: 60 rushing yards on 6 carries** – More rushing yards than any Jaguars running back managed\n- **Total penalties: KC 13-109 yards vs JAX 4-25 yards** – The Chiefs shot themselves in the foot more times than a Wild West gunslinger\n- **Red Zone Efficiency: KC 4-5 (80%) vs JAX 3-4 (75%)** – Both teams were money in the red zone, making Lloyd's pick-six the true difference-maker\n- **The game hit the OVER (45.5) with 59 total points** – Vegas bookmakers are buying Lloyd a fruit basket as we speak",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
     "betting": {
       "spread": 3.5,
       "over_under": 45.5,
@@ -5864,21 +5866,68 @@
       "favorite": "KC"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 79,
-      "condition": "Showers",
-      "wind_speed": 15
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 35.856,
-      "matchup_quality": 70.777,
-      "predicted_point_diff": -5.089,
-      "away_win_prob": 63.856
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "29/41, 318 YDS, 1 TD, 1 INT",
+          "value": 318.0,
+          "player": "Patrick Mahomes",
+          "jersey": "15",
+          "position": "QB",
+          "team": "KC"
+        },
+        {
+          "displayValue": "18/25, 221 YDS, 1 TD, 1 INT",
+          "value": 221.0,
+          "player": "Trevor Lawrence",
+          "jersey": "16",
+          "position": "QB",
+          "team": "JAX"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "6 CAR, 60 YDS, 1 TD",
+          "value": 60.0,
+          "player": "Patrick Mahomes",
+          "jersey": "15",
+          "position": "QB",
+          "team": "KC"
+        },
+        {
+          "displayValue": "10 CAR, 54 YDS, 2 TD",
+          "value": 54.0,
+          "player": "Trevor Lawrence",
+          "jersey": "16",
+          "position": "QB",
+          "team": "JAX"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "3 REC, 90 YDS",
+          "value": 90.0,
+          "player": "Tyquan Thornton",
+          "jersey": "80",
+          "position": "WR",
+          "team": "KC"
+        },
+        {
+          "displayValue": "4 REC, 80 YDS",
+          "value": 80.0,
+          "player": "Brian Thomas Jr.",
+          "jersey": "7",
+          "position": "WR",
+          "team": "JAX"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772940": {
-    "timestamp": "2025-10-03 13:18:40",
+    "timestamp": "2025-10-06 21:27:07",
     "game_date": "2025-10-09",
     "home_team": "NYG",
     "away_team": "PHI",
@@ -5888,23 +5937,31 @@
     "home_coach": "Brian Daboll",
     "away_coach": "Nick Sirianni",
     "analysis_type": "preview",
-    "analysis": "The Eagles are soaring into MetLife Stadium with a perfect 4-0 record, but if there's one thing we've learned about NFC East rivalries, it's that records mean about as much as a MetLife Stadium hot dog costs these days—which is to say, they're wildly inflated but ultimately unsatisfying. Philadelphia's offense has been a model of efficiency, converting an absurd 100% of their red zone opportunities while Saquon Barkley is averaging just 3.5 yards per carry in his revenge tour against Big Blue. That's right, the former Giants superstar has managed 237 yards on 77 carries through four games, proving that sometimes the grass isn't greener—it's just artificial turf painted a different shade.\n\nThe Giants, meanwhile, are stumbling into this matchup at 1-3, with their lone victory coming against the Chargers in a game that felt more like both teams were trying to lose. Russell Wilson has completed just 59.5% of his passes for 786 yards with a pedestrian 3-to-3 TD-INT ratio, making one wonder if the Giants' quarterback room comes equipped with a time machine set permanently to 2015. Their red zone efficiency sits at an abysmal 26.7%, while their defense is allowing opponents to score on 72.7% of their red zone trips—numbers that would make even a Swiss cheese blush at their porousness. The injury report reads like a medical journal, with explosive rookie Malik Nabers on injured reserve and running back Tyrone Tracy Jr. listed as doubtful with a dislocated arm.\n\nThis shapes up as a classic Eagles roadshow against a Giants team that's allowing 403.8 yards per game and seems allergic to stopping anyone on third down (44% conversion rate allowed). Philadelphia's balanced attack—they're averaging 6.0 yards per pass attempt despite Jalen Hurts completing 69.3% of his throws—should find plenty of soft spots in a Giants defense that's given up over 150 rushing yards per game. With Dallas Goedert questionable but the Eagles' offense humming at full efficiency, expect Nick Sirianni's squad to control the tempo and gradually pull away. The Giants will keep it interesting for a half through sheer divisional spite, but Philadelphia's superior talent and execution should prevail in what becomes a comfortable road victory for the undefeated visitors.",
+    "analysis": "The NFC East's most lopsided rivalry gets another chapter on Thursday night, and if you're a Giants fan, you might want to have the remote handy. Philadelphia rolls into MetLife Stadium with a 4-1 record and Saquon Barkley's revenge tour in full swing, while the Giants limp in at 1-4, looking like a team that accidentally wandered into the wrong weight class. The Eagles have dominated this matchup recently, and with New York's offense averaging a pedestrian 17.4 points per game while Philadelphia's defense is allowing just 21.8, this feels less like a division rivalry and more like a scheduled programming note for Eagles fans.\n\nThe storyline writes itself: Barkley facing his former team for the first time after bolting to Philadelphia in free agency. Despite being listed as questionable with leg soreness, expect No. 26 to suit up and remind John Mara why letting him walk was a franchise-altering mistake. The Penn State product has already rushed for 267 yards and three touchdowns through five games, while the Giants' ground defense is hemorrhaging 140 yards per contest – dead last in the NFL. Meanwhile, Russell Wilson's stint as Giants quarterback has been about as smooth as the New Jersey Turnpike during rush hour, managing just 786 yards with a 3-3 TD-INT ratio. Making matters worse, star rookie Malik Nabers landed on injured reserve with a leg injury that required surgery, leaving Wilson throwing to a receiving corps that couldn't get separation in a socially distanced elevator.\n\nThe betting line opened at Eagles -7.5, and honestly, that feels conservative given what we've seen from both teams. Philadelphia's only loss came to Denver in Week 5, but they've shown championship mettle with wins over Dallas, Kansas City, and Tampa Bay. The Giants' lone victory came against the Chargers, and even that required some fourth-quarter magic. With the Eagles converting red zone opportunities at a staggering 92% clip while the Giants manage just 32%, this game could get ugly fast. Look for Jalen Hurts and company to establish dominance early, Barkley to have his moment in the spotlight, and Brian Daboll to spend most of the fourth quarter practicing his \"we'll look at the tape\" speech for the postgame presser. The Eagles should cover comfortably in what amounts to a Thursday night coronation at MetLife.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": 7.5,
+      "over_under": 41.5,
+      "provider": "ESPN BET",
+      "favorite": "PHI"
+    },
     "weather": {
       "is_indoor": false,
-      "temperature": 59,
-      "condition": "Partly cloudy",
-      "wind_speed": 9
+      "temperature": 57,
+      "condition": "Clear",
+      "wind_speed": 5
     },
     "predictor": {
-      "home_win_prob": 27.128999999999998,
-      "matchup_quality": 55.251,
-      "predicted_point_diff": -9.183,
-      "away_win_prob": 72.653
+      "home_win_prob": 24.966,
+      "matchup_quality": 55.227,
+      "predicted_point_diff": -10.027,
+      "away_win_prob": 74.833
     },
     "broadcast": "Streaming"
   },
   "401772634": {
-    "timestamp": "2025-10-05 10:47:43",
+    "timestamp": "2025-10-06 21:27:07",
     "game_date": "2025-10-12",
     "home_team": "NYJ",
     "away_team": "DEN",
@@ -5914,20 +5971,28 @@
     "home_coach": "Aaron Glenn",
     "away_coach": "Sean Payton",
     "analysis_type": "preview",
-    "analysis": "The Denver Broncos and New York Jets meet across the pond at Tottenham Hotspur Stadium, where one team's surprising defensive excellence collides with another's spectacular offensive dysfunction in a matchup that somehow features two teams heading in opposite directions despite their identical 2-2 and 0-4 records. The Broncos, fresh off a dominant 28-3 dismantling of Cincinnati, have quietly assembled one of the NFL's stingiest defenses (16.8 PPG allowed), while the Jets continue their masterclass in creative ways to lose football games, having dropped their first four contests by a combined 30 points despite possessing enough offensive talent to theoretically score more than 22.5 points per game.\n\nBo Nix's rookie campaign has been a Jekyll and Hyde affair – the former Oregon star has completed an impressive 65.7% of his passes but struggles with consistency, evidenced by his 7-4 TD-INT ratio. Yet Denver's true identity lies in their suffocating defense, led by Nik Bonitto's 4.5 sacks and a unit allowing just 25% red zone efficiency to opponents. Meanwhile, the Jets' offense resembles a Ferrari with three flat tires: Justin Fields has managed just 471 passing yards through four games (that's not a typo), Breece Hall is averaging a robust 5.2 yards per carry but can't find the end zone, and Garrett Wilson's 311 receiving yards feel wasted in an attack that ranks dead last in EPA (-2.53) and has somehow managed to be even worse on the ground (-6.17 rushing EPA). The absence of edge rusher Jermaine Johnson only compounds New York's defensive woes against a Denver rushing attack featuring J.K. Dobbins, who's averaging 5.7 yards per carry.\n\nESPN's predictor gives Denver a commanding 67.7% win probability, and it's hard to argue with the math when one team is allowing 99.3 rushing yards per game while the other is surrendering 130.5. The Jets' season already feels like it's circling the drain faster than water in a London loo, and facing a Denver defense that just held Joe Burrow to three points won't provide any relief. Look for the Broncos to control the line of scrimmage, establish Dobbins early, and let their defense feast on a Jets offense that's shown all the explosive capability of a wet firecracker. Denver should grind out an ugly but effective victory that sends Jets fans home questioning why they crossed an ocean to watch their team's fifth straight loss.",
+    "analysis": "The Denver Broncos and New York Jets are set for a London rendezvous at Tottenham Hotspur Stadium, where one team's surprising competence will collide with another's spectacular incompetence in what promises to be less \"Big Ben and Parliament\" and more \"fish and chips left out overnight.\" The 3-2 Broncos, fresh off consecutive victories including a statement win in Philadelphia, travel across the pond to face a Jets team that has perfected the art of snatching defeat from the jaws of victory, sitting at 0-5 despite averaging 5.4 yards per carry and completing nearly 68% of their passes. Denver's defense, allowing just 16.8 points per game (third-best in the NFL), will look to feast on Justin Fields and company, while rookie quarterback Bo Nix continues his Jekyll-and-Hyde act with 8 touchdowns against 4 interceptions through five games.\n\nThe key matchup to watch will be Denver's pass rush, led by Nik Bonitto's team-high 7 sacks, against a Jets offensive line that has surrendered 16 sacks in five games while Fields desperately tries to get the ball to Garrett Wilson (382 yards, 4 TDs) before getting planted into the Tottenham turf. Meanwhile, J.K. Dobbins' resurgence (402 yards, 4 TDs) gives Denver a ground game that could exploit a Jets defense hemorrhaging 140.4 rushing yards per game. The injury report further tilts this matchup, with New York missing key defenders Jermaine Johnson and Michael Carter II, while Denver's only significant concern is guard Ben Powers being doubtful.\n\nDespite the 7.5-point spread feeling generous given the Jets' cursed existence, this game screams trap for a Broncos team that might suffer from jet lag and overconfidence. However, New York's ability to lose in creative ways – they've been outscored by 45 points despite a positive turnover margin – suggests they'll find a way to make Denver look competent even on foreign soil. Expect the Broncos' defense to suffocate a Jets offense that's scoring just 22.4 points per game, while Nix and Courtland Sutton do just enough through the air to complement Dobbins' ground attack. The Jets will keep it close enough to give their long-suffering fans false hope before ultimately succumbing to their destiny in a game that Denver controls throughout the second half.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": 7.5,
+      "over_under": 43.5,
+      "provider": "ESPN BET",
+      "favorite": "DEN"
+    },
     "weather": {
       "is_indoor": false
     },
     "predictor": {
-      "home_win_prob": 32.006,
-      "matchup_quality": 43.959,
-      "predicted_point_diff": -6.941,
-      "away_win_prob": 67.73700000000001
+      "home_win_prob": 28.750999999999998,
+      "matchup_quality": 45.557,
+      "predicted_point_diff": -8.353,
+      "away_win_prob": 71.018
     },
     "broadcast": "TV"
   },
   "401772856": {
-    "timestamp": "2025-10-05 10:48:02",
+    "timestamp": "2025-10-06 21:27:04",
     "game_date": "2025-10-12",
     "home_team": "IND",
     "away_team": "ARI",
@@ -5937,20 +6002,28 @@
     "home_coach": "Shane Steichen",
     "away_coach": "Jonathan Gannon",
     "analysis_type": "preview",
-    "analysis": "The Indianapolis Colts' red-hot offense collides with Arizona's stingy defense Sunday in what shapes up as a fascinating chess match between two teams heading in opposite directions. The Colts (3-1) have transformed Lucas Oil Stadium into a scoring factory, averaging an eye-popping 30.8 points per game while Daniel Jones—yes, that Daniel Jones—has quietly orchestrated one of the AFC's most efficient passing attacks with a 71.9% completion rate and 8.9 yards per attempt. Meanwhile, the Cardinals (2-2) limp into Indy having dropped their last two games by a combined four points, their offense sputtering to just 20.5 points per game despite Kyler Murray's best shimmy-and-shake routine behind a patchwork offensive line that's allowed 13 sacks in four games.\n\nThe key matchup to watch unfolds in the trenches, where Jonathan Taylor's resurgent ground game (414 yards, 4.5 yards per carry for the Colts) meets an Arizona run defense that's been surprisingly stout, allowing just 96 yards per game. The Cardinals desperately need their defense to keep them in this one, as their offense has been about as explosive as a wet firecracker—ranking near the bottom of the league with just 5.7 yards per pass attempt and a measly 38.5% third-down conversion rate. Trey Benson's placement on injured reserve leaves Arizona's backfield looking thinner than gas station coffee, while Indianapolis gets healthier despite missing key pieces like Kenny Moore II and Alec Pierce. The Colts' defense has quietly assembled 10 sacks while forcing six turnovers, and facing a Cardinals offense that's turned the ball over just three times all season but struggled to sustain drives could create the perfect storm for defensive coordinator Gus Bradley's unit.\n\nVegas likes the Colts by 3.5 points, and it's hard to argue with that logic given the contrasting trajectories here. Indianapolis has outscored opponents 123-83 while Arizona has barely stayed above water at 82-74. The Colts' explosive offense should find enough creases against Arizona's defense, especially with tight end Tyler Warren emerging as Jones's security blanket (19 catches, 263 yards). Look for Indianapolis to control the tempo with Taylor, exploit Arizona's shaky pass protection to rattle Murray, and pull away in the fourth quarter as the Cardinals' offense continues searching for answers. The Colts keep their home momentum rolling in what should be a comfortable, if not spectacular, victory.",
+    "analysis": "The Indianapolis Colts' magical start to 2025 faces its first real test when the reeling Arizona Cardinals limp into Lucas Oil Stadium on Sunday. While the 4-1 Colts have been lighting up scoreboards like it's 2004 again, averaging a robust 32.6 points per game, the Cardinals arrive with more questions than a philosophy exam—chief among them whether Kyler Murray's questionable leg will allow him to suit up after three straight losses have derailed their promising 2-0 start.\n\nThis matchup pits strength against strength, as Indianapolis's third-ranked scoring offense squares off against an Arizona defense that's quietly been one of the league's stingiest units, allowing just 19.2 points per game. The Colts' unlikely offensive renaissance under Daniel Jones (yes, that Daniel Jones) has been the surprise story of the early season, with the former Giant completing over 70% of his passes while Jonathan Taylor bulldozes his way to 480 rushing yards and six touchdowns behind a rejuvenated offensive line. Meanwhile, rookie sensation Marvin Harrison Jr. provides a fascinating subplot facing his father's old team, though the Cardinals' offense has sputtered without consistency under center—Murray's 67.9% completion rate masks an anemic 5.9 yards per attempt and a passing attack that ranks among the league's worst in EPA.\n\nThe 6.5-point spread feels generous given Arizona's recent struggles, particularly their offensive line's inability to protect Murray (16 sacks allowed) and establish any semblance of a ground game beyond Murray's scrambles. If the Cardinals' franchise quarterback can't go, this could get ugly fast against a Colts defense that's forced six turnovers and generated 14 sacks through five games. Look for Indianapolis to control the trenches on both sides of the ball, methodically wearing down an Arizona team that's lost three straight by a combined 11 points. The Colts should cover comfortably at home, riding their balanced attack and Lucas Oil Stadium energy to keep their surprising season rolling.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": -6.5,
+      "over_under": 47.5,
+      "provider": "ESPN BET",
+      "favorite": "IND"
+    },
     "weather": {
       "is_indoor": true
     },
     "predictor": {
-      "home_win_prob": 58.982,
-      "matchup_quality": 52.082,
-      "predicted_point_diff": 3.773,
-      "away_win_prob": 40.691
+      "home_win_prob": 65.061,
+      "matchup_quality": 55.871,
+      "predicted_point_diff": 6.027,
+      "away_win_prob": 34.660999999999994
     },
     "broadcast": "TV"
   },
   "401772748": {
-    "timestamp": "2025-10-05 10:48:20",
+    "timestamp": "2025-10-06 21:27:07",
     "game_date": "2025-10-12",
     "home_team": "PIT",
     "away_team": "CLE",
@@ -5960,23 +6033,31 @@
     "home_coach": "Mike Tomlin",
     "away_coach": "Kevin Stefanski",
     "analysis_type": "preview",
-    "analysis": "The Browns limp into the Steel City carrying more baggage than a Spirit Airlines overhead bin, and their 1-3 record tells only part of the story. Cleveland's offense has been about as explosive as a wet firecracker, mustering just 14 points per game while Joe Flacco channels his inner Nathan Peterman with a ghastly 2-to-6 touchdown-to-interception ratio. The veteran quarterback is completing just 58% of his passes for a meager 5.1 yards per attempt, numbers that would make even the most patient Browns fan reach for the Factory of Sadness commemorative tissues. Meanwhile, Pittsburgh sits pretty at 3-1 despite Aaron Rodgers' modest 786 passing yards through four games, because Mike Tomlin's defense has been suffocating opponents like a python in designer sunglasses, forcing 12 turnovers already this season.\n\nThe matchup to watch will be Myles Garrett versus whoever Pittsburgh trots out at right tackle, as the Browns' edge rusher remains their lone bright spot with 4 sacks despite playing behind a defense that's allowing opposing offenses to convert 45% of their third downs. On the flip side, T.J. Watt's 3 sacks have him licking his chops at the prospect of facing a Browns offensive line that's already surrendered 9 sacks in just four games. Pittsburgh's red zone efficiency (69%) should feast on a Cleveland defense allowing touchdowns on two-thirds of opponent red zone trips, while the Browns' anemic 37.7% third-down conversion rate suggests they'll struggle to sustain drives against a Steelers defense that's forced 5 interceptions and 7 fumbles.\n\nWith Jaylen Warren sidelined and the Browns missing half their offensive line depth, expect this to be a classic AFC North rock fight where the first team to 17 points probably wins. Pittsburgh's defense should dominate a Browns offense that's generated a horrific -55 EPA through the air, while Kenneth Gainwell and the Steelers' ground game will methodically grind out a victory at Acrisure Stadium. The 6.5-point spread feels about right as Tomlin improves his remarkable record against Cleveland, sending the Browns back to Lake Erie with their fourth loss in five games and serious questions about whether this rebuild has any actual blueprints.",
+    "analysis": "The Steel City showdown is back, and while this rivalry has lost some of its teeth in recent years, Saturday afternoon at Acrisure Stadium promises to be a rock fight that would make both cities' industrial heritage proud. The Steelers (3-1) welcome a Browns team (1-4) that's somehow managing to make Joe Flacco look like Joe Namath circa 1969 – and not in a good way. Cleveland's offense has been about as explosive as a wet firecracker, averaging just 14.6 points per game while Flacco has thrown six interceptions to just two touchdowns, completing an anemic 58% of his passes behind an offensive line that's allowed 11 sacks in five games.\n\nPittsburgh's defense, anchored by T.J. Watt's three sacks and Patrick Queen's team-leading 35 tackles, should feast on a Browns offense that's converting just 34% of third downs and has managed only five passing touchdowns all season. The real intrigue lies in whether Aaron Rodgers – yes, the Steelers' new signal-caller in this alternate universe has 786 yards and 8 TDs through four games – can exploit a Cleveland defense that's actually been respectable, allowing just 267 yards per game. The Browns' Myles Garrett (4 sacks) versus Pittsburgh's offensive line will be the chess match within the war, especially with Jaylen Warren sidelined and Kenneth Gainwell needing to shoulder the rushing load after his 154-yard performance.\n\nWith Vegas setting the line at Pittsburgh -4.5 and the total at a laughably low 38.5 points, even the oddsmakers expect this to be uglier than a Primanti Brothers sandwich eaten with a fork. The Steelers' 69% red zone efficiency should be enough to grind out scoring drives against a Browns team that's lost four straight and looks utterly lost without Deshaun Watson (who's still recovering from leg surgery). Look for Pittsburgh's defense to generate multiple turnovers against a Browns offense that's already coughed it up six times, while Rodgers does just enough through the air to DK Metcalf to keep Cleveland honest. The Steelers should control this game from start to finish, turning what was once must-see TV into a methodical dismantling that has Browns fans checking mock draft websites by halftime.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": -4.5,
+      "over_under": 38.5,
+      "provider": "ESPN BET",
+      "favorite": "PIT"
+    },
     "weather": {
       "is_indoor": false,
-      "temperature": 62,
-      "condition": "Sunny",
-      "wind_speed": 5
+      "temperature": 68,
+      "condition": "Cloudy",
+      "wind_speed": 9
     },
     "predictor": {
-      "home_win_prob": 67.338,
-      "matchup_quality": 38.642,
-      "predicted_point_diff": 6.556,
-      "away_win_prob": 32.402
+      "home_win_prob": 64.191,
+      "matchup_quality": 39.256,
+      "predicted_point_diff": 5.22,
+      "away_win_prob": 35.524
     },
     "broadcast": "TV"
   },
   "401772858": {
-    "timestamp": "2025-10-05 10:48:37",
+    "timestamp": "2025-10-06 21:27:24",
     "game_date": "2025-10-12",
     "home_team": "CAR",
     "away_team": "DAL",
@@ -5986,23 +6067,31 @@
     "home_coach": "Dave Canales",
     "away_coach": "Brian Schottenheimer",
     "analysis_type": "preview",
-    "analysis": "The Dallas Cowboys limp into Charlotte nursing more wounds than a M*A*S*H unit, with CeeDee Lamb joining the casualty list alongside multiple defensive starters. At 1-2-1, America's Team is looking less like a Super Bowl contender and more like a team desperately searching for its identity after averaging 33 points allowed per game. Meanwhile, the 1-3 Panthers have discovered something special in their defense, which just authored a 30-0 masterpiece against Atlanta and is holding opponents to just 200 passing yards per game—a stat that should terrify a Cowboys offense missing its best weapon.\n\nThe matchup to watch will be whether Dallas can establish Javonte Williams (312 yards, 4 TDs) against Carolina's surprisingly stout run defense. With Lamb sidelined and Dak Prescott completing an impressive 72.5% of his passes but to a depleted receiving corps, offensive coordinator Brian Schottenheimer will need to get creative. George Pickens has emerged as the primary target with 300 yards and 4 touchdowns, but asking him to carry the load against a Panthers secondary that's grabbed four interceptions could spell trouble. On the flip side, Bryce Young faces a Dallas defense that's hemorrhaging 59% on third downs and allowing 432 yards per game—numbers that would make even the 2008 Lions blush.\n\nThis game screams upset special. The Cowboys' road woes (0-2 away from Jerry World) combined with their defensive struggles make them vulnerable against a Panthers team desperate to build on their defensive resurgence. While Dallas holds a 59% win probability according to ESPN's predictor, the absence of Lamb and Chuba Hubbard (Carolina's leading rusher) turns this into a grind-it-out affair. Look for Carolina's defense to keep this close, with field position and turnovers deciding a game that feels more like Thursday Night Football in November than a Week 5 matchup. The Panthers' home crowd could will them to their second victory if they can keep Prescott uncomfortable and force him into mistakes without his security blanket.",
+    "analysis": "The Dallas Cowboys venture to Charlotte this Sunday in desperate search of consistency, carrying a peculiar 2-2-1 record that perfectly encapsulates their Jekyll-and-Hyde start to 2024. While Dak Prescott has been surgical when healthy (71% completion rate, 10 TDs), the Cowboys' injury report reads like a medical journal, with CeeDee Lamb nursing a leg sprain and their offensive line held together by athletic tape and prayer. Their defense, meanwhile, has been about as reliable as a chocolate teapot, surrendering 30.8 points per game and allowing opposing quarterbacks to complete passes at a 55.7% clip on third downs—numbers that would make even the most optimistic Cowboys fan reach for the Pepto-Bismol.\n\nEnter the Carolina Panthers, who at 2-3 might actually be the more stable franchise in this matchup—a sentence that would've gotten you laughed out of most sports bars just two years ago. Bryce Young has shown flashes of competence (61.7% completion rate) despite working behind an offensive line that's allowed nine sacks, while their defense has quietly been one of the season's pleasant surprises, holding opponents to just 23.8 points per game. The absence of Chuba Hubbard (leg) stings, but Rico Dowdle's emergence (289 yards, 2 TDs) and Tetairoa McMillan's reliable hands (24 catches, 351 yards) give Young legitimate weapons. More importantly, the Panthers are 2-0 at Bank of America Stadium, where the crowd noise and home cooking have helped them upset both Atlanta and Miami.\n\nWith ESPN's predictive model giving Dallas a 60.8% win probability despite being just 3.5-point favorites, this feels like a classic trap game for a Cowboys team that's already shown they can tie Green Bay and lose to Chicago in the same month. The 49.5-point total seems ambitious given Carolina's methodical offensive approach and Dallas's injury-depleted receiving corps. Expect the Panthers' defense to make life miserable for Prescott early, forcing Javonte Williams to carry more of the load than Mike McCarthy would prefer. If Young can protect the football and the Panthers can win the turnover battle (both teams sit at +1 turnover margin), Carolina has a legitimate shot to send Jerry Jones into another postgame tirade. The smart money says Dallas pulls it out late, but don't be shocked if the Panthers' defense and home-field advantage turn this into a rock fight that comes down to the final possession.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": 3.5,
+      "over_under": 49.5,
+      "provider": "ESPN BET",
+      "favorite": "DAL"
+    },
     "weather": {
       "is_indoor": false,
-      "temperature": 65,
-      "condition": "Cloudy",
+      "temperature": 66,
+      "condition": "Sunny",
       "wind_speed": 7
     },
     "predictor": {
-      "home_win_prob": 40.674,
-      "matchup_quality": 38.17,
-      "predicted_point_diff": -3.325,
-      "away_win_prob": 59.0
+      "home_win_prob": 38.91,
+      "matchup_quality": 43.988,
+      "predicted_point_diff": -4.171,
+      "away_win_prob": 60.777
     },
     "broadcast": "TV"
   },
   "401772750": {
-    "timestamp": "2025-10-05 10:48:56",
+    "timestamp": "2025-10-06 21:27:26",
     "game_date": "2025-10-12",
     "home_team": "MIA",
     "away_team": "LAC",
@@ -6012,23 +6101,31 @@
     "home_coach": "Mike McDaniel",
     "away_coach": "Jim Harbaugh",
     "analysis_type": "preview",
-    "analysis": "The Los Angeles Chargers travel to Miami Gardens for what shapes up as a defensive slugfest between two teams heading in opposite directions. The Chargers (3-1) have quietly morphed into one of the AFC's most complete teams under their new defensive identity, allowing just 17.8 points per game while Justin Herbert manages the offense with surgical precision. Meanwhile, the Dolphins (1-3) are desperately trying to keep their season afloat, having lost three straight games by an average margin of nearly nine points while their once-explosive offense sputters without Tyreek Hill, who remains on injured reserve with a leg injury that won't see him return until February.\n\nThis matchup features a fascinating chess match between Chargers defensive coordinator's unit that's allowing just 288.8 yards per game (best in the AFC) and a Dolphins offense that has managed just 294 yards per game without their deep-threat dynamo. Tua Tagovailoa has completed an impressive 69% of his passes, but the underlying numbers tell a grimmer story – just 6.4 yards per attempt and a concerning 7-to-4 touchdown-to-interception ratio. The Chargers' pass rush, led by Tuli Tuipulotu's four sacks, should feast against a Miami offensive line that has already surrendered eight sacks in four games. On the flip side, De'Von Achane's emergence (246 rushing yards) provides Miami's best path to offensive success, especially against a Chargers run defense that's been somewhat vulnerable at 111.3 yards per game allowed.\n\nThe X-factor here is Miami's porous defense, which is hemorrhaging 29.5 points and 393.3 yards per game – numbers that would make even the most patient defensive coordinator reach for antacids. Herbert, despite missing star tackle Joe Alt to a leg sprain, should find plenty of soft spots in a Miami secondary that's allowing 235.3 passing yards per game. Quentin Johnston's breakout campaign (337 yards, 4 TDs) continues to provide Herbert with a legitimate downfield threat, while rookie sensation Omarion Hampton has stabilized the ground game with 270 yards on just 54 carries. With ESPN's predictor giving the Chargers a 64.6% win probability and the betting line favoring them by 5.5 points, expect Los Angeles to control this game with their defense and grind out a workmanlike road victory that won't be pretty but will be effective – the Jim Harbaugh special.",
+    "analysis": "The Los Angeles Chargers limp into Miami Gardens nursing a two-game losing streak, but don't let that fool you—this is still the team that opened the season by stunning Patrick Mahomes and the Chiefs. The Bolts' Jekyll-and-Hyde act has been Oscar-worthy: masterful defensive performances (holding opponents to 37.3% on third downs) followed by offensive disappearing acts that would make David Copperfield jealous. Justin Herbert's 65.9% completion rate suggests precision, but with just 1,229 yards through five games and his top rusher Omarion Hampton sidelined with a leg injury, offensive coordinator Greg Roman might need to dust off his \"Break Glass in Case of Emergency\" playbook. The absence of rookie tackle Joe Alt and tight end Will Dissly further complicates matters for a unit averaging just 19.6 points per game—tied for 24th in the league with, ironically, their hosts.\n\nSpeaking of those hosts, the Miami Dolphins have discovered that life without Tua Tagovailoa for the first three weeks was about as pleasant as a root canal performed by a caffeinated woodpecker. Since Tua's return, they've shown flashes of competence, including a Week 4 victory over the Jets, but defensive coordinator Vic Fangio must be wondering if his unit left their tackling skills in the offseason. Miami's defense is hemorrhaging 402 yards per game (dead last in the NFL) and allowing a grotesque 174.2 rushing yards per contest—statistics that should have Jim Harbaugh's power-running sensibilities tingling like Spider-Man's spidey sense. The Dolphins' offensive line is held together with duct tape and prayers, with Austin Jackson and James Daniels on injured reserve, while Liam Eichenberg remains on the PUP list.\n\nThis matchup screams defensive slugfest, with both offenses struggling to find their identity and the betting total plummeting from 45.5 to 43.5 for good reason. The Chargers' elite third-down defense should frustrate Tagovailoa's rhythm passing attack, while Miami's Swiss cheese run defense plays directly into Harbaugh's ground-and-pound philosophy—even without Hampton. Look for the Chargers to control the line of scrimmage, milk the clock, and ride their superior defense to a gritty road victory. In a game where first to 20 might win, bet on the team with the functioning defense and the coach who treats possession time like a precious family heirloom.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": 4.5,
+      "over_under": 43.5,
+      "provider": "ESPN BET",
+      "favorite": "LAC"
+    },
     "weather": {
       "is_indoor": false,
-      "temperature": 84,
-      "condition": "Thunderstorms",
-      "wind_speed": 4
+      "temperature": 83,
+      "condition": "Mostly sunny",
+      "wind_speed": 1
     },
     "predictor": {
-      "home_win_prob": 35.144999999999996,
-      "matchup_quality": 51.182,
-      "predicted_point_diff": -5.486,
-      "away_win_prob": 64.572
+      "home_win_prob": 39.309,
+      "matchup_quality": 48.893,
+      "predicted_point_diff": -4.048,
+      "away_win_prob": 60.375
     },
     "broadcast": "TV"
   },
   "401772855": {
-    "timestamp": "2025-10-05 10:49:16",
+    "timestamp": "2025-10-06 21:27:25",
     "game_date": "2025-10-12",
     "home_team": "BAL",
     "away_team": "LAR",
@@ -6038,23 +6135,31 @@
     "home_coach": "John Harbaugh",
     "away_coach": "Sean McVay",
     "analysis_type": "preview",
-    "analysis": "The Baltimore Ravens limp into their home matchup against the Los Angeles Rams with more holes than a Swiss cheese factory, missing arguably the most important defensive triumvirate in football. With Lamar Jackson nursing a mysterious leg injury, Roquan Smith on the shelf with a leg strain, and Kyle Hamilton's groin keeping him sidelined, the Ravens (1-3) are left to navigate choppy waters without their MVP quarterback, their defensive quarterback, and their do-everything safety. It's the kind of injury report that would make even the most optimistic Ravens fan reach for the Old Bay-flavored tissues. Meanwhile, the Rams (3-2) arrive at M&T Bank Stadium with their own offensive line woes but considerably more momentum, having taken three of their last four despite Matthew Stafford operating behind a patchwork protection unit missing Rob Havenstein and dealing with musical chairs at center.\n\nThis game presents a fascinating clash of identities in crisis. Baltimore's vaunted rushing attack, averaging 6.2 yards per carry behind Derrick Henry's bulldozing 284 yards, will test a Rams defense that's been surprisingly stout against the run (93.6 yards allowed per game). But without Jackson's dual-threat dynamism, offensive coordinator Todd Monken will need to get creative with his play-calling, likely leaning heavily on Henry while asking backup quarterback Tyler Huntley (or Josh Johnson) to manage the game efficiently. On the flip side, Sean McVay's aerial circus featuring Puka Nacua (52 catches, 588 yards) and Cooper Kupp should find plenty of soft spots in a Ravens secondary that's hemorrhaging 269.5 passing yards per game – dead last in the NFL – and now missing their best coverage defender in Hamilton.\n\nThe smart money says take the Rams and the points, even on the road. Baltimore's defense has been more porous than advertised even at full strength, surrendering 33.3 points per game, and now they're asking second and third-stringers to contain one of the league's most creative offensive minds. While the Ravens' home crowd will provide energy and Henry will undoubtedly break off a few signature runs, the combination of elite receiver play from Los Angeles and Baltimore's compromised secondary should tilt this contest toward the visitors. Expect Stafford to methodically dissect the Ravens' depleted defense, controlling the game's tempo and keeping that dangerous Baltimore rushing attack on the sidelines. The Rams should cover and potentially win outright in what could be a surprisingly comfortable road victory.",
+    "analysis": "The Los Angeles Rams roll into Baltimore carrying a 3-2 record that feels more impressive than it looks, while the Ravens sit at an alarming 1-4 despite boasting enough offensive firepower to make defensive coordinators break out in cold sweats. This matchup between Sean McVay's road warriors and a desperate Baltimore team fighting to salvage their season promises to be a fascinating chess match, especially with the Rams installed as surprising 7.5-point road favorites.\n\nThe Ravens' season has been a masterclass in how to snatch defeat from the jaws of victory, managing to lose four straight after their opening win despite Lamar Jackson throwing for 869 yards and 10 touchdowns (against just one pick) and Derrick Henry bulldozing for 317 yards in just five games. Their defense has been about as reliable as a chocolate teapot, surrendering 35.4 points per game and allowing opposing offenses to convert a staggering 76% of their red zone opportunities. Meanwhile, the Rams have quietly assembled one of the more balanced attacks in the NFC, with Matthew Stafford distributing the ball to Puka Nacua (588 yards) and Cooper Kupp while Kyren Williams keeps defenses honest with 368 rushing yards. The Rams' defense, allowing just 21.4 points per game, has been the surprise story, with Byron Young's five sacks leading a unit that's generated 15 total sacks and forced six turnovers.\n\nThe injury report reads like a casualty list from a medieval battlefield, with Baltimore potentially missing key pieces including Roquan Smith, Marlon Humphrey, and Ronnie Stanley – absences that could turn an already porous defense into a turnstile. The Rams are dealing with their own issues, notably missing Rob Havenstein and Tyler Higbee, but their depth has held up better through the early season grind. With Baltimore's defense hemorrhaging yards (415.4 per game) and the Rams' offense clicking at 66.3% completion percentage while protecting Stafford reasonably well (just 9 sacks allowed), expect McVay to exploit Baltimore's wounded secondary early and often. The Ravens will need a vintage Lamar Jackson performance and significantly better defensive execution to avoid falling to 1-5, but the smart money says the Rams continue their road success and cover the spread in what should be a higher-scoring affair than the 44.5 total suggests.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": 7.5,
+      "over_under": 44.5,
+      "provider": "ESPN BET",
+      "favorite": "LAR"
+    },
     "weather": {
       "is_indoor": false,
-      "temperature": 67,
-      "condition": "Intermittent clouds",
-      "wind_speed": 6
+      "temperature": 63,
+      "condition": "Cloudy",
+      "wind_speed": 23
     },
     "predictor": {
-      "home_win_prob": 47.841,
-      "matchup_quality": 78.623,
-      "predicted_point_diff": -0.989,
-      "away_win_prob": 51.775000000000006
+      "home_win_prob": 40.089000000000006,
+      "matchup_quality": 75.682,
+      "predicted_point_diff": -3.396,
+      "away_win_prob": 59.589000000000006
     },
     "broadcast": "TV"
   },
   "401772857": {
-    "timestamp": "2025-10-05 10:49:35",
+    "timestamp": "2025-10-06 21:27:26",
     "game_date": "2025-10-12",
     "home_team": "JAX",
     "away_team": "SEA",
@@ -6064,23 +6169,25 @@
     "home_coach": "Liam Coen",
     "away_coach": "Mike Macdonald",
     "analysis_type": "preview",
-    "analysis": "The Seahawks and Jaguars are both riding high at 3-1, but this Week 5 showdown in Jacksonville features two teams getting there in dramatically different ways. Seattle's offense has been explosive, averaging 27.8 points per game behind Sam Darnold's surprising efficiency (70% completion rate) and the emergence of Jaxon Smith-Njigba, who's already piled up 402 receiving yards. The Seahawks have won three straight after dropping their opener to San Francisco, including an impressive road victory over Pittsburgh and a 44-13 demolition of New Orleans. However, they'll be severely shorthanded defensively with cornerback Devon Witherspoon and safety Julian Love both ruled out, leaving their secondary vulnerable against a Jacksonville passing attack that's been inconsistent but showed flashes of brilliance in last week's upset of the 49ers.\n\nJacksonville's defense has been the real story of their hot start, allowing just 18 points per game and forcing an impressive 9 interceptions through four weeks. They've won their last two games despite Trevor Lawrence completing just 58% of his passes with a concerning 5-to-4 touchdown-to-interception ratio. The good news? Travis Etienne Jr. has been a workhorse, rushing for 394 yards at over 5 yards per carry, and the Jaguars' ground game (144 yards per game) should find success against a Seattle defense allowing 89.8 rushing yards per contest. With the Seahawks missing key pieces in their secondary and Jacksonville's Travon Walker questionable with an arm injury, this game could come down to which team establishes the run.\n\nThe betting line has this as essentially a pick 'em (Jacksonville -0.5), which feels about right for two evenly matched teams heading in opposite directions momentum-wise. Seattle's offensive firepower gives them the edge, especially with Jacksonville's passing game still finding its footing. But if the Jaguars can control the clock with their ground game and force Darnold into mistakes with their opportunistic secondary, they could defend home turf. Expect a close, competitive game that likely comes down to a late field goal, with Seattle's more explosive offense ultimately making the difference in what should be a playoff-atmosphere battle between two surprising early-season contenders.",
+    "analysis": "The Seahawks sail into Jacksonville for a fascinating Week 6 clash that features two teams heading in opposite directions faster than a Russell Wilson trade rumor. Seattle limps in at 3-2 after dropping a shootout to Tampa Bay, while the Jaguars are riding high at 4-1 following their stunning Sunday Night Football upset of the Chiefs that had Jacksonville fans believing in miracles again—or at least believing Trevor Lawrence remembered how to throw a football.\n\nThe matchup's most intriguing storyline centers on Seattle's high-octane offense (averaging 29.2 points per game) against Jacksonville's surprisingly stout defense that just held Patrick Mahomes and company to their lowest output of the season. Sam Darnold has been reborn in Seattle's system, completing an absurd 73% of his passes with a 9:3 TD-INT ratio, while Jaxon Smith-Njigba (534 yards) has emerged as the legitimate WR1 the Seahawks desperately needed. But here's the rub: Jacksonville's defense has forced nine interceptions in five games, and with Devon Witherspoon and Julian Love both listed as out for Seattle's secondary, this game could pivot on whether the Jaguars can generate enough pressure without Travon Walker (out with wrist surgery) to rattle Darnold into his old Jets-era habits. The Seahawks' defense has been opportunistic with seven picks of their own, but they're allowing 257.8 passing yards per game—a number that even this diminished version of Trevor Lawrence (58.3% completion rate, 5 TDs, 4 INTs) might be able to exploit.\n\nThe x-factor here is Jacksonville's ground game, which has quietly been dominant at 5.0 yards per carry behind Travis Etienne Jr.'s 394 yards. Seattle's run defense has been their Achilles' heel, surrendering 4.0 yards per carry despite their overall defensive improvements. If Jacksonville can control the clock and keep Darnold off the field, they have a legitimate shot at extending their winning streak. However, the Seahawks' 2-0 road record and offensive efficiency in the red zone (72.2% touchdown rate) suggest they're built to win shootouts anywhere. Look for Seattle to edge this one in a back-and-forth affair that comes down to whether Jacksonville's defense can maintain its magical momentum or if the clock strikes midnight on their Cinderella start.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
     "weather": {
       "is_indoor": false,
-      "temperature": 76,
+      "temperature": 77,
       "condition": "Partly sunny",
-      "wind_speed": 7
+      "wind_speed": 6
     },
     "predictor": {
-      "home_win_prob": 51.74100000000001,
-      "matchup_quality": 52.75,
-      "predicted_point_diff": 0.563,
-      "away_win_prob": 47.875
+      "home_win_prob": 49.317,
+      "matchup_quality": 56.005,
+      "predicted_point_diff": -0.319,
+      "away_win_prob": 50.287000000000006
     },
     "broadcast": "TV"
   },
   "401772749": {
-    "timestamp": "2025-10-05 10:49:55",
+    "timestamp": "2025-10-06 21:27:42",
     "game_date": "2025-10-12",
     "home_team": "TB",
     "away_team": "SF",
@@ -6090,23 +6197,31 @@
     "home_coach": "Todd Bowles",
     "away_coach": "Kyle Shanahan",
     "analysis_type": "preview",
-    "analysis": "The San Francisco 49ers' cross-country trip to Tampa Bay sets up a fascinating chess match between two teams desperately trying to maintain their early-season momentum. While the 49ers (4-1) appear to have the superior record, their recent overtime escape against the Rams exposed vulnerabilities that the Buccaneers (3-1) are well-equipped to exploit. San Francisco's offense has been surprisingly anemic, averaging just 21.2 points per game despite Mac Jones completing 66.6% of his passes—a testament to their lack of explosive plays without George Kittle, who remains on injured reserve. The 49ers' saving grace has been Christian McCaffrey's versatility (282 rushing yards, team-leading 387 receiving yards), but their rushing attack averaging a paltry 3.06 yards per carry suggests Tampa's stout run defense, which allows just 85 yards per game, could force Jones into uncomfortable third-and-long situations where the Bucs' pass rush has thrived with 10 sacks through four games.\n\nTampa Bay enters this matchup decimated by injuries but oddly dangerous because of it. With Mike Evans sidelined and rookie sensation Bucky Irving (237 rushing yards) nursing a dislocated arm, Baker Mayfield must lean heavily on emerging receiver Emeka Egbuka (282 yards, 4 TDs) and a committee backfield approach. The Bucs' secondary is particularly concerning with Jamel Dean, Benjamin Morrison, and Christian Izien all ruled out—a potential feast for McCaffrey in the passing game. Yet Tampa's home-field advantage at Raymond James Stadium shouldn't be underestimated, especially with ESPN's predictor essentially calling this a coin flip (51.6% San Francisco win probability) despite the betting line favoring the 49ers.\n\nThis game likely hinges on which defense bends first in the red zone, where both teams have been historically bad—San Francisco converting just 42.1% of opportunities while Tampa sits at an abysmal 36.4%. The 49ers' superior third-down conversion rate (46.4% vs. Tampa's 37.0%) and their pristine 3-0 road record suggest they'll control possession and grind out a victory. But if Mayfield can exploit San Francisco's secondary early and establish rhythm with Egbuka, the depleted Buccaneers have enough pride and home cooking to keep this uncomfortably close. Expect San Francisco to escape with a narrow victory, but not before sweating through a classic NFC slugfest that could come down to which kicker handles the Florida humidity better.",
+    "analysis": "The Raymond James Stadium grass is about to witness a fascinating chess match between two 4-1 teams desperately trying to prove they're legitimate contenders despite their quarterback rooms looking like a medical ward. The 49ers roll into Tampa with Mac Jones under center—yes, that Mac Jones—while the Buccaneers counter with Baker Mayfield, who continues his remarkable career rehabilitation tour with a stellar 10-to-1 touchdown-to-interception ratio through five games.\n\nSan Francisco's offensive identity crisis makes for compelling theater. With Brock Purdy nursing a sore leg on the sidelines, Jones has been surprisingly competent (905 yards, 6 TDs), but asking him to replicate the precision required in Kyle Shanahan's system against a Tampa defense allowing just 92.4 rushing yards per game feels like asking a substitute teacher to conduct brain surgery. Christian McCaffrey remains the 49ers' security blanket with 282 rushing yards and a team-leading 387 receiving yards, essentially functioning as both the engine and the steering wheel of this offense. The concerning part? San Francisco's rushing EPA sits at a ghastly -20.06, suggesting their ground game has been less effective than a screen door on a submarine despite McCaffrey's individual heroics.\n\nTampa Bay's offense, meanwhile, has transformed into a surprisingly balanced attack even without Mike Evans, who remains sidelined with a leg strain. Rookie sensation Emeka Egbuka has emerged as Mayfield's favorite target with 445 yards and five touchdowns, while the ground game has found its rhythm behind Bucky Irving's 237 yards—though Irving's dislocated arm leaves the backfield duties uncertain. The Bucs' passing EPA of 33.93 dwarfs San Francisco's, and with the 49ers missing multiple defensive backs including Malik Mustapha, expect offensive coordinator Dave Canales to dial up an aggressive passing attack. Given Tampa's home-field advantage, their superior quarterback situation, and a 49ers receiving corps decimated by injuries to Jauan Jennings, Ricky Pearsall, and Jordan Watkins, the Buccaneers should control this game. Look for Tampa to lean on their passing game early, build a multi-score lead, and force Mac Jones into uncomfortable third-and-long situations where the Bucs' pass rush can feast.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": -2.5,
+      "over_under": 47.5,
+      "provider": "ESPN BET",
+      "favorite": "TB"
+    },
     "weather": {
       "is_indoor": false,
-      "temperature": 88,
-      "condition": "Sunny",
-      "wind_speed": 6
+      "temperature": 86,
+      "condition": "Partly sunny",
+      "wind_speed": 5
     },
     "predictor": {
-      "home_win_prob": 48.036,
-      "matchup_quality": 66.267,
-      "predicted_point_diff": -0.32,
-      "away_win_prob": 51.578
+      "home_win_prob": 51.139,
+      "matchup_quality": 66.296,
+      "predicted_point_diff": 0.364,
+      "away_win_prob": 48.472
     },
     "broadcast": "TV"
   },
   "401772859": {
-    "timestamp": "2025-10-05 10:50:13",
+    "timestamp": "2025-10-06 21:27:45",
     "game_date": "2025-10-12",
     "home_team": "LV",
     "away_team": "TEN",
@@ -6116,20 +6231,28 @@
     "home_coach": "Pete Carroll",
     "away_coach": "Brian Callahan",
     "analysis_type": "preview",
-    "analysis": "Welcome to the basement of the NFL, where the Tennessee Titans and Las Vegas Raiders square off Sunday in a matchup that feels less like professional football and more like two drunk uncles fighting over who gets the last chicken wing at Thanksgiving. The 0-4 Titans stumble into Allegiant Stadium averaging a league-worst 12.8 points per game, while the 1-3 Raiders counter with their own special brand of offensive futility that has them sitting at 19.3 points per outing. If you're looking for high-octane entertainment, you've come to the wrong place – this is where offensive coordinators' careers go to die.\n\nThe key storyline centers on two franchises desperately searching for signs of life at quarterback. Tennessee's Cam Ward has completed just 51.2% of his passes for 614 yards through four games, posting numbers that make you wonder if he's throwing to his receivers or the hot dog vendors. Meanwhile, Las Vegas counters with Geno Smith, who's somehow managing a respectable 63.8% completion rate but has thrown seven interceptions to just six touchdowns – a ratio that would make even the most patient offensive coordinator consider early retirement. The real battle might be between Tony Pollard (261 rushing yards) and rookie sensation Ashton Jeanty (282 yards), as both teams will likely lean heavily on the ground game to mask their passing game deficiencies. With Tennessee allowing 141.5 rushing yards per game and Las Vegas surrendering 102.8, expect both backs to find some success.\n\nLook for this game to unfold like a root canal – slow, painful, and something you'll want to forget immediately after it's over. The Raiders' defense has shown flashes of competence, allowing just 24.8 points per game, which against this Titans offense might as well make them the '85 Bears. Tennessee's defense, meanwhile, is allowing 30 points per game and just watched Houston shut them out 26-0 last week. With Calvin Ridley questionable and the Titans' offensive line missing JC Latham, expect Las Vegas to grind out an ugly victory at home, relying on their defense and just enough offensive production to cover as 8-point favorites. The under looks golden in what promises to be a punt-fest for the ages.",
+    "analysis": "Welcome to the NFL's version of rock bottom derby, where the 1-4 Tennessee Titans travel to Sin City to face the equally woeful 1-4 Las Vegas Raiders in what promises to be less shootout and more cry-for-help. The Raiders are favored by 4.5 points at home, but given that both teams are averaging fewer points than a decent fantasy kicker (Tennessee at 14.6 PPG, Las Vegas at 16.6), Vegas oddsmakers setting the total at 41.5 feels almost optimistic. Tennessee's rookie quarterback Cam Ward has completed just 51.8% of his passes while learning that the NFL hits different than Miami hurricanes, while Las Vegas counters with Geno Smith, who's thrown nine interceptions to just six touchdowns – apparently mistaking Raiders silver and black for the opposing team's colors.\n\nThe key matchup to watch will be whether either offensive line can keep their quarterback upright long enough to complete a forward pass. The Titans have surrendered 19 sacks in five games while managing just seven of their own, numbers that suggest their pass rush meetings involve more donuts than defensive schemes. Meanwhile, the Raiders' Ashton Jeanty has been the lone bright spot in their backfield with 349 rushing yards, though he'll face a Tennessee defense allowing 146.8 rushing yards per game – essentially rolling out the red carpet for opposing runners. Both teams are converting third downs at roughly the same anemic rate (Tennessee 29.4%, Las Vegas 40.3%), while their red zone efficiency numbers (Tennessee 44.4%, Las Vegas 35.7%) suggest they treat the opponent's 20-yard line like it's surrounded by lava.\n\nWith Tennessee missing key pieces including tackle JC Latham and the Raiders potentially without tight end sensation Brock Bowers (questionable with a leg injury), this game shapes up as a battle of attrition where the winner might simply be the team that commits fewer unforced errors. The Raiders' home-field advantage at Allegiant Stadium should prove decisive in what promises to be a defensive struggle punctuated by field goals and fan groans. Look for Las Vegas to grind out an ugly victory behind their superior ground game and a Tennessee offense that's managed just one road win and was shut out 26-0 by Houston two weeks ago. Someone has to win this game – league rules, unfortunately – and the Raiders' ability to actually move the ball (347.8 yards per game vs. Tennessee's league-worst 261) should be just enough to cover in a game that makes the under look like free money.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": -4.5,
+      "over_under": 41.5,
+      "provider": "ESPN BET",
+      "favorite": "LV"
+    },
     "weather": {
       "is_indoor": true
     },
     "predictor": {
-      "home_win_prob": 69.298,
-      "matchup_quality": 18.667,
-      "predicted_point_diff": 8.075,
-      "away_win_prob": 30.457
+      "home_win_prob": 64.39099999999999,
+      "matchup_quality": 16.181,
+      "predicted_point_diff": 5.788,
+      "away_win_prob": 35.325
     },
     "broadcast": "TV"
   },
   "401772752": {
-    "timestamp": "2025-10-05 10:50:29",
+    "timestamp": "2025-10-06 21:27:45",
     "game_date": "2025-10-12",
     "home_team": "GB",
     "away_team": "CIN",
@@ -6139,23 +6262,31 @@
     "home_coach": "Matt LaFleur",
     "away_coach": "Zac Taylor",
     "analysis_type": "preview",
-    "analysis": "The Cincinnati Bengals limp into Lambeau Field this Sunday night with more questions than a philosophy exam, and unfortunately for them, the Green Bay Packers look ready to provide all the wrong answers. At 2-2 with Joe Burrow sidelined indefinitely following leg surgery, the Bengals are discovering that Jake Browning's fairy tale from last season might have been more Grimm than Disney. Browning's five interceptions through four games have Cincinnati's offense looking about as threatening as a Wisconsin cheese curd, while the defense is surrendering nearly 30 points per game—a recipe for disaster when you're averaging just 15.3 points yourself.\n\nMeanwhile, Jordan Love and the Packers (2-1-1) are quietly assembling one of the NFL's most balanced attacks, with Josh Jacobs already churning out 266 rushing yards behind a Green Bay offensive line that's creating lanes despite multiple injury concerns. Love has been surgical when needed, completing nearly 70% of his passes for 1,000 yards with an impressive 8-to-1 touchdown-to-interception ratio. The real mismatch comes on third downs, where the Packers are converting at a robust 52.7% clip while Cincinnati stumbles along at 36%—a gap that becomes canyon-sized when you consider the Bengals are allowing opponents to convert half their third-down attempts.\n\nWith Ja'Marr Chase doing his best Atlas impression trying to carry Cincinnati's offense (264 yards on 26 catches), and the Packers' defense allowing just 77.5 rushing yards per game, expect Matt LaFleur to dare Browning to beat them through the air while Rashan Gary and company feast in the backfield. The 13-point spread feels generous only if you believe in miracles at the Frozen Tundra, but with Cincinnati's -43 EPA telling the story of a team that's been thoroughly outplayed this season, this shapes up as a statement win for Green Bay as they establish themselves as legitimate NFC North contenders while the Bengals continue their free fall without their franchise quarterback.",
+    "analysis": "The Cincinnati Bengals limp into Lambeau Field with the weight of unfulfilled expectations crushing their 2-3 shoulders, desperately searching for answers after losing Joe Burrow to injury and watching their season spiral into chaos. Jake Browning has been thrust into the starting role with all the effectiveness of a screen door on a submarine, completing just 64.5% of his passes for 757 yards with an alarming 6-to-8 touchdown-to-interception ratio that would make even the most optimistic Bengals fan reach for the bourbon. Meanwhile, the Packers sit at 2-1-1, fresh off a wild 40-40 overtime tie in Dallas that showcased Jordan Love's growing command of Matt LaFleur's offense—the young quarterback has thrown for 1,000 yards with an impressive 8-to-1 TD-INT ratio while completing nearly 70% of his passes, numbers that suggest Green Bay's post-Rodgers era might arrive smoother than anyone anticipated.\n\nThe statistical chasm between these teams reads like a horror novel for Cincinnati fans: the Bengals are hemorrhaging 31.2 points per game while managing just 17.0 on offense, creating a -71 point differential that ranks among the league's worst. Their defense, supposedly a strength, is allowing opponents to convert 47.5% of third downs while the offense manages just 36.1%—a recipe for sustained drives by the opposition and quick three-and-outs for themselves. Green Bay's balanced attack, averaging 364.5 yards per game with Josh Jacobs providing a steady ground presence (266 yards, 4 TDs), should feast on a Cincinnati defense that's surrendering 132.2 rushing yards per game. The 14.5-point spread feels almost charitable given the Bengals' current state of disarray.\n\nWithout Burrow's elite processing and pocket presence, Cincinnati's offense has devolved into a predictable mess that even Ja'Marr Chase's brilliance (32 catches, 374 yards) can't salvage. The Packers' defense, allowing just 21 points per game and limiting opponents to 32.7% on third down, should tee off on Browning behind a makeshift offensive line missing guards Cordell Volson and Lucas Patrick. Expect Rashan Gary and company to live in Cincinnati's backfield while Love and the Packers' offense methodically dissect a Bengals defense that's been gashed for 402.2 yards per game. This has all the makings of a vintage Lambeau Field beatdown—the kind that sends visiting teams home questioning everything about their season's direction.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": -14.5,
+      "over_under": 44.5,
+      "provider": "ESPN BET",
+      "favorite": "GB"
+    },
     "weather": {
       "is_indoor": false,
-      "temperature": 69,
-      "condition": "Mostly sunny",
+      "temperature": 68,
+      "condition": "Intermittent clouds",
       "wind_speed": 9
     },
     "predictor": {
-      "home_win_prob": 80.188,
-      "matchup_quality": 64.236,
-      "predicted_point_diff": 13.106,
-      "away_win_prob": 19.654
+      "home_win_prob": 80.121,
+      "matchup_quality": 65.81,
+      "predicted_point_diff": 13.039,
+      "away_win_prob": 19.721
     },
     "broadcast": "TV"
   },
   "401772751": {
-    "timestamp": "2025-10-05 10:50:47",
+    "timestamp": "2025-10-06 21:27:43",
     "game_date": "2025-10-12",
     "home_team": "NO",
     "away_team": "NE",
@@ -6165,20 +6296,28 @@
     "home_coach": "Kellen Moore",
     "away_coach": "Mike Vrabel",
     "analysis_type": "preview",
-    "analysis": "The Superdome hosts a fascinating clash of misery this Sunday, as the winless Saints (0-4) desperately seek salvation against a Patriots team (2-2) that's somehow discovered offensive competence in the year 2024. New Orleans has plummeted from playoff contender to league doormat faster than you can say \"Derek Carr injury,\" with rookie Spencer Rattler manning a passing attack that's averaging a pitiful 191 yards per game. Meanwhile, Drake Maye has injected life into New England's offense, throwing for 988 yards and seven touchdowns through just four games while completing an eye-popping 73.4% of his passes—numbers that would make Mac Jones weep into his playbook.\n\nThe Saints' offensive line situation reads like a medical journal, with center Cesar Ruiz and tackle Xavier Truss both sidelined, which should allow New England's suddenly competent pass rush (10 sacks) to feast on Rattler, who's already been dropped nine times behind this makeshift protection. Defensively, New Orleans is hemorrhaging 30.3 points per game while allowing opponents to convert 76.9% of their red zone opportunities—a stat that should have Stefon Diggs licking his chops after hauling in 213 yards through four weeks. The Saints' lone bright spot, Alvin Kamara's 256 rushing yards, faces a Patriots run defense that's allowing just 77.5 yards per game on the ground, though New England's own rushing attack (3.86 yards per carry) remains about as explosive as a wet firecracker.\n\nVegas has installed the Patriots as 3.5-point road favorites, and ESPN's matchup quality rating of 31.5 suggests this game might be better suited for a Thursday night in November than a Sunday afternoon showcase. Still, desperation breeds unpredictability, and the Saints playing at home with their season on life support could manufacture just enough magic to keep this close. Expect New England to control the game with Maye's efficiency and a defense that's allowing just 20.3 points per game, but don't be shocked if the Superdome crowd wills their team to a backdoor cover. The Patriots should escape with their third win, but in a game featuring two franchises trying to remember what competence feels like, anything uglier than expected wouldn't surprise.",
+    "analysis": "The Patriots' improbable road magic collides with the Saints' Superdome desperation Sunday in a matchup that perfectly encapsulates the NFL's theater of the absurd. New England (3-2), fresh off consecutive road victories including a stunning 23-20 upset in Buffalo, brings their Jekyll-and-Hyde act to New Orleans, where the Saints (1-4) are hemorrhaging both points and hope after dropping four straight games to open the season.\n\nDrake Maye has transformed the Patriots' passing attack from unwatchable to unexpectedly competent, completing an eye-popping 73.4% of his passes while engineering a 44.2 passing EPA that suggests this offense might actually belong in the 21st century. His primary target, Stefon Diggs, has been everything Buffalo fans feared he'd become elsewhere—359 yards on 29 catches, providing the veteran presence Maye desperately needs. Meanwhile, Spencer Rattler's baptism by fire in New Orleans has produced predictably mixed results: 990 yards and a respectable 6:1 touchdown-to-interception ratio, but with a passing EPA of -8.3 that tells the real story of an offense struggling to sustain drives. The Saints' 41.2% red zone touchdown rate reads like a horror novel, while their defense—once the pride of the bayou—is surrendering 70.6% red zone scores and watching opponents convert third downs at will.\n\nThe 3.5-point spread favoring New England feels appropriate given the Saints' current trajectory toward oblivion, though the Superdome crowd and Alvin Kamara's 283 rushing yards suggest this won't be a complete surrender. With Antonio Gibson sidelined and the Saints missing key pieces in Chase Young and Cesar Ruiz, expect the Patriots to lean heavily on their surprising defensive efficiency (allowing just 20.2 points per game) while Maye continues his rookie-of-the-year audition. The under 45.5 total looks tempting given these teams' combined offensive limitations, but New England's newfound road warrior mentality should be enough to extend the Saints' misery in what shapes up as an ugly, grind-it-out affair that the Patriots control late.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": 3.5,
+      "over_under": 45.5,
+      "provider": "ESPN BET",
+      "favorite": "NE"
+    },
     "weather": {
       "is_indoor": true
     },
     "predictor": {
-      "home_win_prob": 41.188,
-      "matchup_quality": 31.465,
-      "predicted_point_diff": -3.638,
-      "away_win_prob": 58.48100000000001
+      "home_win_prob": 39.309,
+      "matchup_quality": 32.756,
+      "predicted_point_diff": -4.158,
+      "away_win_prob": 60.375
     },
     "broadcast": "TV"
   },
   "401772923": {
-    "timestamp": "2025-10-05 10:51:08",
+    "timestamp": "2025-10-06 21:28:01",
     "game_date": "2025-10-12",
     "home_team": "KC",
     "away_team": "DET",
@@ -6188,23 +6327,25 @@
     "home_coach": "Andy Reid",
     "away_coach": "Dan Campbell",
     "analysis_type": "preview",
-    "analysis": "The Detroit Lions roar into Arrowhead Stadium this Sunday night with the NFL's most explosive offense, averaging 34.3 points per game, while the Kansas City Chiefs are desperately searching for their championship form after an uncharacteristic 2-2 start. This primetime showdown features two teams heading in opposite directions: the Lions (3-1) have won three straight after an opening week stumble in Green Bay, including statement victories over Baltimore and a 52-21 demolition of Chicago, while the Chiefs have looked surprisingly vulnerable, dropping their first two home games to Chicago and Philadelphia before finally finding their footing with consecutive wins over the Giants and Ravens.\n\nThe key matchup to watch will be Detroit's high-octane passing attack against Kansas City's stingy pass defense, which is allowing just 192.3 yards per game through the air. Jared Goff has been surgical with a remarkable 73.8% completion rate, spreading the wealth to weapons like Amon-Ra St. Brown (27 catches, 307 yards, 6 TDs) and utilizing Jahmyr Gibbs as both a runner and receiver out of the backfield. The Lions' offensive line, however, faces a significant test with left tackle Taylor Decker listed as doubtful with an arm injury – a concerning development against George Karlaftis and a Chiefs pass rush that has generated 8 sacks through four games. On the flip side, Patrick Mahomes and the Chiefs offense haven't quite found their typical rhythm, managing just 24.3 points per game, though the recent emergence of Hollywood Brown (22 catches, 209 yards) provides a spark alongside Travis Kelce in the passing game.\n\nThe absence of Rashee Rice due to suspension continues to limit Kansas City's offensive ceiling, and while their defense has been championship-caliber, allowing just 19 points per game, they'll face their toughest test yet against Detroit's balanced attack that's converting an impressive 73.7% of red zone opportunities. The Lions' defensive front, led by Aidan Hutchinson's 4 sacks, will look to pressure Mahomes and force him into uncomfortable situations, though the Chiefs quarterback has thrown just one interception all season. With ESPN's predictor giving Kansas City a slight 55% edge at home and Vegas installing them as modest favorites, expect a heavyweight bout that likely comes down to whether the Chiefs' defense can slow Detroit's offensive juggernaut, or if the Lions can continue their impressive road show and prove they're legitimate Super Bowl contenders. The smart money says this stays close throughout, with the outcome hinging on a late-game drive where championship experience might just give Kansas City the slightest of edges.",
+    "analysis": "The Lions are roaring into Arrowhead Stadium with the swagger of a team that's discovered the cheat codes to offensive football, averaging a league-best 34.8 points per game while Jared Goff plays quarterback like he's conducting a symphony orchestra—his 75.3% completion rate and 12 touchdowns through five games have Detroit humming at a frequency that would make even Patrick Mahomes jealous. The Chiefs, meanwhile, are experiencing something foreign to the Andy Reid era: genuine offensive dysfunction. At 2-3 and averaging just 25 points per game (their lowest mark in the Mahomes era through five games), Kansas City's offense looks more like a sputtering lawnmower than the Ferrari we're accustomed to seeing, with their red zone efficiency sitting at a pedestrian 57% compared to Detroit's scorching 72%.\n\nThe most fascinating subplot centers on Kansas City's suddenly vulnerable defense, which has allowed 127 rushing yards per game—a stat that should have offensive coordinator Ben Johnson licking his chops as he prepares to unleash Jahmyr Gibbs (325 yards, 4 TDs) and company. With Aidan Hutchinson leading a Detroit pass rush that's generated 16 sacks in five games against a Chiefs offensive line that's already surrendered seven, Mahomes might spend more time on his back than a yoga instructor. The injury report tilts heavily in Detroit's favor too, with the Chiefs missing key contributors like Kristian Fulton and Elijah Mitchell, while the Lions' only significant absence is cornerback Terrion Arnold—though that could prove problematic against Hollywood Brown, who's been Mahomes' most reliable target with 209 receiving yards.\n\nThis feels like one of those watershed moments where the torch gets passed, if only temporarily. The Lions' offensive efficiency metrics—including a sterling 8.15 yards per pass attempt and their ability to convert nearly 78% of fourth-down attempts—suggest they're built to exploit the Chiefs' uncharacteristic vulnerabilities. While Kansas City's championship DNA and Arrowhead mystique can never be discounted, Detroit's combination of offensive firepower, defensive pressure, and momentum should be enough to hand the Chiefs their fourth loss in six games. Look for the Lions to control the trenches, milk the clock with their efficient ground game, and force Mahomes into uncomfortable third-and-long situations where Hutchinson can feast. Detroit walks out of Arrowhead with a statement victory that announces them as legitimate Super Bowl contenders.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
     "weather": {
       "is_indoor": false,
-      "temperature": 80,
-      "condition": "Mostly clear",
-      "wind_speed": 13
+      "temperature": 76,
+      "condition": "Clear",
+      "wind_speed": 14
     },
     "predictor": {
-      "home_win_prob": 55.082,
-      "matchup_quality": 87.461,
-      "predicted_point_diff": 2.013,
-      "away_win_prob": 44.56
+      "home_win_prob": 53.371,
+      "matchup_quality": 88.84,
+      "predicted_point_diff": 1.318,
+      "away_win_prob": 46.257999999999996
     },
     "broadcast": "TV"
   },
   "401772815": {
-    "timestamp": "2025-10-06 00:31:44",
+    "timestamp": "2025-10-06 21:28:01",
     "game_date": "2025-10-13",
     "home_team": "ATL",
     "away_team": "BUF",
@@ -6214,20 +6355,28 @@
     "home_coach": "Raheem Morris",
     "away_coach": "Sean McDermott",
     "analysis_type": "preview",
-    "analysis": "The Buffalo Bills' magical unbeaten run crashed into Drake Maye's coming-out party in Foxborough Sunday night, and now they'll look to rebound in Atlanta against a Falcons team desperately searching for offensive consistency. The 4-1 Bills bring their AFC-best offense to Mercedes-Benz Stadium, where they'll face a 2-2 Falcons squad that's alternated between looking like world-beaters (34-27 victory over Washington) and getting completely embarrassed (30-0 shutout loss in Carolina).\n\nJosh Allen versus Atlanta's elite pass defense presents the game's most compelling chess match. The Bills quarterback has been surgical through five games, completing 70.1% of his passes with a 9-2 TD-INT ratio despite Sunday's hiccup against New England. But Atlanta's secondary, allowing just 150.5 passing yards per game (best in the NFL), represents his toughest test yet. With Jessie Bates III patrolling center field and A.J. Terrell Jr. potentially returning from a leg injury, the Falcons have the personnel to make Allen uncomfortable. Meanwhile, Michael Penix Jr. continues his baptism by fire for Atlanta, completing just 62.4% of his passes with a concerning 3-3 TD-INT ratio. Against a Buffalo defense that's surrendering only 167.4 passing yards per game, the rookie will need Bijan Robinson to carry the load – and Robinson has been Atlanta's lone bright spot, combining for 584 total yards through four games.\n\nThe Bills enter as 4.5-point road favorites despite their Sunday night stumble, and that feels about right. Buffalo's offense has too many weapons for Atlanta's inconsistent unit to keep pace, especially with James Cook (401 rushing yards, 5 TDs) providing balance to Allen's aerial attack. The Falcons' offensive struggles – averaging just 19 points per game and converting only 42.6% of third downs – suggest they'll have trouble sustaining drives against Buffalo's opportunistic defense. Look for the Bills to control the line of scrimmage, establish Cook early, and pull away in the second half as Atlanta's offense continues searching for answers in what's shaping up to be a lost season in the post-Matt Ryan era.",
+    "analysis": "The Buffalo Bills are bringing their offensive juggernaut to Mercedes-Benz Stadium on Monday night, where they'll face an Atlanta Falcons team that's been harder to figure out than a Rubik's cube in the dark. At 4-1, the Bills have bulldozed through most of their competition, averaging a robust 30.6 points per game while Josh Allen continues his early MVP campaign with 9 touchdowns against just 2 interceptions. Meanwhile, the Falcons sit at 2-2, having somehow managed to get shut out 30-0 by Carolina before bouncing back with a 34-27 victory over Washington. The Jekyll and Hyde routine from Atlanta has been particularly puzzling given their defensive talent—they're allowing just 259.5 total yards per game, best in the league, yet they've surrendered an 85.7% red zone touchdown rate that would make even the most charitable defensive coordinator lose sleep.\n\nThe matchup to watch will be Buffalo's balanced attack against Atlanta's stout but bendable defense. James Cook has been a revelation in the Bills backfield with 450 rushing yards and 5 touchdowns, while tight end Dalton Kincaid has emerged as Allen's security blanket with 287 receiving yards. For Atlanta, rookie quarterback Michael Penix Jr. faces his toughest test yet after a shaky 62.4% completion rate through his first four starts. The good news? Bijan Robinson has been everything Atlanta hoped for, combining for 584 total yards from scrimmage. The bad news? Buffalo's defense has been opportunistic with 8 forced fumbles and is getting healthier, though they'll be without key defensive tackles Ed Oliver and T.J. Sanders.\n\nWith ESPN's predictor giving Buffalo a 60.7% win probability and the Bills favored by 3.5 points, this feels like a game where Atlanta keeps it close for three quarters before Buffalo's superior offensive efficiency takes over. The Falcons' elite yards-per-game defense suggests they can slow the Bills down, but their concerning red zone defense and anemic 19 points per game on offense won't be enough to keep pace. Look for Buffalo to control the clock with their ground game, exploit Atlanta's red zone woes, and pull away late as Allen makes the key throws when it matters most. The Bills should cover and continue their march toward another AFC East title.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": 3.5,
+      "over_under": 48.5,
+      "provider": "ESPN BET",
+      "favorite": "BUF"
+    },
     "weather": {
       "is_indoor": true
     },
     "predictor": {
-      "home_win_prob": 36.902,
-      "matchup_quality": 62.878,
-      "predicted_point_diff": -4.802,
-      "away_win_prob": 62.800999999999995
+      "home_win_prob": 38.977000000000004,
+      "matchup_quality": 61.309,
+      "predicted_point_diff": -4.201,
+      "away_win_prob": 60.709999999999994
     },
     "broadcast": "TV"
   },
   "401772717": {
-    "timestamp": "2025-10-06 00:32:02",
+    "timestamp": "2025-10-06 21:28:03",
     "game_date": "2025-10-13",
     "home_team": "WAS",
     "away_team": "CHI",
@@ -6237,24 +6386,26 @@
     "home_coach": "Dan Quinn",
     "away_coach": "Ben Johnson",
     "analysis_type": "preview",
-    "analysis": "The Commanders are riding high after dismantling the Chargers on the road, while the Bears are desperately trying to prove their two-game winning streak wasn't just fool's gold against inferior competition. This Sunday matchup at Northwest Stadium features two teams heading in opposite directions, with Washington (3-2) looking like a legitimate playoff contender and Chicago (2-2) still searching for consistency in what's becoming an increasingly frustrating season.\n\nThe most fascinating storyline centers on two rookie quarterbacks at vastly different stages of their development curves. Jayden Daniels has been everything Washington hoped for and more, completing 61% of his passes while orchestrating an offense that's averaging 361.8 yards per game despite losing Terry McLaurin to injury. Meanwhile, Caleb Williams continues to look like a quarterback playing in quicksand – his 62.4% completion rate masks the reality that Chicago's offense has generated a dismal -6.2 EPA on the season, with their rushing attack particularly anemic at just 3.8 yards per carry. The Bears' offensive line has been a turnstile, allowing seven sacks already, and with Darnell Wright questionable with an arm injury, Williams might spend Sunday afternoon getting intimately familiar with Washington's pass rush, which has racked up 15 sacks through five games.\n\nWashington's defense has been the surprise story of the season, allowing just 20.2 points per game while Bobby Wagner continues to defy Father Time with his league-leading 42 tackles. They'll feast on a Bears offense that's converting third downs at a 44.6% clip but struggling mightily in the red zone (63.6%). Chicago's defense has been equally porous, surrendering 386 yards per game and getting torched for 52 points by Detroit. With the Commanders converting red zone opportunities at a 71.4% rate and Deebo Samuel emerging as Daniels' favorite target (22 catches, 204 yards), expect Washington to control this game from start to finish. The 3.5-point spread feels light – the Commanders should win this one going away as the Bears' season continues its slow descent into dysfunction.",
+    "analysis": "The NFC East is serving up a classic clash of quarterback generations as Caleb Williams and the Bears venture to Northwest Stadium to face Jayden Daniels and the surging Commanders. Both rookie signal-callers have shown flashes of brilliance, but it's Daniels who's been the more consistent floor general through five weeks, completing nearly 61% of his passes while orchestrating a balanced Washington attack that's averaging 361.8 yards per game. Williams, meanwhile, has endured the typical rookie rollercoaster – looking like a future superstar in wins over Dallas and Las Vegas, but getting absolutely steamrolled by Detroit in a 52-21 nightmare that had Bears fans reaching for the Malört.\n\nThe key matchup to watch will be Chicago's porous run defense against Washington's ground game, which is churning out 156.4 yards per contest at an impressive 5.88 yards per carry. The Bears are surrendering 164.5 rushing yards per game – dead last in the NFL – and with Jacory Croskey-Merritt emerging as a legitimate threat (283 yards, 4 TDs), defensive coordinator Alan Williams better have some answers or this could get ugly fast. On the flip side, Chicago's offense desperately needs Rome Odunze (5 TDs already) to continue his impressive rookie campaign, especially with tight end Colston Loveland ruled out and the offensive line dealing with multiple injury concerns. The absence of Terry McLaurin for Washington levels the playing field somewhat, though Deebo Samuel's 300 receiving yards suggest the Commanders have weapons beyond their WR1.\n\nWith Washington laying 4.5 points at home and sporting a 64.5% win probability, the smart money suggests the Commanders control this game with their superior balance and home-field advantage. Chicago's defense has been opportunistic (7 interceptions, +3 turnover margin), but asking them to contain both phases of Washington's attack while protecting a rookie quarterback making his first road start in the nation's capital feels like a bridge too far. Expect Daniels to manage the game efficiently, lean on the ground attack, and let Bobby Wagner's veteran-led defense (allowing just 20.2 points per game) frustrate Williams into mistakes. The Commanders should cover and continue their ascent in the competitive NFC East.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
     "betting": {
-      "spread": -3.5,
-      "over_under": 49.5,
+      "spread": -4.5,
+      "over_under": 50.5,
       "provider": "ESPN BET",
       "favorite": "WSH"
     },
     "weather": {
       "is_indoor": false,
-      "temperature": 65,
+      "temperature": 64,
       "condition": "Cloudy",
-      "wind_speed": 9
+      "wind_speed": 8
     },
     "predictor": {
-      "home_win_prob": 61.339,
-      "matchup_quality": 56.541,
-      "predicted_point_diff": 4.395,
-      "away_win_prob": 38.353
+      "home_win_prob": 64.525,
+      "matchup_quality": 61.295,
+      "predicted_point_diff": 5.705,
+      "away_win_prob": 35.192
     },
     "broadcast": "TV"
   },

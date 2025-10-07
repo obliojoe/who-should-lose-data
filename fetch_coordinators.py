@@ -67,7 +67,7 @@ def fetch_coordinators(coordinator_type='offensive'):
     else:
         url = 'https://en.wikipedia.org/wiki/List_of_current_NFL_defensive_coordinators'
 
-    logger.info(f"Fetching {coordinator_type} coordinators from {url}")
+    logger.debug(f"Fetching {coordinator_type} coordinators from {url}")
 
     # Add User-Agent header to avoid 403 errors
     headers = {
@@ -115,7 +115,7 @@ def fetch_coordinators(coordinator_type='offensive'):
                 else:
                     logger.warning(f"Unknown team name: {team_name}")
 
-        logger.info(f"Found {len(coordinators)} {coordinator_type} coordinators")
+        logger.debug(f"Found {len(coordinators)} {coordinator_type} coordinators")
         return coordinators
 
     except Exception as e:
@@ -133,8 +133,6 @@ def save_coordinators_csv(output_path='data/coordinators.csv'):
     Returns:
         bool: True if successful
     """
-    logger.info("Starting coordinator data fetch...")
-
     # Fetch both offensive and defensive coordinators
     offensive = fetch_coordinators('offensive')
     defensive = fetch_coordinators('defensive')
@@ -159,8 +157,7 @@ def save_coordinators_csv(output_path='data/coordinators.csv'):
     df = pd.DataFrame(data)
     df.to_csv(output_path, index=False)
 
-    logger.info(f"Saved coordinator data to {output_path}")
-    logger.info(f"Total teams: {len(data)}")
+    logger.info(f"Saved {len(data)} coordinators to {output_path}")
 
     # Display results
     print("\n" + "=" * 70)

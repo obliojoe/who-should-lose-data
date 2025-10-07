@@ -32,7 +32,12 @@ class ESPNAPIService:
             response.raise_for_status()
             return response.json()
         except Exception as e:
-            logger.error(f"Failed to fetch event data for {event_id}: {str(e)}")
+            # Only log 503 errors at debug level (ESPN temporary unavailability is normal)
+            error_str = str(e)
+            if '503' in error_str:
+                logger.debug(f"ESPN API temporarily unavailable for event {event_id} (503)")
+            else:
+                logger.error(f"Failed to fetch event data for {event_id}: {error_str}")
             return None
 
     def get_betting_lines(self, event_id: str) -> Optional[Dict]:

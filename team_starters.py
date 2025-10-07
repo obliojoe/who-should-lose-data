@@ -9,14 +9,12 @@ logger.setLevel(logging.INFO)
 
 def get_current_starters():
     current_year = 2025
-    logger.info("load_rosters_weekly()...")
+    logger.info("Loading rosters, depth charts, and player stats...")
     # Get roster and depth chart data
     roster_data = nfl.load_rosters_weekly([current_year]).to_pandas()
-    logger.info("load_depth_charts()...")
     depth_charts = nfl.load_depth_charts([current_year]).to_pandas()
-    logger.info("load_player_stats()...")
     player_stats = nfl.load_player_stats([current_year]).to_pandas()
-    logger.info("done!")
+    logger.debug("Data loading complete")
 
     # Get the most recent week's data
     latest_week = roster_data['week'].max()
