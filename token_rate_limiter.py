@@ -50,9 +50,13 @@ class TokenRateLimiter:
     def wait_if_needed(self, estimated_tokens):
         """
         Wait if adding these tokens would exceed the rate limit.
+        Also records the estimate as a placeholder entry that will be replaced later.
 
         Args:
             estimated_tokens: Number of tokens about to be used
+
+        Returns:
+            Timestamp of the placeholder entry (used to replace it later)
         """
         with self.lock:
             self._cleanup_old_entries()
@@ -87,14 +91,33 @@ class TokenRateLimiter:
                         # Clean up again after waiting
                         self._cleanup_old_entries()
 
-    def record_usage(self, actual_tokens):
+            # Record the estimate as a placeholder
+            placeholder_time = time.time()
+            self.token_history.append((placeholder_time, estimated_tokens))
+            return placeholder_time
+
+    def record_usage(self, actual_tokens, replace_estimate=None):
         """
         Record actual token usage after a request completes.
+        If replace_estimate is provided, removes the matching estimate entry first.
 
         Args:
             actual_tokens: Number of tokens actually used
+            replace_estimate: Estimated token count to remove (if provided)
         """
         with self.lock:
+            # If we have an estimate to replace, find and remove entries with that token count
+            # (we search backwards since the estimate was added most recently)
+            if replace_estimate is not None:
+                for i in range(len(self.token_history) - 1, -1, -1):
+                    timestamp, tokens = self.token_history[i]
+                    if tokens == replace_estimate:
+                        # Found the estimate entry - remove it
+                        del self.token_history[i]
+                        logger.debug(f"Replaced estimate of {replace_estimate:,} tokens with actual {actual_tokens:,} tokens")
+                        break
+
+            # Add the actual usage
             self.token_history.append((time.time(), actual_tokens))
             self._cleanup_old_entries()
 

@@ -149,10 +149,10 @@ class AIService:
                 # Add explicit JSON mode instruction to system message
                 json_system_message = system_message + "\n\nIMPORTANT: You MUST respond with ONLY valid JSON. Do not include any text before or after the JSON object. Start your response with { and end with }."
 
-                # Estimate token count (rough estimate: 1 token ≈ 4 characters)
+                # Estimate token count for rate limiting (rough estimate: 1 token ≈ 4 characters)
                 estimated_input_tokens = (len(prompt) + len(json_system_message)) // 4
 
-                # Wait if needed to avoid rate limits
+                # Wait if needed to avoid rate limits (using estimated tokens)
                 rate_limiter.wait_if_needed(estimated_input_tokens)
 
                 response = self.client.messages.create(
@@ -163,10 +163,10 @@ class AIService:
                     messages=[{"role": "user", "content": prompt}]
                 )
 
-                # Record actual token usage from the response
+                # Record actual token usage from the response (replaces the estimate)
                 if hasattr(response, 'usage'):
                     actual_tokens = response.usage.input_tokens
-                    rate_limiter.record_usage(actual_tokens)
+                    rate_limiter.record_usage(actual_tokens, replace_estimate=estimated_input_tokens)
                     logger.debug(f"API call used {actual_tokens:,} input tokens (estimated: {estimated_input_tokens:,})")
 
                 # Check if response was truncated
@@ -259,10 +259,10 @@ class AIService:
         for attempt in range(max_retries):
             try:
                 if self.model_provider == 'claude':
-                    # Estimate token count (rough estimate: 1 token ≈ 4 characters)
+                    # Estimate token count for rate limiting (rough estimate: 1 token ≈ 4 characters)
                     estimated_input_tokens = (len(prompt) + len(system_message)) // 4
 
-                    # Wait if needed to avoid rate limits
+                    # Wait if needed to avoid rate limits (using estimated tokens)
                     rate_limiter.wait_if_needed(estimated_input_tokens)
 
                     response = self.client.messages.create(
@@ -273,10 +273,10 @@ class AIService:
                         messages=[{"role": "user", "content": prompt}]
                     )
 
-                    # Record actual token usage from the response
+                    # Record actual token usage from the response (replaces the estimate)
                     if hasattr(response, 'usage'):
                         actual_tokens = response.usage.input_tokens
-                        rate_limiter.record_usage(actual_tokens)
+                        rate_limiter.record_usage(actual_tokens, replace_estimate=estimated_input_tokens)
                         logger.debug(f"API call used {actual_tokens:,} input tokens (estimated: {estimated_input_tokens:,})")
 
                     # Check if response was truncated
