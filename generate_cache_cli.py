@@ -133,17 +133,22 @@ def ask_questions():
                 except ValueError:
                     print("⚠️  Please enter a valid number")
 
-        use_seed = ask_yes_no("Use random seed for reproducibility?", default=False)
-        if use_seed:
+        seed = ask_text("Enter simulation seed [random]", default="")
+        if seed:
             while True:
-                seed = ask_text("Enter seed value", default="42")
                 try:
                     options['seed'] = int(seed)
                     if options['seed'] >= 0:
                         break
                     print("⚠️  Please enter a non-negative number")
+                    seed = ask_text("Enter simulation seed [random]", default="")
+                    if not seed:
+                        break
                 except ValueError:
                     print("⚠️  Please enter a valid number")
+                    seed = ask_text("Enter simulation seed [random]", default="")
+                    if not seed:
+                        break
 
     print("\n🤖 AI ANALYSIS - TEAMS")
     print("─" * 60)
