@@ -78,6 +78,57 @@ def clean_article(article, game_team_ids):
         }
     return None
 
+def extract_key_plays(data):
+    """
+    Extract key plays (turnovers, sacks, big plays 20+ yards) from drives data.
+    This gives us important plays without including every single play.
+    """
+    key_plays = []
+
+    if 'drives' not in data or 'previous' not in data['drives']:
+        return key_plays
+
+    for drive in data['drives']['previous']:
+        if 'plays' not in drive:
+            continue
+
+        for play in drive['plays']:
+            is_key_play = False
+            play_tags = []
+
+            # Check if it's a turnover (interception or fumble)
+            play_text = play.get('text', '').lower()
+            if 'intercept' in play_text or 'fumble' in play_text:
+                is_key_play = True
+                if 'intercept' in play_text:
+                    play_tags.append('INTERCEPTION')
+                if 'fumble' in play_text:
+                    play_tags.append('FUMBLE')
+
+            # Check if it's a sack
+            if 'sack' in play_text:
+                is_key_play = True
+                play_tags.append('SACK')
+
+            # Check for big plays (20+ yards)
+            stat_yardage = play.get('statYardage', 0)
+            if stat_yardage >= 20:
+                is_key_play = True
+                play_tags.append(f'BIG PLAY ({stat_yardage} yards)')
+
+            # Add key plays to the list
+            if is_key_play:
+                key_plays.append({
+                    'text': play.get('text'),
+                    'tags': play_tags,
+                    'period': play.get('period', {}).get('number'),
+                    'clock': play.get('clock', {}).get('displayValue'),
+                    'scoringPlay': play.get('scoringPlay', False),
+                    'yards': stat_yardage
+                })
+
+    return key_plays
+
 def clean_game_json(data):
     """
     Clean ESPN game JSON by removing unnecessary fields like links, logos, images, etc.
@@ -88,6 +139,9 @@ def clean_game_json(data):
     if isinstance(data, str):
         with open(data, 'r', encoding='utf-8') as f:
             data = json.load(f)
+
+    # Extract key plays BEFORE we remove the drives data
+    key_plays = extract_key_plays(data)
 
     # Get team IDs for this game from the boxscore
     game_team_ids = set()
@@ -110,16 +164,19 @@ def clean_game_json(data):
         # Fields to remove
         fields_to_remove = {
             # Visual elements
-            'logo', 'logos', 'href', 'links', 'link', 'image', 'images', 'url', 
+            'logo', 'logos', 'href', 'links', 'link', 'image', 'images', 'url',
             'thumbnail', 'headshot', 'icon', 'uid', 'guid', 'alternateIds',
             'color', 'alternateColor', 'flag',
-            
+
             # Content sections
             'videos', 'standings', 'odds', 'broadcasts',
             'predictor', 'gamecastAvailable', 'header', 'media', 'notes',
             'shop', 'tickets', 'deviceRestrictions', 'pbpInnings',
             'winprobability',
-            
+
+            # Play-by-play data (too verbose, we keep scoringPlays instead)
+            'drives',
+
             # Metadata and References
             'tracking', 'analytics', 'meta', 'lang', 'site', 'sportBroadcasts',
             'preferences', 'type', 'uid', 'lastModified', 'premium',
@@ -152,7 +209,13 @@ def clean_game_json(data):
         else:
             return clean_string(d)
 
-    return clean_dict(data)
+    cleaned_data = clean_dict(data)
+
+    # Add the extracted key plays to the cleaned data
+    if key_plays:
+        cleaned_data['keyPlays'] = key_plays
+
+    return cleaned_data
 
 def fetch_and_clean_game(game_id, save_to_file=False):
     """
@@ -218,7 +281,9 @@ Generate a 1 or 2 paragraph summary of the game included in the data below. Star
 
 Follow up with a few important or surprising statistics that are relevant to the game.
 
-IMPORTANT: The game data includes detailed statistics, play-by-play, and betting lines (if available). You can reference the pre-game betting spread to discuss how the game compared to expectations.
+IMPORTANT: The game data includes detailed statistics, scoring plays, key plays, and betting lines (if available). You can reference the pre-game betting spread to discuss how the game compared to expectations.
+- 'scoringPlays': All touchdowns and field goals with descriptions
+- 'keyPlays': Important non-scoring plays including turnovers (interceptions, fumbles), sacks, and big plays (20+ yards)
 
 Do not follow up with any questions. Consider this a final draft that will be shared as-is with the public.
 
