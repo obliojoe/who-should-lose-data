@@ -176,25 +176,25 @@ def ask_questions():
 
     print("\n🤖 AI ANALYSIS - GAMES")
     print("─" * 60)
-    print("(Game AI is usually generated once and doesn't change)")
+    print("(Default: generate missing + convert previews to analysis when games complete)")
 
     game_choice = ask_choice(
         "Game AI options:",
         choices=[
+            "Generate new/updated (missing + preview→analysis)",
             "Skip game AI (use existing)",
-            "Generate missing only (new games)",
             "Regenerate all previews (upcoming games)",
             "Regenerate all analysis (completed games)",
             "Regenerate everything (all games)",
             "Regenerate specific ESPN IDs"
         ],
-        default="Skip game AI (use existing)"
+        default="Generate new/updated (missing + preview→analysis)"
     )
 
     if "Skip" in game_choice:
         options['skip_game_ai'] = True
-    elif "missing only" in game_choice:
-        # Generate new games, but don't regenerate existing ones
+    elif "new/updated" in game_choice:
+        # Generate missing games + convert preview→analysis when games complete
         # This is the default behavior when neither skip nor regenerate is specified
         pass
     elif "all previews" in game_choice:
