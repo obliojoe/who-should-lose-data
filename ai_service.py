@@ -23,7 +23,7 @@ anthropic_model_sonnet_old = "claude-3-5-sonnet-latest"
 anthropic_model_sonnet_3_7 = "claude-3-7-sonnet-latest"
 anthropic_model_sonnet = "claude-sonnet-4-5"
 anthropic_model_opus = "claude-opus-4-1"
-anthropic_model = anthropic_model_haiku  # Using Opus 4.1 based on benchmark results (17.4% faster, better quality)
+anthropic_model = anthropic_model_opus  # Using Opus 4.1 based on benchmark results (17.4% faster, better quality)
 
 # Create a specific logger for the AI service
 logger = logging.getLogger('ai_service')
