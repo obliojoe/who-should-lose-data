@@ -216,6 +216,35 @@ def ask_questions():
 
     print("\n⚙️  ADVANCED")
     print("─" * 60)
+
+    # Worker configuration
+    configure_workers = ask_yes_no("Configure worker counts for parallel processing?", default=False)
+    if configure_workers:
+        print("\nWorker Configuration:")
+        print("  Team AI workers: Number of parallel threads for team analysis")
+        print("  Game AI workers: Number of parallel threads for game analysis")
+        print("  Higher = faster but uses more API tokens/minute")
+
+        while True:
+            team_workers = ask_text("Team AI workers [32]", default="32")
+            try:
+                options['team_ai_workers'] = int(team_workers)
+                if options['team_ai_workers'] > 0:
+                    break
+                print("⚠️  Please enter a positive number")
+            except ValueError:
+                print("⚠️  Please enter a valid number")
+
+        while True:
+            game_workers = ask_text("Game AI workers [5]", default="5")
+            try:
+                options['game_ai_workers'] = int(game_workers)
+                if options['game_ai_workers'] > 0:
+                    break
+                print("⚠️  Please enter a positive number")
+            except ValueError:
+                print("⚠️  Please enter a valid number")
+
     options['test_mode'] = ask_yes_no("Run in test mode (disable AI calls)?", default=False)
 
     return options
@@ -223,7 +252,17 @@ def ask_questions():
 
 def build_command(options):
     """Build generate_cache.py command from options dict"""
-    cmd_parts = ["python", "generate_cache.py"]
+    # Start with environment variables if configured
+    env_vars = []
+    if 'team_ai_workers' in options:
+        env_vars.append(f"AI_ANALYSIS_WORKERS={options['team_ai_workers']}")
+    if 'game_ai_workers' in options:
+        env_vars.append(f"GAME_ANALYSIS_WORKERS={options['game_ai_workers']}")
+
+    cmd_parts = []
+    if env_vars:
+        cmd_parts.extend(env_vars)
+    cmd_parts.extend(["python", "generate_cache.py"])
 
     # Data options
     if options.get('skip_data'):
