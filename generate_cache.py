@@ -1582,6 +1582,11 @@ def deploy_to_netlify():
             'data/team_notes.csv'
         ]
 
+        # Directories to copy
+        dirs_to_copy = [
+            'data/prompts'
+        ]
+
         # Optional files
         optional_files = [
             'data/standings_cache.json',
@@ -1599,6 +1604,15 @@ def deploy_to_netlify():
                 dest = os.path.join(data_dir, os.path.basename(file))
                 shutil.copy2(file, dest)
                 logger.info(f"Copied {file} to {dest}")
+
+        # Copy directories to public/data
+        for dir_path in dirs_to_copy:
+            if os.path.exists(dir_path):
+                dest_dir = os.path.join(data_dir, os.path.basename(dir_path))
+                if os.path.exists(dest_dir):
+                    shutil.rmtree(dest_dir)
+                shutil.copytree(dir_path, dest_dir)
+                logger.info(f"Copied directory {dir_path} to {dest_dir}")
 
         # Git operations
         os.chdir(temp_dir)

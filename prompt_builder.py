@@ -723,4 +723,13 @@ IMPORTANT:
 {'=' * 70}
 """
 
+    # Save prompt to file for debugging
+    import os
+    prompts_dir = 'data/prompts'
+    os.makedirs(prompts_dir, exist_ok=True)
+
+    prompt_file = os.path.join(prompts_dir, f'team_analysis_{team_abbr}.txt')
+    with open(prompt_file, 'w', encoding='utf-8') as f:
+        f.write(prompt)
+
     return prompt
