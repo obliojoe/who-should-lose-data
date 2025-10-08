@@ -128,7 +128,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 ======================================================================
 ESPN CONTEXT (Betting Lines, Weather, etc.)
 ======================================================================
-{"betting":{"spread":7.5,"over_under":40.5,"favorite":"PHI","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":57,"condition":"Clear","wind_speed":7}}
+{"betting":{"spread":7.5,"over_under":39.5,"favorite":"PHI","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":56,"condition":"Clear","wind_speed":7}}
 
 ======================================================================
 SCHEDULE
@@ -146,17 +146,17 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Landon Dickerson","position":"G","status":"Questionable (Ankle)"},{"name":"Nakobe Dean","position":"LB","status":"Out (Knee)"},{"name":"Jihaad Campbell","position":"LB","status":"Questionable (Biceps)"},{"name":"Grant Calcaterra","position":"TE","status":"Questionable (Oblique)"},{"name":"Saquon Barkley","position":"RB","status":"Questionable (Knee)"}],"opponent":[{"name":"Jermaine Eluemunor","position":"OT","status":"Questionable (Back)"},{"name":"Darius Slayton","position":"WR","status":"Questionable (Hamstring)"},{"name":"Tyrone Tracy Jr.","position":"RB","status":"Questionable (Shoulder)"},{"name":"Demetrius Flannigan-Fowles","position":"LB","status":"Questionable (Hamstring)"},{"name":"Dru Phillips","position":"CB","status":"Questionable (Hip)"}]}
+{"team":[{"name":"Nakobe Dean","position":"LB","status":"Out (Knee)"},{"name":"Jalen Carter","position":"DT","status":"Questionable (Heel)"},{"name":"Grant Calcaterra","position":"TE","status":"Out (Oblique)"},{"name":"Landon Dickerson","position":"G","status":"Out (Ankle)"},{"name":"Charley Hughlett","position":"LS","status":"Injured Reserve (Abdomen)"}],"opponent":[{"name":"Anthony Johnson Jr.","position":"S","status":"Out (Undisclosed)"},{"name":"Jermaine Eluemunor","position":"OT","status":"Questionable (Back)"},{"name":"Swayze Bozeman","position":"LB","status":"Out (Ankle)"},{"name":"Demetrius Flannigan-Fowles","position":"LB","status":"Out (Hamstring)"},{"name":"Darius Slayton","position":"WR","status":"Out (Hamstring)"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Why Kimberley A. Martin is glad Eagles' stars had a meeting"},{"headline":"Saquon Barkley, Jalen Hurts downplay meeting with A.J. Brown"},{"headline":"Giants' Jaxson Dart: 'Never a doubt' I'd face Eagles on TNF"}],"opponent":[{"headline":"Sources: Giants WR Darius Slayton expected to be out vs. Eagles"},{"headline":"Giants' Jaxson Dart: 'Never a doubt' I'd face Eagles on TNF"},{"headline":"Saquon Barkley asked Giants owner for trade before '23 season"}]}
+{"team":[{"headline":"Eagles guard Landon Dickerson ruled out with ankle injury"},{"headline":"Saquon Barkley and the Eagles visit the Giants looking to get back on track"},{"headline":"Why Kimberley A. Martin is glad Eagles' stars had a meeting"}],"opponent":[{"headline":"Saquon Barkley and the Eagles visit the Giants looking to get back on track"},{"headline":"Giants WR Darius Slayton ruled out for game against Eagles"},{"headline":"Giants' Jaxson Dart: 'Never a doubt' I'd face Eagles on TNF"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":94.3,"win_division":76.4,"get_top_seed":36.1,"reach_super_bowl":29.4,"win_super_bowl":17.1}
+{"make_playoffs":94.4,"win_division":76.7,"get_top_seed":36.4,"reach_super_bowl":29.9,"win_super_bowl":17.5}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

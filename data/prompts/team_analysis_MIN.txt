@@ -146,17 +146,17 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"J.J. McCarthy","position":"QB","status":"Out (Ankle)"},{"name":"Brian O'Neill","position":"OT","status":"Questionable (Knee - MCL)"},{"name":"Michael Jurgens","position":"G","status":"Questionable (Hamstring)"},{"name":"Donovan Jackson","position":"G","status":"Questionable (Wrist)"},{"name":"Carson Wentz","position":"QB","status":"Questionable (Shoulder)"}],"opponent":[{"name":"Landon Dickerson","position":"G","status":"Questionable (Ankle)"},{"name":"Nakobe Dean","position":"LB","status":"Out (Knee)"},{"name":"Jihaad Campbell","position":"LB","status":"Questionable (Biceps)"},{"name":"Grant Calcaterra","position":"TE","status":"Questionable (Oblique)"},{"name":"Saquon Barkley","position":"RB","status":"Questionable (Knee)"}]}
+{"team":[{"name":"J.J. McCarthy","position":"QB","status":"Out (Ankle)"},{"name":"Brian O'Neill","position":"OT","status":"Questionable (Knee - MCL)"},{"name":"Michael Jurgens","position":"G","status":"Questionable (Hamstring)"},{"name":"Donovan Jackson","position":"G","status":"Questionable (Wrist)"},{"name":"Carson Wentz","position":"QB","status":"Questionable (Shoulder)"}],"opponent":[{"name":"Nakobe Dean","position":"LB","status":"Out (Knee)"},{"name":"Jalen Carter","position":"DT","status":"Questionable (Heel)"},{"name":"Grant Calcaterra","position":"TE","status":"Out (Oblique)"},{"name":"Landon Dickerson","position":"G","status":"Out (Ankle)"},{"name":"Charley Hughlett","position":"LS","status":"Injured Reserve (Abdomen)"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"What can we glean from Vikings' trip to Dublin, London?"},{"headline":"Ticketmaster apologizes to NFL fans delayed entering Tottenham Stadium"},{"headline":"Vikings' McCarthy set for on-field work, Wentz being examined"}],"opponent":[{"headline":"Why Kimberley A. Martin is glad Eagles' stars had a meeting"},{"headline":"Saquon Barkley, Jalen Hurts downplay meeting with A.J. Brown"},{"headline":"Giants' Jaxson Dart: 'Never a doubt' I'd face Eagles on TNF"}]}
+{"team":[{"headline":"What can we glean from Vikings' trip to Dublin, London?"},{"headline":"Ticketmaster apologizes to NFL fans delayed entering Tottenham Stadium"},{"headline":"Vikings' McCarthy set for on-field work, Wentz being examined"}],"opponent":[{"headline":"Eagles guard Landon Dickerson ruled out with ankle injury"},{"headline":"Saquon Barkley and the Eagles visit the Giants looking to get back on track"},{"headline":"Why Kimberley A. Martin is glad Eagles' stars had a meeting"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":30.9,"win_division":9.1,"get_top_seed":1.0,"reach_super_bowl":1.8,"win_super_bowl":0.7}
+{"make_playoffs":30.6,"win_division":9.2,"get_top_seed":1.1,"reach_super_bowl":2.0,"win_super_bowl":0.8}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

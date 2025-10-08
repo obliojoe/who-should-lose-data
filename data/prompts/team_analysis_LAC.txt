@@ -128,7 +128,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 ======================================================================
 ESPN CONTEXT (Betting Lines, Weather, etc.)
 ======================================================================
-{"betting":{"spread":3.5,"over_under":42.5,"favorite":"LAC","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":84,"condition":"Sunny","wind_speed":6}}
+{"betting":{"spread":3.5,"over_under":43.5,"favorite":"LAC","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":84,"condition":"Sunny","wind_speed":6}}
 
 ======================================================================
 SCHEDULE
@@ -146,7 +146,7 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Will Dissly","position":"TE","status":"Questionable (Knee)"},{"name":"Derius Davis","position":"WR","status":"Questionable (Knee)"},{"name":"Joe Alt","position":"OT","status":"Questionable (Ankle)"},{"name":"Omarion Hampton","position":"RB","status":"Out (Ankle)"},{"name":"Mekhi Becton","position":"G","status":"Questionable (Hand)"}],"opponent":[{"name":"Jason Sanders","position":"PK","status":"Injured Reserve (Hip)"},{"name":"Cornell Armstrong","position":"CB","status":"Out (Hamstring)"},{"name":"Cedrick Wilson Jr.","position":"WR","status":"Questionable (Knee)"},{"name":"Storm Duck","position":"CB","status":"Questionable (Ankle)"},{"name":"Liam Eichenberg","position":"OT","status":"Out (Undisclosed)"}]}
+{"team":[{"name":"Omarion Hampton","position":"RB","status":"Injured Reserve (Ankle)"},{"name":"Will Dissly","position":"TE","status":"Questionable (Knee)"},{"name":"Derius Davis","position":"WR","status":"Questionable (Knee)"},{"name":"Joe Alt","position":"OT","status":"Questionable (Ankle)"},{"name":"Mekhi Becton","position":"G","status":"Questionable (Hand)"}],"opponent":[{"name":"Cornell Armstrong","position":"CB","status":"Injured Reserve (Hamstring)"},{"name":"Jason Sanders","position":"PK","status":"Injured Reserve (Hip)"},{"name":"Cedrick Wilson Jr.","position":"WR","status":"Questionable (Knee)"},{"name":"Storm Duck","position":"CB","status":"Questionable (Ankle)"},{"name":"Liam Eichenberg","position":"OT","status":"Out (Undisclosed)"}]}
 
 ======================================================================
 RECENT NEWS
@@ -156,7 +156,7 @@ RECENT NEWS
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":60.4,"win_division":27.3,"get_top_seed":6.5,"reach_super_bowl":5.9,"win_super_bowl":2.5}
+{"make_playoffs":60.0,"win_division":27.1,"get_top_seed":6.6,"reach_super_bowl":5.7,"win_super_bowl":2.4}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

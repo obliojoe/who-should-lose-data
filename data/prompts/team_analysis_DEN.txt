@@ -128,7 +128,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 ======================================================================
 ESPN CONTEXT (Betting Lines, Weather, etc.)
 ======================================================================
-{"betting":{"spread":6.5,"over_under":43.5,"favorite":"DEN","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":null,"condition":null,"wind_speed":null}}
+{"betting":{"spread":7.5,"over_under":43.5,"favorite":"DEN","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":null,"condition":null,"wind_speed":null}}
 
 ======================================================================
 SCHEDULE
@@ -146,7 +146,7 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Malcolm Roach","position":"DT","status":"Injured Reserve (Calf)"},{"name":"Ben Powers","position":"G","status":"Doubtful (Biceps)"},{"name":"Lucas Krull","position":"TE","status":"Injured Reserve (Foot)"},{"name":"Dre Greenlaw","position":"LB","status":"Injured Reserve (Quadriceps)"},{"name":"Drew Sanders","position":"LB","status":"Injured Reserve (Foot)"}],"opponent":[{"name":"Michael Carter II","position":"CB","status":"Questionable (Concussion)"},{"name":"Allen Lazard","position":"WR","status":"Out (Personal)"},{"name":"Kiko Mauigoa","position":"LB","status":"Questionable (Foot)"},{"name":"Jermaine Johnson","position":"LB","status":"Questionable (Ankle)"},{"name":"Kene Nwangwu","position":"RB","status":"Questionable (Hamstring)"}]}
+{"team":[{"name":"Jonah Elliss","position":"LB","status":"Questionable (Ribs)"},{"name":"D.J. Jones","position":"DT","status":"Questionable (Shoulder)"},{"name":"Tyler Badie","position":"RB","status":"Questionable (Shoulder)"},{"name":"Malcolm Roach","position":"DT","status":"Injured Reserve (Calf)"},{"name":"Ben Powers","position":"G","status":"Doubtful (Biceps)"}],"opponent":[{"name":"Kene Nwangwu","position":"RB","status":"Questionable (Hamstring)"},{"name":"Quinnen Williams","position":"DT","status":"Questionable (Groin)"},{"name":"Jermaine Johnson","position":"LB","status":"Questionable (Ankle)"},{"name":"Ja'Markis Weston","position":"DE","status":"Injured Reserve (Undisclosed)"},{"name":"Michael Carter II","position":"CB","status":"Questionable (Concussion)"}]}
 
 ======================================================================
 RECENT NEWS
@@ -156,7 +156,7 @@ RECENT NEWS
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":77.1,"win_division":49.3,"get_top_seed":9.5,"reach_super_bowl":16.2,"win_super_bowl":8.3}
+{"make_playoffs":76.5,"win_division":49.8,"get_top_seed":9.7,"reach_super_bowl":16.9,"win_super_bowl":8.3}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

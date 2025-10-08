@@ -146,17 +146,17 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"K'Lavon Chaisson","position":"LB","status":"Questionable (Knee)"},{"name":"Antonio Gibson","position":"RB","status":"Out (Knee - ACL)"},{"name":"Keion White","position":"DE","status":"Questionable (Elbow)"},{"name":"Layden Robinson","position":"G","status":"Injured Reserve (Undisclosed)"},{"name":"Isaiah Iton","position":"DT","status":"Injured Reserve (Hip)"}],"opponent":[{"name":"Isaac Yiadom","position":"CB","status":"Questionable (Hamstring)"},{"name":"Chase Young","position":"DE","status":"Questionable (Calf)"},{"name":"Cesar Ruiz","position":"C","status":"Questionable (Ankle)"},{"name":"Justin Reid","position":"S","status":"Questionable (Concussion)"},{"name":"John Ridgeway III","position":"DT","status":"Injured Reserve (Shoulder)"}]}
+{"team":[{"name":"Anfernee Jennings","position":"LB","status":"Questionable (Ankle)"},{"name":"Milton Williams","position":"DE","status":"Questionable (Ankle)"},{"name":"Jaylinn Hawkins","position":"S","status":"Questionable (Hamstring)"},{"name":"Joshua Farmer","position":"DT","status":"Questionable (Ankle)"},{"name":"K'Lavon Chaisson","position":"LB","status":"Questionable (Knee)"}],"opponent":[{"name":"Juwan Johnson","position":"TE","status":"Questionable (Ankle)"},{"name":"Alvin Kamara","position":"RB","status":"Questionable (Ankle)"},{"name":"Isaac Yiadom","position":"CB","status":"Questionable (Hamstring)"},{"name":"Chase Young","position":"DE","status":"Questionable (Calf)"},{"name":"Cesar Ruiz","position":"C","status":"Questionable (Ankle)"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Why Rich Eisen is pumping the brakes on putting Drake Maye in MVP conversation"},{"headline":"Patriots lose RB Antonio Gibson to torn ACL, sources say"},{"headline":"Rex Ryan: Mike Vrabel is the difference-maker for Pats"}],"opponent":[{"headline":"New Orleans Saints are dancing again after first win of 2025"},{"headline":"New Orleans Saints end skid, top New York Giants for 1st win"},{"headline":"Saints QB Spencer Rattler and coach Kellen Moore get 1st win over mistake-prone Giants, 26-14"}]}
+{"team":[{"headline":"Jon Bon Jovi digging the Patriots' turnaround"},{"headline":"Why Rich Eisen is pumping the brakes on putting Drake Maye in MVP conversation"},{"headline":"Patriots lose RB Antonio Gibson to torn ACL, sources say"}],"opponent":[{"headline":"New Orleans Saints are dancing again after first win of 2025"},{"headline":"New Orleans Saints end skid, top New York Giants for 1st win"},{"headline":"Saints QB Spencer Rattler and coach Kellen Moore get 1st win over mistake-prone Giants, 26-14"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":68.9,"win_division":34.4,"get_top_seed":6.9,"reach_super_bowl":5.9,"win_super_bowl":2.3}
+{"make_playoffs":69.8,"win_division":35.2,"get_top_seed":7.4,"reach_super_bowl":6.0,"win_super_bowl":2.5}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

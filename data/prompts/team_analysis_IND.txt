@@ -128,7 +128,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 ======================================================================
 ESPN CONTEXT (Betting Lines, Weather, etc.)
 ======================================================================
-{"betting":{"spread":-6.5,"over_under":47.5,"favorite":"IND","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":true,"temperature":null,"condition":null,"wind_speed":null}}
+{"betting":{"spread":-7.5,"over_under":46.5,"favorite":"IND","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":true,"temperature":null,"condition":null,"wind_speed":null}}
 
 ======================================================================
 SCHEDULE
@@ -146,17 +146,17 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Joe Bachie","position":"LB","status":"Injured Reserve (Undisclosed)"},{"name":"Alec Pierce","position":"WR","status":"Questionable (Concussion)"},{"name":"Mike Hilton","position":"CB","status":"Out (Shoulder)"},{"name":"Spencer Shrader","position":"PK","status":"Injured Reserve (Knee - ACL + MCL)"},{"name":"Kenny Moore II","position":"CB","status":"Questionable (Achilles)"}],"opponent":[{"name":"Darius Robinson","position":"DE","status":"Questionable (Pectoral)"},{"name":"Max Melton","position":"CB","status":"Questionable (Hamstring)"},{"name":"Evan Brown","position":"C","status":"Questionable (Hamstring)"},{"name":"Tip Reiman","position":"TE","status":"Out (Ankle)"},{"name":"Kyler Murray","position":"QB","status":"Questionable (Foot)"}]}
+{"team":[{"name":"Alec Pierce","position":"WR","status":"Questionable (Concussion)"},{"name":"Tyquan Lewis","position":"DE","status":"Questionable (Illness)"},{"name":"Kenny Moore II","position":"CB","status":"Questionable (Achilles)"},{"name":"Tyler Goodson","position":"RB","status":"Questionable (Groin)"},{"name":"Joe Bachie","position":"LB","status":"Injured Reserve (Undisclosed)"}],"opponent":[{"name":"Tip Reiman","position":"TE","status":"Injured Reserve (Ankle)"},{"name":"Kyler Murray","position":"QB","status":"Questionable (Foot)"},{"name":"Darius Robinson","position":"DE","status":"Questionable (Pectoral)"},{"name":"Max Melton","position":"CB","status":"Questionable (Hamstring)"},{"name":"Evan Brown","position":"C","status":"Questionable (Hamstring)"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Colts sign Michael Badgley to replace injured Spencer Shrader"},{"headline":"Colts' Spencer Shrader sustains season-ending knee injury"},{"headline":"Colts' Spencer Shrader sustains potentially serious knee injury"}],"opponent":[{"headline":"Sources: Cardinals fining Jonathan Gannon for sideline spat"},{"headline":"Cardinals' Gannon apologizes to Demercado for sideline spat"},{"headline":"Rex blasts Emari Demercado: 'Get your butt in the end zone!'"}]}
+{"team":[{"headline":"Colts sign LB Germaine Pratt two days after release by Raiders"},{"headline":"Colts sign Michael Badgley to replace injured Spencer Shrader"},{"headline":"Colts' Spencer Shrader sustains season-ending knee injury"}],"opponent":[{"headline":"Cardinals QB Kyler Murray not practicing due to foot injury"},{"headline":"Sources: Cardinals fining Jonathan Gannon for sideline spat"},{"headline":"Cardinals' Gannon apologizes to Demercado for sideline spat"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":74.6,"win_division":44.6,"get_top_seed":14.2,"reach_super_bowl":7.5,"win_super_bowl":3.0}
+{"make_playoffs":75.4,"win_division":44.5,"get_top_seed":14.3,"reach_super_bowl":7.3,"win_super_bowl":3.0}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

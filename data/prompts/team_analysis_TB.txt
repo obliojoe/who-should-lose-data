@@ -146,17 +146,17 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Zyon McCollum","position":"CB","status":"Questionable (Thumb)"},{"name":"Benjamin Morrison","position":"CB","status":"Questionable (Hamstring)"},{"name":"Christian Izien","position":"S","status":"Questionable (Quadriceps)"},{"name":"Bucky Irving","position":"RB","status":"Questionable (Shoulder)"},{"name":"Jamel Dean","position":"CB","status":"Questionable (Hip)"}],"opponent":[{"name":"Jordan Watkins","position":"WR","status":"Questionable (Calf)"},{"name":"Brock Purdy","position":"QB","status":"Questionable (Toe)"},{"name":"Ricky Pearsall","position":"WR","status":"Questionable (Knee - PCL)"},{"name":"Jauan Jennings","position":"WR","status":"Questionable (Ankle)"},{"name":"Robert Beal Jr.","position":"DE","status":"Questionable (Ankle)"}]}
+{"team":[{"name":"Zyon McCollum","position":"CB","status":"Questionable (Thumb)"},{"name":"Benjamin Morrison","position":"CB","status":"Questionable (Hamstring)"},{"name":"Christian Izien","position":"S","status":"Questionable (Quadriceps)"},{"name":"Bucky Irving","position":"RB","status":"Questionable (Shoulder)"},{"name":"Jamel Dean","position":"CB","status":"Questionable (Hip)"}],"opponent":[{"name":"Mac Jones","position":"QB","status":"Questionable (Knee)"},{"name":"Jauan Jennings","position":"WR","status":"Questionable (Ankle)"},{"name":"George Kittle","position":"TE","status":"Injured Reserve (Hamstring)"},{"name":"Ricky Pearsall","position":"WR","status":"Questionable (Knee - PCL)"},{"name":"Brock Purdy","position":"QB","status":"Questionable (Toe)"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"NFL - QBs Darnold and Mayfield played second fiddle to the Egbuka-JSN show"},{"headline":"McAfee wonders if Bucs are a 'team of destiny'"},{"headline":"Bucs hail 'outstanding' Emeka Egbuka after latest late win"}],"opponent":[{"headline":"The 49ers' run game is dormant, but Christian McCaffrey is not"},{"headline":"Adam Schefter: Brock Purdy is still the 49ers' QB1"},{"headline":"First bets for Week 6: Steelers to cover, split takes on 49ers-Bucs"}]}
+{"team":[{"headline":"Perception of Bucs' Baker Mayfield shifting amid MVP-type run"},{"headline":"Egbuka: Evans, Godwin have been 'super instrumental in my success'"},{"headline":"NFL - QBs Darnold and Mayfield played second fiddle to the Egbuka-JSN show"}],"opponent":[{"headline":"The 49ers' run game is dormant, but Christian McCaffrey is not"},{"headline":"First bets for Week 6: Steelers to cover, split takes on 49ers-Bucs"},{"headline":"Why Shanahan, Saleh deserve credit for 49ers' win over Rams"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":90.7,"win_division":83.1,"get_top_seed":14.8,"reach_super_bowl":9.4,"win_super_bowl":4.0}
+{"make_playoffs":91.1,"win_division":83.6,"get_top_seed":15.4,"reach_super_bowl":9.2,"win_super_bowl":4.0}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

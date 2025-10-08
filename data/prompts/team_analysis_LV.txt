@@ -128,7 +128,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 ======================================================================
 ESPN CONTEXT (Betting Lines, Weather, etc.)
 ======================================================================
-{"betting":{"spread":-4.5,"over_under":41.5,"favorite":"LV","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":true,"temperature":null,"condition":null,"wind_speed":null}}
+{"betting":{"spread":-3.5,"over_under":40.5,"favorite":"LV","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":true,"temperature":null,"condition":null,"wind_speed":null}}
 
 ======================================================================
 SCHEDULE
@@ -146,7 +146,7 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Eric Stokes","position":"CB","status":"Questionable (Knee)"},{"name":"Michael Mayer","position":"TE","status":"Questionable (Concussion)"},{"name":"Brock Bowers","position":"TE","status":"Questionable (Knee - PCL)"},{"name":"AJ Cole","position":"P","status":"Questionable (Ankle)"},{"name":"Brennan Jackson","position":"LB","status":"Injured Reserve (Foot)"}],"opponent":[{"name":"Bryce Oliver","position":"WR","status":"Questionable (Knee)"},{"name":"JC Latham","position":"OT","status":"Questionable (Hip)"},{"name":"Blake Hance","position":"G","status":"Questionable (Shoulder)"},{"name":"Arden Key","position":"LB","status":"Questionable (Thigh)"},{"name":"Mike Brown","position":"S","status":"Injured Reserve (Knee)"}]}
+{"team":[{"name":"Eric Stokes","position":"CB","status":"Questionable (Knee)"},{"name":"Brock Bowers","position":"TE","status":"Questionable (Knee - PCL)"},{"name":"AJ Cole","position":"P","status":"Questionable (Ankle)"},{"name":"Brennan Jackson","position":"LB","status":"Injured Reserve (Foot)"},{"name":"Kolton Miller","position":"OT","status":"Injured Reserve (Ankle)"}],"opponent":[{"name":"Bryce Oliver","position":"WR","status":"Questionable (Knee)"},{"name":"JC Latham","position":"OT","status":"Questionable (Hip)"},{"name":"Blake Hance","position":"G","status":"Questionable (Shoulder)"},{"name":"Arden Key","position":"LB","status":"Questionable (Thigh)"},{"name":"Mike Brown","position":"S","status":"Injured Reserve (Knee)"}]}
 
 ======================================================================
 RECENT NEWS
@@ -156,7 +156,7 @@ RECENT NEWS
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":3.4,"win_division":0.5,"get_top_seed":0.0,"reach_super_bowl":0.1,"win_super_bowl":0.0}
+{"make_playoffs":3.3,"win_division":0.6,"get_top_seed":0.0,"reach_super_bowl":0.1,"win_super_bowl":0.0}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

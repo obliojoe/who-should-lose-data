@@ -146,17 +146,17 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Shemar Stewart","position":"DE","status":"Questionable (Ankle)"},{"name":"Joe Burrow","position":"QB","status":"Injured Reserve (Toe)"},{"name":"Lucas Patrick","position":"G","status":"Injured Reserve (Calf)"},{"name":"Cordell Volson","position":"G","status":"Injured Reserve (Shoulder)"},{"name":"Cedric Johnson","position":"DE","status":"Injured Reserve (Calf)"}],"opponent":[{"name":"Jacob Monk","position":"C","status":"Injured Reserve (Hamstring)"},{"name":"Christian Watson","position":"WR","status":"Out (Knee - ACL)"},{"name":"Devonte Wyatt","position":"DT","status":"Questionable (Knee)"},{"name":"Zach Tom","position":"OT","status":"Questionable (Oblique)"},{"name":"Anthony Belton","position":"OT","status":"Questionable (Ankle)"}]}
+{"team":[{"name":"Drew Sample","position":"TE","status":"Questionable (Ankle)"},{"name":"Charlie Jones","position":"WR","status":"Questionable (Achilles)"},{"name":"Dylan Fairchild","position":"G","status":"Questionable (Knee)"},{"name":"Lucas Patrick","position":"G","status":"Injured Reserve (Calf)"},{"name":"Shemar Stewart","position":"DE","status":"Questionable (Ankle)"}],"opponent":[{"name":"Savion Williams","position":"WR","status":"Questionable (Groin)"},{"name":"Rasheed Walker","position":"OT","status":"Questionable (Quadriceps)"},{"name":"Brandon McManus","position":"PK","status":"Questionable (Quadriceps)"},{"name":"Kingsley Enagbare","position":"DE","status":"Questionable (Ankle)"},{"name":"Christian Watson","position":"WR","status":"Out (Knee - ACL)"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"NFL trade grades: Joe Flacco, Odafe Oweh"},{"headline":"Joe Flacco traded: Impact on Bengals, Browns, fantasy, picks"},{"headline":"Rich Eisen wonders if Joe Flacco will instantly start for the Bengals"}],"opponent":[{"headline":"Why the Packers have the No. 1 defense in Week 6"},{"headline":"Does an early bye week offer an advantage for NFL teams?"},{"headline":"When will Packers' Christian Watson return from ACL injury?"}]}
+{"team":[{"headline":"NFL trade grades: Joe Flacco, Odafe Oweh"},{"headline":"Joe Flacco traded: Impact on Bengals, Browns, fantasy, picks"},{"headline":"Rich Eisen wonders if Joe Flacco will instantly start for the Bengals"}],"opponent":[{"headline":"Bengals to start Joe Flacco at QB vs. Packers, Zac Taylor says"},{"headline":"Why the Packers have the No. 1 defense in Week 6"},{"headline":"Does an early bye week offer an advantage for NFL teams?"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":31.2,"win_division":22.3,"get_top_seed":0.6,"reach_super_bowl":1.6,"win_super_bowl":0.6}
+{"make_playoffs":30.8,"win_division":22.1,"get_top_seed":0.5,"reach_super_bowl":1.4,"win_super_bowl":0.5}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

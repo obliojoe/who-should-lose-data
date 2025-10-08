@@ -1541,7 +1541,40 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         logger.info("Skipping team AI analysis generation (already preserved existing analysis above)")
 
 
-    # Save cache file
+    # Extract team AI analyses into separate file
+    team_analyses = {}
+    for team_abbr, team_data in cache_data['team_analyses'].items():
+        team_analyses[team_abbr] = {}
+
+        # Parse ai_analysis JSON string into actual fields
+        if 'ai_analysis' in team_data and team_data['ai_analysis']:
+            try:
+                parsed_analysis = json.loads(team_data['ai_analysis'])
+                # Add parsed fields directly to team object
+                for key, value in parsed_analysis.items():
+                    team_analyses[team_abbr][key] = value
+            except (json.JSONDecodeError, TypeError) as e:
+                logger.warning(f"Failed to parse ai_analysis for {team_abbr}: {e}")
+                # Fallback to storing as string if parse fails
+                team_analyses[team_abbr]['ai_analysis'] = team_data['ai_analysis']
+
+        # Add metadata fields
+        for field in ['ai_status', 'ai_provider', 'ai_model']:
+            if field in team_data:
+                team_analyses[team_abbr][field] = team_data[field]
+
+    # Save team_analyses.json
+    team_analyses_path = output_path.parent / 'team_analyses.json'
+    with open(team_analyses_path, 'w') as f:
+        json.dump(team_analyses, f, indent=2)
+    logger.info(f"Team analyses file generated successfully: {team_analyses_path}")
+
+    # Remove AI fields from cache_data before saving
+    for team_abbr in cache_data['team_analyses'].keys():
+        for field in ['ai_analysis', 'ai_status', 'ai_provider', 'ai_model']:
+            cache_data['team_analyses'][team_abbr].pop(field, None)
+
+    # Save cache file (without AI fields)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, 'w') as f:
         json.dump(cache_data, f, indent=2)
@@ -1574,6 +1607,7 @@ def deploy_to_netlify():
         # Files to copy
         files_to_copy = [
             'data/analysis_cache.json',
+            'data/team_analyses.json',
             'data/team_stats.csv',
             'data/team_starters.csv',
             'data/schedule.csv',

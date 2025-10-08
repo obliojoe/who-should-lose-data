@@ -128,7 +128,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 ======================================================================
 ESPN CONTEXT (Betting Lines, Weather, etc.)
 ======================================================================
-{"betting":{"spread":7.5,"over_under":45.5,"favorite":"LAR","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":64,"condition":"Rain","wind_speed":14}}
+{"betting":{"spread":7.5,"over_under":45.5,"favorite":"LAR","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":61,"condition":"Rain","wind_speed":14}}
 
 ======================================================================
 SCHEDULE
@@ -146,7 +146,7 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Rob Havenstein","position":"OT","status":"Questionable (Ankle)"},{"name":"Tyler Higbee","position":"TE","status":"Questionable (Hip)"},{"name":"Omar Speights","position":"LB","status":"Doubtful (Ankle)"},{"name":"Colby Parkinson","position":"TE","status":"Questionable (Concussion)"},{"name":"Ahkello Witherspoon","position":"CB","status":"Injured Reserve (Collarbone)"}],"opponent":[{"name":"Ronnie Stanley","position":"OT","status":"Questionable (Ankle)"},{"name":"Roquan Smith","position":"LB","status":"Questionable (Hamstring)"},{"name":"Patrick Ricard","position":"FB","status":"Questionable (Calf)"},{"name":"Lamar Jackson","position":"QB","status":"Questionable (Hamstring)"},{"name":"Marlon Humphrey","position":"CB","status":"Questionable (Calf)"}]}
+{"team":[{"name":"Rob Havenstein","position":"OT","status":"Questionable (Ankle)"},{"name":"Tyler Higbee","position":"TE","status":"Questionable (Hip)"},{"name":"Omar Speights","position":"LB","status":"Doubtful (Ankle)"},{"name":"Colby Parkinson","position":"TE","status":"Questionable (Concussion)"},{"name":"Ahkello Witherspoon","position":"CB","status":"Injured Reserve (Collarbone)"}],"opponent":[{"name":"Patrick Ricard","position":"FB","status":"Questionable (Calf)"},{"name":"Chidobe Awuzie","position":"CB","status":"Questionable (Hamstring)"},{"name":"Roquan Smith","position":"LB","status":"Questionable (Hamstring)"},{"name":"Kyle Hamilton","position":"S","status":"Questionable (Groin)"},{"name":"Lamar Jackson","position":"QB","status":"Questionable (Hamstring)"}]}
 
 ======================================================================
 RECENT NEWS
@@ -156,7 +156,7 @@ RECENT NEWS
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":47.3,"win_division":19.1,"get_top_seed":2.0,"reach_super_bowl":3.8,"win_super_bowl":1.6}
+{"make_playoffs":46.6,"win_division":18.9,"get_top_seed":2.0,"reach_super_bowl":3.7,"win_super_bowl":1.7}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

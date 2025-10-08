@@ -128,7 +128,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 ======================================================================
 ESPN CONTEXT (Betting Lines, Weather, etc.)
 ======================================================================
-{"betting":{"spread":3.5,"over_under":49.5,"favorite":"DAL","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":72,"condition":"Mostly sunny","wind_speed":10}}
+{"betting":{"spread":3.5,"over_under":50.5,"favorite":"DAL","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":73,"condition":"Mostly sunny","wind_speed":10}}
 
 ======================================================================
 SCHEDULE
@@ -146,7 +146,7 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Tyler Booker","position":"G","status":"Questionable (Ankle)"},{"name":"KaVontae Turpin","position":"WR","status":"Questionable (Foot)"},{"name":"Miles Sanders","position":"RB","status":"Questionable (Ankle)"},{"name":"CeeDee Lamb","position":"WR","status":"Questionable (Ankle)"},{"name":"Marshawn Kneeland","position":"DE","status":"Questionable (Ankle)"}],"opponent":[{"name":"Tershawn Wharton","position":"DT","status":"Questionable (Toe)"},{"name":"Chau Smith-Wade","position":"CB","status":"Questionable (Chest)"},{"name":"Ja'Tavion Sanders","position":"TE","status":"Questionable (Ankle)"},{"name":"Chuba Hubbard","position":"RB","status":"Questionable (Calf)"},{"name":"Jalen Coker","position":"WR","status":"Injured Reserve (Quadriceps)"}]}
+{"team":[{"name":"Miles Sanders","position":"RB","status":"Questionable (Ankle)"},{"name":"Jonathan Mingo","position":"WR","status":"Injured Reserve (Knee - PCL)"},{"name":"CeeDee Lamb","position":"WR","status":"Questionable (Ankle)"},{"name":"KaVontae Turpin","position":"WR","status":"Questionable (Foot)"},{"name":"Donovan Wilson","position":"S","status":"Questionable (Elbow)"}],"opponent":[{"name":"Taylor Moton","position":"OT","status":"Questionable (Elbow)"},{"name":"Akayleb Evans","position":"CB","status":"Questionable (Hamstring)"},{"name":"Jalen Coker","position":"WR","status":"Injured Reserve (Quadriceps)"},{"name":"Ja'Tavion Sanders","position":"TE","status":"Questionable (Ankle)"},{"name":"Chuba Hubbard","position":"RB","status":"Questionable (Calf)"}]}
 
 ======================================================================
 RECENT NEWS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

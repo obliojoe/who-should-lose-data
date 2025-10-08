@@ -128,7 +128,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 ======================================================================
 ESPN CONTEXT (Betting Lines, Weather, etc.)
 ======================================================================
-{"betting":{"spread":4.5,"over_under":50.5,"favorite":"BUF","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":true,"temperature":null,"condition":null,"wind_speed":null}}
+{"betting":{"spread":4.5,"over_under":49.5,"favorite":"BUF","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":true,"temperature":null,"condition":null,"wind_speed":null}}
 
 ======================================================================
 SCHEDULE
@@ -146,17 +146,17 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Dorian Williams","position":"LB","status":"Questionable (Knee)"},{"name":"T.J. Sanders","position":"DT","status":"Questionable (Knee)"},{"name":"Ed Oliver","position":"DT","status":"Questionable (Ankle)"},{"name":"Matt Milano","position":"LB","status":"Questionable (Pectoral)"},{"name":"Dorian Strong","position":"CB","status":"Injured Reserve (Neck)"}],"opponent":[{"name":"Tyrone Wheatley Jr.","position":"OT","status":"Injured Reserve (Undisclosed)"},{"name":"Ta'Quon Graham","position":"DT","status":"Injured Reserve (Calf)"},{"name":"KhaDarel Hodge","position":"WR","status":"Questionable (Groin)"},{"name":"Nathan Carter","position":"RB","status":"Questionable (Hamstring)"},{"name":"A.J. Terrell Jr.","position":"CB","status":"Questionable (Hamstring)"}]}
+{"team":[{"name":"Tyler Bass","position":"PK","status":"Injured Reserve (Hip)"},{"name":"Dorian Williams","position":"LB","status":"Questionable (Knee)"},{"name":"T.J. Sanders","position":"DT","status":"Questionable (Knee)"},{"name":"Ed Oliver","position":"DT","status":"Questionable (Ankle)"},{"name":"Matt Milano","position":"LB","status":"Questionable (Pectoral)"}],"opponent":[{"name":"Tyrone Wheatley Jr.","position":"OT","status":"Injured Reserve (Undisclosed)"},{"name":"Ta'Quon Graham","position":"DT","status":"Injured Reserve (Calf)"},{"name":"KhaDarel Hodge","position":"WR","status":"Questionable (Groin)"},{"name":"Nathan Carter","position":"RB","status":"Questionable (Hamstring)"},{"name":"A.J. Terrell Jr.","position":"CB","status":"Questionable (Hamstring)"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Buffalo Bills' Keon Coleman benched for disciplinary reasons"},{"headline":"Drake Maye, Stefon Diggs star in Patriots' win vs. Bills"},{"headline":"Bills undone by turnovers, penalties in first loss of season"}],"opponent":[{"headline":"Sercond-year DTs bolster improved Falcons defense"},{"headline":"Does an early bye week offer an advantage for NFL teams?"},{"headline":"Falcons TE Kyle Pitts off to strong start this season"}]}
+{"team":[{"headline":"Buffalo Bills' Keon Coleman benched for disciplinary reasons"},{"headline":"Drake Maye, Stefon Diggs star in Patriots' win vs. Bills"},{"headline":"Bills undone by turnovers, penalties in first loss of season"}],"opponent":[{"headline":"What advice does Bijan Robinson have for Arch Manning?"},{"headline":"Sercond-year DTs bolster improved Falcons defense"},{"headline":"Does an early bye week offer an advantage for NFL teams?"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":91.6,"win_division":65.4,"get_top_seed":32.9,"reach_super_bowl":24.5,"win_super_bowl":13.3}
+{"make_playoffs":91.8,"win_division":64.5,"get_top_seed":31.8,"reach_super_bowl":24.3,"win_super_bowl":13.6}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

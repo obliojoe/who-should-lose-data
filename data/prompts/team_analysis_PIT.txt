@@ -146,17 +146,17 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Jalen Ramsey","position":"CB","status":"Questionable (Hamstring)"},{"name":"Calvin Austin III","position":"WR","status":"Questionable (Shoulder)"},{"name":"Jaylen Warren","position":"RB","status":"Questionable (Knee)"},{"name":"Joey Porter Jr.","position":"CB","status":"Questionable (Hamstring)"},{"name":"Alex Highsmith","position":"LB","status":"Questionable (Ankle)"}],"opponent":[{"name":"Mike Hall Jr.","position":"DT","status":"Questionable (Knee)"},{"name":"Cedric Tillman","position":"WR","status":"Injured Reserve (Hamstring)"},{"name":"DeAndre Carter","position":"WR","status":"Injured Reserve (Knee)"},{"name":"Deshaun Watson","position":"QB","status":"Out (Achilles)"},{"name":"Dawand Jones","position":"OT","status":"Injured Reserve (Knee)"}]}
+{"team":[{"name":"Ben Skowronek","position":"WR","status":"Questionable (Illness)"},{"name":"Calvin Austin III","position":"WR","status":"Questionable (Shoulder)"},{"name":"Jalen Ramsey","position":"CB","status":"Questionable (Hamstring)"},{"name":"Alex Highsmith","position":"LB","status":"Questionable (Ankle)"},{"name":"Max Scharping","position":"G","status":"Injured Reserve (Knee)"}],"opponent":[{"name":"Denzel Ward","position":"CB","status":"Questionable (Hip)"},{"name":"Ethan Pocic","position":"C","status":"Questionable (Neck)"},{"name":"KT Leveston","position":"OT","status":"Questionable (Calf)"},{"name":"Myles Garrett","position":"DE","status":"Questionable (Ankle)"},{"name":"Malachi Corley","position":"WR","status":"Questionable (Groin)"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Does an early bye week offer an advantage for NFL teams?"},{"headline":"First bets for Week 6: Steelers to cover, split takes on 49ers-Bucs"},{"headline":"DK Metcalf's 126-yard game a big win for him and Steelers"}],"opponent":[{"headline":"When Stephen A. expects Shedeur Sanders to start for the Browns"},{"headline":"Louis Riddick: Shedeur Sanders needs to be elevated to Browns' No. 2 QB"},{"headline":"Ticketmaster apologizes to NFL fans delayed entering Tottenham Stadium"}]}
+{"team":[{"headline":"Does an early bye week offer an advantage for NFL teams?"},{"headline":"First bets for Week 6: Steelers to cover, split takes on 49ers-Bucs"},{"headline":"DK Metcalf's 126-yard game a big win for him and Steelers"}],"opponent":[{"headline":"Kurt Warner: Dillon Gabriel didn't look overwhelmed"},{"headline":"Browns' Stefanski to let week play out before deciding on QB2"},{"headline":"When Stephen A. expects Shedeur Sanders to start for the Browns"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":65.4,"win_division":45.4,"get_top_seed":9.5,"reach_super_bowl":5.4,"win_super_bowl":2.1}
+{"make_playoffs":65.5,"win_division":45.6,"get_top_seed":9.4,"reach_super_bowl":5.3,"win_super_bowl":2.0}
 
 ======================================================================
 STANDINGS
@@ -222,9 +222,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
-    "ai_verdict": "2-3 paragraphs with \n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \n for breaks",
+    "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -234,9 +234,18 @@ REQUIRED JSON FORMAT
     ]
 }
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes
