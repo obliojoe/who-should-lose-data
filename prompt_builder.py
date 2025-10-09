@@ -700,9 +700,9 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 {'=' * 70}
 {{
-    "ai_verdict": "2-3 paragraphs with \\n for breaks",
-    "ai_xfactor": "2-3 paragraphs with \\n for breaks",
-    "ai_reality_check": "2-3 paragraphs with \\n for breaks",
+    "ai_verdict": "2-3 paragraphs with \\n for breaks. Use markdown formatting.",
+    "ai_xfactor": "2-3 paragraphs with \\n for breaks. Use markdown formatting.",
+    "ai_reality_check": "2-3 paragraphs with \\n for breaks. Use markdown formatting.",
     "ai_quotes": [
         "First quote - insightful take on their season",
         "Second quote - humorous observation",
@@ -712,9 +712,18 @@ REQUIRED JSON FORMAT
     ]
 }}
 
+FORMATTING:
+- Use **bold** for emphasis on key points
+- Use bullet lists (- or *) when listing multiple items
+- Use markdown formatting for better readability
+- Separate paragraphs with \\n
+
 IMPORTANT:
 - NO trailing commas after the last field
 - Ensure valid JSON format
+- Use regular hyphens (-) NOT em dashes (—) or en dashes (–)
+- Use straight quotes (" and ') NOT curly quotes (" " ' ')
+- Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
 - Each quote should be 12-20 words (shorter is better)
 - NO statistics, percentages, or numbers in the quotes

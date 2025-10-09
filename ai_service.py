@@ -23,7 +23,79 @@ anthropic_model_sonnet_old = "claude-3-5-sonnet-latest"
 anthropic_model_sonnet_3_7 = "claude-3-7-sonnet-latest"
 anthropic_model_sonnet = "claude-sonnet-4-5"
 anthropic_model_opus = "claude-opus-4-1"
-anthropic_model = anthropic_model_opus  # Using Opus 4.1 based on benchmark results (17.4% faster, better quality)
+anthropic_model = anthropic_model_haiku  # Using Opus 4.1 based on benchmark results (17.4% faster, better quality)
+
+# Model aliases for easy selection
+MODEL_ALIASES = {
+    # Claude models
+    'haiku': anthropic_model_haiku,
+    'sonnet-old': anthropic_model_sonnet_old,
+    'sonnet-3.7': anthropic_model_sonnet_3_7,
+    'sonnet': anthropic_model_sonnet,
+    'opus': anthropic_model_opus,
+    # OpenAI models
+    '4o': open_ai_model_4o,
+    '4o-mini': open_ai_model_4o_mini,
+    'gpt-4o': open_ai_model_4o,
+    'gpt-4o-mini': open_ai_model_4o_mini,
+    '5-nano': open_ai_model_5_nano,
+    '5-mini': open_ai_model_gpt5_mini,
+    '5': open_ai_model_gpt5,
+    'gpt-5-nano': open_ai_model_5_nano,
+    'gpt-5-mini': open_ai_model_gpt5_mini,
+    'gpt-5': open_ai_model_gpt5,
+}
+
+def resolve_model_name(model_input):
+    """
+    Resolve a model input to its full model name.
+    Accepts aliases (e.g., 'opus', 'haiku') or full model names.
+    Returns the full model name or the input if not found in aliases.
+    """
+    if not model_input:
+        return None
+
+    # Check if it's an alias
+    if model_input.lower() in MODEL_ALIASES:
+        return MODEL_ALIASES[model_input.lower()]
+
+    # Otherwise return as-is (assume it's a full model name)
+    return model_input
+
+def detect_provider_from_model(model_name):
+    """
+    Detect the provider (claude or gpt) from the model name.
+    Returns 'claude', 'gpt', or None if unknown.
+    """
+    if not model_name:
+        return None
+
+    model_lower = model_name.lower()
+
+    # Check for Claude models
+    if model_lower.startswith('claude'):
+        return 'claude'
+
+    # Check for OpenAI models
+    if model_lower.startswith('gpt') or 'gpt-' in model_lower:
+        return 'gpt'
+
+    return None
+
+def list_available_models():
+    """Return a formatted string of available model aliases"""
+    claude_models = [k for k, v in MODEL_ALIASES.items() if v.startswith('claude')]
+    openai_models = [k for k, v in MODEL_ALIASES.items() if v.startswith('gpt')]
+
+    result = "Available AI models:\n"
+    result += "\nClaude models:\n"
+    for alias in claude_models:
+        result += f"  {alias:15} -> {MODEL_ALIASES[alias]}\n"
+    result += "\nOpenAI models:\n"
+    for alias in openai_models:
+        result += f"  {alias:15} -> {MODEL_ALIASES[alias]}\n"
+
+    return result
 
 # Create a specific logger for the AI service
 logger = logging.getLogger('ai_service')
@@ -52,8 +124,21 @@ if not logger.handlers:
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
 
+def sanitize_json_string(text):
+    """
+    Clean common problematic characters from JSON strings that break parsing.
+    """
+    # Replace em dashes and en dashes with regular hyphens
+    text = text.replace('—', '-').replace('–', '-')
+    # Replace curly quotes with straight quotes
+    text = text.replace('"', '"').replace('"', '"')
+    text = text.replace(''', "'").replace(''', "'")
+    # Replace other problematic Unicode characters
+    text = text.replace('…', '...')
+    return text
+
 class AIService:
-    def __init__(self):
+    def __init__(self, model_override=None):
         """Initialize AI service with specified provider ('claude' or 'gpt')"""
         global model_provider  # Make this accessible
         self.model_provider = model_provider
@@ -71,17 +156,17 @@ class AIService:
                     api_key=api_key,
                     max_retries=0  # NO RETRIES
                 )
-                self.model = anthropic_model
-                logger.info("Successfully initialized Claude model: " + anthropic_model)
+                self.model = model_override if model_override else anthropic_model
+                logger.info("Successfully initialized Claude model: " + self.model)
         elif model_provider == 'gpt':
             api_key = os.getenv('OPENAI_API_KEY')
             if api_key:
                 self.client = openai.OpenAI(api_key=api_key)
-                self.model = open_ai_model
-                logger.info("Successfully initialized GPT model: " + open_ai_model)
+                self.model = model_override if model_override else open_ai_model
+                logger.info("Successfully initialized GPT model: " + self.model)
             else:
                 logger.error("No API key found for GPT - AI analysis will be disabled")
-        
+
         if not self.client:
             logger.warning(f"No API key found for {model_provider} - AI analysis will be disabled")
 
@@ -171,6 +256,9 @@ class AIService:
                     if json_start != -1 and json_end > json_start:
                         analysis = analysis[json_start:json_end]
 
+                # Clean problematic characters before validation
+                analysis = sanitize_json_string(analysis)
+
                 # Validate that it's proper JSON
                 try:
                     json.loads(analysis)  # Test parse
@@ -193,6 +281,10 @@ class AIService:
 
                 # Clean up the response by removing any "json" tags if present
                 analysis = raw_text.replace('```json', '').replace('```', '').strip()
+
+                # Clean problematic characters before validation
+                analysis = sanitize_json_string(analysis)
+
                 # Validate that it's proper JSON
                 try:
                     json.loads(analysis)  # Test parse

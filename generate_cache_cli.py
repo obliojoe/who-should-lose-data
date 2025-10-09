@@ -37,7 +37,7 @@ def show_banner():
     """Display welcome banner"""
     banner = """
 ╔════════════════════════════════════════════════════════════╗
-║     NFL Data Pipeline - Interactive Command Builder       ║
+║     NFL Data Pipeline - Interactive Command Builder        ║
 ╚════════════════════════════════════════════════════════════╝
 
 This wizard will help you build a generate_cache.py command
@@ -100,6 +100,36 @@ def ask_questions():
     """Ask all questions and return command options dict"""
     options = {}
 
+    print("\n🎯 MODE SELECTION")
+    print("─" * 60)
+
+    mode_choice = ask_choice(
+        "What do you want to do?",
+        choices=[
+            "Generate new files (full pipeline)",
+            "Deploy existing files only (skip all generation)"
+        ],
+        default="Generate new files (full pipeline)"
+    )
+
+    if "Deploy existing" in mode_choice:
+        # Deploy-only mode - skip all generation
+        options['deploy_only'] = True
+        # Skip to deployment section
+        print("\n🚀 DEPLOYMENT")
+        print("─" * 60)
+        options['commit'] = ask_yes_no("Commit changes to git?", default=True)
+        options['deploy_netlify'] = ask_yes_no("Deploy to Netlify?", default=True)
+
+        copy_files = ask_yes_no("Copy data files to local directory?", default=True)
+        if copy_files:
+            copy_path = ask_text("Copy destination path", default="/home/obliojoe/source/whoshouldlose2/public/data")
+            if copy_path:
+                options['copy_to'] = copy_path
+
+        return options
+
+    # Continue with normal generation flow
     print("\n📊 DATA FILES")
     print("─" * 60)
     options['skip_data'] = not ask_yes_no("Update data files (schedule, stats, standings)?", default=True)
@@ -186,6 +216,7 @@ def ask_questions():
             "Regenerate all previews (upcoming games)",
             "Regenerate all analysis (completed games)",
             "Regenerate everything (all games)",
+            "Regenerate for specific team(s)",
             "Regenerate specific ESPN IDs"
         ],
         default="Generate new/updated (missing + preview→analysis)"
@@ -203,22 +234,89 @@ def ask_questions():
         options['regenerate_game_ai'] = "analysis"
     elif "everything" in game_choice:
         options['regenerate_game_ai'] = "all"
+    elif "specific team" in game_choice:
+        teams = ask_text("Enter team abbreviations (comma-separated, e.g., DET,MIN,GB)", default="")
+        if teams:
+            options['regenerate_game_ai'] = f"team:{teams}"
     elif "specific ESPN IDs" in game_choice:
         espn_ids = ask_text("Enter ESPN IDs (comma-separated, e.g., 401772856,401772855)", default="")
         if espn_ids:
             options['regenerate_game_ai'] = espn_ids
 
+    print("\n🤖 AI ANALYSIS - DASHBOARD")
+    print("─" * 60)
+
+    dashboard_choice = ask_choice(
+        "Generate dashboard content?",
+        choices=["Yes (generate dashboard)", "Skip dashboard"],
+        default="Yes (generate dashboard)"
+    )
+
+    if "Skip" in dashboard_choice:
+        options['skip_dashboard_ai'] = True
+
+    # AI Model selection (only if ANY AI generation is enabled)
+    needs_model = (
+        not options.get('skip_team_ai') or
+        not options.get('skip_game_ai') or
+        not options.get('skip_dashboard_ai')
+    )
+
+    if needs_model:
+        print("\n🧠 AI MODEL SELECTION")
+        print("─" * 60)
+
+        model_choice = ask_choice(
+            "Which AI model to use?",
+            choices=[
+                "Default (haiku - fast, cheap)",
+                "Opus (claude-opus-4-1 - highest quality)",
+                "Sonnet (claude-sonnet-4-5 - balanced)",
+                "Sonnet 3.7 (claude-3-7-sonnet-latest)",
+                "GPT-5 (gpt-5 - highest quality)",
+                "GPT-5 Mini (gpt-5-mini - balanced)",
+                "GPT-4o (gpt-4o)",
+                "GPT-4o Mini (gpt-4o-mini)",
+                "Custom model name"
+            ],
+            default="Default (haiku - fast, cheap)"
+        )
+
+        if "Opus" in model_choice:
+            options['ai_model'] = "opus"
+        elif model_choice.startswith("Sonnet 3.7"):
+            options['ai_model'] = "sonnet-3.7"
+        elif "Sonnet" in model_choice:
+            options['ai_model'] = "sonnet"
+        elif model_choice.startswith("GPT-5 Mini"):
+            options['ai_model'] = "gpt-5-mini"
+        elif model_choice.startswith("GPT-5 ("):
+            options['ai_model'] = "gpt-5"
+        elif model_choice.startswith("GPT-4o Mini"):
+            options['ai_model'] = "gpt-4o-mini"
+        elif "GPT-4o" in model_choice:
+            options['ai_model'] = "gpt-4o"
+        elif "Custom" in model_choice:
+            custom_model = ask_text("Enter model alias or full name", default="")
+            if custom_model:
+                options['ai_model'] = custom_model
+
     print("\n🚀 DEPLOYMENT")
     print("─" * 60)
     options['commit'] = ask_yes_no("Commit changes to git?", default=False)
     options['deploy_netlify'] = ask_yes_no("Deploy to Netlify?", default=False)
-    options['deploy_render'] = ask_yes_no("Deploy to Render?", default=False)
+
+    copy_files = ask_yes_no("Copy data files to local directory?", default=True)
+    if copy_files:
+        copy_path = ask_text("Copy destination path", default="/home/obliojoe/source/whoshouldlose2/public/data")
+        if copy_path:
+            options['copy_to'] = copy_path
 
     print("\n⚙️  ADVANCED")
     print("─" * 60)
 
     # Worker configuration
-    configure_workers = ask_yes_no("Configure worker counts for parallel processing?", default=False)
+    configure_workers = ask_yes_no("Configure worker counts for parallel processing?", default=True)
     if configure_workers:
         print("\nWorker Configuration:")
         print("  Team AI workers: Number of parallel threads for team analysis")
@@ -264,38 +362,51 @@ def build_command(options):
         cmd_parts.extend(env_vars)
     cmd_parts.extend(["python", "generate_cache.py"])
 
-    # Data options
-    if options.get('skip_data'):
-        cmd_parts.append("--skip-data")
-
-    # Simulation options
-    if options.get('skip_sims'):
-        cmd_parts.append("--skip-sims")
+    # Deploy-only mode
+    if options.get('deploy_only'):
+        cmd_parts.append("--deploy-only")
+        # Skip adding other generation flags, jump to deployment
     else:
-        if 'simulations' in options:
-            cmd_parts.append(f"--simulations {options['simulations']}")
-        if 'seed' in options:
-            cmd_parts.append(f"--seed {options['seed']}")
+        # Data options
+        if options.get('skip_data'):
+            cmd_parts.append("--skip-data")
 
-    # Team AI options
-    if options.get('skip_team_ai'):
-        cmd_parts.append("--skip-team-ai")
-    elif 'regenerate_team_ai' in options:
-        cmd_parts.append(f'--regenerate-team-ai "{options["regenerate_team_ai"]}"')
+        # Simulation options
+        if options.get('skip_sims'):
+            cmd_parts.append("--skip-sims")
+        else:
+            if 'simulations' in options:
+                cmd_parts.append(f"--simulations {options['simulations']}")
+            if 'seed' in options:
+                cmd_parts.append(f"--seed {options['seed']}")
 
-    # Game AI options
-    if options.get('skip_game_ai'):
-        cmd_parts.append("--skip-game-ai")
-    elif 'regenerate_game_ai' in options:
-        cmd_parts.append(f'--regenerate-game-ai "{options["regenerate_game_ai"]}"')
+        # Team AI options
+        if options.get('skip_team_ai'):
+            cmd_parts.append("--skip-team-ai")
+        elif 'regenerate_team_ai' in options:
+            cmd_parts.append(f'--regenerate-team-ai "{options["regenerate_team_ai"]}"')
+
+        # AI model override
+        if 'ai_model' in options:
+            cmd_parts.append(f'--ai-model "{options["ai_model"]}"')
+
+        # Game AI options
+        if options.get('skip_game_ai'):
+            cmd_parts.append("--skip-game-ai")
+        elif 'regenerate_game_ai' in options:
+            cmd_parts.append(f'--regenerate-game-ai "{options["regenerate_game_ai"]}"')
+
+        # Dashboard AI options
+        if options.get('skip_dashboard_ai'):
+            cmd_parts.append("--skip-dashboard-ai")
 
     # Deployment options
     if options.get('commit'):
         cmd_parts.append("--commit")
     if options.get('deploy_netlify'):
         cmd_parts.append("--deploy-netlify")
-    if options.get('deploy_render'):
-        cmd_parts.append("--deploy-render")
+    if 'copy_to' in options:
+        cmd_parts.append(f'--copy-to "{options["copy_to"]}"')
 
     # Advanced options
     if options.get('test_mode'):
@@ -309,7 +420,7 @@ def display_command(cmd):
     print("\n")
     print("╔" + "═" * 78 + "╗")
     print("║" + " " * 78 + "║")
-    print("║  Command to run:" + " " * 60 + "║")
+    print("║  Command to run:" + " " * 61 + "║")
     print("║" + " " * 78 + "║")
 
     # Word wrap the command if it's too long
@@ -317,17 +428,19 @@ def display_command(cmd):
     words = cmd.split()
     lines = []
     current_line = []
-    current_length = 0
 
     for word in words:
-        word_len = len(word) + 1  # +1 for space
-        if current_length + word_len > max_width and current_line:
+        # Calculate what the line length would be if we add this word
+        test_line = current_line + [word]
+        test_length = len(" ".join(test_line))
+
+        if test_length > max_width and current_line:
+            # Adding this word would exceed max_width, so finish current line
             lines.append(" ".join(current_line))
             current_line = [word]
-            current_length = word_len
         else:
+            # This word fits
             current_line.append(word)
-            current_length += word_len
 
     if current_line:
         lines.append(" ".join(current_line))

@@ -73,11 +73,37 @@ def save_to_cache(home_advantage, team_ratings):
     with open(CACHE_FILE, 'w') as f:
         json.dump(cache_data, f)
     logger.info(f"Saved new home advantage value to cache: {home_advantage}")
-    
-    # Also save team ratings to CSV
+
+    # Load existing CSV to preserve previous rankings
+    previous_data = {}
+    current_ranks = {}
+    if os.path.exists(CSV_FILE):
+        try:
+            existing_df = pd.read_csv(CSV_FILE)
+            if 'rating' in existing_df.columns and 'team_abbr' in existing_df.columns:
+                # Store current ratings and ranks as "previous"
+                sorted_existing = existing_df.sort_values('rating', ascending=False).reset_index(drop=True)
+                for idx, row in sorted_existing.iterrows():
+                    previous_data[row['team_abbr']] = {
+                        'previous_rank': idx + 1,
+                        'previous_rating': row['rating']
+                    }
+        except Exception as e:
+            logger.warning(f"Could not load previous rankings: {e}")
+
+    # Create new dataframe with current ratings
     teams_df = pd.DataFrame(list(team_ratings.items()), columns=['team_abbr', 'rating'])
+    teams_df = teams_df.sort_values('rating', ascending=False).reset_index(drop=True)
+
+    # Add previous rank and rating columns
+    teams_df['previous_rank'] = teams_df['team_abbr'].map(lambda x: previous_data.get(x, {}).get('previous_rank', None))
+    teams_df['previous_rating'] = teams_df['team_abbr'].map(lambda x: previous_data.get(x, {}).get('previous_rating', None))
+
+    # Reorder columns for readability
+    teams_df = teams_df[['team_abbr', 'rating', 'previous_rank', 'previous_rating']]
+
     teams_df.to_csv(CSV_FILE, index=False)
-    logger.info(f"Saved team ratings to {CSV_FILE}")
+    logger.info(f"Saved team ratings to {CSV_FILE} with historical data")
 
 def load_from_cache():
     """Load home advantage value and team ratings from cache"""
@@ -123,10 +149,8 @@ def scrape_sagarin():
     if not should_update_cache():
         cached_value, team_ratings = load_from_cache()
         if cached_value is not None:
-            # Save team ratings to CSV when loading from cache too
-            teams_df = pd.DataFrame(list(team_ratings.items()), columns=['team_abbr', 'rating'])
-            teams_df.to_csv(CSV_FILE, index=False)
-            logger.info(f"Loaded and saved cached team ratings to {CSV_FILE}")
+            # Don't overwrite CSV when using cache - preserve historical data
+            logger.info(f"Using cached Sagarin ratings (CSV preserved)")
             return cached_value
 
     # If we need to update, proceed with scraping
@@ -151,12 +175,7 @@ def scrape_sagarin():
         # If scraping fails, try to use cached value as fallback
         cached_value, team_ratings = load_from_cache()
         if cached_value is not None:
-            logger.info("Using cached value as fallback after scraping failed")
-            # Save team ratings to CSV in this case too
-            if team_ratings:
-                teams_df = pd.DataFrame(list(team_ratings.items()), columns=['team_abbr', 'rating'])
-                teams_df.to_csv(CSV_FILE, index=False)
-                logger.info(f"Saved cached team ratings to {CSV_FILE} after scrape failure")
+            logger.info("Using cached value as fallback after scraping failed (CSV preserved)")
             return cached_value
         # If no cache available, return a default value
         logger.warning("No cache available - using default home advantage value of 2.5")

@@ -285,6 +285,12 @@ IMPORTANT: The game data includes detailed statistics, scoring plays, key plays,
 - 'scoringPlays': All touchdowns and field goals with descriptions
 - 'keyPlays': Important non-scoring plays including turnovers (interceptions, fumbles), sacks, and big plays (20+ yards)
 
+FORMATTING:
+- Use markdown formatting for better readability
+- Use **bold** for emphasis on key points or player names
+- Use bullet lists (- or *) when listing multiple statistics or plays
+- Separate paragraphs with blank lines
+
 Do not follow up with any questions. Consider this a final draft that will be shared as-is with the public.
 
 THIS IS THE 2025/2026 NFL SEASON
@@ -296,6 +302,13 @@ Game Data:
     # Format the prompt with the game data
     try:
         prompt = prompt_template.format(game_json=json.dumps(game_data))
+
+        # Save prompt to data/prompts for debugging/review
+        import os
+        os.makedirs('data/prompts', exist_ok=True)
+        prompt_path = f'data/prompts/game_analysis_{game_id}.txt'
+        with open(prompt_path, 'w', encoding='utf-8') as f:
+            f.write(prompt)
 
         system_prompt = "You are an NFL writer. Your expertise is in writing brief game analyses in multiple voices. You can be a brilliant and serious analyst as easily as a surrealist sports comic. Whether you are writing something serious or ridiculous, you are always accurate in your use of NFL references and statistics. Consider all of the data provided."
 
@@ -365,6 +378,12 @@ IMPORTANT: The game data includes multiple sections:
 
 Use the team_season_stats section for detailed statistical analysis - it has the most comprehensive data.
 
+FORMATTING:
+- Use markdown formatting for better readability
+- Use **bold** for emphasis on key points, player names, or team names
+- Use bullet lists (- or *) when listing multiple matchups or key factors
+- Separate paragraphs with blank lines
+
 Consider this a print-ready final draft, so do not include any pre-text like "Here is my preview of the game..." or follow up questions.
 
 THIS IS THE 2024/2025 NFL SEASON
@@ -379,9 +398,12 @@ Game Data:
             week_results=week_results
         )
 
-        # save prompt to file with game id
-        # with open(f'data/game_{game_id}_prompt.txt', 'w', encoding='utf-8') as f:
-        #     f.write(prompt)
+        # Save prompt to data/prompts for debugging/review
+        import os
+        os.makedirs('data/prompts', exist_ok=True)
+        prompt_path = f'data/prompts/game_preview_{game_id}.txt'
+        with open(prompt_path, 'w', encoding='utf-8') as f:
+            f.write(prompt)
 
         system_prompt = "You are an NFL writer specializing in game previews and analysis. You combine statistical insight with entertaining writing, whether serious or playful. You're always accurate with NFL references and statistics. Respond with ONLY the preview text, no JSON, no additional formatting."
 
@@ -523,10 +545,11 @@ def load_team_season_stats(away_team_abbr, home_team_abbr):
         logger.error(f"Error loading team stats: {e}")
         return {}
 
-def _process_single_game(game, analyses, force_reanalyze, current_date, week_from_now):
+def _process_single_game(game, analyses, force_reanalyze, current_date, week_from_now, ai_model=None):
     """
     Worker function to process a single game analysis.
-    Returns tuple: (game_id, analysis_dict, matchup_str) or (game_id, None, matchup_str) if failed/skipped.
+    Returns tuple: (game_id, analysis_dict, matchup_str, status)
+    - status can be: "success", "skipped", "error"
     matchup_str is formatted as "AWAY@HOME" for display in progress bar.
     """
     game_id = str(game['espn_id'])
@@ -550,15 +573,15 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
     )
 
     if not needs_analysis:
-        return (game_id, None, matchup_str)
+        return (game_id, None, matchup_str, "skipped")
 
     if not (is_completed or is_upcoming):
-        return (game_id, None, matchup_str)
+        return (game_id, None, matchup_str, "skipped")
 
     # Fetch and clean game data
     game_data = fetch_and_clean_game(game_id)
     if not game_data:
-        return (game_id, None, matchup_str)
+        return (game_id, None, matchup_str, "error")
 
     # Fetch ESPN supplemental data BEFORE generating analysis
     espn_context = None
@@ -604,8 +627,19 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
 
     # Generate analysis or preview with ESPN context
     # Get AI service info for metadata
-    from ai_service import AIService
-    ai_service = AIService()
+    from ai_service import AIService, resolve_model_name, detect_provider_from_model
+
+    # Resolve model override if provided
+    model_override = None
+    if ai_model:
+        model_override = resolve_model_name(ai_model)
+        # Auto-detect and switch provider based on model
+        detected_provider = detect_provider_from_model(model_override)
+        if detected_provider:
+            import ai_service as ai_service_module
+            ai_service_module.model_provider = detected_provider
+
+    ai_service = AIService(model_override=model_override)
 
     try:
         if is_completed:
@@ -617,7 +651,7 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
 
         if not analysis:
             logger.error(f"Failed to generate {analysis_type} for {matchup_str} - AI returned empty response")
-            return (game_id, None, matchup_str)
+            return (game_id, None, matchup_str, "error")
 
         # Check if the analysis is actually an error message (not JSON)
         if isinstance(analysis, str) and analysis.startswith("RATE_LIMIT_ERROR"):
@@ -631,7 +665,7 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
             logger.error(f"Rate limit error for {matchup_str}: {error_msg}")
             return (game_id, None, matchup_str, "RATE_LIMIT")
         logger.error(f"Error generating {analysis_type if 'analysis_type' in locals() else 'analysis'} for {matchup_str}: {error_msg}")
-        return (game_id, None, matchup_str)
+        return (game_id, None, matchup_str, "error")
 
     # Build analysis dict with metadata
     analysis_dict = {
@@ -669,10 +703,10 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
     if broadcast_info:
         analysis_dict['broadcast'] = broadcast_info
 
-    return (game_id, analysis_dict, matchup_str)
+    return (game_id, analysis_dict, matchup_str, "success")
 
 
-def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=False, game_ids=None, regenerate_type=None):
+def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=False, game_ids=None, regenerate_type=None, ai_model=None):
     """
     Analyze completed games and preview upcoming games, saving to a JSON file.
 
@@ -739,8 +773,19 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     max_workers = min(max_workers, total_games)
 
     # Show AI provider/model info once before starting
-    from ai_service import AIService
-    ai_test = AIService()
+    from ai_service import AIService, resolve_model_name, detect_provider_from_model
+
+    # Resolve model override if provided (same logic as in _process_single_game)
+    model_override = None
+    if ai_model:
+        model_override = resolve_model_name(ai_model)
+        # Auto-detect and switch provider based on model
+        detected_provider = detect_provider_from_model(model_override)
+        if detected_provider:
+            import ai_service as ai_service_module
+            ai_service_module.model_provider = detected_provider
+
+    ai_test = AIService(model_override=model_override)
     provider_info = f"Using AI provider: {ai_test.model_provider}, model: {ai_test.model}"
     logger.info(provider_info)
     logger.info(f"GAME_ANALYSIS_WORKERS env var: {os.environ.get('GAME_ANALYSIS_WORKERS', '3')}")
@@ -765,10 +810,11 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     try:
         # Submit all game analysis tasks
         future_to_game = {
-            executor.submit(_process_single_game, game, analyses, force_reanalyze, current_date, week_from_now): game
+            executor.submit(_process_single_game, game, analyses, force_reanalyze, current_date, week_from_now, ai_model): game
             for game in games_to_process
         }
 
+        error_games = []
         with tqdm(total=total_games, desc="Generating game analyses", unit="game") as pbar:
             for future in as_completed(future_to_game):
                 try:
@@ -784,26 +830,34 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
                         logger.error("All tasks cancelled. Exiting...")
                         os._exit(1)
 
-                    game_id, analysis_dict, matchup_str = result[0], result[1], result[2]
+                    game_id, analysis_dict, matchup_str, status = result[0], result[1], result[2], result[3]
 
                     # Update progress bar with current game
                     pbar.set_postfix_str(matchup_str)
 
-                    if analysis_dict is not None:
+                    if status == "success" and analysis_dict is not None:
                         # Update analyses dict
                         analyses[game_id] = analysis_dict
 
                         # Save after each successful analysis
                         with open(output_file, 'w', encoding='utf-8') as f:
                             json.dump(analyses, f, indent=2, ensure_ascii=False)
+                    elif status == "error":
+                        # Track failed games (not skipped ones)
+                        error_games.append(matchup_str)
                 except Exception as e:
                     game = future_to_game[future]
                     matchup = f"{game.get('away_team', '?')}@{game.get('home_team', '?')}"
                     logger.error(f"Error processing game {matchup}: {str(e)}")
+                    error_games.append(matchup)
                 finally:
                     pbar.update(1)
 
         logger.info(f"Batch analysis complete. Processed {total_games} game(s)")
+
+        # Report errors if any occurred
+        if error_games:
+            logger.error(f"Game AI errors occurred for {len(error_games)} game(s): {', '.join(error_games)}")
     except KeyboardInterrupt:
         logger.warning("\n\nKeyboardInterrupt received! Cancelling remaining tasks...")
         # Cancel all pending futures

@@ -1115,7 +1115,7 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
 
     return total_impact, debug_stats
 
-def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_team_ai=None, seed=None):
+def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_team_ai=None, seed=None, ai_model=None):
     """Generate the analysis cache file"""
     is_ci = os.environ.get('CI') == 'true'  # Check for CI environment
     output_path = Path(output_path)
@@ -1133,7 +1133,21 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
     # Initialize AI service if needed
     ai_service = None
     if not skip_team_ai:
-        ai_service = AIService()
+        # Resolve model override if provided
+        model_override = None
+        if ai_model:
+            from ai_service import resolve_model_name, detect_provider_from_model
+            model_override = resolve_model_name(ai_model)
+            logger.info(f"Using AI model override: {model_override}")
+
+            # Auto-detect and switch provider based on model
+            detected_provider = detect_provider_from_model(model_override)
+            if detected_provider:
+                import ai_service as ai_service_module
+                ai_service_module.model_provider = detected_provider
+                logger.info(f"Auto-detected provider: {detected_provider}")
+
+        ai_service = AIService(model_override=model_override)
         ai_service.test_mode = test_mode
         success, message = ai_service.test_connection()
         if not success:
@@ -1184,7 +1198,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         with open('data/analysis_cache.json', 'r') as f:
             existing_cache = json.load(f)
             logger.info("Loaded existing cache file")
-            
+
             # Update cache data with existing values if skipping sims
             if skip_sims:
                 # Preserve the existing number of simulations and timestamp
@@ -1222,6 +1236,15 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         # Set simulation count based on skip_sims flag
         cache_data['num_simulations'] = 0 if skip_sims else num_simulations
         logger.info(f"Setting initial simulation count: {cache_data['num_simulations']}")
+
+    # Try to load existing team analyses (AI fields are now stored separately)
+    existing_team_analyses = {}
+    try:
+        with open('data/team_analyses.json', 'r') as f:
+            existing_team_analyses = json.load(f)
+            logger.info("Loaded existing team analyses file")
+    except (FileNotFoundError, json.JSONDecodeError):
+        logger.info("No existing team analyses file found or invalid format")
 
     # Initialize all counters regardless of skip_sims
     playoff_appearances = defaultdict(int)
@@ -1439,17 +1462,32 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                 logger.error(f"Invalid team codes: {', '.join(invalid_teams)}")
                 sys.exit(1)
 
-    # First, preserve all existing AI analysis
+    # First, preserve all existing AI analysis from team_analyses.json
     for team_abbr in teams.keys():
-        if team_abbr in existing_cache.get('team_analyses', {}):
-            if 'ai_analysis' in existing_cache['team_analyses'][team_abbr]:
-                cache_data['team_analyses'][team_abbr]['ai_analysis'] = existing_cache['team_analyses'][team_abbr]['ai_analysis']
-            if 'ai_status' in existing_cache['team_analyses'][team_abbr]:
-                cache_data['team_analyses'][team_abbr]['ai_status'] = existing_cache['team_analyses'][team_abbr]['ai_status']
-            if 'ai_provider' in existing_cache['team_analyses'][team_abbr]:
-                cache_data['team_analyses'][team_abbr]['ai_provider'] = existing_cache['team_analyses'][team_abbr]['ai_provider']
-            if 'ai_model' in existing_cache['team_analyses'][team_abbr]:
-                cache_data['team_analyses'][team_abbr]['ai_model'] = existing_cache['team_analyses'][team_abbr]['ai_model']
+        if team_abbr in existing_team_analyses:
+            # Reconstruct the ai_analysis JSON string from the parsed fields
+            team_analysis = existing_team_analyses[team_abbr]
+
+            # If we have parsed fields, reconstruct the JSON string
+            if any(key in team_analysis for key in ['ai_verdict', 'ai_xfactor', 'ai_reality_check', 'ai_quotes']):
+                ai_data = {}
+                for key in ['ai_verdict', 'ai_xfactor', 'ai_reality_check', 'ai_quotes']:
+                    if key in team_analysis:
+                        ai_data[key] = team_analysis[key]
+                cache_data['team_analyses'][team_abbr]['ai_analysis'] = json.dumps(ai_data)
+            # Otherwise if there's an ai_analysis field (fallback for unparseable data)
+            elif 'ai_analysis' in team_analysis:
+                cache_data['team_analyses'][team_abbr]['ai_analysis'] = team_analysis['ai_analysis']
+
+            # Preserve metadata fields
+            if 'ai_status' in team_analysis:
+                cache_data['team_analyses'][team_abbr]['ai_status'] = team_analysis['ai_status']
+            if 'ai_provider' in team_analysis:
+                cache_data['team_analyses'][team_abbr]['ai_provider'] = team_analysis['ai_provider']
+            if 'ai_model' in team_analysis:
+                cache_data['team_analyses'][team_abbr]['ai_model'] = team_analysis['ai_model']
+            if 'ai_error' in team_analysis:
+                cache_data['team_analyses'][team_abbr]['ai_error'] = team_analysis['ai_error']
 
     if (not skip_team_ai or teams_to_analyze) and ai_service and ai_service.client:
         if teams_to_analyze:
@@ -1505,6 +1543,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                 for team_abbr, team_info in teams_to_process.items()
             }
 
+            error_teams = []
             with tqdm(total=total_teams,
                       desc="Generating AI analysis",
                       mininterval=mininterval,
@@ -1518,12 +1557,19 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                         cache_data['team_analyses'][team_abbr]['ai_provider'] = ai_service.model_provider
                         cache_data['team_analyses'][team_abbr]['ai_model'] = ai_service.model
                     except Exception as e:
-                        logger.error(f"AI analysis failed for {team_abbr}: {e}")
+                        error_msg = str(e)
+                        logger.error(f"AI analysis failed for {team_abbr}: {error_msg}")
+                        error_teams.append(team_abbr)
                         cache_data['team_analyses'][team_abbr]['ai_analysis'] = None
                         cache_data['team_analyses'][team_abbr]['ai_status'] = 'error'
+                        cache_data['team_analyses'][team_abbr]['ai_error'] = error_msg
                     finally:
                         pbar.set_postfix(team=team_abbr)
                         pbar.update(1)
+
+            # Report errors if any occurred
+            if error_teams:
+                logger.error(f"AI analysis errors occurred for {len(error_teams)} team(s): {', '.join(error_teams)}")
         except KeyboardInterrupt:
             logger.warning("\n\nKeyboardInterrupt received! Cancelling remaining tasks...")
             # Cancel all pending futures
@@ -1543,6 +1589,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
     # Extract team AI analyses into separate file
     team_analyses = {}
+    parse_error_teams = []
     for team_abbr, team_data in cache_data['team_analyses'].items():
         team_analyses[team_abbr] = {}
 
@@ -1554,14 +1601,22 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                 for key, value in parsed_analysis.items():
                     team_analyses[team_abbr][key] = value
             except (json.JSONDecodeError, TypeError) as e:
-                logger.warning(f"Failed to parse ai_analysis for {team_abbr}: {e}")
-                # Fallback to storing as string if parse fails
-                team_analyses[team_abbr]['ai_analysis'] = team_data['ai_analysis']
+                logger.error(f"Failed to parse ai_analysis for {team_abbr}: {e}")
+                parse_error_teams.append(team_abbr)
+                # Mark as error and store error message
+                team_analyses[team_abbr]['ai_status'] = 'error'
+                team_analyses[team_abbr]['ai_error'] = f"JSON parsing failed: {str(e)}"
+                # Don't store the unparseable data
 
         # Add metadata fields
-        for field in ['ai_status', 'ai_provider', 'ai_model']:
+        for field in ['ai_status', 'ai_provider', 'ai_model', 'ai_error']:
             if field in team_data:
                 team_analyses[team_abbr][field] = team_data[field]
+
+    # Report parsing errors if any occurred
+    if parse_error_teams:
+        logger.error(f"JSON parsing errors occurred for {len(parse_error_teams)} team(s): {', '.join(parse_error_teams)}")
+        logger.error(f"These teams will need to be regenerated with: --regenerate-team-ai \"{','.join(parse_error_teams)}\"")
 
     # Save team_analyses.json
     team_analyses_path = output_path.parent / 'team_analyses.json'
@@ -1571,7 +1626,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
     # Remove AI fields from cache_data before saving
     for team_abbr in cache_data['team_analyses'].keys():
-        for field in ['ai_analysis', 'ai_status', 'ai_provider', 'ai_model']:
+        for field in ['ai_analysis', 'ai_status', 'ai_provider', 'ai_model', 'ai_error']:
             cache_data['team_analyses'][team_abbr].pop(field, None)
 
     # Save cache file (without AI fields)
@@ -1608,6 +1663,7 @@ def deploy_to_netlify():
         files_to_copy = [
             'data/analysis_cache.json',
             'data/team_analyses.json',
+            'data/dashboard_content.json',
             'data/team_stats.csv',
             'data/team_starters.csv',
             'data/schedule.csv',
@@ -1689,6 +1745,8 @@ def main():
                       help='Skip ALL data file generation (schedule, stats, standings, etc.)')
     parser.add_argument('--data-only', action='store_true',
                       help='Generate data files only, then exit (skip simulations and AI)')
+    parser.add_argument('--deploy-only', action='store_true',
+                      help='Skip all generation, just deploy/commit existing files (implies --skip-data --skip-sims --skip-team-ai --skip-game-ai --skip-dashboard-ai)')
 
     # Simulation Options
     parser.add_argument('--simulations', type=int, default=1000,
@@ -1703,47 +1761,36 @@ def main():
                       help='Skip team AI analysis generation')
     parser.add_argument('--skip-game-ai', action='store_true',
                       help='Skip game AI analysis generation')
+    parser.add_argument('--skip-dashboard-ai', action='store_true',
+                      help='Skip dashboard content generation')
     parser.add_argument('--regenerate-team-ai', type=str,
                       help='Regenerate team AI for specific teams (comma-separated abbrs, e.g., "DET,MIN") or "all"')
     parser.add_argument('--regenerate-game-ai', type=str,
-                      help='Regenerate game AI by ESPN IDs (e.g., "401772856,401772855"), or "analysis", "preview", or "all"')
-
-    # Deprecated Options (kept for backward compatibility)
-    parser.add_argument('--skip-ai', action='store_true',
-                      help='DEPRECATED: Use --skip-team-ai and --skip-game-ai instead')
-    parser.add_argument('--regenerate-ai', type=str,
-                      help='DEPRECATED: Use --regenerate-team-ai instead')
-    parser.add_argument('--no-copy-data', action='store_true',
-                      help='DEPRECATED: No longer used')
+                      help='Regenerate game AI by ESPN IDs (e.g., "401772856,401772855"), teams (e.g., "team:DET,MIN"), or "analysis", "preview", or "all"')
+    parser.add_argument('--ai-model', type=str,
+                      help='Override the AI model to use (e.g., "opus", "sonnet", "haiku", "gpt-4o", "gpt-5-mini")')
 
     # Deployment Options
     parser.add_argument('--commit', action='store_true',
                       help='Commit changes to git if successful')
-    parser.add_argument('--deploy-render', action='store_true',
-                      help='Deploy data to Render web host via SSH')
     parser.add_argument('--deploy-netlify', action='store_true',
                       help='Deploy data files to who-should-lose-2 repo for Netlify deployment')
+    parser.add_argument('--copy-to', type=str,
+                      help='Copy all data files to the specified directory after completion')
     parser.add_argument('--test-mode', action='store_true',
                       help='Run in test mode (disable AI calls)')
 
     args = parser.parse_args()
     logger.info(f"args: {args}")
 
-    # Handle deprecated options with warnings
-    if args.skip_ai:
-        logger.warning("WARNING: --skip-ai is deprecated. Use --skip-team-ai and --skip-game-ai instead.")
-        if not args.skip_team_ai:
-            args.skip_team_ai = True
-        if not args.skip_game_ai:
-            args.skip_game_ai = True
-
-    if args.regenerate_ai:
-        logger.warning("WARNING: --regenerate-ai is deprecated. Use --regenerate-team-ai instead.")
-        if not args.regenerate_team_ai:
-            args.regenerate_team_ai = args.regenerate_ai
-
-    if args.no_copy_data:
-        logger.warning("WARNING: --no-copy-data is deprecated and no longer used.")
+    # Handle --deploy-only flag
+    if args.deploy_only:
+        logger.info("--deploy-only mode: skipping all generation, will only deploy/commit existing files")
+        args.skip_data = True
+        args.skip_sims = True
+        args.skip_team_ai = True
+        args.skip_game_ai = True
+        args.skip_dashboard_ai = True
 
     copy_data = True  # Always copy data (no longer configurable)
     
@@ -1800,6 +1847,20 @@ def main():
                     if args.regenerate_game_ai.lower() in ['analysis', 'preview', 'all']:
                         regenerate_type = args.regenerate_game_ai.lower()
                         force_reanalyze = True
+                    elif args.regenerate_game_ai.startswith('team:'):
+                        # Extract team abbreviations and get their game IDs
+                        team_abbrs = [t.strip().upper() for t in args.regenerate_game_ai[5:].split(',')]
+                        logger.info(f"Regenerating game AI for teams: {', '.join(team_abbrs)}")
+
+                        # Load schedule to find games involving these teams
+                        schedule_df = pd.read_csv('data/schedule.csv')
+                        team_games = schedule_df[
+                            (schedule_df['away_team'].isin(team_abbrs)) |
+                            (schedule_df['home_team'].isin(team_abbrs))
+                        ]
+                        game_ids = [str(gid) for gid in team_games['espn_id'].tolist()]
+                        logger.info(f"Found {len(game_ids)} games for specified teams")
+                        force_reanalyze = True
                     else:
                         # Treat as comma-separated ESPN IDs
                         game_ids = [gid.strip() for gid in args.regenerate_game_ai.split(',')]
@@ -1809,14 +1870,24 @@ def main():
                     batch_analyze_games(
                         force_reanalyze=force_reanalyze,
                         game_ids=game_ids,
-                        regenerate_type=regenerate_type
+                        regenerate_type=regenerate_type,
+                        ai_model=args.ai_model
                     )
             except Exception as e:
                 logger.error(f"Error generating game analyses: {e}... continuing")
-        elif args.skip_game_ai:
-            logger.info("Skipping game AI analysis generation (--skip-game-ai)")
+
+        # Generate dashboard content AFTER game analyses (unless --skip-dashboard-ai or --data-only)
+        if not args.skip_dashboard_ai and not args.data_only:
+            logger.info("=> Generating dashboard_content.json")
+            try:
+                from generate_dashboard import generate_dashboard_content
+                generate_dashboard_content(ai_model=args.ai_model)
+            except Exception as e:
+                logger.error(f"Error generating dashboard content: {e}... continuing")
+        elif args.skip_dashboard_ai:
+            logger.info("Skipping dashboard content generation (--skip-dashboard-ai)")
         elif args.data_only:
-            logger.info("Skipping game AI analysis generation (--data-only)")
+            logger.info("Skipping dashboard content generation (--data-only)")
 
     else:
         logger.info("Skipping data files generation")
@@ -1833,6 +1904,20 @@ def main():
             if args.regenerate_game_ai.lower() in ['analysis', 'preview', 'all']:
                 regenerate_type = args.regenerate_game_ai.lower()
                 force_reanalyze = True
+            elif args.regenerate_game_ai.startswith('team:'):
+                # Extract team abbreviations and get their game IDs
+                team_abbrs = [t.strip().upper() for t in args.regenerate_game_ai[5:].split(',')]
+                logger.info(f"Regenerating game AI for teams: {', '.join(team_abbrs)}")
+
+                # Load schedule to find games involving these teams
+                schedule_df = pd.read_csv('data/schedule.csv')
+                team_games = schedule_df[
+                    (schedule_df['away_team'].isin(team_abbrs)) |
+                    (schedule_df['home_team'].isin(team_abbrs))
+                ]
+                game_ids = [str(gid) for gid in team_games['espn_id'].tolist()]
+                logger.info(f"Found {len(game_ids)} games for specified teams")
+                force_reanalyze = True
             else:
                 # Treat as comma-separated ESPN IDs
                 game_ids = [gid.strip() for gid in args.regenerate_game_ai.split(',')]
@@ -1842,13 +1927,32 @@ def main():
                 batch_analyze_games(
                     force_reanalyze=force_reanalyze,
                     game_ids=game_ids,
-                    regenerate_type=regenerate_type
+                    regenerate_type=regenerate_type,
+                    ai_model=args.ai_model
                 )
         except Exception as e:
             logger.error(f"Error generating game analyses: {e}... continuing")
 
+        # Generate dashboard content AFTER game analyses when using --skip-data with --regenerate-game-ai
+        if not args.skip_dashboard_ai:
+            logger.info("=> Generating dashboard_content.json")
+            try:
+                from generate_dashboard import generate_dashboard_content
+                generate_dashboard_content(ai_model=args.ai_model)
+            except Exception as e:
+                logger.error(f"Error generating dashboard content: {e}... continuing")
+
+    # Standalone dashboard generation when --skip-data is used without --regenerate-game-ai
+    elif args.skip_data and not args.skip_dashboard_ai:
+        logger.info("=> Generating dashboard_content.json (standalone)")
+        try:
+            from generate_dashboard import generate_dashboard_content
+            generate_dashboard_content(ai_model=args.ai_model)
+        except Exception as e:
+            logger.error(f"Error generating dashboard content: {e}... continuing")
+
     # Exit early if --data-only (unless deploy/commit flags are set)
-    if args.data_only and not (args.deploy_netlify or args.deploy_render or args.commit):
+    if args.data_only and not (args.deploy_netlify or args.commit):
         logger.info("Data generation complete (--data-only mode). Exiting.")
         return
 
@@ -1866,7 +1970,8 @@ def main():
             copy_data=copy_data,
             test_mode=args.test_mode,
             regenerate_team_ai=args.regenerate_team_ai,
-            seed=args.seed
+            seed=args.seed,
+            ai_model=args.ai_model
         )
 
     # Removed persist directory copying - deployment now handled by --deploy-netlify
@@ -1875,49 +1980,7 @@ def main():
         if not deploy_to_netlify():
             success = False
 
-    if args.deploy_render:
-        logger.info("Deploying files to Render web host via SSH...")
-        try:
-            # Remote server details
-            remote_host = "srv-csmkmerv2p9s73bjo4eg@ssh.oregon.render.com"
-            remote_path = "/opt/render/project/src/persist/"
-
-            # Files to copy (required)
-            files_to_copy = [
-                'data/analysis_cache.json',
-                'data/team_stats.csv',
-                'data/team_starters.csv',
-                'data/schedule.csv',
-                'data/teams.csv',
-                'data/game_analyses.json',
-                'data/team_notes.csv'
-            ]
-
-            # Optional files to copy if they exist
-            optional_files = [
-                'data/coordinators.csv',
-                'data/sagarin.csv',
-                'data/standings_cache.json'
-            ]
-            for optional_file in optional_files:
-                if os.path.exists(optional_file):
-                    files_to_copy.append(optional_file)
-
-            # Copy each file using scp
-            for file in files_to_copy:
-                scp_command = f"scp {file} {remote_host}:{remote_path}"
-                logger.info(f"Copying {file}...")
-                result = subprocess.run(scp_command, shell=True, capture_output=True, text=True)
-                if result.returncode != 0:
-                    raise Exception(f"SCP failed: {result.stderr}")
-
-            logger.info("Successfully copied files to remote server")
-
-        except Exception as e:
-            logger.error(f"Error copying files via SSH: {e}")
-            success = False
-
-    # Git operations (only if files were copied successfully)
+    # Git operations (only if generation was successful)
     if args.commit:
         try:
             logger.info("RUNNING GIT OPERATIONS...")
@@ -1971,12 +2034,66 @@ def main():
             logger.error(f"Script completed, but error during git operations: {e}")
             success = False
 
+    # Copy data files to specified directory if requested
+    if args.copy_to and success:
+        try:
+            import shutil
+            from pathlib import Path
+
+            dest_dir = Path(args.copy_to)
+            logger.info(f"Copying data files to {dest_dir}...")
+
+            # Create destination directory if it doesn't exist
+            dest_dir.mkdir(parents=True, exist_ok=True)
+
+            # Define files and directories to copy
+            files_to_copy = [
+                'data/analysis_cache.json',
+                'data/team_analyses.json',
+                'data/dashboard_content.json',
+                'data/team_stats.csv',
+                'data/team_starters.csv',
+                'data/schedule.csv',
+                'data/teams.csv',
+                'data/game_analyses.json',
+                'data/team_notes.csv',
+                'data/standings_cache.json',
+                'data/coordinators.csv',
+                'data/sagarin.csv'
+            ]
+
+            dirs_to_copy = [
+                'data/prompts'
+            ]
+
+            # Copy files
+            for file_path in files_to_copy:
+                if os.path.exists(file_path):
+                    dest_file = dest_dir / os.path.basename(file_path)
+                    shutil.copy2(file_path, dest_file)
+                    logger.info(f"Copied {file_path} to {dest_file}")
+
+            # Copy directories
+            for dir_path in dirs_to_copy:
+                if os.path.exists(dir_path):
+                    dest_subdir = dest_dir / os.path.basename(dir_path)
+                    if dest_subdir.exists():
+                        shutil.rmtree(dest_subdir)
+                    shutil.copytree(dir_path, dest_subdir)
+                    logger.info(f"Copied directory {dir_path} to {dest_subdir}")
+
+            logger.info(f"Successfully copied all data files to {dest_dir}")
+
+        except Exception as e:
+            logger.error(f"Error copying data files to {args.copy_to}: {e}")
+            success = False
+
     end_time = datetime.now()
     time_diff = end_time - script_start_time
     minutes = int(time_diff.total_seconds() // 60)
     seconds = int(time_diff.total_seconds() % 60)
     print(f"Total cache generation took {minutes} minutes and {seconds} seconds")
-    
+
     # Exit with failure status if anything failed
     sys.exit(0 if success else 1)
 
