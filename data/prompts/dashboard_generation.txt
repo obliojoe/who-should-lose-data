@@ -32,9 +32,10 @@ IMPORTANT: For the league_pulse.summary field, use markdown formatting (bold for
 
 Generate:
 1. league_pulse.summary - 3-6 engaging sentences with markdown formatting about the league's current state
+   IMPORTANT: Focus on narrative and storylines, NOT raw statistics. Tell a compelling story about what's happening in the league. Minimize numbers - they're shown elsewhere on the page.
 2. league_pulse.key_storylines - Array of 3 storylines, each with:
    - title: Catchy 3-6 word headline
-   - description: 2-3 sentences with stats
+   - description: 2-3 sentences focusing on narrative over numbers. Use stats sparingly and only when essential to the story.
 3. game_of_the_week.tagline - 1-2 sentences why DET @ KC is THE game to watch
    Use LEAGUE CONTEXT to find team data. Do NOT reference past seasons, Super Bowls, or historical matchups.
 4. game_of_the_meek.tagline - 1-2 humorous sentences why TEN @ LV is skippable
