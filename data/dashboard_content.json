@@ -1,20 +1,20 @@
 {
-  "timestamp": "2025-10-09T11:44:04.425478",
+  "timestamp": "2025-10-09T11:58:16.693868",
   "week": 6,
   "league_pulse": {
-    "summary": "Week 6 brings chaos to the NFL power structure as **Kansas City** stumbles to 2-3 despite maintaining the #3 power ranking, while **Detroit** and **Philadelphia** emerge as the league's offensive juggernauts. The Lions are *obliterating* defenses at 34.8 points per game with Jared Goff throwing TDs at a historic pace, while the Eagles convert an absurd 92.3% of their red zone opportunities. Meanwhile, **Houston's** suffocating defense (12.2 PPG allowed) and **Cincinnati's** league-leading +11 turnover margin showcase how defense still wins in this offensive explosion era.",
+    "summary": "The NFL hierarchy is experiencing seismic shifts as **Kansas City** stumbles to 2-3 despite maintaining the #3 power ranking, while **Philadelphia** and **Detroit** assert their dominance atop both standings and statistical categories. With **Baltimore** at 1-4 and still ranked #8, the gap between perceived talent and actual performance has never been wider. The league's offensive explosion continues with **Detroit** averaging a scorching 34.8 PPG while **Houston's** defense allows just 12.2, creating the ultimate clash of strengths across the conference divide.",
     "key_storylines": [
       {
         "title": "Chiefs Kingdom Crumbling",
-        "description": "Kansas City sits at 2-3 with just a 57.3% playoff probability despite being ranked #3 in power ratings. Their championship pedigree is being tested as they host the red-hot Lions in a must-win scenario."
+        "description": "Kansas City sits at 2-3 despite being ranked #3 in power rankings, their 57.3% playoff probability marking a stunning fall from grace. The defending division leaders now face a must-win against the red-hot Lions who are averaging 34.8 points per game."
       },
       {
-        "title": "NFC Offensive Revolution",
-        "description": "Detroit (34.8 PPG), Philadelphia (92.3% red zone), and Dallas (413.8 YPG) are rewriting offensive records. The NFC boasts four of the top five offensive categories, signaling a conference-wide scoring surge."
+        "title": "Winless Jets Historic Futility",
+        "description": "The Jets remain the league's only winless team at 0-5 with just a 0.4% playoff probability. Ranked 31st in power rankings with a 13.64 rating, they're on pace for one of the worst seasons in recent memory."
       },
       {
-        "title": "Turnover Kings Rule",
-        "description": "Cincinnati's +11 turnover margin leads the league while Jacksonville's 10 interceptions terrorize quarterbacks. In a high-scoring season, creating turnovers has become the defensive equalizer that separates contenders from pretenders."
+        "title": "NFC East Dominance Returns",
+        "description": "Philadelphia leads the NFL power rankings at 26.83 with a 94.2% playoff probability, while Washington surprisingly sits 5th overall at 24.56. The division boasts two of the league's top five teams, with Dallas struggling at 2-2-1."
       }
     ]
   },
@@ -30,7 +30,7 @@
     "home_playoff_prob": 57.3,
     "betting_line": -2.5,
     "over_under": 52.5,
-    "tagline": "The 4-1 Lions bring their league-leading 34.8 PPG attack to face a desperate 2-3 Chiefs team clinging to playoff hopes at 57.3%. Detroit's #2 power ranking meets KC's #3 in a collision that could define both seasons' trajectories."
+    "tagline": "The league's #2 power-ranked Lions bring their 34.8 PPG offensive juggernaut to face the struggling 2-3 Chiefs, who desperately need a signature win to salvage their season."
   },
   "game_of_the_meek": {
     "espn_id": "401772859",
@@ -44,7 +44,7 @@
     "home_playoff_prob": 3.2,
     "betting_line": -3.5,
     "over_under": 40.5,
-    "tagline": "The Titans (1-4) and Raiders (1-4) combine for a thrilling 2-8 record in what promises to be a masterclass in offensive ineptitude. Winner gets to celebrate being slightly less terrible than the loser."
+    "tagline": "Two 1-4 teams ranked 30th and 25th in power rankings meet in Vegas, where the combined 2-8 record promises more fumbles than fireworks in this basement bowl."
   },
   "stat_leaders": {
     "offense": [
@@ -54,7 +54,7 @@
         "value": 34.8,
         "unit": "",
         "rank": 1,
-        "context": "Scoring at will"
+        "context": "Explosive scoring machine"
       },
       {
         "team": "DAL",
@@ -62,7 +62,7 @@
         "value": 413.8,
         "unit": " yds",
         "rank": 1,
-        "context": "Moving chains consistently"
+        "context": "Offensive yards factory"
       },
       {
         "team": "LAR",
@@ -86,7 +86,7 @@
         "value": 92.3,
         "unit": "%",
         "rank": 1,
-        "context": "Money in scoring territory"
+        "context": "Touchdown factory efficiency"
       }
     ],
     "defense": [
@@ -96,7 +96,7 @@
         "value": 12.2,
         "unit": "",
         "rank": 1,
-        "context": "Suffocating opponents"
+        "context": "Defensive wall excellence"
       },
       {
         "team": "DEN",
@@ -104,7 +104,7 @@
         "value": 21.0,
         "unit": "",
         "rank": 1,
-        "context": "Relentless pass rush"
+        "context": "Pass rush terror"
       },
       {
         "team": "JAX",
@@ -112,7 +112,7 @@
         "value": 10.0,
         "unit": "",
         "rank": 1,
-        "context": "Ballhawking secondary"
+        "context": "Ball-hawking secondary"
       },
       {
         "team": "TEN",
@@ -120,7 +120,7 @@
         "value": 29.4,
         "unit": "%",
         "rank": 1,
-        "context": "Locking down on third"
+        "context": "Clutch stop specialists"
       },
       {
         "team": "CIN",
@@ -128,7 +128,7 @@
         "value": 11,
         "unit": "",
         "rank": 1,
-        "context": "Creating extra possessions"
+        "context": "Takeaway machines"
       }
     ],
     "efficiency": [
@@ -146,7 +146,7 @@
         "value": 75.3,
         "unit": "%",
         "rank": 1,
-        "context": "Surgical passing precision"
+        "context": "Precision passing attack"
       },
       {
         "team": "PHI",
@@ -154,7 +154,7 @@
         "value": 92.3,
         "unit": "%",
         "rank": 1,
-        "context": "Automatic in red zone"
+        "context": "Red zone perfection"
       },
       {
         "team": "CIN",
@@ -162,7 +162,7 @@
         "value": 11.0,
         "unit": "",
         "rank": 1,
-        "context": "Winning possession battle"
+        "context": "Creating extra possessions"
       },
       {
         "team": "IND",
@@ -182,7 +182,7 @@
       "leader_stat": "Passing Yards",
       "stat_line": "1503 pass yds, 11 TDs, 2 INTs",
       "season_projection": "5110 pass yds, 37 TDs",
-      "context": "Leading the league with 1,503 yards through five games, on pace for a 5,110-yard season"
+      "context": "Leading aerial assault with elite efficiency"
     },
     {
       "player": "Jared Goff",
@@ -191,7 +191,7 @@
       "leader_stat": "Passing TDs",
       "stat_line": "1187 pass yds, 12 TDs, 2 INTs",
       "season_projection": "4035 pass yds, 40 TDs",
-      "context": "12 touchdown passes in 5 games puts him on trajectory for 40+ TDs this season"
+      "context": "Red zone touchdown machine production"
     },
     {
       "player": "Jonathan Taylor",
@@ -200,7 +200,7 @@
       "leader_stat": "Rushing Yards",
       "stat_line": "480 rush yds, 6 TDs",
       "season_projection": "1632 rush yds, 20 TDs",
-      "context": "Carrying Indianapolis with 480 yards, averaging 96 per game to lead all rushers"
+      "context": "Workhorse back carrying offense"
     },
     {
       "player": "Jonathan Taylor",
@@ -209,7 +209,7 @@
       "leader_stat": "Rushing TDs",
       "stat_line": "480 rush yds, 6 TDs",
       "season_projection": "1632 rush yds, 20 TDs",
-      "context": "His 6 rushing TDs pace the league as he powers toward a 20-touchdown campaign"
+      "context": "Goal line touchdown specialist"
     },
     {
       "player": "Puka Nacua",
@@ -218,7 +218,7 @@
       "leader_stat": "Receiving Yards",
       "stat_line": "588 rec yds, 2 TDs",
       "season_projection": "1999 rec yds, 6 TDs",
-      "context": "588 receiving yards leads all wideouts, threatening to eclipse 2,000 yards this season"
+      "context": "Elite separator creating big plays"
     },
     {
       "player": "Amon-Ra St. Brown",
@@ -227,7 +227,7 @@
       "leader_stat": "Receiving TDs",
       "stat_line": "407 rec yds, 6 TDs",
       "season_projection": "1383 rec yds, 20 TDs",
-      "context": "6 receiving TDs through 5 games projects to 20 scores, elite red zone production"
+      "context": "End zone target extraordinaire"
     }
   ],
   "power_rankings": {
@@ -238,7 +238,9 @@
         "team_name": "Philadelphia Eagles",
         "rating": 26.83,
         "record": "4-1",
-        "trend": "steady"
+        "trend": "steady",
+        "previous_rank": 1,
+        "movement": "0"
       },
       {
         "rank": 2,
@@ -246,7 +248,9 @@
         "team_name": "Detroit Lions",
         "rating": 26.46,
         "record": "4-1",
-        "trend": "up"
+        "trend": "up",
+        "previous_rank": 5,
+        "movement": "+3"
       },
       {
         "rank": 3,
@@ -254,7 +258,9 @@
         "team_name": "Kansas City Chiefs",
         "rating": 24.75,
         "record": "2-3",
-        "trend": "up"
+        "trend": "up",
+        "previous_rank": 6,
+        "movement": "+3"
       },
       {
         "rank": 4,
@@ -262,7 +268,9 @@
         "team_name": "Buffalo Bills",
         "rating": 24.58,
         "record": "4-1",
-        "trend": "down"
+        "trend": "down",
+        "previous_rank": 3,
+        "movement": "-1"
       },
       {
         "rank": 5,
@@ -270,7 +278,9 @@
         "team_name": "Washington Commanders",
         "rating": 24.56,
         "record": "3-2",
-        "trend": "up"
+        "trend": "up",
+        "previous_rank": 7,
+        "movement": "+2"
       }
     ],
     "bottom_5": [
@@ -280,7 +290,9 @@
         "team_name": "Cleveland Browns",
         "rating": 14.88,
         "record": "1-4",
-        "trend": "steady"
+        "trend": "steady",
+        "previous_rank": 28,
+        "movement": "0"
       },
       {
         "rank": 29,
@@ -288,7 +300,9 @@
         "team_name": "Miami Dolphins",
         "rating": 14.49,
         "record": "1-4",
-        "trend": "up"
+        "trend": "up",
+        "previous_rank": 31,
+        "movement": "+2"
       },
       {
         "rank": 30,
@@ -296,7 +310,9 @@
         "team_name": "Tennessee Titans",
         "rating": 13.72,
         "record": "1-4",
-        "trend": "steady"
+        "trend": "steady",
+        "previous_rank": 30,
+        "movement": "0"
       },
       {
         "rank": 31,
@@ -304,7 +320,9 @@
         "team_name": "New York Jets",
         "rating": 13.64,
         "record": "0-5",
-        "trend": "down"
+        "trend": "down",
+        "previous_rank": 29,
+        "movement": "-2"
       },
       {
         "rank": 32,
@@ -312,7 +330,9 @@
         "team_name": "New Orleans Saints",
         "rating": 12.34,
         "record": "1-4",
-        "trend": "steady"
+        "trend": "steady",
+        "previous_rank": 32,
+        "movement": "0"
       }
     ],
     "biggest_riser": {
@@ -322,7 +342,7 @@
       "movement": "+6",
       "rating": 22.25,
       "record": "2-3",
-      "reason": "Houston's elite defense allowing just 12.2 PPG validates their rise despite a 2-3 record."
+      "reason": "Houston jumps to #9 despite their 2-3 record thanks to the league's stingiest defense allowing just 12.2 PPG, showcasing elite defensive metrics."
     },
     "biggest_faller": {
       "team": "CIN",
@@ -331,7 +351,7 @@
       "movement": "-10",
       "rating": 18.82,
       "record": "2-3",
-      "reason": "Cincinnati's 2-3 start wastes their league-best +11 turnover margin and raises questions about consistency."
+      "reason": "Cincinnati tumbles to #22 at 2-3 despite leading the league with a +11 turnover margin, unable to convert opportunities into wins."
     }
   },
   "playoff_snapshot": {
@@ -341,28 +361,28 @@
         "probability": 94.2,
         "current_seed": 1,
         "record": "4-1",
-        "key_info": "NFC East dominance at 94.2%"
+        "key_info": "Dominant NFC East leader"
       },
       {
         "team": "BUF",
         "probability": 91.9,
         "current_seed": 2,
         "record": "4-1",
-        "key_info": "AFC East powerhouse cruising"
+        "key_info": "AFC East powerhouse rolling"
       },
       {
         "team": "TB",
         "probability": 90.8,
         "current_seed": 3,
         "record": "4-1",
-        "key_info": "NFC South surprise leader"
+        "key_info": "NFC South surprise story"
       },
       {
         "team": "DET",
         "probability": 88.2,
         "current_seed": 4,
         "record": "4-1",
-        "key_info": "Motor City roaring to playoffs"
+        "key_info": "Motor City miracle makers"
       }
     ],
     "middle_4": [
@@ -371,28 +391,28 @@
         "probability": 84.9,
         "current_seed": 2,
         "record": "4-1",
-        "key_info": "Bay Area bouncing back strong"
+        "key_info": "West Coast contender surging"
       },
       {
         "team": "JAX",
         "probability": 78.5,
         "current_seed": 5,
         "record": "4-1",
-        "key_info": "Jacksonville shocking the South"
+        "key_info": "AFC South dark horse"
       },
       {
         "team": "DEN",
         "probability": 76.9,
         "current_seed": 6,
         "record": "3-2",
-        "key_info": "Mile High defense carrying them"
+        "key_info": "Mile High momentum building"
       },
       {
         "team": "IND",
         "probability": 75.0,
         "current_seed": 1,
         "record": "4-1",
-        "key_info": "Colts resurgence behind Taylor"
+        "key_info": "Colts galloping forward"
       }
     ],
     "bottom_4": [
@@ -401,14 +421,14 @@
         "probability": 1.4,
         "current_seed": null,
         "record": "1-4",
-        "key_info": "Season slipping away fast"
+        "key_info": "Season spiraling quickly"
       },
       {
         "team": "NO",
         "probability": 0.7,
         "current_seed": null,
         "record": "1-4",
-        "key_info": "Saints marching toward draft"
+        "key_info": "Saints marching nowhere"
       },
       {
         "team": "NYJ",
@@ -422,7 +442,7 @@
         "probability": 0.3,
         "current_seed": null,
         "record": "1-4",
-        "key_info": "Giants in total freefall"
+        "key_info": "Giants falling hard"
       }
     ]
   },
@@ -433,7 +453,7 @@
       "away_record": "4-1",
       "home_team": "NYG",
       "home_record": "1-4",
-      "tagline": "Eagles feast on struggling Giants"
+      "tagline": "Division rivalry under primetime lights"
     },
     "sunday_spotlight": [
       {
@@ -442,7 +462,7 @@
         "away_record": "4-1",
         "home_team": "TB",
         "home_record": "4-1",
-        "tagline": "49ers-Bucs clash of unbeatens"
+        "tagline": "Broncos seek sixth straight win"
       },
       {
         "espn_id": "401772815",
@@ -450,7 +470,7 @@
         "away_record": "4-1",
         "home_team": "ATL",
         "home_record": "2-2",
-        "tagline": "Bills test Falcons' legitimacy"
+        "tagline": "Battle of surprising contenders"
       },
       {
         "espn_id": "401772857",
@@ -458,7 +478,7 @@
         "away_record": "3-2",
         "home_team": "JAX",
         "home_record": "4-1",
-        "tagline": "Bengals-Packers offensive showcase"
+        "tagline": "AFC North grudge match intensifies"
       }
     ],
     "total_games": 15
