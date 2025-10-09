@@ -6811,5 +6811,33 @@
       ]
     },
     "broadcast": "TV"
+  },
+  "401772941": {
+    "timestamp": "2025-10-09 01:57:16",
+    "game_date": "2025-10-16",
+    "home_team": "CIN",
+    "away_team": "PIT",
+    "home_score": null,
+    "away_score": null,
+    "stadium": "Paycor Stadium",
+    "home_coach": "Zac Taylor",
+    "away_coach": "Mike Tomlin",
+    "analysis_type": "preview",
+    "analysis": "In a battle of AFC North rivals that feels more like a high-stakes chess match than a football game, the **Pittsburgh Steelers** travel to Cincinnati to take on the **Bengals** in what promises to be a bruising divisional showdown. With **Aaron Rodgers** leading the Steelers' resurgence and **Jake Browning** trying to right the Bengals' ship after a turbulent start, this game carries serious early-season playoff implications.\n\nThe Steelers enter with momentum, sporting a solid 3-1 record and riding the renaissance of **Aaron Rodgers**, who has been remarkably efficient with 786 yards, 8 touchdowns, and just 3 interceptions. Their defense, anchored by the perpetual terror **T.J. Watt**, has been generating consistent pressure. However, the Bengals are desperate, sitting at 2-3 and riding a three-game losing streak that has exposed significant defensive vulnerabilities. **Ja'Marr Chase** remains their offensive lightning rod, with 374 receiving yards and 3 touchdowns, but the team has struggled to find consistent offensive rhythm.\n\nThe injury report adds intrigue, with both teams nursing several questionable players. **Jalen Ramsey** and **Alex Highsmith** are game-time decisions for Pittsburgh, while Cincinnati has multiple offensive skill players like **Charlie Jones** and **Drew Sample** listed as questionable. The Steelers' road dominance (2-0 record) and **ESPN's predictor giving them a 64.5% win probability** suggest they enter as clear favorites. Expect a physical, potentially low-scoring affair where defensive playmakers like **Watt** and **Trey Hendrickson** could be the difference-makers in what feels like a must-win game for both teams.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "weather": {
+      "is_indoor": false,
+      "temperature": 67,
+      "condition": "Clear",
+      "wind_speed": 1
+    },
+    "predictor": {
+      "home_win_prob": 35.142,
+      "matchup_quality": 51.189,
+      "predicted_point_diff": -5.868,
+      "away_win_prob": 64.575
+    },
+    "broadcast": "Streaming"
   }
 }
