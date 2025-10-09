@@ -1,0 +1,458 @@
+{
+  "timestamp": "2025-10-09T01:38:42.885504",
+  "week": 6,
+  "league_pulse": {
+    "summary": "**DET** continues to light up scoreboards with an offense that looks unstoppable, while **PHI** and **BUF** keep chipping away with balanced attacks and steady defenses. *Momentum matters* this week as surging units like **HOU** tighten up on that side of the ball and suddenly reshape expectations. Upsets and late-game swings have made the standings jittery, and a handful of teams are separating themselves as real contenders. Meanwhile, turnover battles led by **CIN** remain a deciding factor in close games and playoff projections.",
+    "key_storylines": [
+      {
+        "title": "Detroit's Scoring Barrage",
+        "description": "Detroit leads the league in points per game and is converting drives at an elite rate, forcing opponents into shootouts. If their efficiency holds, they could dictate tempo against any defense."
+      },
+      {
+        "title": "Defensive Rise Of Houston",
+        "description": "Houston ranks near the top in points allowed and has become a consistent disruptive force with pressure and takeaways. Their defensive turnaround is turning tight games into wins and moving them up the pecking order."
+      },
+      {
+        "title": "Turnover Edge Matters",
+        "description": "Cincinnati's massive turnover margin has translated directly into extra possessions and short fields that swing outcomes. Teams that win the turnover battle are disproportionately dominating close contests this season."
+      }
+    ]
+  },
+  "game_of_the_week": {
+    "espn_id": "401772923",
+    "away_team": "DET",
+    "away_record": "4-1",
+    "home_team": "KC",
+    "home_record": "2-3",
+    "betting_line": -2.5,
+    "over_under": 52.5,
+    "tagline": "DET @ KC is the must-watch clash of elite offenses and test of playoff-level defenses, promising high tempo, big plays, and game-changing moments on every drive."
+  },
+  "game_of_the_meek": {
+    "espn_id": "401772859",
+    "away_team": "TEN",
+    "away_record": "1-4",
+    "home_team": "LV",
+    "home_record": "1-4",
+    "betting_line": -3.5,
+    "over_under": 40.5,
+    "tagline": "TEN @ LV feels like a soft snooze button this week-bring snacks or skip to the highlights reel for a quicker hit."
+  },
+  "stat_leaders": {
+    "offense": [
+      {
+        "team": "DET",
+        "stat": "Points Per Game",
+        "value": 34.8,
+        "unit": "",
+        "rank": 1,
+        "context": "League-leading scoring pace"
+      },
+      {
+        "team": "DAL",
+        "stat": "Total Yards Per Game",
+        "value": 413.8,
+        "unit": " yds",
+        "rank": 1,
+        "context": "Yardage-moving offense"
+      },
+      {
+        "team": "LAR",
+        "stat": "Passing Yards Per Game",
+        "value": 300.6,
+        "unit": " yds",
+        "rank": 1,
+        "context": "Air attack powerhouse"
+      },
+      {
+        "team": "WAS",
+        "stat": "Rushing Yards Per Game",
+        "value": 156.4,
+        "unit": " yds",
+        "rank": 1,
+        "context": "Ground game dominance"
+      },
+      {
+        "team": "PHI",
+        "stat": "Red Zone %",
+        "value": 92.3,
+        "unit": "%",
+        "rank": 1,
+        "context": "Finishes drives efficiently"
+      }
+    ],
+    "defense": [
+      {
+        "team": "HOU",
+        "stat": "Points Allowed Per Game",
+        "value": 12.2,
+        "unit": "",
+        "rank": 1,
+        "context": "Stingy points defense"
+      },
+      {
+        "team": "DEN",
+        "stat": "Sacks",
+        "value": 21.0,
+        "unit": "",
+        "rank": 1,
+        "context": "Pressure-generating front"
+      },
+      {
+        "team": "JAX",
+        "stat": "Interceptions",
+        "value": 10.0,
+        "unit": "",
+        "rank": 1,
+        "context": "Ball-hawking secondary"
+      },
+      {
+        "team": "TEN",
+        "stat": "Third Down Defense",
+        "value": 29.4,
+        "unit": "%",
+        "rank": 1,
+        "context": "Short-yardage shutdown unit"
+      },
+      {
+        "team": "CIN",
+        "stat": "Turnover Margin",
+        "value": 11,
+        "unit": "",
+        "rank": 1,
+        "context": "Turnover-forcing unit"
+      }
+    ],
+    "efficiency": [
+      {
+        "team": "GB",
+        "stat": "Third Down Conversion",
+        "value": 52.7,
+        "unit": "%",
+        "rank": 1,
+        "context": "Clutch conversion unit"
+      },
+      {
+        "team": "DET",
+        "stat": "Completion Percentage",
+        "value": 75.3,
+        "unit": "%",
+        "rank": 1,
+        "context": "Precision passing"
+      },
+      {
+        "team": "PHI",
+        "stat": "Red Zone Efficiency",
+        "value": 92.3,
+        "unit": "%",
+        "rank": 1,
+        "context": "Clinical in red zone"
+      },
+      {
+        "team": "CIN",
+        "stat": "Turnover Margin",
+        "value": 11.0,
+        "unit": "",
+        "rank": 1,
+        "context": "Possession control"
+      },
+      {
+        "team": "IND",
+        "stat": "Point Differential",
+        "value": 74,
+        "unit": "",
+        "rank": 1,
+        "context": "Scoring margin dominance"
+      }
+    ]
+  },
+  "individual_highlights": [
+    {
+      "player": "Matthew Stafford",
+      "team": "LAR",
+      "position": "QB",
+      "leader_stat": "Passing Yards",
+      "stat_line": "1503 pass yds, 11 TDs, 2 INTs",
+      "season_projection": "5110 pass yds, 37 TDs",
+      "context": "Veteran passer providing steady leadership and timing"
+    },
+    {
+      "player": "Jared Goff",
+      "team": "DET",
+      "position": "QB",
+      "leader_stat": "Passing TDs",
+      "stat_line": "1187 pass yds, 12 TDs, 2 INTs",
+      "season_projection": "4035 pass yds, 40 TDs",
+      "context": "Accurate signal-calling creating consistent scoring chances"
+    },
+    {
+      "player": "Jonathan Taylor",
+      "team": "IND",
+      "position": "RB",
+      "leader_stat": "Rushing Yards",
+      "stat_line": "480 rush yds, 6 TDs",
+      "season_projection": "1632 rush yds, 20 TDs",
+      "context": "Workhorse runner setting the pace and control"
+    },
+    {
+      "player": "Jonathan Taylor",
+      "team": "IND",
+      "position": "RB",
+      "leader_stat": "Rushing TDs",
+      "stat_line": "480 rush yds, 6 TDs",
+      "season_projection": "1632 rush yds, 20 TDs",
+      "context": "Goal-line finisher turning short chances into touchdowns"
+    },
+    {
+      "player": "Puka Nacua",
+      "team": "LAR",
+      "position": "WR",
+      "leader_stat": "Receiving Yards",
+      "stat_line": "588 rec yds, 2 TDs",
+      "season_projection": "1999 rec yds, 6 TDs",
+      "context": "Explosive receiver stretching defenses and moving chains"
+    },
+    {
+      "player": "Amon-Ra St. Brown",
+      "team": "DET",
+      "position": "WR",
+      "leader_stat": "Receiving TDs",
+      "stat_line": "407 rec yds, 6 TDs",
+      "season_projection": "1383 rec yds, 20 TDs",
+      "context": "Reliable target creating high-volume scoring opportunities"
+    }
+  ],
+  "power_rankings": {
+    "top_5": [
+      {
+        "rank": 1,
+        "team": "PHI",
+        "team_name": "Philadelphia Eagles",
+        "rating": 26.83,
+        "record": "4-1",
+        "trend": "steady"
+      },
+      {
+        "rank": 2,
+        "team": "DET",
+        "team_name": "Detroit Lions",
+        "rating": 26.46,
+        "record": "4-1",
+        "trend": "up"
+      },
+      {
+        "rank": 3,
+        "team": "KC",
+        "team_name": "Kansas City Chiefs",
+        "rating": 24.75,
+        "record": "2-3",
+        "trend": "up"
+      },
+      {
+        "rank": 4,
+        "team": "BUF",
+        "team_name": "Buffalo Bills",
+        "rating": 24.58,
+        "record": "4-1",
+        "trend": "down"
+      },
+      {
+        "rank": 5,
+        "team": "WAS",
+        "team_name": "Washington Commanders",
+        "rating": 24.56,
+        "record": "3-2",
+        "trend": "up"
+      }
+    ],
+    "bottom_5": [
+      {
+        "rank": 28,
+        "team": "CLE",
+        "team_name": "Cleveland Browns",
+        "rating": 14.88,
+        "record": "1-4",
+        "trend": "steady"
+      },
+      {
+        "rank": 29,
+        "team": "MIA",
+        "team_name": "Miami Dolphins",
+        "rating": 14.49,
+        "record": "1-4",
+        "trend": "up"
+      },
+      {
+        "rank": 30,
+        "team": "TEN",
+        "team_name": "Tennessee Titans",
+        "rating": 13.72,
+        "record": "1-4",
+        "trend": "steady"
+      },
+      {
+        "rank": 31,
+        "team": "NYJ",
+        "team_name": "New York Jets",
+        "rating": 13.64,
+        "record": "0-5",
+        "trend": "down"
+      },
+      {
+        "rank": 32,
+        "team": "NO",
+        "team_name": "New Orleans Saints",
+        "rating": 12.34,
+        "record": "1-4",
+        "trend": "steady"
+      }
+    ],
+    "biggest_riser": {
+      "team": "HOU",
+      "previous_rank": 15,
+      "current_rank": 9,
+      "movement": "+6",
+      "rating": 22.25,
+      "record": "2-3",
+      "reason": "Houston's defense has tightened up and complemented a more efficient offense, producing consecutive wins that pushed them up the board."
+    },
+    "biggest_faller": {
+      "team": "CIN",
+      "previous_rank": 12,
+      "current_rank": 22,
+      "movement": "6",
+      "rating": 18.82,
+      "record": "2-3",
+      "reason": "Cincinnati's regression in situational play and costly turnovers led to losses that sent them tumbling down the rankings."
+    }
+  },
+  "playoff_snapshot": {
+    "top_4": [
+      {
+        "team": "PHI",
+        "probability": 94.4,
+        "current_seed": 1,
+        "record": "4-1",
+        "key_info": "Consistent execution and few self-inflicted mistakes"
+      },
+      {
+        "team": "BUF",
+        "probability": 91.5,
+        "current_seed": 2,
+        "record": "4-1",
+        "key_info": "Balanced attack with an explosive play arsenal"
+      },
+      {
+        "team": "TB",
+        "probability": 91.1,
+        "current_seed": 3,
+        "record": "4-1",
+        "key_info": "Hot start built on clutch late-game play"
+      },
+      {
+        "team": "DET",
+        "probability": 87.7,
+        "current_seed": 4,
+        "record": "4-1",
+        "key_info": "Offensive firepower paired with improving depth"
+      }
+    ],
+    "middle_4": [
+      {
+        "team": "SF",
+        "probability": 83.9,
+        "current_seed": 2,
+        "record": "4-1",
+        "key_info": "Strong run game stabilizing the offense"
+      },
+      {
+        "team": "JAX",
+        "probability": 78.4,
+        "current_seed": 5,
+        "record": "4-1",
+        "key_info": "Turnover creation fueling competitive edges"
+      },
+      {
+        "team": "DEN",
+        "probability": 77.5,
+        "current_seed": 6,
+        "record": "3-2",
+        "key_info": "Pass rush generating timely momentum swings"
+      },
+      {
+        "team": "IND",
+        "probability": 74.7,
+        "current_seed": 1,
+        "record": "4-1",
+        "key_info": "Efficient scoring aided by situational defense"
+      }
+    ],
+    "bottom_4": [
+      {
+        "team": "TEN",
+        "probability": 1.5,
+        "current_seed": null,
+        "record": "1-4",
+        "key_info": "Struggling to find offensive rhythm or answers"
+      },
+      {
+        "team": "NO",
+        "probability": 0.9,
+        "current_seed": null,
+        "record": "1-4",
+        "key_info": "Inconsistency and defensive lapses costing close games"
+      },
+      {
+        "team": "NYG",
+        "probability": 0.4,
+        "current_seed": null,
+        "record": "1-4",
+        "key_info": "Injuries and sudden inefficiencies derailing progress"
+      },
+      {
+        "team": "NYJ",
+        "probability": 0.4,
+        "current_seed": null,
+        "record": "0-5",
+        "key_info": "Too many turnovers and blown late leads"
+      }
+    ]
+  },
+  "week_preview": {
+    "thursday_night": {
+      "espn_id": "401772940",
+      "away_team": "PHI",
+      "away_record": "4-1",
+      "home_team": "NYG",
+      "home_record": "1-4",
+      "tagline": "Season-defining opener with playoff-style intensity"
+    },
+    "sunday_spotlight": [
+      {
+        "espn_id": "401772749",
+        "away_team": "SF",
+        "away_record": "4-1",
+        "home_team": "TB",
+        "home_record": "4-1",
+        "tagline": "Midday matchup with revenge and bragging rights"
+      },
+      {
+        "espn_id": "401772815",
+        "away_team": "BUF",
+        "away_record": "4-1",
+        "home_team": "ATL",
+        "home_record": "2-2",
+        "tagline": "Prime-time showdown promising highlight-reel plays"
+      },
+      {
+        "espn_id": "401772857",
+        "away_team": "SEA",
+        "away_record": "3-2",
+        "home_team": "JAX",
+        "home_record": "4-1",
+        "tagline": "Late afternoon test of depth and discipline"
+      }
+    ],
+    "total_games": 15
+  }
+}

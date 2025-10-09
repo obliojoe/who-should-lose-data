@@ -1,0 +1,287 @@
+You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
+
+Current Week: 6
+
+IMPORTANT: For the league_pulse.summary field, use markdown formatting (bold for team names, italics for emphasis) to make it more engaging.
+
+Generate:
+1. league_pulse.summary - 3-6 engaging sentences with markdown formatting about the league's current state
+2. league_pulse.key_storylines - Array of 3 storylines, each with:
+   - title: Catchy 3-6 word headline
+   - description: 2-3 sentences with stats
+3. game_of_the_week.tagline - 1-2 sentences why DET @ KC is THE game to watch
+4. game_of_the_meek.tagline - 1-2 humorous sentences why TEN @ LV is skippable
+5. stat_leader_contexts - For each stat, provide a brief 2-6 word context phrase (PLAIN STRING, not object):
+{
+  "offense": [
+    {
+      "team": "DET",
+      "stat": "Points Per Game",
+      "value": 34.8,
+      "unit": "",
+      "rank": 1
+    },
+    {
+      "team": "DAL",
+      "stat": "Total Yards Per Game",
+      "value": 413.8,
+      "unit": " yds",
+      "rank": 1
+    },
+    {
+      "team": "LAR",
+      "stat": "Passing Yards Per Game",
+      "value": 300.6,
+      "unit": " yds",
+      "rank": 1
+    },
+    {
+      "team": "WAS",
+      "stat": "Rushing Yards Per Game",
+      "value": 156.4,
+      "unit": " yds",
+      "rank": 1
+    },
+    {
+      "team": "PHI",
+      "stat": "Red Zone %",
+      "value": 92.3,
+      "unit": "%",
+      "rank": 1
+    }
+  ],
+  "defense": [
+    {
+      "team": "HOU",
+      "stat": "Points Allowed Per Game",
+      "value": 12.2,
+      "unit": "",
+      "rank": 1
+    },
+    {
+      "team": "DEN",
+      "stat": "Sacks",
+      "value": 21.0,
+      "unit": "",
+      "rank": 1
+    },
+    {
+      "team": "JAX",
+      "stat": "Interceptions",
+      "value": 10.0,
+      "unit": "",
+      "rank": 1
+    },
+    {
+      "team": "TEN",
+      "stat": "Third Down Defense",
+      "value": 29.4,
+      "unit": "%",
+      "rank": 1
+    },
+    {
+      "team": "CIN",
+      "stat": "Turnover Margin",
+      "value": 11,
+      "unit": "",
+      "rank": 1
+    }
+  ],
+  "efficiency": [
+    {
+      "team": "GB",
+      "stat": "Third Down Conversion",
+      "value": 52.7,
+      "unit": "%",
+      "rank": 1
+    },
+    {
+      "team": "DET",
+      "stat": "Completion Percentage",
+      "value": 75.3,
+      "unit": "%",
+      "rank": 1
+    },
+    {
+      "team": "PHI",
+      "stat": "Red Zone Efficiency",
+      "value": 92.3,
+      "unit": "%",
+      "rank": 1
+    },
+    {
+      "team": "CIN",
+      "stat": "Turnover Margin",
+      "value": 11.0,
+      "unit": "",
+      "rank": 1
+    },
+    {
+      "team": "IND",
+      "stat": "Point Differential",
+      "value": 74,
+      "unit": "",
+      "rank": 1
+    }
+  ]
+}
+   Return format: {"offense": ["string1", "string2", ...], "defense": ["string1", ...], "efficiency": ["string1", ...]}
+
+6. individual_contexts - For each player, provide context explaining why their performance matters (PLAIN STRING, not object):
+[
+  {
+    "player": "Matthew Stafford",
+    "team": "LAR",
+    "position": "QB",
+    "leader_stat": "Passing Yards",
+    "stat_line": "1503 pass yds, 11 TDs, 2 INTs",
+    "season_projection": "5110 pass yds, 37 TDs"
+  },
+  {
+    "player": "Jared Goff",
+    "team": "DET",
+    "position": "QB",
+    "leader_stat": "Passing TDs",
+    "stat_line": "1187 pass yds, 12 TDs, 2 INTs",
+    "season_projection": "4035 pass yds, 40 TDs"
+  },
+  {
+    "player": "Jonathan Taylor",
+    "team": "IND",
+    "position": "RB",
+    "leader_stat": "Rushing Yards",
+    "stat_line": "480 rush yds, 6 TDs",
+    "season_projection": "1632 rush yds, 20 TDs"
+  },
+  {
+    "player": "Jonathan Taylor",
+    "team": "IND",
+    "position": "RB",
+    "leader_stat": "Rushing TDs",
+    "stat_line": "480 rush yds, 6 TDs",
+    "season_projection": "1632 rush yds, 20 TDs"
+  },
+  {
+    "player": "Puka Nacua",
+    "team": "LAR",
+    "position": "WR",
+    "leader_stat": "Receiving Yards",
+    "stat_line": "588 rec yds, 2 TDs",
+    "season_projection": "1999 rec yds, 6 TDs"
+  },
+  {
+    "player": "Amon-Ra St. Brown",
+    "team": "DET",
+    "position": "WR",
+    "leader_stat": "Receiving TDs",
+    "stat_line": "407 rec yds, 6 TDs",
+    "season_projection": "1383 rec yds, 20 TDs"
+  }
+]
+   Return format: ["string1", "string2", "string3", ...]
+
+7. power_rankings reasons - Provide 1-sentence reasons for biggest_riser and biggest_faller:
+   Riser: HOU
+   Faller: CIN
+
+8. playoff_key_infos - For each of the 12 teams, provide brief context (PLAIN STRING, not object):
+{
+  "top_4": [
+    {
+      "team": "PHI",
+      "probability": 94.4,
+      "current_seed": 1,
+      "record": "4-1"
+    },
+    {
+      "team": "BUF",
+      "probability": 91.5,
+      "current_seed": 2,
+      "record": "4-1"
+    },
+    {
+      "team": "TB",
+      "probability": 91.1,
+      "current_seed": 3,
+      "record": "4-1"
+    },
+    {
+      "team": "DET",
+      "probability": 87.7,
+      "current_seed": 4,
+      "record": "4-1"
+    }
+  ],
+  "middle_4": [
+    {
+      "team": "SF",
+      "probability": 83.9,
+      "current_seed": 2,
+      "record": "4-1"
+    },
+    {
+      "team": "JAX",
+      "probability": 78.4,
+      "current_seed": 5,
+      "record": "4-1"
+    },
+    {
+      "team": "DEN",
+      "probability": 77.5,
+      "current_seed": 6,
+      "record": "3-2"
+    },
+    {
+      "team": "IND",
+      "probability": 74.7,
+      "current_seed": 1,
+      "record": "4-1"
+    }
+  ],
+  "bottom_4": [
+    {
+      "team": "TEN",
+      "probability": 1.5,
+      "current_seed": null,
+      "record": "1-4"
+    },
+    {
+      "team": "NO",
+      "probability": 0.9,
+      "current_seed": null,
+      "record": "1-4"
+    },
+    {
+      "team": "NYG",
+      "probability": 0.4,
+      "current_seed": null,
+      "record": "1-4"
+    },
+    {
+      "team": "NYJ",
+      "probability": 0.4,
+      "current_seed": null,
+      "record": "0-5"
+    }
+  ]
+}
+   Return format: {"top_4": ["string1", "string2", ...], "middle_4": ["string1", ...], "bottom_4": ["string1", ...]}
+
+9. week_preview taglines - Brief 5-8 word taglines for Thursday night and 3 Sunday games
+
+IMPORTANT: All context fields must be PLAIN STRINGS in arrays, not nested objects. Do not include team names, stats, or other data - ONLY the creative text.
+
+Return ONLY valid JSON with this exact structure:
+{
+  "league_pulse_summary": "...",
+  "key_storylines": [{"title": "...", "description": "..."}],
+  "game_of_week_tagline": "...",
+  "game_of_meek_tagline": "...",
+  "stat_leader_contexts": {"offense": ["context string", ...], "defense": [...], "efficiency": [...]},
+  "individual_contexts": ["context string", ...],
+  "biggest_riser_reason": "...",
+  "biggest_faller_reason": "...",
+  "playoff_key_infos": {"top_4": ["context string", ...], "middle_4": [...], "bottom_4": [...]},
+  "thursday_tagline": "...",
+  "sunday_taglines": [...]
+}
