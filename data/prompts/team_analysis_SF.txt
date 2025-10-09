@@ -91,7 +91,7 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
 ======================================================================
 TEAM STATISTICS (WITH LEAGUE RANKINGS)
 ======================================================================
-{"team":{"abbr":"SF","name":"San Francisco 49ers","city":"San Francisco","mascot":"49ers","conference":"NFC","division":"NFC West"},"record":{"wins":4,"losses":1,"ties":0,"win_pct":80.0,"games_played":5,"points_for":106,"points_against":98,"point_diff":8,"streak":"W1","playoff_seed":2,"clincher":"nan","division_record":"3-0","conference_record":"4-0","road_record":"3-0"},"offense":{"scoring":{"points_per_game":21.2,"points_per_game_rank":22},"passing":{"yards":1491,"yards_rank":2,"touchdowns":10,"interceptions":5,"completion_pct":66.3,"yards_per_attempt":7.38,"passer_rating":0.0,"sacks_taken":7,"first_downs":80},"rushing":{"yards":426,"yards_rank":27,"touchdowns":0,"yards_per_carry":3.06,"first_downs":28},"total":{"yards":1917,"yards_rank":5,"yards_per_game":383.4,"first_downs":108,"first_downs_per_game":21.6},"efficiency":{"third_down_attempts":69,"third_down_conversions":32,"third_down_pct":46.4,"third_down_pct_rank":6,"fourth_down_attempts":8,"fourth_down_conversions":6,"fourth_down_pct":75.0,"red_zone_attempts":19,"red_zone_touchdowns":8,"red_zone_td_pct":42.1,"red_zone_pct_rank":27},"turnovers":{"total":6,"turnover_margin":6}},"defense":{"scoring":{"points_allowed_per_game":19.6,"points_allowed_per_game_rank":null},"pass_rush":{"sacks":6,"sacks_rank":29},"takeaways":{"interceptions":0,"interceptions_rank":31},"efficiency":{"third_down_attempts_against":58,"third_down_conversions_against":20,"third_down_pct_against":34.5,"fourth_down_attempts_against":8,"fourth_down_conversions_against":6,"fourth_down_pct_against":75.0,"red_zone_attempts_against":16,"red_zone_touchdowns_against":9,"red_zone_td_pct_against":56.2}},"advanced":{"epa":{"total":14.8,"total_rank":14,"per_game":2.97,"passing":34.9,"rushing":-20.1}}}
+{"team":{"abbr":"SF","name":"San Francisco 49ers","city":"San Francisco","mascot":"49ers","conference":"NFC","division":"NFC West"},"record":{"wins":4,"losses":1,"ties":0,"win_pct":80.0,"games_played":5,"points_for":106,"points_against":98,"point_diff":8,"streak":"W1","playoff_seed":2,"clincher":"nan","division_record":"3-0","conference_record":"4-0","road_record":"3-0"},"offense":{"scoring":{"points_per_game":21.2,"points_per_game_rank":22},"passing":{"yards":1491,"yards_rank":2,"touchdowns":10,"interceptions":5,"completion_pct":66.3,"yards_per_attempt":7.38,"passer_rating":0.0,"sacks_taken":7,"first_downs":80},"rushing":{"yards":426,"yards_rank":27,"touchdowns":0,"yards_per_carry":3.06,"first_downs":28},"total":{"yards":1917,"yards_rank":5,"yards_per_game":383.4,"first_downs":108,"first_downs_per_game":21.6},"efficiency":{"third_down_attempts":69,"third_down_conversions":32,"third_down_pct":46.4,"third_down_pct_rank":6,"fourth_down_attempts":8,"fourth_down_conversions":6,"fourth_down_pct":75.0,"red_zone_attempts":19,"red_zone_touchdowns":8,"red_zone_td_pct":42.1,"red_zone_pct_rank":27},"turnovers":{"total":8,"turnover_margin":-3}},"defense":{"scoring":{"points_allowed_per_game":19.6,"points_allowed_per_game_rank":null},"pass_rush":{"sacks":6,"sacks_rank":29},"takeaways":{"interceptions":0,"interceptions_rank":31},"efficiency":{"third_down_attempts_against":58,"third_down_conversions_against":20,"third_down_pct_against":34.5,"fourth_down_attempts_against":8,"fourth_down_conversions_against":6,"fourth_down_pct_against":75.0,"red_zone_attempts_against":16,"red_zone_touchdowns_against":9,"red_zone_td_pct_against":56.2}},"advanced":{"epa":{"total":14.8,"total_rank":14,"per_game":2.97,"passing":34.9,"rushing":-20.1}}}
 
 IMPORTANT: League rankings are included for key stats (e.g., "points_per_game_rank": 5)
 - Rankings are out of 32 teams
@@ -117,18 +117,18 @@ PRE-FILTERED KEY STATS
 ======================================================================
 These stats have been pre-identified as impressive, concerning, or notable.
 Use these as the foundation for ai_reality_check section:
-{"offensive":{"impressive":[{"stat":"Total Yards Per Game","value":383.4,"context":"dominant in moving the ball"},{"stat":"Third Down %","value":46.3768115942029,"context":"excellent at sustaining drives"},{"stat":"Turnover Margin","value":6.0,"context":"winning the turnover battle"}],"concerning":[{"stat":"Red Zone %","value":42.10526315789473,"context":"settle for field goals too often"}],"notable":[]},"defensive":{"impressive":[],"concerning":[{"stat":"Sacks Per Game","value":1.2,"context":"no pass rush"}],"notable":[]}}
+{"offensive":{"impressive":[{"stat":"Total Yards Per Game","value":383.4,"context":"dominant in moving the ball"},{"stat":"Third Down %","value":46.3768115942029,"context":"excellent at sustaining drives"}],"concerning":[{"stat":"Red Zone %","value":42.10526315789473,"context":"settle for field goals too often"},{"stat":"Turnover Margin","value":-3.0,"context":"giving the ball away"}],"notable":[]},"defensive":{"impressive":[],"concerning":[{"stat":"Sacks Per Game","value":1.2,"context":"no pass rush"}],"notable":[]}}
 
 ======================================================================
 MATCHUP EDGES
 ======================================================================
 Pre-analyzed advantages and disadvantages for this specific matchup:
-{"advantages":[{"category":"Turnover Battle","detail":"Big edge in turnovers (+6.0 vs 2.0)"}],"disadvantages":[],"key_battles":[]}
+{"advantages":[],"disadvantages":[{"category":"Turnover Battle","detail":"Losing the turnover battle (-3.0 vs +2.0)"}],"key_battles":[]}
 
 ======================================================================
 ESPN CONTEXT (Betting Lines, Weather, etc.)
 ======================================================================
-{"betting":{"spread":-2.5,"over_under":47.5,"favorite":"TB","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":85,"condition":"Sunny","wind_speed":8}}
+{"betting":{"spread":-2.5,"over_under":47.5,"favorite":"TB","underdog":null,"moneyline_favorite":null,"moneyline_underdog":null},"weather":{"is_indoor":false,"temperature":82,"condition":"Sunny","wind_speed":7}}
 
 ======================================================================
 SCHEDULE
@@ -146,7 +146,7 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Alfred Collins","position":"DT","status":"Questionable (Knee)"},{"name":"Upton Stout","position":"CB","status":"Questionable (Ankle)"},{"name":"Malik Mustapha","position":"S","status":"Out (Knee - ACL)"},{"name":"Jordan Watkins","position":"WR","status":"Questionable (Calf)"},{"name":"Kevin Givens","position":"DT","status":"Injured Reserve (Pectoral)"}],"opponent":[{"name":"Benjamin Morrison","position":"CB","status":"Questionable (Hamstring)"},{"name":"Jamel Dean","position":"CB","status":"Questionable (Hip)"},{"name":"Zyon McCollum","position":"CB","status":"Questionable (Thumb)"},{"name":"Lavonte David","position":"LB","status":"Questionable (Knee)"},{"name":"Tristan Wirfs","position":"OT","status":"Questionable (Knee)"}]}
+{"team":[{"name":"Alfred Collins","position":"DT","status":"Questionable (Knee)"},{"name":"Upton Stout","position":"CB","status":"Questionable (Ankle)"},{"name":"Malik Mustapha","position":"S","status":"Out (Knee - ACL)"},{"name":"Jordan Watkins","position":"WR","status":"Questionable (Calf)"},{"name":"Kevin Givens","position":"DT","status":"Injured Reserve (Pectoral)"}],"opponent":[{"name":"Bucky Irving","position":"RB","status":"Questionable (Shoulder)"},{"name":"Mike Evans","position":"WR","status":"Doubtful (Hamstring)"},{"name":"Chris Godwin Jr.","position":"WR","status":"Questionable (Lower Leg)"},{"name":"Luke Goedeke","position":"OT","status":"Injured Reserve (Foot)"},{"name":"Benjamin Morrison","position":"CB","status":"Questionable (Hamstring)"}]}
 
 ======================================================================
 RECENT NEWS
@@ -156,7 +156,7 @@ RECENT NEWS
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":84.9,"win_division":62.9,"get_top_seed":13.8,"reach_super_bowl":7.1,"win_super_bowl":2.9}
+{"make_playoffs":84.5,"win_division":62.4,"get_top_seed":13.5,"reach_super_bowl":6.8,"win_super_bowl":2.7}
 
 ======================================================================
 STANDINGS
