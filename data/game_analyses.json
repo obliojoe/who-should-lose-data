@@ -6075,36 +6075,83 @@
     "broadcast": "TV"
   },
   "401772940": {
-    "timestamp": "2025-10-08 15:17:20",
+    "timestamp": "2025-10-09 23:00:43",
     "game_date": "2025-10-09",
     "home_team": "NYG",
     "away_team": "PHI",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 34,
+    "away_score": 17,
     "stadium": "MetLife Stadium",
     "home_coach": "Brian Daboll",
     "away_coach": "Nick Sirianni",
-    "analysis_type": "preview",
-    "analysis": "**Thursday Night Football: Eagles Seek Revenge Against Giants in NFC East Showdown**\n\nThe **Philadelphia Eagles** roll into MetLife Stadium looking to bounce back from their first loss of the season, while the **New York Giants** hope to avoid falling further into the NFC East basement. This divisional matchup carries extra intrigue with **Saquon Barkley** facing his former team, bringing narrative spice to what promises to be a physical, potentially pivotal contest.\n\nBarkley's return to the Meadowlands presents a compelling storyline, especially after his underwhelming six-carry performance last week against Denver. The Eagles' offensive struggles have been notable, ranking 30th in total offense despite their star power. **Jalen Hurts** and company will be motivated to prove their offensive woes were just a temporary setback. Meanwhile, the Giants are dealing with their own challenges, starting rookie quarterback **Jaxson Dart** and battling inconsistency. The Eagles' defense, with **Abdul Carter** leading a hungry front seven, will look to exploit New York's offensive vulnerabilities and force turnovers.\n\nKey injuries could significantly impact the game's dynamics. The Eagles are without Pro Bowl left guard **Landon Dickerson**, which could disrupt their offensive line chemistry. The Giants are also banged up, with wide receiver **Malik Nabers** on injured reserve and several defensive players questionable. Expect a hard-fought, potentially low-scoring affair where defensive playmakers and turnover margin could ultimately decide the outcome. The Eagles' superior record and recent playoff pedigree suggest they'll grind out a tough divisional victory, but in the NFL, anything can happen on any given Thursday night.",
+    "analysis_type": "post_game",
+    "analysis": "# Giants Shock Eagles in Prime-Time Upset: Skattebo Leads the Way\n\n**The New York Giants stunned the Philadelphia Eagles 34-17 on Thursday Night Football**, handing the reigning Super Bowl champions their second consecutive loss in a dominant performance that few saw coming. **Rookie running back Cam Skattebo** was the headliner, bulldozing his way to **three touchdowns** and a career-high 98 rushing yards.\n\n**Jaxson Dart**, another rookie making waves, complemented Skattebo's ground game with a dynamic performance of his own. Dart went **17/25 for 195 yards** and a touchdown pass, while also adding a 20-yard rushing touchdown. The Giants' offensive strategy completely overwhelmed the Eagles' defense, with **172 total rushing yards** and consistent third-down efficiency that kept **Jalen Hurts** and the Eagles' offense on the sidelines.\n\n## Key Statistics\n\n- **Cam Skattebo**: 19 carries, **98 yards**, 3 touchdowns\n- **Jaxson Dart**: 17/25, **195 yards**, 1 TD, 58 rushing yards\n- **Eagles Turnovers**: \n  * 1 interception (Cor'Dale Flott's 68-yard return)\n  * Multiple key offensive stalls\n\nThe victory is especially significant for the Giants, who have struggled against the Eagles in recent years. This win breaks a pattern of dominance and shows the potential of their young offensive core. **Brian Burns** also played a crucial role defensively, notching two sacks and disrupting Jalen Hurts throughout the game.\n\nThe betting line had the Eagles as 7.5-point favorites, making this upset even more impressive. The Giants not only covered the spread but completely dismantled Philadelphia's game plan, sending a clear message to the rest of the NFC East.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
       "spread": 7.5,
-      "over_under": 39.5,
+      "over_under": 41.5,
       "provider": "ESPN BET",
       "favorite": "PHI"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 56,
-      "condition": "Clear",
-      "wind_speed": 7
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 25.365,
-      "matchup_quality": 54.45,
-      "predicted_point_diff": -10.179,
-      "away_win_prob": 74.431
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "24/33, 283 YDS, 1 TD, 1 INT",
+          "value": 283.0,
+          "player": "Jalen Hurts",
+          "jersey": "1",
+          "position": "QB",
+          "team": "PHI"
+        },
+        {
+          "displayValue": "17/25, 195 YDS, 1 TD",
+          "value": 195.0,
+          "player": "Jaxson Dart",
+          "jersey": "6",
+          "position": "QB",
+          "team": "NYG"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "19 CAR, 98 YDS, 3 TD",
+          "value": 98.0,
+          "player": "Cam Skattebo",
+          "jersey": "44",
+          "position": "RB",
+          "team": "NYG"
+        },
+        {
+          "displayValue": "13 CAR, 58 YDS, 1 TD",
+          "value": 58.0,
+          "player": "Jaxson Dart",
+          "jersey": "6",
+          "position": "QB",
+          "team": "NYG"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "9 REC, 110 YDS, 1 TD",
+          "value": 110.0,
+          "player": "Dallas Goedert",
+          "jersey": "88",
+          "position": "TE",
+          "team": "PHI"
+        },
+        {
+          "displayValue": "6 REC, 84 YDS, 1 TD",
+          "value": 84.0,
+          "player": "Wan'Dale Robinson",
+          "jersey": "17",
+          "position": "WR",
+          "team": "NYG"
+        }
+      ]
     },
     "broadcast": "Streaming"
   },
