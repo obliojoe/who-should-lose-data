@@ -1,20 +1,20 @@
 {
-  "timestamp": "2025-10-09T23:28:09.172207",
+  "timestamp": "2025-10-10T00:47:27.372856",
   "week": 6,
   "league_pulse": {
-    "summary": "The NFL's power structure is being completely rewritten as **Kansas City** stumbles to an unthinkable 2-3 start while **Detroit** roars to life as the league's most explosive offense. **Philadelphia** has quietly seized the top power ranking spot despite a 4-2 record, showcasing elite efficiency that's turning every red zone trip into points. Meanwhile, the **Jets** remain winless and searching for answers as surprising contenders like **Washington** and **Indianapolis** stake their claim among the elite.",
+    "summary": "Week 6 brings chaos to the NFL hierarchy as **Kansas City** stumbles to 2-3 while **Philadelphia** and **Detroit** emerge as the league's new standard-bearers. The **Colts** are quietly dominating with a plus-74 point differential, while traditional powers like **Baltimore** find themselves clawing from 1-4 holes. Meanwhile, the **Jets** winless skid reaches five games as the bottom of the league separates from the pack.",
     "key_storylines": [
       {
-        "title": "Chiefs Kingdom Crumbling",
-        "description": "The defending champions find themselves in unfamiliar territory, sitting at 2-3 and watching their playoff probability plummet. This isn't the dominant force we expected, and Sunday's clash with Detroit could determine whether panic is warranted or if they can resurrect their season."
+        "title": "Chiefs' Unexpected Vulnerability Exposed",
+        "description": "The defending powerhouse sits at 2-3, clinging to playoff hopes with just 57% odds. This week's clash with Detroit represents a must-win moment as the league's elite tier reshuffles around them. What was once automatic now feels uncertain."
       },
       {
-        "title": "Motor City Mayhem",
-        "description": "Detroit's offense has transformed into an unstoppable force, with Jared Goff orchestrating a symphony of scoring that's averaging nearly 35 points per game. The Lions aren't just winning-they're demolishing opponents and proving last year's playoff run was no fluke."
+        "title": "NFC's Surprise Playoff Logjam",
+        "description": "Four teams boast 4-1 records with playoff probabilities above 85%, but it's the middle class creating drama. Washington, Green Bay, and Seattle hover in the 45-70% range, setting up a fierce wild card scramble. Every game matters when separation is this thin."
       },
       {
-        "title": "Surprise Contenders Emerge",
-        "description": "Washington and Indianapolis have burst onto the scene as legitimate threats, both sitting pretty with impressive records and playoff positioning. These aren't your typical early-season mirages-they're backing it up with dominant performances and building genuine momentum."
+        "title": "Indy's Quiet Domination Goes Unnoticed",
+        "description": "The Colts are winning games by an average of nearly 15 points, yet somehow fly under the radar. Jonathan Taylor's resurgence powers an offense that's clicking on all cylinders. If they keep this up, they won't be a secret much longer."
       }
     ]
   },
@@ -30,7 +30,7 @@
     "home_playoff_prob": 57.4,
     "betting_line": 2.5,
     "over_under": 52.5,
-    "tagline": "The league's most explosive offense meets a wounded champion desperate to prove they're not done yet-this collision could reshape the entire playoff picture."
+    "tagline": "The Lions' explosive offense travels to face a Chiefs team desperate to salvage their season before it spirals. Detroit's 4-1 swagger meets Kansas City's 2-3 urgency in a clash that could define both conference races."
   },
   "game_of_the_meek": {
     "espn_id": "401772859",
@@ -43,8 +43,8 @@
     "home_rank": 25,
     "home_playoff_prob": 3.1,
     "betting_line": 3.5,
-    "over_under": 40.5,
-    "tagline": "Two 1-4 teams stumble into Vegas for a primetime showcase of offensive ineptitude that might cure your insomnia faster than counting sheep."
+    "over_under": 41.5,
+    "tagline": "Two 1-4 teams meet in Las Vegas, where the only drama is which fanbase changes the channel first. At least someone's winning streak ends at one game."
   },
   "stat_leaders": {
     "offense": [
@@ -54,7 +54,7 @@
         "value": 34.8,
         "unit": "",
         "rank": 1,
-        "context": "Scoring at will"
+        "context": "Setting the scoring standard"
       },
       {
         "team": "DAL",
@@ -62,7 +62,7 @@
         "value": 413.8,
         "unit": " yds",
         "rank": 1,
-        "context": "Moving chains effortlessly"
+        "context": "Moving the chains relentlessly"
       },
       {
         "team": "LAR",
@@ -70,7 +70,7 @@
         "value": 300.6,
         "unit": " yds",
         "rank": 1,
-        "context": "Air raid excellence"
+        "context": "Air raid efficiency"
       },
       {
         "team": "WAS",
@@ -83,10 +83,10 @@
       {
         "team": "PHI",
         "stat": "Red Zone %",
-        "value": 92.3,
+        "value": 87.5,
         "unit": "%",
         "rank": 1,
-        "context": "Unstoppable inside twenty"
+        "context": "Cashing in near the goal"
       }
     ],
     "defense": [
@@ -96,7 +96,7 @@
         "value": 12.2,
         "unit": "",
         "rank": 1,
-        "context": "Suffocating opponents"
+        "context": "Stingiest unit in football"
       },
       {
         "team": "DEN",
@@ -104,7 +104,7 @@
         "value": 21.0,
         "unit": "",
         "rank": 1,
-        "context": "Relentless pass rush"
+        "context": "Relentless pass rush pressure"
       },
       {
         "team": "JAX",
@@ -112,7 +112,7 @@
         "value": 10.0,
         "unit": "",
         "rank": 1,
-        "context": "Ballhawking secondary"
+        "context": "Ball-hawking secondary thriving"
       },
       {
         "team": "TEN",
@@ -120,7 +120,7 @@
         "value": 29.4,
         "unit": "%",
         "rank": 1,
-        "context": "Lockdown on third"
+        "context": "Third down shutdown crew"
       },
       {
         "team": "JAX",
@@ -128,7 +128,7 @@
         "value": 8,
         "unit": "",
         "rank": 1,
-        "context": "Creating extra possessions"
+        "context": "Creating game-changing turnovers"
       }
     ],
     "efficiency": [
@@ -138,7 +138,7 @@
         "value": 52.7,
         "unit": "%",
         "rank": 1,
-        "context": "Converting crucial downs"
+        "context": "Sustaining drives with precision"
       },
       {
         "team": "DET",
@@ -146,15 +146,15 @@
         "value": 75.3,
         "unit": "%",
         "rank": 1,
-        "context": "Surgical precision passing"
+        "context": "Surgical passing accuracy"
       },
       {
         "team": "PHI",
         "stat": "Red Zone Efficiency",
-        "value": 92.3,
+        "value": 87.5,
         "unit": "%",
         "rank": 1,
-        "context": "Red zone perfection"
+        "context": "Red zone money machine"
       },
       {
         "team": "BAL",
@@ -162,7 +162,7 @@
         "value": 7.2,
         "unit": "",
         "rank": 1,
-        "context": "Maximizing every snap"
+        "context": "Explosive play generation"
       },
       {
         "team": "IND",
@@ -170,7 +170,7 @@
         "value": 74,
         "unit": "",
         "rank": 1,
-        "context": "Dominating field position"
+        "context": "Blowout kings dominating margins"
       }
     ]
   },
@@ -182,7 +182,7 @@
       "leader_stat": "Passing Yards",
       "stat_line": "1503 pass yds, 11 TDs, 2 INTs",
       "season_projection": "5110 pass yds, 37 TDs",
-      "context": "Resurgent veteran proving he still has elite arm talent"
+      "context": "Veteran precision fueling the Rams' aerial attack"
     },
     {
       "player": "Jared Goff",
@@ -191,7 +191,7 @@
       "leader_stat": "Passing TDs",
       "stat_line": "1187 pass yds, 12 TDs, 2 INTs",
       "season_projection": "4035 pass yds, 40 TDs",
-      "context": "Orchestrating the league's most explosive aerial attack"
+      "context": "Turning Detroit into an offensive juggernaut through the air"
     },
     {
       "player": "Jonathan Taylor",
@@ -200,7 +200,7 @@
       "leader_stat": "Rushing Yards",
       "stat_line": "480 rush yds, 6 TDs",
       "season_projection": "1632 rush yds, 20 TDs",
-      "context": "Carrying his team with workhorse production"
+      "context": "Carrying Indianapolis with bruising, game-breaking runs"
     },
     {
       "player": "Jonathan Taylor",
@@ -209,7 +209,7 @@
       "leader_stat": "Rushing TDs",
       "stat_line": "480 rush yds, 6 TDs",
       "season_projection": "1632 rush yds, 20 TDs",
-      "context": "Setting the pace for an MVP-caliber rushing season"
+      "context": "Punching in touchdowns to power Indy's blowout wins"
     },
     {
       "player": "Puka Nacua",
@@ -218,7 +218,7 @@
       "leader_stat": "Receiving Yards",
       "stat_line": "588 rec yds, 2 TDs",
       "season_projection": "1999 rec yds, 6 TDs",
-      "context": "Emerging as the league's most dangerous deep threat"
+      "context": "Emerging as the league's most dangerous downfield weapon"
     },
     {
       "player": "Amon-Ra St. Brown",
@@ -227,7 +227,7 @@
       "leader_stat": "Receiving TDs",
       "stat_line": "407 rec yds, 6 TDs",
       "season_projection": "1383 rec yds, 20 TDs",
-      "context": "Red zone monster creating matchup nightmares"
+      "context": "Red zone machine making Detroit's offense unstoppable"
     }
   ],
   "power_rankings": {
@@ -343,7 +343,7 @@
       "movement": "+7",
       "rating": 20.9,
       "record": "4-1",
-      "reason": "Indianapolis has stormed to 4-1 behind Jonathan Taylor's dominance and a suffocating defense that's created a massive point differential."
+      "reason": "The Colts' dominant 4-1 start with a league-best point differential has vaulted them to the top seed with 75% playoff odds despite being ranked 14th in power."
     },
     "biggest_faller": {
       "team": "CIN",
@@ -352,7 +352,7 @@
       "movement": "-6",
       "rating": 18.82,
       "record": "2-3",
-      "reason": "Cincinnati's 2-3 start has exposed offensive line issues and defensive vulnerabilities that threaten to derail their season entirely."
+      "reason": "Cincinnati's 2-3 record and 31% playoff probability reflect a team struggling to find consistency, falling to 22nd in the power rankings despite offseason expectations."
     }
   },
   "playoff_snapshot": {
@@ -362,28 +362,28 @@
         "probability": 91.7,
         "current_seed": 2,
         "record": "4-1",
-        "key_info": "Explosive offense meeting expectations"
+        "key_info": "Controlling the AFC East with dominant performances"
       },
       {
         "team": "TB",
         "probability": 90.8,
         "current_seed": 2,
         "record": "4-1",
-        "key_info": "Surprising everyone with consistent excellence"
+        "key_info": "NFC South stranglehold with championship-caliber play"
       },
       {
         "team": "DET",
         "probability": 88.6,
         "current_seed": 3,
         "record": "4-1",
-        "key_info": "Offensive juggernaut nobody can stop"
+        "key_info": "Offense-first dominance powering NFC North lead"
       },
       {
         "team": "PHI",
         "probability": 87.2,
         "current_seed": 4,
         "record": "4-2",
-        "key_info": "Elite efficiency trumping record"
+        "key_info": "Surviving early adversity to command playoff position"
       }
     ],
     "middle_4": [
@@ -392,28 +392,28 @@
         "probability": 85.0,
         "current_seed": 1,
         "record": "4-1",
-        "key_info": "Quietly dominating the NFC"
+        "key_info": "NFC West favorites navigating tight conference race"
       },
       {
         "team": "JAX",
         "probability": 78.2,
         "current_seed": 5,
         "record": "4-1",
-        "key_info": "Defense carrying surprising success"
+        "key_info": "AFC South leaders proving early doubters wrong"
       },
       {
         "team": "DEN",
         "probability": 76.7,
         "current_seed": 7,
         "record": "3-2",
-        "key_info": "Resurgent and hungry for respect"
+        "key_info": "Defensive identity carrying Broncos into postseason picture"
       },
       {
         "team": "IND",
         "probability": 74.8,
         "current_seed": 1,
         "record": "4-1",
-        "key_info": "Taylor-powered playoff push"
+        "key_info": "Point differential masking close playoff probability battle"
       }
     ],
     "bottom_4": [
@@ -422,28 +422,28 @@
         "probability": 1.4,
         "current_seed": null,
         "record": "1-4",
-        "key_info": "Season spiraling out of control"
+        "key_info": "Season slipping away despite defensive foundation"
       },
       {
         "team": "NO",
         "probability": 0.8,
         "current_seed": null,
         "record": "1-4",
-        "key_info": "Missing key pieces everywhere"
+        "key_info": "Five-game losing streak ending playoff dreams"
       },
       {
         "team": "NYG",
         "probability": 0.7,
         "current_seed": null,
         "record": "2-4",
-        "key_info": "Offensive line destroying hopes"
+        "key_info": "Early hole too deep to escape"
       },
       {
         "team": "NYJ",
         "probability": 0.4,
         "current_seed": null,
         "record": "0-5",
-        "key_info": "Still seeking first victory"
+        "key_info": "Winless spiral crushing postseason aspirations"
       }
     ]
   },
@@ -454,7 +454,7 @@
       "away_record": "4-2",
       "home_team": "NYG",
       "home_record": "2-4",
-      "tagline": "Division rivals clash under lights"
+      "tagline": "Eagles look to bury struggling Giants early"
     },
     "sunday_spotlight": [
       {
@@ -463,7 +463,7 @@
         "away_record": "4-1",
         "home_team": "TB",
         "home_record": "4-1",
-        "tagline": "Undefeated showdown in Tampa"
+        "tagline": "49ers and Bucs clash in elite showdown"
       },
       {
         "espn_id": "401772815",
@@ -471,7 +471,7 @@
         "away_record": "4-1",
         "home_team": "ATL",
         "home_record": "2-2",
-        "tagline": "Ravens desperate for turnaround"
+        "tagline": "Bills bring playoff intensity to Atlanta"
       },
       {
         "espn_id": "401772857",
@@ -479,7 +479,7 @@
         "away_record": "3-2",
         "home_team": "JAX",
         "home_record": "4-1",
-        "tagline": "Bills look to stay hot"
+        "tagline": "Commanders host Bears in NFC wild card preview"
       }
     ],
     "total_games": 15
