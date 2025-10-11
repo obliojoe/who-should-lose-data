@@ -74,22 +74,43 @@ def save_to_cache(home_advantage, team_ratings):
         json.dump(cache_data, f)
     logger.info(f"Saved new home advantage value to cache: {home_advantage}")
 
-    # Load existing CSV to preserve previous rankings
+    # Load existing CSV to check if ratings have changed
+    ratings_changed = False
     previous_data = {}
-    current_ranks = {}
+
     if os.path.exists(CSV_FILE):
         try:
             existing_df = pd.read_csv(CSV_FILE)
             if 'rating' in existing_df.columns and 'team_abbr' in existing_df.columns:
-                # Store current ratings and ranks as "previous"
-                sorted_existing = existing_df.sort_values('rating', ascending=False).reset_index(drop=True)
-                for idx, row in sorted_existing.iterrows():
-                    previous_data[row['team_abbr']] = {
-                        'previous_rank': idx + 1,
-                        'previous_rating': row['rating']
-                    }
+                # Check if ratings have actually changed
+                existing_ratings = dict(zip(existing_df['team_abbr'], existing_df['rating']))
+                for team, new_rating in team_ratings.items():
+                    old_rating = existing_ratings.get(team)
+                    if old_rating is None or abs(float(old_rating) - float(new_rating)) > 0.001:
+                        ratings_changed = True
+                        break
+
+                # If ratings changed, store current ratings/ranks as "previous"
+                if ratings_changed:
+                    sorted_existing = existing_df.sort_values('rating', ascending=False).reset_index(drop=True)
+                    for idx, row in sorted_existing.iterrows():
+                        previous_data[row['team_abbr']] = {
+                            'previous_rank': idx + 1,
+                            'previous_rating': row['rating']
+                        }
+                else:
+                    # Ratings haven't changed - preserve existing previous_rank and previous_rating
+                    logger.info("Ratings unchanged - preserving historical data in CSV")
+                    for _, row in existing_df.iterrows():
+                        previous_data[row['team_abbr']] = {
+                            'previous_rank': row.get('previous_rank'),
+                            'previous_rating': row.get('previous_rating')
+                        }
         except Exception as e:
             logger.warning(f"Could not load previous rankings: {e}")
+            ratings_changed = True  # Assume changed if we can't read existing
+    else:
+        ratings_changed = True  # No existing file, so this is new data
 
     # Create new dataframe with current ratings
     teams_df = pd.DataFrame(list(team_ratings.items()), columns=['team_abbr', 'rating'])
@@ -103,7 +124,10 @@ def save_to_cache(home_advantage, team_ratings):
     teams_df = teams_df[['team_abbr', 'rating', 'previous_rank', 'previous_rating']]
 
     teams_df.to_csv(CSV_FILE, index=False)
-    logger.info(f"Saved team ratings to {CSV_FILE} with historical data")
+    if ratings_changed:
+        logger.info(f"Saved NEW team ratings to {CSV_FILE} with updated historical data")
+    else:
+        logger.info(f"Saved team ratings to {CSV_FILE} (ratings unchanged, historical data preserved)")
 
 def load_from_cache():
     """Load home advantage value and team ratings from cache"""

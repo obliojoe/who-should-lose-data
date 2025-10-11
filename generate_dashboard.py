@@ -38,7 +38,8 @@ def select_stat_leaders(team_stats_df, sagarin_df):
                                    'yards_per_game', 'passing_yards', 'rushing_yards',
                                    'completion_pct', 'third_down_pct', 'red_zone_pct',
                                    'turnover_margin', 'def_sacks', 'def_interceptions',
-                                   'games_played', 'points_for', 'points_against']].copy()
+                                   'games_played', 'points_for', 'points_against',
+                                   'attempts', 'carries']].copy()
 
     # Calculate per-game stats for yards (CSV has season totals for these)
     season_stats['passing_yards_per_game'] = season_stats['passing_yards'] / season_stats['games_played']
@@ -105,8 +106,7 @@ def select_stat_leaders(team_stats_df, sagarin_df):
     efficiency_stats = [
         ('third_down_pct', 'Third Down Conversion', '%'),
         ('completion_pct', 'Completion Percentage', '%'),
-        ('red_zone_pct', 'Red Zone Efficiency', '%'),
-        ('turnover_margin', 'Turnover Margin', '')
+        ('red_zone_pct', 'Red Zone Efficiency', '%')
     ]
 
     for stat_col, stat_name, unit in efficiency_stats:
@@ -116,6 +116,18 @@ def select_stat_leaders(team_stats_df, sagarin_df):
             'stat': stat_name,
             'value': round(float(top_team[stat_col]), 1),
             'unit': unit,
+            'rank': 1
+        })
+
+    # Add yards per play (efficiency metric) as 4th efficiency stat
+    if 'attempts' in season_stats.columns and 'carries' in season_stats.columns:
+        season_stats['yards_per_play'] = (season_stats['passing_yards'] + season_stats['rushing_yards']) / (season_stats['attempts'] + season_stats['carries'])
+        top_ypp = season_stats.nlargest(1, 'yards_per_play').iloc[0]
+        stat_leaders['efficiency'].append({
+            'team': top_ypp['team_abbr'],
+            'stat': 'Yards Per Play',
+            'value': round(float(top_ypp['yards_per_play']), 1),
+            'unit': '',
             'rank': 1
         })
 
@@ -250,6 +262,16 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
     for _, team in teams_df.iterrows():
         team_names[team['team_abbr']] = f"{team['city']} {team['mascot']}"
 
+    # Calculate movement for all teams first
+    sagarin_df['rank'] = range(1, len(sagarin_df) + 1)
+    if 'previous_rank' in sagarin_df.columns:
+        sagarin_df['movement'] = sagarin_df.apply(
+            lambda row: int(row['previous_rank']) - row['rank'] if pd.notna(row['previous_rank']) else 0,
+            axis=1
+        )
+    else:
+        sagarin_df['movement'] = 0
+
     # Top 5
     top_5 = []
     for idx, row in sagarin_df.head(5).iterrows():
@@ -261,13 +283,21 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
 
         # Determine trend
         trend = 'steady'
+        movement = int(row['movement'])
+        if movement > 0:
+            trend = 'up'
+        elif movement < 0:
+            trend = 'down'
+
+        # Format movement with sign
+        movement_str = None
         if 'previous_rank' in row and pd.notna(row['previous_rank']):
-            current_rank = idx + 1
-            prev_rank = int(row['previous_rank'])
-            if current_rank < prev_rank:
-                trend = 'up'
-            elif current_rank > prev_rank:
-                trend = 'down'
+            if movement > 0:
+                movement_str = f"+{movement}"
+            elif movement < 0:
+                movement_str = f"{movement}"  # Already has minus sign
+            else:
+                movement_str = "0"
 
         top_5.append({
             'rank': idx + 1,
@@ -275,7 +305,9 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
             'team_name': team_names.get(team_abbr, team_abbr),
             'rating': round(float(row['rating']), 2),
             'record': record,
-            'trend': trend
+            'trend': trend,
+            'previous_rank': int(row['previous_rank']) if 'previous_rank' in row and pd.notna(row['previous_rank']) else None,
+            'movement': movement_str
         })
 
     # Bottom 5
@@ -289,13 +321,21 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
 
         # Determine trend
         trend = 'steady'
+        movement = int(row['movement'])
+        if movement > 0:
+            trend = 'up'
+        elif movement < 0:
+            trend = 'down'
+
+        # Format movement with sign
+        movement_str = None
         if 'previous_rank' in row and pd.notna(row['previous_rank']):
-            current_rank = idx + 1
-            prev_rank = int(row['previous_rank'])
-            if current_rank < prev_rank:
-                trend = 'up'
-            elif current_rank > prev_rank:
-                trend = 'down'
+            if movement > 0:
+                movement_str = f"+{movement}"
+            elif movement < 0:
+                movement_str = f"{movement}"  # Already has minus sign
+            else:
+                movement_str = "0"
 
         bottom_5.append({
             'rank': idx + 1,
@@ -303,53 +343,48 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
             'team_name': team_names.get(team_abbr, team_abbr),
             'rating': round(float(row['rating']), 2),
             'record': record,
-            'trend': trend
+            'trend': trend,
+            'previous_rank': int(row['previous_rank']) if 'previous_rank' in row and pd.notna(row['previous_rank']) else None,
+            'movement': movement_str
         })
 
-    # Find biggest riser and faller
+    # Find biggest riser and faller (movement already calculated above)
     biggest_riser = None
     biggest_faller = None
 
-    if 'previous_rank' in sagarin_df.columns:
-        sagarin_df['rank'] = range(1, len(sagarin_df) + 1)
-        sagarin_df['movement'] = sagarin_df.apply(
-            lambda row: int(row['previous_rank']) - row['rank'] if pd.notna(row['previous_rank']) else 0,
-            axis=1
-        )
+    # Biggest riser (positive movement)
+    if sagarin_df['movement'].max() > 0:
+        riser_row = sagarin_df.loc[sagarin_df['movement'].idxmax()]
+        record_data = team_records.get(riser_row['team_abbr'], {'wins': 0, 'losses': 0, 'ties': 0})
+        record = f"{record_data['wins']}-{record_data['losses']}"
+        if record_data['ties'] > 0:
+            record += f"-{record_data['ties']}"
 
-        # Biggest riser (positive movement)
-        if sagarin_df['movement'].max() > 0:
-            riser_row = sagarin_df.loc[sagarin_df['movement'].idxmax()]
-            record_data = team_records.get(riser_row['team_abbr'], {'wins': 0, 'losses': 0, 'ties': 0})
-            record = f"{record_data['wins']}-{record_data['losses']}"
-            if record_data['ties'] > 0:
-                record += f"-{record_data['ties']}"
+        biggest_riser = {
+            'team': riser_row['team_abbr'],
+            'previous_rank': int(riser_row['previous_rank']) if pd.notna(riser_row['previous_rank']) else None,
+            'current_rank': int(riser_row['rank']),
+            'movement': f"+{int(riser_row['movement'])}",
+            'rating': round(float(riser_row['rating']), 2),
+            'record': record
+        }
 
-            biggest_riser = {
-                'team': riser_row['team_abbr'],
-                'previous_rank': int(riser_row['previous_rank']),
-                'current_rank': int(riser_row['rank']),
-                'movement': f"+{int(riser_row['movement'])}",
-                'rating': round(float(riser_row['rating']), 2),
-                'record': record
-            }
+    # Biggest faller (negative movement)
+    if sagarin_df['movement'].min() < 0:
+        faller_row = sagarin_df.loc[sagarin_df['movement'].idxmin()]
+        record_data = team_records.get(faller_row['team_abbr'], {'wins': 0, 'losses': 0, 'ties': 0})
+        record = f"{record_data['wins']}-{record_data['losses']}"
+        if record_data['ties'] > 0:
+            record += f"-{record_data['ties']}"
 
-        # Biggest faller (negative movement)
-        if sagarin_df['movement'].min() < 0:
-            faller_row = sagarin_df.loc[sagarin_df['movement'].idxmin()]
-            record_data = team_records.get(faller_row['team_abbr'], {'wins': 0, 'losses': 0, 'ties': 0})
-            record = f"{record_data['wins']}-{record_data['losses']}"
-            if record_data['ties'] > 0:
-                record += f"-{record_data['ties']}"
-
-            biggest_faller = {
-                'team': faller_row['team_abbr'],
-                'previous_rank': int(faller_row['previous_rank']),
-                'current_rank': int(faller_row['rank']),
-                'movement': f"{int(riser_row['movement'])}",  # Will be negative
-                'rating': round(float(faller_row['rating']), 2),
-                'record': record
-            }
+        biggest_faller = {
+            'team': faller_row['team_abbr'],
+            'previous_rank': int(faller_row['previous_rank']) if pd.notna(faller_row['previous_rank']) else None,
+            'current_rank': int(faller_row['rank']),
+            'movement': f"{int(faller_row['movement'])}",  # Will be negative
+            'rating': round(float(faller_row['rating']), 2),
+            'record': record
+        }
 
     return {
         'top_5': top_5,
@@ -435,13 +470,28 @@ def select_game_of_week_and_meek(upcoming_games, team_records, sagarin_df, analy
         game_analysis = game_analyses.get(str(game['espn_id']), {})
         betting = game_analysis.get('betting', {})
 
+        # Convert spread to be relative to away team for clarity
+        # If KC is favorite at -2.5, and KC is home, then away_spread = +2.5
+        spread = betting.get('spread')
+        favorite = betting.get('favorite')
+        away_spread = None
+        if spread is not None and favorite:
+            if favorite == away_team:
+                away_spread = spread  # Away team is favorite, keep negative spread
+            elif favorite == home_team:
+                away_spread = -spread  # Home team is favorite, flip to positive (away gets points)
+
         game_scores.append({
             'espn_id': str(game['espn_id']),
             'away_team': away_team,
             'away_record': away_record,
+            'away_rank': away_rank,
+            'away_playoff_prob': round(away_prob, 1),
             'home_team': home_team,
             'home_record': home_record,
-            'betting_line': betting.get('spread'),
+            'home_rank': home_rank,
+            'home_playoff_prob': round(home_prob, 1),
+            'betting_line': away_spread,  # Now relative to away team
             'over_under': betting.get('over_under'),
             'score': score,
             'inverse_score': -score  # For finding worst game
@@ -537,6 +587,9 @@ def generate_dashboard_content(ai_model=None):
         with open('data/game_analyses.json', 'r') as f:
             game_analyses = json.load(f)
 
+        with open('data/sagarin_cache.json', 'r') as f:
+            sagarin_cache = json.load(f)
+
         # Build team records lookup
         team_records = {}
         for conf_name, conf_standings in standings_cache['standings']['conference'].items():
@@ -593,39 +646,91 @@ def generate_dashboard_content(ai_model=None):
         # AI-BASED CREATIVE TEXT GENERATION
         logger.info("Generating creative text with AI...")
 
-        # Load the prompt template for better context
-        with open('_design/dashboard_generation_prompt.md', 'r') as f:
-            prompt_template = f.read()
+        # Build comprehensive league context for AI
+        # Prepare all teams data sorted by power ranking
+        all_teams_context = []
+        for idx, row in sagarin_df.iterrows():
+            team_abbr = row['team_abbr']
+            record_data = team_records.get(team_abbr, {'wins': 0, 'losses': 0, 'ties': 0})
+            record = f"{record_data['wins']}-{record_data['losses']}"
+            if record_data['ties'] > 0:
+                record += f"-{record_data['ties']}"
 
-        # Build prompt with template context
+            playoff_prob = analysis_cache['team_analyses'].get(team_abbr, {}).get('playoff_chance', 0)
+            playoff_seed = playoff_seeds.get(team_abbr)
+
+            all_teams_context.append({
+                'team': team_abbr,
+                'rank': idx + 1,
+                'rating': round(float(row['rating']), 2),
+                'record': record,
+                'playoff_prob': round(playoff_prob, 1),
+                'playoff_seed': playoff_seed
+            })
+
+        # Build prompt with comprehensive context
         ai_prompt = f"""You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
 
 Current Week: {current_week}
+
+=== LEAGUE CONTEXT DATA ===
+Use this data to inform ALL your creative text. This is the source of truth - do not make assumptions beyond what's provided here.
+
+ALL 32 TEAMS (sorted by power ranking):
+{json.dumps(all_teams_context, separators=(',', ':'))}
+
+OFFENSE STATS (5 leaders):
+{json.dumps(stat_leaders['offense'], separators=(',', ':'))}
+
+DEFENSE STATS (5 leaders):
+{json.dumps(stat_leaders['defense'], separators=(',', ':'))}
+
+EFFICIENCY STATS (5 leaders):
+{json.dumps(stat_leaders['efficiency'], separators=(',', ':'))}
+
+INDIVIDUAL STAT LEADERS:
+{json.dumps(individual_highlights, separators=(',', ':'))}
+
+CURRENT PLAYOFF PICTURE:
+{json.dumps(playoff_snapshot, separators=(',', ':'))}
+
+UPCOMING GAMES THIS WEEK:
+{json.dumps([{
+    'away': g['away_team'],
+    'home': g['home_team'],
+    'away_record': f"{team_records.get(g['away_team'], {}).get('wins', 0)}-{team_records.get(g['away_team'], {}).get('losses', 0)}",
+    'home_record': f"{team_records.get(g['home_team'], {}).get('wins', 0)}-{team_records.get(g['home_team'], {}).get('losses', 0)}",
+    'is_divisional': g['is_divisional'],
+    'is_thursday': g['is_thursday']
+} for g in upcoming_games], separators=(',', ':'))}
+
+=== END LEAGUE CONTEXT ===
 
 IMPORTANT: For the league_pulse.summary field, use markdown formatting (bold for team names, italics for emphasis) to make it more engaging.
 
 Generate:
 1. league_pulse.summary - 3-6 engaging sentences with markdown formatting about the league's current state
+   IMPORTANT: Focus on narrative and storylines, NOT raw statistics. Tell a compelling story about what's happening in the league. Minimize numbers - they're shown elsewhere on the page.
 2. league_pulse.key_storylines - Array of 3 storylines, each with:
    - title: Catchy 3-6 word headline
-   - description: 2-3 sentences with stats
+   - description: 2-3 sentences focusing on narrative over numbers. Use stats sparingly and only when essential to the story.
 3. game_of_the_week.tagline - 1-2 sentences why {game_of_week['away_team']} @ {game_of_week['home_team']} is THE game to watch
+   Use LEAGUE CONTEXT to find team data. Do NOT reference past seasons, Super Bowls, or historical matchups.
 4. game_of_the_meek.tagline - 1-2 humorous sentences why {game_of_meek['away_team']} @ {game_of_meek['home_team']} is skippable
-5. stat_leader_contexts - For each stat, provide a brief 2-6 word context phrase (PLAIN STRING, not object):
-{json.dumps(stat_leaders, indent=2)}
-   Return format: {{"offense": ["string1", "string2", ...], "defense": ["string1", ...], "efficiency": ["string1", ...]}}
+5. stat_leader_contexts - For each of the three stat categories above (OFFENSE STATS, DEFENSE STATS, EFFICIENCY STATS), provide exactly 5 brief context phrases (2-6 words each).
+   IMPORTANT: You must provide contexts for ALL THREE categories: offense, defense, AND efficiency.
+   Return format: {{"offense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "defense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "efficiency": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"]}}
 
-6. individual_contexts - For each player, provide context explaining why their performance matters (PLAIN STRING, not object):
-{json.dumps(individual_highlights, indent=2)}
-   Return format: ["string1", "string2", "string3", ...]
+6. individual_contexts - For the 6 individual stat leaders shown in LEAGUE CONTEXT, provide context explaining why their performance matters (PLAIN STRING, not object).
+   Return format: ["string1", "string2", "string3", "string4", "string5", "string6"]
+   IMPORTANT: Focus ONLY on their current season performance and stats. Do NOT make assumptions about career length, years in the league, or draft status.
 
-7. power_rankings reasons - Provide 1-sentence reasons for biggest_riser and biggest_faller:
-   Riser: {power_rankings.get('biggest_riser', {}).get('team', 'N/A')}
-   Faller: {power_rankings.get('biggest_faller', {}).get('team', 'N/A')}
+7. power_rankings reasons - Provide 1-sentence reasons for biggest_riser and biggest_faller (use LEAGUE CONTEXT to find their data):
+   Riser: {power_rankings['biggest_riser']['team'] if power_rankings['biggest_riser'] else 'N/A'}
+   Faller: {power_rankings['biggest_faller']['team'] if power_rankings['biggest_faller'] else 'N/A'}
 
-8. playoff_key_infos - For each of the 12 teams, provide brief context (PLAIN STRING, not object):
-{json.dumps(playoff_snapshot, indent=2)}
-   Return format: {{"top_4": ["string1", "string2", ...], "middle_4": ["string1", ...], "bottom_4": ["string1", ...]}}
+8. playoff_key_infos - For the 12 teams shown in PLAYOFF PICTURE in LEAGUE CONTEXT (4 top, 4 middle, 4 bottom), provide brief context (PLAIN STRING, not object).
+   Return format: {{"top_4": ["string1", "string2", "string3", "string4"], "middle_4": ["string1", ...], "bottom_4": ["string1", ...]}}
 
 9. week_preview taglines - Brief 5-8 word taglines for Thursday night and {len(sunday_spotlight)} Sunday games
 
@@ -684,6 +789,39 @@ Return ONLY valid JSON with this exact structure:
             logger.error(f"Response: {response[:500]}...")
             return False
 
+        # Validate AI response has all required fields
+        required_fields = [
+            'league_pulse_summary', 'key_storylines', 'game_of_week_tagline',
+            'game_of_meek_tagline', 'stat_leader_contexts', 'individual_contexts',
+            'biggest_riser_reason', 'biggest_faller_reason', 'playoff_key_infos',
+            'thursday_tagline', 'sunday_taglines'
+        ]
+        missing_fields = [f for f in required_fields if f not in ai_creative]
+        if missing_fields:
+            logger.error(f"AI response missing required fields: {missing_fields}")
+            logger.error(f"AI response keys: {list(ai_creative.keys())}")
+            logger.error(f"Full response saved to data/prompts/dashboard_generation.txt")
+            with open('data/prompts/dashboard_ai_response.json', 'w') as f:
+                json.dump(ai_creative, f, indent=2)
+            return False
+
+        # Validate stat_leader_contexts structure
+        stat_contexts = ai_creative.get('stat_leader_contexts', {})
+        if not isinstance(stat_contexts, dict):
+            logger.error(f"stat_leader_contexts should be dict, got {type(stat_contexts)}")
+            return False
+        for category in ['offense', 'defense', 'efficiency']:
+            if category not in stat_contexts:
+                logger.error(f"stat_leader_contexts missing '{category}' key")
+                logger.error(f"Available keys: {list(stat_contexts.keys())}")
+                with open('data/prompts/dashboard_ai_response.json', 'w') as f:
+                    json.dump(ai_creative, f, indent=2)
+                logger.error(f"Full AI response saved to data/prompts/dashboard_ai_response.json")
+                return False
+            if not isinstance(stat_contexts[category], list) or len(stat_contexts[category]) != 5:
+                logger.error(f"stat_leader_contexts['{category}'] should be list of 5 strings, got {type(stat_contexts[category])} with length {len(stat_contexts[category]) if isinstance(stat_contexts[category], list) else 'N/A'}")
+                return False
+
         # COMBINE CODE-SELECTED DATA WITH AI-GENERATED TEXT
         logger.info("Combining code-selected data with AI-generated text...")
 
@@ -721,6 +859,7 @@ Return ONLY valid JSON with this exact structure:
                 for player, ctx in zip(individual_highlights, ai_creative['individual_contexts'])
             ],
             'power_rankings': {
+                'last_updated': sagarin_cache.get('last_update'),
                 'top_5': power_rankings['top_5'],
                 'bottom_5': power_rankings['bottom_5'],
                 'biggest_riser': {

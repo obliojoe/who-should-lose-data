@@ -1609,9 +1609,13 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                 # Don't store the unparseable data
 
         # Add metadata fields
-        for field in ['ai_status', 'ai_provider', 'ai_model', 'ai_error']:
+        for field in ['ai_status', 'ai_provider', 'ai_model']:
             if field in team_data:
                 team_analyses[team_abbr][field] = team_data[field]
+
+        # Only include ai_error if status is actually error
+        if team_data.get('ai_status') == 'error' and 'ai_error' in team_data:
+            team_analyses[team_abbr]['ai_error'] = team_data['ai_error']
 
     # Report parsing errors if any occurred
     if parse_error_teams:

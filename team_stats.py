@@ -269,6 +269,20 @@ def generate_team_stats():
         team_stats[team]['sacks_taken'] = team_stats[team].get('sacks_suffered', 0)
         team_stats[team]['interceptions'] = team_stats[team].get('passing_interceptions', 0)
 
+        # Calculate turnovers
+        turnovers_given = (
+            team_stats[team].get('passing_interceptions', 0) +
+            team_stats[team].get('sack_fumbles_lost', 0) +
+            team_stats[team].get('rushing_fumbles_lost', 0) +
+            team_stats[team].get('receiving_fumbles_lost', 0)
+        )
+
+        # Calculate takeaways (defensive turnovers forced)
+        takeaways = (
+            team_stats[team].get('def_interceptions', 0) +
+            team_stats[team].get('fumble_recovery_opp', 0)  # Opponent fumbles recovered
+        )
+
         # Add calculated fields
         team_stats[team].update({
             'completion_pct': (completions / attempts * 100) if attempts > 0 else 0,
@@ -281,8 +295,8 @@ def generate_team_stats():
             'first_downs_per_game': (passing_first_downs + rushing_first_downs) / games_played if games_played > 0 else 0,
             'total_epa': passing_epa + rushing_epa,
             'epa_per_game': (passing_epa + rushing_epa) / games_played if games_played > 0 else 0,
-            'total_turnovers': team_stats[team].get('passing_interceptions', 0) + team_stats[team].get('rushing_fumbles_lost', 0) + team_stats[team].get('receiving_fumbles_lost', 0),
-            'turnover_margin': team_stats[team].get('passing_interceptions', 0) + team_stats[team].get('rushing_fumbles_lost', 0) + team_stats[team].get('receiving_fumbles_lost', 0)
+            'total_turnovers': turnovers_given,
+            'turnover_margin': takeaways - turnovers_given
         })
     
     # Convert to DataFrame

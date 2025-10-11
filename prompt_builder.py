@@ -373,14 +373,34 @@ def build_espn_context_json(espn_context):
     # Betting lines
     if espn_context.get('betting'):
         betting = espn_context['betting']
-        context['betting'] = {
-            'spread': betting.get('spread'),
-            'over_under': betting.get('over_under'),
-            'favorite': betting.get('favorite'),
-            'underdog': betting.get('underdog'),
-            'moneyline_favorite': betting.get('moneyline_favorite'),
-            'moneyline_underdog': betting.get('moneyline_underdog')
-        }
+        spread = betting.get('spread')
+        favorite = betting.get('favorite')
+
+        # Build betting context with spread_display for clarity
+        betting_data = {}
+
+        # Only include favorite OR underdog (whichever is set)
+        if favorite:
+            betting_data['favorite'] = favorite
+            if spread is not None:
+                betting_data['spread'] = spread
+                # Create display string like "KC -2.5"
+                betting_data['spread_display'] = f"{favorite} {spread:+.1f}".replace('+', '-' if spread < 0 else '+')
+        elif betting.get('underdog'):
+            betting_data['underdog'] = betting.get('underdog')
+            if spread is not None:
+                betting_data['spread'] = spread
+                betting_data['spread_display'] = f"{betting.get('underdog')} +{abs(spread):.1f}"
+
+        betting_data['over_under'] = betting.get('over_under')
+
+        # Only include moneylines if they exist
+        if betting.get('moneyline_favorite'):
+            betting_data['moneyline_favorite'] = betting.get('moneyline_favorite')
+        if betting.get('moneyline_underdog'):
+            betting_data['moneyline_underdog'] = betting.get('moneyline_underdog')
+
+        context['betting'] = betting_data
 
     # Weather
     if espn_context.get('weather'):
@@ -617,8 +637,9 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 {matchup_edges_str}
 
 {'=' * 70}
-ESPN CONTEXT (Betting Lines, Weather, etc.)
+NEXT GAME DETAILS (Betting Lines, Weather, etc.)
 {'=' * 70}
+The following information is about {team_abbr}'s NEXT scheduled game:
 {espn_context_str}
 
 {'=' * 70}

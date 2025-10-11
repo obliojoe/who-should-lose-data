@@ -453,6 +453,11 @@ def display_command(cmd):
     print("╚" + "═" * 78 + "╝")
     print()
 
+    # Also show the command on a single line for easy copy/paste
+    print("📋 Copy/paste command:")
+    print(cmd)
+    print()
+
 
 def run_command(cmd):
     """Execute the command with subprocess"""
