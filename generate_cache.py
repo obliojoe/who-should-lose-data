@@ -880,6 +880,10 @@ If {home} wins:
         )
 
     # Use prompt builder with 4-section approach
+    # Get chaos data for this team
+    chaos_score = team_data.get('chaos_score', 0)
+    chaos_details = team_data.get('chaos_details', {})
+
     prompt = build_team_analysis_prompt(
         team_abbr=team_abbr,
         team_stats_row=team_stats_row,
@@ -901,7 +905,9 @@ If {home} wins:
         team_coordinators=team_coordinators,
         opponent_coordinators=opponent_coordinators,
         espn_context=espn_context,
-        league_rankings=league_rankings
+        league_rankings=league_rankings,
+        chaos_score=chaos_score,
+        chaos_details=chaos_details
     )
 
         
@@ -1411,6 +1417,46 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         for team_analysis in cache_data['team_analyses'].values():
             if 'significant_games' in team_analysis:
                 team_analysis['significant_games'].sort(key=lambda x: (x['week'], x['espn_id']))
+
+        # Calculate chaos scores for each team
+        logger.info("Calculating chaos scores for all teams...")
+        from chaos_analysis import calculate_team_chaos_score, calculate_week_chaos_index
+
+        team_chaos_scores = {}
+        for team_abbr in teams:
+            team_data = cache_data['team_analyses'][team_abbr]
+            significant_games = team_data.get('significant_games', [])
+
+            # Get current standings/seed info
+            current_playoff_pct = team_data.get('playoff_chance', 0)
+            current_division_pct = team_data.get('division_chance', 0)
+
+            # Find current seed from playoff odds structure
+            current_seed = 0
+            for conf in ['AFC', 'NFC']:
+                if teams[team_abbr]['conference'] == conf:
+                    seeds_data = cache_data.get('playoff_odds', {}).get(conf, {})
+                    for seed in range(1, 8):
+                        if team_abbr in seeds_data.get(str(seed), {}):
+                            current_seed = seed
+                            break
+
+            chaos_score, chaos_details = calculate_team_chaos_score(
+                team_abbr,
+                significant_games,
+                current_playoff_pct,
+                current_division_pct,
+                current_seed
+            )
+
+            team_chaos_scores[team_abbr] = chaos_score
+            cache_data['team_analyses'][team_abbr]['chaos_score'] = chaos_score
+            cache_data['team_analyses'][team_abbr]['chaos_details'] = chaos_details
+
+        # Calculate week-level chaos index
+        week_chaos_data = calculate_week_chaos_index(team_chaos_scores)
+        cache_data['week_chaos'] = week_chaos_data
+        logger.info(f"Week chaos index: {week_chaos_data['score']}/100 - {week_chaos_data['description']}")
 
     # After all batches are processed, but before saving
     standings_data = calculate_standings(teams, schedule)

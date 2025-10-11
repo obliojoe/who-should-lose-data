@@ -436,16 +436,19 @@ def build_team_analysis_prompt(
     team_coordinators=None,
     opponent_coordinators=None,
     espn_context=None,
-    league_rankings=None
+    league_rankings=None,
+    chaos_score=0,
+    chaos_details=None
 ):
     """
-    Build AI analysis prompt using 4-section structure.
+    Build AI analysis prompt using 5-section structure.
 
     Sections:
-    1. ai_verdict - Combined engaging summary + bold take
-    2. ai_xfactor - Key matchup insights and what will decide the game
-    3. ai_reality_check - Statistical truth with humor
-    4. ai_quotes - Five shareable quotes that capture the team's season
+    1. ai_tagline - Very short (3-7 word) punchy summary of season state
+    2. ai_verdict - Combined engaging summary + bold take
+    3. ai_xfactor - Key matchup insights and what will decide the game
+    4. ai_reality_check - Statistical truth with humor
+    5. ai_quotes - Five shareable quotes that capture the team's season
 
     Returns:
         str: The formatted prompt for AI analysis
@@ -532,10 +535,17 @@ Your voice is:
 CONSISTENCY: Maintain this EXACT voice across ALL sections. Don't shift personas.
 
 {'=' * 70}
-OUTPUT REQUIREMENTS - 4 SECTIONS
+OUTPUT REQUIREMENTS - 5 SECTIONS
 {'=' * 70}
 
-1. ai_verdict
+1. ai_tagline
+   - A VERY short (3-7 word) punchy summary of their season state
+   - Think newspaper headline or tweet
+   - Examples: "Offensive juggernaut, defensive sieve" / "Frauds exposed weekly" / "Legit contender emerging" / "Playoff hopes on life support"
+   - Must be specific to THIS team's unique situation
+   - Can be confident, sarcastic, or brutally honest
+
+2. ai_verdict
    - 2-3 paragraphs that tell the COMPLETE story
    - Start with the bottom line: Are they good? Bad? Frauds? Legit?
    - Back it up with key stats and context
@@ -548,7 +558,7 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
    - Avoid generic phrases like "impressive showing" or "solid performance"
    - Give fans something to argue about
 
-2. ai_xfactor
+3. ai_xfactor
    - What will actually decide this game/season?
    - Focus on specific matchup advantages/disadvantages
    - Reference betting lines, weather, rest advantages if available
@@ -561,7 +571,7 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
    - Must be based on actual data, not generic analysis
    - Explain WHY it matters (stakes, playoff implications, etc.)
 
-3. ai_reality_check
+4. ai_reality_check
    - Lead with 2-3 pre-filtered key stats (see FILTERED_STATS below)
    - Add context and narrative to each stat
    - Then pivot to humor: what are fans fooling themselves about?
@@ -574,14 +584,14 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
    - Must roast the {team_info['city']} {team_info['mascot']}, NOT their opponent
    - Self-aware fans should nod along, not get defensive
 
-4. ai_quotes
+5. ai_quotes
    - FIVE distinct quotes, each 1-3 sentences (don't default to one sentence!)
    - Mix of lengths: some can be punchy one-liners, others should be fuller 2-3 sentence observations
    - Witty observations with substance - NOT just statistical breakdowns
    - Use stats to INFORM the quip, but DON'T cite numbers directly
    - Think bar conversation, not broadcast booth analysis
    - Each should work as a standalone social media quote
-   - Must be specific to THIS team's situation
+   - Must be specific to THIS team's situation - use player names, coaching decisions, recent games
    - Think "screenshot and share" quality
    - Vary the tone: mix clever insights with humor, sarcasm, and truth
 
@@ -593,11 +603,27 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
      * Short: "Playing like a team that googles 'prevent defense' during timeouts."
      * Medium: "Their playoff hopes look great on paper until you remember they have to actually play the games. Then it's like watching someone try to assemble IKEA furniture drunk."
      * Longer: "Every week it's the same story: dominate the first half, build a lead, then proceed to play defense like they're afraid of hurting the opponent's feelings. It's not prevent defense, it's 'please score' defense."
-   - Avoid generic phrases that could apply to any team
-   - NO RECYCLED JOKES: Don't use the same joke/angle you've used before
-   - AVOID STALE TROPES: No "forward pass" jokes, "Madden on rookie mode", "haven't won since X" unless truly remarkable
-   - Each captures a different aspect of their season
-   - Fans should LAUGH, nod, or get angry enough to share
+
+   CRITICAL - AVOID THESE OVERUSED PATTERNS:
+   - NO "forward pass" or ancient history jokes unless genuinely relevant to current season
+   - NO "Madden on rookie/All-Pro mode" comparisons
+   - NO "haven't won since [year]" unless it's a truly remarkable drought affecting this season
+   - NO generic "playing like [obvious thing]" - be creative and specific
+   - NO "X is doing Y while Z does nothing" - find fresh angles
+   - NO recycling the same joke structure across different teams
+   - AVOID: "offense/defense is [adjective]" without a creative twist
+   - AVOID: Simple player name + verb constructions without insight
+
+   INSTEAD, AIM FOR:
+   - Specific observations about HOW they play, not just that they win/lose
+   - Creative metaphors and comparisons that fit THIS team's unique situation
+   - Sarcastic takes that reveal deeper truths about their season
+   - References to specific games, plays, or moments that define their year
+   - Insight into what makes THIS team different from others with similar records
+   - Each quote should capture a different dimension: scheme, execution, coaching, culture, expectations vs reality
+   - Think: "This could ONLY apply to this team right now"
+
+   - Fans should LAUGH, nod knowingly, or get angry enough to share
 
 {'=' * 70}
 TEAM STATISTICS (WITH LEAGUE RANKINGS)
@@ -721,15 +747,16 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 {'=' * 70}
 {{
+    "ai_tagline": "3-7 word punchy summary (e.g., 'Offensive juggernaut, defensive disaster' or 'Playoff hopes circling drain')",
     "ai_verdict": "2-3 paragraphs with \\n for breaks. Use markdown formatting.",
     "ai_xfactor": "2-3 paragraphs with \\n for breaks. Use markdown formatting.",
     "ai_reality_check": "2-3 paragraphs with \\n for breaks. Use markdown formatting.",
     "ai_quotes": [
-        "First quote - insightful take on their season",
-        "Second quote - humorous observation",
-        "Third quote - bold prediction or claim",
-        "Fourth quote - different angle or stat-based",
-        "Fifth quote - captures current moment"
+        "First quote - specific insight about HOW they play (use player names, scheme details)",
+        "Second quote - sarcastic take revealing deeper truth about their season",
+        "Third quote - creative metaphor that ONLY fits this team's situation",
+        "Fourth quote - observation about coaching, culture, or execution (not generic)",
+        "Fifth quote - expectations vs reality with humor and bite"
     ]
 }}
 
@@ -746,12 +773,19 @@ IMPORTANT:
 - Use straight quotes (" and ') NOT curly quotes (" " ' ')
 - Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
-- Each quote should be 12-20 words (shorter is better)
+- Each quote should be 12-25 words (can go longer for multi-sentence quotes)
 - NO statistics, percentages, or numbers in the quotes
-- Quotes should be witty observations, not analytical statements
+- Quotes should be witty observations with SPECIFIC details, not generic analytical statements
+- AVOID overused tropes: "Madden mode", "forward pass", "haven't won since", generic metaphors
+- USE specific player names, coaching decisions, and unique aspects of THIS team's situation
 - The ai_quotes field is LAST and should NOT have a comma after it
 {'=' * 70}
 """
+
+    # Conditionally add chaos context if score >= 60
+    if chaos_score >= 60 and chaos_details:
+        from chaos_analysis import add_chaos_context_to_prompt
+        prompt = add_chaos_context_to_prompt(prompt, chaos_score, chaos_details, team_abbr)
 
     # Save prompt to file for debugging
     import os
