@@ -188,6 +188,8 @@ def analyze_multi_game_scenarios(
     teams_dict: Dict,
     schedule: List[Dict],
     current_week: int,
+    standings_cache: Dict,
+    current_seed: int,
     max_scenarios: int = 10,
     min_joint_probability: float = 2.0
 ) -> List[Dict[str, Any]]:
@@ -204,16 +206,171 @@ def analyze_multi_game_scenarios(
         teams_dict: All teams data
         schedule: Full schedule
         current_week: Current week number
+        standings_cache: Current standings/records for all teams
+        current_seed: Team's current playoff seed (0 if not in playoffs)
         max_scenarios: Maximum scenarios to return
         min_joint_probability: Minimum % probability to consider (filters rare scenarios)
 
     Returns:
         List of scenario dicts with impact details
     """
-    # TODO: Implement in next phase
-    # This is a placeholder - will add deterministic seed calculation logic
-    logger.info(f"Multi-game scenario analysis not yet implemented for {team_abbr}")
-    return []
+    if not significant_games or len(significant_games) < 2:
+        logger.info(f"Not enough significant games for multi-game analysis for {team_abbr}")
+        return []
+
+    # Get this team's conference
+    team_conference = teams_dict[team_abbr]['conference']
+
+    # Filter to games that affect seeds (conference games + team's own games)
+    relevant_games = []
+    for game in significant_games:
+        game_teams = [game['away_team'], game['home_team']]
+
+        # Include if: team is playing, or both teams in same conference as target team
+        if team_abbr in game_teams:
+            relevant_games.append(game)
+        elif (teams_dict[game['away_team']]['conference'] == team_conference and
+              teams_dict[game['home_team']]['conference'] == team_conference):
+            relevant_games.append(game)
+
+    if len(relevant_games) < 2:
+        logger.info(f"Not enough conference-relevant games for {team_abbr}")
+        return []
+
+    # Limit to top 5 most impactful games to keep computation manageable
+    relevant_games = relevant_games[:5]
+
+    scenarios = []
+
+    # Analyze 2-game combinations
+    for game1, game2 in combinations(relevant_games, 2):
+        # For each combination, try all 4 outcome possibilities
+        outcomes = [
+            ('home', 'home'),
+            ('home', 'away'),
+            ('away', 'home'),
+            ('away', 'away')
+        ]
+
+        for outcome1, outcome2 in outcomes:
+            # Calculate joint probability
+            prob1 = game1.get('home_prob', 50) if outcome1 == 'home' else (100 - game1.get('home_prob', 50))
+            prob2 = game2.get('home_prob', 50) if outcome2 == 'home' else (100 - game2.get('home_prob', 50))
+            joint_prob = (prob1 * prob2) / 100
+
+            if joint_prob < min_joint_probability:
+                continue
+
+            # Determine which seed this team would have after these outcomes
+            # This is complex - for now, use the simulation data as proxy
+            # We'll look at the debug_stats to estimate seed changes
+
+            # Get expected playoff % and seed distribution for each outcome
+            if outcome1 == 'home':
+                playoff_pct_1 = game1.get('debug_stats', {}).get('home_playoff_pct', 0)
+                seeds_1 = game1.get('debug_stats', {}).get('home_seeds', {})
+            else:
+                playoff_pct_1 = game1.get('debug_stats', {}).get('away_playoff_pct', 0)
+                seeds_1 = game1.get('debug_stats', {}).get('away_seeds', {})
+
+            if outcome2 == 'home':
+                playoff_pct_2 = game2.get('debug_stats', {}).get('home_playoff_pct', 0)
+                seeds_2 = game2.get('debug_stats', {}).get('home_seeds', {})
+            else:
+                playoff_pct_2 = game2.get('debug_stats', {}).get('away_playoff_pct', 0)
+                seeds_2 = game2.get('debug_stats', {}).get('away_seeds', {})
+
+            # Average the two predictions (rough approximation)
+            avg_playoff_pct = (playoff_pct_1 + playoff_pct_2) / 2
+
+            # For seed, take the most likely seed from combined distributions
+            # This is a simplification - proper implementation would run deterministic calculation
+            combined_seeds = defaultdict(float)
+            for seed, pct in seeds_1.items():
+                combined_seeds[seed] += pct / 2
+            for seed, pct in seeds_2.items():
+                combined_seeds[seed] += pct / 2
+
+            likely_seed = max(combined_seeds.items(), key=lambda x: x[1])[0] if combined_seeds else 0
+            likely_seed = int(likely_seed)
+
+            # Check if this creates an interesting seed change
+            if likely_seed != current_seed and likely_seed > 0:
+                # Build scenario description
+                outcomes_desc = []
+                winner1 = game1['home_team'] if outcome1 == 'home' else game1['away_team']
+                winner2 = game2['home_team'] if outcome2 == 'home' else game2['away_team']
+
+                outcomes_desc.append(f"{winner1} wins")
+                outcomes_desc.append(f"{winner2} wins")
+
+                scenarios.append({
+                    'games': [
+                        f"{game1['away_team']} @ {game1['home_team']}",
+                        f"{game2['away_team']} @ {game2['home_team']}"
+                    ],
+                    'outcomes': outcomes_desc,
+                    'joint_probability': round(joint_prob, 1),
+                    'current_seed': current_seed,
+                    'resulting_seed': likely_seed,
+                    'seed_change': likely_seed - current_seed if current_seed > 0 else None,
+                    'playoff_probability': round(avg_playoff_pct, 1),
+                    'description': f"If {' AND '.join(outcomes_desc)}, {team_abbr} moves to #{likely_seed} seed" +
+                                 (f" (from #{current_seed})" if current_seed > 0 else " (into playoffs)")
+                })
+
+    # Also check 3-game combinations if we have enough games
+    if len(relevant_games) >= 3:
+        for game1, game2, game3 in list(combinations(relevant_games, 3))[:10]:  # Limit combinations
+            # Only check specific high-impact scenarios (all favorites win, all underdogs win)
+            interesting_outcome_sets = [
+                ('home', 'home', 'home'),  # All home teams win
+                ('away', 'away', 'away'),  # All away teams win
+            ]
+
+            for outcome1, outcome2, outcome3 in interesting_outcome_sets:
+                prob1 = game1.get('home_prob', 50) if outcome1 == 'home' else (100 - game1.get('home_prob', 50))
+                prob2 = game2.get('home_prob', 50) if outcome2 == 'home' else (100 - game2.get('home_prob', 50))
+                prob3 = game3.get('home_prob', 50) if outcome3 == 'home' else (100 - game3.get('home_prob', 50))
+                joint_prob = (prob1 * prob2 * prob3) / 10000
+
+                if joint_prob < min_joint_probability:
+                    continue
+
+                # Similar analysis as 2-game
+                outcomes_desc = []
+                winner1 = game1['home_team'] if outcome1 == 'home' else game1['away_team']
+                winner2 = game2['home_team'] if outcome2 == 'home' else game2['away_team']
+                winner3 = game3['home_team'] if outcome3 == 'home' else game3['away_team']
+
+                outcomes_desc.append(f"{winner1} wins")
+                outcomes_desc.append(f"{winner2} wins")
+                outcomes_desc.append(f"{winner3} wins")
+
+                # For 3-game combos, use a more conservative estimate
+                # Just note this is a high-volatility scenario
+                scenarios.append({
+                    'games': [
+                        f"{game1['away_team']} @ {game1['home_team']}",
+                        f"{game2['away_team']} @ {game2['home_team']}",
+                        f"{game3['away_team']} @ {game3['home_team']}"
+                    ],
+                    'outcomes': outcomes_desc,
+                    'joint_probability': round(joint_prob, 1),
+                    'current_seed': current_seed,
+                    'resulting_seed': None,  # Don't estimate for 3-game combos
+                    'seed_change': None,
+                    'playoff_probability': None,
+                    'description': f"If {' AND '.join(outcomes_desc)}, {team_abbr}'s playoff picture could shift significantly"
+                })
+
+    # Sort by joint probability * impact
+    scenarios.sort(key=lambda x: (
+        abs(x.get('seed_change', 0) or 0) * x['joint_probability']
+    ), reverse=True)
+
+    # Return top scenarios
+    return scenarios[:max_scenarios]
 
 
 def add_chaos_context_to_prompt(

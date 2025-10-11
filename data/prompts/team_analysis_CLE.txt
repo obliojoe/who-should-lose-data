@@ -1,7 +1,7 @@
 ======================================================================
 CLEVELAND BROWNS ANALYSIS - V2.0
 ======================================================================
-Current Date: October 10, 2025
+Current Date: October 11, 2025
 Current Season: 2025/26 NFL Season
 Week: 6
 
@@ -21,10 +21,17 @@ Your voice is:
 CONSISTENCY: Maintain this EXACT voice across ALL sections. Don't shift personas.
 
 ======================================================================
-OUTPUT REQUIREMENTS - 4 SECTIONS
+OUTPUT REQUIREMENTS - 5 SECTIONS
 ======================================================================
 
-1. ai_verdict
+1. ai_tagline
+   - A VERY short (3-7 word) punchy summary of their season state
+   - Think newspaper headline or tweet
+   - Examples: "Offensive juggernaut, defensive sieve" / "Frauds exposed weekly" / "Legit contender emerging" / "Playoff hopes on life support"
+   - Must be specific to THIS team's unique situation
+   - Can be confident, sarcastic, or brutally honest
+
+2. ai_verdict
    - 2-3 paragraphs that tell the COMPLETE story
    - Start with the bottom line: Are they good? Bad? Frauds? Legit?
    - Back it up with key stats and context
@@ -37,7 +44,7 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
    - Avoid generic phrases like "impressive showing" or "solid performance"
    - Give fans something to argue about
 
-2. ai_xfactor
+3. ai_xfactor
    - What will actually decide this game/season?
    - Focus on specific matchup advantages/disadvantages
    - Reference betting lines, weather, rest advantages if available
@@ -50,7 +57,7 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
    - Must be based on actual data, not generic analysis
    - Explain WHY it matters (stakes, playoff implications, etc.)
 
-3. ai_reality_check
+4. ai_reality_check
    - Lead with 2-3 pre-filtered key stats (see FILTERED_STATS below)
    - Add context and narrative to each stat
    - Then pivot to humor: what are fans fooling themselves about?
@@ -63,14 +70,14 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
    - Must roast the Cleveland Browns, NOT their opponent
    - Self-aware fans should nod along, not get defensive
 
-4. ai_quotes
+5. ai_quotes
    - FIVE distinct quotes, each 1-3 sentences (don't default to one sentence!)
    - Mix of lengths: some can be punchy one-liners, others should be fuller 2-3 sentence observations
    - Witty observations with substance - NOT just statistical breakdowns
    - Use stats to INFORM the quip, but DON'T cite numbers directly
    - Think bar conversation, not broadcast booth analysis
    - Each should work as a standalone social media quote
-   - Must be specific to THIS team's situation
+   - Must be specific to THIS team's situation - use player names, coaching decisions, recent games
    - Think "screenshot and share" quality
    - Vary the tone: mix clever insights with humor, sarcasm, and truth
 
@@ -82,11 +89,27 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
      * Short: "Playing like a team that googles 'prevent defense' during timeouts."
      * Medium: "Their playoff hopes look great on paper until you remember they have to actually play the games. Then it's like watching someone try to assemble IKEA furniture drunk."
      * Longer: "Every week it's the same story: dominate the first half, build a lead, then proceed to play defense like they're afraid of hurting the opponent's feelings. It's not prevent defense, it's 'please score' defense."
-   - Avoid generic phrases that could apply to any team
-   - NO RECYCLED JOKES: Don't use the same joke/angle you've used before
-   - AVOID STALE TROPES: No "forward pass" jokes, "Madden on rookie mode", "haven't won since X" unless truly remarkable
-   - Each captures a different aspect of their season
-   - Fans should LAUGH, nod, or get angry enough to share
+
+   CRITICAL - AVOID THESE OVERUSED PATTERNS:
+   - NO "forward pass" or ancient history jokes unless genuinely relevant to current season
+   - NO "Madden on rookie/All-Pro mode" comparisons
+   - NO "haven't won since [year]" unless it's a truly remarkable drought affecting this season
+   - NO generic "playing like [obvious thing]" - be creative and specific
+   - NO "X is doing Y while Z does nothing" - find fresh angles
+   - NO recycling the same joke structure across different teams
+   - AVOID: "offense/defense is [adjective]" without a creative twist
+   - AVOID: Simple player name + verb constructions without insight
+
+   INSTEAD, AIM FOR:
+   - Specific observations about HOW they play, not just that they win/lose
+   - Creative metaphors and comparisons that fit THIS team's unique situation
+   - Sarcastic takes that reveal deeper truths about their season
+   - References to specific games, plays, or moments that define their year
+   - Insight into what makes THIS team different from others with similar records
+   - Each quote should capture a different dimension: scheme, execution, coaching, culture, expectations vs reality
+   - Think: "This could ONLY apply to this team right now"
+
+   - Fans should LAUGH, nod knowingly, or get angry enough to share
 
 ======================================================================
 TEAM STATISTICS (WITH LEAGUE RANKINGS)
@@ -129,7 +152,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 NEXT GAME DETAILS (Betting Lines, Weather, etc.)
 ======================================================================
 The following information is about CLE's NEXT scheduled game:
-{"betting":{"favorite":"PIT","spread":-6.5,"spread_display":"PIT -6.5","over_under":38.5},"weather":{"is_indoor":false,"temperature":66,"condition":"Cloudy","wind_speed":7}}
+{"betting":{"favorite":"PIT","spread":-6.5,"spread_display":"PIT -6.5","over_under":38.5},"weather":{"is_indoor":false,"temperature":67,"condition":"Intermittent clouds","wind_speed":8}}
 
 ======================================================================
 SCHEDULE
@@ -147,17 +170,17 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Mike Hall Jr.","position":"DT","status":"Out (Knee)"},{"name":"Cedric Tillman","position":"WR","status":"Injured Reserve (Hamstring)"},{"name":"DeAndre Carter","position":"WR","status":"Injured Reserve (Knee)"},{"name":"Deshaun Watson","position":"QB","status":"Out (Achilles)"},{"name":"Dawand Jones","position":"OT","status":"Injured Reserve (Knee)"}],"opponent":[{"name":"Jalen Ramsey","position":"CB","status":"Questionable (Hamstring)"},{"name":"Calvin Austin III","position":"WR","status":"Out (Shoulder)"},{"name":"Max Scharping","position":"G","status":"Injured Reserve (Knee)"},{"name":"Isaiahh Loudermilk","position":"DT","status":"Injured Reserve (Ankle)"},{"name":"Malik Harrison","position":"LB","status":"Injured Reserve (Knee)"}]}
+{"team":[{"name":"Mike Hall Jr.","position":"DT","status":"Out (Knee)"},{"name":"Cedric Tillman","position":"WR","status":"Injured Reserve (Hamstring)"},{"name":"DeAndre Carter","position":"WR","status":"Injured Reserve (Knee)"},{"name":"Deshaun Watson","position":"QB","status":"Out (Achilles)"},{"name":"Dawand Jones","position":"OT","status":"Injured Reserve (Knee)"}],"opponent":[{"name":"Calvin Austin III","position":"WR","status":"Out (Shoulder)"},{"name":"Max Scharping","position":"G","status":"Injured Reserve (Knee)"},{"name":"Isaiahh Loudermilk","position":"DT","status":"Injured Reserve (Ankle)"},{"name":"Malik Harrison","position":"LB","status":"Injured Reserve (Knee)"},{"name":"Skylar Thompson","position":"QB","status":"Injured Reserve (Hamstring)"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Aaron Rodgers and first-place Steelers are hardly getting ahead of themselves as Browns visit"},{"headline":"Sanders sees 'light at the end of the tunnel' as Browns mull QB2"},{"headline":"Stephen A. can't believe the Browns won't name Shedeur Sanders as backup QB"}],"opponent":[{"headline":"Aaron Rodgers and first-place Steelers are hardly getting ahead of themselves as Browns visit"},{"headline":"Will Compton on AFC North: 'This is the Steelers' division to lose'"},{"headline":"DeShon Elliott's return props up Steelers' defense"}]}
+{"team":[{"headline":"Greg Newsome on being traded to Jaguars: 'It feels amazing'"},{"headline":"Browns' Shedeur Sanders to back up Dillon Gabriel vs. Steelers"},{"headline":"Aaron Rodgers and first-place Steelers are hardly getting ahead of themselves as Browns visit"}],"opponent":[{"headline":"Steelers' Porter, Highsmith, Ramsey taken off injury report"},{"headline":"Ryan Clark calls out Stephen A. Smith as a \u2018fake Steelers fan\u2019"},{"headline":"Aaron Rodgers and first-place Steelers are hardly getting ahead of themselves as Browns visit"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":2.8,"win_division":1.4,"get_top_seed":0.0,"reach_super_bowl":0.1,"win_super_bowl":0.0}
+{"make_playoffs":2.5,"win_division":1.3,"get_top_seed":0.0,"reach_super_bowl":0.1,"win_super_bowl":0.1}
 
 ======================================================================
 STANDINGS
@@ -223,15 +246,16 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
+    "ai_tagline": "3-7 word punchy summary (e.g., 'Offensive juggernaut, defensive disaster' or 'Playoff hopes circling drain')",
     "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_quotes": [
-        "First quote - insightful take on their season",
-        "Second quote - humorous observation",
-        "Third quote - bold prediction or claim",
-        "Fourth quote - different angle or stat-based",
-        "Fifth quote - captures current moment"
+        "First quote - specific insight about HOW they play (use player names, scheme details)",
+        "Second quote - sarcastic take revealing deeper truth about their season",
+        "Third quote - creative metaphor that ONLY fits this team's situation",
+        "Fourth quote - observation about coaching, culture, or execution (not generic)",
+        "Fifth quote - expectations vs reality with humor and bite"
     ]
 }
 
@@ -248,8 +272,10 @@ IMPORTANT:
 - Use straight quotes (" and ') NOT curly quotes (" " ' ')
 - Escape special characters properly in JSON strings
 - The ai_quotes field is an ARRAY of 5 strings
-- Each quote should be 12-20 words (shorter is better)
+- Each quote should be 12-25 words (can go longer for multi-sentence quotes)
 - NO statistics, percentages, or numbers in the quotes
-- Quotes should be witty observations, not analytical statements
+- Quotes should be witty observations with SPECIFIC details, not generic analytical statements
+- AVOID overused tropes: "Madden mode", "forward pass", "haven't won since", generic metaphors
+- USE specific player names, coaching decisions, and unique aspects of THIS team's situation
 - The ai_quotes field is LAST and should NOT have a comma after it
 ======================================================================

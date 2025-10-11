@@ -1420,7 +1420,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
         # Calculate chaos scores for each team
         logger.info("Calculating chaos scores for all teams...")
-        from chaos_analysis import calculate_team_chaos_score, calculate_week_chaos_index
+        from chaos_analysis import calculate_team_chaos_score, calculate_week_chaos_index, analyze_multi_game_scenarios
 
         team_chaos_scores = {}
         for team_abbr in teams:
@@ -1457,6 +1457,43 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         week_chaos_data = calculate_week_chaos_index(team_chaos_scores)
         cache_data['week_chaos'] = week_chaos_data
         logger.info(f"Week chaos index: {week_chaos_data['score']}/100 - {week_chaos_data['description']}")
+
+        # Calculate multi-game scenarios for teams with high chaos
+        logger.info("Analyzing multi-game scenarios for high-chaos teams...")
+        for team_abbr in teams:
+            team_data = cache_data['team_analyses'][team_abbr]
+            chaos_score = team_data.get('chaos_score', 0)
+
+            # Only analyze scenarios for teams with notable volatility (chaos >= 50)
+            if chaos_score >= 50:
+                significant_games = team_data.get('significant_games', [])
+                current_seed = 0
+                for conf in ['AFC', 'NFC']:
+                    if teams[team_abbr]['conference'] == conf:
+                        seeds_data = cache_data.get('playoff_odds', {}).get(conf, {})
+                        for seed in range(1, 8):
+                            if team_abbr in seeds_data.get(str(seed), {}):
+                                current_seed = seed
+                                break
+
+                # Get standings data (we'll calculate this next)
+                standings_data = {}  # Placeholder - will be populated below
+
+                scenarios = analyze_multi_game_scenarios(
+                    team_abbr=team_abbr,
+                    significant_games=significant_games,
+                    teams_dict=teams,
+                    schedule=schedule,
+                    current_week=current_week,
+                    standings_cache=standings_data,
+                    current_seed=current_seed,
+                    max_scenarios=5,  # Limit to top 5 scenarios per team
+                    min_joint_probability=3.0  # At least 3% probability
+                )
+
+                if scenarios:
+                    cache_data['team_analyses'][team_abbr]['combo_scenarios'] = scenarios
+                    logger.info(f"Found {len(scenarios)} interesting scenarios for {team_abbr}")
 
     # After all batches are processed, but before saving
     standings_data = calculate_standings(teams, schedule)
