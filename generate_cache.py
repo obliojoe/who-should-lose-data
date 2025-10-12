@@ -1398,7 +1398,9 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                         game_id, team_abbr, game_impacts
                     )
 
-                    if total_impact > 0:
+                    # Only include games with meaningful impact (>1.0)
+                    # Impact of 1.0 ≈ 2% playoff swing or 1 seed value change
+                    if total_impact > 1.0:
                         cache_data['team_analyses'][team_abbr]['significant_games'].append({
                             'date': game['game_date'],
                             'away_team': game['away_team'],
