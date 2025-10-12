@@ -1,26 +1,21 @@
 {
-  "timestamp": "2025-10-12T10:16:29.286209",
+  "timestamp": "2025-10-12T10:57:52.889920",
   "week": 6,
-  "week_chaos": {
-    "score": 25.7,
-    "description": "Relatively calm week for most teams",
-    "num_high_chaos_teams": 0,
-    "highest_chaos_teams": []
-  },
+  "week_chaos": {},
   "league_pulse": {
-    "summary": "The NFL's hierarchy is being rewritten as **Philadelphia** and **Detroit** emerge as the league's elite forces, while former powerhouses **Kansas City** and **Baltimore** stumble through shocking early-season collapses. *Underdogs are barking loudly* with **Indianapolis**, **Jacksonville**, and **Tampa Bay** all sitting pretty at 4-1, proving that preseason predictions mean nothing when the games actually count. Meanwhile, the **Jets** remain the league's only winless team, desperately searching for answers as their playoff hopes evaporate before Halloween.",
+    "summary": "The NFL landscape is getting wild as **Philadelphia** and **Detroit** have emerged as the league's elite powerhouses, while last year's playoff contenders **Kansas City** and **Baltimore** find themselves in shocking free-falls. The *undefeated dream* is over for everyone, but several 4-1 squads are making their case for supremacy. Meanwhile, the **Jets** remain the league's only winless team, desperately searching for answers as their season spirals toward historic futility.",
     "key_storylines": [
       {
+        "title": "Lions Roaring to Life",
+        "description": "Detroit's explosive offense has transformed them into genuine contenders, averaging a league-best scoring output while Jared Goff plays at an MVP level. The Motor City hasn't seen football this exciting in decades, and their showdown with struggling Kansas City could be a statement game."
+      },
+      {
         "title": "Chiefs Kingdom Crumbling",
-        "description": "Kansas City's stunning fall from grace continues as they sit at 2-3, their championship swagger replaced by uncertainty and doubt. The once-unstoppable offense looks mortal, and suddenly every game feels like a must-win for a team that seemed invincible just weeks ago."
+        "description": "Kansas City's shocking 2-3 start has the football world stunned, as the perennial powerhouse finds itself fighting for playoff relevance. Their home matchup against red-hot Detroit feels like a must-win to salvage their season before it completely derails."
       },
       {
-        "title": "Motor City Madness",
-        "description": "Detroit's explosive offense is terrorizing defenses and rewriting franchise expectations. Jared Goff is playing like a man possessed, throwing touchdowns at a historic pace while the Lions roar toward their best start in decades."
-      },
-      {
-        "title": "AFC South Surprise Party",
-        "description": "Indianapolis and Jacksonville have flipped the script on conventional wisdom, both sitting at 4-1 and making the supposedly weak AFC South look like a powerhouse division. Jonathan Taylor's dominance and Jacksonville's ball-hawking defense are turning doubters into believers."
+        "title": "Jets Hit Rock Bottom",
+        "description": "At 0-6, New York has become the league's biggest disaster, unable to find even a single victory through six weeks. The arrival of Denver this week offers perhaps their best remaining chance to avoid total embarrassment, though even that feels optimistic given their current trajectory."
       }
     ]
   },
@@ -35,8 +30,8 @@
     "home_rank": 3,
     "home_playoff_prob": 57.3,
     "betting_line": 2.5,
-    "over_under": 52.5,
-    "tagline": "The Lions' high-octane offense meets a wounded Chiefs team desperate to salvage their season in a clash that could reshape the entire playoff picture. Detroit arrives as road warriors ready to prove they're legitimate contenders, while Kansas City faces the unthinkable prospect of falling further below .500."
+    "over_under": 51.5,
+    "tagline": "The NFL's hottest offense meets its most desperate dynasty in a clash that could define both seasons - Detroit's newfound dominance faces Kansas City's fight for survival."
   },
   "game_of_the_meek": {
     "espn_id": "401772859",
@@ -50,7 +45,7 @@
     "home_playoff_prob": 3.3,
     "betting_line": 3.5,
     "over_under": 41.5,
-    "tagline": "Two 1-4 teams stumble into Vegas for a contest so uninspiring, even the slot machines might provide more excitement. The Titans and Raiders are racing to see who can secure a higher draft pick in this battle of futility."
+    "tagline": "Two 1-4 teams stumble into Vegas for a primetime pillow fight that even degenerate gamblers might skip - someone has to win, but does anyone really care?"
   },
   "stat_leaders": {
     "offense": [
@@ -60,7 +55,7 @@
         "value": 34.8,
         "unit": "",
         "rank": 1,
-        "context": "Explosive touchdown machine"
+        "context": "Offensive explosion"
       },
       {
         "team": "DAL",
@@ -68,7 +63,7 @@
         "value": 413.8,
         "unit": " yds",
         "rank": 1,
-        "context": "Offensive juggernaut unleashed"
+        "context": "Aerial dominance"
       },
       {
         "team": "LAR",
@@ -76,7 +71,7 @@
         "value": 300.6,
         "unit": " yds",
         "rank": 1,
-        "context": "Elite passing attack"
+        "context": "Ground game excellence"
       },
       {
         "team": "WAS",
@@ -84,7 +79,7 @@
         "value": 156.4,
         "unit": " yds",
         "rank": 1,
-        "context": "Ground game dominance"
+        "context": "Touchdown factory"
       },
       {
         "team": "PHI",
@@ -92,7 +87,7 @@
         "value": 87.5,
         "unit": "%",
         "rank": 1,
-        "context": "Unstoppable in scoring position"
+        "context": "Red zone perfection"
       }
     ],
     "defense": [
@@ -102,7 +97,7 @@
         "value": 12.2,
         "unit": "",
         "rank": 1,
-        "context": "Suffocating opposing offenses"
+        "context": "Defensive fortress"
       },
       {
         "team": "DEN",
@@ -110,7 +105,7 @@
         "value": 21.0,
         "unit": "",
         "rank": 1,
-        "context": "Relentless pass rush"
+        "context": "Pass rush terror"
       },
       {
         "team": "JAX",
@@ -118,7 +113,7 @@
         "value": 10.0,
         "unit": "",
         "rank": 1,
-        "context": "Ball-hawking secondary"
+        "context": "Turnover machine"
       },
       {
         "team": "TEN",
@@ -126,7 +121,7 @@
         "value": 29.4,
         "unit": "%",
         "rank": 1,
-        "context": "Clutch on third down"
+        "context": "Third down lockdown"
       },
       {
         "team": "JAX",
@@ -134,7 +129,7 @@
         "value": 8,
         "unit": "",
         "rank": 1,
-        "context": "Creating scoring opportunities"
+        "context": "Opportunistic havoc"
       }
     ],
     "efficiency": [
@@ -144,7 +139,7 @@
         "value": 52.7,
         "unit": "%",
         "rank": 1,
-        "context": "Converting crucial downs"
+        "context": "Clutch conversions"
       },
       {
         "team": "DET",
@@ -152,7 +147,7 @@
         "value": 75.3,
         "unit": "%",
         "rank": 1,
-        "context": "Surgical passing precision"
+        "context": "Precision passing"
       },
       {
         "team": "PHI",
@@ -160,7 +155,7 @@
         "value": 87.5,
         "unit": "%",
         "rank": 1,
-        "context": "Scoring zone excellence"
+        "context": "Red zone mastery"
       },
       {
         "team": "BAL",
@@ -168,7 +163,7 @@
         "value": 7.2,
         "unit": "",
         "rank": 1,
-        "context": "Explosive play machine"
+        "context": "Explosive plays"
       },
       {
         "team": "IND",
@@ -176,7 +171,7 @@
         "value": 74,
         "unit": "",
         "rank": 1,
-        "context": "Dominating all phases"
+        "context": "Dominating margins"
       }
     ]
   },
@@ -188,7 +183,7 @@
       "leader_stat": "Passing Yards",
       "stat_line": "1503 pass yds, 11 TDs, 2 INTs",
       "season_projection": "5110 pass yds, 37 TDs",
-      "context": "Leading the league's aerial assault with pinpoint accuracy"
+      "context": "Veteran excellence leading elite passing attack"
     },
     {
       "player": "Jared Goff",
@@ -197,7 +192,7 @@
       "leader_stat": "Passing TDs",
       "stat_line": "1187 pass yds, 12 TDs, 2 INTs",
       "season_projection": "4035 pass yds, 40 TDs",
-      "context": "Setting the standard for touchdown production"
+      "context": "Touchdown machine powering historic offense"
     },
     {
       "player": "Jonathan Taylor",
@@ -206,7 +201,7 @@
       "leader_stat": "Rushing Yards",
       "stat_line": "480 rush yds, 6 TDs",
       "season_projection": "1632 rush yds, 20 TDs",
-      "context": "Carrying his team with bruising ground dominance"
+      "context": "Workhorse back carrying championship hopes"
     },
     {
       "player": "Jonathan Taylor",
@@ -215,7 +210,7 @@
       "leader_stat": "Rushing TDs",
       "stat_line": "480 rush yds, 6 TDs",
       "season_projection": "1632 rush yds, 20 TDs",
-      "context": "Bulldozing through defenses for paydirt"
+      "context": "Elite scoring threat dominating red zones"
     },
     {
       "player": "Puka Nacua",
@@ -224,7 +219,7 @@
       "leader_stat": "Receiving Yards",
       "stat_line": "588 rec yds, 2 TDs",
       "season_projection": "1999 rec yds, 6 TDs",
-      "context": "Emerging as the league's most dangerous deep threat"
+      "context": "Breakout star emerging as top target"
     },
     {
       "player": "Amon-Ra St. Brown",
@@ -233,7 +228,7 @@
       "leader_stat": "Receiving TDs",
       "stat_line": "407 rec yds, 6 TDs",
       "season_projection": "1383 rec yds, 20 TDs",
-      "context": "Red zone nightmare for opposing defenses"
+      "context": "Reliable weapon fueling aerial assault"
     }
   ],
   "power_rankings": {
@@ -326,7 +321,7 @@
         "team": "NYJ",
         "team_name": "New York Jets",
         "rating": 13.64,
-        "record": "0-5",
+        "record": "0-6",
         "trend": "down",
         "previous_rank": 30,
         "movement": "-1"
@@ -408,7 +403,7 @@
         "team": "DEN",
         "team_name": "Denver Broncos",
         "rating": 23.6,
-        "record": "3-2",
+        "record": "4-2",
         "trend": "up",
         "previous_rank": 8,
         "movement": "+1"
@@ -648,7 +643,7 @@
         "team": "NYJ",
         "team_name": "New York Jets",
         "rating": 13.64,
-        "record": "0-5",
+        "record": "0-6",
         "trend": "down",
         "previous_rank": 30,
         "movement": "-1"
@@ -671,7 +666,7 @@
       "movement": "+7",
       "rating": 20.9,
       "record": "4-1",
-      "reason": "Indianapolis has shocked everyone by racing to a 4-1 start behind Jonathan Taylor's league-leading rushing attack and a surprisingly stout defense that's keeping them in every game."
+      "reason": "The Colts have quietly assembled a 4-1 record behind Jonathan Taylor's dominance and an impressive +74 point differential, establishing themselves as legitimate AFC contenders."
     },
     "biggest_faller": {
       "team": "CIN",
@@ -680,7 +675,7 @@
       "movement": "-6",
       "rating": 18.82,
       "record": "2-3",
-      "reason": "Cincinnati's high-powered offense has sputtered to a 2-3 record, leaving them on the outside looking in as their division rivals pull away in the playoff race."
+      "reason": "Cincinnati's 2-3 start and fading playoff hopes represent a stunning collapse for a team many expected to compete for the division title."
     }
   },
   "playoff_snapshot": {
@@ -690,28 +685,28 @@
         "probability": 91.6,
         "current_seed": 2,
         "record": "4-1",
-        "key_info": "Josh Allen's MVP-caliber play has them cruising"
+        "key_info": "Josh Allen leading another strong campaign"
       },
       {
         "team": "TB",
         "probability": 90.8,
         "current_seed": 2,
         "record": "4-1",
-        "key_info": "Surprise contender silencing all doubters"
+        "key_info": "Surprise contender making serious noise"
       },
       {
         "team": "DET",
         "probability": 88.5,
         "current_seed": 3,
         "record": "4-1",
-        "key_info": "Offensive fireworks keeping them atop the NFC"
+        "key_info": "Offensive juggernaut overwhelming opponents"
       },
       {
         "team": "PHI",
         "probability": 87.1,
         "current_seed": 4,
         "record": "4-2",
-        "key_info": "Resilient and battle-tested despite early setbacks"
+        "key_info": "Resilient squad staying in hunt"
       }
     ],
     "middle_4": [
@@ -720,28 +715,28 @@
         "probability": 85.2,
         "current_seed": 1,
         "record": "4-1",
-        "key_info": "Still dangerous despite slow start"
+        "key_info": "Quietly dominating the NFC West"
       },
       {
         "team": "JAX",
         "probability": 78.5,
         "current_seed": 5,
         "record": "4-1",
-        "key_info": "Defense carrying an unexpected playoff push"
+        "key_info": "Unexpected AFC South leaders"
       },
       {
         "team": "DEN",
         "probability": 76.8,
-        "current_seed": 7,
-        "record": "3-2",
-        "key_info": "Russell Wilson finding his groove in Mile High"
+        "current_seed": 4,
+        "record": "4-2",
+        "key_info": "Defense-first approach paying dividends"
       },
       {
         "team": "IND",
         "probability": 74.9,
         "current_seed": 1,
         "record": "4-1",
-        "key_info": "Jonathan Taylor powering a shocking resurgence"
+        "key_info": "Jonathan Taylor powering playoff push"
       }
     ],
     "bottom_4": [
@@ -750,28 +745,28 @@
         "probability": 1.4,
         "current_seed": null,
         "record": "1-4",
-        "key_info": "Rebuilding year hitting rock bottom"
+        "key_info": "Season spiraling toward top draft pick"
       },
       {
         "team": "NO",
         "probability": 0.8,
         "current_seed": null,
         "record": "1-4",
-        "key_info": "Saints marching toward a top draft pick"
+        "key_info": "Rebuilding year becoming apparent"
       },
       {
         "team": "NYG",
         "probability": 0.7,
         "current_seed": null,
         "record": "2-4",
-        "key_info": "Giants' season spiraling out of control"
+        "key_info": "Injuries derailing any playoff dreams"
       },
       {
         "team": "NYJ",
         "probability": 0.4,
         "current_seed": null,
-        "record": "0-5",
-        "key_info": "Winless and running out of hope"
+        "record": "0-6",
+        "key_info": "Historic futility mounting weekly"
       }
     ]
   },
@@ -782,7 +777,7 @@
       "away_record": "4-2",
       "home_team": "NYG",
       "home_record": "2-4",
-      "tagline": "Division rivals clash under the lights"
+      "tagline": "Division rivalry under the lights"
     },
     "sunday_spotlight": [
       {
@@ -791,7 +786,7 @@
         "away_record": "4-1",
         "home_team": "TB",
         "home_record": "4-1",
-        "tagline": "Broncos aim to keep Jets winless"
+        "tagline": "Desperation meets domination"
       },
       {
         "espn_id": "401772815",
@@ -799,7 +794,7 @@
         "away_record": "4-1",
         "home_team": "ATL",
         "home_record": "2-2",
-        "tagline": "Colts look to stay perfect at home"
+        "tagline": "AFC North blood feud"
       },
       {
         "espn_id": "401772857",
@@ -807,7 +802,7 @@
         "away_record": "3-2",
         "home_team": "JAX",
         "home_record": "4-1",
-        "tagline": "AFC North grudge match intensifies"
+        "tagline": "Battle of beaten-down franchises"
       }
     ],
     "total_games": 15
