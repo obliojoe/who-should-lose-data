@@ -123,34 +123,38 @@ def get_game_context(team, game, teams):
     return " ".join(context)
 
 def get_relevant_games(schedule):
-    """Get all unplayed games from the current week and next week"""
+    """Get all games from the current week (played and unplayed) plus unplayed games from next week"""
     current_week_games = []
     next_week_games = []
-    
+
     # Find the first unplayed game to determine current week
     first_unplayed_game = None
     for game in schedule:
         if not game['away_score'] and not game['home_score']:
             first_unplayed_game = game
             break
-    
+
     if first_unplayed_game:
         current_week_num = int(first_unplayed_game['week_num'])
         next_week_num = current_week_num + 1
-        
-        # Categorize unplayed games into current and next week by week number
+
+        # Get ALL games from current week (played and unplayed)
+        # Get only UNPLAYED games from next week
         for game in schedule:
-            if not game['away_score'] and not game['home_score']:
-                if int(game['week_num']) == current_week_num:
-                    current_week_games.append(game)
-                elif int(game['week_num']) == next_week_num:
+            if int(game['week_num']) == current_week_num:
+                current_week_games.append(game)
+            elif int(game['week_num']) == next_week_num:
+                if not game['away_score'] and not game['home_score']:
                     next_week_games.append(game)
-    
-    # Start with current week's games
+
+    # Start with current week's games (all of them)
     relevant_games = current_week_games
-    
-    # If there are 2 or fewer games remaining in current week, include next week's games
-    if len(current_week_games) <= 2:
+
+    # Count only unplayed games in current week for the threshold check
+    current_week_unplayed = [g for g in current_week_games if not g['away_score'] and not g['home_score']]
+
+    # If there are 2 or fewer unplayed games remaining in current week, include next week's games
+    if len(current_week_unplayed) <= 2:
         relevant_games.extend(next_week_games)
     
     return relevant_games
