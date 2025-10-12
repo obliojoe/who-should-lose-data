@@ -82,9 +82,9 @@ SEED_VALUES = {
     2: 80,   # Bye week + likely home championship game
     3: 50,   # Home wild card game
     4: 45,   # Home wild card game (slightly harder path)
-    5: 30,   # Road wild card game
-    6: 35,   # Road wild card game (harder path)
-    7: 20,   # Road wild card game (hardest path)
+    5: 35,   # Road wild card game (best road seed)
+    6: 30,   # Road wild card game (middle road seed)
+    7: 20,   # Road wild card game (worst road seed)
     0: 0     # Missed playoffs
 }
 
@@ -1399,10 +1399,25 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                     )
 
                     # Always include a team's own game, regardless of impact
-                    # For other games, only include if impact > 1.0
                     is_own_game = (team_abbr == game['away_team'] or team_abbr == game['home_team'])
 
-                    if is_own_game or total_impact > 1.0:
+                    # Adaptive threshold based on team's playoff situation
+                    # Bad teams need to see any games that help (lower threshold)
+                    # Good teams only need to see seeding battles (higher threshold)
+                    playoff_chance = cache_data['team_analyses'][team_abbr]['playoff_chance']
+
+                    if playoff_chance >= 70:
+                        threshold = 2.0      # Locked in, seeding only
+                    elif playoff_chance >= 30:
+                        threshold = 1.0      # Making playoffs vs not
+                    elif playoff_chance >= 10:
+                        threshold = 0.5      # Bubble teams
+                    elif playoff_chance >= 2:
+                        threshold = 0.3      # Long shots
+                    else:
+                        threshold = 0.15     # Near-eliminated (<2%)
+
+                    if is_own_game or total_impact > threshold:
                         cache_data['team_analyses'][team_abbr]['significant_games'].append({
                             'date': game['game_date'],
                             'away_team': game['away_team'],
