@@ -1392,15 +1392,17 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         for game in relevant_games:
             if game['home_score'] == '' and game['away_score'] == '':  # Unplayed game
                 game_id = f"{game['away_team']}@{game['home_team']}"
-                
+
                 for team_abbr in teams:
                     total_impact, debug_stats = calculate_game_impact(
                         game_id, team_abbr, game_impacts
                     )
 
-                    # Only include games with meaningful impact (>1.0)
-                    # Impact of 1.0 ≈ 2% playoff swing or 1 seed value change
-                    if total_impact > 1.0:
+                    # Always include a team's own game, regardless of impact
+                    # For other games, only include if impact > 1.0
+                    is_own_game = (team_abbr == game['away_team'] or team_abbr == game['home_team'])
+
+                    if is_own_game or total_impact > 1.0:
                         cache_data['team_analyses'][team_abbr]['significant_games'].append({
                             'date': game['game_date'],
                             'away_team': game['away_team'],
