@@ -386,9 +386,48 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
             'record': record
         }
 
+    # Full rankings (all 32 teams)
+    all_rankings = []
+    for idx, row in sagarin_df.iterrows():
+        team_abbr = row['team_abbr']
+        record_data = team_records.get(team_abbr, {'wins': 0, 'losses': 0, 'ties': 0})
+        record = f"{record_data['wins']}-{record_data['losses']}"
+        if record_data['ties'] > 0:
+            record += f"-{record_data['ties']}"
+
+        # Determine trend
+        trend = 'steady'
+        movement = int(row['movement'])
+        if movement > 0:
+            trend = 'up'
+        elif movement < 0:
+            trend = 'down'
+
+        # Format movement with sign
+        movement_str = None
+        if 'previous_rank' in row and pd.notna(row['previous_rank']):
+            if movement > 0:
+                movement_str = f"+{movement}"
+            elif movement < 0:
+                movement_str = f"{movement}"  # Already has minus sign
+            else:
+                movement_str = "0"
+
+        all_rankings.append({
+            'rank': idx + 1,
+            'team': team_abbr,
+            'team_name': team_names.get(team_abbr, team_abbr),
+            'rating': round(float(row['rating']), 2),
+            'record': record,
+            'trend': trend,
+            'previous_rank': int(row['previous_rank']) if 'previous_rank' in row and pd.notna(row['previous_rank']) else None,
+            'movement': movement_str
+        })
+
     return {
         'top_5': top_5,
         'bottom_5': bottom_5,
+        'all_rankings': all_rankings,
         'biggest_riser': biggest_riser,
         'biggest_faller': biggest_faller
     }
