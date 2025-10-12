@@ -1390,9 +1390,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                     'significant_games': []
                 }
         for game in relevant_games:
-            if game['home_score'] == '' and game['away_score'] == '':  # Unplayed game
-                game_id = f"{game['away_team']}@{game['home_team']}"
+            game_id = f"{game['away_team']}@{game['home_team']}"
+            is_completed = game['home_score'] != '' and game['away_score'] != ''
 
+            if not is_completed:  # Unplayed game - process normally
                 for team_abbr in teams:
                     total_impact, debug_stats = calculate_game_impact(
                         game_id, team_abbr, game_impacts
@@ -1403,11 +1404,11 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
                     # Adaptive threshold based on team's playoff situation
                     # Bad teams need to see any games that help (lower threshold)
-                    # Good teams only need to see seeding battles (higher threshold)
+                    # Threshold never exceeds 1.0 to ensure all teams see relevant games
                     playoff_chance = cache_data['team_analyses'][team_abbr]['playoff_chance']
 
                     if playoff_chance >= 70:
-                        threshold = 2.0      # Locked in, seeding only
+                        threshold = 1.0      # Locked in, important games only
                     elif playoff_chance >= 30:
                         threshold = 1.0      # Making playoffs vs not
                     elif playoff_chance >= 10:
@@ -1422,14 +1423,37 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                             'date': game['game_date'],
                             'away_team': game['away_team'],
                             'home_team': game['home_team'],
-                            'impact': round(total_impact, 1),  # Now includes seed impact
+                            'impact': round(total_impact, 1),
                             'gametime': game['gametime'],
                             'stadium': game['stadium'],
                             'week': int(game['week_num']),
                             'day': game.get('day_of_week', 'Sunday'),
                             'root_against': debug_stats['root_against'],
                             'espn_id': game['espn_id'],
-                            'debug_stats': debug_stats
+                            'debug_stats': debug_stats,
+                            'completed': False
+                        })
+            else:  # Completed game - only include team's own games
+                for team_abbr in teams:
+                    is_own_game = (team_abbr == game['away_team'] or team_abbr == game['home_team'])
+
+                    if is_own_game:
+                        # Add completed game with scores
+                        cache_data['team_analyses'][team_abbr]['significant_games'].append({
+                            'date': game['game_date'],
+                            'away_team': game['away_team'],
+                            'home_team': game['home_team'],
+                            'away_score': int(game['away_score']),
+                            'home_score': int(game['home_score']),
+                            'impact': 0,  # No future impact for completed games
+                            'gametime': game['gametime'],
+                            'stadium': game['stadium'],
+                            'week': int(game['week_num']),
+                            'day': game.get('day_of_week', 'Sunday'),
+                            'root_against': None,  # N/A for completed
+                            'espn_id': game['espn_id'],
+                            'debug_stats': {},
+                            'completed': True
                         })
 
         # Sort significant games for each team by date/week then espn_id for consistent ordering across runs
