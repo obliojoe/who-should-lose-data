@@ -150,10 +150,10 @@ def ask_questions():
             options['simulations'] = 1000
         elif "Standard" in sim_choice:
             options['simulations'] = 10000
-        elif "High" in sim_choice:
-            options['simulations'] = 50000
         elif "Very High" in sim_choice:
             options['simulations'] = 100000
+        elif "High" in sim_choice:
+            options['simulations'] = 50000
         else:
             while True:
                 custom = ask_text("Enter number of simulations", default="10000")
