@@ -99,6 +99,72 @@ def get_seed_multiplier_mapping():
     multipliers['Miss'] = SEED_VALUES.get(0, 0)
     return multipliers
 
+def load_pre_game_impacts():
+    """Load the pre-game impact cache file."""
+    path = get_data_dir() / 'pre_game_impacts.json'
+    if path.exists():
+        try:
+            with open(path, 'r') as f:
+                return json.load(f)
+        except (json.JSONDecodeError, IOError) as e:
+            logger.warning(f"Failed to load pre_game_impacts.json: {e}")
+    return {}
+
+def save_pre_game_impact(week, espn_id, team_abbr, impact_data):
+    """Save impact data for an unplayed game."""
+    cache = load_pre_game_impacts()
+
+    week_str = str(week)
+    if week_str not in cache:
+        cache[week_str] = {}
+    if espn_id not in cache[week_str]:
+        cache[week_str][espn_id] = {}
+
+    cache[week_str][espn_id][team_abbr] = {
+        'impact': impact_data.get('impact', 0),
+        'root_against': impact_data.get('root_against'),
+        'debug_stats': impact_data.get('debug_stats', {})
+    }
+
+    path = get_data_dir() / 'pre_game_impacts.json'
+    with open(path, 'w') as f:
+        json.dump(cache, f, indent=2)
+
+def clear_unplayed_games_from_week(week, schedule):
+    """Remove all unplayed games from a specific week in the pre-game impact cache."""
+    cache = load_pre_game_impacts()
+    week_str = str(week)
+
+    if week_str not in cache:
+        return  # Nothing to clear
+
+    # Find which games in this week are unplayed
+    unplayed_espn_ids = set()
+    for game in schedule:
+        if int(game['week_num']) == week:
+            if not game['away_score'] and not game['home_score']:
+                unplayed_espn_ids.add(game['espn_id'])
+
+    # Remove unplayed games from cache
+    for espn_id in list(cache[week_str].keys()):
+        if espn_id in unplayed_espn_ids:
+            del cache[week_str][espn_id]
+
+    # Save the cleaned cache
+    path = get_data_dir() / 'pre_game_impacts.json'
+    with open(path, 'w') as f:
+        json.dump(cache, f, indent=2)
+
+def get_current_week_from_schedule(schedule):
+    """Determine current week from schedule by finding first unplayed game."""
+    for game in schedule:
+        if not game['away_score'] and not game['home_score']:
+            return int(game['week_num'])
+    # If all games are complete, return the last week
+    if schedule:
+        return int(schedule[-1]['week_num'])
+    return None
+
 def validate_cache(cache_data):
     """Validate the structure of the cache data"""
     required_keys = {'timestamp', 'num_simulations', 'team_analyses', 'playoff_odds', 'super_bowl'}
@@ -1389,6 +1455,18 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                     'top_seed_chance': (top_seed_wins[team_abbr] / num_simulations) * 100,
                     'significant_games': []
                 }
+
+        # Load pre-game impact cache and determine current week
+        pre_game_impacts = load_pre_game_impacts()
+        current_week = get_current_week_from_schedule(schedule)
+
+        # Clear out unplayed games from current week before adding new ones
+        # This ensures stale data from low-sim runs doesn't persist
+        if current_week:
+            clear_unplayed_games_from_week(current_week, schedule)
+            # Reload the cache after clearing
+            pre_game_impacts = load_pre_game_impacts()
+
         for game in relevant_games:
             game_id = f"{game['away_team']}@{game['home_team']}"
             is_completed = game['home_score'] != '' and game['away_score'] != ''
@@ -1399,26 +1477,18 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                         game_id, team_abbr, game_impacts
                     )
 
-                    # Always include a team's own game, regardless of impact
-                    is_own_game = (team_abbr == game['away_team'] or team_abbr == game['home_team'])
+                    # Save to pre-game cache (overwrites until game completes)
+                    if current_week and int(game['week_num']) == current_week:
+                        save_pre_game_impact(current_week, game['espn_id'], team_abbr, {
+                            'impact': round(total_impact, 2),
+                            'root_against': debug_stats.get('root_against'),
+                            'debug_stats': debug_stats
+                        })
 
-                    # Adaptive threshold based on team's playoff situation
-                    # Bad teams need to see any games that help (lower threshold)
-                    # Threshold never exceeds 1.0 to ensure all teams see relevant games
-                    playoff_chance = cache_data['team_analyses'][team_abbr]['playoff_chance']
-
-                    if playoff_chance >= 70:
-                        threshold = 1.0      # Locked in, important games only
-                    elif playoff_chance >= 30:
-                        threshold = 1.0      # Making playoffs vs not
-                    elif playoff_chance >= 10:
-                        threshold = 0.5      # Bubble teams
-                    elif playoff_chance >= 2:
-                        threshold = 0.3      # Long shots
-                    else:
-                        threshold = 0.15     # Near-eliminated (<2%)
-
-                    if is_own_game or total_impact > threshold:
+                    # Include all games with any measurable impact (> 0)
+                    # Let UI decide filtering/display thresholds
+                    # Use 0.01 threshold to exclude true zeros while catching tiny impacts
+                    if total_impact >= 0.01:
                         cache_data['team_analyses'][team_abbr]['significant_games'].append({
                             'date': game['game_date'],
                             'away_team': game['away_team'],
@@ -1433,26 +1503,33 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                             'debug_stats': debug_stats,
                             'completed': False
                         })
-            else:  # Completed game - only include team's own games
+            else:  # Completed game - include if it had pre-game impact for the team
                 for team_abbr in teams:
-                    is_own_game = (team_abbr == game['away_team'] or team_abbr == game['home_team'])
+                    # Look up pre-game impact from cache
+                    impact_data = {}
+                    week_str = str(game['week_num'])
+                    if week_str in pre_game_impacts:
+                        if game['espn_id'] in pre_game_impacts[week_str]:
+                            if team_abbr in pre_game_impacts[week_str][game['espn_id']]:
+                                impact_data = pre_game_impacts[week_str][game['espn_id']][team_abbr]
 
-                    if is_own_game:
-                        # Add completed game with scores
+                    # Include game if it had impact > 0.01 (same threshold as unplayed games)
+                    if impact_data.get('impact', 0) >= 0.01:
+                        # Add completed game with scores and pre-game impact
                         cache_data['team_analyses'][team_abbr]['significant_games'].append({
                             'date': game['game_date'],
                             'away_team': game['away_team'],
                             'home_team': game['home_team'],
                             'away_score': int(game['away_score']),
                             'home_score': int(game['home_score']),
-                            'impact': 0,  # No future impact for completed games
+                            'impact': impact_data.get('impact', 0),  # Use cached pre-game impact
                             'gametime': game['gametime'],
                             'stadium': game['stadium'],
                             'week': int(game['week_num']),
                             'day': game.get('day_of_week', 'Sunday'),
-                            'root_against': None,  # N/A for completed
+                            'root_against': impact_data.get('root_against'),
                             'espn_id': game['espn_id'],
-                            'debug_stats': {},
+                            'debug_stats': impact_data.get('debug_stats', {}),
                             'completed': True
                         })
 
@@ -1674,6 +1751,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
     parse_error_teams = []
     for team_abbr, team_data in cache_data['team_analyses'].items():
         team_analyses[team_abbr] = {}
+
+        # Preserve ai_tagline from existing analyses if present
+        if team_abbr in existing_team_analyses and 'ai_tagline' in existing_team_analyses[team_abbr]:
+            team_analyses[team_abbr]['ai_tagline'] = existing_team_analyses[team_abbr]['ai_tagline']
 
         # Parse ai_analysis JSON string into actual fields
         if 'ai_analysis' in team_data and team_data['ai_analysis']:
@@ -1920,60 +2001,9 @@ def main():
         except Exception as e:
             logger.error(f"Error generating standings cache: {e}... continuing")
 
-        # run game analyses generation (unless --skip-game-ai or --data-only)
-        if not args.skip_game_ai and not args.data_only:
-            logger.info("=> Generating game_analyses.json")
-            try:
-                # Determine regeneration parameters
-                game_ids = None
-                regenerate_type = None
-                force_reanalyze = False
-
-                if args.regenerate_game_ai:
-                    if args.regenerate_game_ai.lower() in ['analysis', 'preview', 'all']:
-                        regenerate_type = args.regenerate_game_ai.lower()
-                        force_reanalyze = True
-                    elif args.regenerate_game_ai.startswith('team:'):
-                        # Extract team abbreviations and get their game IDs
-                        team_abbrs = [t.strip().upper() for t in args.regenerate_game_ai[5:].split(',')]
-                        logger.info(f"Regenerating game AI for teams: {', '.join(team_abbrs)}")
-
-                        # Load schedule to find games involving these teams
-                        schedule_df = pd.read_csv('data/schedule.csv')
-                        team_games = schedule_df[
-                            (schedule_df['away_team'].isin(team_abbrs)) |
-                            (schedule_df['home_team'].isin(team_abbrs))
-                        ]
-                        game_ids = [str(gid) for gid in team_games['espn_id'].tolist()]
-                        logger.info(f"Found {len(game_ids)} games for specified teams")
-                        force_reanalyze = True
-                    else:
-                        # Treat as comma-separated ESPN IDs
-                        game_ids = [gid.strip() for gid in args.regenerate_game_ai.split(',')]
-                        force_reanalyze = True
-
-                with contextlib.redirect_stdout(None):
-                    batch_analyze_games(
-                        force_reanalyze=force_reanalyze,
-                        game_ids=game_ids,
-                        regenerate_type=regenerate_type,
-                        ai_model=args.ai_model
-                    )
-            except Exception as e:
-                logger.error(f"Error generating game analyses: {e}... continuing")
-
-        # Generate dashboard content AFTER game analyses (unless --skip-dashboard-ai or --data-only)
-        if not args.skip_dashboard_ai and not args.data_only:
-            logger.info("=> Generating dashboard_content.json")
-            try:
-                from generate_dashboard import generate_dashboard_content
-                generate_dashboard_content(ai_model=args.ai_model)
-            except Exception as e:
-                logger.error(f"Error generating dashboard content: {e}... continuing")
-        elif args.skip_dashboard_ai:
-            logger.info("Skipping dashboard content generation (--skip-dashboard-ai)")
-        elif args.data_only:
-            logger.info("Skipping dashboard content generation (--data-only)")
+        # NOTE: Game AI and Dashboard AI generation moved to AFTER simulations
+        # so they have access to probability data from the simulations.
+        # See code after generate_cache() call below.
 
     else:
         logger.info("Skipping data files generation")
@@ -2049,6 +2079,7 @@ def main():
         logger.info("Skipping cache generation (--regenerate-game-ai with --skip-sims and --skip-team-ai).")
         success = True  # Set success=True so deploy/commit can proceed
     else:
+        # THIS RUNS SIMULATIONS AND TEAM AI
         success = generate_cache(
             num_simulations=args.simulations,
             skip_sims=args.skip_sims,
@@ -2059,6 +2090,59 @@ def main():
             seed=args.seed,
             ai_model=args.ai_model
         )
+
+    # NOW run game AI and dashboard AI (AFTER simulations, so they have access to probability data)
+    if success and not args.skip_data:
+        # run game analyses generation (unless --skip-game-ai or --data-only)
+        if not args.skip_game_ai and not args.data_only:
+            logger.info("=> Generating game_analyses.json (post-simulations)")
+            try:
+                # Determine regeneration parameters
+                game_ids = None
+                regenerate_type = None
+                force_reanalyze = False
+
+                if args.regenerate_game_ai:
+                    if args.regenerate_game_ai.lower() in ['analysis', 'preview', 'all']:
+                        regenerate_type = args.regenerate_game_ai.lower()
+                        force_reanalyze = True
+                    elif args.regenerate_game_ai.startswith('team:'):
+                        # Extract team abbreviations and get their game IDs
+                        team_abbrs = [t.strip().upper() for t in args.regenerate_game_ai[5:].split(',')]
+                        logger.info(f"Regenerating game AI for teams: {', '.join(team_abbrs)}")
+
+                        # Load schedule to find games involving these teams
+                        schedule_df = pd.read_csv('data/schedule.csv')
+                        team_games = schedule_df[
+                            (schedule_df['away_team'].isin(team_abbrs)) |
+                            (schedule_df['home_team'].isin(team_abbrs))
+                        ]
+                        game_ids = [str(gid) for gid in team_games['espn_id'].tolist()]
+                        logger.info(f"Found {len(game_ids)} games for specified teams")
+                        force_reanalyze = True
+                    else:
+                        # Treat as comma-separated ESPN IDs
+                        game_ids = [gid.strip() for gid in args.regenerate_game_ai.split(',')]
+                        force_reanalyze = True
+
+                with contextlib.redirect_stdout(None):
+                    batch_analyze_games(
+                        force_reanalyze=force_reanalyze,
+                        game_ids=game_ids,
+                        regenerate_type=regenerate_type,
+                        ai_model=args.ai_model
+                    )
+            except Exception as e:
+                logger.error(f"Error generating game analyses: {e}... continuing")
+
+        # Generate dashboard content AFTER game analyses (unless --skip-dashboard-ai or --data-only)
+        if not args.skip_dashboard_ai and not args.data_only:
+            logger.info("=> Generating dashboard_content.json (post-simulations)")
+            try:
+                from generate_dashboard import generate_dashboard_content
+                generate_dashboard_content(ai_model=args.ai_model)
+            except Exception as e:
+                logger.error(f"Error generating dashboard content: {e}... continuing")
 
     # Removed persist directory copying - deployment now handled by --deploy-netlify
 
