@@ -919,6 +919,7 @@ Return ONLY valid JSON with this exact structure:
                 'last_updated': sagarin_cache.get('last_update'),
                 'top_5': power_rankings['top_5'],
                 'bottom_5': power_rankings['bottom_5'],
+                'all_rankings': power_rankings['all_rankings'],
                 'biggest_riser': {
                     **power_rankings['biggest_riser'],
                     'reason': ai_creative['biggest_riser_reason']
