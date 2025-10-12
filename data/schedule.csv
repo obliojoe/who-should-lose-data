@@ -79,16 +79,16 @@ week_num,game_date,weekday,gametime,away_team,home_team,away_score,home_score,aw
 5,2025-10-06,Monday,20:15,KC,JAX,28,31,Andy Reid,Liam Coen,EverBank Stadium,401772814
 6,2025-10-09,Thursday,20:15,PHI,NYG,17,34,Nick Sirianni,Brian Daboll,MetLife Stadium,401772940
 6,2025-10-12,Sunday,09:30,DEN,NYJ,13,11,Sean Payton,Aaron Glenn,Tottenham Hotspur Stadium,401772634
-6,2025-10-12,Sunday,13:00,ARI,IND,,,Jonathan Gannon,Shane Steichen,Lucas Oil Stadium,401772856
-6,2025-10-12,Sunday,13:00,CLE,PIT,,,Kevin Stefanski,Mike Tomlin,Acrisure Stadium,401772748
+6,2025-10-12,Sunday,13:00,ARI,IND,27,31,Jonathan Gannon,Shane Steichen,Lucas Oil Stadium,401772856
+6,2025-10-12,Sunday,13:00,CLE,PIT,9,23,Kevin Stefanski,Mike Tomlin,Acrisure Stadium,401772748
 6,2025-10-12,Sunday,13:00,DAL,CAR,27,30,Brian Schottenheimer,Dave Canales,Bank of America Stadium,401772858
 6,2025-10-12,Sunday,13:00,LAC,MIA,29,27,Jim Harbaugh,Mike McDaniel,Hard Rock Stadium,401772750
 6,2025-10-12,Sunday,13:00,LAR,BAL,17,3,Sean McVay,John Harbaugh,M&T Bank Stadium,401772855
-6,2025-10-12,Sunday,13:00,SEA,JAX,,,Mike Macdonald,Liam Coen,EverBank Stadium,401772857
-6,2025-10-12,Sunday,13:00,SF,TB,,,Kyle Shanahan,Todd Bowles,Raymond James Stadium,401772749
+6,2025-10-12,Sunday,13:00,SEA,JAX,20,12,Mike Macdonald,Liam Coen,EverBank Stadium,401772857
+6,2025-10-12,Sunday,13:00,NE,NO,25,19,Mike Vrabel,Kellen Moore,Caesars Superdome,401772751
 6,2025-10-12,Sunday,16:05,TEN,LV,,,Brian Callahan,Pete Carroll,Allegiant Stadium,401772859
+6,2025-10-12,Sunday,16:25,SF,TB,,,Kyle Shanahan,Todd Bowles,Raymond James Stadium,401772749
 6,2025-10-12,Sunday,16:25,CIN,GB,,,Zac Taylor,Matt LaFleur,Lambeau Field,401772752
-6,2025-10-12,Sunday,16:25,NE,NO,25,19,Mike Vrabel,Kellen Moore,Caesars Superdome,401772751
 6,2025-10-12,Sunday,20:20,DET,KC,,,Dan Campbell,Andy Reid,GEHA Field at Arrowhead Stadium,401772923
 6,2025-10-13,Monday,19:15,BUF,ATL,,,Sean McDermott,Raheem Morris,Mercedes-Benz Stadium,401772815
 6,2025-10-13,Monday,20:15,CHI,WAS,,,Ben Johnson,Dan Quinn,Northwest Stadium,401772717
@@ -224,6 +224,8 @@ week_num,game_date,weekday,gametime,away_team,home_team,away_score,home_score,aw
 15,2025-12-14,Sunday,20:20,MIN,DAL,,,Kevin O'Connell,Brian Schottenheimer,AT&T Stadium,401772933
 15,2025-12-15,Monday,20:15,MIA,PIT,,,Mike McDaniel,Mike Tomlin,Acrisure Stadium,401772823
 16,2025-12-18,Thursday,20:15,LAR,SEA,,,Sean McVay,Mike Macdonald,Lumen Field,401772949
+16,2025-12-20,Saturday,13:00,GB,CHI,,,Matt LaFleur,Ben Johnson,Soldier Field,401772613
+16,2025-12-20,Saturday,13:00,PHI,WAS,,,Nick Sirianni,Dan Quinn,Northwest Stadium,401772612
 16,2025-12-21,Sunday,13:00,BUF,CLE,,,Sean McDermott,Kevin Stefanski,Huntington Bank Field,401772802
 16,2025-12-21,Sunday,13:00,KC,TEN,,,Andy Reid,Brian Callahan,Nissan Stadium,401772803
 16,2025-12-21,Sunday,13:00,LAC,DAL,,,Jim Harbaugh,Brian Schottenheimer,AT&T Stadium,401772910
@@ -235,13 +237,16 @@ week_num,game_date,weekday,gametime,away_team,home_team,away_score,home_score,aw
 16,2025-12-21,Sunday,16:05,JAX,DEN,,,Liam Coen,Sean Payton,Empower Field at Mile High,401772913
 16,2025-12-21,Sunday,16:25,LV,HOU,,,Pete Carroll,DeMeco Ryans,NRG Stadium,401772805
 16,2025-12-21,Sunday,16:25,PIT,DET,,,Mike Tomlin,Dan Campbell,Ford Field,401772806
-16,2025-12-21,Sunday,19:00,GB,CHI,,,Matt LaFleur,Ben Johnson,Soldier Field,401772613
-16,2025-12-21,Sunday,19:00,PHI,WAS,,,Nick Sirianni,Dan Quinn,Northwest Stadium,401772612
 16,2025-12-21,Sunday,20:20,CIN,MIA,,,Zac Taylor,Mike McDaniel,Hard Rock Stadium,401772934
 16,2025-12-22,Monday,20:15,SF,IND,,,Kyle Shanahan,Shane Steichen,Lucas Oil Stadium,401772824
 17,2025-12-25,Thursday,13:00,DAL,WAS,,,Brian Schottenheimer,Dan Quinn,Northwest Stadium,401772710
 17,2025-12-25,Thursday,16:30,DET,MIN,,,Dan Campbell,Kevin O'Connell,U.S. Bank Stadium,401772711
 17,2025-12-25,Thursday,20:15,DEN,KC,,,Sean Payton,Andy Reid,GEHA Field at Arrowhead Stadium,401772622
+17,2025-12-27,Saturday,13:00,ARI,CIN,,,Jonathan Gannon,Zac Taylor,Paycor Stadium,401772954
+17,2025-12-27,Saturday,13:00,BAL,GB,,,John Harbaugh,Matt LaFleur,Lambeau Field,401772953
+17,2025-12-27,Saturday,13:00,HOU,LAC,,,DeMeco Ryans,Jim Harbaugh,SoFi Stadium,401772951
+17,2025-12-27,Saturday,13:00,NYG,LV,,,Brian Daboll,Pete Carroll,Allegiant Stadium,401772950
+17,2025-12-27,Saturday,13:00,SEA,CAR,,,Mike Macdonald,Dave Canales,Bank of America Stadium,401772952
 17,2025-12-28,Sunday,13:00,JAX,IND,,,Liam Coen,Shane Steichen,Lucas Oil Stadium,401772915
 17,2025-12-28,Sunday,13:00,NE,NYJ,,,Mike Vrabel,Aaron Glenn,MetLife Stadium,401772808
 17,2025-12-28,Sunday,13:00,NO,TEN,,,Kellen Moore,Brian Callahan,Nissan Stadium,401772809
@@ -249,25 +254,20 @@ week_num,game_date,weekday,gametime,away_team,home_team,away_score,home_score,aw
 17,2025-12-28,Sunday,13:00,TB,MIA,,,Todd Bowles,Mike McDaniel,Hard Rock Stadium,401772916
 17,2025-12-28,Sunday,16:25,PHI,BUF,,,Nick Sirianni,Sean McDermott,Highmark Stadium,401772917
 17,2025-12-28,Sunday,20:20,CHI,SF,,,Ben Johnson,Kyle Shanahan,Levi's Stadium,401772935
-17,2025-12-29,Monday,19:00,ARI,CIN,,,Jonathan Gannon,Zac Taylor,Paycor Stadium,401772954
-17,2025-12-29,Monday,19:00,BAL,GB,,,John Harbaugh,Matt LaFleur,Lambeau Field,401772953
-17,2025-12-29,Monday,19:00,HOU,LAC,,,DeMeco Ryans,Jim Harbaugh,SoFi Stadium,401772951
-17,2025-12-29,Monday,19:00,NYG,LV,,,Brian Daboll,Pete Carroll,Allegiant Stadium,401772950
-17,2025-12-29,Monday,19:00,SEA,CAR,,,Mike Macdonald,Dave Canales,Bank of America Stadium,401772952
 17,2025-12-29,Monday,20:15,LAR,ATL,,,Sean McVay,Raheem Morris,Mercedes-Benz Stadium,401772825
-18,2026-01-04,Sunday,19:00,ARI,LAR,,,Jonathan Gannon,Sean McVay,SoFi Stadium,401772955
-18,2026-01-04,Sunday,19:00,BAL,PIT,,,John Harbaugh,Mike Tomlin,Acrisure Stadium,401772960
-18,2026-01-04,Sunday,19:00,CAR,TB,,,Dave Canales,Todd Bowles,Raymond James Stadium,401772969
-18,2026-01-04,Sunday,19:00,CLE,CIN,,,Kevin Stefanski,Zac Taylor,Paycor Stadium,401772964
-18,2026-01-04,Sunday,19:00,DAL,NYG,,,Brian Schottenheimer,Brian Daboll,MetLife Stadium,401772963
-18,2026-01-04,Sunday,19:00,DET,CHI,,,Dan Campbell,Ben Johnson,Soldier Field,401772965
-18,2026-01-04,Sunday,19:00,GB,MIN,,,Matt LaFleur,Kevin O'Connell,U.S. Bank Stadium,401772968
-18,2026-01-04,Sunday,19:00,IND,HOU,,,Shane Steichen,DeMeco Ryans,NRG Stadium,401772962
-18,2026-01-04,Sunday,19:00,KC,LV,,,Andy Reid,Pete Carroll,Allegiant Stadium,401772957
-18,2026-01-04,Sunday,19:00,LAC,DEN,,,Jim Harbaugh,Sean Payton,Empower Field at Mile High,401772956
-18,2026-01-04,Sunday,19:00,MIA,NE,,,Mike McDaniel,Mike Vrabel,Gillette Stadium,401772958
-18,2026-01-04,Sunday,19:00,NO,ATL,,,Kellen Moore,Raheem Morris,Mercedes-Benz Stadium,401772966
-18,2026-01-04,Sunday,19:00,NYJ,BUF,,,Aaron Glenn,Sean McDermott,Highmark Stadium,401772967
-18,2026-01-04,Sunday,19:00,SEA,SF,,,Mike Macdonald,Kyle Shanahan,Levi's Stadium,401772961
-18,2026-01-04,Sunday,19:00,TEN,JAX,,,Brian Callahan,Liam Coen,EverBank Stadium,401772970
-18,2026-01-04,Sunday,19:00,WAS,PHI,,,Dan Quinn,Nick Sirianni,Lincoln Financial Field,401772959
+18,2026-01-04,Sunday,13:00,ARI,LAR,,,Jonathan Gannon,Sean McVay,SoFi Stadium,401772955
+18,2026-01-04,Sunday,13:00,BAL,PIT,,,John Harbaugh,Mike Tomlin,Acrisure Stadium,401772960
+18,2026-01-04,Sunday,13:00,CAR,TB,,,Dave Canales,Todd Bowles,Raymond James Stadium,401772969
+18,2026-01-04,Sunday,13:00,CLE,CIN,,,Kevin Stefanski,Zac Taylor,Paycor Stadium,401772964
+18,2026-01-04,Sunday,13:00,DAL,NYG,,,Brian Schottenheimer,Brian Daboll,MetLife Stadium,401772963
+18,2026-01-04,Sunday,13:00,DET,CHI,,,Dan Campbell,Ben Johnson,Soldier Field,401772965
+18,2026-01-04,Sunday,13:00,GB,MIN,,,Matt LaFleur,Kevin O'Connell,U.S. Bank Stadium,401772968
+18,2026-01-04,Sunday,13:00,IND,HOU,,,Shane Steichen,DeMeco Ryans,NRG Stadium,401772962
+18,2026-01-04,Sunday,13:00,KC,LV,,,Andy Reid,Pete Carroll,Allegiant Stadium,401772957
+18,2026-01-04,Sunday,13:00,LAC,DEN,,,Jim Harbaugh,Sean Payton,Empower Field at Mile High,401772956
+18,2026-01-04,Sunday,13:00,MIA,NE,,,Mike McDaniel,Mike Vrabel,Gillette Stadium,401772958
+18,2026-01-04,Sunday,13:00,NO,ATL,,,Kellen Moore,Raheem Morris,Mercedes-Benz Stadium,401772966
+18,2026-01-04,Sunday,13:00,NYJ,BUF,,,Aaron Glenn,Sean McDermott,Highmark Stadium,401772967
+18,2026-01-04,Sunday,13:00,SEA,SF,,,Mike Macdonald,Kyle Shanahan,Levi's Stadium,401772961
+18,2026-01-04,Sunday,13:00,TEN,JAX,,,Brian Callahan,Liam Coen,EverBank Stadium,401772970
+18,2026-01-04,Sunday,13:00,WAS,PHI,,,Dan Quinn,Nick Sirianni,Lincoln Financial Field,401772959
