@@ -668,6 +668,23 @@ def generate_dashboard_content(ai_model=None):
                 'playoff_seed': playoff_seed
             })
 
+        # Get week chaos data
+        week_chaos = analysis_cache.get('week_chaos', {})
+        week_chaos_score = week_chaos.get('score', 0)
+
+        # Build chaos context if week is volatile
+        chaos_context = ""
+        if week_chaos_score >= 65:
+            chaos_context = f"""
+WEEK VOLATILITY ALERT:
+This is an unusually chaotic week (Chaos Index: {week_chaos_score}/100).
+{week_chaos.get('description', '')}
+High-chaos teams: {', '.join([t['team'] for t in week_chaos.get('highest_chaos_teams', [])[:5]])}
+
+You may reference this volatility in your league_pulse.summary if it adds to the narrative,
+but don't force it. Let the drama emerge naturally.
+"""
+
         # Build prompt with comprehensive context
         ai_prompt = f"""You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
 
@@ -705,7 +722,7 @@ UPCOMING GAMES THIS WEEK:
 } for g in upcoming_games], separators=(',', ':'))}
 
 === END LEAGUE CONTEXT ===
-
+{chaos_context}
 IMPORTANT: For the league_pulse.summary field, use markdown formatting (bold for team names, italics for emphasis) to make it more engaging.
 
 Generate:
@@ -828,6 +845,7 @@ Return ONLY valid JSON with this exact structure:
         dashboard_content = {
             'timestamp': datetime.now().isoformat(),
             'week': current_week,
+            'week_chaos': week_chaos,
             'league_pulse': {
                 'summary': ai_creative['league_pulse_summary'],
                 'key_storylines': ai_creative['key_storylines']

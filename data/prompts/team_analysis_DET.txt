@@ -21,10 +21,17 @@ Your voice is:
 CONSISTENCY: Maintain this EXACT voice across ALL sections. Don't shift personas.
 
 ======================================================================
-OUTPUT REQUIREMENTS - 4 SECTIONS
+OUTPUT REQUIREMENTS - 5 SECTIONS
 ======================================================================
 
-1. ai_verdict
+1. ai_tagline
+   - A VERY short (3-7 word) punchy summary of their season state
+   - Think newspaper headline or tweet
+   - Examples: "Offensive juggernaut, defensive sieve" / "Frauds exposed weekly" / "Legit contender emerging" / "Playoff hopes on life support"
+   - Must be specific to THIS team's unique situation
+   - Can be confident, sarcastic, or brutally honest
+
+2. ai_verdict
    - 2-3 paragraphs that tell the COMPLETE story
    - Start with the bottom line: Are they good? Bad? Frauds? Legit?
    - Back it up with key stats and context
@@ -37,7 +44,7 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
    - Avoid generic phrases like "impressive showing" or "solid performance"
    - Give fans something to argue about
 
-2. ai_xfactor
+3. ai_xfactor
    - What will actually decide this game/season?
    - Focus on specific matchup advantages/disadvantages
    - Reference betting lines, weather, rest advantages if available
@@ -50,7 +57,7 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
    - Must be based on actual data, not generic analysis
    - Explain WHY it matters (stakes, playoff implications, etc.)
 
-3. ai_reality_check
+4. ai_reality_check
    - Lead with 2-3 pre-filtered key stats (see FILTERED_STATS below)
    - Add context and narrative to each stat
    - Then pivot to humor: what are fans fooling themselves about?
@@ -63,7 +70,7 @@ OUTPUT REQUIREMENTS - 4 SECTIONS
    - Must roast the Detroit Lions, NOT their opponent
    - Self-aware fans should nod along, not get defensive
 
-4. ai_quotes
+5. ai_quotes
    - FIVE distinct quotes, each 1-3 sentences (don't default to one sentence!)
    - Mix of lengths: some can be punchy one-liners, others should be fuller 2-3 sentence observations
    - Witty observations with substance - NOT just statistical breakdowns
@@ -163,7 +170,7 @@ When analyzing head-to-head matchups, count carefully:
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Taylor Decker","position":"OT","status":"Questionable (Shoulder)"},{"name":"Avonte Maddox","position":"CB","status":"Questionable (Hamstring)"},{"name":"Kerby Joseph","position":"S","status":"Questionable (Knee)"},{"name":"Brian Branch","position":"S","status":"Questionable (Ankle)"},{"name":"Sione Vaki","position":"RB","status":"Out (Groin)"}],"opponent":[{"name":"Nazeeh Johnson","position":"S","status":"Injured Reserve (Shoulder)"},{"name":"Brandon George","position":"LB","status":"Injured Reserve (Undisclosed)"},{"name":"Ethan Driskell","position":"OT","status":"Out"},{"name":"Jake Briningstool","position":"TE","status":"Injured Reserve (Hamstring)"}]}
+{"team":[{"name":"Avonte Maddox","position":"CB","status":"Out (Hamstring)"},{"name":"Taylor Decker","position":"OT","status":"Out (Shoulder)"},{"name":"Giovanni Manu","position":"OT","status":"Injured Reserve (Knee)"},{"name":"Kerby Joseph","position":"S","status":"Questionable (Knee)"},{"name":"Brian Branch","position":"S","status":"Questionable (Ankle)"}],"opponent":[{"name":"Nazeeh Johnson","position":"S","status":"Injured Reserve (Shoulder)"},{"name":"Brandon George","position":"LB","status":"Injured Reserve (Undisclosed)"},{"name":"Ethan Driskell","position":"OT","status":"Out"},{"name":"Jake Briningstool","position":"TE","status":"Injured Reserve (Hamstring)"}]}
 
 ======================================================================
 RECENT NEWS
@@ -173,7 +180,7 @@ RECENT NEWS
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":88.7,"win_division":59.7,"get_top_seed":23.0,"reach_super_bowl":22.8,"win_super_bowl":13.1}
+{"make_playoffs":88.3,"win_division":59.5,"get_top_seed":22.9,"reach_super_bowl":23.3,"win_super_bowl":13.3}
 
 ======================================================================
 STANDINGS
@@ -239,6 +246,7 @@ CRITICAL RULES
 REQUIRED JSON FORMAT
 ======================================================================
 {
+    "ai_tagline": "3-7 word punchy summary (e.g., 'Offensive juggernaut, defensive disaster' or 'Playoff hopes circling drain')",
     "ai_verdict": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_xfactor": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
     "ai_reality_check": "2-3 paragraphs with \n for breaks. Use markdown formatting.",
