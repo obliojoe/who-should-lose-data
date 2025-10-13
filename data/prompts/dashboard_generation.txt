@@ -41,13 +41,15 @@ Generate:
    - description: 2-3 sentences focusing on narrative over numbers. Use stats sparingly and only when essential to the story.
 3. game_of_the_week.tagline - 1-2 sentences about DET @ KC
    NOTE: This game may have already been played. Status: completed
-   - If status is "completed": Write a brief recap highlighting what made it the best game
-   - If status is "upcoming": Explain why it's THE game to watch
+   FINAL SCORE: DET 17 - KC 30
+   - If status is "completed": Write a brief recap highlighting what made it the best game based on the score and result
+   - If status is "upcoming": Explain why it's THE game to watch based on playoff implications, team quality, and matchup
    Use LEAGUE CONTEXT to find team data. Do NOT reference past seasons, Super Bowls, or historical matchups.
 4. game_of_the_meek.tagline - 1-2 sentences about TEN @ LV
    NOTE: This game may have already been played. Status: completed
-   - If status is "completed": Write a humorous recap of why it was forgettable
-   - If status is "upcoming": Explain humorously why it's skippable
+   FINAL SCORE: TEN 10 - LV 20
+   - If status is "completed": Write a humorous recap of why it was forgettable based on the score and result
+   - If status is "upcoming": Explain humorously why it's skippable based on team quality and lack of stakes
 5. stat_leader_contexts - For each of the three stat categories above (OFFENSE STATS, DEFENSE STATS, EFFICIENCY STATS), provide exactly 5 brief context phrases (2-6 words each).
    IMPORTANT: You must provide contexts for ALL THREE categories: offense, defense, AND efficiency.
    Return format: {"offense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "defense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "efficiency": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"]}
