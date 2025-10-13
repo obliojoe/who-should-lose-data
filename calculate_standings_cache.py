@@ -133,10 +133,10 @@ def calculate_current_standings(teams, schedule):
         if total_defeated_games > 0:
             standings[team]['strength_of_victory'] = (total_defeated_wins + 0.5 * total_defeated_ties) / total_defeated_games
 
-    # Convert sets to lists for JSON serialization
+    # Convert sets to sorted lists for JSON serialization (sorted for deterministic output)
     for team in standings:
-        standings[team]['opponents'] = list(standings[team]['opponents'])
-        standings[team]['defeated_opponents'] = list(standings[team]['defeated_opponents'])
+        standings[team]['opponents'] = sorted(list(standings[team]['opponents']))
+        standings[team]['defeated_opponents'] = sorted(list(standings[team]['defeated_opponents']))
 
     # Build formatted standings by division
     divisional = {}
@@ -366,18 +366,38 @@ def main():
     print("Calculating current standings...")
     standings_data = calculate_current_standings(teams, schedule)
 
-    # Add timestamp
-    cache = {
-        'timestamp': datetime.now().isoformat(),
-        'standings': standings_data
-    }
-
-    # Save to cache file (in data/ directory, will be copied to persist/ later)
+    # Load existing cache to check if content changed
     output_path = 'data/standings_cache.json'
-    print(f"Saving to {output_path}...")
+    content_changed = True
 
-    with open(output_path, 'w') as f:
-        json.dump(cache, f, indent=2)
+    if os.path.exists(output_path):
+        try:
+            with open(output_path, 'r') as f:
+                old_cache = json.load(f)
+
+                # Compare standings data (excluding timestamps)
+                if old_cache.get('standings') == standings_data:
+                    content_changed = False
+                    print("Standings content UNCHANGED - skipping file write to avoid unnecessary git changes")
+                else:
+                    print("Standings content CHANGED - updating cache file")
+        except Exception as e:
+            print(f"Could not load existing cache: {e}")
+
+    # Only write file if content changed
+    if content_changed:
+        now = datetime.now().isoformat()
+
+        cache = {
+            'timestamp': now,
+            'standings': standings_data
+        }
+
+        print(f"Saving to {output_path}...")
+        with open(output_path, 'w') as f:
+            json.dump(cache, f, indent=2)
+    else:
+        print(f"Skipping write to {output_path} - no changes detected")
 
     print(f"✓ Standings cache generated successfully")
     print(f"  - Divisional standings: {sum(len(divs) for conf in standings_data['divisional'].values() for divs in conf.values())} teams across 8 divisions")

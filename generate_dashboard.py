@@ -903,13 +903,17 @@ Generate:
    - description: 2-3 sentences focusing on narrative over numbers. Use stats sparingly and only when essential to the story.
 3. game_of_the_week.tagline - 1-2 sentences about {game_of_week['away_team']} @ {game_of_week['home_team']}
    NOTE: This game may have already been played. Status: {game_of_week.get('status', 'upcoming')}
-   - If status is "completed": Write a brief recap highlighting what made it the best game
-   - If status is "upcoming": Explain why it's THE game to watch
+   {f'''FINAL SCORE: {game_of_week['away_team']} {game_of_week.get('away_score')} - {game_of_week['home_team']} {game_of_week.get('home_score')}''' if game_of_week.get('status') == 'completed' else f'''Betting Line: {game_of_week.get('betting_line', 'N/A')} (favoring {game_of_week['home_team'] if game_of_week.get('betting_line', 0) > 0 else game_of_week['away_team']}), Over/Under: {game_of_week.get('over_under', 'N/A')}
+   Records: {game_of_week['away_team']} ({game_of_week.get('away_record', 'N/A')}), {game_of_week['home_team']} ({game_of_week.get('home_record', 'N/A')})'''}
+   - If status is "completed": Write a brief recap highlighting what made it the best game based on the score and result
+   - If status is "upcoming": Explain why it's THE game to watch based on playoff implications, team quality, and matchup
    Use LEAGUE CONTEXT to find team data. Do NOT reference past seasons, Super Bowls, or historical matchups.
 4. game_of_the_meek.tagline - 1-2 sentences about {game_of_meek['away_team']} @ {game_of_meek['home_team']}
    NOTE: This game may have already been played. Status: {game_of_meek.get('status', 'upcoming')}
-   - If status is "completed": Write a humorous recap of why it was forgettable
-   - If status is "upcoming": Explain humorously why it's skippable
+   {f'''FINAL SCORE: {game_of_meek['away_team']} {game_of_meek.get('away_score')} - {game_of_meek['home_team']} {game_of_meek.get('home_score')}''' if game_of_meek.get('status') == 'completed' else f'''Betting Line: {game_of_meek.get('betting_line', 'N/A')}, Over/Under: {game_of_meek.get('over_under', 'N/A')}
+   Records: {game_of_meek['away_team']} ({game_of_meek.get('away_record', 'N/A')}), {game_of_meek['home_team']} ({game_of_meek.get('home_record', 'N/A')})'''}
+   - If status is "completed": Write a humorous recap of why it was forgettable based on the score and result
+   - If status is "upcoming": Explain humorously why it's skippable based on team quality and lack of stakes
 5. stat_leader_contexts - For each of the three stat categories above (OFFENSE STATS, DEFENSE STATS, EFFICIENCY STATS), provide exactly 5 brief context phrases (2-6 words each).
    IMPORTANT: You must provide contexts for ALL THREE categories: offense, defense, AND efficiency.
    Return format: {{"offense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "defense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "efficiency": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"]}}

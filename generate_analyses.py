@@ -369,12 +369,13 @@ Generate a 2-3 paragraph preview of the upcoming game described in the data belo
 Make it engaging and entertaining while maintaining analytical accuracy. Feel free to use some personality and wit in your writing.
 
 IMPORTANT: The game data includes multiple sections:
+- **team_records**: AUTHORITATIVE overall season records (wins-losses-ties) for both teams - USE THIS for team records
 - **team_season_stats**: Comprehensive season statistics for both teams including efficiency metrics (3rd down %, red zone %), advanced stats (EPA, completion %), records (conference, division, road), and more
 - **betting_lines**: Spread, over/under, and money lines
 - **espn_predictor**: Win probability predictions (home_win_prob, away_win_prob, matchup_quality)
 - **leaders**: Top players in key statistical categories
 - **injuries**: Current injury reports
-- **boxscore.teams[].statistics**: Basic per-game averages from ESPN
+- **gameInfo**: Venue, weather conditions
 
 Use the team_season_stats section for detailed statistical analysis - it has the most comprehensive data.
 
@@ -386,7 +387,7 @@ FORMATTING:
 
 Consider this a print-ready final draft, so do not include any pre-text like "Here is my preview of the game..." or follow up questions.
 
-THIS IS THE 2024/2025 NFL SEASON
+THIS IS THE 2025/2026 NFL SEASON
 
 Game Data:
 {game_json}
@@ -624,6 +625,44 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
         team_season_stats = load_team_season_stats(game['away_team'], game['home_team'])
         if team_season_stats:
             game_data['team_season_stats'] = team_season_stats
+
+            # Add explicit team records prominently for AI to see
+            game_data['team_records'] = {
+                game['away_team']: {
+                    'wins': team_season_stats[game['away_team']].get('wins'),
+                    'losses': team_season_stats[game['away_team']].get('losses'),
+                    'ties': team_season_stats[game['away_team']].get('ties'),
+                    'record_display': f"{team_season_stats[game['away_team']].get('wins')}-{team_season_stats[game['away_team']].get('losses')}" +
+                                     (f"-{team_season_stats[game['away_team']].get('ties')}" if team_season_stats[game['away_team']].get('ties', 0) > 0 else "")
+                },
+                game['home_team']: {
+                    'wins': team_season_stats[game['home_team']].get('wins'),
+                    'losses': team_season_stats[game['home_team']].get('losses'),
+                    'ties': team_season_stats[game['home_team']].get('ties'),
+                    'record_display': f"{team_season_stats[game['home_team']].get('wins')}-{team_season_stats[game['home_team']].get('losses')}" +
+                                     (f"-{team_season_stats[game['home_team']].get('ties')}" if team_season_stats[game['home_team']].get('ties', 0) > 0 else "")
+                }
+            }
+
+        # Remove redundant/confusing sections for previews
+        sections_to_remove = [
+            'boxscore',  # Redundant with team_season_stats
+            'lastFiveGames',  # Confusing and incomplete
+            'againstTheSpread',  # Usually empty
+            'wallclockAvailable',  # ESPN metadata
+            'ticketsInfo'  # Not relevant for analysis
+        ]
+        for section in sections_to_remove:
+            game_data.pop(section, None)
+
+        # Remove streak_display from team_season_stats (causes confusion)
+        if 'team_season_stats' in game_data:
+            for team in game_data['team_season_stats']:
+                game_data['team_season_stats'][team].pop('streak_display', None)
+
+        # Keep only one betting source (prefer betting_lines, remove pickcenter duplicate)
+        if 'betting_lines' in game_data and 'pickcenter' in game_data:
+            game_data.pop('pickcenter', None)
 
     # Generate analysis or preview with ESPN context
     # Get AI service info for metadata
