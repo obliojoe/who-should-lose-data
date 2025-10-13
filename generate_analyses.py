@@ -753,7 +753,11 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
         output_file: Path to save analysis JSON
         force_reanalyze: Force regeneration (overrides existing analysis)
         game_ids: List of ESPN game IDs to regenerate (if specified, only these games are processed)
-        regenerate_type: "analysis", "preview", or "all" to filter by analysis type
+        regenerate_type: "analysis", "preview", "all", or "weekly-refresh" to filter by analysis type
+            - "analysis": only regenerate completed games
+            - "preview": only regenerate upcoming games
+            - "all": regenerate everything
+            - "weekly-refresh": refresh all current week's games + all existing previews
     """
     from concurrent.futures import ThreadPoolExecutor, as_completed
     from tqdm import tqdm
@@ -796,6 +800,13 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
                 continue
             elif regenerate_type == 'preview' and not is_upcoming:
                 continue
+            elif regenerate_type == 'weekly-refresh':
+                # Include games from this week OR games that already have a preview
+                in_current_week = game_date >= current_date and game_date <= week_from_now
+                has_existing_preview = game_id in analyses and analyses[game_id].get('analysis_type') == 'preview'
+
+                if not (in_current_week or has_existing_preview):
+                    continue
             # 'all' means process everything (no filter)
 
         games_to_process.append(game)
@@ -845,11 +856,14 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     anthropic_original_level = anthropic_logger.level
     anthropic_logger.setLevel(logging.WARNING)
 
+    # For weekly-refresh, force regeneration of all selected games
+    should_force_reanalyze = force_reanalyze or (regenerate_type == 'weekly-refresh')
+
     executor = ThreadPoolExecutor(max_workers=max_workers)
     try:
         # Submit all game analysis tasks
         future_to_game = {
-            executor.submit(_process_single_game, game, analyses, force_reanalyze, current_date, week_from_now, ai_model): game
+            executor.submit(_process_single_game, game, analyses, should_force_reanalyze, current_date, week_from_now, ai_model): game
             for game in games_to_process
         }
 

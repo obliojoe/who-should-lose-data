@@ -149,8 +149,11 @@ def get_preset_summary(options):
                 parts.append(f"Team AI: {options.get('regenerate_team_ai')}")
 
         if not options.get('skip_game_ai'):
-            if options.get('regenerate_game_ai'):
-                parts.append(f"Game AI: {options.get('regenerate_game_ai')}")
+            game_ai_type = options.get('regenerate_game_ai')
+            if game_ai_type == 'weekly-refresh':
+                parts.append("Game AI: weekly refresh")
+            elif game_ai_type:
+                parts.append(f"Game AI: {game_ai_type}")
             else:
                 parts.append("Game AI: new/updated")
 
@@ -333,6 +336,7 @@ def ask_questions(mode=None):
         "Game AI options:",
         choices=[
             "Generate new/updated (missing + preview→analysis)",
+            "Weekly refresh (this week's games + existing previews)",
             "Skip game AI (use existing)",
             "Regenerate all previews (upcoming games)",
             "Regenerate all analysis (completed games)",
@@ -349,6 +353,8 @@ def ask_questions(mode=None):
         # Generate missing games + convert preview→analysis when games complete
         # This is the default behavior when neither skip nor regenerate is specified
         pass
+    elif "Weekly refresh" in game_choice:
+        options['regenerate_game_ai'] = "weekly-refresh"
     elif "all previews" in game_choice:
         options['regenerate_game_ai'] = "preview"
     elif "all analysis" in game_choice:
