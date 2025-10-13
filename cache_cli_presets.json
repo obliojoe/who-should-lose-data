@@ -62,7 +62,7 @@
     "game_ai_workers": 5,
     "test_mode": false
   },
-  "deploy-dashboard-only": {
+  "regenerate-dashboard-only-and-deploy": {
     "skip_data": false,
     "skip_sims": true,
     "skip_team_ai": true,
@@ -92,6 +92,18 @@
     "commit": false,
     "deploy_netlify": false,
     "copy_to": "/home/obliojoe/source/whoshouldlose2/public/data",
+    "team_ai_workers": 32,
+    "game_ai_workers": 5,
+    "test_mode": false
+  },
+  "regenerate-dashboard-only-no-deploy": {
+    "skip_data": false,
+    "skip_sims": true,
+    "skip_team_ai": true,
+    "skip_game_ai": true,
+    "ai_model": "opus",
+    "commit": true,
+    "deploy_netlify": false,
     "team_ai_workers": 32,
     "game_ai_workers": 5,
     "test_mode": false
