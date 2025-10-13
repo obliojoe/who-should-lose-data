@@ -656,12 +656,14 @@ def generate_dashboard_content(ai_model=None):
                     'ties': team_data['ties']
                 }
 
-        # Build playoff seeds lookup
+        # Build playoff seeds lookup (includes ALL teams 1-16 per conference)
         playoff_seeds = {}
         for conf_name, conf_playoffs in standings_cache['standings']['playoff'].items():
             for team_data in conf_playoffs.get('division_winners', []):
                 playoff_seeds[team_data['team']] = team_data['seed']
             for team_data in conf_playoffs.get('wild_cards', []):
+                playoff_seeds[team_data['team']] = team_data['seed']
+            for team_data in conf_playoffs.get('eliminated', []):
                 playoff_seeds[team_data['team']] = team_data['seed']
 
         # Get current week
@@ -811,7 +813,44 @@ def generate_dashboard_content(ai_model=None):
         logger.info("Generating creative text with AI...")
 
         # Build comprehensive league context for AI
-        # Prepare all teams data sorted by power ranking
+        # Build full standings with conference, division, and playoff info for every team
+        full_standings = []
+
+        # Build lookup maps
+        conference_ranks = {}
+        division_ranks = {}
+
+        # Get conference ranks
+        for conf_name, conf_teams in standings_cache['standings']['conference'].items():
+            for team_data in conf_teams:
+                conference_ranks[team_data['team']] = team_data['rank']
+
+        # Get division ranks from divisional standings
+        for conf_name, divisions in standings_cache['standings']['divisional'].items():
+            for div_name, div_teams in divisions.items():
+                for team_data in div_teams:
+                    division_ranks[team_data['team']] = team_data['rank']
+
+        # Build full standings for all 32 teams
+        for conf_name, divisions in standings_cache['standings']['divisional'].items():
+            for div_name, div_teams in divisions.items():
+                for team_data in div_teams:
+                    team_abbr = team_data['team']
+                    record = f"{team_data['wins']}-{team_data['losses']}"
+                    if team_data['ties'] > 0:
+                        record += f"-{team_data['ties']}"
+
+                    full_standings.append({
+                        'team': team_abbr,
+                        'conference': conf_name,
+                        'division': div_name,
+                        'record': record,
+                        'division_rank': team_data['rank'],
+                        'conference_rank': conference_ranks.get(team_abbr),
+                        'playoff_seed': playoff_seeds.get(team_abbr)
+                    })
+
+        # Prepare all teams data sorted by power ranking (for power rankings context)
         all_teams_context = []
         for idx, row in sagarin_df.iterrows():
             team_abbr = row['team_abbr']
@@ -849,6 +888,17 @@ You may reference this volatility in your league_pulse.summary if it adds to the
 but don't force it. Let the drama emerge naturally.
 """
 
+        # Get completed games from this week
+        completed_games = []
+        for game in all_week_games:
+            if pd.notna(game.get('away_score')) and pd.notna(game.get('home_score')):
+                completed_games.append({
+                    'away': game['away_team'],
+                    'away_score': int(game['away_score']),
+                    'home': game['home_team'],
+                    'home_score': int(game['home_score'])
+                })
+
         # Build prompt with comprehensive context
         ai_prompt = f"""You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
 
@@ -857,13 +907,19 @@ Current Week: {current_week}
 === LEAGUE CONTEXT DATA ===
 Use this data to inform ALL your creative text. This is the source of truth - do not make assumptions beyond what's provided here.
 
-{f'''ALL 32 TEAMS (sorted by power ranking):
+FULL LEAGUE STANDINGS (all 32 teams):
+{json.dumps(full_standings, separators=(',', ':'))}
+
+{f'''COMPLETED GAMES THIS WEEK:
+{json.dumps(completed_games, separators=(',', ':'))}
+
+''' if completed_games else '''NOTE: No games have been completed this week yet.
+
+'''}
+{f'''ALL 32 TEAMS:
 {json.dumps(all_teams_context, separators=(',', ':'))}
 
-''' if include_power_rankings_in_prompt else '''NOTE: Power rankings are not included because games have already been played this week and Sagarin ratings are stale.
-Use records, playoff probabilities, and stats to assess team quality instead.
-
-'''}OFFENSE STATS (5 leaders):
+''' if include_power_rankings_in_prompt else ''}OFFENSE STATS (5 leaders):
 {json.dumps(stat_leaders['offense'], separators=(',', ':'))}
 
 DEFENSE STATS (5 leaders):
