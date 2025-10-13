@@ -25,11 +25,11 @@ OUTPUT REQUIREMENTS - 5 SECTIONS
 ======================================================================
 
 1. ai_tagline
-   - A VERY short (3-7 word) punchy summary of their season state
-   - Think newspaper headline or tweet
+   - A VERY short (3-7 word) punchy summary of their OVERALL season identity
+   - DO NOT reference specific games, opponents, or recent results
+   - Focus on their season-long characteristics and trajectory
    - Examples: "Offensive juggernaut, defensive sieve" / "Frauds exposed weekly" / "Legit contender emerging" / "Playoff hopes on life support"
-   - Must be specific to THIS team's unique situation
-   - Can be confident, sarcastic, or brutally honest
+   - Must capture THIS team's unique season narrative
 
 2. ai_verdict
    - 2-3 paragraphs that tell the COMPLETE story
@@ -152,7 +152,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 NEXT GAME DETAILS (Betting Lines, Weather, etc.)
 ======================================================================
 The following information is about LAR's NEXT scheduled game:
-{"betting":{"favorite":"LAR","spread":2.5,"spread_display":"LAR +2.5","over_under":45.5},"weather":{"is_indoor":false,"temperature":null,"condition":null,"wind_speed":null}}
+{"betting":{"favorite":"LAR","spread":3.5,"spread_display":"LAR +3.5","over_under":45.5},"weather":{"is_indoor":false,"temperature":null,"condition":null,"wind_speed":null}}
 
 ======================================================================
 SCHEDULE
@@ -175,7 +175,7 @@ INJURIES
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Rams' Puka Nacua limited by ankle injury; Week 7 status TBD"},{"headline":"Rams stuff the Lamar Jackson-less Ravens 17-3, dropping Baltimore to 1-5"},{"headline":"Stafford's 4th-and-3 completion sets up Rams TD"}],"opponent":[{"headline":"Seattle Seahawks vs. Jacksonville Jaguars Game Highlights"},{"headline":"Darnold, Smith-Njigba and defense carry Seahawks to 20-12 victory at Jaguars"},{"headline":"Sam Darnold connects with Jaxon Smith-Njigba for 61-yard TD"}]}
+{"team":[{"headline":"Rams' Puka Nacua limited by ankle injury; Week 7 status TBD"},{"headline":"Los Angeles Rams vs. Baltimore Ravens Game Highlights"},{"headline":"Rams stuff the Lamar Jackson-less Ravens 17-3, dropping Baltimore to 1-5"}],"opponent":[{"headline":"Seattle Seahawks vs. Jacksonville Jaguars Game Highlights"},{"headline":"Darnold, Smith-Njigba and defense carry Seahawks to 20-12 victory at Jaguars"},{"headline":"Sam Darnold connects with Jaxon Smith-Njigba for 61-yard TD"}]}
 
 ======================================================================
 PLAYOFF ODDS

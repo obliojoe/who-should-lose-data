@@ -25,11 +25,11 @@ OUTPUT REQUIREMENTS - 5 SECTIONS
 ======================================================================
 
 1. ai_tagline
-   - A VERY short (3-7 word) punchy summary of their season state
-   - Think newspaper headline or tweet
+   - A VERY short (3-7 word) punchy summary of their OVERALL season identity
+   - DO NOT reference specific games, opponents, or recent results
+   - Focus on their season-long characteristics and trajectory
    - Examples: "Offensive juggernaut, defensive sieve" / "Frauds exposed weekly" / "Legit contender emerging" / "Playoff hopes on life support"
-   - Must be specific to THIS team's unique situation
-   - Can be confident, sarcastic, or brutally honest
+   - Must capture THIS team's unique season narrative
 
 2. ai_verdict
    - 2-3 paragraphs that tell the COMPLETE story
@@ -175,7 +175,7 @@ INJURIES
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Packers overcome Flacco's comeback attempt and beat the Bengals 27-18"},{"headline":"Cincinnati Bengals vs. Green Bay Packers Game Highlights"},{"headline":"Ja'Marr Chase makes ridiculous TD catch between defenders for Bengals"}],"opponent":[{"headline":"Cleveland Browns vs. Pittsburgh Steelers Game Highlights"},{"headline":"Aaron Rodgers throws for 2 TDs as Steelers continue home dominance of Browns in 23-9 win"},{"headline":"Steelers' Porter, Highsmith, Ramsey taken off injury report"}]}
+{"team":[{"headline":"Betting recap: The Flacco effect? Bettors back Bengals, get cover vs. Packers"},{"headline":"Packers overcome Flacco's comeback attempt and beat the Bengals 27-18"},{"headline":"Cincinnati Bengals vs. Green Bay Packers Game Highlights"}],"opponent":[{"headline":"Cleveland Browns vs. Pittsburgh Steelers Game Highlights"},{"headline":"Aaron Rodgers throws for 2 TDs as Steelers continue home dominance of Browns in 23-9 win"},{"headline":"Steelers' Porter, Highsmith, Ramsey taken off injury report"}]}
 
 ======================================================================
 PLAYOFF ODDS

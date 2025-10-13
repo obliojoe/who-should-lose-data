@@ -25,11 +25,11 @@ OUTPUT REQUIREMENTS - 5 SECTIONS
 ======================================================================
 
 1. ai_tagline
-   - A VERY short (3-7 word) punchy summary of their season state
-   - Think newspaper headline or tweet
+   - A VERY short (3-7 word) punchy summary of their OVERALL season identity
+   - DO NOT reference specific games, opponents, or recent results
+   - Focus on their season-long characteristics and trajectory
    - Examples: "Offensive juggernaut, defensive sieve" / "Frauds exposed weekly" / "Legit contender emerging" / "Playoff hopes on life support"
-   - Must be specific to THIS team's unique situation
-   - Can be confident, sarcastic, or brutally honest
+   - Must capture THIS team's unique season narrative
 
 2. ai_verdict
    - 2-3 paragraphs that tell the COMPLETE story
@@ -175,7 +175,7 @@ INJURIES
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Cleveland Browns vs. Pittsburgh Steelers Game Highlights"},{"headline":"Aaron Rodgers throws for 2 TDs as Steelers continue home dominance of Browns in 23-9 win"},{"headline":"Steelers' Porter, Highsmith, Ramsey taken off injury report"}],"opponent":[{"headline":"Packers overcome Flacco's comeback attempt and beat the Bengals 27-18"},{"headline":"Cincinnati Bengals vs. Green Bay Packers Game Highlights"},{"headline":"Ja'Marr Chase makes ridiculous TD catch between defenders for Bengals"}]}
+{"team":[{"headline":"Cleveland Browns vs. Pittsburgh Steelers Game Highlights"},{"headline":"Aaron Rodgers throws for 2 TDs as Steelers continue home dominance of Browns in 23-9 win"},{"headline":"Steelers' Porter, Highsmith, Ramsey taken off injury report"}],"opponent":[{"headline":"Betting recap: The Flacco effect? Bettors back Bengals, get cover vs. Packers"},{"headline":"Packers overcome Flacco's comeback attempt and beat the Bengals 27-18"},{"headline":"Cincinnati Bengals vs. Green Bay Packers Game Highlights"}]}
 
 ======================================================================
 PLAYOFF ODDS
@@ -201,32 +201,6 @@ Cincinnati Bengals:
   Defensive Coordinator: Al Golden
 
 ======================================================================
-
-======================================================================
-CHAOS ALERT - HIGH STAKES WEEK
-======================================================================
-This is an unusually volatile week for PIT. Their playoff situation could swing dramatically.
-
-Chaos Score: 64.8/100 (Notable volatility)
-
-Best Case Scenario:
-- Playoff odds: 86.7%
-- Division odds: 82.1%
-
-Worst Case Scenario:
-- Playoff odds: 48.1%
-- Division odds: 35.1%
-
-Potential Swing: 38.6% playoff odds
-
-GUIDANCE: You may reference these high stakes in your analysis, but don't overdo it.
-Let the drama emerge naturally from the stats and context. Consider mentioning:
-- The urgency/importance of this week (if chaos >= 85)
-- What's at stake in upcoming games (if chaos >= 75)
-- The volatility of their situation (if chaos >= 60)
-
-======================================================================
-
 CRITICAL RULES
 ======================================================================
 1. ALL content must be about the Pittsburgh Steelers, NOT their opponent

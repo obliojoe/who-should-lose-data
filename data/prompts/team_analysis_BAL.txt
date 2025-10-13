@@ -25,11 +25,11 @@ OUTPUT REQUIREMENTS - 5 SECTIONS
 ======================================================================
 
 1. ai_tagline
-   - A VERY short (3-7 word) punchy summary of their season state
-   - Think newspaper headline or tweet
+   - A VERY short (3-7 word) punchy summary of their OVERALL season identity
+   - DO NOT reference specific games, opponents, or recent results
+   - Focus on their season-long characteristics and trajectory
    - Examples: "Offensive juggernaut, defensive sieve" / "Frauds exposed weekly" / "Legit contender emerging" / "Playoff hopes on life support"
-   - Must be specific to THIS team's unique situation
-   - Can be confident, sarcastic, or brutally honest
+   - Must capture THIS team's unique season narrative
 
 2. ai_verdict
    - 2-3 paragraphs that tell the COMPLETE story
@@ -175,7 +175,7 @@ INJURIES
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Ravens lose again but hope for Lamar Jackson's return after bye"},{"headline":"Rams stuff the Lamar Jackson-less Ravens 17-3, dropping Baltimore to 1-5"},{"headline":"Ravens rule out QB Lamar Jackson for second straight week"}],"opponent":[{"headline":"Bears to start LT Theo Benedet over Braxton Jones vs. Commanders"},{"headline":"Bills vs Falcons, Bears vs Commanders: How to Watch MNF on ESPN"},{"headline":"Jayden Daniels and Caleb Williams match up again 1 year after Hail Mary decided Bears-Commanders"}]}
+{"team":[{"headline":"Ravens lose again but hope for Lamar Jackson's return after bye"},{"headline":"Los Angeles Rams vs. Baltimore Ravens Game Highlights"},{"headline":"Rams stuff the Lamar Jackson-less Ravens 17-3, dropping Baltimore to 1-5"}],"opponent":[{"headline":"Bears to start LT Theo Benedet over Braxton Jones vs. Commanders"},{"headline":"Bills vs Falcons, Bears vs Commanders: How to Watch MNF on ESPN"},{"headline":"Jayden Daniels and Caleb Williams match up again 1 year after Hail Mary decided Bears-Commanders"}]}
 
 ======================================================================
 PLAYOFF ODDS

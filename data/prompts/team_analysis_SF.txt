@@ -25,11 +25,11 @@ OUTPUT REQUIREMENTS - 5 SECTIONS
 ======================================================================
 
 1. ai_tagline
-   - A VERY short (3-7 word) punchy summary of their season state
-   - Think newspaper headline or tweet
+   - A VERY short (3-7 word) punchy summary of their OVERALL season identity
+   - DO NOT reference specific games, opponents, or recent results
+   - Focus on their season-long characteristics and trajectory
    - Examples: "Offensive juggernaut, defensive sieve" / "Frauds exposed weekly" / "Legit contender emerging" / "Playoff hopes on life support"
-   - Must be specific to THIS team's unique situation
-   - Can be confident, sarcastic, or brutally honest
+   - Must capture THIS team's unique season narrative
 
 2. ai_verdict
    - 2-3 paragraphs that tell the COMPLETE story
@@ -175,7 +175,7 @@ INJURIES
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Baker Mayfield tosses 2 touchdown passes and the Buccaneers beat the 49ers 30-19"},{"headline":"Banged-up 49ers lose top LB Fred Warner to ankle injury"},{"headline":"Week 6 odds: Buccaneers favored over 49ers in matchup of 4-1 teams"}],"opponent":[{"headline":"Falcons rule WR Darnell Mooney (hamstring) out vs. Bills"},{"headline":"How Elijah Wilkinson stabilized Falcons' OL after Kaleb McGary loss"},{"headline":"Bills vs Falcons, Bears vs Commanders: How to Watch MNF on ESPN"}]}
+{"team":[{"headline":"Baker Mayfield tosses 2 touchdown passes and the Buccaneers beat the 49ers 30-19"},{"headline":"49ers lose top LB Fred Warner to season-ending ankle injury"},{"headline":"Week 6 odds: Buccaneers favored over 49ers in matchup of 4-1 teams"}],"opponent":[{"headline":"Falcons rule WR Darnell Mooney (hamstring) out vs. Bills"},{"headline":"How Elijah Wilkinson stabilized Falcons' OL after Kaleb McGary loss"},{"headline":"Bills vs Falcons, Bears vs Commanders: How to Watch MNF on ESPN"}]}
 
 ======================================================================
 PLAYOFF ODDS

@@ -25,11 +25,11 @@ OUTPUT REQUIREMENTS - 5 SECTIONS
 ======================================================================
 
 1. ai_tagline
-   - A VERY short (3-7 word) punchy summary of their season state
-   - Think newspaper headline or tweet
+   - A VERY short (3-7 word) punchy summary of their OVERALL season identity
+   - DO NOT reference specific games, opponents, or recent results
+   - Focus on their season-long characteristics and trajectory
    - Examples: "Offensive juggernaut, defensive sieve" / "Frauds exposed weekly" / "Legit contender emerging" / "Playoff hopes on life support"
-   - Must be specific to THIS team's unique situation
-   - Can be confident, sarcastic, or brutally honest
+   - Must capture THIS team's unique season narrative
 
 2. ai_verdict
    - 2-3 paragraphs that tell the COMPLETE story
@@ -152,7 +152,7 @@ Pre-analyzed advantages and disadvantages for this specific matchup:
 NEXT GAME DETAILS (Betting Lines, Weather, etc.)
 ======================================================================
 The following information is about KC's NEXT scheduled game:
-{"betting":{"favorite":"KC","spread":-10.5,"spread_display":"KC -10.5","over_under":45.5},"weather":{"is_indoor":false,"temperature":58,"condition":"Sunny","wind_speed":10}}
+{"betting":{"favorite":"KC","spread":-10.5,"spread_display":"KC -10.5","over_under":46.5},"weather":{"is_indoor":false,"temperature":58,"condition":"Sunny","wind_speed":10}}
 
 ======================================================================
 SCHEDULE
