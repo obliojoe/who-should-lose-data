@@ -1298,10 +1298,13 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                         'super_bowl_appearance_chance': existing_team.get('super_bowl_appearance_chance', 0),
                         'super_bowl_win_chance': existing_team.get('super_bowl_win_chance', 0),
                         'significant_games': existing_team.get('significant_games', []),
-                        'num_simulations': existing_team.get('num_simulations', num_simulations)
+                        'num_simulations': existing_team.get('num_simulations', num_simulations),
+                        'chaos_score': existing_team.get('chaos_score', 0),
+                        'chaos_details': existing_team.get('chaos_details', {})
                     })
             cache_data['playoff_odds'] = existing_cache.get('playoff_odds', {'AFC': {}, 'NFC': {}})
             cache_data['super_bowl'] = existing_cache.get('super_bowl', {'appearances': {}, 'wins': {}})
+            cache_data['week_chaos'] = existing_cache.get('week_chaos', {})
     except (FileNotFoundError, json.JSONDecodeError):
         logger.info("No existing cache file found or invalid format")
         existing_cache = {}
