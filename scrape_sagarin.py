@@ -42,22 +42,24 @@ def load_team_abbrs():
     return teams
 
 def should_update_cache():
-    """Check if we should update the cache based on last update time"""
+    """Check if we should update the cache based on last scrape time"""
     if not os.path.exists(CACHE_FILE):
         logger.info("No cache file found - will scrape new data")
         return True
-        
+
     try:
         with open(CACHE_FILE, 'r') as f:
             cache_data = json.load(f)
-            last_update = datetime.fromisoformat(cache_data['last_update'])
-            time_since_update = datetime.now() - last_update
-            
-            if time_since_update > timedelta(days=1):
-                logger.info(f"Cache is {time_since_update.total_seconds() / 3600:.1f} hours old - will scrape new data")
+            # Use last_scraped if available, fall back to last_update for backwards compatibility
+            last_scraped_str = cache_data.get('last_scraped', cache_data.get('last_update'))
+            last_scraped = datetime.fromisoformat(last_scraped_str)
+            time_since_scrape = datetime.now() - last_scraped
+
+            if time_since_scrape > timedelta(days=1):
+                logger.info(f"Cache is {time_since_scrape.total_seconds() / 3600:.1f} hours old - will scrape new data")
                 return True
             else:
-                # logger.info(f"Cache is only {time_since_update.total_seconds() / 3600:.1f} hours old - will use cached data")
+                # logger.info(f"Cache is only {time_since_scrape.total_seconds() / 3600:.1f} hours old - will use cached data")
                 return False
     except (json.JSONDecodeError, KeyError, ValueError) as e:
         logger.error(f"Error reading cache file: {str(e)}")
@@ -65,14 +67,15 @@ def should_update_cache():
 
 def save_to_cache(home_advantage, team_ratings):
     """Save the home advantage value, team ratings, and current timestamp to cache"""
-    cache_data = {
-        'home_advantage': home_advantage,
-        'team_ratings': team_ratings,
-        'last_update': datetime.now().isoformat()
-    }
-    with open(CACHE_FILE, 'w') as f:
-        json.dump(cache_data, f)
-    logger.info(f"Saved new home advantage value to cache: {home_advantage}")
+    # Load existing cache to preserve last_content_update if ratings haven't changed
+    existing_last_content_update = None
+    if os.path.exists(CACHE_FILE):
+        try:
+            with open(CACHE_FILE, 'r') as f:
+                old_cache = json.load(f)
+                existing_last_content_update = old_cache.get('last_content_update')
+        except Exception:
+            pass
 
     # Load existing CSV to check if ratings have changed
     ratings_changed = False
@@ -111,6 +114,27 @@ def save_to_cache(home_advantage, team_ratings):
             ratings_changed = True  # Assume changed if we can't read existing
     else:
         ratings_changed = True  # No existing file, so this is new data
+
+    # Determine last_content_update timestamp
+    now = datetime.now().isoformat()
+    if ratings_changed:
+        last_content_update = now
+        logger.info(f"Ratings CHANGED - updating last_content_update to now")
+    else:
+        last_content_update = existing_last_content_update or now
+        logger.info(f"Ratings UNCHANGED - preserving last_content_update: {last_content_update}")
+
+    # Save cache with both timestamps
+    cache_data = {
+        'home_advantage': home_advantage,
+        'team_ratings': team_ratings,
+        'last_scraped': now,
+        'last_content_update': last_content_update,
+        'last_update': now  # Keep for backwards compatibility
+    }
+    with open(CACHE_FILE, 'w') as f:
+        json.dump(cache_data, f)
+    logger.info(f"Saved home advantage value to cache: {home_advantage}")
 
     # Create new dataframe with current ratings
     teams_df = pd.DataFrame(list(team_ratings.items()), columns=['team_abbr', 'rating'])
