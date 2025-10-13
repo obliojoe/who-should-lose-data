@@ -491,8 +491,17 @@ def select_game_of_week_and_meek(upcoming_games, team_records, sagarin_df, analy
         if game['is_divisional']:
             score += 20  # Bonus for divisional games
 
-        if game['is_thursday']:
-            score += 10  # Bonus for primetime
+        # Primetime bonuses - SNF/MNF get more than TNF (network TV vs streaming)
+        primetime_type = game.get('primetime_type')
+        if primetime_type == 'sunday_night':
+            score += 15  # Sunday Night Football (NBC - biggest audience)
+        elif primetime_type == 'monday_night':
+            score += 12  # Monday Night Football (ESPN)
+        elif primetime_type == 'thursday':
+            score += 8   # Thursday Night Football (Amazon Prime)
+
+        if game.get('is_thanksgiving', False):
+            score += 20  # Extra bonus for Thanksgiving games (tradition + family viewing)
 
         # Get records
         away_record_data = team_records.get(away_team, {'wins': 0, 'losses': 0, 'ties': 0})
@@ -536,13 +545,20 @@ def select_game_of_week_and_meek(upcoming_games, team_records, sagarin_df, analy
             'inverse_score': -score  # For finding worst game
         })
 
+    # Log all game scores for debugging
+    logger.info("Game quality scores for this week:")
+    for g in sorted(game_scores, key=lambda x: x['score'], reverse=True):
+        logger.info(f"  {g['away_team']} @ {g['home_team']}: {g['score']:.1f}")
+
     # Best game (highest score)
     game_of_week = max(game_scores, key=lambda x: x['score']).copy()
+    game_of_week['quality_score'] = round(game_of_week['score'], 1)
     del game_of_week['score']
     del game_of_week['inverse_score']
 
     # Worst game (lowest score)
     game_of_meek = min(game_scores, key=lambda x: x['score']).copy()
+    game_of_meek['quality_score'] = round(game_of_meek['score'], 1)
     del game_of_meek['score']
     del game_of_meek['inverse_score']
 
@@ -652,11 +668,54 @@ def generate_dashboard_content(ai_model=None):
         current_week = get_current_week(schedule_df)
         logger.info(f"Current week: {current_week}")
 
-        # Get upcoming games
-        upcoming_games = schedule_df[schedule_df['week_num'] == current_week].to_dict('records')
+        # Get all games from current week (for game of week/meek selection)
+        all_week_games = schedule_df[schedule_df['week_num'] == current_week].to_dict('records')
 
-        # Add flags to games
+        # Get only unplayed games (for "REMAINING GAMES THIS WEEK" section)
+        upcoming_games = schedule_df[
+            (schedule_df['week_num'] == current_week) &
+            (schedule_df['away_score'].isna() | schedule_df['home_score'].isna())
+        ].to_dict('records')
+
+        # Add flags to all week games
         divisions = dict(zip(teams_df['team_abbr'], teams_df['division']))
+        for game in all_week_games:
+            away_div = divisions.get(game['away_team'])
+            home_div = divisions.get(game['home_team'])
+            game['is_divisional'] = (away_div == home_div and away_div is not None)
+
+            try:
+                game_datetime = pd.to_datetime(game['game_date'])
+                game_time = pd.to_datetime(game.get('gametime', '00:00'), format='%H:%M').time() if game.get('gametime') else None
+
+                # Primetime detection: Thursday/Sunday/Monday night games
+                day_of_week = game_datetime.dayofweek
+                game['is_thursday'] = (day_of_week == 3)  # Keep for backward compatibility
+
+                # Primetime breakdown by type
+                if day_of_week == 3:  # Thursday Night Football (Amazon Prime)
+                    game['is_primetime'] = True
+                    game['primetime_type'] = 'thursday'
+                elif day_of_week == 6 and game_time and game_time.hour >= 20:  # Sunday Night Football (NBC)
+                    game['is_primetime'] = True
+                    game['primetime_type'] = 'sunday_night'
+                elif day_of_week == 0 and game_time and game_time.hour >= 19:  # Monday Night Football (ESPN) - can start as early as 7pm ET
+                    game['is_primetime'] = True
+                    game['primetime_type'] = 'monday_night'
+                else:
+                    game['is_primetime'] = False
+                    game['primetime_type'] = None
+
+                # Thanksgiving detection (Thursday in November, specifically around 4th Thursday)
+                game['is_thanksgiving'] = (day_of_week == 3 and game_datetime.month == 11 and 22 <= game_datetime.day <= 28)
+
+            except:
+                game['is_thursday'] = False
+                game['is_primetime'] = False
+                game['primetime_type'] = None
+                game['is_thanksgiving'] = False
+
+        # Add flags to upcoming games as well
         for game in upcoming_games:
             away_div = divisions.get(game['away_team'])
             home_div = divisions.get(game['home_team'])
@@ -664,23 +723,89 @@ def generate_dashboard_content(ai_model=None):
 
             try:
                 game_datetime = pd.to_datetime(game['game_date'])
-                game['is_thursday'] = (game_datetime.dayofweek == 3)
+                game_time = pd.to_datetime(game.get('gametime', '00:00'), format='%H:%M').time() if game.get('gametime') else None
+
+                # Primetime detection: Thursday/Sunday/Monday night games
+                day_of_week = game_datetime.dayofweek
+                game['is_thursday'] = (day_of_week == 3)  # Keep for backward compatibility
+
+                # Primetime breakdown by type
+                if day_of_week == 3:  # Thursday Night Football (Amazon Prime)
+                    game['is_primetime'] = True
+                    game['primetime_type'] = 'thursday'
+                elif day_of_week == 6 and game_time and game_time.hour >= 20:  # Sunday Night Football (NBC)
+                    game['is_primetime'] = True
+                    game['primetime_type'] = 'sunday_night'
+                elif day_of_week == 0 and game_time and game_time.hour >= 19:  # Monday Night Football (ESPN) - can start as early as 7pm ET
+                    game['is_primetime'] = True
+                    game['primetime_type'] = 'monday_night'
+                else:
+                    game['is_primetime'] = False
+                    game['primetime_type'] = None
+
+                # Thanksgiving detection (Thursday in November, specifically around 4th Thursday)
+                game['is_thanksgiving'] = (day_of_week == 3 and game_datetime.month == 11 and 22 <= game_datetime.day <= 28)
+
             except:
                 game['is_thursday'] = False
+                game['is_primetime'] = False
+                game['primetime_type'] = None
+                game['is_thanksgiving'] = False
 
         # CODE-BASED DATA SELECTION
         logger.info("Selecting data using code logic...")
 
         stat_leaders = select_stat_leaders(team_stats_df, sagarin_df)
         individual_highlights = select_individual_highlights(starters_df)
+
+        # Check if any games have been played this week
+        any_games_played = any(
+            pd.notna(g.get('away_score')) and pd.notna(g.get('home_score'))
+            for g in all_week_games
+        )
+
+        # Always generate power rankings data for the dashboard JSON
         power_rankings = select_power_rankings(sagarin_df, team_records, teams_df)
+
+        # But don't include them in the AI prompt context if games have been played (they're stale)
+        include_power_rankings_in_prompt = not any_games_played
+
+        if include_power_rankings_in_prompt:
+            logger.info("No games played yet this week - will include power rankings in AI prompt context")
+        else:
+            logger.info("Games have been played this week - will exclude power rankings from AI prompt context (Sagarin ratings are stale)")
+
         playoff_snapshot = select_playoff_snapshot(analysis_cache, team_records, playoff_seeds)
         game_of_week, game_of_meek = select_game_of_week_and_meek(
-            upcoming_games, team_records, sagarin_df, analysis_cache, game_analyses
+            all_week_games, team_records, sagarin_df, analysis_cache, game_analyses
         )
         thursday_night, sunday_spotlight = select_week_preview(
             upcoming_games, game_of_week['espn_id'], team_records, sagarin_df, analysis_cache
         )
+
+        # Add game scores and analysis to game of week/meek
+        for game_obj in [game_of_week, game_of_meek]:
+            espn_id = game_obj['espn_id']
+            game_analysis = game_analyses.get(espn_id, {})
+
+            # Check if game has been played
+            away_score = game_analysis.get('away_score')
+            home_score = game_analysis.get('home_score')
+
+            if away_score is not None and home_score is not None:
+                # Game has been played
+                game_obj['status'] = 'completed'
+                game_obj['away_score'] = away_score
+                game_obj['home_score'] = home_score
+                game_obj['analysis'] = game_analysis.get('analysis', '')
+                game_obj['analysis_type'] = 'post_game'
+            else:
+                # Game hasn't been played yet
+                game_obj['status'] = 'upcoming'
+                game_obj['away_score'] = None
+                game_obj['home_score'] = None
+                game_obj['analysis'] = game_analysis.get('analysis', '')
+                game_obj['analysis_type'] = 'pre_game'
 
         # AI-BASED CREATIVE TEXT GENERATION
         logger.info("Generating creative text with AI...")
@@ -732,10 +857,13 @@ Current Week: {current_week}
 === LEAGUE CONTEXT DATA ===
 Use this data to inform ALL your creative text. This is the source of truth - do not make assumptions beyond what's provided here.
 
-ALL 32 TEAMS (sorted by power ranking):
+{f'''ALL 32 TEAMS (sorted by power ranking):
 {json.dumps(all_teams_context, separators=(',', ':'))}
 
-OFFENSE STATS (5 leaders):
+''' if include_power_rankings_in_prompt else '''NOTE: Power rankings are not included because games have already been played this week and Sagarin ratings are stale.
+Use records, playoff probabilities, and stats to assess team quality instead.
+
+'''}OFFENSE STATS (5 leaders):
 {json.dumps(stat_leaders['offense'], separators=(',', ':'))}
 
 DEFENSE STATS (5 leaders):
@@ -750,7 +878,7 @@ INDIVIDUAL STAT LEADERS:
 CURRENT PLAYOFF PICTURE:
 {json.dumps(playoff_snapshot, separators=(',', ':'))}
 
-UPCOMING GAMES THIS WEEK:
+REMAINING GAMES THIS WEEK (unplayed only):
 {json.dumps([{
     'away': g['away_team'],
     'home': g['home_team'],
@@ -759,6 +887,9 @@ UPCOMING GAMES THIS WEEK:
     'is_divisional': g['is_divisional'],
     'is_thursday': g['is_thursday']
 } for g in upcoming_games], separators=(',', ':'))}
+
+NOTE: If this list is empty or short, some games this week have already been played.
+The Game of the Week and Game of the Meek are selected from ALL games this week (played or unplayed).
 
 === END LEAGUE CONTEXT ===
 {chaos_context}
@@ -770,9 +901,15 @@ Generate:
 2. league_pulse.key_storylines - Array of 3 storylines, each with:
    - title: Catchy 3-6 word headline
    - description: 2-3 sentences focusing on narrative over numbers. Use stats sparingly and only when essential to the story.
-3. game_of_the_week.tagline - 1-2 sentences why {game_of_week['away_team']} @ {game_of_week['home_team']} is THE game to watch
+3. game_of_the_week.tagline - 1-2 sentences about {game_of_week['away_team']} @ {game_of_week['home_team']}
+   NOTE: This game may have already been played. Status: {game_of_week.get('status', 'upcoming')}
+   - If status is "completed": Write a brief recap highlighting what made it the best game
+   - If status is "upcoming": Explain why it's THE game to watch
    Use LEAGUE CONTEXT to find team data. Do NOT reference past seasons, Super Bowls, or historical matchups.
-4. game_of_the_meek.tagline - 1-2 humorous sentences why {game_of_meek['away_team']} @ {game_of_meek['home_team']} is skippable
+4. game_of_the_meek.tagline - 1-2 sentences about {game_of_meek['away_team']} @ {game_of_meek['home_team']}
+   NOTE: This game may have already been played. Status: {game_of_meek.get('status', 'upcoming')}
+   - If status is "completed": Write a humorous recap of why it was forgettable
+   - If status is "upcoming": Explain humorously why it's skippable
 5. stat_leader_contexts - For each of the three stat categories above (OFFENSE STATS, DEFENSE STATS, EFFICIENCY STATS), provide exactly 5 brief context phrases (2-6 words each).
    IMPORTANT: You must provide contexts for ALL THREE categories: offense, defense, AND efficiency.
    Return format: {{"offense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "defense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "efficiency": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"]}}
@@ -781,7 +918,7 @@ Generate:
    Return format: ["string1", "string2", "string3", "string4", "string5", "string6"]
    IMPORTANT: Focus ONLY on their current season performance and stats. Do NOT make assumptions about career length, years in the league, or draft status.
 
-7. power_rankings reasons - Provide 1-sentence reasons for biggest_riser and biggest_faller (use LEAGUE CONTEXT to find their data):
+7. power_rankings reasons - Provide 1-sentence reasons for biggest_riser and biggest_faller:
    Riser: {power_rankings['biggest_riser']['team'] if power_rankings['biggest_riser'] else 'N/A'}
    Faller: {power_rankings['biggest_faller']['team'] if power_rankings['biggest_faller'] else 'N/A'}
 
@@ -852,6 +989,7 @@ Return ONLY valid JSON with this exact structure:
             'biggest_riser_reason', 'biggest_faller_reason', 'playoff_key_infos',
             'thursday_tagline', 'sunday_taglines'
         ]
+
         missing_fields = [f for f in required_fields if f not in ai_creative]
         if missing_fields:
             logger.error(f"AI response missing required fields: {missing_fields}")
@@ -916,7 +1054,7 @@ Return ONLY valid JSON with this exact structure:
                 for player, ctx in zip(individual_highlights, ai_creative['individual_contexts'])
             ],
             'power_rankings': {
-                'last_updated': sagarin_cache.get('last_update'),
+                'last_updated': sagarin_cache.get('last_content_update', sagarin_cache.get('last_update')),
                 'top_5': power_rankings['top_5'],
                 'bottom_5': power_rankings['bottom_5'],
                 'all_rankings': power_rankings['all_rankings'],
