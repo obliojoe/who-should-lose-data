@@ -9,6 +9,8 @@ with all the right flags based on what you want to accomplish.
 import subprocess
 import sys
 import os
+import json
+import argparse
 
 # Try to import questionary for beautiful prompts
 try:
@@ -31,6 +33,8 @@ try:
 except ImportError:
     USE_QUESTIONARY = False
     print("⚠️  Note: Install 'questionary' for a better experience: pip install questionary\n")
+
+PRESET_FILE = "cache_cli_presets.json"
 
 
 def show_banner():
@@ -96,25 +100,139 @@ def ask_text(question, default=""):
         return response if response else default
 
 
-def ask_questions():
-    """Ask all questions and return command options dict"""
-    options = {}
+def load_presets():
+    """Load presets from JSON file"""
+    if not os.path.exists(PRESET_FILE):
+        return {}
 
-    print("\n🎯 MODE SELECTION")
+    try:
+        with open(PRESET_FILE, 'r') as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"⚠️  Warning: Could not load presets: {e}")
+        return {}
+
+
+def save_presets(presets):
+    """Save presets to JSON file"""
+    try:
+        with open(PRESET_FILE, 'w') as f:
+            json.dump(presets, f, indent=2)
+        return True
+    except Exception as e:
+        print(f"❌ Error saving presets: {e}")
+        return False
+
+
+def save_preset(name, options):
+    """Save a single preset"""
+    presets = load_presets()
+    presets[name] = options
+    return save_presets(presets)
+
+
+def get_preset_summary(options):
+    """Generate a human-readable summary of preset options"""
+    parts = []
+
+    if options.get('deploy_only'):
+        parts.append("Deploy only")
+    else:
+        if not options.get('skip_sims'):
+            sims = options.get('simulations', 10000)
+            parts.append(f"{sims:,} sims")
+
+        if not options.get('skip_team_ai'):
+            if options.get('regenerate_team_ai') == 'all':
+                parts.append("All team AI")
+            elif options.get('regenerate_team_ai'):
+                parts.append(f"Team AI: {options.get('regenerate_team_ai')}")
+
+        if not options.get('skip_game_ai'):
+            if options.get('regenerate_game_ai'):
+                parts.append(f"Game AI: {options.get('regenerate_game_ai')}")
+            else:
+                parts.append("Game AI: new/updated")
+
+        if not options.get('skip_dashboard_ai'):
+            parts.append("Dashboard")
+
+    if options.get('commit'):
+        parts.append("Commit")
+    if options.get('deploy_netlify'):
+        parts.append("Netlify")
+
+    return ", ".join(parts) if parts else "No operations"
+
+
+def select_preset():
+    """Let user select a saved preset"""
+    presets = load_presets()
+
+    if not presets:
+        print("\n⚠️  No saved presets found.")
+        print("You can save presets after completing the interactive flow.\n")
+        return None
+
+    print("\n📋 SAVED PRESETS")
     print("─" * 60)
 
-    mode_choice = ask_choice(
-        "What do you want to do?",
-        choices=[
-            "Generate new files (full pipeline)",
-            "Deploy existing files only (skip all generation)"
-        ],
-        default="Generate new files (full pipeline)"
-    )
+    # Build choices with summaries
+    choices = []
+    for name, options in presets.items():
+        summary = get_preset_summary(options)
+        choices.append(f"{name} ({summary})")
 
-    if "Deploy existing" in mode_choice:
+    choices.append("← Go back")
+
+    selection = ask_choice("Select a preset:", choices=choices)
+
+    if "Go back" in selection:
+        return None
+
+    # Extract preset name from choice (remove summary)
+    preset_name = selection.split(" (")[0]
+    return presets.get(preset_name)
+
+
+def ask_questions(mode=None):
+    """Ask all questions and return command options dict
+
+    Args:
+        mode: If provided, skip mode selection (used when running preset)
+    """
+    options = {}
+
+    if mode is None:
+        print("\n🎯 MODE SELECTION")
+        print("─" * 60)
+
+        mode_choice = ask_choice(
+            "What do you want to do?",
+            choices=[
+                "Generate files (interactive)",
+                "Deploy only (skip generation)",
+                "Run saved preset"
+            ],
+            default="Generate files (interactive)"
+        )
+
+        if "saved preset" in mode_choice:
+            preset_options = select_preset()
+            if preset_options:
+                # Mark as coming from preset
+                preset_options['_from_preset'] = True
+                return preset_options
+            else:
+                # User cancelled or no presets, return to main menu
+                return ask_questions(mode=None)
+
+        mode = "deploy" if "Deploy only" in mode_choice else "generate"
+
+    if mode == "deploy":
         # Deploy-only mode - skip all generation
         options['deploy_only'] = True
+        options['_mode'] = 'deploy'  # Track mode for save
         # Skip to deployment section
         print("\n🚀 DEPLOYMENT")
         print("─" * 60)
@@ -128,6 +246,9 @@ def ask_questions():
                 options['copy_to'] = copy_path
 
         return options
+
+    # Mark as generate mode
+    options['_mode'] = 'generate'
 
     # Continue with normal generation flow
     print("\n📊 DATA FILES")
@@ -486,25 +607,132 @@ def run_command(cmd):
 
 def main():
     """Main entry point"""
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(
+        description='Interactive command builder for generate_cache.py',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python generate_cache_cli.py                    # Interactive mode
+  python generate_cache_cli.py --preset quick-test-sims-no-ai  # Run preset directly
+  python generate_cache_cli.py --list-presets     # List available presets
+        """
+    )
+    parser.add_argument('--preset', type=str, help='Run a saved preset by name (non-interactive)')
+    parser.add_argument('--list-presets', action='store_true', help='List all available presets and exit')
+
+    args = parser.parse_args()
+
     try:
-        show_banner()
-        options = ask_questions()
-        cmd = build_command(options)
-        display_command(cmd)
+        # Handle --list-presets
+        if args.list_presets:
+            presets = load_presets()
+            if not presets:
+                print("No saved presets found.")
+                sys.exit(0)
 
-        # Ask if they want to run it
-        run_now = ask_yes_no("Run this command now?", default=True)
+            print("\n📋 Available Presets")
+            print("─" * 60)
+            for name, options in presets.items():
+                summary = get_preset_summary(options)
+                print(f"  • {name}")
+                print(f"    {summary}")
+                print()
+            sys.exit(0)
 
-        if run_now:
+        # Handle --preset
+        if args.preset:
+            presets = load_presets()
+            if args.preset not in presets:
+                print(f"❌ Error: Preset '{args.preset}' not found.")
+                print(f"\nAvailable presets: {', '.join(presets.keys())}")
+                print(f"Use --list-presets to see details.")
+                sys.exit(1)
+
+            print(f"\n🚀 Running preset: {args.preset}")
+            print("─" * 60)
+            options = presets[args.preset]
+            summary = get_preset_summary(options)
+            print(f"Configuration: {summary}\n")
+
+            cmd = build_command(options)
+            print(f"Command: {cmd}\n")
+
             success = run_command(cmd)
             if success:
                 print("\n✓ All done!")
+                sys.exit(0)
             else:
                 print("\n⚠️  Command did not complete successfully")
                 sys.exit(1)
+
+        # Normal interactive mode
+        show_banner()
+        options = ask_questions()
+
+        # Check if this came from a preset (has no _mode or _from_preset marker)
+        from_preset = options.get('_from_preset', False)
+
+        cmd = build_command(options)
+        display_command(cmd)
+
+        # Offer to save preset BEFORE running (only for interactive mode, not from preset)
+        if not from_preset and options.get('_mode') in ['generate', 'deploy']:
+            print("\n💾 SAVE PRESET")
+            print("─" * 60)
+
+            save_choice = ask_choice(
+                "What do you want to do?",
+                choices=[
+                    "Run now (don't save)",
+                    "Save as preset and run",
+                    "Save as preset and don't run",
+                    "Don't save, don't run"
+                ],
+                default="Run now (don't save)"
+            )
+
+            should_save = "Save as preset" in save_choice
+            should_run = "don't run" not in save_choice
+
+            if should_save:
+                preset_name = ask_text("Enter a name for this preset", default="")
+
+                if preset_name:
+                    # Remove internal tracking fields before saving
+                    save_options = {k: v for k, v in options.items() if not k.startswith('_')}
+
+                    if save_preset(preset_name, save_options):
+                        print(f"✓ Preset '{preset_name}' saved to {PRESET_FILE}")
+                    else:
+                        print(f"⚠️  Failed to save preset")
+                else:
+                    print("⚠️  No preset name provided, skipping save")
+
+            if should_run:
+                success = run_command(cmd)
+                if success:
+                    print("\n✓ All done!")
+                else:
+                    print("\n⚠️  Command did not complete successfully")
+                    sys.exit(1)
+            else:
+                print("\n✓ Command ready to copy!")
+                print("  You can run it manually by copying the command above.")
         else:
-            print("\n✓ Command ready to copy!")
-            print("  You can run it manually by copying the command above.")
+            # Running from preset - just ask if they want to run it
+            run_now = ask_yes_no("Run this command now?", default=True)
+
+            if run_now:
+                success = run_command(cmd)
+                if success:
+                    print("\n✓ All done!")
+                else:
+                    print("\n⚠️  Command did not complete successfully")
+                    sys.exit(1)
+            else:
+                print("\n✓ Command ready to copy!")
+                print("  You can run it manually by copying the command above.")
 
     except KeyboardInterrupt:
         print("\n\n👋 Exiting...")

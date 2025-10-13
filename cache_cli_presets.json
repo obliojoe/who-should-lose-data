@@ -1,0 +1,41 @@
+{
+  "full-production": {
+    "skip_data": false,
+    "skip_sims": false,
+    "simulations": 100000,
+    "regenerate_team_ai": "all",
+    "regenerate_game_ai": "all",
+    "skip_dashboard_ai": false,
+    "ai_model": "opus",
+    "commit": true,
+    "deploy_netlify": true,
+    "test_mode": false,
+    "team_ai_workers": 32,
+    "game_ai_workers": 5
+  },
+  "regenerate-detroit-no-deploy": {
+    "skip_data": false,
+    "skip_sims": true,
+    "regenerate_team_ai": "DET",
+    "regenerate_game_ai": "team:DET",
+    "skip_dashboard_ai": true,
+    "ai_model": "opus",
+    "commit": false,
+    "deploy_netlify": false,
+    "team_ai_workers": 32,
+    "game_ai_workers": 5,
+    "test_mode": false
+  },
+  "quick-test-sims-no-ai": {
+    "skip_data": false,
+    "skip_sims": false,
+    "simulations": 1000,
+    "seed": 12345,
+    "skip_team_ai": true,
+    "skip_game_ai": true,
+    "skip_dashboard_ai": true,
+    "commit": false,
+    "deploy_netlify": false,
+    "test_mode": false
+  }
+}
