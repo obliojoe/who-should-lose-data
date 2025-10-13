@@ -6156,17 +6156,17 @@
     "broadcast": "Streaming"
   },
   "401772634": {
-    "timestamp": "2025-10-11 23:55:01",
+    "timestamp": "2025-10-13 07:53:25",
     "game_date": "2025-10-12",
     "home_team": "NYJ",
     "away_team": "DEN",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 11,
+    "away_score": 13,
     "stadium": "Tottenham Hotspur Stadium",
     "home_coach": "Aaron Glenn",
     "away_coach": "Sean Payton",
-    "analysis_type": "preview",
-    "analysis": "**London Calling: Broncos Seek to Ground Winless Jets in International Showdown**\n\nThe **Denver Broncos** head to London looking to avoid a classic NFL trap game against the desperate **New York Jets**, a team still searching for their first victory of the season. After an emotional comeback win against the previously unbeaten Eagles, the Broncos must resist the urge to look past an 0-5 opponent hungry for redemption. **Bo Nix** and the Broncos' offense will face a Jets defense that has made dubious history by becoming the first NFL team since 1933 to record zero takeaways through five games.\n\n**Quarterback Bo Nix** has been impressive in his rookie campaign, throwing for 1,103 yards and 8 touchdowns, but also sporting 4 interceptions. He'll be targeting **Courtland Sutton**, who leads the team with 365 receiving yards, against a Jets secondary that's been vulnerable. The Broncos' defensive star **Nik Bonitto** leads the league with 7 sacks and will be looking to pressure **Justin Fields**, who has been trying to jumpstart the Jets' struggling offense. Despite the Jets' winless record, the Broncos are taking nothing for granted - **Sean Payton** has preached consistency and focus, knowing any NFL game can turn on a few critical plays.\n\nThe international stage adds another layer of intrigue to this matchup. While the **Broncos** are favored by 6.5 points and boast a more impressive 3-2 record, the **Jets** have shown flashes of potential, narrowly missing victories in several games. **Breece Hall's** dynamic rushing and **Garrett Wilson's** big-play ability mean the Broncos can't afford to sleepwalk through this contest. Look for Denver to try and establish an early lead and silence the London crowd, while the Jets will be desperate to prove they're closer to breaking through than their record suggests. This game could be more competitive than the odds suggest, with the Broncos likely grinding out a hard-fought victory in a potentially unpredictable international affair.",
+    "analysis_type": "post_game",
+    "analysis": "# London Sack Attack: Broncos Survive Ugly 13-11 Win Over Jets\n\nIn a defensive slugfest that felt more like a rugby match than NFL football, the **Denver Broncos** escaped London with a 13-11 victory over the winless **New York Jets**, courtesy of nine quarterback sacks and Nick Folk's futile field goal attempts.\n\n**Bo Nix** led a sputtering Broncos offense, completing 19 of 30 passes for 174 yards and a touchdown, while the Denver defense absolutely terrorized **Justin Fields**, who looked like he was being chased by hungry wolves all afternoon. The Jets managed an embarrassing **-10 net passing yards** - the fewest in franchise history and the fewest in any NFL game since Ryan Leaf's infamous 1998 performance.\n\n## Key Statistics\n\n- **Sacks**: Denver 9, New York 1\n- **Total Yards**: Denver 246, New York 82\n- **Field Goals**: Nick Folk (NYJ) 3/3, Wil Lutz (DEN) 2/2\n\nThe game's most remarkable stat might be the Jets' offensive ineptitude. They finished with just 82 total yards, with Fields completing a measly 9 of 17 passes for 45 yards. The Broncos' defensive performance was so dominant that **Patrick Surtain II** admitted to basically watching his teammates hunt down Fields like a pack of predators.\n\nThe game was decided by a late **Wil Lutz** 27-yard field goal, capping a 12-play, 65-yard drive that gave Denver a 13-11 lead. A final Jets drive ended with Fields being sacked on fourth down, sealing the Broncos' victory and leaving the Jets winless at 0-6.\n\n**Betting Note**: Denver was a 6.5-point favorite and barely covered, winning by just two points in a game that was more defensive struggle than offensive showcase.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6178,26 +6178,76 @@
     "weather": {
       "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 28.618,
-      "matchup_quality": 43.91,
-      "predicted_point_diff": -8.126,
-      "away_win_prob": 71.152
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "19/30, 174 YDS, 1 TD",
+          "value": 174.0,
+          "player": "Bo Nix",
+          "jersey": "10",
+          "position": "QB",
+          "team": "DEN"
+        },
+        {
+          "displayValue": "9/17, 45 YDS",
+          "value": 45.0,
+          "player": "Justin Fields",
+          "jersey": "7",
+          "position": "QB",
+          "team": "NYJ"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "22 CAR, 59 YDS",
+          "value": 59.0,
+          "player": "Breece Hall",
+          "jersey": "20",
+          "position": "RB",
+          "team": "NYJ"
+        },
+        {
+          "displayValue": "14 CAR, 40 YDS",
+          "value": 40.0,
+          "player": "J.K. Dobbins",
+          "jersey": "27",
+          "position": "RB",
+          "team": "DEN"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "5 REC, 42 YDS",
+          "value": 42.0,
+          "player": "Evan Engram",
+          "jersey": "1",
+          "position": "TE",
+          "team": "DEN"
+        },
+        {
+          "displayValue": "2 REC, 30 YDS",
+          "value": 30.0,
+          "player": "Marvin Mims Jr.",
+          "jersey": "19",
+          "position": "WR",
+          "team": "DEN"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772856": {
-    "timestamp": "2025-10-12 14:09:57",
+    "timestamp": "2025-10-13 07:53:22",
     "game_date": "2025-10-12",
     "home_team": "IND",
     "away_team": "ARI",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 31,
+    "away_score": 27,
     "stadium": "Lucas Oil Stadium",
     "home_coach": "Shane Steichen",
     "away_coach": "Jonathan Gannon",
-    "analysis_type": "preview",
-    "analysis": "**Quarterback Controversy Brewing in the Desert: Brissett Battles Colts in Thrilling Matchup**\n\nIn a rollercoaster game that defied early expectations, the **Arizona Cardinals** and **Indianapolis Colts** delivered a nail-biting contest that showcased the unpredictable nature of NFL football. With **Jacoby Brissett** stepping in for an injured quarterback room, the Cardinals showed remarkable resilience against a favored Colts squad, ultimately falling just short in a game that could have significant playoff implications.\n\nThe key storylines centered on the **quarterback performances**, with Brissett turning in a gutsy performance against his former team. Despite losing star rookie **Marvin Harrison Jr.** to a concussion early, Brissett completed 27 of 44 passes for 320 yards and two touchdowns, keeping the Cardinals competitive throughout. On the other side, **Daniel Jones** matched him punch for punch, throwing for 212 yards and two touchdowns while also contributing crucial rushing yards. The game's momentum swung multiple times, with both teams trading blows and refusing to surrender - a testament to the competitive spirit of two hungry teams looking to prove themselves.\n\n**Key Factors and Predictions**:\n- **Injury Impact**: The Cardinals lost Harrison Jr., while the Colts were without Anthony Richardson, creating unexpected quarterback dynamics\n- **Ground Game Dominance**: **Jonathan Taylor** powered the Colts' rushing attack with 123 yards and a touchdown\n- **Special Teams Battle**: Multiple explosive kick returns and precise field goal kicking kept the game tight\n- **Defensive Highlights**: Standout performances from players like **Kwity Paye** (2 sacks) and **Mack Wilson Sr.** (9 total tackles) provided defensive fireworks\n\nWhile the Colts were heavy favorites, this game demonstrated why the NFL remains gloriously unpredictable. The Cardinals might have lost, but they proved they're far from a pushover - and with Brissett's performance, they've given themselves something to build upon in the weeks ahead.",
+    "analysis_type": "post_game",
+    "analysis": "# Colts Rally Past Cardinals in Thrilling 31-27 Victory\n\nIn a back-and-forth battle at Lucas Oil Stadium, the **Indianapolis Colts** mounted a late comeback to defeat the **Arizona Cardinals** 31-27, improving their record to 5-1. **Daniel Jones** and **Jonathan Taylor** led the charge, turning a potential loss into a dramatic home victory that showcased the Colts' emerging offensive firepower.\n\nThe game was a rollercoaster of momentum, with both teams trading touchdowns and field goals in the second half. **Taylor's** decisive 1-yard touchdown run with 4:32 remaining proved to be the game-winning score, capping off a performance where he rushed for 123 yards on 21 carries. **Jones** complemented Taylor's ground game by throwing for 212 yards and two touchdowns, including a crucial 5-yard scoring strike to **Josh Downs** that tied the game in the fourth quarter.\n\n## Key Statistics\n\n- **Jonathan Taylor**: 123 rushing yards, 1 touchdown\n- **Daniel Jones**: 22/30, 212 yards, 2 touchdowns, 1 interception\n- **Jacoby Brissett** (Cardinals): 27/44, 320 yards, 2 touchdowns, 1 interception\n- **Trey McBride**: 8 receptions, 72 yards, 1 touchdown\n\nThe Colts continue their impressive home winning streak, now at six consecutive victories, while the Cardinals drop to 2-4 and have lost four straight games. With this win, Indianapolis solidifies its status as a surprising contender in the AFC.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6209,26 +6259,76 @@
     "weather": {
       "is_indoor": true
     },
-    "predictor": {
-      "home_win_prob": 73.093,
-      "matchup_quality": 56.144,
-      "predicted_point_diff": 9.263,
-      "away_win_prob": 26.693
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "27/44, 320 YDS, 2 TD, 1 INT",
+          "value": 320.0,
+          "player": "Jacoby Brissett",
+          "jersey": "7",
+          "position": "QB",
+          "team": "ARI"
+        },
+        {
+          "displayValue": "22/30, 212 YDS, 2 TD, 1 INT",
+          "value": 212.0,
+          "player": "Daniel Jones",
+          "jersey": "17",
+          "position": "QB",
+          "team": "IND"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "21 CAR, 123 YDS, 1 TD",
+          "value": 123.0,
+          "player": "Jonathan Taylor",
+          "jersey": "28",
+          "position": "RB",
+          "team": "IND"
+        },
+        {
+          "displayValue": "11 CAR, 34 YDS, 1 TD",
+          "value": 34.0,
+          "player": "Bam Knight",
+          "jersey": "20",
+          "position": "RB",
+          "team": "ARI"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "5 REC, 79 YDS",
+          "value": 79.0,
+          "player": "Zay Jones",
+          "jersey": "17",
+          "position": "WR",
+          "team": "ARI"
+        },
+        {
+          "displayValue": "8 REC, 72 YDS, 1 TD",
+          "value": 72.0,
+          "player": "Trey McBride",
+          "jersey": "85",
+          "position": "TE",
+          "team": "ARI"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772748": {
-    "timestamp": "2025-10-12 14:09:55",
+    "timestamp": "2025-10-13 07:53:23",
     "game_date": "2025-10-12",
     "home_team": "PIT",
     "away_team": "CLE",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 23,
+    "away_score": 9,
     "stadium": "Acrisure Stadium",
     "home_coach": "Mike Tomlin",
     "away_coach": "Kevin Stefanski",
-    "analysis_type": "preview",
-    "analysis": "The Battle of Ohio Turns Ugly: Steelers Dominate Browns in Steel City Showdown\n\nIn a game that was more demolition than football, the **Pittsburgh Steelers** reminded everyone why they're considered a formidable force, dismantling the **Cleveland Browns** with surgical precision and defensive tenacity. **Aaron Rodgers** looked vintage, carving up the Browns' defense with the calm of a surgeon and the swagger of a future Hall of Famer.\n\nThe storylines were rich and revealing. **Rodgers**, in what feels like a renaissance season, connected on 21 of 30 passes for 235 yards and two touchdowns, including a beautiful 25-yard strike to **DK Metcalf** that essentially sealed Cleveland's fate. Meanwhile, the Browns' quarterback **Dillon Gabriel** struggled mightily, getting sacked repeatedly and never finding any rhythm against Pittsburgh's relentless pass rush. The Steelers' defensive front, led by **Jalen Ramsey's** two sacks and **T.J. Watt's** disruptive presence, turned Gabriel's afternoon into a nightmare.\n\nKey injuries and strategic decisions played a massive role. The Browns were without several key players, including running back **Raheim Sanders**, which further handicapped their already struggling offense. Pittsburgh, despite some minor injury concerns like **Darius Slay** being questionable, looked healthy and motivated. **Chris Boswell's** field goal precision and the emergence of young playmakers like **Connor Heyward** and **Roman Wilson** suggest this Steelers team might be more than just a one-dimensional squad. The game's flow suggested a team on the rise facing a team still searching for its identity, with Pittsburgh looking every bit the more complete, confident squad.",
+    "analysis_type": "post_game",
+    "analysis": "# Steelers Dominate Browns 23-9 in AFC North Slugfest\n\nIn a classic AFC North battle at Acrisure Stadium, the **Pittsburgh Steelers** continued their home dominance over the Cleveland Browns, securing a convincing 23-9 victory. **Aaron Rodgers** looked vintage, throwing for 235 yards and two touchdowns while remaining untouched by the Browns' pass rush, extending Pittsburgh's regular-season home winning streak against Cleveland to an astounding 22 games.\n\nThe Steelers' defense was particularly impressive, harassing rookie quarterback **Dillon Gabriel** with six sacks and numerous pressures. **Chris Boswell** was surgical with his field goal attempts, connecting on three of four kicks, while **DK Metcalf** and **Connor Heyward** each hauled in touchdown receptions that broke the Browns' spirit. Cleveland managed only field goals, continuing a troubling trend of struggling to reach the end zone.\n\n## Key Statistics\n\n- **Aaron Rodgers**: 21/30, 235 yards, 2 TD\n- **DK Metcalf**: 4 receptions, 95 yards, 1 TD\n- **Dillon Gabriel**: 29/52, 221 yards, 6 sacks taken\n- **Steelers Defensive Sacks**: 6 total\n- **Field Goals**: Steelers 3/4, Browns 3/3\n\nThe victory positions the Steelers as a serious contender in the wide-open AFC, while the Browns continue to search for offensive consistency. Mike Tomlin's team looks increasingly dangerous as they integrate Rodgers and continue to develop their defensive identity.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6238,31 +6338,78 @@
       "favorite": "PIT"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 67,
-      "condition": "7",
-      "wind_speed": 4
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 63.187000000000005,
-      "matchup_quality": 38.466,
-      "predicted_point_diff": 5.416,
-      "away_win_prob": 36.52
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "21/30, 235 YDS, 2 TD",
+          "value": 235.0,
+          "player": "Aaron Rodgers",
+          "jersey": "8",
+          "position": "QB",
+          "team": "PIT"
+        },
+        {
+          "displayValue": "29/52, 221 YDS",
+          "value": 221.0,
+          "player": "Dillon Gabriel",
+          "jersey": "8",
+          "position": "QB",
+          "team": "CLE"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "11 CAR, 52 YDS",
+          "value": 52.0,
+          "player": "Jaylen Warren",
+          "jersey": "30",
+          "position": "RB",
+          "team": "PIT"
+        },
+        {
+          "displayValue": "12 CAR, 36 YDS",
+          "value": 36.0,
+          "player": "Quinshon Judkins",
+          "jersey": "10",
+          "position": "RB",
+          "team": "CLE"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "4 REC, 95 YDS, 1 TD",
+          "value": 95.0,
+          "player": "DK Metcalf",
+          "jersey": "4",
+          "position": "WR",
+          "team": "PIT"
+        },
+        {
+          "displayValue": "7 REC, 81 YDS",
+          "value": 81.0,
+          "player": "Harold Fannin Jr.",
+          "jersey": "44",
+          "position": "TE",
+          "team": "CLE"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772858": {
-    "timestamp": "2025-10-12 10:56:20",
+    "timestamp": "2025-10-13 07:53:26",
     "game_date": "2025-10-12",
     "home_team": "CAR",
     "away_team": "DAL",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 30,
+    "away_score": 27,
     "stadium": "Bank of America Stadium",
     "home_coach": "Dave Canales",
     "away_coach": "Brian Schottenheimer",
-    "analysis_type": "preview",
-    "analysis": "**Cowboys Aim to Bounce Back Against Motivated Panthers in Charlotte**\n\nThe **Dallas Cowboys** roll into **Bank of America Stadium** looking to rebound from an inconsistent start, while the **Carolina Panthers** are riding momentum from a stunning comeback victory against Miami. This matchup features an intriguing subplot: former Cowboys running back **Rico Dowdle** eager to prove himself against his old team after a breakout 206-yard performance last week.\n\nThe Cowboys enter with offensive firepower but defensive vulnerabilities, ranking 32nd in total defense and allowing 30.8 points per game. **Dak Prescott** continues to be stellar, throwing for 1,356 yards and 10 touchdowns, but will be without star receiver **CeeDee Lamb**, who's nursing a high ankle sprain. The Panthers' defense, meanwhile, is looking to build on last week's three-sack performance and disrupt Prescott's rhythm. Carolina's **Bryce Young** will be searching for consistency after showing flashes of potential, with rookie wide receiver **Xavier Legette** potentially emerging as a key playmaking threat.\n\nKey factors that could swing this game include **Dowdle's potential revenge narrative**, the Cowboys' road struggles (1-2 record away from home), and Carolina's home-field advantage where they're undefeated. Expect a physical, competitive contest with **Dallas** likely grinding out a close victory, but the Panthers have enough firepower to keep things interesting. **Cowboys quarterback Dak Prescott** and **Panthers rookie QB Bryce Young** will be the players to watch in what promises to be an unpredictable NFC battle.",
+    "analysis_type": "post_game",
+    "analysis": "# Panthers Shock Cowboys with Last-Second Field Goal: A Wild Rollercoaster of a Game\n\nThe Carolina Panthers defeated the Dallas Cowboys 30-27 in a thrilling, back-and-forth contest that came down to a **Ryan Fitzgerald** field goal as time expired. The game was a testament to drama, revenge, and unexpected heroics, particularly from **Rico Dowdle**, who torched his former team with a stunning performance.\n\n**Dowdle's Revenge Tour** was the headline of the day. The running back, who spent five years with the Cowboys, absolutely dominated his former team, racking up **239 total yards** - including 183 rushing yards on 30 carries and 56 receiving yards. His performance not only set a Panthers franchise record but also made good on his pre-game warning to his former teammates to \"buckle up.\" **Bryce Young** complemented Dowdle's effort, throwing for 199 yards and three touchdowns, with rookie **Tetairoa McMillan** catching two of those scores.\n\n## Key Statistics and Moments\n\n- **George Pickens** had a career day for Dallas with **9 receptions for 168 yards**, but it wasn't enough to overcome the Panthers' ground assault.\n- **Dak Prescott** threw for 261 yards and 3 touchdowns, but the Cowboys were thoroughly outmuscled on the ground, getting outgained 216-31.\n- The Panthers went **3-0 at home** this season, with Dowdle's performance being the primary catalyst.\n\n### Surprising Stats\n- **Rico Dowdle's 239 yards from scrimmage** broke Christian McCaffrey's franchise record\n- The Cowboys were **16-point favorites** coming into the game, making this upset even more remarkable\n- Carolina converted a crucial **4th-and-4 play** in the final drive, setting up the game-winning field goal\n\nThe victory showcases the Panthers' emerging resilience and **Bryce Young's** growing confidence, while raising serious questions about the Cowboys' defensive capabilities and consistency.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6272,31 +6419,78 @@
       "favorite": "DAL"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 67,
-      "condition": "Showers",
-      "wind_speed": 14
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 38.114,
-      "matchup_quality": 44.316,
-      "predicted_point_diff": -4.069,
-      "away_win_prob": 61.58
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "25/34, 261 YDS, 3 TD",
+          "value": 261.0,
+          "player": "Dak Prescott",
+          "jersey": "4",
+          "position": "QB",
+          "team": "DAL"
+        },
+        {
+          "displayValue": "17/25, 199 YDS, 3 TD, 1 INT",
+          "value": 199.0,
+          "player": "Bryce Young",
+          "jersey": "9",
+          "position": "QB",
+          "team": "CAR"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "30 CAR, 183 YDS",
+          "value": 183.0,
+          "player": "Rico Dowdle",
+          "jersey": "5",
+          "position": "RB",
+          "team": "CAR"
+        },
+        {
+          "displayValue": "13 CAR, 29 YDS",
+          "value": 29.0,
+          "player": "Javonte Williams",
+          "jersey": "33",
+          "position": "RB",
+          "team": "DAL"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "9 REC, 168 YDS, 1 TD",
+          "value": 168.0,
+          "player": "George Pickens",
+          "jersey": "3",
+          "position": "WR",
+          "team": "DAL"
+        },
+        {
+          "displayValue": "4 REC, 56 YDS, 1 TD",
+          "value": 56.0,
+          "player": "Rico Dowdle",
+          "jersey": "5",
+          "position": "RB",
+          "team": "CAR"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772750": {
-    "timestamp": "2025-10-12 10:56:21",
+    "timestamp": "2025-10-13 07:53:25",
     "game_date": "2025-10-12",
     "home_team": "MIA",
     "away_team": "LAC",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 27,
+    "away_score": 29,
     "stadium": "Hard Rock Stadium",
     "home_coach": "Mike McDaniel",
     "away_coach": "Jim Harbaugh",
-    "analysis_type": "preview",
-    "analysis": "In the latest chapter of the 2020 quarterback draft class saga, **Tua Tagovailoa** and **Justin Herbert** renew their long-standing quarterback rivalry as the **Los Angeles Chargers** visit the **Miami Dolphins** in a matchup that feels more like a must-win than a mid-season contest. Both teams enter Hard Rock Stadium nursing wounds from disappointing Week 5 losses and desperate to right their respective ships.\n\nThe storylines are rich with subplot: Herbert's offensive line has been Swiss cheese in recent weeks, allowing 4 sacks last week against Washington and creating persistent pressure that could spell trouble against Miami's pass rush. Meanwhile, the Dolphins are reeling from the season-ending injury to **Tyreek Hill**, a massive blow to an offense that was showing promise before sputtering in the second half of their loss to Carolina. **Tua Tagovailoa** will need to prove he can consistently move the chains without his most explosive playmaker, while **De'Von Achane** and **Jaylen Waddle** will be critical in maintaining offensive momentum.\n\nStatistical trends suggest this could be a tight, defensive-minded affair. The Chargers boast a sturdy 47% third-down conversion rate and have been solid defensively, while the Dolphins are struggling with consistency, allowing 29 points per game. Herbert's arm and **Quentin Johnston's** emerging receiving threat could be the difference, especially with Miami's secondary vulnerable. Expect a chess match between two talented young quarterbacks, with the Chargers' superior recent form and road resilience potentially giving them a slight edge in what promises to be a closely contested matchup.",
+    "analysis_type": "post_game",
+    "analysis": "# Chargers Survive Thriller, Defeat Dolphins 29-27 in Last-Second Field Goal\n\nIn a heart-stopping finale that will be remembered for years, the **Los Angeles Chargers** squeaked out a 29-27 victory over the **Miami Dolphins** with a last-second field goal by **Cameron Dicker**. The game was a rollercoaster of momentum shifts, punctuated by **Justin Herbert's** heroic fourth-quarter performance and a stunning escape from pressure that set up the game-winning kick.\n\nAfter the Dolphins took a 27-26 lead with just 46 seconds remaining on a **Darren Waller** touchdown, Herbert orchestrated a breathtaking final drive. On a critical second-and-10, he evaded **Jaelan Phillips'** grasp, found **Ladd McConkey** for a 42-yard gain that broke Miami's spirit, and set up Dicker's 33-yard field goal with 5 seconds left. **Jim Harbaugh** called it a play he'll remember \"until they throw dirt over top of me.\"\n\n## Key Statistics\n\n- **Justin Herbert**: 29/38, 264 yards, 2 TDs\n- **Kimani Vidal**: 18 carries, 124 yards, 1 TD\n- **Ladd McConkey**: 7 receptions, 100 yards, 1 TD\n- **De'Von Achane**: 16 carries, 128 yards, 2 TDs\n- **Tua Tagovailoa**: 21/32, 205 yards, 1 TD, 3 INTs\n\nThe game was defined by **Tua Tagovailoa's** three critical interceptions, including a pivotal one in the third quarter that led directly to a Chargers touchdown. The Dolphins' quarterback looked visibly frustrated post-game, acknowledging his team's continued struggles with finishing close contests.\n\nFor the Chargers, this win improves their record to 4-2 and provides a much-needed boost after a two-game losing streak. For the Dolphins, the loss drops them to a dismal 1-5, raising serious questions about the team's direction and **Mike McDaniel's** coaching future.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6306,65 +6500,159 @@
       "favorite": "LAC"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 84,
-      "condition": "Mostly sunny",
-      "wind_speed": 7
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 38.778,
-      "matchup_quality": 46.981,
-      "predicted_point_diff": -4.023,
-      "away_win_prob": 60.911
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "29/38, 264 YDS, 2 TD",
+          "value": 264.0,
+          "player": "Justin Herbert",
+          "jersey": "10",
+          "position": "QB",
+          "team": "LAC"
+        },
+        {
+          "displayValue": "21/32, 205 YDS, 1 TD, 3 INT",
+          "value": 205.0,
+          "player": "Tua Tagovailoa",
+          "jersey": "1",
+          "position": "QB",
+          "team": "MIA"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "16 CAR, 128 YDS, 2 TD",
+          "value": 128.0,
+          "player": "De'Von Achane",
+          "jersey": "28",
+          "position": "RB",
+          "team": "MIA"
+        },
+        {
+          "displayValue": "18 CAR, 124 YDS",
+          "value": 124.0,
+          "player": "Kimani Vidal",
+          "jersey": "30",
+          "position": "RB",
+          "team": "LAC"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "7 REC, 100 YDS, 1 TD",
+          "value": 100.0,
+          "player": "Ladd McConkey",
+          "jersey": "15",
+          "position": "WR",
+          "team": "LAC"
+        },
+        {
+          "displayValue": "6 REC, 95 YDS",
+          "value": 95.0,
+          "player": "Jaylen Waddle",
+          "jersey": "17",
+          "position": "WR",
+          "team": "MIA"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772855": {
-    "timestamp": "2025-10-12 10:56:19",
+    "timestamp": "2025-10-13 07:53:34",
     "game_date": "2025-10-12",
     "home_team": "BAL",
     "away_team": "LAR",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 3,
+    "away_score": 17,
     "stadium": "M&T Bank Stadium",
     "home_coach": "John Harbaugh",
     "away_coach": "Sean McVay",
-    "analysis_type": "preview",
-    "analysis": "The **Los Angeles Rams** roll into **Baltimore** with offensive firepower and a chance to exploit a vulnerable Ravens defense, but they'll be facing an unusual challenge without the typical home-field advantage of Lamar Jackson under center.\n\n**Matthew Stafford** and the Rams' aerial attack look primed to test Baltimore's struggling secondary, which has been hemorrhaging yards and points all season. **Puka Nacua**, the rookie sensation leading the league with 52 receptions and 588 yards, presents a particularly problematic matchup for the Ravens' defensive backs. With Stafford throwing for 11 touchdowns against just two interceptions, Los Angeles possesses the offensive weaponry to put serious pressure on Baltimore's 31st-ranked overall defense.\n\nThe Ravens will counter with **Derrick Henry**, who's been relatively quiet since his season-opening 169-yard performance. Without **Lamar Jackson** due to a hamstring injury, Baltimore's offensive creativity takes a significant hit. The Rams' defensive front, led by **Byron Young** and his consistent pass rush, could exploit Baltimore's offensive limitations. While the Ravens have shown resilience, their recent 44-10 shellacking by Houston and multiple key injuries suggest they're in significant disarray. Expect the Rams to leverage their offensive efficiency and defensive opportunism to secure a road victory in a game that could be closer than the betting lines suggest, but still firmly in Los Angeles' favor.",
+    "analysis_type": "post_game",
+    "analysis": "# Rams Dominate Lamar Jackson-less Ravens in 17-3 Victory\n\nIn a commanding performance at M&T Bank Stadium, the **Los Angeles Rams** defeated the **Baltimore Ravens** 17-3, dropping the home team to a dismal 1-5 record. The Rams capitalized on Baltimore's quarterback woes, with **Matthew Stafford** guiding his team to a comfortable victory against a Ravens squad missing their star quarterback Lamar Jackson.\n\nThe game was defined by a critical goal-line stand in the first half, where the Rams stopped the Ravens on four consecutive attempts from the 1-yard line. **Kyren Williams** then broke the game open with a 3-yard touchdown run in the third quarter, and **Tyler Higbee** extended the lead with an 8-yard touchdown reception from Stafford. The Ravens' offense looked toothless without Jackson, managing only a single field goal throughout the entire contest.\n\n## Key Statistics\n\n- **Rams Offensive Highlights**:\n  * **Matthew Stafford**: 17/26, 181 yards, 1 TD\n  * **Kyren Williams**: 13 carries, 50 yards, 1 TD\n  * **Tyler Higbee**: 4 receptions, 40 yards, 1 TD\n\n- **Ravens Offensive Struggles**:\n  * **Cooper Rush**: 11/19, 72 yards, 1 INT\n  * **Derrick Henry**: 24 carries, 122 yards\n  * Zero offensive touchdowns\n\n- **Turnover Battle**:\n  * Ravens: 3 turnovers (1 INT, 2 fumbles)\n  * Rams: 1 turnover (1 fumble)\n\nThe win improves the Rams to 4-2 on the season, while the Ravens continue to spiral, facing significant questions about their offensive identity in Jackson's absence.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
       "spread": 6.5,
-      "over_under": 43.5,
+      "over_under": 44.5,
       "provider": "ESPN BET",
       "favorite": "LAR"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 64,
-      "condition": "Showers",
-      "wind_speed": 13
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 37.516,
-      "matchup_quality": 72.88,
-      "predicted_point_diff": -4.624,
-      "away_win_prob": 62.183
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "17/26, 181 YDS, 1 TD",
+          "value": 181.0,
+          "player": "Matthew Stafford",
+          "jersey": "9",
+          "position": "QB",
+          "team": "LAR"
+        },
+        {
+          "displayValue": "11/19, 72 YDS, 1 INT",
+          "value": 72.0,
+          "player": "Cooper Rush",
+          "jersey": "15",
+          "position": "QB",
+          "team": "BAL"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "24 CAR, 122 YDS",
+          "value": 122.0,
+          "player": "Derrick Henry",
+          "jersey": "22",
+          "position": "RB",
+          "team": "BAL"
+        },
+        {
+          "displayValue": "13 CAR, 50 YDS, 1 TD",
+          "value": 50.0,
+          "player": "Kyren Williams",
+          "jersey": "23",
+          "position": "RB",
+          "team": "LAR"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "6 REC, 46 YDS",
+          "value": 46.0,
+          "player": "Zay Flowers",
+          "jersey": "4",
+          "position": "WR",
+          "team": "BAL"
+        },
+        {
+          "displayValue": "4 REC, 40 YDS, 1 TD",
+          "value": 40.0,
+          "player": "Tyler Higbee",
+          "jersey": "89",
+          "position": "TE",
+          "team": "LAR"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772857": {
-    "timestamp": "2025-10-12 14:09:54",
+    "timestamp": "2025-10-13 07:53:36",
     "game_date": "2025-10-12",
     "home_team": "JAX",
     "away_team": "SEA",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 12,
+    "away_score": 20,
     "stadium": "EverBank Stadium",
     "home_coach": "Liam Coen",
     "away_coach": "Mike Macdonald",
-    "analysis_type": "preview",
-    "analysis": "In a gritty defensive showdown that felt more like a heavyweight boxing match than a football game, the **Seattle Seahawks** punched their way to a hard-fought 20-12 victory over the **Jacksonville Jaguars** at EverBank Stadium. Sam Darnold, stepping in for an injured starter, delivered a performance that was part gunslinger, part game manager, throwing for 295 yards and two touchdowns while avoiding costly mistakes.\n\nThe game's defining narrative was Seattle's defensive dominance, with **DeMarcus Lawrence** leading a relentless pass rush that kept **Trevor Lawrence** under constant pressure. The Seahawks sacked Lawrence seven times, turning Jacksonville's offensive rhythm into a stuttering mess. **Jaxon Smith-Njigba** emerged as the game's breakout star, hauling in a spectacular 61-yard touchdown that electrified the Seahawks' sideline and demoralized the Jaguars' secondary. His eight receptions for 162 yards showcased why he's quickly becoming a premier receiving threat in the league.\n\nWhile Jacksonville's **Brian Thomas Jr.** managed to score a late touchdown and keep hopes alive, the Jaguars' offensive line looked overwhelmed, and Trevor Lawrence never found his groove. The Seahawks' road victory, coupled with key defensive performances and timely offensive plays, solidifies their status as a team that cannot be overlooked in the playoff conversation. For Jacksonville, this loss serves as a humbling reminder that even promising teams can be brought back to earth by a well-prepared opponent with a killer defensive game plan.",
+    "analysis_type": "post_game",
+    "analysis": "# Seahawks Triumph in Defensive Battle: Sam Darnold Leads 20-12 Victory Over Jaguars\n\nThe Seattle Seahawks secured a hard-fought 20-12 victory against the Jacksonville Jaguars in a game defined by defensive dominance and strategic quarterback play. **Sam Darnold** delivered a turnover-free performance, throwing for 295 yards and two touchdowns, leading the Seahawks to their fourth win of the season.\n\nThe game was a testament to Seattle's defensive prowess, as they consistently pressured **Trevor Lawrence**, sacking him seven times and disrupting Jacksonville's offensive rhythm. **Jaxon Smith-Njigba** was the offensive standout, torching the Jaguars' secondary with eight receptions for 162 yards, including a spectacular 61-yard touchdown that came on newly acquired cornerback Greg Newsome's first defensive snap. The Seahawks capitalized on their opportunities, with **Jason Myers** adding two field goals and **Cooper Kupp** catching a crucial 11-yard touchdown in the third quarter.\n\n**Key Statistics**:\n- **Sam Darnold**: 16/27, 295 yards, 2 TDs\n- **Jaxon Smith-Njigba**: 8 receptions, 162 yards, 1 TD\n- **Trevor Lawrence**: 27/42, 258 yards, 2 TDs, 7 sacks taken\n- **Seahawks Sacks**: 7 total (led by DeMarcus Lawrence with 2)\n\nThe victory continues Seattle's impressive trend of success in 1 p.m. East Coast kickoffs, improving to 22-6 in such games over the past decade. For the Jaguars, this loss drops them to 4-2 and exposes some potential offensive vulnerabilities that will need addressing in the coming weeks.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6376,26 +6664,76 @@
     "weather": {
       "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 49.8,
-      "matchup_quality": 56.197,
-      "predicted_point_diff": 0.083,
-      "away_win_prob": 49.8
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "16/27, 295 YDS, 2 TD",
+          "value": 295.0,
+          "player": "Sam Darnold",
+          "jersey": "14",
+          "position": "QB",
+          "team": "SEA"
+        },
+        {
+          "displayValue": "27/42, 258 YDS, 2 TD",
+          "value": 258.0,
+          "player": "Trevor Lawrence",
+          "jersey": "16",
+          "position": "QB",
+          "team": "JAX"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "10 CAR, 34 YDS",
+          "value": 34.0,
+          "player": "Kenneth Walker III",
+          "jersey": "9",
+          "position": "RB",
+          "team": "SEA"
+        },
+        {
+          "displayValue": "12 CAR, 27 YDS",
+          "value": 27.0,
+          "player": "Travis Etienne Jr.",
+          "jersey": "1",
+          "position": "RB",
+          "team": "JAX"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "8 REC, 162 YDS, 1 TD",
+          "value": 162.0,
+          "player": "Jaxon Smith-Njigba",
+          "jersey": "11",
+          "position": "WR",
+          "team": "SEA"
+        },
+        {
+          "displayValue": "8 REC, 90 YDS, 1 TD",
+          "value": 90.0,
+          "player": "Brian Thomas Jr.",
+          "jersey": "7",
+          "position": "WR",
+          "team": "JAX"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772749": {
-    "timestamp": "2025-10-12 17:38:21",
+    "timestamp": "2025-10-13 07:53:39",
     "game_date": "2025-10-12",
     "home_team": "TB",
     "away_team": "SF",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 30,
+    "away_score": 19,
     "stadium": "Raymond James Stadium",
     "home_coach": "Todd Bowles",
     "away_coach": "Kyle Shanahan",
-    "analysis_type": "preview",
-    "analysis": "**Baker Mayfield Leads Buccaneers to Dramatic 30-19 Victory Over 49ers**\n\nThe Tampa Bay Buccaneers continued their magical season with another thrilling victory, defeating the San Francisco 49ers 30-19 in a game that showcased Baker Mayfield's playmaking prowess. Mayfield's heroics came early in the fourth quarter, turning potential disaster into momentum-shifting plays that ultimately sealed the win for the Buccaneers.\n\nThe game was defined by Mayfield's spectacular third-down scramble that kept a critical drive alive. Facing a third-and-14, he ducked away from multiple potential sacks, escaped defenders, and dove headfirst to gain just enough yardage to keep the drive alive. Moments later, he connected with rookie **Tez Johnson** on a jaw-dropping 45-yard touchdown pass that gave Tampa Bay a commanding 27-19 lead. Johnson's acrobatic catch and celebratory backflip epitomized the Buccaneers' electric energy.\n\nThe 49ers, battling significant injury challenges, struggled to overcome Tampa Bay's relentless defensive pressure. **Mac Jones**, filling in for the injured Brock Purdy, threw for 347 yards but also tossed two crucial interceptions. The loss was compounded by the devastating injury to four-time All-Pro linebacker **Fred Warner**, who left the game in the first quarter with a serious ankle injury. With key players like Nick Bosa, George Kittle, and Brandon Aiyuk already sidelined, the 49ers found themselves outmatched by a resilient Buccaneers squad that continues to defy expectations. The win improves Tampa Bay to 5-1, solidifying their status as a legitimate contender in the competitive NFC.",
+    "analysis_type": "post_game",
+    "analysis": "# Baker Mayfield Leads Buccaneers to Impressive 30-19 Victory Over 49ers\n\nThe Tampa Bay Buccaneers emerged victorious in a thrilling contest, defeating the San Francisco 49ers 30-19 at Raymond James Stadium. **Baker Mayfield** delivered a spectacular performance, throwing for 256 yards and two touchdowns while showcasing his trademark improvisational skills that have become the hallmark of his resurgent season.\n\nThe game was defined by Mayfield's jaw-dropping third-down conversion in the fourth quarter - a play that will undoubtedly be replayed for weeks. Escaping multiple tackles and diving headfirst to convert a critical third-and-14, Mayfield set up a pivotal **Tez Johnson 45-yard touchdown** that essentially sealed the Buccaneers' win. The 49ers, already battling significant injuries including the season-ending loss of **Fred Warner**, couldn't overcome Mayfield's late-game heroics and **Mac Jones'** two critical interceptions.\n\n## Key Statistics\n\n- **Baker Mayfield**: 17/23, 256 yards, 2 TDs\n- **Mac Jones**: 27/39, 347 yards, 2 INTs\n- **Rachaad White**: 17 carries, 65 yards, 1 TD\n- **Christian McCaffrey**: 54 rushing yards, 57 receiving yards\n\nThe Buccaneers covered the pre-game spread of -3.5, continuing their impressive start to the 2025 season with a 5-1 record. For the 49ers, this loss drops them to 4-2 and raises significant questions about their depth and resilience in the face of mounting injuries.\n\n**Betting Note**: Tampa Bay was a -3.5 favorite and comfortably covered the spread in a game that went over the 46.5 total.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6407,26 +6745,76 @@
     "weather": {
       "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 64.86,
-      "matchup_quality": 69.562,
-      "predicted_point_diff": 5.724,
-      "away_win_prob": 34.86
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "27/39, 347 YDS, 2 INT",
+          "value": 347.0,
+          "player": "Mac Jones",
+          "jersey": "10",
+          "position": "QB",
+          "team": "SF"
+        },
+        {
+          "displayValue": "17/23, 256 YDS, 2 TD",
+          "value": 256.0,
+          "player": "Baker Mayfield",
+          "jersey": "6",
+          "position": "QB",
+          "team": "TB"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "17 CAR, 65 YDS, 1 TD",
+          "value": 65.0,
+          "player": "Rachaad White",
+          "jersey": "1",
+          "position": "RB",
+          "team": "TB"
+        },
+        {
+          "displayValue": "17 CAR, 54 YDS, 1 TD",
+          "value": 54.0,
+          "player": "Christian McCaffrey",
+          "jersey": "23",
+          "position": "RB",
+          "team": "SF"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "5 REC, 142 YDS",
+          "value": 142.0,
+          "player": "Kendrick Bourne",
+          "jersey": "84",
+          "position": "WR",
+          "team": "SF"
+        },
+        {
+          "displayValue": "4 REC, 64 YDS, 1 TD",
+          "value": 64.0,
+          "player": "Kameron Johnson",
+          "jersey": "19",
+          "position": "WR",
+          "team": "TB"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772859": {
-    "timestamp": "2025-10-12 16:04:16",
+    "timestamp": "2025-10-13 07:53:37",
     "game_date": "2025-10-12",
     "home_team": "LV",
     "away_team": "TEN",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 20,
+    "away_score": 10,
     "stadium": "Allegiant Stadium",
     "home_coach": "Pete Carroll",
     "away_coach": "Brian Callahan",
-    "analysis_type": "preview",
-    "analysis": "**Titans Seek Redemption Against Raiders in Vegas Showdown**\n\nThe **Las Vegas Raiders** look to snap a four-game losing streak when they host the struggling **Tennessee Titans** in what promises to be a battle of two teams desperately seeking offensive rhythm. While the Raiders enter as 4.5-point favorites, this matchup feels like a potential turning point for both squads battling at the bottom of their respective conferences.\n\n**Geno Smith** and the Raiders offense have shown flashes of potential, particularly with rookie tight end **Michael Mayer** emerging as a reliable target, but consistency has been their Achilles' heel. The Titans, starting rookie quarterback **Cam Ward**, are searching for offensive identity after a tumultuous start to the season. **Tony Pollard** has provided a spark in the running game, but Ward's development will be crucial to Tennessee's hopes of staying competitive. The game's key storyline will be whether Ward can avoid the pressure from a Raiders defensive front led by **Maxx Crosby**, who has been relentless in generating quarterback disruptions.\n\nInjuries could play a significant role, with the Raiders missing rookie tight end **Brock Bowers** and the Titans potentially without wide receiver **Calvin Ridley**, who is questionable. Expect a defensive slugfest where field position and turnovers will likely determine the outcome. The Raiders' superior home-field advantage and slightly more dynamic offense suggest they'll grind out a close victory, but don't be surprised if the Titans keep this game uncomfortably tight for Las Vegas fans.",
+    "analysis_type": "post_game",
+    "analysis": "# Raiders Dominate Titans in Defensive Showcase: 20-10 Victory\n\nThe **Las Vegas Raiders** ended their four-game losing streak with a commanding 20-10 victory over the **Tennessee Titans** in a defensive battle at Allegiant Stadium. Despite pedestrian offensive numbers, the Raiders' defense put on a masterclass performance that thoroughly suffocated the Titans' offensive hopes.\n\n**Devin White** was the standout performer, delivering a vintage defensive performance with **nine tackles, a sack, an interception, and a forced fumble** - a stat line that Raiders coach Pete Carroll called extraordinary. The Raiders' pass rush was relentless, sacking rookie quarterback **Cam Ward** six times and consistently disrupting the Titans' offensive rhythm. **Maxx Crosby** and **Jonah Laulu** also made significant defensive contributions, with Crosby recording two sacks and extending his streak of games with a tackle for loss to nine.\n\n## Key Statistics\n\n- **Total Yards**: Raiders 226, Titans 225\n- **Sacks**: Raiders 6, Titans 2\n- **Turnovers**: Raiders 1, Titans 3\n- **Third Down Efficiency**: Raiders 6/13 (46%), Titans 3/13 (23%)\n\nThe victory was particularly sweet for the Raiders, who had been struggling offensively. **Geno Smith** threw for 174 yards and a touchdown, while **Ashton Jeanty** added 75 rushing yards and a score. For the Titans, **Cam Ward** completed 26 of 38 passes for 222 yards, but the constant pressure disrupted his performance.\n\nThis win provides a much-needed boost for the Raiders, who improve to 2-4, while the Titans drop to 1-5 and continue their struggles to find consistency.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6438,26 +6826,76 @@
     "weather": {
       "is_indoor": true
     },
-    "predictor": {
-      "home_win_prob": 64.39099999999999,
-      "matchup_quality": 17.306,
-      "predicted_point_diff": 5.73,
-      "away_win_prob": 35.325
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "26/38, 222 YDS, 1 TD, 1 INT",
+          "value": 222.0,
+          "player": "Cam Ward",
+          "jersey": "1",
+          "position": "QB",
+          "team": "TEN"
+        },
+        {
+          "displayValue": "17/23, 174 YDS, 1 TD, 1 INT",
+          "value": 174.0,
+          "player": "Geno Smith",
+          "jersey": "7",
+          "position": "QB",
+          "team": "LV"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "23 CAR, 75 YDS, 1 TD",
+          "value": 75.0,
+          "player": "Ashton Jeanty",
+          "jersey": "2",
+          "position": "RB",
+          "team": "LV"
+        },
+        {
+          "displayValue": "10 CAR, 34 YDS",
+          "value": 34.0,
+          "player": "Tony Pollard",
+          "jersey": "20",
+          "position": "RB",
+          "team": "TEN"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "4 REC, 75 YDS",
+          "value": 75.0,
+          "player": "Van Jefferson",
+          "jersey": "11",
+          "position": "WR",
+          "team": "TEN"
+        },
+        {
+          "displayValue": "5 REC, 70 YDS",
+          "value": 70.0,
+          "player": "Tre Tucker",
+          "jersey": "1",
+          "position": "WR",
+          "team": "LV"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772752": {
-    "timestamp": "2025-10-12 16:04:13",
+    "timestamp": "2025-10-13 07:53:48",
     "game_date": "2025-10-12",
     "home_team": "GB",
     "away_team": "CIN",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 27,
+    "away_score": 18,
     "stadium": "Lambeau Field",
     "home_coach": "Matt LaFleur",
     "away_coach": "Zac Taylor",
-    "analysis_type": "preview",
-    "analysis": "The **Green Bay Packers** look to continue their offensive momentum against a struggling **Cincinnati Bengals** squad in a matchup that promises fireworks at historic Lambeau Field. With the Packers heavily favored and boasting impressive season metrics, this game could be a statement performance for Jordan Love and company.\n\n**Jordan Love** has been quietly emerging as a top-tier quarterback, averaging over 9 yards per pass attempt this season, while **Joe Flacco** steps in for the Bengals with a more pedestrian statistical profile. The Packers' offensive efficiency - converting over 52% of third downs and generating positive EPA in both passing and rushing - stands in stark contrast to Cincinnati's defensive struggles. Key injuries for the Bengals, including the absence of tight end **Mike Gesicki** and potential limitations for defensive end **Trey Hendrickson**, further complicate their defensive prospects.\n\n**Josh Jacobs** provides a potent ground threat for Green Bay, and with the Bengals allowing nearly 31 points per game, this matchup looks primed for a Packers blowout. While anything can happen in the NFL, the combination of home-field advantage, superior offensive firepower, and Cincinnati's recent three-game losing streak suggests Green Bay should cruise to a comfortable victory. Expect **Jordan Love** to distribute the ball effectively to emerging receivers like **Matthew Golden** and **Romeo Doubs**, exploiting a vulnerable Bengals secondary.",
+    "analysis_type": "post_game",
+    "analysis": "# Packers Overcome Flacco's Heroics, Hold Off Bengals 27-18\n\nThe Green Bay Packers weathered a late comeback attempt by Joe Flacco and emerged victorious in a hard-fought 27-18 win at Lambeau Field. Despite being heavy favorites at -13.5, the Packers found themselves in a nail-biter against the veteran quarterback making his Bengals debut.\n\n**Josh Jacobs** was the offensive hero for Green Bay, rushing for 93 yards and two touchdowns while battling the flu. The Pro Bowl running back's second touchdown in the fourth quarter helped seal the victory, proving his mettle by performing at a high level despite being under the weather. **Jordan Love** complemented Jacobs' effort, completing 19 of 26 passes for 259 yards and a touchdown, though he also threw an interception.\n\n**Key Statistics**:\n- **Josh Jacobs**: 18 carries, 93 yards, 2 TDs\n- **Joe Flacco**: 29/45, 219 yards, 2 TDs\n- **Ja'Marr Chase**: 10 receptions, 94 yards, 1 TD\n\nThe game showcased the Packers' resilience after previous performances where they squandered leads. Cincinnati mounted a late comeback, cutting the lead to 24-18 with a Flacco-to-Chase touchdown and subsequent two-point conversion. However, **Lucas Havrisik's** late field goal extinguished the Bengals' hopes, marking an impressive debut for the kicker who was signed just days before the game.\n\nThis victory improves the Packers to 3-1-1, while the Bengals drop to 2-4, extending their losing streak to four games. The win provides momentum for Green Bay heading into their matchup against the Arizona Cardinals next week.\n\n**Surprising Stat**: The Bengals have now failed to reach the end zone before halftime in four consecutive games, a troubling trend for an offense with significant talent.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6467,62 +6905,159 @@
       "favorite": "GB"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 62,
-      "condition": "6",
-      "wind_speed": 6
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 80.389,
-      "matchup_quality": 64.493,
-      "predicted_point_diff": 13.188,
-      "away_win_prob": 19.455
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "19/26, 259 YDS, 1 TD, 1 INT",
+          "value": 259.0,
+          "player": "Jordan Love",
+          "jersey": "10",
+          "position": "QB",
+          "team": "GB"
+        },
+        {
+          "displayValue": "29/45, 219 YDS, 2 TD",
+          "value": 219.0,
+          "player": "Joe Flacco",
+          "jersey": "16",
+          "position": "QB",
+          "team": "CIN"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "18 CAR, 93 YDS, 2 TD",
+          "value": 93.0,
+          "player": "Josh Jacobs",
+          "jersey": "8",
+          "position": "RB",
+          "team": "GB"
+        },
+        {
+          "displayValue": "9 CAR, 42 YDS",
+          "value": 42.0,
+          "player": "Chase Brown",
+          "jersey": "30",
+          "position": "RB",
+          "team": "CIN"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "10 REC, 94 YDS, 1 TD",
+          "value": 94.0,
+          "player": "Ja'Marr Chase",
+          "jersey": "1",
+          "position": "WR",
+          "team": "CIN"
+        },
+        {
+          "displayValue": "3 REC, 86 YDS",
+          "value": 86.0,
+          "player": "Matthew Golden",
+          "jersey": "0",
+          "position": "WR",
+          "team": "GB"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772751": {
-    "timestamp": "2025-10-12 10:56:32",
+    "timestamp": "2025-10-13 07:53:37",
     "game_date": "2025-10-12",
     "home_team": "NO",
     "away_team": "NE",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 19,
+    "away_score": 25,
     "stadium": "Caesars Superdome",
     "home_coach": "Kellen Moore",
     "away_coach": "Mike Vrabel",
-    "analysis_type": "preview",
-    "analysis": "In a battle of rebuilding franchises seeking identity, the **New England Patriots** travel to the **New Orleans Saints** with momentum and emerging young talent serving as their compass. **Drake Maye** and the Patriots have found offensive rhythm, averaging 25 points per game and riding a two-game winning streak that included a statement victory against Buffalo, while the Saints are desperately seeking consistency under first-year head coach **Kellen Moore**.\n\nThe quarterback matchup features two developing talents: **Maye**, who has completed an impressive 73.9% of his passes with seven touchdowns and just two interceptions, versus **Spencer Rattler**, who is slowly finding his NFL footing. The Saints will lean heavily on **Alvin Kamara**'s rushing attack and explosive playmaker **Rashid Shaheed** to keep New England's opportunistic defense off balance. Both teams have shown defensive prowess, with the Patriots allowing just 20.2 points per game and the Saints generating momentum through turnovers - they enter the game with a promising +5 turnover differential.\n\nWhile the betting markets favor New England by 3.5 points, this game feels like a classic rebuilding-era slugfest. The Patriots' recent road success and Maye's emerging confidence suggest they have a slight edge, but the emotional lift of Moore's first win and the Saints' home-field advantage could easily swing the pendulum. Expect a competitive, potentially low-scoring affair where defensive plays and rookie quarterback performances will likely determine the outcome. **New England** looks primed to continue their early-season resurgence, but don't count out the Saints' ability to create chaos and turn this into an unpredictable contest.",
+    "analysis_type": "post_game",
+    "analysis": "# Patriots Edge Out Saints in Defensive Slugfest, 25-19\n\n**Drake Maye** delivered a breakthrough performance, throwing **three touchdown passes** to lead the New England Patriots to a hard-fought 25-19 road victory over the New Orleans Saints in the Caesars Superdome. The game was a testament to rookie quarterback Maye's emerging potential and the Patriots' growing confidence.\n\n**Kayshon Boutte**, a Louisiana native who bought 40 tickets for friends and family, was the offensive star for New England, catching five passes for 93 yards and two crucial touchdowns. His homecoming performance included a game-sealing 21-yard catch in the final minutes that helped the Patriots run out the clock. The Patriots' defense also made key plays, including a critical **fumble recovery** by safety **Craig Woodson** that stymied a potential Saints comeback drive.\n\n## Key Statistics\n\n- **Drake Maye**: 18/26, 261 yards, 3 TDs, 0 INTs\n- **Kayshon Boutte**: 5 receptions, 93 yards, 2 TDs\n- **Saints QB Spencer Rattler**: 20/26, 227 yards, 0 TDs\n- **Turnover Margin**: Patriots 0, Saints 1\n\nThe victory improves the Patriots to 4-2, while the Saints drop to 1-5, continuing their early-season struggles. With the win, New England continues to show promise under their rookie quarterback, demonstrating resilience and playmaking ability in a tough road environment.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
       "spread": 3.5,
-      "over_under": 45.5,
+      "over_under": 46.5,
       "provider": "ESPN BET",
       "favorite": "NE"
     },
     "weather": {
       "is_indoor": true
     },
-    "predictor": {
-      "home_win_prob": 39.973,
-      "matchup_quality": 33.324,
-      "predicted_point_diff": -4.133,
-      "away_win_prob": 59.706
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "18/26, 261 YDS, 3 TD",
+          "value": 261.0,
+          "player": "Drake Maye",
+          "jersey": "10",
+          "position": "QB",
+          "team": "NE"
+        },
+        {
+          "displayValue": "20/26, 227 YDS",
+          "value": 227.0,
+          "player": "Spencer Rattler",
+          "jersey": "2",
+          "position": "QB",
+          "team": "NO"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "10 CAR, 31 YDS",
+          "value": 31.0,
+          "player": "Alvin Kamara",
+          "jersey": "41",
+          "position": "RB",
+          "team": "NO"
+        },
+        {
+          "displayValue": "9 CAR, 28 YDS",
+          "value": 28.0,
+          "player": "Drake Maye",
+          "jersey": "10",
+          "position": "QB",
+          "team": "NE"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "6 REC, 98 YDS",
+          "value": 98.0,
+          "player": "Chris Olave",
+          "jersey": "12",
+          "position": "WR",
+          "team": "NO"
+        },
+        {
+          "displayValue": "5 REC, 93 YDS, 2 TD",
+          "value": 93.0,
+          "player": "Kayshon Boutte",
+          "jersey": "9",
+          "position": "WR",
+          "team": "NE"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772923": {
-    "timestamp": "2025-10-12 18:10:25",
+    "timestamp": "2025-10-13 07:53:48",
     "game_date": "2025-10-12",
     "home_team": "KC",
     "away_team": "DET",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 30,
+    "away_score": 17,
     "stadium": "GEHA Field at Arrowhead Stadium",
     "home_coach": "Andy Reid",
     "away_coach": "Dan Campbell",
-    "analysis_type": "preview",
-    "analysis": "The NFL's most intriguing Week 6 matchup pits the resurgent **Detroit Lions** against the struggling **Kansas City Chiefs** in a primetime showdown that feels far more consequential than an early October contest should.\n\nThe **Lions**, riding a four-game winning streak, enter Arrowhead Stadium looking like genuine contenders. **Jared Goff** has been surgical, completing over 70% of his passes and leading the NFL's top-scoring offense. With playmakers like **Amon-Ra St. Brown** and **Jahmyr Gibbs** creating matchup nightmares, Detroit's offensive firepower is turning heads. Defensively, **Aidan Hutchinson** continues his dominant return from injury, leading the team with 5 sacks and providing consistent quarterback pressure that could disrupt **Patrick Mahomes**.\n\nMeanwhile, the **Chiefs** find themselves in unfamiliar territory - fighting to avoid a potentially season-defining 2-4 start. Mahomes has been carrying the offensive load, leading the team in rushing in their three losses, a telltale sign of their offensive inconsistency. Kansas City's penalty problems and uncharacteristic mistakes have been their biggest enemies, averaging an alarming 8.4 penalties per game. While they've shown offensive potential - generating 476 yards against Jacksonville - execution has been their Achilles' heel. With Detroit's banged-up secondary presenting an opportunity, this feels like a pivotal moment for the Chiefs to rediscover their championship DNA or risk falling further behind in the competitive AFC.",
+    "analysis_type": "post_game",
+    "analysis": "# Chiefs Dominate Lions 30-17 in Primetime Showdown\n\n**Patrick Mahomes** and the Kansas City Chiefs delivered a comprehensive victory over the Detroit Lions, snapping the Lions' four-game winning streak in a nationally televised matchup at Arrowhead Stadium. The Chiefs' 30-17 win was marked by near-flawless execution and a postgame confrontation that added extra drama to the evening.\n\nMahomes was surgical, throwing for **257 yards and three touchdowns**, while also rushing for another score. **Marquise Brown** was a standout, catching two touchdown passes that helped Kansas City pull away. The Chiefs played a remarkably clean game, committing zero penalties and zero turnovers - a stark contrast to their previous week's performance against Jacksonville.\n\n## Key Statistical Highlights\n\n- **Patrick Mahomes** reached 302 career touchdown passes, becoming the fastest player in NFL history to hit 300 (139 games)\n- **Jared Goff** finished with 203 yards passing, with touchdowns to **Jameson Williams** and **Sam LaPorta**\n- The Chiefs held Detroit's high-powered offense in check, limiting **Jahmyr Gibbs** to just 65 yards on 17 carries\n- **Xavier Worthy** and **Hollywood Brown** each added touchdown receptions\n\nThe game's intensity boiled over at the end, with a postgame scuffle between **Brian Branch** and **JuJu Smith-Schuster** that Lions coach Dan Campbell called \"inexcusable.\"\n\nThe victory moves the Chiefs to 3-3, while the Lions drop to 4-2, ending their recent winning streak in dramatic fashion.",
     "ai_provider": "claude",
     "ai_model": "claude-opus-4-1",
     "betting": {
@@ -6532,16 +7067,63 @@
       "favorite": "KC"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 80,
-      "condition": "Mostly clear",
-      "wind_speed": 12
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 55.489,
-      "matchup_quality": 90.851,
-      "predicted_point_diff": 2.008,
-      "away_win_prob": 44.156
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "22/30, 257 YDS, 3 TD",
+          "value": 257.0,
+          "player": "Patrick Mahomes",
+          "jersey": "15",
+          "position": "QB",
+          "team": "KC"
+        },
+        {
+          "displayValue": "23/29, 203 YDS, 2 TD",
+          "value": 203.0,
+          "player": "Jared Goff",
+          "jersey": "16",
+          "position": "QB",
+          "team": "DET"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "17 CAR, 65 YDS",
+          "value": 65.0,
+          "player": "Jahmyr Gibbs",
+          "jersey": "0",
+          "position": "RB",
+          "team": "DET"
+        },
+        {
+          "displayValue": "12 CAR, 51 YDS",
+          "value": 51.0,
+          "player": "Isiah Pacheco",
+          "jersey": "10",
+          "position": "RB",
+          "team": "KC"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "6 REC, 78 YDS",
+          "value": 78.0,
+          "player": "Travis Kelce",
+          "jersey": "87",
+          "position": "TE",
+          "team": "KC"
+        },
+        {
+          "displayValue": "6 REC, 66 YDS, 1 TD",
+          "value": 66.0,
+          "player": "Jameson Williams",
+          "jersey": "1",
+          "position": "WR",
+          "team": "DET"
+        }
+      ]
     },
     "broadcast": "TV"
   },
@@ -7277,6 +7859,71 @@
       "matchup_quality": 56.638,
       "predicted_point_diff": 5.559,
       "away_win_prob": 35.691
+    },
+    "broadcast": "TV"
+  },
+  "401772826": {
+    "timestamp": "2025-10-13 07:53:47",
+    "game_date": "2025-10-20",
+    "home_team": "SEA",
+    "away_team": "HOU",
+    "home_score": null,
+    "away_score": null,
+    "stadium": "Lumen Field",
+    "home_coach": "Mike Macdonald",
+    "away_coach": "DeMeco Ryans",
+    "analysis_type": "preview",
+    "analysis": "In a clash of rising NFL powers, the **Seattle Seahawks** host the **Houston Texans** at Lumen Field, promising an electrifying matchup between two of the league's most exciting young teams. The Seahawks, riding a wave of offensive momentum, will look to continue their home dominance against a **Texans** squad that's rapidly emerging as a dark horse contender.\n\n**Sam Darnold** and the Seahawks' offense have been humming, averaging 27.7 points per game and boasting an explosive passing attack led by Darnold's 1,541 yards and 11 touchdowns. **Kenneth Walker III** provides a balanced ground game, while **Jaxon Smith-Njigba** has been a revelation at receiver with 696 receiving yards. However, they'll face a stiff challenge from **C.J. Stroud** and the Texans' opportunistic defense, which is surrendering a league-low 12.2 points per game. **Danielle Hunter** has been disruptive up front with 4 sacks, and the Texans' defensive unit looks increasingly dangerous after their dominant 44-10 win over Baltimore.\n\nThe injury report adds intrigue, with **Seattle** missing key defensive backs **Devon Witherspoon** and **Riq Woolen**, which could potentially open up opportunities for **Nico Collins** and the Texans' passing game. While the Seahawks are slight home favorites, this feels like a classic coin-flip matchup where momentum, defensive adjustments, and quarterback play could swing the outcome. Expect a hard-fought, potentially high-stakes battle that could have significant playoff positioning implications for both emerging teams.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": -3.5,
+      "over_under": 41.5,
+      "provider": "ESPN BET",
+      "favorite": "SEA"
+    },
+    "weather": {
+      "is_indoor": false,
+      "temperature": 55,
+      "condition": "Mostly clear",
+      "wind_speed": 4
+    },
+    "predictor": {
+      "home_win_prob": 51.54,
+      "matchup_quality": 62.796,
+      "predicted_point_diff": 0.621,
+      "away_win_prob": 48.074
+    },
+    "broadcast": "TV"
+  },
+  "401772816": {
+    "timestamp": "2025-10-13 07:53:48",
+    "game_date": "2025-10-20",
+    "home_team": "DET",
+    "away_team": "TB",
+    "home_score": null,
+    "away_score": null,
+    "stadium": "Ford Field",
+    "home_coach": "Dan Campbell",
+    "away_coach": "Todd Bowles",
+    "analysis_type": "preview",
+    "analysis": "In a clash that promises fireworks and high-octane offense, the **Tampa Bay Buccaneers** head to **Detroit** looking to continue their surprising early-season success against the explosive **Lions**. Baker Mayfield and the Bucs have been rolling on the road, sporting a perfect 3-0 away record, while the Lions are reeling after their first loss of the season to the **Kansas City Chiefs**.\n\nThe storylines are delicious: **Baker Mayfield**, seeking redemption after tumultuous years in Cleveland and Carolina, has been surgical this season, throwing for 1,539 yards and 12 touchdowns with just one interception. However, he'll face a stiff challenge against a **Lions** defense that has been generating consistent pressure, led by **Aidan Hutchinson's** six sacks. The Bucs will be without rookie running back **Bucky Irving**, who is out with an arm injury, potentially forcing Mayfield to lean even more heavily on his passing attack. **Jared Goff** and the Lions' offense, meanwhile, remain a potent scoring machine, averaging nearly 32 points per game and presenting a balanced attack that can punish defenses in multiple ways.\n\nThe betting markets and predictors slightly favor Detroit, with the Lions installed as 5.5-point home favorites and holding a 61.8% win probability. But the Buccaneers have proven they cannot be overlooked, bringing a resilient road warrior mentality that could make this a nail-biter. Expect a high-scoring affair with momentum swings, explosive plays, and potentially a game decided in the final moments. The **Lions** will likely win, but the **Buccaneers** won't go down without a fight.",
+    "ai_provider": "claude",
+    "ai_model": "claude-opus-4-1",
+    "betting": {
+      "spread": -5.5,
+      "over_under": 53.5,
+      "provider": "ESPN BET",
+      "favorite": "DET"
+    },
+    "weather": {
+      "is_indoor": true
+    },
+    "predictor": {
+      "home_win_prob": 61.781,
+      "matchup_quality": 78.317,
+      "predicted_point_diff": 4.674,
+      "away_win_prob": 37.913999999999994
     },
     "broadcast": "TV"
   }
