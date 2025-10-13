@@ -70,12 +70,26 @@
     "deploy_netlify": true,
     "test_mode": false
   },
-  "quick-gen-ai-haiku-no-sims-no-deploy": {
+  "gen-ai-haiku-no-sims-no-deploy": {
     "skip_data": false,
     "skip_sims": true,
     "regenerate_team_ai": "all",
+    "ai_model": "haiku",
     "commit": false,
     "deploy_netlify": false,
+    "copy_to": "/home/obliojoe/source/whoshouldlose2/public/data",
+    "team_ai_workers": 32,
+    "game_ai_workers": 5,
+    "test_mode": false
+  },
+  "gen-ai-opus-no-sims-no-deploy": {
+    "skip_data": false,
+    "skip_sims": true,
+    "regenerate_team_ai": "all",
+    "ai_model": "opus",
+    "commit": false,
+    "deploy_netlify": false,
+    "copy_to": "/home/obliojoe/source/whoshouldlose2/public/data",
     "team_ai_workers": 32,
     "game_ai_workers": 5,
     "test_mode": false
