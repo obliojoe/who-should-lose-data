@@ -1,12 +1,12 @@
 # COMPREHENSIVE POWER RANKINGS ANALYSIS - WEEK 7, 2025
 
-**Generated:** 2025-10-14 10:10:27
+**Generated:** 2025-10-14 10:28:14
 
 ---
 
 ## Executive Summary
 
-This report compares **10 different algorithmic approaches** to NFL power rankings,
+This report compares **18 different algorithmic approaches** to NFL power rankings,
 plus AI-enhanced rankings, against **6 major external sources** (NFL.com, ESPN, NBC,
 FOX, Yahoo, USA Today).
 
@@ -31,23 +31,23 @@ FOX, Yahoo, USA Today).
 
 ## Top 10 Comparison Across All Algorithms
 
-| Team | Ext | Composite | Low-Sag | No-Sag | Elo | Multi | Seed | Quality | Momentum | Clutch | Predict | AI | Avg | Variance |
-|------|-----|-----------|---------|--------|-----|-------|------|---------|----------|--------|---------|----|-----|----------|
-| IND (5-1) | 5.2 |   2 |   1 |   1 |  17 |   3 |   1 |   8 |   1 |   1 |   1 |   2 | 3.5 | 16 |
-| DET (4-2) | 4.0 |   1 |   2 |   2 |   2 |   1 |   2 |   2 |  12 |  12 |   5 |   1 | 3.8 | 11 |
-| KC (3-3) | 9.7 |   5 |   7 |   7 |   3 |   4 |  11 |   1 |   8 |  10 |   4 |   2 | 5.6 | 10 |
-| DEN (4-2) | 10.2 |   4 |   3 |   5 |   7 |   2 |   6 |  17 |   3 |   3 |  13 |   4 | 6.1 | 15 |
-| GB (3-1-1) | 4.3 |   9 |  11 |  12 |   4 |   8 |   5 |   3 |   7 |   7 |   2 |   9 | 7.0 | 10 |
-| TB (5-1) | 1.0 |   3 |   5 |   4 |   8 |   6 |  10 |   7 |  11 |  11 |   7 |   5 | 7.0 | 8 |
-| SEA (4-2) | 7.8 |  12 |   8 |   9 |  13 |  11 |   3 |  14 |   5 |   5 |  10 |  10 | 9.1 | 11 |
-| HOU (2-3) | 19.7 |  14 |  13 |  13 |  10 |  14 |   4 |   6 |   2 |   2 |  11 |  11 | 9.1 | 12 |
-| NE (4-2) | 14.0 |   7 |   6 |   6 |  21 |   7 |   8 |  22 |   4 |   4 |   8 |   7 | 9.1 | 18 |
-| PIT (4-1) | 9.8 |   6 |   4 |   3 |  15 |   5 |  12 |  23 |   6 |   6 |  15 |   6 | 9.2 | 20 |
-| LAR (4-2) | 5.0 |  10 |  10 |  11 |   9 |   9 |   9 |   4 |  10 |   9 |  12 |  10 | 9.4 | 8 |
-| BUF (4-2) | 5.3 |   8 |   9 |   8 |   6 |  12 |   7 |  24 |  19 |  19 |   6 |   8 | 11.5 | 18 |
-| PHI (4-2) | 7.0 |  11 |  14 |  14 |   1 |  10 |  17 |  10 |  23 |  23 |  20 |   9 | 13.8 | 22 |
-| WAS (3-3) | 15.7 |  15 |  18 |  19 |   5 |  16 |  15 |  11 |  15 |  15 |   9 |  15 | 13.9 | 14 |
-| JAX (4-2) | 12.2 |  13 |  12 |  10 |  20 |  15 |  14 |   9 |  18 |  18 |  18 |  13 | 14.5 | 11 |
+| Team | Ext | Composite | Low-Sag | No-Sag | Elo | Multi | Seed | Quality | Momentum | Clutch | Predict | QB-Excel | Def-Dom | RedZone | 3rdDown | Div-Dom | Record1st | Conf-Lead | Turnover | AI | Avg | Variance |
+|------|-----|-----------|---------|--------|-----|-------|------|---------|----------|--------|---------|----------|---------|---------|---------|---------|-----------|-----------|----------|----|-----|----------|
+| IND (5-1) | 5.2 |   2 |   1 |   1 |  17 |   3 |   1 |   8 |   1 |   1 |   1 |  12 |   3 |   4 |   3 |   1 |   2 |   1 |   5 |   4 | 3.7 | 16 |
+| DET (4-2) | 4.0 |   1 |   2 |   2 |   2 |   1 |   2 |   2 |  12 |  12 |   5 |   2 |   9 |   9 |  13 |  15 |   5 |   6 |   4 |   1 | 5.5 | 14 |
+| TB (5-1) | 1.0 |   3 |   5 |   4 |   8 |   6 |  10 |   7 |  11 |  11 |   7 |   3 |  14 |  13 |   2 |   5 |   1 |   2 |   6 |   5 | 6.5 | 13 |
+| GB (3-1-1) | 4.3 |   9 |  11 |  12 |   4 |   8 |   5 |   3 |   7 |   7 |   2 |   6 |  20 |   6 |   1 |   3 |   4 |   4 |  18 |   9 | 7.3 | 19 |
+| PIT (4-1) | 9.8 |   6 |   4 |   3 |  15 |   5 |  12 |  23 |   6 |   6 |  15 |  13 |   6 |   2 |   6 |   2 |   3 |   3 |   3 |   7 | 7.4 | 21 |
+| DEN (4-2) | 10.2 |   4 |   3 |   5 |   7 |   2 |   6 |  17 |   3 |   3 |  13 |  23 |   4 |   3 |   4 |  20 |   6 |   5 |  20 |   4 | 8.0 | 21 |
+| SEA (4-2) | 7.8 |  12 |   8 |   9 |  13 |  11 |   3 |  14 |   5 |   5 |  10 |   5 |   1 |   5 |  14 |  16 |   8 |   8 |  16 |  10 | 9.1 | 15 |
+| KC (3-3) | 9.7 |   5 |   7 |   7 |   3 |   4 |  11 |   1 |   8 |  10 |   4 |   8 |  12 |  14 |  18 |  24 |  15 |  15 |   7 |   2 | 9.2 | 23 |
+| NE (4-2) | 14.0 |   7 |   6 |   6 |  21 |   7 |   8 |  22 |   4 |   4 |   8 |   4 |  11 |  15 |  12 |   8 |   9 |   9 |  14 |   7 | 9.6 | 18 |
+| LAR (4-2) | 5.0 |  10 |  10 |  11 |   9 |   9 |   9 |   4 |  10 |   9 |  12 |   1 |   8 |  11 |  10 |  28 |  10 |  11 |  11 |  10 | 10.2 | 27 |
+| BUF (4-2) | 5.3 |   8 |   9 |   8 |   6 |  12 |   7 |  24 |  19 |  19 |   6 |  14 |  19 |   8 |  11 |  12 |   7 |   7 |  17 |   6 | 11.5 | 18 |
+| HOU (2-3) | 19.7 |  14 |  13 |  13 |  10 |  14 |   4 |   6 |   2 |   2 |  11 |  16 |   5 |  25 |  22 |  18 |  19 |  17 |  12 |  12 | 12.4 | 23 |
+| PHI (4-2) | 7.0 |  11 |  14 |  14 |   1 |  10 |  17 |  10 |  23 |  23 |  20 |   7 |  24 |   1 |  17 |  13 |  11 |  10 |  10 |  11 | 13.0 | 23 |
+| JAX (4-2) | 12.2 |  13 |  12 |  10 |  20 |  15 |  14 |   9 |  18 |  18 |  18 |  29 |   2 |  12 |  16 |   7 |  12 |  12 |   2 |  13 | 13.3 | 27 |
+| LAC (4-2) | 14.7 |  16 |  17 |  17 |  14 |  19 |  16 |  16 |  16 |  16 |  17 |  18 |   7 |  17 |   7 |   4 |  14 |  13 |  15 |  16 | 14.5 | 15 |
 
 ---
 
@@ -57,20 +57,28 @@ FOX, Yahoo, USA Today).
 
 **Our Algorithms:**
 
+- **Record1st**: #1
+- **3rdDown**: #2
+- **Conf-Lead**: #2
 - **Composite**: #3
+- **QB-Excel**: #3
 - **No-Sag**: #4
 - **Low-Sag**: #5
+- **Div-Dom**: #5
 - **AI**: #5
 - **Multi**: #6
+- **Turnover**: #6
 - **Quality**: #7
 - **Predict**: #7
 - **Elo**: #8
 - **Seed**: #10
 - **Momentum**: #11
 - **Clutch**: #11
+- **RedZone**: #13
+- **Def-Dom**: #14
 
-**Best TB Ranking:** Composite (#3)
-**Average Rank:** #7.0
+**Best TB Ranking:** Record1st (#1)
+**Average Rank:** #6.5
 
 **Why TB ranks lower in some algorithms:**
 - Point differential: +14 (relatively low compared to IND +78, DET +49)
@@ -95,25 +103,33 @@ FOX, Yahoo, USA Today).
 | Momentum        |       0.715 | Moderate match |
 | Clutch          |       0.714 | Moderate match |
 | Predict         |       0.754 | Good match |
+| QB-Excel        |       0.708 | Moderate match |
+| Def-Dom         |       0.595 | Significant differences |
+| RedZone         |       0.796 | Good match |
+| 3rdDown         |       0.837 | Good match |
+| Div-Dom         |       0.616 | Significant differences |
+| Record1st       |       0.940 | Excellent match |
+| Conf-Lead       |       0.913 | Excellent match |
+| Turnover        |       0.583 | Significant differences |
 | AI              |       0.933 | Excellent match |
 
-**Best Match:** Composite (r=0.933)
-**Weakest Match:** Quality (r=0.699)
+**Best Match:** Record1st (r=0.940)
+**Weakest Match:** Turnover (r=0.583)
 
 ---
 
 ## Notable Disagreements (Variance > 8)
 
 - **IND**: Range 1-17 (variance: 16), External avg: 5.2
-- **DET**: Range 1-12 (variance: 11), External avg: 4.0
-- **KC**: Range 1-11 (variance: 10), External avg: 9.7
-- **DEN**: Range 2-17 (variance: 15), External avg: 10.2
-- **GB**: Range 2-12 (variance: 10), External avg: 4.3
-- **SEA**: Range 3-14 (variance: 11), External avg: 7.8
-- **HOU**: Range 2-14 (variance: 12), External avg: 19.7
+- **DET**: Range 1-15 (variance: 14), External avg: 4.0
+- **TB**: Range 1-14 (variance: 13), External avg: 1.0
+- **GB**: Range 1-20 (variance: 19), External avg: 4.3
+- **PIT**: Range 2-23 (variance: 21), External avg: 9.8
+- **DEN**: Range 2-23 (variance: 21), External avg: 10.2
+- **SEA**: Range 1-16 (variance: 15), External avg: 7.8
+- **KC**: Range 1-24 (variance: 23), External avg: 9.7
 - **NE**: Range 4-22 (variance: 18), External avg: 14.0
-- **PIT**: Range 3-23 (variance: 20), External avg: 9.8
-- **BUF**: Range 6-24 (variance: 18), External avg: 5.3
+- **LAR**: Range 1-28 (variance: 27), External avg: 5.0
 
 ---
 
@@ -139,15 +155,31 @@ FOX, Yahoo, USA Today).
 
 **Predict:** **Simple Predictive:** Playoff probability 50%, Record 30%, EPA 20%
 
+**QB-Excel:** **QB Excellence:** Passer rating 30%, Completion% 15%, Yards/att 15%, TD/INT ratio 15%, Win% 25%
+
+**Def-Dom:** **Defensive Dominance:** Pts against 30%, Def sacks 20%, Def INTs 20%, 3rd down def 15%, Win% 15%
+
+**RedZone:** **Red Zone Mastery:** Red zone TD% 40%, Red zone def% 30%, Win% 30%
+
+**3rdDown:** **Third Down Excellence:** 3rd down% 35%, 3rd down def% 35%, Win% 30%
+
+**Div-Dom:** **Division Dominance:** Division win% 40%, Conference record 30%, Overall win% 30%
+
+**Record1st:** **Record First:** Win% 70%, Playoff prob 20%, Current seed 10%
+
+**Conf-Lead:** **Conference Leader:** Current seed 50%, Conference record 30%, Playoff prob 20%
+
+**Turnover:** **Turnover Battle:** Turnover margin 50%, Win% 30%, Playoff prob 20%
+
 ---
 
 ## Recommendations
 
 Based on correlation analysis, the algorithm that **best matches external consensus** is:
-### **Composite** (r=0.933)
+### **Record1st** (r=0.940)
 
 For **maximizing TB's ranking** while staying algorithmic:
-### **Composite** (ranks TB at #3)
+### **Record1st** (ranks TB at #1)
 
 **Strategic Recommendations:**
 
