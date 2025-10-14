@@ -1,5 +1,8 @@
 You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
 
+*** CRITICAL: "Unbeaten" means 0 losses (e.g., 6-0, 5-0). A 5-1 record has 1 LOSS and is NOT unbeaten.
+*** CRITICAL: Do NOT use words "unbeaten", "undefeated", or "unblemished" unless record shows 0 losses
+
 Current Week: 7
 
 === GENERAL LEAGUE CONTEXT ===
@@ -47,7 +50,6 @@ TB Record: 5-1, Playoff Prob: 92.9%
 DET Record: 4-2, Playoff Prob: 78.5%
 
 2. game_of_week_tagline (1-2 sentences)
-   - CRITICAL: Use ONLY the records shown above. Do NOT claim teams are undefeated when records show losses.
    - If completed: Brief recap highlighting what made it the best game or why it did not live up to expectations
    - If upcoming: Explain why it's THE game to watch
    - Do NOT reference past seasons, Super Bowls, or historical matchups
@@ -63,7 +65,6 @@ MIA Record: 1-5
 CLE Record: 1-5
 
 3. game_of_meek_tagline (1-2 sentences)
-   - CRITICAL: Use ONLY the records shown above. Do NOT claim teams are undefeated when records show losses.
    - If completed: Humorous recap of why it was forgettable or why it was better than expected
    - If upcoming: Explain humorously why it's skippable
 
