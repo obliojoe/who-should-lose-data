@@ -1,8 +1,5 @@
 You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
 
-*** CRITICAL: "Unbeaten" means 0 losses (e.g., 6-0, 5-0). A 5-1 record has 1 LOSS and is NOT unbeaten.
-*** CRITICAL: Do NOT use words "unbeaten", "undefeated", or "unblemished" unless record shows 0 losses
-
 Current Week: 7
 
 === GENERAL LEAGUE CONTEXT ===
@@ -15,7 +12,7 @@ NOTE: No games have been completed this week yet.
 
 
 ALL 32 TEAMS (Power Rankings):
-[{"team":"PHI","rank":1,"rating":25.59,"record":"4-2","playoff_prob":80.6,"playoff_seed":4},{"team":"DET","rank":2,"rating":25.52,"record":"4-2","playoff_prob":78.5,"playoff_seed":6},{"team":"KC","rank":3,"rating":25.31,"record":"3-3","playoff_prob":72.7,"playoff_seed":8},{"team":"GB","rank":4,"rating":24.29,"record":"3-1-1","playoff_prob":69.8,"playoff_seed":2},{"team":"WAS","rank":5,"rating":24.19,"record":"3-3","playoff_prob":52.0,"playoff_seed":12},{"team":"BUF","rank":6,"rating":23.87,"record":"4-2","playoff_prob":84.4,"playoff_seed":5},{"team":"DEN","rank":7,"rating":23.08,"record":"4-2","playoff_prob":77.8,"playoff_seed":7},{"team":"TB","rank":8,"rating":22.31,"record":"5-1","playoff_prob":92.9,"playoff_seed":1},{"team":"LAR","rank":9,"rating":22.14,"record":"4-2","playoff_prob":60.0,"playoff_seed":7},{"team":"BAL","rank":10,"rating":21.99,"record":"1-5","playoff_prob":17.6,"playoff_seed":12},{"team":"HOU","rank":11,"rating":21.93,"record":"2-3","playoff_prob":45.0,"playoff_seed":9},{"team":"MIN","rank":12,"rating":21.52,"record":"3-2","playoff_prob":31.3,"playoff_seed":9},{"team":"SEA","rank":13,"rating":21.18,"record":"4-2","playoff_prob":54.1,"playoff_seed":5},{"team":"LAC","rank":14,"rating":20.95,"record":"4-2","playoff_prob":70.8,"playoff_seed":3},{"team":"PIT","rank":15,"rating":20.78,"record":"4-1","playoff_prob":79.0,"playoff_seed":2},{"team":"SF","rank":16,"rating":20.71,"record":"4-2","playoff_prob":74.2,"playoff_seed":3},{"team":"IND","rank":17,"rating":20.57,"record":"5-1","playoff_prob":79.6,"playoff_seed":1},{"team":"CHI","rank":18,"rating":20.12,"record":"3-2","playoff_prob":30.9,"playoff_seed":10},{"team":"NE","rank":19,"rating":19.64,"record":"4-2","playoff_prob":74.9,"playoff_seed":4},{"team":"ATL","rank":20,"rating":19.56,"record":"3-2","playoff_prob":49.6,"playoff_seed":8},{"team":"JAX","rank":21,"rating":19.54,"record":"4-2","playoff_prob":62.0,"playoff_seed":6},{"team":"CIN","rank":22,"rating":19.1,"record":"2-4","playoff_prob":27.5,"playoff_seed":10},{"team":"ARI","rank":23,"rating":18.63,"record":"2-4","playoff_prob":6.7,"playoff_seed":14},{"team":"LV","rank":24,"rating":17.25,"record":"2-4","playoff_prob":5.4,"playoff_seed":11},{"team":"DAL","rank":25,"rating":17.11,"record":"2-3-1","playoff_prob":2.3,"playoff_seed":13},{"team":"CAR","rank":26,"rating":16.8,"record":"3-3","playoff_prob":15.3,"playoff_seed":11},{"team":"NYG","rank":27,"rating":16.55,"record":"2-4","playoff_prob":1.5,"playoff_seed":15},{"team":"CLE","rank":28,"rating":14.7,"record":"1-5","playoff_prob":1.5,"playoff_seed":14},{"team":"MIA","rank":29,"rating":14.62,"record":"1-5","playoff_prob":0.7,"playoff_seed":13},{"team":"NYJ","rank":30,"rating":14.18,"record":"0-6","playoff_prob":0.2,"playoff_seed":16},{"team":"TEN","rank":31,"rating":13.93,"record":"1-5","playoff_prob":1.0,"playoff_seed":15},{"team":"NO","rank":32,"rating":12.36,"record":"1-5","playoff_prob":0.2,"playoff_seed":16}]
+[{"team":"PHI","rank":1,"rating":25.59,"record":"4-2","playoff_prob":81.0,"playoff_seed":4},{"team":"DET","rank":2,"rating":25.52,"record":"4-2","playoff_prob":78.8,"playoff_seed":6},{"team":"KC","rank":3,"rating":25.31,"record":"3-3","playoff_prob":72.3,"playoff_seed":8},{"team":"GB","rank":4,"rating":24.29,"record":"3-1-1","playoff_prob":70.4,"playoff_seed":2},{"team":"WAS","rank":5,"rating":24.19,"record":"3-3","playoff_prob":51.8,"playoff_seed":12},{"team":"BUF","rank":6,"rating":23.87,"record":"4-2","playoff_prob":84.7,"playoff_seed":5},{"team":"DEN","rank":7,"rating":23.08,"record":"4-2","playoff_prob":77.5,"playoff_seed":7},{"team":"TB","rank":8,"rating":22.31,"record":"5-1","playoff_prob":93.0,"playoff_seed":1},{"team":"LAR","rank":9,"rating":22.14,"record":"4-2","playoff_prob":59.8,"playoff_seed":7},{"team":"BAL","rank":10,"rating":21.99,"record":"1-5","playoff_prob":17.5,"playoff_seed":12},{"team":"HOU","rank":11,"rating":21.93,"record":"2-3","playoff_prob":45.5,"playoff_seed":9},{"team":"MIN","rank":12,"rating":21.52,"record":"3-2","playoff_prob":31.1,"playoff_seed":9},{"team":"SEA","rank":13,"rating":21.18,"record":"4-2","playoff_prob":53.7,"playoff_seed":5},{"team":"LAC","rank":14,"rating":20.95,"record":"4-2","playoff_prob":71.1,"playoff_seed":3},{"team":"PIT","rank":15,"rating":20.78,"record":"4-1","playoff_prob":79.1,"playoff_seed":2},{"team":"SF","rank":16,"rating":20.71,"record":"4-2","playoff_prob":74.3,"playoff_seed":3},{"team":"IND","rank":17,"rating":20.57,"record":"5-1","playoff_prob":79.3,"playoff_seed":1},{"team":"CHI","rank":18,"rating":20.12,"record":"3-2","playoff_prob":30.4,"playoff_seed":10},{"team":"NE","rank":19,"rating":19.64,"record":"4-2","playoff_prob":74.8,"playoff_seed":4},{"team":"ATL","rank":20,"rating":19.56,"record":"3-2","playoff_prob":49.6,"playoff_seed":8},{"team":"JAX","rank":21,"rating":19.54,"record":"4-2","playoff_prob":62.0,"playoff_seed":6},{"team":"CIN","rank":22,"rating":19.1,"record":"2-4","playoff_prob":27.3,"playoff_seed":10},{"team":"ARI","rank":23,"rating":18.63,"record":"2-4","playoff_prob":6.6,"playoff_seed":14},{"team":"LV","rank":24,"rating":17.25,"record":"2-4","playoff_prob":5.3,"playoff_seed":11},{"team":"DAL","rank":25,"rating":17.11,"record":"2-3-1","playoff_prob":2.1,"playoff_seed":13},{"team":"CAR","rank":26,"rating":16.8,"record":"3-3","playoff_prob":15.8,"playoff_seed":11},{"team":"NYG","rank":27,"rating":16.55,"record":"2-4","playoff_prob":1.6,"playoff_seed":15},{"team":"CLE","rank":28,"rating":14.7,"record":"1-5","playoff_prob":1.5,"playoff_seed":14},{"team":"MIA","rank":29,"rating":14.62,"record":"1-5","playoff_prob":0.7,"playoff_seed":13},{"team":"NYJ","rank":30,"rating":14.18,"record":"0-6","playoff_prob":0.2,"playoff_seed":16},{"team":"TEN","rank":31,"rating":13.93,"record":"1-5","playoff_prob":1.0,"playoff_seed":15},{"team":"NO","rank":32,"rating":12.36,"record":"1-5","playoff_prob":0.2,"playoff_seed":16}]
 
 
 === END GENERAL CONTEXT ===
@@ -46,12 +43,10 @@ SECTION 2: GAME OF THE WEEK
 Game: TB @ DET
 Status: upcoming
 Spread: TB +4.5, Over/Under: 52.5
-TB Record: 5-1, Playoff Prob: 92.9%
-DET Record: 4-2, Playoff Prob: 78.5%
+TB Record: 5-1, Playoff Prob: 93.0%
+DET Record: 4-2, Playoff Prob: 78.8%
 
 2. game_of_week_tagline (1-2 sentences)
-   - CRITICAL: "Unbeaten" means 0 losses (e.g., 6-0, 5-0). A 5-1 record has 1 LOSS and is NOT unbeaten.
-   - CRITICAL: Do NOT use words "unbeaten", "undefeated", or "unblemished" unless record shows 0 losses
    - If completed: Brief recap highlighting what made it the best game or why it did not live up to expectations
    - If upcoming: Explain why it's THE game to watch
    - Do NOT reference past seasons, Super Bowls, or historical matchups
@@ -272,16 +267,16 @@ SECTION 7: PLAYOFF PICTURE
 Generate brief context (PLAIN STRING) for these specific 12 teams in playoff race:
 
 7a. TOP 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. TB - Record: 5-1, Playoff Prob: 92.9%, Current Seed: 1
-   2. BUF - Record: 4-2, Playoff Prob: 84.4%, Current Seed: 5
-   3. PHI - Record: 4-2, Playoff Prob: 80.6%, Current Seed: 4
-   4. IND - Record: 5-1, Playoff Prob: 79.6%, Current Seed: 1
+   1. TB - Record: 5-1, Playoff Prob: 93.0%, Current Seed: 1
+   2. BUF - Record: 4-2, Playoff Prob: 84.7%, Current Seed: 5
+   3. PHI - Record: 4-2, Playoff Prob: 81.0%, Current Seed: 4
+   4. IND - Record: 5-1, Playoff Prob: 79.3%, Current Seed: 1
 
 7b. MIDDLE 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. PIT - Record: 4-1, Playoff Prob: 79.0%, Current Seed: 2
-   2. DET - Record: 4-2, Playoff Prob: 78.5%, Current Seed: 6
-   3. DEN - Record: 4-2, Playoff Prob: 77.8%, Current Seed: 7
-   4. NE - Record: 4-2, Playoff Prob: 74.9%, Current Seed: 4
+   1. PIT - Record: 4-1, Playoff Prob: 79.1%, Current Seed: 2
+   2. DET - Record: 4-2, Playoff Prob: 78.8%, Current Seed: 6
+   3. DEN - Record: 4-2, Playoff Prob: 77.5%, Current Seed: 7
+   4. NE - Record: 4-2, Playoff Prob: 74.8%, Current Seed: 4
 
 7c. BOTTOM 4 PLAYOFF TEAMS (provide contexts in this exact order):
    1. TEN - Record: 1-5, Playoff Prob: 1.0%, Current Seed: 15
