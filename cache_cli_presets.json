@@ -3,6 +3,7 @@
     "skip_data": false,
     "skip_sims": false,
     "simulations": 100000,
+    "force_sagarin": true,
     "regenerate_team_ai": "all",
     "regenerate_game_ai": "weekly-refresh",
     "ai_model": "opus",
@@ -16,6 +17,7 @@
     "skip_data": false,
     "skip_sims": false,
     "simulations": 50000,
+    "force_sagarin": true,
     "regenerate_team_ai": "all",
     "regenerate_game_ai": "weekly-refresh",
     "ai_model": "opus",
@@ -65,6 +67,7 @@
   "regenerate-dashboard-only-and-deploy": {
     "skip_data": false,
     "skip_sims": true,
+    "force_sagarin": true,
     "skip_team_ai": true,
     "skip_game_ai": true,
     "ai_model": "opus",
