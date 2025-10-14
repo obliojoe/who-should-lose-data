@@ -192,9 +192,13 @@ def scrape_home_advantage(html_content):
 
     return matches[0] if matches else 0
 
-def scrape_sagarin():
-    """Main function to get Sagarin ratings, using cache when appropriate"""
-    if not should_update_cache():
+def scrape_sagarin(force_rescrape=False):
+    """Main function to get Sagarin ratings, using cache when appropriate
+
+    Args:
+        force_rescrape: If True, ignores cache and forces a fresh scrape from website
+    """
+    if not force_rescrape and not should_update_cache():
         cached_value, team_ratings = load_from_cache()
         if cached_value is not None:
             # Don't overwrite CSV when using cache - preserve historical data
@@ -202,6 +206,8 @@ def scrape_sagarin():
             return cached_value
 
     # If we need to update, proceed with scraping
+    if force_rescrape:
+        logger.info("Force rescrape requested - fetching fresh data from Sagarin website")
     try:
         logger.info("Attempting to scrape new Sagarin ratings...")
         response = requests.get('http://sagarin.com/sports/nflsend.htm')

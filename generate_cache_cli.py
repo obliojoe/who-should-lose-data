@@ -140,7 +140,10 @@ def get_preset_summary(options):
     else:
         if not options.get('skip_sims'):
             sims = options.get('simulations', 10000)
-            parts.append(f"{sims:,} sims")
+            sim_desc = f"{sims:,} sims"
+            if options.get('force_sagarin'):
+                sim_desc += " + fresh Sagarin"
+            parts.append(sim_desc)
 
         if not options.get('skip_team_ai'):
             if options.get('regenerate_team_ai') == 'all':
@@ -264,6 +267,11 @@ def ask_questions(mode=None):
     options['skip_sims'] = not run_sims
 
     if run_sims:
+        # Ask about Sagarin rankings
+        force_sagarin = ask_yes_no("Force fresh scrape of Sagarin rankings? (ignores 24hr cache)", default=False)
+        if force_sagarin:
+            options['force_sagarin'] = True
+
         sim_choice = ask_choice(
             "How many simulations?",
             choices=["Test (1,000)", "Standard (10,000)", "High (50,000)", "Very High (100,000)", "Custom"],
@@ -506,6 +514,8 @@ def build_command(options):
                 cmd_parts.append(f"--simulations {options['simulations']}")
             if 'seed' in options:
                 cmd_parts.append(f"--seed {options['seed']}")
+            if options.get('force_sagarin'):
+                cmd_parts.append("--force-sagarin")
 
         # Team AI options
         if options.get('skip_team_ai'):

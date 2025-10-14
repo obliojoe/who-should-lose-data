@@ -1187,7 +1187,7 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
 
     return total_impact, debug_stats
 
-def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_team_ai=None, seed=None, ai_model=None):
+def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_team_ai=None, seed=None, ai_model=None, force_sagarin=False):
     """Generate the analysis cache file"""
     is_ci = os.environ.get('CI') == 'true'  # Check for CI environment
     output_path = Path(output_path)
@@ -1230,7 +1230,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
     # Load required data
     teams = load_teams()
     schedule = load_schedule()
-    home_field_advantage = float(scrape_sagarin())
+    home_field_advantage = float(scrape_sagarin(force_rescrape=force_sagarin))
     sagarin_hash = generate_sagarin_hash()
 
     # Initialize cache structure with empty team analyses
@@ -1917,6 +1917,8 @@ def main():
                       help='Generate data files only, then exit (skip simulations and AI)')
     parser.add_argument('--deploy-only', action='store_true',
                       help='Skip all generation, just deploy/commit existing files (implies --skip-data --skip-sims --skip-team-ai --skip-game-ai --skip-dashboard-ai)')
+    parser.add_argument('--force-sagarin', action='store_true',
+                      help='Force fresh scrape of Sagarin rankings from website (ignore cache)')
 
     # Simulation Options
     parser.add_argument('--simulations', type=int, default=1000,
@@ -2091,7 +2093,8 @@ def main():
             test_mode=args.test_mode,
             regenerate_team_ai=args.regenerate_team_ai,
             seed=args.seed,
-            ai_model=args.ai_model
+            ai_model=args.ai_model,
+            force_sagarin=args.force_sagarin
         )
 
     # NOW run game AI and dashboard AI (AFTER simulations, so they have access to probability data)
