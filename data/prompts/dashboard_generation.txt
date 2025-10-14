@@ -39,7 +39,6 @@ Generate two fields summarizing the current league landscape:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 SECTION 2: GAME OF THE WEEK
-Generate tagline for the week's best game:
 
 Game: TB @ DET
 Status: upcoming
@@ -48,10 +47,9 @@ TB Record: 5-1, Playoff Prob: 92.8%
 DET Record: 4-2, Playoff Prob: 83.5%
 
 2. game_of_week_tagline (1-2 sentences)
+   - CRITICAL: Use ONLY the records shown above. Do NOT claim teams are undefeated when records show losses.
    - If completed: Brief recap highlighting what made it the best game
    - If upcoming: Explain why it's THE game to watch
-   - CRITICAL: Use ONLY the records shown above for these TWO teams
-   - Do NOT make false claims like "undefeated" when records show losses
    - Do NOT reference past seasons, Super Bowls, or historical matchups
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
