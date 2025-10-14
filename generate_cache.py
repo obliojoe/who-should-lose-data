@@ -1752,12 +1752,41 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
     # Extract team AI analyses into separate file
     team_analyses = {}
     parse_error_teams = []
+
+    # Load power rankings for current week
+    try:
+        from power_rankings_dashboard import get_power_rankings_df
+        import pandas as pd
+
+        # Get completed weeks to find current week
+        schedule_df = pd.read_csv('data/schedule.csv')
+        current_week = schedule_df[schedule_df['away_score'].notna()]['week_num'].max()
+        pr_df = get_power_rankings_df(int(current_week))
+
+        # Create lookup dict for power rankings
+        power_rankings_lookup = {}
+        for _, row in pr_df.iterrows():
+            power_rankings_lookup[row['team_abbr']] = {
+                'rank': int(row['rank']),
+                'previous_rank': int(row['previous_rank']) if pd.notna(row['previous_rank']) else None,
+                'movement': int(row['movement']) if pd.notna(row['movement']) else 0,
+                'rating': round(float(row['rating']), 2)
+            }
+        logger.info(f"Loaded power rankings for week {current_week}")
+    except Exception as e:
+        logger.warning(f"Could not load power rankings: {e}")
+        power_rankings_lookup = {}
+
     for team_abbr, team_data in cache_data['team_analyses'].items():
         team_analyses[team_abbr] = {}
 
         # Preserve ai_tagline from existing analyses if present
         if team_abbr in existing_team_analyses and 'ai_tagline' in existing_team_analyses[team_abbr]:
             team_analyses[team_abbr]['ai_tagline'] = existing_team_analyses[team_abbr]['ai_tagline']
+
+        # Add power ranking if available
+        if team_abbr in power_rankings_lookup:
+            team_analyses[team_abbr]['power_ranking'] = power_rankings_lookup[team_abbr]
 
         # Parse ai_analysis JSON string into actual fields
         if 'ai_analysis' in team_data and team_data['ai_analysis']:
