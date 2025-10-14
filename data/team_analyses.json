@@ -50,9 +50,9 @@
   "BUF": {
     "ai_tagline": "Elite offense meets two-game skid",
     "ai_status": "error",
-    "ai_error": "JSON parsing failed: Expecting value: line 1 column 1 (char 0)",
     "ai_provider": "claude",
-    "ai_model": "claude-opus-4-1"
+    "ai_model": "claude-opus-4-1",
+    "ai_error": "JSON parsing failed: Expecting value: line 1 column 1 (char 0)"
   },
   "CAR": {
     "ai_tagline": "Jekyll and Hyde Panthers",
