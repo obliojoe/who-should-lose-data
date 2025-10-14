@@ -164,9 +164,27 @@ def main():
     print("18. Turnover Battle...")
     to_battle = pr.turnover_battle_rankings()
 
+    print("19. Record1st + Momentum...")
+    r1_momentum = pr.record1st_momentum_rankings()
+
+    print("20. Record1st + Point Differential...")
+    r1_point_diff = pr.record1st_point_diff_rankings()
+
+    print("21. Record1st + Turnover Edge...")
+    r1_turnover = pr.record1st_turnover_rankings()
+
+    print("22. Record1st + SOS...")
+    r1_sos = pr.record1st_sos_rankings()
+
+    print("23. Record1st + Clutch...")
+    r1_clutch = pr.record1st_clutch_rankings()
+
+    print("24. Record1st + Division...")
+    r1_division = pr.record1st_division_rankings()
+
     ai_enhanced = None
     if include_ai:
-        print("19. AI-Enhanced (this may take a minute)...")
+        print("25. AI-Enhanced (this may take a minute)...")
         try:
             ai_enhanced = pr.ai_enhanced_rankings(base_algorithm='composite', ai_model='sonnet-3.7')
         except Exception as e:
@@ -186,7 +204,7 @@ def main():
 
     # Executive Summary
     report_lines.append("## Executive Summary\n")
-    report_lines.append("This report compares **18 different algorithmic approaches** to NFL power rankings,")
+    report_lines.append("This report compares **24 different algorithmic approaches** to NFL power rankings,")
     report_lines.append("plus AI-enhanced rankings, against **6 major external sources** (NFL.com, ESPN, NBC,")
     report_lines.append("FOX, Yahoo, USA Today).\n")
 
@@ -221,7 +239,13 @@ def main():
         'Div-Dom': div_dom,
         'Record1st': record_first,
         'Conf-Lead': conf_leader,
-        'Turnover': to_battle
+        'Turnover': to_battle,
+        'R1+Mom': r1_momentum,
+        'R1+PtDiff': r1_point_diff,
+        'R1+TO': r1_turnover,
+        'R1+SOS': r1_sos,
+        'R1+Clutch': r1_clutch,
+        'R1+Div': r1_division
     }
 
     if ai_enhanced:
@@ -374,7 +398,13 @@ def main():
         'Div-Dom': "**Division Dominance:** Division win% 40%, Conference record 30%, Overall win% 30%",
         'Record1st': "**Record First:** Win% 70%, Playoff prob 20%, Current seed 10%",
         'Conf-Lead': "**Conference Leader:** Current seed 50%, Conference record 30%, Playoff prob 20%",
-        'Turnover': "**Turnover Battle:** Turnover margin 50%, Win% 30%, Playoff prob 20%"
+        'Turnover': "**Turnover Battle:** Turnover margin 50%, Win% 30%, Playoff prob 20%",
+        'R1+Mom': "**Record1st + Momentum:** Win% 60%, Playoff prob 15%, Seed 10%, Recent form (last 3) 15%",
+        'R1+PtDiff': "**Record1st + Point Differential:** Win% 60%, Playoff prob 15%, Seed 10%, Point diff 15%",
+        'R1+TO': "**Record1st + Turnover Edge:** Win% 60%, Playoff prob 15%, Seed 10%, Turnover margin 15%",
+        'R1+SOS': "**Record1st + SOS:** Win% 60%, Playoff prob 15%, Seed 10%, Strength of schedule 15%",
+        'R1+Clutch': "**Record1st + Clutch:** Win% 60%, Playoff prob 15%, Seed 10%, Close game win% 15%",
+        'R1+Div': "**Record1st + Division:** Win% 55%, Playoff prob 15%, Seed 10%, Division win% 20%"
     }
 
     for name, desc in algo_descriptions.items():
