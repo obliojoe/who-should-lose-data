@@ -182,9 +182,15 @@ def main():
     print("24. Record1st + Division...")
     r1_division = pr.record1st_division_rankings()
 
+    print("25. Record1st + SOV...")
+    r1_sov = pr.record1st_sov_rankings()
+
+    print("26. Record1st + SOV + Momentum...")
+    r1_sov_mom = pr.record1st_sov_momentum_rankings()
+
     ai_enhanced = None
     if include_ai:
-        print("25. AI-Enhanced (this may take a minute)...")
+        print("27. AI-Enhanced (this may take a minute)...")
         try:
             ai_enhanced = pr.ai_enhanced_rankings(base_algorithm='composite', ai_model='sonnet-3.7')
         except Exception as e:
@@ -204,7 +210,7 @@ def main():
 
     # Executive Summary
     report_lines.append("## Executive Summary\n")
-    report_lines.append("This report compares **24 different algorithmic approaches** to NFL power rankings,")
+    report_lines.append("This report compares **26 different algorithmic approaches** to NFL power rankings,")
     report_lines.append("plus AI-enhanced rankings, against **6 major external sources** (NFL.com, ESPN, NBC,")
     report_lines.append("FOX, Yahoo, USA Today).\n")
 
@@ -245,7 +251,9 @@ def main():
         'R1+TO': r1_turnover,
         'R1+SOS': r1_sos,
         'R1+Clutch': r1_clutch,
-        'R1+Div': r1_division
+        'R1+Div': r1_division,
+        'R1+SOV': r1_sov,
+        'R1+SOV+Mom': r1_sov_mom
     }
 
     if ai_enhanced:
@@ -404,7 +412,9 @@ def main():
         'R1+TO': "**Record1st + Turnover Edge:** Win% 60%, Playoff prob 15%, Seed 10%, Turnover margin 15%",
         'R1+SOS': "**Record1st + SOS:** Win% 60%, Playoff prob 15%, Seed 10%, Strength of schedule 15%",
         'R1+Clutch': "**Record1st + Clutch:** Win% 60%, Playoff prob 15%, Seed 10%, Close game win% 15%",
-        'R1+Div': "**Record1st + Division:** Win% 55%, Playoff prob 15%, Seed 10%, Division win% 20%"
+        'R1+Div': "**Record1st + Division:** Win% 55%, Playoff prob 15%, Seed 10%, Division win% 20%",
+        'R1+SOV': "**Record1st + SOV:** Win% 60%, Playoff prob 15%, Seed 10%, Strength of victory (avg win% of beaten teams) 15%",
+        'R1+SOV+Mom': "**Record1st + SOV + Momentum:** Win% 50%, Playoff prob 15%, Seed 10%, Strength of victory 15%, Recent form 10%"
     }
 
     for name, desc in algo_descriptions.items():

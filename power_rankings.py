@@ -181,6 +181,28 @@ class PowerRankings:
         total_rating = sum(self.teams[opp]['sagarin_rating'] for opp in opponents if opp in self.teams)
         return total_rating / len(opponents) if opponents else 20.0
 
+    def calculate_strength_of_victory(self, team: str) -> float:
+        """
+        Calculate strength of victory - average win% of teams beaten
+        Only counts opponents this team has defeated
+        Returns: average win% of teams beaten (0.0 to 1.0)
+        """
+        victories = []
+
+        for game in self.schedule:
+            # Check if this team won
+            if game['away_team'] == team and game['away_score'] > game['home_score']:
+                victories.append(game['home_team'])
+            elif game['home_team'] == team and game['home_score'] > game['away_score']:
+                victories.append(game['away_team'])
+
+        if not victories:
+            return 0.5  # No wins yet, return average
+
+        # Calculate average win% of defeated opponents
+        total_win_pct = sum(self.teams[opp]['win_pct'] for opp in victories if opp in self.teams)
+        return total_win_pct / len(victories) if victories else 0.5
+
     @staticmethod
     def normalize_to_percentile(values: List[float]) -> List[float]:
         """
@@ -1751,6 +1773,108 @@ Only include teams you want to adjust. Return valid JSON only.
                 'playoff_prob': 0.15,
                 'seed': 0.10,
                 'div_win_pct': 0.20
+            }
+
+            record_score = sum(scores[key] * weights[key] for key in weights.keys())
+            team_scores[team] = {'record_score': record_score, 'breakdown': scores}
+
+        rankings = []
+        for team, data in team_scores.items():
+            rankings.append({
+                'team': team,
+                'record': self.teams[team]['record'],
+                'record_score': data['record_score'],
+                'breakdown': data['breakdown']
+            })
+
+        rankings.sort(key=lambda x: x['record_score'], reverse=True)
+        for rank, team_rank in enumerate(rankings, 1):
+            team_rank['rank'] = rank
+
+        return rankings
+
+    def record1st_sov_rankings(self) -> List[Dict]:
+        """
+        Algorithm 24: Record1st + Strength of Victory
+        Win% with quality of wins boost
+        - Win%: 60%
+        - Playoff prob: 15%
+        - Current seed: 10%
+        - Strength of victory: 15%
+        """
+        team_scores = {}
+
+        for team in self.teams.keys():
+            scores = {}
+
+            scores['win_pct'] = self.teams[team]['win_pct'] * 100
+            scores['playoff_prob'] = self.teams[team]['playoff_prob']
+
+            seed = self.get_playoff_seed_rank(team)
+            scores['seed'] = self.normalize_to_scale(16 - seed, 0, 15) * 100 / 15
+
+            sov = self.calculate_strength_of_victory(team)
+            sov_vals = [self.calculate_strength_of_victory(t) for t in self.teams.keys()]
+            scores['sov'] = self.normalize_to_scale(sov, min(sov_vals), max(sov_vals)) * 100
+
+            weights = {
+                'win_pct': 0.60,
+                'playoff_prob': 0.15,
+                'seed': 0.10,
+                'sov': 0.15
+            }
+
+            record_score = sum(scores[key] * weights[key] for key in weights.keys())
+            team_scores[team] = {'record_score': record_score, 'breakdown': scores}
+
+        rankings = []
+        for team, data in team_scores.items():
+            rankings.append({
+                'team': team,
+                'record': self.teams[team]['record'],
+                'record_score': data['record_score'],
+                'breakdown': data['breakdown']
+            })
+
+        rankings.sort(key=lambda x: x['record_score'], reverse=True)
+        for rank, team_rank in enumerate(rankings, 1):
+            team_rank['rank'] = rank
+
+        return rankings
+
+    def record1st_sov_momentum_rankings(self) -> List[Dict]:
+        """
+        Algorithm 25: Record1st + SOV + Momentum
+        Win% with quality wins and recent form
+        - Win%: 50%
+        - Playoff prob: 15%
+        - Current seed: 10%
+        - Strength of victory: 15%
+        - Recent form (last 3): 10%
+        """
+        team_scores = {}
+
+        for team in self.teams.keys():
+            scores = {}
+
+            scores['win_pct'] = self.teams[team]['win_pct'] * 100
+            scores['playoff_prob'] = self.teams[team]['playoff_prob']
+
+            seed = self.get_playoff_seed_rank(team)
+            scores['seed'] = self.normalize_to_scale(16 - seed, 0, 15) * 100 / 15
+
+            sov = self.calculate_strength_of_victory(team)
+            sov_vals = [self.calculate_strength_of_victory(t) for t in self.teams.keys()]
+            scores['sov'] = self.normalize_to_scale(sov, min(sov_vals), max(sov_vals)) * 100
+
+            scores['recent_form'] = self.calculate_recent_form(team, 3) * 100
+
+            weights = {
+                'win_pct': 0.50,
+                'playoff_prob': 0.15,
+                'seed': 0.10,
+                'sov': 0.15,
+                'recent_form': 0.10
             }
 
             record_score = sum(scores[key] * weights[key] for key in weights.keys())
