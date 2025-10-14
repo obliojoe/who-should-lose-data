@@ -2,79 +2,342 @@ You are generating creative text for an NFL dashboard. Generate ONLY the request
 
 Current Week: 7
 
-=== LEAGUE CONTEXT DATA ===
-Use this data to inform ALL your creative text. This is the source of truth - do not make assumptions beyond what's provided here.
+=== GENERAL LEAGUE CONTEXT ===
+This data is available for reference throughout all your responses.
 
-FULL LEAGUE STANDINGS (all 32 teams):
+FULL LEAGUE STANDINGS (all 32 teams with records):
 [{"team":"PIT","conference":"AFC","division":"AFC North","record":"4-1","division_rank":1,"conference_rank":2,"playoff_seed":2},{"team":"CIN","conference":"AFC","division":"AFC North","record":"2-4","division_rank":2,"conference_rank":10,"playoff_seed":10},{"team":"BAL","conference":"AFC","division":"AFC North","record":"1-5","division_rank":3,"conference_rank":12,"playoff_seed":12},{"team":"CLE","conference":"AFC","division":"AFC North","record":"1-5","division_rank":4,"conference_rank":14,"playoff_seed":14},{"team":"IND","conference":"AFC","division":"AFC South","record":"5-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"JAX","conference":"AFC","division":"AFC South","record":"4-2","division_rank":2,"conference_rank":5,"playoff_seed":6},{"team":"HOU","conference":"AFC","division":"AFC South","record":"2-3","division_rank":3,"conference_rank":9,"playoff_seed":9},{"team":"TEN","conference":"AFC","division":"AFC South","record":"1-5","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"NE","conference":"AFC","division":"AFC East","record":"4-2","division_rank":1,"conference_rank":7,"playoff_seed":4},{"team":"BUF","conference":"AFC","division":"AFC East","record":"4-2","division_rank":2,"conference_rank":4,"playoff_seed":5},{"team":"MIA","conference":"AFC","division":"AFC East","record":"1-5","division_rank":3,"conference_rank":13,"playoff_seed":13},{"team":"NYJ","conference":"AFC","division":"AFC East","record":"0-6","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"LAC","conference":"AFC","division":"AFC West","record":"4-2","division_rank":1,"conference_rank":3,"playoff_seed":3},{"team":"DEN","conference":"AFC","division":"AFC West","record":"4-2","division_rank":2,"conference_rank":6,"playoff_seed":7},{"team":"KC","conference":"AFC","division":"AFC West","record":"3-3","division_rank":3,"conference_rank":8,"playoff_seed":8},{"team":"LV","conference":"AFC","division":"AFC West","record":"2-4","division_rank":4,"conference_rank":11,"playoff_seed":11},{"team":"GB","conference":"NFC","division":"NFC North","record":"3-1-1","division_rank":1,"conference_rank":2,"playoff_seed":2},{"team":"DET","conference":"NFC","division":"NFC North","record":"4-2","division_rank":2,"conference_rank":6,"playoff_seed":6},{"team":"MIN","conference":"NFC","division":"NFC North","record":"3-2","division_rank":3,"conference_rank":9,"playoff_seed":9},{"team":"CHI","conference":"NFC","division":"NFC North","record":"3-2","division_rank":4,"conference_rank":10,"playoff_seed":10},{"team":"TB","conference":"NFC","division":"NFC South","record":"5-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"ATL","conference":"NFC","division":"NFC South","record":"3-2","division_rank":2,"conference_rank":8,"playoff_seed":8},{"team":"CAR","conference":"NFC","division":"NFC South","record":"3-3","division_rank":3,"conference_rank":11,"playoff_seed":11},{"team":"NO","conference":"NFC","division":"NFC South","record":"1-5","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"PHI","conference":"NFC","division":"NFC East","record":"4-2","division_rank":1,"conference_rank":4,"playoff_seed":4},{"team":"WAS","conference":"NFC","division":"NFC East","record":"3-3","division_rank":2,"conference_rank":12,"playoff_seed":12},{"team":"DAL","conference":"NFC","division":"NFC East","record":"2-3-1","division_rank":3,"conference_rank":13,"playoff_seed":13},{"team":"NYG","conference":"NFC","division":"NFC East","record":"2-4","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"SF","conference":"NFC","division":"NFC West","record":"4-2","division_rank":1,"conference_rank":3,"playoff_seed":3},{"team":"SEA","conference":"NFC","division":"NFC West","record":"4-2","division_rank":2,"conference_rank":5,"playoff_seed":5},{"team":"LAR","conference":"NFC","division":"NFC West","record":"4-2","division_rank":3,"conference_rank":7,"playoff_seed":7},{"team":"ARI","conference":"NFC","division":"NFC West","record":"2-4","division_rank":4,"conference_rank":14,"playoff_seed":14}]
 
 NOTE: No games have been completed this week yet.
 
 
-ALL 32 TEAMS:
+ALL 32 TEAMS (Power Rankings):
 [{"team":"PHI","rank":1,"rating":26.83,"record":"4-2","playoff_prob":86.1,"playoff_seed":4},{"team":"DET","rank":2,"rating":26.46,"record":"4-2","playoff_prob":83.5,"playoff_seed":6},{"team":"KC","rank":3,"rating":24.75,"record":"3-3","playoff_prob":66.6,"playoff_seed":8},{"team":"BUF","rank":4,"rating":24.58,"record":"4-2","playoff_prob":87.4,"playoff_seed":5},{"team":"WAS","rank":5,"rating":24.56,"record":"3-3","playoff_prob":51.1,"playoff_seed":12},{"team":"GB","rank":6,"rating":24.45,"record":"3-1-1","playoff_prob":71.8,"playoff_seed":2},{"team":"DEN","rank":7,"rating":23.6,"record":"4-2","playoff_prob":80.6,"playoff_seed":7},{"team":"BAL","rank":8,"rating":22.73,"record":"1-5","playoff_prob":22.8,"playoff_seed":12},{"team":"HOU","rank":9,"rating":22.25,"record":"2-3","playoff_prob":45.5,"playoff_seed":9},{"team":"TB","rank":10,"rating":22.0,"record":"5-1","playoff_prob":92.8,"playoff_seed":1},{"team":"LAR","rank":11,"rating":21.8,"record":"4-2","playoff_prob":57.8,"playoff_seed":7},{"team":"MIN","rank":12,"rating":21.42,"record":"3-2","playoff_prob":28.6,"playoff_seed":9},{"team":"SF","rank":13,"rating":21.03,"record":"4-2","playoff_prob":78.0,"playoff_seed":3},{"team":"IND","rank":14,"rating":20.9,"record":"5-1","playoff_prob":79.6,"playoff_seed":1},{"team":"SEA","rank":15,"rating":20.87,"record":"4-2","playoff_prob":52.0,"playoff_seed":5},{"team":"LAC","rank":16,"rating":20.79,"record":"4-2","playoff_prob":67.2,"playoff_seed":3},{"team":"PIT","rank":17,"rating":20.45,"record":"4-1","playoff_prob":75.1,"playoff_seed":2},{"team":"JAX","rank":18,"rating":20.44,"record":"4-2","playoff_prob":68.7,"playoff_seed":6},{"team":"NE","rank":19,"rating":19.63,"record":"4-2","playoff_prob":74.8,"playoff_seed":4},{"team":"CHI","rank":20,"rating":19.61,"record":"3-2","playoff_prob":26.5,"playoff_seed":10},{"team":"ATL","rank":21,"rating":19.0,"record":"3-2","playoff_prob":47.3,"playoff_seed":8},{"team":"CIN","rank":22,"rating":18.82,"record":"2-4","playoff_prob":24.6,"playoff_seed":10},{"team":"ARI","rank":23,"rating":18.45,"record":"2-4","playoff_prob":6.6,"playoff_seed":14},{"team":"DAL","rank":24,"rating":17.29,"record":"2-3-1","playoff_prob":2.1,"playoff_seed":13},{"team":"LV","rank":25,"rating":16.64,"record":"2-4","playoff_prob":3.9,"playoff_seed":11},{"team":"CAR","rank":26,"rating":16.42,"record":"3-3","playoff_prob":14.6,"playoff_seed":11},{"team":"NYG","rank":27,"rating":15.14,"record":"2-4","playoff_prob":0.7,"playoff_seed":15},{"team":"CLE","rank":28,"rating":14.88,"record":"1-5","playoff_prob":1.7,"playoff_seed":14},{"team":"MIA","rank":29,"rating":14.49,"record":"1-5","playoff_prob":0.7,"playoff_seed":13},{"team":"TEN","rank":30,"rating":13.72,"record":"1-5","playoff_prob":0.7,"playoff_seed":15},{"team":"NYJ","rank":31,"rating":13.64,"record":"0-6","playoff_prob":0.1,"playoff_seed":16},{"team":"NO","rank":32,"rating":12.34,"record":"1-5","playoff_prob":0.3,"playoff_seed":16}]
 
-OFFENSE STATS (5 leaders):
-[{"team":"IND","stat":"Points Per Game","value":32.3,"unit":"","rank":1},{"team":"DAL","stat":"Total Yards Per Game","value":393.5,"unit":" yds","rank":1},{"team":"SF","stat":"Passing Yards Per Game","value":306.3,"unit":" yds","rank":1},{"team":"CAR","stat":"Rushing Yards Per Game","value":142.7,"unit":" yds","rank":1},{"team":"PHI","stat":"Red Zone %","value":87.5,"unit":"%","rank":1}]
 
-DEFENSE STATS (5 leaders):
-[{"team":"HOU","stat":"Points Allowed Per Game","value":12.2,"unit":"","rank":1},{"team":"DEN","stat":"Sacks","value":30.0,"unit":"","rank":1},{"team":"JAX","stat":"Interceptions","value":10.0,"unit":"","rank":1},{"team":"TEN","stat":"Third Down Defense","value":28.4,"unit":"%","rank":1},{"team":"JAX","stat":"Turnover Margin","value":8,"unit":"","rank":1}]
+=== END GENERAL CONTEXT ===
 
-EFFICIENCY STATS (5 leaders):
-[{"team":"GB","stat":"Third Down Conversion","value":51.5,"unit":"%","rank":1},{"team":"DET","stat":"Completion Percentage","value":76.0,"unit":"%","rank":1},{"team":"PHI","stat":"Red Zone Efficiency","value":87.5,"unit":"%","rank":1},{"team":"SEA","stat":"Yards Per Play","value":6.5,"unit":"","rank":1},{"team":"IND","stat":"Point Differential","value":78,"unit":"","rank":1}]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-INDIVIDUAL STAT LEADERS:
-[{"player":"Matthew Stafford","team":"LAR","position":"QB","leader_stat":"Passing Yards","stat_line":"1684 pass yds, 12 TDs, 2 INTs","season_projection":"5725 pass yds, 40 TDs"},{"player":"Jared Goff","team":"DET","position":"QB","leader_stat":"Passing TDs","stat_line":"1390 pass yds, 14 TDs, 2 INTs","season_projection":"4726 pass yds, 47 TDs"},{"player":"Jonathan Taylor","team":"IND","position":"RB","leader_stat":"Rushing Yards","stat_line":"603 rush yds, 7 TDs","season_projection":"2050 rush yds, 23 TDs"},{"player":"Jonathan Taylor","team":"IND","position":"RB","leader_stat":"Rushing TDs","stat_line":"603 rush yds, 7 TDs","season_projection":"2050 rush yds, 23 TDs"},{"player":"Jaxon Smith-Njigba","team":"SEA","position":"WR","leader_stat":"Receiving Yards","stat_line":"696 rec yds, 3 TDs","season_projection":"2366 rec yds, 10 TDs"},{"player":"Amon-Ra St. Brown","team":"DET","position":"WR","leader_stat":"Receiving TDs","stat_line":"452 rec yds, 6 TDs","season_projection":"1536 rec yds, 20 TDs"}]
+Now generate the following creative text fields. Each section has its own data context.
 
-CURRENT PLAYOFF PICTURE:
-{"top_4":[{"team":"TB","probability":92.8,"current_seed":1,"record":"5-1"},{"team":"BUF","probability":87.4,"current_seed":5,"record":"4-2"},{"team":"PHI","probability":86.1,"current_seed":4,"record":"4-2"},{"team":"DET","probability":83.5,"current_seed":6,"record":"4-2"}],"middle_4":[{"team":"DEN","probability":80.6,"current_seed":7,"record":"4-2"},{"team":"IND","probability":79.6,"current_seed":1,"record":"5-1"},{"team":"SF","probability":78.0,"current_seed":3,"record":"4-2"},{"team":"PIT","probability":75.1,"current_seed":2,"record":"4-1"}],"bottom_4":[{"team":"NYG","probability":0.7,"current_seed":15,"record":"2-4"},{"team":"TEN","probability":0.7,"current_seed":15,"record":"1-5"},{"team":"NO","probability":0.3,"current_seed":16,"record":"1-5"},{"team":"NYJ","probability":0.1,"current_seed":16,"record":"0-6"}]}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-REMAINING GAMES THIS WEEK (unplayed only):
-[{"away":"PIT","home":"CIN","away_record":"4-1","home_record":"2-4","is_divisional":true,"is_thursday":true},{"away":"LAR","home":"JAX","away_record":"4-2","home_record":"4-2","is_divisional":false,"is_thursday":false},{"away":"CAR","home":"NYJ","away_record":"3-3","home_record":"0-6","is_divisional":false,"is_thursday":false},{"away":"LV","home":"KC","away_record":"2-4","home_record":"3-3","is_divisional":true,"is_thursday":false},{"away":"MIA","home":"CLE","away_record":"1-5","home_record":"1-5","is_divisional":false,"is_thursday":false},{"away":"NE","home":"TEN","away_record":"4-2","home_record":"1-5","is_divisional":false,"is_thursday":false},{"away":"NO","home":"CHI","away_record":"1-5","home_record":"3-2","is_divisional":false,"is_thursday":false},{"away":"PHI","home":"MIN","away_record":"4-2","home_record":"3-2","is_divisional":false,"is_thursday":false},{"away":"IND","home":"LAC","away_record":"5-1","home_record":"4-2","is_divisional":false,"is_thursday":false},{"away":"NYG","home":"DEN","away_record":"2-4","home_record":"4-2","is_divisional":false,"is_thursday":false},{"away":"GB","home":"ARI","away_record":"3-1","home_record":"2-4","is_divisional":false,"is_thursday":false},{"away":"WAS","home":"DAL","away_record":"3-3","home_record":"2-3","is_divisional":true,"is_thursday":false},{"away":"ATL","home":"SF","away_record":"3-2","home_record":"4-2","is_divisional":false,"is_thursday":false},{"away":"TB","home":"DET","away_record":"5-1","home_record":"4-2","is_divisional":false,"is_thursday":false},{"away":"HOU","home":"SEA","away_record":"2-3","home_record":"4-2","is_divisional":false,"is_thursday":false}]
+SECTION 1: LEAGUE PULSE
+Generate two fields summarizing the current league landscape:
 
-NOTE: If this list is empty or short, some games this week have already been played.
-The Game of the Week and Game of the Meek are selected from ALL games this week (played or unplayed).
+1a. league_pulse_summary
+   - 3-6 engaging sentences with markdown formatting (bold for team names, italics for emphasis)
+   - Focus on NARRATIVE and STORYLINES, not raw statistics
+   - Tell a compelling story about what's happening in the league
+   - Minimize numbers - they're shown elsewhere on the page
 
-=== END LEAGUE CONTEXT ===
+1b. key_storylines (array of 3)
+   - Each storyline has: title (catchy 3-6 word headline), description (2-3 sentences)
+   - Focus on narrative over numbers. Use stats sparingly and only when essential.
 
-IMPORTANT: For the league_pulse.summary field, use markdown formatting (bold for team names, italics for emphasis) to make it more engaging.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Generate:
-1. league_pulse.summary - 3-6 engaging sentences with markdown formatting about the league's current state
-   IMPORTANT: Focus on narrative and storylines, NOT raw statistics. Tell a compelling story about what's happening in the league. Minimize numbers - they're shown elsewhere on the page.
-2. league_pulse.key_storylines - Array of 3 storylines, each with:
-   - title: Catchy 3-6 word headline
-   - description: 2-3 sentences focusing on narrative over numbers. Use stats sparingly and only when essential to the story.
-3. game_of_the_week.tagline - 1-2 sentences about TB @ DET
-   NOTE: This game may have already been played. Status: upcoming
-   Betting Line: 4.5 (favoring DET), Over/Under: 52.5
-   Records: TB (5-1), DET (4-2)
-   - If status is "completed": Write a brief recap highlighting what made it the best game based on the score and result
-   - If status is "upcoming": Explain why it's THE game to watch based on playoff implications, team quality, and matchup
-   - CRITICAL: Use ONLY the records shown above. Do NOT make false claims like "undefeated" when teams have losses in their record.
-   - Do NOT reference past seasons, Super Bowls, or historical matchups.
-4. game_of_the_meek.tagline - 1-2 sentences about MIA @ CLE
-   NOTE: This game may have already been played. Status: upcoming
-   Betting Line: 2.5, Over/Under: 40.5
-   Records: MIA (1-5), CLE (1-5)
-   - If status is "completed": Write a humorous recap of why it was forgettable based on the score and result
-   - If status is "upcoming": Explain humorously why it's skippable based on team quality and lack of stakes
-5. stat_leader_contexts - For each of the three stat categories above (OFFENSE STATS, DEFENSE STATS, EFFICIENCY STATS), provide exactly 5 brief context phrases (2-6 words each).
-   IMPORTANT: You must provide contexts for ALL THREE categories: offense, defense, AND efficiency.
-   Return format: {"offense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "defense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "efficiency": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"]}
+SECTION 2: GAME OF THE WEEK
+Generate tagline for the week's best game:
 
-6. individual_contexts - For the 6 individual stat leaders shown in LEAGUE CONTEXT, provide context explaining why their performance matters (PLAIN STRING, not object).
+Game: TB @ DET
+Status: upcoming
+Betting Line: 4.5 (away team perspective), Over/Under: 52.5
+TB Record: 5-1, Playoff Prob: 92.8%
+DET Record: 4-2, Playoff Prob: 83.5%
+
+2. game_of_week_tagline (1-2 sentences)
+   - If completed: Brief recap highlighting what made it the best game
+   - If upcoming: Explain why it's THE game to watch
+   - CRITICAL: Use ONLY the records shown above for these TWO teams
+   - Do NOT make false claims like "undefeated" when records show losses
+   - Do NOT reference past seasons, Super Bowls, or historical matchups
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 3: GAME OF THE MEEK
+Generate tagline for the week's worst game:
+
+Game: MIA @ CLE
+Status: upcoming
+Betting Line: 2.5, Over/Under: 40.5
+MIA Record: 1-5
+CLE Record: 1-5
+
+3. game_of_meek_tagline (1-2 sentences)
+   - If completed: Humorous recap of why it was forgettable
+   - If upcoming: Explain humorously why it's skippable
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 4: STAT LEADER CONTEXTS
+Generate brief context phrases (2-6 words each) for the following stat leaders:
+
+4a. OFFENSE LEADERS (provide exactly 5 context phrases in order):
+[
+  {
+    "team": "IND",
+    "stat": "Points Per Game",
+    "value": 32.3,
+    "unit": "",
+    "rank": 1
+  },
+  {
+    "team": "DAL",
+    "stat": "Total Yards Per Game",
+    "value": 393.5,
+    "unit": " yds",
+    "rank": 1
+  },
+  {
+    "team": "SF",
+    "stat": "Passing Yards Per Game",
+    "value": 306.3,
+    "unit": " yds",
+    "rank": 1
+  },
+  {
+    "team": "CAR",
+    "stat": "Rushing Yards Per Game",
+    "value": 142.7,
+    "unit": " yds",
+    "rank": 1
+  },
+  {
+    "team": "PHI",
+    "stat": "Red Zone %",
+    "value": 87.5,
+    "unit": "%",
+    "rank": 1
+  }
+]
+
+4b. DEFENSE LEADERS (provide exactly 5 context phrases in order):
+[
+  {
+    "team": "HOU",
+    "stat": "Points Allowed Per Game",
+    "value": 12.2,
+    "unit": "",
+    "rank": 1
+  },
+  {
+    "team": "DEN",
+    "stat": "Sacks",
+    "value": 30.0,
+    "unit": "",
+    "rank": 1
+  },
+  {
+    "team": "JAX",
+    "stat": "Interceptions",
+    "value": 10.0,
+    "unit": "",
+    "rank": 1
+  },
+  {
+    "team": "TEN",
+    "stat": "Third Down Defense",
+    "value": 28.4,
+    "unit": "%",
+    "rank": 1
+  },
+  {
+    "team": "JAX",
+    "stat": "Turnover Margin",
+    "value": 8,
+    "unit": "",
+    "rank": 1
+  }
+]
+
+4c. EFFICIENCY LEADERS (provide exactly 5 context phrases in order):
+[
+  {
+    "team": "GB",
+    "stat": "Third Down Conversion",
+    "value": 51.5,
+    "unit": "%",
+    "rank": 1
+  },
+  {
+    "team": "DET",
+    "stat": "Completion Percentage",
+    "value": 76.0,
+    "unit": "%",
+    "rank": 1
+  },
+  {
+    "team": "PHI",
+    "stat": "Red Zone Efficiency",
+    "value": 87.5,
+    "unit": "%",
+    "rank": 1
+  },
+  {
+    "team": "SEA",
+    "stat": "Yards Per Play",
+    "value": 6.5,
+    "unit": "",
+    "rank": 1
+  },
+  {
+    "team": "IND",
+    "stat": "Point Differential",
+    "value": 78,
+    "unit": "",
+    "rank": 1
+  }
+]
+
+Return format: {"offense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "defense": [...], "efficiency": [...]}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 5: INDIVIDUAL HIGHLIGHTS
+Generate context for the following 6 individual stat leaders (PLAIN STRINGS explaining why performance matters):
+
+[
+  {
+    "player": "Matthew Stafford",
+    "team": "LAR",
+    "position": "QB",
+    "leader_stat": "Passing Yards",
+    "stat_line": "1684 pass yds, 12 TDs, 2 INTs",
+    "season_projection": "5725 pass yds, 40 TDs"
+  },
+  {
+    "player": "Jared Goff",
+    "team": "DET",
+    "position": "QB",
+    "leader_stat": "Passing TDs",
+    "stat_line": "1390 pass yds, 14 TDs, 2 INTs",
+    "season_projection": "4726 pass yds, 47 TDs"
+  },
+  {
+    "player": "Jonathan Taylor",
+    "team": "IND",
+    "position": "RB",
+    "leader_stat": "Rushing Yards",
+    "stat_line": "603 rush yds, 7 TDs",
+    "season_projection": "2050 rush yds, 23 TDs"
+  },
+  {
+    "player": "Jonathan Taylor",
+    "team": "IND",
+    "position": "RB",
+    "leader_stat": "Rushing TDs",
+    "stat_line": "603 rush yds, 7 TDs",
+    "season_projection": "2050 rush yds, 23 TDs"
+  },
+  {
+    "player": "Jaxon Smith-Njigba",
+    "team": "SEA",
+    "position": "WR",
+    "leader_stat": "Receiving Yards",
+    "stat_line": "696 rec yds, 3 TDs",
+    "season_projection": "2366 rec yds, 10 TDs"
+  },
+  {
+    "player": "Amon-Ra St. Brown",
+    "team": "DET",
+    "position": "WR",
+    "leader_stat": "Receiving TDs",
+    "stat_line": "452 rec yds, 6 TDs",
+    "season_projection": "1536 rec yds, 20 TDs"
+  }
+]
+
+5. individual_contexts (array of 6 strings)
    Return format: ["string1", "string2", "string3", "string4", "string5", "string6"]
-   IMPORTANT: Focus ONLY on their current season performance and stats. Do NOT make assumptions about career length, years in the league, or draft status.
+   CRITICAL: Focus ONLY on their current season performance and stats shown above
+   Do NOT make assumptions about career length, years in league, or draft status
 
-7. power_rankings reasons - Provide 1-sentence reasons for biggest_riser and biggest_faller:
-   Riser: IND
-   Faller: CIN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-8. playoff_key_infos - For the 12 teams shown in PLAYOFF PICTURE in LEAGUE CONTEXT (4 top, 4 middle, 4 bottom), provide brief context (PLAIN STRING, not object).
-   Return format: {"top_4": ["string1", "string2", "string3", "string4"], "middle_4": ["string1", ...], "bottom_4": ["string1", ...]}
+SECTION 6: POWER RANKINGS
+Generate 1-sentence reasons for biggest movers:
 
-9. week_preview taglines - Brief 5-8 word taglines for Thursday night and 3 Sunday games
+6a. Biggest Riser: IND
+   Moved from #21 to #14 (Record: 5-1)
+
+6b. Biggest Faller: CIN
+   Moved from #16 to #22 (Record: 2-4)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 7: PLAYOFF PICTURE
+Generate brief context (PLAIN STRING) for these specific 12 teams in playoff race:
+
+7a. TOP 4 PLAYOFF TEAMS (provide contexts in this exact order):
+   1. TB - Record: 5-1, Playoff Prob: 92.8%, Current Seed: 1
+   2. BUF - Record: 4-2, Playoff Prob: 87.4%, Current Seed: 5
+   3. PHI - Record: 4-2, Playoff Prob: 86.1%, Current Seed: 4
+   4. DET - Record: 4-2, Playoff Prob: 83.5%, Current Seed: 6
+
+7b. MIDDLE 4 PLAYOFF TEAMS (provide contexts in this exact order):
+   1. DEN - Record: 4-2, Playoff Prob: 80.6%, Current Seed: 7
+   2. IND - Record: 5-1, Playoff Prob: 79.6%, Current Seed: 1
+   3. SF - Record: 4-2, Playoff Prob: 78.0%, Current Seed: 3
+   4. PIT - Record: 4-1, Playoff Prob: 75.1%, Current Seed: 2
+
+7c. BOTTOM 4 PLAYOFF TEAMS (provide contexts in this exact order):
+   1. NYG - Record: 2-4, Playoff Prob: 0.7%, Current Seed: 15
+   2. TEN - Record: 1-5, Playoff Prob: 0.7%, Current Seed: 15
+   3. NO - Record: 1-5, Playoff Prob: 0.3%, Current Seed: 16
+   4. NYJ - Record: 0-6, Playoff Prob: 0.1%, Current Seed: 16
+
+CRITICAL WARNINGS FOR PLAYOFF CONTEXTS:
+- Use ONLY the records shown above for each specific team
+- Do NOT claim a team is "undefeated" or "unbeaten" when their record shows losses
+- If a team is 5-1, they have ONE LOSS and are NOT unbeaten
+- Focus on playoff probability and seeding position for context
+
+Return format: {"top_4": ["string1", "string2", "string3", "string4"], "middle_4": [...], "bottom_4": [...]}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 8: WEEK PREVIEW
+Generate brief taglines (5-8 words) for the following games:
+
+8a. Thursday Night Game:
+{
+  "espn_id": "401772941",
+  "away_team": "PIT",
+  "away_record": "4-1",
+  "home_team": "CIN",
+  "home_record": "2-4"
+}
+
+8b. Sunday Spotlight Games (provide 3 taglines):
+[
+  {
+    "espn_id": "401772862",
+    "away_team": "PHI",
+    "away_record": "4-2",
+    "home_team": "MIN",
+    "home_record": "3-2"
+  },
+  {
+    "espn_id": "401772756",
+    "away_team": "IND",
+    "away_record": "5-1",
+    "home_team": "LAC",
+    "home_record": "4-2"
+  },
+  {
+    "espn_id": "401772635",
+    "away_team": "LAR",
+    "away_record": "4-2",
+    "home_team": "JAX",
+    "home_record": "4-2"
+  }
+]
+
+Return format: "thursday_tagline": "...", "sunday_taglines": [...]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 IMPORTANT: All context fields must be PLAIN STRINGS in arrays, not nested objects. Do not include team names, stats, or other data - ONLY the creative text.
 
