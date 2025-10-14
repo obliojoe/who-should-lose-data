@@ -254,7 +254,7 @@ def select_individual_highlights(starters_df):
 
 def select_power_rankings(sagarin_df, team_records, teams_df):
     """
-    Select power rankings using Sagarin ratings (already calculated).
+    Select power rankings using R1+SOV algorithm.
     Returns top 5, bottom 5, biggest riser, biggest faller.
     """
     # Build team name lookup
@@ -262,28 +262,28 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
     for _, team in teams_df.iterrows():
         team_names[team['team_abbr']] = f"{team['city']} {team['mascot']}"
 
-    # Calculate movement for all teams first
-    sagarin_df['rank'] = range(1, len(sagarin_df) + 1)
-    if 'previous_rank' in sagarin_df.columns:
-        sagarin_df['movement'] = sagarin_df.apply(
-            lambda row: int(row['previous_rank']) - row['rank'] if pd.notna(row['previous_rank']) else 0,
-            axis=1
-        )
-    else:
+    # Rankings already have rank and movement calculated
+    # Just ensure movement column exists
+    if 'movement' not in sagarin_df.columns:
         sagarin_df['movement'] = 0
 
     # Top 5
     top_5 = []
     for idx, row in sagarin_df.head(5).iterrows():
         team_abbr = row['team_abbr']
-        record_data = team_records.get(team_abbr, {'wins': 0, 'losses': 0, 'ties': 0})
-        record = f"{record_data['wins']}-{record_data['losses']}"
-        if record_data['ties'] > 0:
-            record += f"-{record_data['ties']}"
+
+        # Use record from dataframe if available, otherwise look up
+        if 'record' in row and pd.notna(row['record']):
+            record = row['record']
+        else:
+            record_data = team_records.get(team_abbr, {'wins': 0, 'losses': 0, 'ties': 0})
+            record = f"{record_data['wins']}-{record_data['losses']}"
+            if record_data['ties'] > 0:
+                record += f"-{record_data['ties']}"
 
         # Determine trend
         trend = 'steady'
-        movement = int(row['movement'])
+        movement = int(row['movement']) if pd.notna(row['movement']) else 0
         if movement > 0:
             trend = 'up'
         elif movement < 0:
@@ -300,7 +300,7 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
                 movement_str = "0"
 
         top_5.append({
-            'rank': idx + 1,
+            'rank': int(row['rank']) if 'rank' in row else idx + 1,
             'team': team_abbr,
             'team_name': team_names.get(team_abbr, team_abbr),
             'rating': round(float(row['rating']), 2),
@@ -314,14 +314,19 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
     bottom_5 = []
     for idx, row in sagarin_df.tail(5).iterrows():
         team_abbr = row['team_abbr']
-        record_data = team_records.get(team_abbr, {'wins': 0, 'losses': 0, 'ties': 0})
-        record = f"{record_data['wins']}-{record_data['losses']}"
-        if record_data['ties'] > 0:
-            record += f"-{record_data['ties']}"
+
+        # Use record from dataframe if available, otherwise look up
+        if 'record' in row and pd.notna(row['record']):
+            record = row['record']
+        else:
+            record_data = team_records.get(team_abbr, {'wins': 0, 'losses': 0, 'ties': 0})
+            record = f"{record_data['wins']}-{record_data['losses']}"
+            if record_data['ties'] > 0:
+                record += f"-{record_data['ties']}"
 
         # Determine trend
         trend = 'steady'
-        movement = int(row['movement'])
+        movement = int(row['movement']) if pd.notna(row['movement']) else 0
         if movement > 0:
             trend = 'up'
         elif movement < 0:
@@ -629,7 +634,14 @@ def generate_dashboard_content(ai_model=None):
         # Load all data files
         schedule_df = pd.read_csv('data/schedule.csv')
         team_stats_df = pd.read_csv('data/team_stats.csv')
-        sagarin_df = pd.read_csv('data/sagarin.csv')
+
+        # Load R1+SOV power rankings instead of Sagarin
+        from power_rankings_dashboard import get_power_rankings_df
+        current_week = schedule_df[schedule_df['away_score'].notna()]['week_num'].max()
+        logger.info(f"Current week: {current_week}")
+        sagarin_df = get_power_rankings_df(int(current_week))
+        logger.info(f"Loaded {len(sagarin_df)} R1+SOV power rankings")
+
         starters_df = pd.read_csv('data/team_starters.csv')
         teams_df = pd.read_csv('data/teams.csv')
 
@@ -642,8 +654,15 @@ def generate_dashboard_content(ai_model=None):
         with open('data/game_analyses.json', 'r') as f:
             game_analyses = json.load(f)
 
-        with open('data/sagarin_cache.json', 'r') as f:
-            sagarin_cache = json.load(f)
+        # Power rankings metadata (no longer using Sagarin cache)
+        with open('data/power_rankings_history.json', 'r') as f:
+            pr_history = json.load(f)
+
+        # Create a cache-like object for compatibility
+        sagarin_cache = {
+            'last_update': pr_history.get('last_updated', datetime.now().isoformat()),
+            'last_content_update': pr_history.get('last_updated', datetime.now().isoformat())
+        }
 
         # Build team records lookup
         team_records = {}
