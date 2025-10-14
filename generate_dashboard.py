@@ -903,9 +903,6 @@ but don't force it. Let the drama emerge naturally.
         # REFACTORED STRUCTURE: Put data inline with each request to reduce cognitive load
         ai_prompt = f"""You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
 
-*** CRITICAL: "Unbeaten" means 0 losses (e.g., 6-0, 5-0). A 5-1 record has 1 LOSS and is NOT unbeaten.
-*** CRITICAL: Do NOT use words "unbeaten", "undefeated", or "unblemished" unless record shows 0 losses
-
 Current Week: {current_week}
 
 === GENERAL LEAGUE CONTEXT ===
@@ -956,8 +953,6 @@ Status: {game_of_week.get('status', 'upcoming')}
 {game_of_week['home_team']} Record: {game_of_week.get('home_record', 'N/A')}, Playoff Prob: {game_of_week.get('home_playoff_prob', 'N/A')}%'''}
 
 2. game_of_week_tagline (1-2 sentences)
-   - CRITICAL: "Unbeaten" means 0 losses (e.g., 6-0, 5-0). A 5-1 record has 1 LOSS and is NOT unbeaten.
-   - CRITICAL: Do NOT use words "unbeaten", "undefeated", or "unblemished" unless record shows 0 losses
    - If completed: Brief recap highlighting what made it the best game or why it did not live up to expectations
    - If upcoming: Explain why it's THE game to watch
    - Do NOT reference past seasons, Super Bowls, or historical matchups
@@ -1028,12 +1023,6 @@ Generate brief context (PLAIN STRING) for these specific 12 teams in playoff rac
 
 7c. BOTTOM 4 PLAYOFF TEAMS (provide contexts in this exact order):
 {chr(10).join([f"   {i+1}. {team['team']} - Record: {team['record']}, Playoff Prob: {team['probability']}%, Current Seed: {team.get('current_seed', 'N/A')}" for i, team in enumerate(playoff_snapshot['bottom_4'])])}
-
-CRITICAL WARNINGS FOR PLAYOFF CONTEXTS:
-- Use ONLY the records shown above for each specific team
-- Do NOT claim a team is "undefeated" or "unbeaten" when their record shows losses
-- If a team is 5-1, they have ONE LOSS and are NOT unbeaten
-- Focus on playoff probability and seeding position for context
 
 Return format: {{"top_4": ["string1", "string2", "string3", "string4"], "middle_4": [...], "bottom_4": [...]}}
 
