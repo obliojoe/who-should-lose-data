@@ -284,12 +284,6 @@ Generate brief context (PLAIN STRING) for these specific 12 teams in playoff rac
    3. NO - Record: 1-5, Playoff Prob: 0.2%, Current Seed: 16
    4. NYJ - Record: 0-6, Playoff Prob: 0.2%, Current Seed: 16
 
-CRITICAL WARNINGS FOR PLAYOFF CONTEXTS:
-- Use ONLY the records shown above for each specific team
-- Do NOT claim a team is "undefeated" or "unbeaten" when their record shows losses
-- If a team is 5-1, they have ONE LOSS and are NOT unbeaten
-- Focus on playoff probability and seeding position for context
-
 Return format: {"top_4": ["string1", "string2", "string3", "string4"], "middle_4": [...], "bottom_4": [...]}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
