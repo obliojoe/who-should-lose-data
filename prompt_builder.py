@@ -595,6 +595,12 @@ OUTPUT REQUIREMENTS - 5 SECTIONS
    - Think "screenshot and share" quality
    - Vary the tone: mix clever insights with humor, sarcasm, and truth
 
+   CRITICAL - PLAYER REFERENCES:
+   - When referencing past games, DO NOT mention specific opposing players (especially QBs) unless they appear in the roster data provided below
+   - You can reference the TEAM they played (e.g., "lost to New England") but NOT specific players from those games
+   - Only reference players from: (1) this team's roster, or (2) their upcoming opponent's roster
+   - Your knowledge of NFL rosters may be outdated - players change teams frequently
+
    Quality bar:
    - Quotable and memorable - something a fan would text their friend
    - NO statistics or percentages in the quotes themselves
