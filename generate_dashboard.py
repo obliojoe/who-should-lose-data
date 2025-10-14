@@ -900,14 +900,18 @@ but don't force it. Let the drama emerge naturally.
                 })
 
         # Build prompt with comprehensive context
+        # REFACTORED STRUCTURE: Put data inline with each request to reduce cognitive load
         ai_prompt = f"""You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
+
+*** CRITICAL: "Unbeaten" means 0 losses (e.g., 6-0, 5-0). A 5-1 record has 1 LOSS and is NOT unbeaten.
+*** CRITICAL: Do NOT use words "unbeaten", "undefeated", or "unblemished" unless record shows 0 losses
 
 Current Week: {current_week}
 
-=== LEAGUE CONTEXT DATA ===
-Use this data to inform ALL your creative text. This is the source of truth - do not make assumptions beyond what's provided here.
+=== GENERAL LEAGUE CONTEXT ===
+This data is available for reference throughout all your responses.
 
-FULL LEAGUE STANDINGS (all 32 teams):
+FULL LEAGUE STANDINGS (all 32 teams with records):
 {json.dumps(full_standings, separators=(',', ':'))}
 
 {f'''COMPLETED GAMES THIS WEEK:
@@ -916,76 +920,137 @@ FULL LEAGUE STANDINGS (all 32 teams):
 ''' if completed_games else '''NOTE: No games have been completed this week yet.
 
 '''}
-{f'''ALL 32 TEAMS:
+{f'''ALL 32 TEAMS (Power Rankings):
 {json.dumps(all_teams_context, separators=(',', ':'))}
 
-''' if include_power_rankings_in_prompt else ''}OFFENSE STATS (5 leaders):
-{json.dumps(stat_leaders['offense'], separators=(',', ':'))}
+''' if include_power_rankings_in_prompt else ''}{chaos_context}
+=== END GENERAL CONTEXT ===
 
-DEFENSE STATS (5 leaders):
-{json.dumps(stat_leaders['defense'], separators=(',', ':'))}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-EFFICIENCY STATS (5 leaders):
-{json.dumps(stat_leaders['efficiency'], separators=(',', ':'))}
+Now generate the following creative text fields. Each section has its own data context.
 
-INDIVIDUAL STAT LEADERS:
-{json.dumps(individual_highlights, separators=(',', ':'))}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-CURRENT PLAYOFF PICTURE:
-{json.dumps(playoff_snapshot, separators=(',', ':'))}
+SECTION 1: LEAGUE PULSE
+Generate two fields summarizing the current league landscape:
 
-REMAINING GAMES THIS WEEK (unplayed only):
-{json.dumps([{
-    'away': g['away_team'],
-    'home': g['home_team'],
-    'away_record': f"{team_records.get(g['away_team'], {}).get('wins', 0)}-{team_records.get(g['away_team'], {}).get('losses', 0)}",
-    'home_record': f"{team_records.get(g['home_team'], {}).get('wins', 0)}-{team_records.get(g['home_team'], {}).get('losses', 0)}",
-    'is_divisional': g['is_divisional'],
-    'is_thursday': g['is_thursday']
-} for g in upcoming_games], separators=(',', ':'))}
+1a. league_pulse_summary
+   - 3-6 engaging sentences with markdown formatting (bold for team names, italics for emphasis)
+   - Focus on NARRATIVE and STORYLINES, not raw statistics
+   - Tell a compelling story about what's happening in the league
+   - Minimize numbers - they're shown elsewhere on the page
 
-NOTE: If this list is empty or short, some games this week have already been played.
-The Game of the Week and Game of the Meek are selected from ALL games this week (played or unplayed).
+1b. key_storylines (array of 3)
+   - Each storyline has: title (catchy 3-6 word headline), description (2-3 sentences)
+   - Focus on narrative over numbers. Use stats sparingly and only when essential.
 
-=== END LEAGUE CONTEXT ===
-{chaos_context}
-IMPORTANT: For the league_pulse.summary field, use markdown formatting (bold for team names, italics for emphasis) to make it more engaging.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Generate:
-1. league_pulse.summary - 3-6 engaging sentences with markdown formatting about the league's current state
-   IMPORTANT: Focus on narrative and storylines, NOT raw statistics. Tell a compelling story about what's happening in the league. Minimize numbers - they're shown elsewhere on the page.
-2. league_pulse.key_storylines - Array of 3 storylines, each with:
-   - title: Catchy 3-6 word headline
-   - description: 2-3 sentences focusing on narrative over numbers. Use stats sparingly and only when essential to the story.
-3. game_of_the_week.tagline - 1-2 sentences about {game_of_week['away_team']} @ {game_of_week['home_team']}
-   NOTE: This game may have already been played. Status: {game_of_week.get('status', 'upcoming')}
-   {f'''FINAL SCORE: {game_of_week['away_team']} {game_of_week.get('away_score')} - {game_of_week['home_team']} {game_of_week.get('home_score')}''' if game_of_week.get('status') == 'completed' else f'''Betting Line: {game_of_week.get('betting_line', 'N/A')} (favoring {game_of_week['home_team'] if game_of_week.get('betting_line', 0) > 0 else game_of_week['away_team']}), Over/Under: {game_of_week.get('over_under', 'N/A')}
-   Records: {game_of_week['away_team']} ({game_of_week.get('away_record', 'N/A')}), {game_of_week['home_team']} ({game_of_week.get('home_record', 'N/A')})'''}
-   - If status is "completed": Write a brief recap highlighting what made it the best game based on the score and result
-   - If status is "upcoming": Explain why it's THE game to watch based on playoff implications, team quality, and matchup
-   Use LEAGUE CONTEXT to find team data. Do NOT reference past seasons, Super Bowls, or historical matchups.
-4. game_of_the_meek.tagline - 1-2 sentences about {game_of_meek['away_team']} @ {game_of_meek['home_team']}
-   NOTE: This game may have already been played. Status: {game_of_meek.get('status', 'upcoming')}
-   {f'''FINAL SCORE: {game_of_meek['away_team']} {game_of_meek.get('away_score')} - {game_of_meek['home_team']} {game_of_meek.get('home_score')}''' if game_of_meek.get('status') == 'completed' else f'''Betting Line: {game_of_meek.get('betting_line', 'N/A')}, Over/Under: {game_of_meek.get('over_under', 'N/A')}
-   Records: {game_of_meek['away_team']} ({game_of_meek.get('away_record', 'N/A')}), {game_of_meek['home_team']} ({game_of_meek.get('home_record', 'N/A')})'''}
-   - If status is "completed": Write a humorous recap of why it was forgettable based on the score and result
-   - If status is "upcoming": Explain humorously why it's skippable based on team quality and lack of stakes
-5. stat_leader_contexts - For each of the three stat categories above (OFFENSE STATS, DEFENSE STATS, EFFICIENCY STATS), provide exactly 5 brief context phrases (2-6 words each).
-   IMPORTANT: You must provide contexts for ALL THREE categories: offense, defense, AND efficiency.
-   Return format: {{"offense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "defense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "efficiency": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"]}}
+SECTION 2: GAME OF THE WEEK
 
-6. individual_contexts - For the 6 individual stat leaders shown in LEAGUE CONTEXT, provide context explaining why their performance matters (PLAIN STRING, not object).
+Game: {game_of_week['away_team']} @ {game_of_week['home_team']}
+Status: {game_of_week.get('status', 'upcoming')}
+{f'''FINAL SCORE: {game_of_week['away_team']} {game_of_week.get('away_score')} - {game_of_week['home_team']} {game_of_week.get('home_score')}''' if game_of_week.get('status') == 'completed' else f'''Spread: {game_of_week['away_team']} {f"+{game_of_week.get('betting_line')}" if game_of_week.get('betting_line', 0) > 0 else game_of_week.get('betting_line', 'N/A')}, Over/Under: {game_of_week.get('over_under', 'N/A')}
+{game_of_week['away_team']} Record: {game_of_week.get('away_record', 'N/A')}, Playoff Prob: {game_of_week.get('away_playoff_prob', 'N/A')}%
+{game_of_week['home_team']} Record: {game_of_week.get('home_record', 'N/A')}, Playoff Prob: {game_of_week.get('home_playoff_prob', 'N/A')}%'''}
+
+2. game_of_week_tagline (1-2 sentences)
+   - CRITICAL: "Unbeaten" means 0 losses (e.g., 6-0, 5-0). A 5-1 record has 1 LOSS and is NOT unbeaten.
+   - CRITICAL: Do NOT use words "unbeaten", "undefeated", or "unblemished" unless record shows 0 losses
+   - If completed: Brief recap highlighting what made it the best game or why it did not live up to expectations
+   - If upcoming: Explain why it's THE game to watch
+   - Do NOT reference past seasons, Super Bowls, or historical matchups
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 3: GAME OF THE MEEK
+
+Game: {game_of_meek['away_team']} @ {game_of_meek['home_team']}
+Status: {game_of_meek.get('status', 'upcoming')}
+{f'''FINAL SCORE: {game_of_meek['away_team']} {game_of_meek.get('away_score')} - {game_of_meek['home_team']} {game_of_meek.get('home_score')}''' if game_of_meek.get('status') == 'completed' else f'''Spread: {game_of_meek['away_team']} {f"+{game_of_meek.get('betting_line')}" if game_of_meek.get('betting_line', 0) > 0 else game_of_meek.get('betting_line', 'N/A')}, Over/Under: {game_of_meek.get('over_under', 'N/A')}
+{game_of_meek['away_team']} Record: {game_of_meek.get('away_record', 'N/A')}
+{game_of_meek['home_team']} Record: {game_of_meek.get('home_record', 'N/A')}'''}
+
+3. game_of_meek_tagline (1-2 sentences)
+   - If completed: Humorous recap of why it was forgettable or why it was better than expected
+   - If upcoming: Explain humorously why it's skippable
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 4: STAT LEADER CONTEXTS
+Generate brief context phrases (2-6 words each) for the following stat leaders:
+
+4a. OFFENSE LEADERS (provide exactly 5 context phrases in order):
+{json.dumps(stat_leaders['offense'], indent=2)}
+
+4b. DEFENSE LEADERS (provide exactly 5 context phrases in order):
+{json.dumps(stat_leaders['defense'], indent=2)}
+
+4c. EFFICIENCY LEADERS (provide exactly 5 context phrases in order):
+{json.dumps(stat_leaders['efficiency'], indent=2)}
+
+Return format: {{"offense": ["phrase1", "phrase2", "phrase3", "phrase4", "phrase5"], "defense": [...], "efficiency": [...]}}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 5: INDIVIDUAL HIGHLIGHTS
+Generate context for the following 6 individual stat leaders (PLAIN STRINGS explaining why performance matters):
+
+{json.dumps(individual_highlights, indent=2)}
+
+5. individual_contexts (array of 6 strings)
    Return format: ["string1", "string2", "string3", "string4", "string5", "string6"]
-   IMPORTANT: Focus ONLY on their current season performance and stats. Do NOT make assumptions about career length, years in the league, or draft status.
+   CRITICAL: Focus ONLY on their current season performance and stats shown above
+   Do NOT make assumptions about career length, years in league, or draft status
 
-7. power_rankings reasons - Provide 1-sentence reasons for biggest_riser and biggest_faller:
-   Riser: {power_rankings['biggest_riser']['team'] if power_rankings['biggest_riser'] else 'N/A'}
-   Faller: {power_rankings['biggest_faller']['team'] if power_rankings['biggest_faller'] else 'N/A'}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-8. playoff_key_infos - For the 12 teams shown in PLAYOFF PICTURE in LEAGUE CONTEXT (4 top, 4 middle, 4 bottom), provide brief context (PLAIN STRING, not object).
-   Return format: {{"top_4": ["string1", "string2", "string3", "string4"], "middle_4": ["string1", ...], "bottom_4": ["string1", ...]}}
+SECTION 6: POWER RANKINGS
+Generate 1-sentence reasons for biggest movers:
 
-9. week_preview taglines - Brief 5-8 word taglines for Thursday night and {len(sunday_spotlight)} Sunday games
+6a. Biggest Riser: {power_rankings['biggest_riser']['team'] if power_rankings['biggest_riser'] else 'N/A'}
+{f"   Moved from #{power_rankings['biggest_riser']['previous_rank']} to #{power_rankings['biggest_riser']['current_rank']} (Record: {power_rankings['biggest_riser']['record']})" if power_rankings['biggest_riser'] else ''}
+
+6b. Biggest Faller: {power_rankings['biggest_faller']['team'] if power_rankings['biggest_faller'] else 'N/A'}
+{f"   Moved from #{power_rankings['biggest_faller']['previous_rank']} to #{power_rankings['biggest_faller']['current_rank']} (Record: {power_rankings['biggest_faller']['record']})" if power_rankings['biggest_faller'] else ''}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 7: PLAYOFF PICTURE
+Generate brief context (PLAIN STRING) for these specific 12 teams in playoff race:
+
+7a. TOP 4 PLAYOFF TEAMS (provide contexts in this exact order):
+{chr(10).join([f"   {i+1}. {team['team']} - Record: {team['record']}, Playoff Prob: {team['probability']}%, Current Seed: {team.get('current_seed', 'N/A')}" for i, team in enumerate(playoff_snapshot['top_4'])])}
+
+7b. MIDDLE 4 PLAYOFF TEAMS (provide contexts in this exact order):
+{chr(10).join([f"   {i+1}. {team['team']} - Record: {team['record']}, Playoff Prob: {team['probability']}%, Current Seed: {team.get('current_seed', 'N/A')}" for i, team in enumerate(playoff_snapshot['middle_4'])])}
+
+7c. BOTTOM 4 PLAYOFF TEAMS (provide contexts in this exact order):
+{chr(10).join([f"   {i+1}. {team['team']} - Record: {team['record']}, Playoff Prob: {team['probability']}%, Current Seed: {team.get('current_seed', 'N/A')}" for i, team in enumerate(playoff_snapshot['bottom_4'])])}
+
+CRITICAL WARNINGS FOR PLAYOFF CONTEXTS:
+- Use ONLY the records shown above for each specific team
+- Do NOT claim a team is "undefeated" or "unbeaten" when their record shows losses
+- If a team is 5-1, they have ONE LOSS and are NOT unbeaten
+- Focus on playoff probability and seeding position for context
+
+Return format: {{"top_4": ["string1", "string2", "string3", "string4"], "middle_4": [...], "bottom_4": [...]}}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 8: WEEK PREVIEW
+Generate brief taglines (5-8 words) for the following games:
+
+8a. Thursday Night Game:
+{json.dumps(thursday_night, indent=2) if thursday_night else 'None'}
+
+8b. Sunday Spotlight Games (provide {len(sunday_spotlight)} taglines):
+{json.dumps(sunday_spotlight, indent=2)}
+
+Return format: "thursday_tagline": "...", "sunday_taglines": [...]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 IMPORTANT: All context fields must be PLAIN STRINGS in arrays, not nested objects. Do not include team names, stats, or other data - ONLY the creative text.
 
