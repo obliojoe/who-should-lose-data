@@ -127,14 +127,19 @@ if not logger.handlers:
 def sanitize_json_string(text):
     """
     Clean common problematic characters from JSON strings that break parsing.
+    Uses explicit Unicode escape sequences to ensure proper character matching.
     """
     # Replace em dashes and en dashes with regular hyphens
-    text = text.replace('—', '-').replace('–', '-')
-    # Replace curly quotes with straight quotes
-    text = text.replace('"', '"').replace('"', '"')
-    text = text.replace(''', "'").replace(''', "'")
+    text = text.replace('\u2014', '-').replace('\u2013', '-')  # — and –
+
+    # Replace curly/smart quotes with straight quotes
+    text = text.replace('\u201c', '"').replace('\u201d', '"')  # " and "
+    text = text.replace('\u2018', "'").replace('\u2019', "'")  # ' and '
+    text = text.replace('\u201a', "'").replace('\u201e', '"')  # ‚ and „
+
     # Replace other problematic Unicode characters
-    text = text.replace('…', '...')
+    text = text.replace('\u2026', '...')  # …
+
     return text
 
 class AIService:
