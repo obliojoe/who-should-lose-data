@@ -1,8 +1,29 @@
 # Agent Guidelines
+
+## 🚨 CRITICAL: NEVER COMMIT DIRECTLY TO MAIN 🚨
+
+**ALWAYS create a feature branch first. No exceptions. No shortcuts.**
+
+### Before EVERY commit, follow this workflow:
+
+1. **Check current branch**: Run `git branch --show-current`
+2. **If on main**: STOP! Create a feature branch:
+   ```bash
+   git checkout -b feature/descriptive-name
+   ```
+3. **Make your changes and commit**
+4. **Push and create a pull request**
+5. **Wait for approval before merging**
+
+If you notice the current branch has already been merged, stop and switch to an up-to-date `main` (and warn the user to do the same) before starting new work.
+
+---
+
+## General Guidelines
+
 - Keep `README.md` synchronized with the command-line options defined in `generate_cache.py` and prompts in `generate_cache_cli.py` whenever those flags change.
 - Update the "File Outputs" section of `README.md` whenever new artifacts are produced or existing ones are renamed.
 - Prefer small, focused commits with clear messages describing the intent of the change.
-- Do all work on feature branches, open pull requests for review, and wait for someone else to approve before merging. If you notice the current branch has already been merged, stop and switch to an up-to-date `main` (and warn the user to do the same) before starting new work.
 - Remember the site is called "Who Should Lose." Rooting guidance must use that voice, e.g., "Root against the Lions" instead of "Root for their opponent."
 - Know the project structure:
   - Core pipeline scripts live in the root directory
