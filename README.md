@@ -56,6 +56,27 @@ mkdir -p logs
 
 The repository already includes a populated `data/` directory with cached inputs. The scripts will refresh the contents in-place.
 
+## Project Structure
+
+```
+who-should-lose-data/
+├── README.md              # This file - project overview and usage
+├── AGENTS.md             # Guidelines for AI agents working on this project
+├── generate_cache.py     # Main pipeline orchestrator
+├── generate_cache_cli.py # Interactive command builder
+├── simulate_season.py    # Monte Carlo simulation engine
+├── power_rankings.py     # R1+SOV power ranking algorithm
+├── scripts/              # Utility and helper scripts
+│   ├── compare_power_rankings.py
+│   └── backfill_playoff_probs.py
+├── docs/                 # Technical documentation
+│   └── POWER_RANKINGS.md # Power rankings algorithm documentation
+├── data/                 # All data artifacts (schedule, stats, analyses)
+└── logs/                 # Runtime logs (create before first run)
+```
+
+For detailed information about the power rankings algorithm, see [`docs/POWER_RANKINGS.md`](./docs/POWER_RANKINGS.md).
+
 ## Quick Start
 
 ```bash
@@ -118,11 +139,12 @@ Artifacts are written to the `data/` directory. Key files include:
 
 | File | Description |
 |------|-------------|
-| `analysis_cache.json` | Simulation results, team AI, playoff odds, Super Bowl projections. |
+| `analysis_cache.json` | Simulation results, team AI, playoff odds, Super Bowl projections, power rankings. |
 | `game_analyses.json` | Game recaps and upcoming previews. |
 | `dashboard_content.json` | AI narrative for the public dashboard (headlines, stat blurbs, etc.). |
 | `pre_game_impacts.json` | Cached impact calculations for unplayed games. |
 | `standings_cache.json` | Standings with tiebreakers, division/conference records, and win percentages. |
+| `power_rankings_history.json` | Historical power rankings by week with movement tracking. |
 | `team_stats.csv` | Aggregated team-level statistics used as simulation inputs. |
 | `team_starters.csv` | Starter depth charts and season-to-date production. |
 | `coordinators.csv` | Offensive/defensive coordinator data fetched from ESPN. |

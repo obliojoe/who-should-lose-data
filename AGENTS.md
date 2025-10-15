@@ -4,9 +4,16 @@
 - Prefer small, focused commits with clear messages describing the intent of the change.
 - Do all work on feature branches, open pull requests for review, and wait for someone else to approve before merging. If you notice the current branch has already been merged, stop and switch to an up-to-date `main` (and warn the user to do the same) before starting new work.
 - Remember the site is called "Who Should Lose." Rooting guidance must use that voice, e.g., "Root against the Lions" instead of "Root for their opponent."
+- Know the project structure:
+  - Core pipeline scripts live in the root directory
+  - `scripts/` – Utility and helper scripts (one-off tools, backfill scripts, etc.)
+  - `docs/` – Technical documentation and guides (not user-facing like README.md)
+  - `data/` – All data artifacts and cached outputs
+  - Root-level `.md` files are limited to `README.md`, `AGENTS.md`, `CONTRIBUTING.md`, etc.
 - Know the purpose of the key data artifacts:
   - `data/analysis_cache.json` – Canonical simulation outputs: playoff odds, chaos metrics, significant games, and other sim-derived stats (AI text lives elsewhere).
   - `data/team_analyses.json` – Per-team AI write-ups generated for the rooting guide.
   - `data/game_analyses.json` – Game-level previews and recaps.
   - `data/dashboard_content.json` – Headlines and copy blocks assembled for the public dashboard.
   - `data/standings_cache.json` – Expanded standings with tiebreakers.
+  - `data/power_rankings_history.json` – Historical power rankings by week with movement tracking.

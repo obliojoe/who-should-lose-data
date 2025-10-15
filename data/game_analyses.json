@@ -7128,19 +7128,19 @@
     "broadcast": "TV"
   },
   "401772815": {
-    "timestamp": "2025-10-13 16:13:03",
+    "timestamp": "2025-10-14 17:17:16",
     "game_date": "2025-10-13",
     "home_team": "ATL",
     "away_team": "BUF",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 24,
+    "away_score": 14,
     "stadium": "Mercedes-Benz Stadium",
     "home_coach": "Raheem Morris",
     "away_coach": "Sean McDermott",
-    "analysis_type": "preview",
-    "analysis": "**Monday Night Matchup: Bills Aim to Bounce Back Against Falcons' Rising Rookie QB**\n\nIn a tantalizing Monday night showdown at Mercedes-Benz Stadium, the **Buffalo Bills** will look to recalibrate after their first loss of the season when they take on the **Atlanta Falcons**. The Bills, sporting a robust 4-1 record, enter this primetime clash with something to prove, while the Falcons and rookie quarterback **Michael Penix Jr.** seek to establish themselves as legitimate contenders.\n\nThe most intriguing storyline centers on the quarterback matchup: **Josh Allen**, the Bills' established gunslinger, versus Penix, Atlanta's promising first-round pick. Allen comes in with eye-popping numbers - 1,217 passing yards, 9 touchdowns, and just 2 interceptions - but also carrying the weight of recent turnovers that contributed to Buffalo's unexpected loss to New England. For the Falcons, Penix represents hope and potential, coming off a career-best performance where he completed 76.9% of his passes. The Bills' top-ranked pass defense (2nd in the league) will provide a stern test for the rookie's emerging talents.\n\nKey factors will include **Bijan Robinson's** dynamic playmaking for Atlanta - he's been a dual-threat weapon with over 300 rushing yards and 270 receiving yards - against Buffalo's 28th-ranked rushing defense. The Bills will also be without key defensive players like **Matt Milano** and **Dalton Kincaid**, their emerging star tight end, which could significantly impact their defensive schemes and offensive rhythm. With Buffalo's historically strong post-loss performance (22-6 since 2019) and the Bills' impressive indoor game record, this sets up as a compelling battle between an experienced, high-powered offense and an ascending, young team looking to make a statement.",
+    "analysis_type": "post_game",
+    "analysis": "# Monday Night Football: Falcons Upset Bills in Thrilling 24-14 Victory\n\nThe **Atlanta Falcons** stunned the **Buffalo Bills** 24-14 in a primetime matchup that showcased **Bijan Robinson's** electrifying performance and exposed some vulnerabilities in Josh Allen's game. The Falcons dominated with explosive plays and a balanced offensive attack that left the previously undefeated Bills searching for answers.\n\n**Bijan Robinson** was the star of the night, rumbling for a career-high 170 rushing yards, including an **81-yard touchdown run** that broke open the game in the second quarter. **Michael Penix Jr.** played a composed game, throwing for 250 yards and a touchdown, while **Drake London** tormented the Bills' secondary with 10 receptions for 158 yards. The Falcons' victory was comprehensive, with **Tyler Allgeier** and Robinson both finding the end zone on the ground, and the defense keeping Josh Allen uncomfortable throughout the evening.\n\n## Key Statistics\n\n- **Bijan Robinson**: 19 carries, 170 rushing yards, 1 TD (81-yard long run)\n- **Josh Allen**: 15/26, 180 yards, 2 TD, 2 INT\n- **Michael Penix Jr.**: 20/32, 250 yards, 1 TD, 0 INT\n- **Bills' Record**: Drops from 4-0 to 4-2\n- **Falcons' Record**: Improves to 3-2\n\nThe game was a statement win for the Falcons, who exposed the Bills' early-season success as potentially hollow, given their previous opponents' combined record of 3-21. With this performance, Atlanta looks like a genuine playoff contender, while Buffalo faces serious questions about their offensive consistency and defensive resilience.",
     "ai_provider": "claude",
-    "ai_model": "claude-opus-4-1",
+    "ai_model": "claude-3-5-haiku-latest",
     "betting": {
       "spread": 3.5,
       "over_under": 49.5,
@@ -7150,45 +7150,142 @@
     "weather": {
       "is_indoor": true
     },
-    "predictor": {
-      "home_win_prob": 38.91,
-      "matchup_quality": 59.916,
-      "predicted_point_diff": -4.167,
-      "away_win_prob": 60.777
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "20/32, 250 YDS, 1 TD",
+          "value": 250.0,
+          "player": "Michael Penix Jr.",
+          "jersey": "9",
+          "position": "QB",
+          "team": "ATL"
+        },
+        {
+          "displayValue": "15/26, 180 YDS, 2 TD, 2 INT",
+          "value": 180.0,
+          "player": "Josh Allen",
+          "jersey": "17",
+          "position": "QB",
+          "team": "BUF"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "19 CAR, 170 YDS, 1 TD",
+          "value": 170.0,
+          "player": "Bijan Robinson",
+          "jersey": "7",
+          "position": "RB",
+          "team": "ATL"
+        },
+        {
+          "displayValue": "17 CAR, 87 YDS",
+          "value": 87.0,
+          "player": "James Cook III",
+          "jersey": "4",
+          "position": "RB",
+          "team": "BUF"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "10 REC, 158 YDS, 1 TD",
+          "value": 158.0,
+          "player": "Drake London",
+          "jersey": "5",
+          "position": "WR",
+          "team": "ATL"
+        },
+        {
+          "displayValue": "6 REC, 68 YDS",
+          "value": 68.0,
+          "player": "Bijan Robinson",
+          "jersey": "7",
+          "position": "RB",
+          "team": "ATL"
+        }
+      ]
     },
     "broadcast": "TV"
   },
   "401772717": {
-    "timestamp": "2025-10-13 09:51:22",
+    "timestamp": "2025-10-14 17:17:15",
     "game_date": "2025-10-13",
     "home_team": "WAS",
     "away_team": "CHI",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 24,
+    "away_score": 25,
     "stadium": "Northwest Stadium",
     "home_coach": "Dan Quinn",
     "away_coach": "Ben Johnson",
-    "analysis_type": "preview",
-    "analysis": "**Quarterback Duel Redux: Daniels vs. Williams Takes Center Stage**\n\nIn a tantalizing Monday Night Football matchup, the **Chicago Bears** and **Washington Commanders** renew their budding rivalry with a primetime showdown that feels more like a quarterback preview than a standard NFL game. Last year's dramatic Hail Mary finish still echoes in both locker rooms, but this time **Jayden Daniels** and **Caleb Williams** arrive with different trajectories - Daniels as a rising star, Williams looking to find his NFL footing.\n\nThe **Commanders** come in with the league's most dynamic rushing attack, averaging a staggering 156.4 yards per game, led by rookie revelation **Jacory Croskey-Merritt**. Meanwhile, the **Bears** bring the league's 31st-ranked run defense, setting up a potential ground-game bloodbath. **Dorance Armstrong** anchors Washington's pass rush with five sacks already, presenting another significant challenge for Chicago's offensive line. The Bears will be without key defensive tackle **Grady Jarrett**, further complicating their defensive strategy.\n\nWith **Terry McLaurin** and **Noah Brown** sidelined, Washington's passing game might lean heavily on **Deebo Samuel** - assuming his questionable leg injury doesn't limit him. **Caleb Williams** looks to continue building chemistry with rookie sensation **Rome Odunze**, who's hunting to become the first player since Mike Evans to score a touchdown in each of his first five games. The betting markets and ESPN's predictor both favor Washington, giving the Commanders a roughly 65% win probability, but in this young quarterbacks' rivalry, anything can happen.",
+    "analysis_type": "post_game",
+    "analysis": "# Commanders Collapse: Bears Stun Washington with Last-Second Field Goal\n\nIn a thrilling Week 6 matchup that defied pregame expectations, the **Chicago Bears** stunned the **Washington Commanders** with a dramatic 25-24 victory, courtesy of **Jake Moody's** 38-yard field goal as time expired. Despite being 5.5-point underdogs, the Bears fought back from an early deficit and showed remarkable resilience, led by rookie quarterback **Caleb Williams** and a gutsy performance that will be remembered as a turning point in their season.\n\n**Jayden Daniels** and the Commanders seemed poised for victory, building a 24-16 lead in the fourth quarter before **Williams** and **D'Andre Swift** engineered a remarkable comeback. Swift's 55-yard touchdown reception brought the Bears within two points, and Moody's clutch kick sealed the improbable win. The game was a testament to Williams' emerging leadership and the Bears' growing confidence under new coaching.\n\n## Key Statistics\n\n- **Caleb Williams**: 17/29, 252 yards, 1 TD, 0 INT\n- **D'Andre Swift**: 14 carries, 108 rushing yards, 2 receptions, 67 yards, 1 TD\n- **Jayden Daniels**: 19/26, 211 yards, 3 TD, 1 INT\n- **Total Turnovers**: Commanders 3, Bears 0\n- **Field Goals**: Jake Moody (Bears) 4/5, Matt Gay (Commanders) 1/2\n\nThe victory moves the Bears to **3-3** and provides a significant morale boost, while the Commanders drop to **4-2** in a performance that will leave them questioning their fourth-quarter execution.",
     "ai_provider": "claude",
-    "ai_model": "claude-opus-4-1",
+    "ai_model": "claude-3-5-haiku-latest",
     "betting": {
       "spread": -5.5,
-      "over_under": 49.5,
+      "over_under": 48.5,
       "provider": "ESPN BET",
       "favorite": "WSH"
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 56,
-      "condition": "Showers",
-      "wind_speed": 10
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 65.596,
-      "matchup_quality": 59.733,
-      "predicted_point_diff": 6.125,
-      "away_win_prob": 34.13
+    "leaders": {
+      "passingLeader": [
+        {
+          "displayValue": "17/29, 252 YDS, 1 TD",
+          "value": 252.0,
+          "player": "Caleb Williams",
+          "jersey": "18",
+          "position": "QB",
+          "team": "CHI"
+        },
+        {
+          "displayValue": "19/26, 211 YDS, 3 TD, 1 INT",
+          "value": 211.0,
+          "player": "Jayden Daniels",
+          "jersey": "5",
+          "position": "QB",
+          "team": "WSH"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "displayValue": "14 CAR, 108 YDS",
+          "value": 108.0,
+          "player": "D'Andre Swift",
+          "jersey": "4",
+          "position": "RB",
+          "team": "CHI"
+        },
+        {
+          "displayValue": "17 CAR, 61 YDS",
+          "value": 61.0,
+          "player": "Jacory Croskey-Merritt",
+          "jersey": "22",
+          "position": "RB",
+          "team": "WSH"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "displayValue": "2 REC, 67 YDS, 1 TD",
+          "value": 67.0,
+          "player": "D'Andre Swift",
+          "jersey": "4",
+          "position": "RB",
+          "team": "CHI"
+        },
+        {
+          "displayValue": "4 REC, 51 YDS",
+          "value": 51.0,
+          "player": "Luther Burden III",
+          "jersey": "10",
+          "position": "WR",
+          "team": "CHI"
+        }
+      ]
     },
     "broadcast": "TV"
   },
