@@ -27,6 +27,19 @@
     "game_ai_workers": 5,
     "test_mode": false
   },
+  "full-dev-50k-copy-local-no-deploy": {
+    "skip_data": false,
+    "skip_sims": false,
+    "simulations": 10000,
+    "regenerate_team_ai": "all",
+    "ai_model": "sonnet-3.7",
+    "commit": false,
+    "deploy_netlify": false,
+    "copy_to": "/home/obliojoe/source/whoshouldlose2/public/data",
+    "team_ai_workers": 32,
+    "game_ai_workers": 5,
+    "test_mode": false
+  },
   "regenerate-detroit-no-deploy": {
     "skip_data": false,
     "skip_sims": true,
@@ -64,17 +77,6 @@
     "game_ai_workers": 5,
     "test_mode": false
   },
-  "regenerate-dashboard-only-and-deploy": {
-    "skip_data": false,
-    "skip_sims": true,
-    "force_sagarin": true,
-    "skip_team_ai": true,
-    "skip_game_ai": true,
-    "ai_model": "sonnet-3.7",
-    "commit": true,
-    "deploy_netlify": true,
-    "test_mode": false
-  },
   "gen-ai-haiku-no-sims-no-deploy": {
     "skip_data": false,
     "skip_sims": true,
@@ -109,6 +111,17 @@
     "deploy_netlify": false,
     "team_ai_workers": 32,
     "game_ai_workers": 5,
+    "test_mode": false
+  },
+  "regenerate-dashboard-only-and-deploy": {
+    "skip_data": false,
+    "skip_sims": true,
+    "force_sagarin": true,
+    "skip_team_ai": true,
+    "skip_game_ai": true,
+    "ai_model": "sonnet-3.7",
+    "commit": true,
+    "deploy_netlify": true,
     "test_mode": false
   }
 }
