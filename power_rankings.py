@@ -187,7 +187,7 @@ class PowerRankings:
 
             # Current playoff seed (inverse and normalize - lower seed is better)
             seed = self.teams[team]['playoff_seed']
-            scores['seed'] = self.normalize_to_scale(16 - seed, 0, 15) * 100 / 15
+            scores['seed'] = self.normalize_to_scale(16 - seed, 0, 15)
 
             # Strength of victory (normalize to 0-100)
             sov = self.calculate_strength_of_victory(team)

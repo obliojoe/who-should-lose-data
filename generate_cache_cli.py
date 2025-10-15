@@ -217,6 +217,7 @@ def ask_questions(mode=None):
             "What do you want to do?",
             choices=[
                 "Generate files (interactive)",
+                "Update dashboard only (fast)",
                 "Deploy only (skip generation)",
                 "Run saved preset"
             ],
@@ -233,7 +234,12 @@ def ask_questions(mode=None):
                 # User cancelled or no presets, return to main menu
                 return ask_questions(mode=None)
 
-        mode = "deploy" if "Deploy only" in mode_choice else "generate"
+        if "Deploy only" in mode_choice:
+            mode = "deploy"
+        elif "dashboard only" in mode_choice:
+            mode = "dashboard"
+        else:
+            mode = "generate"
 
     if mode == "deploy":
         # Deploy-only mode - skip all generation
@@ -244,6 +250,81 @@ def ask_questions(mode=None):
         print("─" * 60)
         options['commit'] = ask_yes_no("Commit changes to git?", default=True)
         options['deploy_netlify'] = ask_yes_no("Deploy to Netlify?", default=True)
+
+        copy_files = ask_yes_no("Copy data files to local directory?", default=True)
+        if copy_files:
+            copy_path = ask_text("Copy destination path", default="/home/obliojoe/source/whoshouldlose2/public/data")
+            if copy_path:
+                options['copy_to'] = copy_path
+
+        return options
+
+    if mode == "dashboard":
+        # Dashboard-only mode - skip everything except dashboard generation
+        options['_mode'] = 'dashboard'  # Track mode for save
+        options['skip_data'] = True
+        options['skip_sims'] = True
+        options['skip_team_ai'] = True
+        options['skip_game_ai'] = True
+        # skip_dashboard_ai is NOT set, so dashboard will generate
+
+        print("\n📊 DASHBOARD UPDATE")
+        print("─" * 60)
+        print("This will update:")
+        print("  ✓ Power rankings (uses existing simulation data)")
+        print("  ✓ Dashboard content (AI generation)")
+        print()
+        print("This will skip:")
+        print("  ✗ Data file updates")
+        print("  ✗ Running new simulations")
+        print("  ✗ Team AI analysis")
+        print("  ✗ Game AI analysis")
+        print()
+
+        # AI Model selection for dashboard
+        print("🧠 AI MODEL SELECTION")
+        print("─" * 60)
+
+        model_choice = ask_choice(
+            "Which AI model to use for dashboard?",
+            choices=[
+                "Default (haiku - fast, cheap)",
+                "Opus (claude-opus-4-1 - highest quality)",
+                "Sonnet (claude-sonnet-4-5 - balanced)",
+                "Sonnet 3.7 (claude-3-7-sonnet-latest)",
+                "GPT-5 (gpt-5 - highest quality)",
+                "GPT-5 Mini (gpt-5-mini - balanced)",
+                "GPT-4o (gpt-4o)",
+                "GPT-4o Mini (gpt-4o-mini)",
+                "Custom model name"
+            ],
+            default="Default (haiku - fast, cheap)"
+        )
+
+        if "Opus" in model_choice:
+            options['ai_model'] = "opus"
+        elif model_choice.startswith("Sonnet 3.7"):
+            options['ai_model'] = "sonnet-3.7"
+        elif "Sonnet" in model_choice:
+            options['ai_model'] = "sonnet"
+        elif model_choice.startswith("GPT-5 Mini"):
+            options['ai_model'] = "gpt-5-mini"
+        elif model_choice.startswith("GPT-5 ("):
+            options['ai_model'] = "gpt-5"
+        elif model_choice.startswith("GPT-4o Mini"):
+            options['ai_model'] = "gpt-4o-mini"
+        elif "GPT-4o" in model_choice:
+            options['ai_model'] = "gpt-4o"
+        elif "Custom" in model_choice:
+            custom_model = ask_text("Enter model alias or full name", default="")
+            if custom_model:
+                options['ai_model'] = custom_model
+
+        # Deployment section
+        print("\n🚀 DEPLOYMENT")
+        print("─" * 60)
+        options['commit'] = ask_yes_no("Commit changes to git?", default=False)
+        options['deploy_netlify'] = ask_yes_no("Deploy to Netlify?", default=False)
 
         copy_files = ask_yes_no("Copy data files to local directory?", default=True)
         if copy_files:

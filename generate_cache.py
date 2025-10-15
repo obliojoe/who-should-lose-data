@@ -436,6 +436,72 @@ def calculate_standings(teams, schedule):
 
     return formatted_standings
 
+
+def load_standings_from_cache(standings_cache_path='data/standings_cache.json'):
+    """
+    Load all standings data from the standings cache.
+
+    The standings cache is the source of truth for all standings calculations,
+    including proper tiebreaker application.
+
+    Returns:
+        tuple: (division_ranks, conference_ranks, playoff_seeds, team_stats)
+            division_ranks: dict of team_abbr -> division rank (1-4)
+            conference_ranks: dict of team_abbr -> conference rank (1-16)
+            playoff_seeds: dict of team_abbr -> playoff seed (1-16)
+            team_stats: dict of team_abbr -> {strength_of_victory, strength_of_schedule}
+    """
+    division_ranks = {}
+    conference_ranks = {}
+    playoff_seeds = {}
+    team_stats = {}
+
+    # Load standings cache (source of truth)
+    try:
+        with open(standings_cache_path, 'r') as f:
+            standings_cache = json.load(f)
+    except Exception as e:
+        logger.error(f"Failed to load standings_cache.json: {e}")
+        return division_ranks, conference_ranks, playoff_seeds, team_stats
+
+    standings = standings_cache.get('standings', {})
+
+    for conference in ['AFC', 'NFC']:
+        # Get divisional ranks and stats
+        divisional_data = standings.get('divisional', {}).get(conference, {})
+        for division_name, division_teams in divisional_data.items():
+            for team_data in division_teams:
+                team_abbr = team_data['team']
+                division_ranks[team_abbr] = team_data['rank']
+                team_stats[team_abbr] = {
+                    'strength_of_victory': team_data.get('strength_of_victory', 0.0),
+                    'strength_of_schedule': team_data.get('strength_of_schedule', 0.0)
+                }
+
+        # Get conference-wide ranks
+        conf_standings = standings.get('conference', {}).get(conference, [])
+        for team_data in conf_standings:
+            team_abbr = team_data['team']
+            conference_ranks[team_abbr] = team_data['rank']
+
+        # Get playoff seeds
+        playoff_data = standings.get('playoff', {}).get(conference, {})
+
+        # Division winners (seeds 1-4)
+        for team_data in playoff_data.get('division_winners', []):
+            playoff_seeds[team_data['team']] = team_data['seed']
+
+        # Wild cards (seeds 5-7)
+        for team_data in playoff_data.get('wild_cards', []):
+            playoff_seeds[team_data['team']] = team_data['seed']
+
+        # Eliminated teams (seeds 8-16)
+        for team_data in playoff_data.get('eliminated', []):
+            playoff_seeds[team_data['team']] = team_data['seed']
+
+    return division_ranks, conference_ranks, playoff_seeds, team_stats
+
+
 def get_division_standings(standings_data):
     division_standings = {}
     for conference in standings_data:
@@ -1255,14 +1321,21 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
             'mascot': team_info['mascot'],
             'conference': team_info['conference'],
             'division': team_info['division'],
-            'division_position': 0,
             'playoff_chance': 0,
             'division_chance': 0,
             'top_seed_chance': 0,
             'super_bowl_appearance_chance': 0,
             'super_bowl_win_chance': 0,
             'num_simulations': num_simulations,
-            'significant_games': []
+            'significant_games': [],
+            'strength_of_victory': 0.0,
+            'strength_of_schedule': 0.0,
+            'rankings': {
+                'division': 0,
+                'conference': 0,
+                'playoff_seed': 0,
+                'power': None
+            }
         }
 
     # Try to load existing cache
@@ -1576,23 +1649,34 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
     # After all batches are processed, but before saving
     standings_data = calculate_standings(teams, schedule)
-    
+
+    # Load all standings data from standings cache (source of truth)
+    division_ranks, conference_ranks, playoff_seeds, team_stats = load_standings_from_cache()
+
     for team_abbr, team_info in teams.items():
-        # Get division position
-        conference = team_info['conference']
-        division = team_info['division']
-        division_teams = standings_data[conference][division]
-        division_position = next(i for i, (t, _) in enumerate(division_teams, 1) if t == team_abbr)
-        
+        # Get all rankings from standings cache
+        division_rank = division_ranks.get(team_abbr, 0)
+        conference_rank = conference_ranks.get(team_abbr, 0)
+        playoff_seed = playoff_seeds.get(team_abbr, 0)  # 1-7 in playoffs, 8-16 in race but out
+
+        # Get SOV/SOS from standings cache
+        stats = team_stats.get(team_abbr, {})
+
         update_values = {
             'team': team_abbr,
             'city': team_info['city'],
             'mascot': team_info['mascot'],
-            'conference': conference,
-            'division': division,
-            'division_position': division_position,
-            'num_simulations': cache_data['num_simulations']  # Use the preserved simulation count
+            'conference': team_info['conference'],
+            'division': team_info['division'],
+            'num_simulations': cache_data['num_simulations'],  # Use the preserved simulation count
+            'strength_of_victory': round(stats.get('strength_of_victory', 0.0), 3),
+            'strength_of_schedule': round(stats.get('strength_of_schedule', 0.0), 3)
         }
+
+        # Update rankings structure
+        cache_data['team_analyses'][team_abbr]['rankings']['division'] = division_rank
+        cache_data['team_analyses'][team_abbr]['rankings']['conference'] = conference_rank
+        cache_data['team_analyses'][team_abbr]['rankings']['playoff_seed'] = playoff_seed
 
         # Only update probability values if not skipping sims
         if not skip_sims:
@@ -1603,7 +1687,7 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                 'super_bowl_appearance_chance': round((super_bowl_appearances[team_abbr] / num_simulations) * 100, 1),
                 'super_bowl_win_chance': round((super_bowl_wins[team_abbr] / num_simulations) * 100, 1)
             })
-        
+
         cache_data['team_analyses'][team_abbr].update(update_values)
 
     # PHASE 3: Generate AI analysis
@@ -1755,13 +1839,33 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
     # Load power rankings for current week
     try:
-        from power_rankings_dashboard import get_power_rankings_df
+        from power_rankings_dashboard import get_power_rankings_df, update_power_rankings_for_week
         import pandas as pd
 
         # Get completed weeks to find current week
         schedule_df = pd.read_csv('data/schedule.csv')
         current_week = schedule_df[schedule_df['away_score'].notna()]['week_num'].max()
-        pr_df = get_power_rankings_df(int(current_week))
+
+        # Force recalculate current week with fresh playoff probabilities
+        logger.info(f"Updating power rankings for week {current_week} with fresh playoff probabilities")
+        update_power_rankings_for_week(int(current_week), force=True)
+
+        # Find last FULL week (all games completed) for team analyses
+        # Count games per week to find the last complete week
+        games_per_week = schedule_df.groupby('week_num').size()
+        completed_per_week = schedule_df[schedule_df['away_score'].notna()].groupby('week_num').size()
+
+        last_full_week = current_week
+        for week in sorted(completed_per_week.index, reverse=True):
+            if week in games_per_week and completed_per_week[week] >= games_per_week[week]:
+                last_full_week = week
+                break
+
+        if last_full_week != current_week:
+            logger.info(f"Using week {last_full_week} for team analyses (last complete week), week {current_week} has partial results")
+
+        # Load rankings from last full week for team analyses
+        pr_df = get_power_rankings_df(int(last_full_week))
 
         # Create lookup dict for power rankings
         power_rankings_lookup = {}
@@ -1770,9 +1874,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                 'rank': int(row['rank']),
                 'previous_rank': int(row['previous_rank']) if pd.notna(row['previous_rank']) else None,
                 'movement': int(row['movement']) if pd.notna(row['movement']) else 0,
-                'rating': round(float(row['rating']), 2)
+                'rating': round(float(row['rating']), 2),
+                'week': int(last_full_week)  # Add week number so dashboard knows which week
             }
-        logger.info(f"Loaded power rankings for week {current_week}")
+        logger.info(f"Loaded power rankings for week {last_full_week} for team analyses")
     except Exception as e:
         logger.warning(f"Could not load power rankings: {e}")
         power_rankings_lookup = {}
@@ -1784,9 +1889,9 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         if team_abbr in existing_team_analyses and 'ai_tagline' in existing_team_analyses[team_abbr]:
             team_analyses[team_abbr]['ai_tagline'] = existing_team_analyses[team_abbr]['ai_tagline']
 
-        # Add power ranking if available
+        # Add power ranking to cache_data rankings structure
         if team_abbr in power_rankings_lookup:
-            team_analyses[team_abbr]['power_ranking'] = power_rankings_lookup[team_abbr]
+            cache_data['team_analyses'][team_abbr]['rankings']['power'] = power_rankings_lookup[team_abbr]
 
         # Parse ai_analysis JSON string into actual fields
         if 'ai_analysis' in team_data and team_data['ai_analysis']:
@@ -1971,6 +2076,10 @@ def main():
     parser.add_argument('--ai-model', type=str,
                       help='Override the AI model to use (e.g., "opus", "sonnet", "haiku", "gpt-4o", "gpt-5-mini")')
 
+    # Power Rankings Options
+    parser.add_argument('--update-power-rankings-only', action='store_true',
+                      help='Only update power rankings (skip all other generation, but implies --skip-sims --skip-team-ai --skip-game-ai --skip-dashboard-ai)')
+
     # Deployment Options
     parser.add_argument('--commit', action='store_true',
                       help='Commit changes to git if successful')
@@ -1987,6 +2096,15 @@ def main():
     # Handle --deploy-only flag
     if args.deploy_only:
         logger.info("--deploy-only mode: skipping all generation, will only deploy/commit existing files")
+        args.skip_data = True
+        args.skip_sims = True
+        args.skip_team_ai = True
+        args.skip_game_ai = True
+        args.skip_dashboard_ai = True
+
+    # Handle --update-power-rankings-only flag
+    if args.update_power_rankings_only:
+        logger.info("--update-power-rankings-only mode: only updating power rankings")
         args.skip_data = True
         args.skip_sims = True
         args.skip_team_ai = True
