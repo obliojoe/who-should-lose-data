@@ -1837,6 +1837,13 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
     team_analyses = {}
     parse_error_teams = []
 
+    # Save cache_data to disk BEFORE updating power rankings
+    # This ensures power rankings calculation uses the fresh playoff probabilities
+    if not skip_sims:
+        logger.info("Saving fresh simulation results before power rankings calculation")
+        with open('data/analysis_cache.json', 'w') as f:
+            json.dump(cache_data, f, indent=2)
+
     # Load power rankings for current week
     try:
         from power_rankings_dashboard import get_power_rankings_df, update_power_rankings_for_week
