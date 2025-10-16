@@ -58,3 +58,31 @@ GitHub distinguishes between **issue comments** (top-level on the PR) and **revi
    Add `--paginate` if the list is long. For extra context (file/line), drop the `--jq` filter to see the full JSON payload.
 
 Always scan both outputs before declaring a PR “clean.” If Codex or a reviewer flags an issue, respond in-place after pushing the fix so the conversation stays in context.
+
+## Creating Pull Requests with Descriptions
+
+`gh pr create --body-file -` often fails in this environment because the GitHub CLI tries to launch an editor (“cannot start document portal”) and ends up publishing a PR with an empty description. To guarantee a review-ready summary:
+
+1. Use a heredoc with `--body` so the description is baked in from the start:
+   ```bash
+   gh pr create --title "Your PR Title" --body "$(cat <<'EOF'
+   ## Summary
+
+   Your multi-line overview…
+
+   ## Changes
+   - Bullet 1
+   - Bullet 2
+
+   ## Testing
+   - [x] Command
+   EOF
+   )"
+   ```
+   The `cat <<'EOF'` form preserves Markdown (and `$`/`` ` `` characters) without unintended expansion.
+2. Immediately verify the description landed:
+   ```bash
+   gh pr view <pr-number> --json body --jq .body
+   ```
+
+Never leave a PR without a description—the review bots (and humans!) rely on it.

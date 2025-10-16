@@ -1671,7 +1671,7 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
 
     return total_impact, debug_stats
 
-def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_team_ai=None, seed=None, ai_model=None, force_sagarin=False):
+def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_team_ai=None, seed=None, ai_model=None, force_sagarin=False, home_field_override=None):
     """Generate the analysis cache file"""
     is_ci = os.environ.get('CI') == 'true'  # Check for CI environment
     output_path = Path(output_path)
@@ -1714,7 +1714,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
     # Load required data
     teams = load_teams()
     schedule = load_schedule()
-    home_field_advantage = float(scrape_sagarin(force_rescrape=force_sagarin))
+    if home_field_override is not None:
+        home_field_advantage = float(home_field_override)
+    else:
+        home_field_advantage = float(scrape_sagarin(force_rescrape=force_sagarin, manifest=RAW_DATA_MANIFEST))
     sagarin_hash = generate_sagarin_hash()
 
     # Initialize cache structure with empty team analyses
@@ -2556,6 +2559,7 @@ def main():
         args.skip_dashboard_ai = True
 
     copy_data = True  # Always copy data (no longer configurable)
+    sagarin_home_field: Optional[float] = None
     
     if not args.skip_data:
         logger.info("Generating data files")
@@ -2603,6 +2607,10 @@ def main():
                 generate_standings_cache()
         except Exception as e:
             logger.error(f"Error generating standings cache: {e}... continuing")
+
+        logger.info("=> Updating Sagarin ratings")
+        sagarin_home_field = float(scrape_sagarin(force_rescrape=args.force_sagarin, manifest=RAW_DATA_MANIFEST))
+        logger.info(f"   Home field advantage set to {sagarin_home_field:.2f}")
 
         # NOTE: Game AI and Dashboard AI generation moved to AFTER simulations
         # so they have access to probability data from the simulations.
@@ -2683,6 +2691,10 @@ def main():
         logger.info("Skipping cache generation (--regenerate-game-ai with --skip-sims and --skip-team-ai).")
         success = True  # Set success=True so deploy/commit can proceed
     else:
+        home_field_override = sagarin_home_field
+        if home_field_override is None:
+            home_field_override = float(scrape_sagarin(force_rescrape=args.force_sagarin, manifest=RAW_DATA_MANIFEST))
+            logger.info(f"Home field advantage computed: {home_field_override:.2f}")
         # THIS RUNS SIMULATIONS AND TEAM AI
         success = generate_cache(
             num_simulations=args.simulations,
@@ -2693,7 +2705,8 @@ def main():
             regenerate_team_ai=args.regenerate_team_ai,
             seed=args.seed,
             ai_model=args.ai_model,
-            force_sagarin=args.force_sagarin
+            force_sagarin=args.force_sagarin,
+            home_field_override=home_field_override,
         )
 
     # NOW run game AI and dashboard AI (AFTER simulations, so they have access to probability data)

@@ -6,6 +6,9 @@ import os
 from datetime import datetime, timedelta
 import json
 import logging
+from typing import Optional
+
+from raw_data_manifest import RawDataManifest
 
 # Create logs directory if it doesn't exist
 try:
@@ -30,6 +33,37 @@ logger.addHandler(file_handler)
 
 CACHE_FILE = 'data/sagarin_cache.json'
 CSV_FILE = 'data/sagarin.csv'
+
+
+def load_raw_sagarin_html(manifest: Optional[RawDataManifest]) -> Optional[str]:
+    """Return the most recent raw Sagarin HTML captured by collect_raw_data."""
+    if manifest is None:
+        return None
+
+    try:
+        entries = manifest.entries('sagarin_html')
+    except Exception as exc:  # Manifest may not support the dataset yet
+        logger.debug("Unable to enumerate sagarin_html entries from manifest: %s", exc)
+        return None
+
+    if not entries:
+        return None
+
+    # Choose the newest file by modification time (fall back to lexical ordering)
+    def _entry_sort_key(entry):
+        try:
+            return entry.path.stat().st_mtime
+        except OSError:
+            return 0
+
+    latest_entry = max(entries, key=_entry_sort_key)
+    try:
+        html_content = latest_entry.path.read_text(encoding='utf-8')
+        logger.info("Loaded Sagarin HTML from raw snapshot at %s", latest_entry.path)
+        return html_content
+    except OSError as exc:
+        logger.warning("Failed to read raw Sagarin HTML at %s: %s", latest_entry.path, exc)
+        return None
 
 def load_team_abbrs():
     teams = {}
@@ -192,18 +226,46 @@ def scrape_home_advantage(html_content):
 
     return matches[0] if matches else 0
 
-def scrape_sagarin(force_rescrape=False):
+def extract_sagarin_metrics(html_content):
+    """Parse raw HTML into home-advantage and per-team ratings."""
+    home_advantage_str = scrape_home_advantage(html_content)
+    try:
+        home_advantage = float(home_advantage_str)
+    except (TypeError, ValueError):
+        home_advantage = 0.0
+
+    team_abbrs = load_team_abbrs()
+    team_ratings = {}
+    for team_name, rating in scrape_teams_and_ratings(html_content):
+        abbr = team_abbrs.get(team_name)
+        if abbr:
+            try:
+                team_ratings[abbr] = float(rating)
+            except ValueError:
+                logger.debug("Skipping rating for %s due to parse error", team_name)
+
+    return home_advantage, team_ratings
+
+
+def scrape_sagarin(force_rescrape=False, manifest: Optional[RawDataManifest] = None):
     """Main function to get Sagarin ratings, using cache when appropriate
 
     Args:
         force_rescrape: If True, ignores cache and forces a fresh scrape from website
     """
-    if not force_rescrape and not should_update_cache():
-        cached_value, team_ratings = load_from_cache()
-        if cached_value is not None:
-            # Don't overwrite CSV when using cache - preserve historical data
-            logger.info(f"Using cached Sagarin ratings (CSV preserved)")
-            return cached_value
+    if not force_rescrape:
+        html_content = load_raw_sagarin_html(manifest)
+        if html_content:
+            home_advantage, team_ratings = extract_sagarin_metrics(html_content)
+            save_to_cache(home_advantage, team_ratings)
+            return home_advantage
+
+        if not should_update_cache():
+            cached_value, team_ratings = load_from_cache()
+            if cached_value is not None:
+                # Don't overwrite CSV when using cache - preserve historical data
+                logger.info("Using cached Sagarin ratings (CSV preserved)")
+                return cached_value
 
     # If we need to update, proceed with scraping
     if force_rescrape:
@@ -211,16 +273,9 @@ def scrape_sagarin(force_rescrape=False):
     try:
         logger.info("Attempting to scrape new Sagarin ratings...")
         response = requests.get('http://sagarin.com/sports/nflsend.htm')
-        home_advantage = float(scrape_home_advantage(response.text))
+        home_advantage, team_ratings = extract_sagarin_metrics(response.text)
         logger.info(f"Successfully scraped new home advantage value: {home_advantage}")
-        
-        # Scrape team ratings
-        team_abbrs = load_team_abbrs()
-        team_ratings = {}
-        for team_name, rating in scrape_teams_and_ratings(response.text):
-            if team_name in team_abbrs:
-                team_ratings[team_abbrs[team_name]] = float(rating)
-        
+
         # Save both to cache and CSV
         save_to_cache(home_advantage, team_ratings)
         return home_advantage
