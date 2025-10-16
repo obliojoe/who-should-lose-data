@@ -18,6 +18,7 @@ import random
 import numpy as np
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Dict, List, Optional, Tuple
 from anthropic import Anthropic
 from dotenv import load_dotenv
 import requests
@@ -40,8 +41,18 @@ import shutil
 from update_scores import update_scores_and_dates
 from generate_analyses import batch_analyze_games
 import subprocess
+from raw_data_manifest import RawDataManifest
 
 is_ci = os.environ.get('CI') == 'true'
+
+RAW_DATA_MANIFEST: Optional[RawDataManifest] = None
+RAW_GAMES_DIR = Path('data/raw/espn/games')
+RAW_SCOREBOARD_DIR = Path('data/raw/espn/scoreboard')
+RAW_DEPTHCHART_DIR = Path('data/raw/espn/depthchart')
+TEAM_ALIAS = {
+    'LA': 'LAR',
+    'WSH': 'WAS',
+}
 
 def filter_team_starters(data, team_abbr):
     """Filter team starters data for a specific team."""
@@ -49,6 +60,395 @@ def filter_team_starters(data, team_abbr):
     header = lines[0]
     filtered_lines = [line for line in lines[1:] if line.startswith(team_abbr)]
     return header + '\n' + '\n'.join(filtered_lines)
+
+# Raw data helpers -----------------------------------------------------------
+
+def load_raw_json(dataset: str, identifier: Optional[str] = None) -> Optional[dict]:
+    if RAW_DATA_MANIFEST is None:
+        return None
+    try:
+        return RAW_DATA_MANIFEST.load_json(dataset, identifier)
+    except ValueError as err:
+        logger.warning("Raw manifest lookup failed for %s (%s): %s", dataset, identifier, err)
+        return None
+
+
+def parse_injuries(summary_payload: Optional[dict], team_abbr: str) -> List[dict]:
+    if not summary_payload:
+        return []
+
+    injuries: List[dict] = []
+    for team_injuries in summary_payload.get('injuries', []) or []:
+        if team_injuries.get('team', {}).get('abbreviation') != team_abbr:
+            continue
+        for injury in team_injuries.get('injuries', []) or []:
+            status = injury.get('status', 'Unknown')
+            if status not in ['Out', 'Doubtful', 'Questionable', 'Injured Reserve']:
+                continue
+            athlete = injury.get('athlete', {})
+            injuries.append({
+                'player': athlete.get('displayName', 'Unknown'),
+                'position': athlete.get('position', {}).get('abbreviation', 'N/A'),
+                'status': status,
+                'type': injury.get('details', {}).get('type', '')
+            })
+    return injuries
+
+
+def parse_datetime(value: Optional[str]) -> Tuple[str, str]:
+    if not value:
+        return '', ''
+    try:
+        dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+    except ValueError:
+        return '', ''
+    date_str = dt.date().isoformat()
+    time_str = dt.time().strftime('%H:%M')
+    return date_str, time_str
+
+
+def parse_score(value: Optional[str], completed: bool) -> Optional[int]:
+    if value in (None, '', '-'):  # treat missing
+        return None
+    try:
+        score = int(value)
+    except (ValueError, TypeError):
+        return None
+    if not completed and score == 0:
+        return None
+    return score
+
+
+def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
+    metadata: Dict[str, Dict[str, Optional[str]]] = {}
+
+    if RAW_SCOREBOARD_DIR.exists():
+        for score_path in sorted(RAW_SCOREBOARD_DIR.glob('season_*_week_*.json')):
+            try:
+                scoreboard = json.loads(score_path.read_text())
+            except (OSError, json.JSONDecodeError):
+                continue
+
+            parts = score_path.stem.split('_')
+            try:
+                season = int(parts[1])
+                week = int(parts[3])
+            except (ValueError, IndexError):
+                season = None
+                week = None
+
+            for event in scoreboard.get('events', []) or []:
+                event_id = event.get('id')
+                if not event_id:
+                    continue
+
+                competitions = event.get('competitions', []) or []
+                if not competitions:
+                    continue
+                comp = competitions[0]
+
+                status_type = comp.get('status', {}).get('type', {}) or {}
+                state = status_type.get('state')
+                completed = bool(status_type.get('completed')) or state in {'post', 'final', 'completed'}
+
+                date_value = comp.get('date') or event.get('date')
+                game_date_str, game_time_str = parse_datetime(date_value)
+
+                venue = comp.get('venue', {})
+                venue_name = venue.get('fullName') or venue.get('displayName') or ''
+
+                away_team = home_team = None
+                away_score = home_score = None
+                for competitor in comp.get('competitors', []) or []:
+                    team = competitor.get('team', {})
+                    abbrev = team.get('abbreviation')
+                    if abbrev:
+                        abbrev = TEAM_ALIAS.get(abbrev, abbrev)
+                    score = competitor.get('score')
+                    if competitor.get('homeAway') == 'home':
+                        home_team = abbrev
+                        home_score = parse_score(score, completed)
+                    else:
+                        away_team = abbrev
+                        away_score = parse_score(score, completed)
+
+                meta = metadata.setdefault(str(event_id), {})
+                if season is not None:
+                    meta.setdefault('season', season)
+                if week is not None:
+                    meta.setdefault('week', week)
+                if game_date_str:
+                    meta['game_date'] = game_date_str
+                if game_time_str:
+                    meta['gametime'] = game_time_str
+                if venue_name:
+                    meta['stadium'] = venue_name
+                if away_team:
+                    meta['away_team'] = TEAM_ALIAS.get(away_team, away_team)
+                if home_team:
+                    meta['home_team'] = TEAM_ALIAS.get(home_team, home_team)
+                if away_score is not None:
+                    meta['away_score'] = away_score
+                if home_score is not None:
+                    meta['home_score'] = home_score
+                if state:
+                    meta['state'] = state
+                meta['completed'] = completed
+
+    if RAW_GAMES_DIR.exists():
+        for info_path in RAW_GAMES_DIR.glob('season_*/*/*/game_info.json'):
+            parts = info_path.parts
+            event_id = parts[-2]
+            try:
+                info = json.loads(info_path.read_text())
+            except (OSError, json.JSONDecodeError):
+                continue
+            venue = info.get('venue', {})
+            venue_name = venue.get('fullName') or venue.get('displayName') or ''
+            if venue_name:
+                meta = metadata.setdefault(event_id, {})
+                meta['stadium'] = venue_name
+
+        for summary_path in RAW_GAMES_DIR.glob('season_*/*/*/summary.json'):
+            parts = summary_path.parts
+            event_id = parts[-2]
+            try:
+                summary = json.loads(summary_path.read_text())
+            except (OSError, json.JSONDecodeError):
+                continue
+
+            competitions = summary.get('competitions', [])
+            if not competitions:
+                competitions = summary.get('header', {}).get('competitions', []) or []
+            if not competitions:
+                continue
+            comp = competitions[0]
+
+            status_type = comp.get('status', {}).get('type', {}) or {}
+            state = status_type.get('state')
+            completed = bool(status_type.get('completed')) or state in {'post', 'final', 'completed'}
+
+            game_date_str, game_time_str = parse_datetime(comp.get('date'))
+
+            venue = comp.get('venue', {})
+            venue_name = venue.get('fullName') or venue.get('displayName') or ''
+
+            away_team = home_team = None
+            away_score = home_score = None
+            for competitor in comp.get('competitors', []) or []:
+                team = competitor.get('team', {})
+                abbrev = team.get('abbreviation')
+                if abbrev:
+                    abbrev = TEAM_ALIAS.get(abbrev, abbrev)
+                score = competitor.get('score')
+                if competitor.get('homeAway') == 'home':
+                    home_team = abbrev
+                    home_score = parse_score(score, completed)
+                else:
+                    away_team = abbrev
+                    away_score = parse_score(score, completed)
+
+            meta = metadata.setdefault(event_id, {})
+            if game_date_str and not meta.get('game_date'):
+                meta['game_date'] = game_date_str
+            if game_time_str and not meta.get('gametime'):
+                meta['gametime'] = game_time_str
+            if venue_name and not meta.get('stadium'):
+                meta['stadium'] = venue_name
+            if away_team and not meta.get('away_team'):
+                meta['away_team'] = TEAM_ALIAS.get(away_team, away_team)
+            if home_team and not meta.get('home_team'):
+                meta['home_team'] = TEAM_ALIAS.get(home_team, home_team)
+            if away_score is not None and meta.get('away_score') is None:
+                meta['away_score'] = away_score
+            if home_score is not None and meta.get('home_score') is None:
+                meta['home_score'] = home_score
+            if state and not meta.get('state'):
+                meta['state'] = state
+            if 'completed' not in meta:
+                meta['completed'] = completed
+
+    return metadata
+
+
+def normalize_player_name(name: Optional[str]) -> str:
+    if not name or not isinstance(name, str):
+        return ''
+    normalized = name.lower()
+    for suffix in [' jr', ' sr', ' iii', ' ii', ' iv']:
+        if normalized.endswith(suffix):
+            normalized = normalized[: -len(suffix)]
+    normalized = normalized.replace('.', '').replace("'", '').replace('-', ' ')
+    normalized = ''.join(ch for ch in normalized if ch.isalnum() or ch.isspace())
+    normalized = normalized.replace(' ', '')
+    return normalized
+
+
+def build_espn_player_map() -> Dict[Tuple[str, str, Optional[str]], str]:
+    mapping: Dict[Tuple[str, str, Optional[str]], str] = {}
+    if not RAW_DEPTHCHART_DIR.exists():
+        return mapping
+
+    for depth_path in RAW_DEPTHCHART_DIR.glob('season_*_week_*/*.json'):
+        stem = depth_path.stem
+        team_abbr = stem.split('-', 1)[1] if '-' in stem else None
+        if not team_abbr:
+            continue
+
+        try:
+            depth_data = json.loads(depth_path.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        for item in depth_data.get('items', []) or []:
+            positions = item.get('positions', {}) or {}
+            for pos_data in positions.values():
+                for athlete in pos_data.get('athletes', []) or []:
+                    espn_id = athlete.get('id')
+                    full_name = athlete.get('fullName') or athlete.get('displayName')
+                    jersey = athlete.get('jersey')
+                    if not espn_id or not full_name:
+                        continue
+
+                    key = (team_abbr, normalize_player_name(full_name), str(jersey) if jersey else None)
+                    mapping[key] = espn_id
+                    if jersey:
+                        general_key = (team_abbr, normalize_player_name(full_name), None)
+                        mapping.setdefault(general_key, espn_id)
+
+    return mapping
+
+
+def attach_espn_ids_to_team_starters(csv_path: Path) -> None:
+    if not csv_path.exists():
+        return
+
+    mapping = build_espn_player_map()
+    if not mapping:
+        return
+
+    try:
+        starters_df = pd.read_csv(csv_path)
+    except Exception:
+        return
+
+    if 'player_name' not in starters_df.columns or 'team_abbr' not in starters_df.columns:
+        return
+
+    espn_ids: List[Optional[str]] = []
+    for _, row in starters_df.iterrows():
+        team = row.get('team_abbr')
+        name = normalize_player_name(row.get('player_name'))
+        jersey_value = row.get('number')
+        jersey = None
+        if pd.notna(jersey_value):
+            try:
+                jersey = str(int(jersey_value))
+            except (ValueError, TypeError):
+                jersey = str(jersey_value).strip()
+
+        espn_id = None
+        if team and name:
+            key_exact = (team, name, jersey)
+            key_general = (team, name, None)
+            espn_id = mapping.get(key_exact) or mapping.get(key_general)
+
+        espn_ids.append(str(espn_id) if espn_id else '')
+
+    starters_df['espn_player_id'] = espn_ids
+    starters_df.to_csv(csv_path, index=False)
+def load_raw_csv(dataset: str, identifier: Optional[str] = None) -> Optional[pd.DataFrame]:
+    if RAW_DATA_MANIFEST is None:
+        return None
+    try:
+        return RAW_DATA_MANIFEST.load_dataframe(dataset, identifier)
+    except ValueError as err:
+        logger.warning("Raw manifest lookup failed for %s (%s): %s", dataset, identifier, err)
+        return None
+
+
+def write_schedule_from_raw(manifest: RawDataManifest) -> int:
+    """Build data/schedule.csv from captured nflreadpy schedule snapshot."""
+    entries = manifest.entries('nflreadpy_schedules')
+    if not entries:
+        raise ValueError('No raw schedule data found in manifest')
+
+    schedule_df = pd.read_csv(entries[0].path)
+
+    game_metadata = collect_game_metadata()
+
+    def format_score(value):
+        if pd.isna(value):
+            return ''
+        try:
+            return int(round(float(value)))
+        except (ValueError, TypeError):
+            return ''
+
+    def format_date(value):
+        if pd.isna(value) or value == '':
+            return ''
+        try:
+            return pd.to_datetime(value).date().isoformat()
+        except Exception:
+            return str(value)
+
+    output = pd.DataFrame()
+    output['week_num'] = schedule_df['week'].astype(int)
+    output['game_date'] = schedule_df['gameday'].apply(format_date)
+    output['weekday'] = schedule_df['weekday'].fillna('')
+    output['gametime'] = schedule_df['gametime'].fillna('')
+    output['away_team'] = schedule_df['away_team'].fillna('')
+    output['home_team'] = schedule_df['home_team'].fillna('')
+    output['away_score'] = schedule_df['away_score'].apply(format_score)
+    output['home_score'] = schedule_df['home_score'].apply(format_score)
+    output['away_coach'] = schedule_df['away_coach'].fillna('')
+    output['home_coach'] = schedule_df['home_coach'].fillna('')
+    output['stadium'] = schedule_df['stadium'].fillna('')
+
+    def format_espn(value):
+        if pd.isna(value):
+            return ''
+        try:
+            return str(int(float(value)))
+        except (ValueError, TypeError):
+            return str(value)
+
+    output['espn_id'] = schedule_df['espn'].apply(format_espn)
+
+    team_alias = {'LA': 'LAR'}
+    output['away_team'] = output['away_team'].replace(team_alias)
+    output['home_team'] = output['home_team'].replace(team_alias)
+
+    if game_metadata:
+        for idx, espn_id in output['espn_id'].items():
+            if not espn_id:
+                continue
+            meta = game_metadata.get(str(espn_id))
+            if not meta:
+                continue
+
+            if meta.get('game_date') and not output.at[idx, 'game_date']:
+                output.at[idx, 'game_date'] = meta['game_date']
+            if meta.get('gametime') and not output.at[idx, 'gametime']:
+                output.at[idx, 'gametime'] = meta['gametime']
+            if meta.get('stadium'):
+                output.at[idx, 'stadium'] = meta['stadium']
+
+            if meta.get('away_team'):
+                output.at[idx, 'away_team'] = meta['away_team']
+            if meta.get('home_team'):
+                output.at[idx, 'home_team'] = meta['home_team']
+
+            if meta.get('away_score') is not None:
+                output.at[idx, 'away_score'] = int(meta['away_score'])
+            if meta.get('home_score') is not None:
+                output.at[idx, 'home_score'] = int(meta['home_score'])
+
+    output = output.sort_values(['week_num', 'game_date', 'gametime', 'away_team']).reset_index(drop=True)
+    output.to_csv('data/schedule.csv', index=False)
+    return len(output)
+
 
 # Set up logging
 logging.basicConfig(
@@ -730,37 +1130,19 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
         if not espn_event_id:
             return []
 
+        summary_payload = load_raw_json('espn_summary', str(espn_event_id))
+        injuries = parse_injuries(summary_payload, team_abbr_filter)
+        if injuries:
+            return injuries
+
         try:
             url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event={espn_event_id}"
             response = requests.get(url, timeout=5)
-
             if response.status_code == 200:
-                data = response.json()
-                injury_data = data.get('injuries', [])
-
-                # Find the team's injury data
-                for team_injuries in injury_data:
-                    if team_injuries.get('team', {}).get('abbreviation') == team_abbr_filter:
-                        injuries = []
-                        for injury in team_injuries.get('injuries', []):
-                            player_name = injury.get('athlete', {}).get('displayName', 'Unknown')
-                            position = injury.get('athlete', {}).get('position', {}).get('abbreviation', 'N/A')
-                            status = injury.get('status', 'Unknown')
-                            injury_type = injury.get('details', {}).get('type', '')
-
-                            # Only include significant injury statuses
-                            if status in ['Out', 'Doubtful', 'Questionable', 'Injured Reserve']:
-                                injuries.append({
-                                    'player': player_name,
-                                    'position': position,
-                                    'status': status,
-                                    'type': injury_type
-                                })
-                        return injuries
-                return []
+                return parse_injuries(response.json(), team_abbr_filter)
         except Exception as e:
             logger.warning(f"Failed to fetch injuries from ESPN for {team_abbr_filter}: {e}")
-            return []
+        return []
 
     # Get injuries from ESPN event summary if we have an ESPN ID, otherwise fall back to team_starters
     team_injuries = []
@@ -801,41 +1183,45 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
             if team_row.empty or 'espn_api_id' not in team_row.columns:
                 return []
 
-            espn_team_id = team_row['espn_api_id'].iloc[0]
+            espn_team_id = int(team_row['espn_api_id'].iloc[0])
             team_name = team_row['mascot'].iloc[0]
             team_city = team_row['city'].iloc[0]
 
-            url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?team={espn_team_id}&limit=20"
+            data = load_raw_json('espn_news', str(espn_team_id))
+            if data is None:
+                url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?team={espn_team_id}&limit=20"
+                response = requests.get(url, timeout=3)
+                if response.status_code == 200:
+                    data = response.json()
 
-            response = requests.get(url, timeout=3)
-            if response.status_code == 200:
-                data = response.json()
-                articles = data.get('articles', [])
+            if not data:
+                return []
 
-                # Only include headlines that mention the team name, city, or are clearly team-specific
-                team_specific = []
-                for a in articles:
-                    headline = a.get('headline', '')
-                    description = a.get('description', '')
+            articles = data.get('articles', [])
 
-                    # Check if headline or description mentions the team
-                    contains_team = (team_name in headline or team_city in headline or
-                                   team_name in description or team_city in description or
-                                   team_abbr_filter in headline or team_abbr_filter in description)
+            # Only include headlines that mention the team name, city, or are clearly team-specific
+            team_specific = []
+            for a in articles:
+                headline = a.get('headline', '')
+                description = a.get('description', '')
 
-                    # Exclude generic multi-team articles unless they mention this specific team
-                    generic_multi_team = any(pattern in headline for pattern in [
-                        'all 32 teams', 'Every team', 'every team', 'NFL Week', 'Week 5 predictions',
-                        'Week 5 uniforms', 'Latest Madden ratings'
-                    ])
+                # Check if headline or description mentions the team
+                contains_team = (team_name in headline or team_city in headline or
+                               team_name in description or team_city in description or
+                               team_abbr_filter in headline or team_abbr_filter in description)
 
-                    if contains_team and not generic_multi_team:
-                        team_specific.append({'headline': headline, 'published': a.get('published', '')})
-                        if len(team_specific) >= 3:  # Stop at 3
-                            break
+                # Exclude generic multi-team articles unless they mention this specific team
+                generic_multi_team = any(pattern in headline for pattern in [
+                    'all 32 teams', 'Every team', 'every team', 'NFL Week', 'Week 5 predictions',
+                    'Week 5 uniforms', 'Latest Madden ratings'
+                ])
 
-                return team_specific
-            return []
+                if contains_team and not generic_multi_team:
+                    team_specific.append({'headline': headline, 'published': a.get('published', '')})
+                    if len(team_specific) >= 3:  # Stop at 3
+                        break
+
+            return team_specific
         except Exception as e:
             logger.warning(f"Failed to fetch news for {team_abbr_filter}: {e}")
             return []
@@ -2060,6 +2446,8 @@ def main():
                       help='Skip all generation, just deploy/commit existing files (implies --skip-data --skip-sims --skip-team-ai --skip-game-ai --skip-dashboard-ai)')
     parser.add_argument('--force-sagarin', action='store_true',
                       help='Force fresh scrape of Sagarin rankings from website (ignore cache)')
+    parser.add_argument('--raw-manifest', type=str,
+                      help='Path to raw data manifest (defaults to data/raw/manifest/latest.json if present)')
 
     # Simulation Options
     parser.add_argument('--simulations', type=int, default=1000,
@@ -2098,6 +2486,21 @@ def main():
                       help='Run in test mode (disable AI calls)')
 
     args = parser.parse_args()
+
+    global RAW_DATA_MANIFEST
+    raw_manifest: Optional[RawDataManifest] = None
+    if args.raw_manifest:
+        manifest_path = Path(args.raw_manifest)
+        if manifest_path.exists():
+            raw_manifest = RawDataManifest(manifest_path)
+        else:
+            logger.warning("Raw manifest path %s does not exist", manifest_path)
+    else:
+        raw_manifest = RawDataManifest.from_latest()
+        if raw_manifest:
+            logger.info("Using raw manifest at %s", raw_manifest.path)
+
+    RAW_DATA_MANIFEST = raw_manifest
     logger.info(f"args: {args}")
 
     # Handle --deploy-only flag
@@ -2124,8 +2527,12 @@ def main():
         logger.info("Generating data files")
         # Add score update at start
         logger.info("=> schedule.csv -- scores and dates")
-        scores_updated = update_scores_and_dates()  # Capture return value
-        logger.info(f"   Updated {scores_updated} game scores")  # Add log message
+        if RAW_DATA_MANIFEST and RAW_DATA_MANIFEST.entries('nflreadpy_schedules'):
+            games_written = write_schedule_from_raw(RAW_DATA_MANIFEST)
+            logger.info(f"   Wrote schedule from raw snapshot ({games_written} games)")
+        else:
+            scores_updated = update_scores_and_dates()  # Capture return value
+            logger.info(f"   Updated {scores_updated} game scores")  # Add log message
 
         # run team stats generation
         logger.info("=> Generating team_stats.csv")
@@ -2140,6 +2547,9 @@ def main():
             if not save_team_starters("team_starters.csv"):
                 logger.error("   Error: Failed to generate team starters")
                 sys.exit(1)
+
+        team_starters_path = Path('data/team_starters.csv')
+        attach_espn_ids_to_team_starters(team_starters_path)
 
         # Fetch coordinators data
         logger.info("=> Fetching coordinators.csv")
@@ -2368,7 +2778,6 @@ def main():
     if args.copy_to and success:
         try:
             import shutil
-            from pathlib import Path
 
             dest_dir = Path(args.copy_to)
             logger.info(f"Copying data files to {dest_dir}...")
