@@ -106,7 +106,7 @@ Artifacts saved in `data/raw/` include:
 
 - ESPN scoreboard, per-game summaries, box scores, team leaders, injuries, depth charts, and news
 - nflreadpy tables (schedules, team stats, **play-by-play**, player stats, snap counts, depth charts, rosters, etc.) filtered to the requested week
-- Source HTML for the Sagarin ratings page
+- Source HTML for the Sagarin ratings page (reused by the cache builder when present)
 - A manifest linking each dataset to its on-disk path
 
 > **Tip:** Run `collect_raw_data.py` for each week you need in the aggregate metrics (e.g., `--week 1` up through the current week). The pipeline now reads the season-to-date play-by-play and player stats from `data/raw/`, so backfilling prior weeks ensures conversion and red-zone rates stay accurate. `generate_cache.py` will log a warning if the manifest is missing any required raw datasets.
