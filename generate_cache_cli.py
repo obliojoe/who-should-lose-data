@@ -167,6 +167,8 @@ def get_preset_summary(options):
         parts.append("Commit")
     if options.get('deploy_netlify'):
         parts.append("Netlify")
+    if options.get('raw_manifest'):
+        parts.append("Raw manifest")
 
     return ", ".join(parts) if parts else "No operations"
 
@@ -341,6 +343,21 @@ def ask_questions(mode=None):
     print("\n📊 DATA FILES")
     print("─" * 60)
     options['skip_data'] = not ask_yes_no("Update data files (schedule, stats, standings)?", default=True)
+
+    default_manifest = "data/raw/manifest/latest.json"
+    manifest_exists = os.path.exists(default_manifest)
+    manifest_default = default_manifest if manifest_exists else ""
+    use_manifest = ask_yes_no(
+        "Load data from a captured raw manifest?",
+        default=manifest_exists
+    )
+    if use_manifest:
+        manifest_path = ask_text(
+            "Manifest path",
+            default=manifest_default
+        )
+        if manifest_path:
+            options['raw_manifest'] = manifest_path
 
     print("\n🎲 SIMULATIONS")
     print("─" * 60)
@@ -586,6 +603,9 @@ def build_command(options):
         # Data options
         if options.get('skip_data'):
             cmd_parts.append("--skip-data")
+
+        if 'raw_manifest' in options:
+            cmd_parts.append(f'--raw-manifest "{options["raw_manifest"]}"')
 
         # Simulation options
         if options.get('skip_sims'):

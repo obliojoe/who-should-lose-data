@@ -90,6 +90,27 @@ python generate_cache.py --simulations 100 --test-mode
 python generate_cache.py --data-only
 ```
 
+## Raw Data Snapshots
+
+Raw API responses and league datasets can be captured ahead of a run for reproducibility. The collector stores everything under `data/raw/` and writes a manifest that the main pipeline can reuse.
+
+```bash
+# Gather the latest scoreboard, ESPN game data, and nflreadpy tables
+python collect_raw_data.py --season 2025 --week 5
+
+# Use the captured manifest (auto-detected as data/raw/manifest/latest.json)
+python generate_cache.py --raw-manifest data/raw/manifest/latest.json --simulations 1000
+```
+
+Artifacts saved in `data/raw/` include:
+
+- ESPN scoreboard, per-game summaries, box scores, team leaders, injuries, depth charts, and news
+- nflreadpy tables (schedules, team stats, player stats, participation, snap counts, depth charts, rosters, injuries, etc.) filtered to the requested week
+- Source HTML for the Sagarin ratings page
+- A manifest linking each dataset to its on-disk path
+
+`generate_cache.py` automatically loads `data/raw/manifest/latest.json` when available, falling back to live API calls only if the manifest is missing.
+
 ## Command-Line Options
 
 All flags are optional and can be combined to tailor the workflow. Run `python generate_cache.py --help` for the authoritative list.
@@ -100,6 +121,7 @@ All flags are optional and can be combined to tailor the workflow. Run `python g
 - `--data-only` – Stop after data prerequisites (no simulations or AI stages).
 - `--deploy-only` – Skip all generation and only run deployment/commit logic (implies skipping data, simulations, and every AI phase).
 - `--force-sagarin` – Force a fresh Sagarin scrape instead of using cached rankings.
+- `--raw-manifest PATH` – Load pre-collected raw data from the given manifest (defaults to `data/raw/manifest/latest.json` when present).
 
 ### Simulation controls
 
