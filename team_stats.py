@@ -1,14 +1,122 @@
-import nflreadpy as nfl
 import pandas as pd
-import numpy as np
-import requests
 import logging
+from typing import Dict, Optional, Sequence
+
+from raw_data_manifest import RawDataManifest
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+TEAM_ALIAS = {
+    'LA': 'LAR',
+    'WSH': 'WAS',
+}
+
+
+def _require_manifest(manifest: Optional[RawDataManifest]) -> RawDataManifest:
+    if manifest:
+        return manifest
+    manifest = RawDataManifest.from_latest()
+    if manifest is None:
+        raise RuntimeError(
+            "Raw data manifest not found. Run collect_raw_data.py before generating team stats."
+        )
+    return manifest
+
+
+def _load_weekly_csvs(
+    manifest: RawDataManifest,
+    dataset: str,
+    *,
+    upto_week: Optional[int] = None,
+    usecols: Optional[Sequence[str]] = None,
+) -> Optional[pd.DataFrame]:
+    entries = manifest.entries(dataset)
+    if not entries:
+        logger.warning("Dataset %s not available in manifest", dataset)
+        return None
+
+    base_dir = entries[0].path.parent
+    season = manifest.season
+    if season is None:
+        logger.warning("Manifest missing season metadata; cannot resolve %s", dataset)
+        return None
+
+    if upto_week is None:
+        upto_week = manifest.week
+
+    frames = []
+    pattern = f"season_{season}_week_*.csv"
+    for path in sorted(base_dir.glob(pattern)):
+        week_value: Optional[int] = None
+        try:
+            week_value = int(path.stem.split('_')[-1])
+        except (ValueError, IndexError):
+            week_value = None
+
+        if upto_week is not None and week_value is not None and week_value > upto_week:
+            continue
+
+        try:
+            frame = pd.read_csv(path, usecols=usecols)
+        except Exception as exc:
+            logger.warning("Failed to load %s: %s", path, exc)
+            continue
+
+        frames.append(frame)
+
+    if not frames:
+        logger.warning("No CSV files loaded for %s", dataset)
+        return None
+
+    data = pd.concat(frames, ignore_index=True)
+    if 'season' in data.columns:
+        data = data[data['season'] == season]
+    return data
+
+
+def _load_single_csv(
+    manifest: RawDataManifest,
+    dataset: str,
+    *,
+    usecols: Optional[Sequence[str]] = None,
+) -> Optional[pd.DataFrame]:
+    entries = manifest.entries(dataset)
+    if not entries:
+        logger.warning("Dataset %s not available in manifest", dataset)
+        return None
+
+    path = entries[0].path
+    try:
+        frame = pd.read_csv(path, usecols=usecols)
+    except Exception as exc:
+        logger.warning("Failed to load %s: %s", path, exc)
+        return None
+
+    season = manifest.season
+    if season is not None and 'season' in frame.columns:
+        frame = frame[frame['season'] == season]
+
+    return frame
+
 def calculate_conversion_rates(pbp_data, team):
     """Calculate offensive and defensive conversion rates"""
+    if pbp_data is None or pbp_data.empty:
+        return {
+            'third_down_attempts': 0,
+            'third_down_conversions': 0,
+            'third_down_pct': 0,
+            'fourth_down_attempts': 0,
+            'fourth_down_conversions': 0,
+            'fourth_down_pct': 0,
+            'third_down_attempts_against': 0,
+            'third_down_conversions_against': 0,
+            'third_down_pct_against': 0,
+            'fourth_down_attempts_against': 0,
+            'fourth_down_conversions_against': 0,
+            'fourth_down_pct_against': 0,
+        }
+
     # Offensive conversions
     offense_plays = pbp_data[pbp_data['posteam'] == team]
     
@@ -64,6 +172,16 @@ def calculate_conversion_rates(pbp_data, team):
 
 def calculate_red_zone_stats(pbp_data, team):
     """Calculate red zone efficiency"""
+    if pbp_data is None or pbp_data.empty:
+        return {
+            'red_zone_trips': 0,
+            'red_zone_tds': 0,
+            'red_zone_pct': 0,
+            'red_zone_trips_against': 0,
+            'red_zone_tds_against': 0,
+            'red_zone_pct_against': 0,
+        }
+
     # Filter for red zone plays, excluding special teams
     red_zone_plays = pbp_data[
         (pbp_data['yardline_100'] < 20) & 
@@ -82,19 +200,17 @@ def calculate_red_zone_stats(pbp_data, team):
     # Count touchdowns in red zone - ONLY INCLUDES TOUCHDOWNS FOR THIS TEAM
     rz_tds = len(offense_rz[
         (offense_rz['touchdown'] == 1) &
-        (offense_rz['posteam'] == team) &
-        (offense_rz['td_team'] == team)
+        (offense_rz['posteam'] == team)
     ].groupby(['game_id', 'drive']).size())
     
     # Defensive red zone stats
     defense_rz = red_zone_plays[red_zone_plays['defteam'] == team]
     # Count unique drives against that reached red zone
     rz_trips_against = len(defense_rz.groupby(['game_id', 'drive']).size())
-    # Count touchdowns allowed in red zone
+    # Count touchdowns allowed in red zone (credit scores where opponent possessed the ball)
     rz_tds_against = len(defense_rz[
         (defense_rz['touchdown'] == 1) &
-        (defense_rz['defteam'] == team) &
-        (defense_rz['td_team'] != team)
+        (defense_rz['posteam'] != team)
     ].groupby(['game_id', 'drive']).size())
     
     return {
@@ -106,136 +222,197 @@ def calculate_red_zone_stats(pbp_data, team):
         'red_zone_pct_against': (rz_tds_against / rz_trips_against * 100) if rz_trips_against > 0 else 0
     }
 
-def get_espn_standings_data(teams_df):
-    """Get additional standings data from ESPN API that isn't in nfl_data_py"""
-    try:
-        # Base URL for both conferences
-        base_url = "https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/seasons/2025/types/2/groups/{}/standings/0?lang=en&region=us"
-        
-        # Get AFC (group 8) and NFC (group 7) standings
-        afc_response = requests.get(base_url.format(8))
-        nfc_response = requests.get(base_url.format(7))
-        
-        # Combine the standings data
-        afc_data = afc_response.json()
-        nfc_data = nfc_response.json()
-        combined_data = afc_data['standings'] + nfc_data['standings']
-        
-        # Extract only the fields we don't get from nfl_data_py
-        espn_stats = {}
-        total_teams = len(combined_data)
-        logger.info(f"Fetching standings data for {total_teams} teams...")
-        for idx, team_data in enumerate(combined_data, 1):
-            # Get team details
-            team_ref = team_data['team']['$ref']
-            team_id = team_ref.split('/')[-1].split('?')[0]
-            # Convert team_id to int for comparison since it comes as string from API
-            team_id_int = int(team_id)
-            team = teams_df[teams_df['espn_api_id'] == team_id_int]
-            team_abbr = team['team_abbr'].values[0]
-            logger.debug(f"Fetching team details for {team_abbr}... ({idx}/{total_teams})")
-            team_response = requests.get(team_ref)
-            team_details = team_response.json()
-            team_id = team_details['id']
-            
-            # Get overall record stats
-            overall_record = next(r for r in team_data['records'] if r['name'] == 'overall')
-            stats = {stat['name']: stat for stat in overall_record['stats']}
-            
-            # Get other record types
-            div_record = next(r for r in team_data['records'] if r['name'] == 'vs. Div.')
-            conf_record = next(r for r in team_data['records'] if r['name'] == 'vs. Conf.')
-            road_record = next(r for r in team_data['records'] if r['name'] == 'Road')
-            
-            # Store only the fields we don't already have
-            espn_stats[team_id] = {
+def get_espn_standings_data(
+    manifest: RawDataManifest,
+    teams_df: pd.DataFrame,
+) -> Dict[str, Dict]:
+    """Load ESPN standings details from captured raw data."""
+
+    def _parse_team_id(team_ref: Optional[str]) -> Optional[int]:
+        if not team_ref:
+            return None
+        tail = team_ref.rstrip('/').split('/')[-1]
+        token = tail.split('?')[0]
+        try:
+            return int(token)
+        except ValueError:
+            return None
+
+    def _find_record(records, name: str) -> Optional[Dict]:
+        for record in records or []:
+            if record.get('name') == name:
+                return record
+        return None
+
+    stats_by_team: Dict[str, Dict] = {}
+
+    for label in ('afc', 'nfc'):
+        payload = manifest.load_json(f'espn_standings_{label}')
+        if not payload:
+            continue
+
+        for team_entry in payload.get('standings', []) or []:
+            team_ref = (team_entry.get('team') or {}).get('$ref')
+            team_id = _parse_team_id(team_ref)
+            if team_id is None:
+                continue
+
+            team_row = teams_df[teams_df['espn_api_id'] == team_id]
+            if team_row.empty:
+                continue
+
+            team_abbr = team_row.iloc[0]['team_abbr']
+            team_abbr = TEAM_ALIAS.get(team_abbr, team_abbr)
+
+            overall_record = _find_record(team_entry.get('records'), 'overall') or {}
+            stats = {stat.get('name'): stat for stat in (overall_record.get('stats') or [])}
+
+            div_record = _find_record(team_entry.get('records'), 'vs. Div.') or {}
+            conf_record = _find_record(team_entry.get('records'), 'vs. Conf.') or {}
+            road_record = _find_record(team_entry.get('records'), 'Road') or {}
+
+            def _value(name: str, default=0):
+                entry = stats.get(name) or {}
+                return entry.get('value', default)
+
+            def _display(name: str) -> str:
+                entry = stats.get(name) or {}
+                return entry.get('displayValue') or ''
+
+            stats_by_team[team_abbr] = {
                 'espn_api_id': team_id,
-                'league_win_pct': stats['leagueWinPercent']['value'],
-                'div_win_pct': stats['divisionWinPercent']['value'],
-                'games_behind': stats['gamesBehind']['value'],
-                'ot_wins': stats['OTWins']['value'],
-                'ot_losses': stats['OTLosses']['value'],
-                'road_record': road_record['displayValue'],
-                'conf_record': conf_record['displayValue'],
-                'div_record': div_record['displayValue'],
-                'playoff_seed': stats['playoffSeed']['value'],
-                'clincher': stats['clincher']['displayValue'] if 'clincher' in stats else '',
-                'streak_display': stats['streak']['displayValue']
+                'league_win_pct': _value('leagueWinPercent', 0.0),
+                'div_win_pct': _value('divisionWinPercent', 0.0),
+                'games_behind': _value('gamesBehind', 0.0),
+                'ot_wins': int(_value('OTWins', 0)),
+                'ot_losses': int(_value('OTLosses', 0)),
+                'road_record': road_record.get('displayValue', ''),
+                'conf_record': conf_record.get('displayValue', ''),
+                'div_record': div_record.get('displayValue', ''),
+                'playoff_seed': int(_value('playoffSeed', 0)),
+                'clincher': _display('clincher'),
+                'streak_display': _display('streak'),
             }
-        
-        return espn_stats
-    except Exception as e:
-        print(f"Error fetching ESPN standings data: {e}")
-        return {}
 
-def generate_team_stats():
-    """Generate comprehensive team statistics"""
-    # Import data
-    logger.info("Loading team stats, schedules, and play-by-play data...")
-    nfl_team_stats = nfl.load_team_stats([2025]).to_pandas()
-    schedule = nfl.load_schedules([2025]).to_pandas()
-    pbp_data = nfl.load_pbp([2025]).to_pandas()
+    return stats_by_team
+
+def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFrame:
+    """Generate comprehensive team statistics from stored raw snapshots."""
+
+    manifest = _require_manifest(manifest)
+    season = manifest.season
+    week = manifest.week
+
     teams_df = pd.read_csv('data/teams.csv')
-    espn_stats = get_espn_standings_data(teams_df)
-    logger.debug("Data loading complete")
 
-    # Create ESPN ID to team abbreviation mapping
-    espn_id_to_abbr = dict(zip(teams_df['espn_api_id'].astype(str), teams_df['team_abbr']))
-    
-    # Get list of teams and convert LA to LAR
-    teams = sorted(schedule['home_team'].unique())
-    teams = ['LAR' if x == 'LA' else x for x in teams]
+    weekly_team_stats = _load_weekly_csvs(manifest, 'nflreadpy_team_stats', upto_week=week)
+    if weekly_team_stats is None or weekly_team_stats.empty:
+        raise RuntimeError('No nflreadpy_team_stats data available in raw snapshot')
 
-    # Aggregate nflreadpy team stats by team (sum across all weeks)
-    nfl_team_stats['team_abbr'] = nfl_team_stats['team'].replace({'LA': 'LAR'})
-    aggregated_stats = nfl_team_stats.groupby('team_abbr').sum(numeric_only=True).to_dict('index')
+    weekly_team_stats['team_abbr'] = weekly_team_stats['team'].replace(TEAM_ALIAS)
+    aggregated_stats = (
+        weekly_team_stats.groupby('team_abbr').sum(numeric_only=True).fillna(0)
+    )
 
-    # Initialize stats dictionary with nflreadpy data
-    team_stats = {}
+    schedule_df = _load_single_csv(manifest, 'nflreadpy_schedules')
+    if schedule_df is None or schedule_df.empty:
+        raise RuntimeError('No nflreadpy_schedules data available in raw snapshot')
+
+    schedule_df = schedule_df[schedule_df.get('game_type') == 'REG'] if 'game_type' in schedule_df.columns else schedule_df
+    for col in ('home_team', 'away_team'):
+        if col in schedule_df.columns:
+            schedule_df[col] = schedule_df[col].replace(TEAM_ALIAS)
+
+    pbp_columns = [
+        'season',
+        'week',
+        'posteam',
+        'defteam',
+        'down',
+        'play_type',
+        'yards_gained',
+        'ydstogo',
+        'two_point_attempt',
+        'touchdown',
+        'game_id',
+        'drive',
+        'yardline_100',
+        'play_type_nfl',
+    ]
+    pbp_df = _load_weekly_csvs(manifest, 'nflreadpy_pbp', upto_week=week, usecols=pbp_columns)
+    if pbp_df is not None and not pbp_df.empty:
+        pbp_df = pbp_df.copy()
+        for team_col in ('posteam', 'defteam'):
+            if team_col in pbp_df.columns:
+                pbp_df[team_col] = pbp_df[team_col].replace(TEAM_ALIAS)
+
+        defaults = {
+            'two_point_attempt': 0,
+            'touchdown': 0,
+        }
+        for col, default in defaults.items():
+            if col not in pbp_df.columns:
+                pbp_df[col] = default
+
+        if 'play_type_nfl' not in pbp_df.columns:
+            pbp_df['play_type_nfl'] = ''
+
+        for col in ('yards_gained', 'ydstogo', 'yardline_100'):
+            if col in pbp_df.columns:
+                pbp_df[col] = pd.to_numeric(pbp_df[col], errors='coerce').fillna(0)
+    else:
+        pbp_df = None
+
+    teams = sorted({
+        *(schedule_df['home_team'].dropna().unique() if 'home_team' in schedule_df else []),
+        *(schedule_df['away_team'].dropna().unique() if 'away_team' in schedule_df else []),
+    })
+
+    team_stats: Dict[str, Dict] = {}
 
     for team in teams:
-        print(f"Processing {team}...")
+        team_record = aggregated_stats.loc[team].to_dict() if team in aggregated_stats.index else {}
+        team_record = {k: (0 if pd.isna(v) else v) for k, v in team_record.items()}
 
-        # Start with nflreadpy aggregated stats (already has most of what we need!)
-        team_stats[team] = aggregated_stats.get(team, {}).copy()
+        team_games = schedule_df[
+            ((schedule_df.get('home_team') == team) | (schedule_df.get('away_team') == team))
+        ].copy()
+        completed_games = team_games.dropna(subset=['home_score', 'away_score']) if {'home_score', 'away_score'} <= set(team_games.columns) else team_games.iloc[0:0]
 
-        # Convert LAR back to LA for data lookup in schedule/pbp
-        lookup_team = 'LA' if team == 'LAR' else team
-
-        # Get completed games for calculating win/loss record and per-game averages
-        team_games = schedule[
-            ((schedule['home_team'] == lookup_team) | (schedule['away_team'] == lookup_team)) &
-            (~pd.isna(schedule['home_score'])) &
-            (~pd.isna(schedule['away_score']))
-        ]
-
-        # Calculate record
-        wins = len(team_games[
-            ((team_games['home_team'] == lookup_team) & (team_games['home_score'] > team_games['away_score'])) |
-            ((team_games['away_team'] == lookup_team) & (team_games['away_score'] > team_games['home_score']))
-        ])
-        losses = len(team_games[
-            ((team_games['home_team'] == lookup_team) & (team_games['home_score'] < team_games['away_score'])) |
-            ((team_games['away_team'] == lookup_team) & (team_games['away_score'] < team_games['home_score']))
-        ])
-        ties = len(team_games[
-            ((team_games['home_team'] == lookup_team) & (team_games['home_score'] == team_games['away_score'])) |
-            ((team_games['away_team'] == lookup_team) & (team_games['away_score'] == team_games['home_score']))
-        ])
+        wins = len(
+            completed_games[
+                ((completed_games.get('home_team') == team) & (completed_games.get('home_score') > completed_games.get('away_score')))
+                |
+                ((completed_games.get('away_team') == team) & (completed_games.get('away_score') > completed_games.get('home_score')))
+            ]
+        )
+        losses = len(
+            completed_games[
+                ((completed_games.get('home_team') == team) & (completed_games.get('home_score') < completed_games.get('away_score')))
+                |
+                ((completed_games.get('away_team') == team) & (completed_games.get('away_score') < completed_games.get('home_score')))
+            ]
+        )
+        ties = len(
+            completed_games[
+                ((completed_games.get('home_team') == team) & (completed_games.get('home_score') == completed_games.get('away_score')))
+                |
+                ((completed_games.get('away_team') == team) & (completed_games.get('away_score') == completed_games.get('home_score')))
+            ]
+        )
 
         points_for = (
-            team_games[team_games['home_team'] == lookup_team]['home_score'].sum() +
-            team_games[team_games['away_team'] == lookup_team]['away_score'].sum()
+            completed_games.loc[completed_games.get('home_team') == team, 'home_score'].sum()
+            + completed_games.loc[completed_games.get('away_team') == team, 'away_score'].sum()
         )
         points_against = (
-            team_games[team_games['home_team'] == lookup_team]['away_score'].sum() +
-            team_games[team_games['away_team'] == lookup_team]['home_score'].sum()
+            completed_games.loc[completed_games.get('home_team') == team, 'away_score'].sum()
+            + completed_games.loc[completed_games.get('away_team') == team, 'home_score'].sum()
         )
 
-        games_played = len(team_games)
+        games_played = len(completed_games)
 
-        # Add/override record and points stats
-        team_stats[team].update({
+        team_record.update({
             'games_played': games_played,
             'wins': wins,
             'losses': losses,
@@ -245,50 +422,42 @@ def generate_team_stats():
             'points_against': points_against,
             'point_diff': points_for - points_against,
             'points_per_game': points_for / games_played if games_played > 0 else 0,
-            'points_against_per_game': points_against / games_played if games_played > 0 else 0
+            'points_against_per_game': points_against / games_played if games_played > 0 else 0,
         })
 
-        # Add conversion rates (calculated from play-by-play)
-        team_stats[team].update(calculate_conversion_rates(pbp_data, lookup_team))
+        team_record.update(calculate_conversion_rates(pbp_df, team))
+        team_record.update(calculate_red_zone_stats(pbp_df, team))
 
-        # Add red zone stats (calculated from play-by-play)
-        team_stats[team].update(calculate_red_zone_stats(pbp_data, lookup_team))
+        passing_yards = team_record.get('passing_yards', 0)
+        rushing_yards = team_record.get('rushing_yards', 0)
+        passing_first_downs = team_record.get('passing_first_downs', 0)
+        rushing_first_downs = team_record.get('rushing_first_downs', 0)
+        attempts = team_record.get('attempts', 0)
+        carries = team_record.get('carries', 0)
+        completions = team_record.get('completions', 0)
+        passing_epa = team_record.get('passing_epa', 0)
+        rushing_epa = team_record.get('rushing_epa', 0)
 
-        # Calculate derived stats
-        passing_yards = team_stats[team].get('passing_yards', 0)
-        rushing_yards = team_stats[team].get('rushing_yards', 0)
-        passing_first_downs = team_stats[team].get('passing_first_downs', 0)
-        rushing_first_downs = team_stats[team].get('rushing_first_downs', 0)
-        attempts = team_stats[team].get('attempts', 0)
-        carries = team_stats[team].get('carries', 0)
-        completions = team_stats[team].get('completions', 0)
-        passing_epa = team_stats[team].get('passing_epa', 0)
-        rushing_epa = team_stats[team].get('rushing_epa', 0)
+        team_record['sacks_taken'] = team_record.get('sacks_suffered', 0)
+        team_record['interceptions'] = team_record.get('passing_interceptions', 0)
 
-        # Rename some fields for clarity
-        team_stats[team]['sacks_taken'] = team_stats[team].get('sacks_suffered', 0)
-        team_stats[team]['interceptions'] = team_stats[team].get('passing_interceptions', 0)
-
-        # Calculate turnovers
         turnovers_given = (
-            team_stats[team].get('passing_interceptions', 0) +
-            team_stats[team].get('sack_fumbles_lost', 0) +
-            team_stats[team].get('rushing_fumbles_lost', 0) +
-            team_stats[team].get('receiving_fumbles_lost', 0)
+            team_record.get('passing_interceptions', 0)
+            + team_record.get('sack_fumbles_lost', 0)
+            + team_record.get('rushing_fumbles_lost', 0)
+            + team_record.get('receiving_fumbles_lost', 0)
         )
 
-        # Calculate takeaways (defensive turnovers forced)
         takeaways = (
-            team_stats[team].get('def_interceptions', 0) +
-            team_stats[team].get('fumble_recovery_opp', 0)  # Opponent fumbles recovered
+            team_record.get('def_interceptions', 0)
+            + team_record.get('fumble_recovery_opp', 0)
         )
 
-        # Add calculated fields
-        team_stats[team].update({
+        team_record.update({
             'completion_pct': (completions / attempts * 100) if attempts > 0 else 0,
             'yards_per_attempt': (passing_yards / attempts) if attempts > 0 else 0,
             'yards_per_carry': (rushing_yards / carries) if carries > 0 else 0,
-            'passer_rating': 0,  # Placeholder
+            'passer_rating': 0,
             'total_yards': passing_yards + rushing_yards,
             'yards_per_game': (passing_yards + rushing_yards) / games_played if games_played > 0 else 0,
             'total_first_downs': passing_first_downs + rushing_first_downs,
@@ -296,21 +465,18 @@ def generate_team_stats():
             'total_epa': passing_epa + rushing_epa,
             'epa_per_game': (passing_epa + rushing_epa) / games_played if games_played > 0 else 0,
             'total_turnovers': turnovers_given,
-            'turnover_margin': takeaways - turnovers_given
+            'turnover_margin': takeaways - turnovers_given,
         })
-    
-    # Convert to DataFrame
+
+        team_stats[team] = team_record
+
     stats_df = pd.DataFrame.from_dict(team_stats, orient='index')
-    
-    # Before adding ESPN data, create a DataFrame for the ESPN stats
-    espn_df = pd.DataFrame.from_dict(espn_stats, orient='index')
-    espn_df.index = espn_df.index.map(lambda x: espn_id_to_abbr.get(str(x)))
-    espn_df = espn_df.drop(columns=['espn_api_id'])  # Remove the ID column since we used it for mapping
-    
-    # Merge the ESPN data with the existing stats
-    stats_df = pd.concat([stats_df, espn_df], axis=1)
-    
-    # Fill NaN values with appropriate defaults before type conversion
+
+    espn_stats = get_espn_standings_data(manifest, teams_df)
+    if espn_stats:
+        espn_df = pd.DataFrame.from_dict(espn_stats, orient='index')
+        stats_df = stats_df.join(espn_df, how='left')
+
     default_values = {
         'ot_wins': 0,
         'ot_losses': 0,
@@ -322,57 +488,59 @@ def generate_team_stats():
         'streak_display': '',
         'road_record': '',
         'conf_record': '',
-        'div_record': ''
+        'div_record': '',
     }
-    
+
     for col, default in default_values.items():
         if col in stats_df.columns:
             stats_df[col] = stats_df[col].fillna(default)
-    
-    # Convert integer columns
+
     int_columns = [
-        'espn_api_id', 'wins', 'losses', 'ties',
-        'games_played', 'points', 'points_for', 
-        'points_against', 'point_diff', 'differential',
-        'div_wins', 'div_losses', 'div_ties',
-        'ot_wins', 'ot_losses', 'playoff_seed'
+        'espn_api_id',
+        'wins',
+        'losses',
+        'ties',
+        'games_played',
+        'points_for',
+        'points_against',
+        'point_diff',
+        'ot_wins',
+        'ot_losses',
+        'playoff_seed',
+        'total_turnovers',
     ]
-    
-    # Convert float columns
+
     float_columns = [
-        'win_pct', 'league_win_pct', 'div_win_pct',
-        'avg_points_for', 'avg_points_against',
-        'games_behind'
+        'win_pct',
+        'league_win_pct',
+        'div_win_pct',
+        'games_behind',
+        'points_per_game',
+        'points_against_per_game',
     ]
-    
-    # Format integer columns
+
     for col in int_columns:
         if col in stats_df.columns:
             stats_df[col] = pd.to_numeric(stats_df[col], errors='coerce').fillna(0).astype(int)
-    
-    # Format float columns
+
     for col in float_columns:
         if col in stats_df.columns:
             stats_df[col] = pd.to_numeric(stats_df[col], errors='coerce').fillna(0).round(4)
-    
-    # Create a copy to defragment the DataFrame
-    stats_df = stats_df.copy()
 
-    # sort by win pct descending then point difference descending   
+    stats_df.index.name = 'team_abbr'
     stats_df = stats_df.sort_values(by=['win_pct', 'point_diff'], ascending=[False, False])
 
     return stats_df
 
-def save_team_stats():
+
+def save_team_stats(manifest: Optional[RawDataManifest] = None) -> bool:
     try:
-        team_stats_df = generate_team_stats()
-        
-        # Save to CSV with ties included
+        team_stats_df = generate_team_stats(manifest=manifest)
         output_file = "data/team_stats.csv"
         team_stats_df.to_csv(output_file, index_label='team_abbr')
         return True
-    except Exception as e:
-        print(f"Error saving team_stats.csv: {e}")
+    except Exception as exc:
+        logger.error("Error saving team_stats.csv: %s", exc)
         return False
 
 if __name__ == "__main__":

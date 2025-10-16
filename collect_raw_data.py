@@ -415,14 +415,13 @@ def collect_nflreadpy_datasets(
     dataset_plan: List[Dict] = [
         {"name": "schedules", "loader": nfl.load_schedules, "filter_week": False},
         {"name": "team_stats", "loader": nfl.load_team_stats, "filter_week": True},
+        {"name": "pbp", "loader": nfl.load_pbp, "filter_week": True},
         {"name": "player_stats", "loader": nfl.load_player_stats, "filter_week": True},
-        {"name": "participation", "loader": nfl.load_participation, "filter_week": True, "max_season": 2024},
         {"name": "snap_counts", "loader": nfl.load_snap_counts, "filter_week": True},
         {"name": "nextgen_stats", "loader": nfl.load_nextgen_stats, "filter_week": True},
         {"name": "ff_opportunity", "loader": nfl.load_ff_opportunity, "filter_week": True},
         {"name": "depth_charts", "loader": nfl.load_depth_charts, "filter_week": True},
         {"name": "rosters_weekly", "loader": nfl.load_rosters_weekly, "filter_week": True},
-        {"name": "injuries", "loader": nfl.load_injuries, "filter_week": True, "max_season": 2024},
     ]
 
     results: List[Tuple[str, Path, int]] = []

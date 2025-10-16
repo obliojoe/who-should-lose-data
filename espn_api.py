@@ -1,427 +1,287 @@
-import requests
+import csv
 import logging
-from typing import Dict, Optional, Tuple
-import time
+from typing import Dict, List, Optional
+
+from raw_data_manifest import RawDataManifest
+
 
 logger = logging.getLogger('espn_api')
 
+TEAM_ALIAS = {
+    'LA': 'LAR',
+    'WSH': 'WAS',
+}
+
+
 class ESPNAPIService:
-    """Service for fetching additional game data from ESPN API"""
+    """Service for reading ESPN game data from collected raw snapshots."""
 
-    BASE_URL = "http://sports.core.api.espn.com/v2/sports/football/leagues/nfl"
+    def __init__(self, manifest: Optional[RawDataManifest] = None):
+        self.manifest = manifest or RawDataManifest.from_latest()
+        self._scoreboard_cache: Optional[Dict] = None
+        self._team_map = self._build_team_map()
 
-    def __init__(self):
-        self.session = requests.Session()
-        self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-        })
-
-    def get_event_data(self, event_id: str) -> Optional[Dict]:
-        """
-        Fetch complete event data from ESPN API
-
-        Args:
-            event_id: ESPN event ID for the game
-
-        Returns:
-            Dict containing event data or None if request fails
-        """
+    def _build_team_map(self) -> Dict[str, str]:
+        mapping: Dict[str, str] = {}
         try:
-            url = f"{self.BASE_URL}/events/{event_id}"
-            response = self.session.get(url, timeout=10)
-            response.raise_for_status()
-            return response.json()
-        except Exception as e:
-            # Only log 503 errors at debug level (ESPN temporary unavailability is normal)
-            error_str = str(e)
-            if '503' in error_str:
-                logger.debug(f"ESPN API temporarily unavailable for event {event_id} (503)")
-            else:
-                logger.error(f"Failed to fetch event data for {event_id}: {error_str}")
+            with open('data/teams.csv', newline='', encoding='utf-8') as fh:
+                reader = csv.DictReader(fh)
+                for row in reader:
+                    espn_id = row.get('espn_api_id')
+                    abbr = row.get('team_abbr')
+                    if not espn_id or not abbr:
+                        continue
+                    try:
+                        identifier = str(int(float(espn_id)))
+                    except ValueError:
+                        identifier = str(espn_id).strip()
+                    mapping[identifier] = abbr
+        except FileNotFoundError:
+            logger.warning("teams.csv not found; ESPN team mapping will be limited")
+        except Exception as exc:
+            logger.warning("Failed to load team mapping: %s", exc)
+
+        return mapping
+
+    def _map_team(self, espn_id: Optional[str]) -> Optional[str]:
+        if espn_id is None:
+            return None
+        return self._team_map.get(str(espn_id))
+
+    def _load_json(self, dataset: str, identifier: Optional[str]) -> Optional[Dict]:
+        if not self.manifest:
+            return None
+        try:
+            return self.manifest.load_json(dataset, identifier)
+        except ValueError:
+            logger.debug("Dataset %s with identifier %s not found in manifest", dataset, identifier)
             return None
 
-    def get_betting_lines(self, event_id: str) -> Optional[Dict]:
-        """
-        Extract betting lines from event data
+    def _load_scoreboard(self) -> Optional[Dict]:
+        if self._scoreboard_cache is not None:
+            return self._scoreboard_cache
 
-        Returns:
-            Dict with keys: spread, over_under, favorite, underdog, moneyline_favorite, moneyline_underdog
-        """
-        event_data = self.get_event_data(event_id)
-        if not event_data:
+        scoreboard = self._load_json('espn_scoreboard', None)
+        if scoreboard:
+            self._scoreboard_cache = scoreboard
+        return self._scoreboard_cache
+
+    def _find_scoreboard_event(self, event_id: str) -> Optional[Dict]:
+        scoreboard = self._load_scoreboard()
+        if not scoreboard:
             return None
 
-        try:
-            # ESPN includes odds in the pickcenter or competitions data
-            competitions = event_data.get('competitions', [])
-            if not competitions:
+        for event in scoreboard.get('events', []) or []:
+            if str(event.get('id')) == str(event_id):
+                return event
+        return None
+
+    def _parse_betting(self, event_id: str, home_team: str, away_team: str) -> Optional[Dict]:
+        pickcenter = self._load_json('espn_pickcenter', str(event_id))
+        if isinstance(pickcenter, list) and pickcenter:
+            entry = pickcenter[0]
+
+            def _team_name(odds: Dict, default: Optional[str]) -> Optional[str]:
+                if odds.get('favorite'):
+                    return default
                 return None
 
-            competition = competitions[0]
+            home_odds = entry.get('homeTeamOdds', {}) or {}
+            away_odds = entry.get('awayTeamOdds', {}) or {}
 
-            # Try to get odds from pickcenter reference
-            if 'pickcenter' in competition:
-                pickcenter_url = competition['pickcenter'].get('$ref')
-                if pickcenter_url:
-                    pickcenter_response = self.session.get(pickcenter_url, timeout=10)
-                    if pickcenter_response.ok:
-                        pickcenter_data = pickcenter_response.json()
+            favorite = None
+            underdog = None
+            if home_odds.get('favorite'):
+                favorite = home_team
+                underdog = away_team
+            elif away_odds.get('favorite'):
+                favorite = away_team
+                underdog = home_team
 
-                        # Extract betting information
-                        betting_info = {}
+            betting_info = {
+                'spread': entry.get('spread'),
+                'over_under': entry.get('overUnder'),
+                'provider': (entry.get('provider') or {}).get('name'),
+                'favorite': favorite,
+                'underdog': underdog,
+                'moneyline_favorite': None,
+                'moneyline_underdog': None,
+            }
 
-                        # Get spread
-                        if 'againstTheSpread' in pickcenter_data:
-                            spread_data = pickcenter_data['againstTheSpread']
-                            current = spread_data.get('current', {})
-                            betting_info['spread'] = current.get('spread')
+            if favorite == home_team:
+                betting_info['moneyline_favorite'] = home_odds.get('moneyLine')
+                betting_info['moneyline_underdog'] = away_odds.get('moneyLine')
+            elif favorite == away_team:
+                betting_info['moneyline_favorite'] = away_odds.get('moneyLine')
+                betting_info['moneyline_underdog'] = home_odds.get('moneyLine')
 
-                            # Try to get favorite team
-                            favorite_obj = current.get('favorite', {})
-                            if isinstance(favorite_obj, dict) and 'team' in favorite_obj:
-                                betting_info['favorite'] = favorite_obj.get('team', {}).get('abbreviation')
+            return betting_info
 
-                            # Try to get underdog team
-                            underdog_obj = current.get('underdog', {})
-                            if isinstance(underdog_obj, dict) and 'team' in underdog_obj:
-                                betting_info['underdog'] = underdog_obj.get('team', {}).get('abbreviation')
+        # Fallback to odds collected inside summary.json if available
+        summary = self._load_json('espn_summary', str(event_id))
+        if isinstance(summary, dict):
+            odds_entries = summary.get('odds') or []
+            if odds_entries:
+                item = odds_entries[0]
+                favorite = None
+                details = item.get('details') or ''
+                if details:
+                    parts = details.split()
+                    if parts:
+                        favorite = parts[0]
+                return {
+                    'spread': item.get('spread'),
+                    'over_under': item.get('overUnder'),
+                    'provider': (item.get('provider') or {}).get('name'),
+                    'favorite': favorite,
+                    'underdog': None,
+                    'moneyline_favorite': None,
+                    'moneyline_underdog': None,
+                }
 
-                            # Log for debugging
-                            logger.debug(f"Spread data structure: favorite={betting_info.get('favorite')}, underdog={betting_info.get('underdog')}, spread={betting_info.get('spread')}")
+        return None
 
-                        # Get over/under
-                        if 'overUnder' in pickcenter_data:
-                            betting_info['over_under'] = pickcenter_data['overUnder'].get('current')
-
-                        # Get moneylines
-                        if 'moneyLine' in pickcenter_data:
-                            ml_data = pickcenter_data['moneyLine']
-                            betting_info['moneyline_favorite'] = ml_data.get('current', {}).get('favorite', {}).get('odds')
-                            betting_info['moneyline_underdog'] = ml_data.get('current', {}).get('underdog', {}).get('odds')
-
-                        return betting_info if betting_info else None
-
-            # Fallback: try to get odds from odds reference
-            if 'odds' in competition:
-                odds_url = competition['odds'].get('$ref')
-                if odds_url:
-                    odds_response = self.session.get(odds_url, timeout=10)
-                    if odds_response.ok:
-                        odds_data = odds_response.json()
-                        if 'items' in odds_data and odds_data['items']:
-                            odds_item = odds_data['items'][0]
-                            betting_info = {
-                                'spread': odds_item.get('spread'),
-                                'over_under': odds_item.get('overUnder'),
-                                'provider': odds_item.get('provider', {}).get('name', 'ESPN')
-                            }
-
-                            # Parse details field for favorite (e.g., "DET -10.5")
-                            details = odds_item.get('details', '')
-                            if details and '-' in details:
-                                # Details format is "TEAM -SPREAD"
-                                parts = details.split()
-                                if len(parts) >= 2:
-                                    betting_info['favorite'] = parts[0]
-
-                            logger.debug(f"Extracted betting info from odds: {betting_info}")
-                            return betting_info
-
+    def _parse_weather(self, event_id: str) -> Optional[Dict]:
+        event = self._find_scoreboard_event(event_id)
+        if not event:
             return None
 
-        except Exception as e:
-            logger.error(f"Failed to extract betting lines for {event_id}: {str(e)}")
+        competitions = event.get('competitions', []) or []
+        if not competitions:
             return None
 
-    def get_weather(self, event_id: str) -> Optional[Dict]:
-        """
-        Extract weather data from event
+        competition = competitions[0]
+        venue = competition.get('venue', {}) or {}
+        weather = competition.get('weather') or {}
 
-        Returns:
-            Dict with keys: temperature, condition, wind_speed, is_indoor
-        """
-        event_data = self.get_event_data(event_id)
-        if not event_data:
-            return None
+        weather_info: Dict[str, Optional[float]] = {}
+        if 'indoor' in venue:
+            weather_info['is_indoor'] = bool(venue.get('indoor'))
 
-        try:
-            competitions = event_data.get('competitions', [])
-            if not competitions:
-                return None
+        if weather:
+            weather_info['temperature'] = weather.get('temperature')
+            weather_info['condition'] = weather.get('displayValue') or weather.get('shortDescription')
+            wind = weather.get('wind') or {}
+            weather_info['wind_speed'] = wind.get('speed') or weather.get('windSpeed')
 
-            competition = competitions[0]
-            venue = competition.get('venue', {})
-
-            # Check if indoor stadium
-            is_indoor = venue.get('indoor', False)
-
-            # Get weather data if outdoor
-            weather_info = {'is_indoor': is_indoor}
-
-            if not is_indoor and 'weather' in competition:
-                weather = competition['weather']
-                weather_info['temperature'] = weather.get('temperature')
-                weather_info['condition'] = weather.get('displayValue', 'Unknown')
-                weather_info['wind_speed'] = weather.get('windSpeed')
-
+        if weather_info:
+            weather_info.setdefault('is_indoor', False)
             return weather_info
 
-        except Exception as e:
-            logger.error(f"Failed to extract weather for {event_id}: {str(e)}")
-            return None
+        if 'indoor' in venue:
+            return {'is_indoor': bool(venue.get('indoor'))}
+
+        return None
 
     def get_game_context(self, event_id: str, home_team: str, away_team: str) -> Dict:
-        """
-        Get comprehensive game context including betting lines and weather
-
-        Args:
-            event_id: ESPN event ID
-            home_team: Home team abbreviation
-            away_team: Away team abbreviation
-
-        Returns:
-            Dict with betting, weather, and other context
-        """
         context = {
+            'event_id': event_id,
             'betting': None,
             'weather': None,
-            'event_id': event_id
         }
 
-        # Get betting lines
-        betting = self.get_betting_lines(event_id)
+        betting = self._parse_betting(event_id, home_team, away_team)
         if betting:
             context['betting'] = betting
 
-        # Get weather
-        weather = self.get_weather(event_id)
+        weather = self._parse_weather(event_id)
         if weather:
             context['weather'] = weather
 
         return context
 
     def get_predictor_data(self, event_id: str) -> Optional[Dict]:
-        """
-        Get ESPN's win probability predictions for upcoming games
-
-        Returns:
-            Dict with keys: home_win_prob, away_win_prob, predicted_point_diff, matchup_quality
-        """
-        try:
-            url = f"{self.BASE_URL}/events/{event_id}/competitions/{event_id}/predictor"
-            response = self.session.get(url, timeout=10)
-
-            if not response.ok:
-                return None
-
-            data = response.json()
-
-            predictor_info = {}
-
-            # Get home team stats
-            if 'homeTeam' in data:
-                for stat in data['homeTeam'].get('statistics', []):
-                    if stat['name'] == 'gameProjection':
-                        predictor_info['home_win_prob'] = float(stat['value'])
-                    elif stat['name'] == 'teamPredPtDiff':
-                        predictor_info['predicted_point_diff'] = float(stat['value'])
-                    elif stat['name'] == 'matchupQuality':
-                        predictor_info['matchup_quality'] = float(stat['value'])
-
-            # Get away team win probability
-            if 'awayTeam' in data:
-                for stat in data['awayTeam'].get('statistics', []):
-                    if stat['name'] == 'gameProjection':
-                        predictor_info['away_win_prob'] = float(stat['value'])
-
-            return predictor_info if predictor_info else None
-
-        except Exception as e:
-            logger.error(f"Failed to get predictor data for {event_id}: {str(e)}")
+        predictor = self._load_json('espn_predictor', str(event_id))
+        if not predictor:
             return None
+
+        predictor_info: Dict[str, float] = {}
+
+        for stat in predictor.get('homeTeam', {}).get('statistics', []) or []:
+            name = stat.get('name')
+            value = stat.get('value')
+            if value is None:
+                continue
+            if name == 'gameProjection':
+                predictor_info['home_win_prob'] = float(value)
+            elif name == 'teamPredPtDiff':
+                predictor_info['predicted_point_diff'] = float(value)
+            elif name == 'matchupQuality':
+                predictor_info['matchup_quality'] = float(value)
+
+        for stat in predictor.get('awayTeam', {}).get('statistics', []) or []:
+            if stat.get('name') == 'gameProjection' and stat.get('value') is not None:
+                predictor_info['away_win_prob'] = float(stat.get('value'))
+
+        return predictor_info or None
 
     def get_game_leaders(self, event_id: str) -> Optional[Dict]:
-        """
-        Get game leaders for completed games (passing, rushing, receiving)
-
-        Returns:
-            Dict with leader stats by category
-        """
-        try:
-            event_data = self.get_event_data(event_id)
-            if not event_data:
-                return None
-
-            competitions = event_data.get('competitions', [])
-            if not competitions:
-                return None
-
-            competition = competitions[0]
-
-            if 'leaders' not in competition:
-                return None
-
-            leaders_ref = competition['leaders'].get('$ref')
-            if not leaders_ref:
-                return None
-
-            response = self.session.get(leaders_ref, timeout=10)
-            if not response.ok:
-                return None
-
-            leaders_data = response.json()
-            leaders_info = {}
-
-            # Extract key leader categories
-            for category in leaders_data.get('categories', []):
-                cat_name = category.get('name', '')
-
-                # Only keep the main leader categories
-                if cat_name in ['passingLeader', 'rushingLeader', 'receivingLeader']:
-                    leaders = category.get('leaders', [])
-                    if leaders:
-                        # Get top 2 leaders for this category with athlete names
-                        category_leaders = []
-                        for leader in leaders[:2]:
-                            leader_data = {
-                                'displayValue': leader.get('displayValue'),
-                                'value': leader.get('value')
-                            }
-
-                            # Fetch athlete info
-                            if 'athlete' in leader:
-                                athlete_ref = leader['athlete'].get('$ref')
-                                if athlete_ref:
-                                    try:
-                                        athlete_resp = self.session.get(athlete_ref, timeout=10)
-                                        if athlete_resp.ok:
-                                            athlete = athlete_resp.json()
-                                            leader_data['player'] = athlete.get('displayName')
-                                            leader_data['jersey'] = athlete.get('jersey')
-                                            leader_data['position'] = athlete.get('position', {}).get('abbreviation')
-                                    except:
-                                        pass  # Skip if athlete fetch fails
-
-                            # Fetch team info
-                            if 'team' in leader:
-                                team_ref = leader['team'].get('$ref')
-                                if team_ref:
-                                    try:
-                                        team_resp = self.session.get(team_ref, timeout=10)
-                                        if team_resp.ok:
-                                            team = team_resp.json()
-                                            leader_data['team'] = team.get('abbreviation')
-                                    except:
-                                        pass  # Skip if team fetch fails
-
-                            category_leaders.append(leader_data)
-
-                        leaders_info[cat_name] = category_leaders
-
-            return leaders_info if leaders_info else None
-
-        except Exception as e:
-            logger.error(f"Failed to get game leaders for {event_id}: {str(e)}")
+        leaders_payload = self._load_json('espn_leaders', str(event_id))
+        if not isinstance(leaders_payload, list):
             return None
+
+        results: Dict[str, List[Dict]] = {}
+
+        for team_entry in leaders_payload:
+            team_info = team_entry.get('team') or {}
+            team_abbr = team_info.get('abbreviation') or self._map_team(team_info.get('id'))
+
+            for category in team_entry.get('leaders', []) or []:
+                name = (category.get('name') or category.get('displayName') or '').lower()
+                if name.startswith('passing'):
+                    key = 'passingLeader'
+                elif name.startswith('rushing'):
+                    key = 'rushingLeader'
+                elif name.startswith('receiving'):
+                    key = 'receivingLeader'
+                else:
+                    continue
+
+                for leader in category.get('leaders', []) or []:
+                    athlete = leader.get('athlete') or {}
+                    entry = {
+                        'player': athlete.get('displayName'),
+                        'team': team_abbr,
+                        'position': (athlete.get('position') or {}).get('abbreviation'),
+                        'jersey': athlete.get('jersey'),
+                        'display_value': leader.get('displayValue'),
+                        'summary': leader.get('summary'),
+                    }
+                    results.setdefault(key, []).append(entry)
+
+        return results or None
 
     def get_broadcast_info(self, event_id: str) -> Optional[str]:
-        """
-        Get broadcast network information
-
-        Returns:
-            Network name string
-        """
-        try:
-            event_data = self.get_event_data(event_id)
-            if not event_data:
-                return None
-
-            competitions = event_data.get('competitions', [])
-            if not competitions:
-                return None
-
-            competition = competitions[0]
-
-            if 'broadcasts' not in competition:
-                return None
-
-            broadcasts_ref = competition['broadcasts'].get('$ref')
-            if not broadcasts_ref:
-                return None
-
-            response = self.session.get(broadcasts_ref, timeout=10)
-            if not response.ok:
-                return None
-
-            broadcasts_data = response.json()
-
-            if 'items' in broadcasts_data and broadcasts_data['items']:
-                network = broadcasts_data['items'][0].get('type', {}).get('shortName')
-                return network
-
-            return None
-
-        except Exception as e:
-            logger.error(f"Failed to get broadcast info for {event_id}: {str(e)}")
-            return None
+        broadcasts = self._load_json('espn_broadcasts', str(event_id))
+        if isinstance(broadcasts, list) and broadcasts:
+            primary = broadcasts[0]
+            media = primary.get('media') or {}
+            if media.get('shortName'):
+                return media['shortName']
+            return primary.get('station') or primary.get('type', {}).get('shortName')
+        return None
 
     def find_event_id_by_teams(self, week: int, year: int, team1: str, team2: str) -> Optional[str]:
-        """
-        Find ESPN event ID for a game by week and teams
-
-        Args:
-            week: NFL week number
-            year: Season year
-            team1: First team abbreviation
-            team2: Second team abbreviation
-
-        Returns:
-            Event ID string or None if not found
-        """
-        try:
-            # ESPN season type: 2 = regular season, 3 = playoffs
-            season_type = 2 if week <= 18 else 3
-
-            # Get scoreboard for the week
-            url = f"{self.BASE_URL}/seasons/{year}/types/{season_type}/weeks/{week}/events"
-            response = self.session.get(url, timeout=10)
-            response.raise_for_status()
-
-            events_data = response.json()
-
-            # Look through events to find matching teams
-            if 'items' in events_data:
-                for event_ref in events_data['items']:
-                    event_url = event_ref.get('$ref')
-                    if event_url:
-                        # Extract event ID from URL
-                        event_id = event_url.split('/')[-1]
-
-                        # Get event details
-                        event = self.get_event_data(event_id)
-                        if event and 'competitions' in event:
-                            competition = event['competitions'][0]
-                            competitors = competition.get('competitors', [])
-
-                            # Get team abbreviations
-                            teams_in_game = []
-                            for comp in competitors:
-                                if 'team' in comp:
-                                    team_ref = comp['team'].get('$ref')
-                                    if team_ref:
-                                        team_response = self.session.get(team_ref, timeout=10)
-                                        if team_response.ok:
-                                            team_data = team_response.json()
-                                            teams_in_game.append(team_data.get('abbreviation'))
-
-                            # Check if both teams match
-                            if team1 in teams_in_game and team2 in teams_in_game:
-                                logger.info(f"Found event ID {event_id} for {team1} vs {team2} in week {week}")
-                                return event_id
-
-            logger.warning(f"Could not find event ID for {team1} vs {team2} in week {week}")
+        scoreboard = self._load_scoreboard()
+        if not scoreboard:
             return None
 
-        except Exception as e:
-            logger.error(f"Failed to find event ID: {str(e)}")
-            return None
+        target_teams = {team1, team2}
+        target_teams = {TEAM_ALIAS.get(team, team) for team in target_teams}
+
+        for event in scoreboard.get('events', []) or []:
+            competition = (event.get('competitions') or [None])[0]
+            if not competition:
+                continue
+            competitors = competition.get('competitors', []) or []
+            seen = set()
+            for competitor in competitors:
+                team = competitor.get('team', {}) or {}
+                abbr = team.get('abbreviation')
+                abbr = TEAM_ALIAS.get(abbr, abbr)
+                seen.add(abbr)
+
+            if target_teams.issubset(seen):
+                return str(event.get('id'))
+
+        return None
