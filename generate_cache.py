@@ -48,6 +48,10 @@ is_ci = os.environ.get('CI') == 'true'
 RAW_DATA_MANIFEST: Optional[RawDataManifest] = None
 RAW_GAMES_DIR = Path('data/raw/espn/games')
 RAW_SCOREBOARD_DIR = Path('data/raw/espn/scoreboard')
+TEAM_ALIAS = {
+    'LA': 'LAR',
+    'WSH': 'WAS',
+}
 
 def filter_team_starters(data, team_abbr):
     """Filter team starters data for a specific team."""
@@ -157,6 +161,8 @@ def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
                 for competitor in comp.get('competitors', []) or []:
                     team = competitor.get('team', {})
                     abbrev = team.get('abbreviation')
+                    if abbrev:
+                        abbrev = TEAM_ALIAS.get(abbrev, abbrev)
                     score = competitor.get('score')
                     if competitor.get('homeAway') == 'home':
                         home_team = abbrev
@@ -177,9 +183,9 @@ def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
                 if venue_name:
                     meta['stadium'] = venue_name
                 if away_team:
-                    meta['away_team'] = away_team
+                    meta['away_team'] = TEAM_ALIAS.get(away_team, away_team)
                 if home_team:
-                    meta['home_team'] = home_team
+                    meta['home_team'] = TEAM_ALIAS.get(home_team, home_team)
                 if away_score is not None:
                     meta['away_score'] = away_score
                 if home_score is not None:
@@ -231,6 +237,8 @@ def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
             for competitor in comp.get('competitors', []) or []:
                 team = competitor.get('team', {})
                 abbrev = team.get('abbreviation')
+                if abbrev:
+                    abbrev = TEAM_ALIAS.get(abbrev, abbrev)
                 score = competitor.get('score')
                 if competitor.get('homeAway') == 'home':
                     home_team = abbrev
@@ -247,9 +255,9 @@ def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
             if venue_name and not meta.get('stadium'):
                 meta['stadium'] = venue_name
             if away_team and not meta.get('away_team'):
-                meta['away_team'] = away_team
+                meta['away_team'] = TEAM_ALIAS.get(away_team, away_team)
             if home_team and not meta.get('home_team'):
-                meta['home_team'] = home_team
+                meta['home_team'] = TEAM_ALIAS.get(home_team, home_team)
             if away_score is not None and meta.get('away_score') is None:
                 meta['away_score'] = away_score
             if home_score is not None and meta.get('home_score') is None:
