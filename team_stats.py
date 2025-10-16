@@ -310,6 +310,13 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
         raise RuntimeError('No nflreadpy_team_stats data available in raw snapshot')
 
     weekly_team_stats['team_abbr'] = weekly_team_stats['team'].replace(TEAM_ALIAS)
+
+    # Convert numeric columns from string/object payloads so aggregation retains base stats
+    non_numeric_cols = {'team', 'team_abbr', 'opponent_team', 'season_type'}
+    for col in weekly_team_stats.columns:
+        if col not in non_numeric_cols:
+            weekly_team_stats[col] = pd.to_numeric(weekly_team_stats[col], errors='coerce')
+
     aggregated_stats = (
         weekly_team_stats.groupby('team_abbr').sum(numeric_only=True).fillna(0)
     )
