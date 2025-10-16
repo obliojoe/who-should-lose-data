@@ -309,6 +309,7 @@ def fetch_team_depthchart(session: requests.Session, season: int, team_id: str) 
                             "fullName": athlete_detail.get("fullName"),
                             "displayName": athlete_detail.get("displayName"),
                             "position": athlete_detail.get("position", {}).get("abbreviation"),
+                            "jersey": athlete_detail.get("jersey"),
                             "status": athlete_detail.get("status"),
                         }
                     )

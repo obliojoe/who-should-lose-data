@@ -48,6 +48,7 @@ is_ci = os.environ.get('CI') == 'true'
 RAW_DATA_MANIFEST: Optional[RawDataManifest] = None
 RAW_GAMES_DIR = Path('data/raw/espn/games')
 RAW_SCOREBOARD_DIR = Path('data/raw/espn/scoreboard')
+RAW_DEPTHCHART_DIR = Path('data/raw/espn/depthchart')
 TEAM_ALIAS = {
     'LA': 'LAR',
     'WSH': 'WAS',
@@ -268,6 +269,94 @@ def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
                 meta['completed'] = completed
 
     return metadata
+
+
+def normalize_player_name(name: Optional[str]) -> str:
+    if not name or not isinstance(name, str):
+        return ''
+    normalized = name.lower()
+    for suffix in [' jr', ' sr', ' iii', ' ii', ' iv']:
+        if normalized.endswith(suffix):
+            normalized = normalized[: -len(suffix)]
+    normalized = normalized.replace('.', '').replace("'", '').replace('-', ' ')
+    normalized = ''.join(ch for ch in normalized if ch.isalnum() or ch.isspace())
+    normalized = normalized.replace(' ', '')
+    return normalized
+
+
+def build_espn_player_map() -> Dict[Tuple[str, str, Optional[str]], str]:
+    mapping: Dict[Tuple[str, str, Optional[str]], str] = {}
+    if not RAW_DEPTHCHART_DIR.exists():
+        return mapping
+
+    for depth_path in RAW_DEPTHCHART_DIR.glob('season_*_week_*/*.json'):
+        stem = depth_path.stem
+        team_abbr = stem.split('-', 1)[1] if '-' in stem else None
+        if not team_abbr:
+            continue
+
+        try:
+            depth_data = json.loads(depth_path.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        for item in depth_data.get('items', []) or []:
+            positions = item.get('positions', {}) or {}
+            for pos_data in positions.values():
+                for athlete in pos_data.get('athletes', []) or []:
+                    espn_id = athlete.get('id')
+                    full_name = athlete.get('fullName') or athlete.get('displayName')
+                    jersey = athlete.get('jersey')
+                    if not espn_id or not full_name:
+                        continue
+
+                    key = (team_abbr, normalize_player_name(full_name), str(jersey) if jersey else None)
+                    mapping[key] = espn_id
+                    if jersey:
+                        general_key = (team_abbr, normalize_player_name(full_name), None)
+                        mapping.setdefault(general_key, espn_id)
+
+    return mapping
+
+
+def attach_espn_ids_to_team_starters(csv_path: Path) -> None:
+    if not csv_path.exists():
+        return
+
+    mapping = build_espn_player_map()
+    if not mapping:
+        return
+
+    try:
+        starters_df = pd.read_csv(csv_path)
+    except Exception:
+        return
+
+    if 'player_name' not in starters_df.columns or 'team_abbr' not in starters_df.columns:
+        return
+
+    espn_ids: List[Optional[str]] = []
+    for _, row in starters_df.iterrows():
+        team = row.get('team_abbr')
+        name = normalize_player_name(row.get('player_name'))
+        jersey_value = row.get('number')
+        jersey = None
+        if pd.notna(jersey_value):
+            try:
+                jersey = str(int(jersey_value))
+            except (ValueError, TypeError):
+                jersey = str(jersey_value).strip()
+
+        espn_id = None
+        if team and name:
+            key_exact = (team, name, jersey)
+            key_general = (team, name, None)
+            espn_id = mapping.get(key_exact) or mapping.get(key_general)
+
+        espn_ids.append(str(espn_id) if espn_id else '')
+
+    starters_df['espn_player_id'] = espn_ids
+    starters_df.to_csv(csv_path, index=False)
 def load_raw_csv(dataset: str, identifier: Optional[str] = None) -> Optional[pd.DataFrame]:
     if RAW_DATA_MANIFEST is None:
         return None
@@ -2458,6 +2547,9 @@ def main():
             if not save_team_starters("team_starters.csv"):
                 logger.error("   Error: Failed to generate team starters")
                 sys.exit(1)
+
+        team_starters_path = Path('data/team_starters.csv')
+        attach_espn_ids_to_team_starters(team_starters_path)
 
         # Fetch coordinators data
         logger.info("=> Fetching coordinators.csv")
