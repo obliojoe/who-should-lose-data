@@ -38,3 +38,23 @@ If you notice the current branch has already been merged, stop and switch to an 
   - `data/dashboard_content.json` – Headlines and copy blocks assembled for the public dashboard.
   - `data/standings_cache.json` – Expanded standings with tiebreakers.
   - `data/power_rankings_history.json` – Historical power rankings by week with movement tracking.
+
+## Working with GitHub PR Feedback
+
+GitHub distinguishes between **issue comments** (top-level on the PR) and **review comments** (inline on a diff). `gh pr view --comments` only shows the former. To make sure you see *all* feedback:
+
+1. Identify the repo/name combo once per shell session:
+   ```bash
+   REPO=$(gh repo view --json nameWithOwner --jq .nameWithOwner)
+   ```
+2. List issue comments (general discussion):
+   ```bash
+   gh pr view <pr-number> --comments
+   ```
+3. List review comments (inline notes Codex or humans leave on specific hunks):
+   ```bash
+   gh api repos/$REPO/pulls/<pr-number>/comments --jq '.[].body'
+   ```
+   Add `--paginate` if the list is long. For extra context (file/line), drop the `--jq` filter to see the full JSON payload.
+
+Always scan both outputs before declaring a PR “clean.” If Codex or a reviewer flags an issue, respond in-place after pushing the fix so the conversation stays in context.

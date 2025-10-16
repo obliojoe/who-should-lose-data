@@ -2,14 +2,17 @@ from datetime import date, datetime, timedelta
 import json
 import os
 import time
-import requests
 import argparse
-import pandas as pd
-from anthropic import Anthropic
-from dotenv import load_dotenv
 import logging
 import signal
 import sys
+from typing import Optional
+
+import pandas as pd
+from anthropic import Anthropic
+from dotenv import load_dotenv
+
+from raw_data_manifest import RawDataManifest
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -22,20 +25,16 @@ if not logger.handlers:
 # Load environment variables from .env file
 load_dotenv()
 
+RAW_DATA_MANIFEST: Optional[RawDataManifest] = None
+
 def fetch_game_json(game_id):
-    """
-    Fetch game JSON data from ESPN API for a given game ID.
-    Returns the raw JSON data or None if request fails.
-    """
-    url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event={game_id}"
-    
-    try:
-        response = requests.get(url)
-        response.raise_for_status()  # Raise exception for bad status codes
-        return response.json()
-    except requests.RequestException as e:
-        print(f"Error fetching game data: {e}")
+    """Load stored ESPN summary JSON for a given game ID."""
+    manifest = RAW_DATA_MANIFEST or RawDataManifest.from_latest()
+    if not manifest:
+        logger.warning("No raw data manifest available when loading game %s", game_id)
         return None
+
+    return manifest.load_json('espn_summary', str(game_id))
 
 def clean_article(article, game_team_ids):
     """
@@ -592,7 +591,7 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
 
     try:
         from espn_api import ESPNAPIService
-        espn_service = ESPNAPIService()
+        espn_service = ESPNAPIService(RAW_DATA_MANIFEST)
 
         # Get betting/weather (available for all games)
         espn_context = espn_service.get_game_context(game_id, game['home_team'], game['away_team'])
@@ -745,7 +744,14 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
     return (game_id, analysis_dict, matchup_str, "success")
 
 
-def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=False, game_ids=None, regenerate_type=None, ai_model=None):
+def batch_analyze_games(
+    output_file='data/game_analyses.json',
+    force_reanalyze=False,
+    game_ids=None,
+    regenerate_type=None,
+    ai_model=None,
+    manifest: Optional[RawDataManifest] = None,
+):
     """
     Analyze completed games and preview upcoming games, saving to a JSON file.
 
@@ -761,6 +767,12 @@ def batch_analyze_games(output_file='data/game_analyses.json', force_reanalyze=F
     """
     from concurrent.futures import ThreadPoolExecutor, as_completed
     from tqdm import tqdm
+
+    global RAW_DATA_MANIFEST
+    if manifest is not None:
+        RAW_DATA_MANIFEST = manifest
+    elif RAW_DATA_MANIFEST is None:
+        RAW_DATA_MANIFEST = RawDataManifest.from_latest()
 
     logger.info("Starting batch_analyze_games function")
     analyses = {}

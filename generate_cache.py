@@ -21,7 +21,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Optional, Tuple
 from anthropic import Anthropic
 from dotenv import load_dotenv
-import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from ai_service import AIService
@@ -77,21 +76,37 @@ def parse_injuries(summary_payload: Optional[dict], team_abbr: str) -> List[dict
     if not summary_payload:
         return []
 
+    if isinstance(summary_payload, dict):
+        sections = summary_payload.get('injuries', []) or []
+    elif isinstance(summary_payload, list):
+        sections = summary_payload
+    else:
+        return []
+
     injuries: List[dict] = []
-    for team_injuries in summary_payload.get('injuries', []) or []:
-        if team_injuries.get('team', {}).get('abbreviation') != team_abbr:
+    for team_injuries in sections:
+        team_info = team_injuries.get('team') or {}
+        abbreviation = team_info.get('abbreviation') or team_info.get('shortDisplayName')
+        abbreviation = TEAM_ALIAS.get(abbreviation, abbreviation)
+        if abbreviation != team_abbr:
             continue
+
         for injury in team_injuries.get('injuries', []) or []:
-            status = injury.get('status', 'Unknown')
+            status = injury.get('status') or injury.get('type', {}).get('name') or 'Unknown'
             if status not in ['Out', 'Doubtful', 'Questionable', 'Injured Reserve']:
                 continue
-            athlete = injury.get('athlete', {})
+
+            athlete = injury.get('athlete', {}) or {}
+            position_info = athlete.get('position') or {}
+            details = injury.get('details') or injury.get('type') or {}
+
             injuries.append({
-                'player': athlete.get('displayName', 'Unknown'),
-                'position': athlete.get('position', {}).get('abbreviation', 'N/A'),
+                'player': athlete.get('displayName') or athlete.get('fullName') or 'Unknown',
+                'position': position_info.get('abbreviation', 'N/A'),
                 'status': status,
-                'type': injury.get('details', {}).get('type', '')
+                'type': details.get('description') or details.get('type', '')
             })
+
     return injuries
 
 
@@ -365,6 +380,31 @@ def load_raw_csv(dataset: str, identifier: Optional[str] = None) -> Optional[pd.
     except ValueError as err:
         logger.warning("Raw manifest lookup failed for %s (%s): %s", dataset, identifier, err)
         return None
+
+
+def warn_missing_raw_datasets(manifest: RawDataManifest) -> None:
+    required = [
+        'nflreadpy_team_stats',
+        'nflreadpy_player_stats',
+        'nflreadpy_rosters_weekly',
+        'nflreadpy_depth_charts',
+        'nflreadpy_pbp',
+        'espn_pickcenter',
+        'espn_predictor',
+        'espn_leaders',
+        'espn_broadcasts',
+        'espn_scoreboard',
+    ]
+
+    missing = [dataset for dataset in required if not manifest.entries(dataset)]
+    if missing:
+        logger.warning(
+            "Raw manifest is missing datasets required for offline generation: %s",
+            ', '.join(sorted(missing)),
+        )
+        logger.warning(
+            "Re-run collect_raw_data.py for the target week/season to populate the missing sections."
+        )
 
 
 def write_schedule_from_raw(manifest: RawDataManifest) -> int:
@@ -1135,13 +1175,11 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
         if injuries:
             return injuries
 
-        try:
-            url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event={espn_event_id}"
-            response = requests.get(url, timeout=5)
-            if response.status_code == 200:
-                return parse_injuries(response.json(), team_abbr_filter)
-        except Exception as e:
-            logger.warning(f"Failed to fetch injuries from ESPN for {team_abbr_filter}: {e}")
+        game_injuries = load_raw_json('espn_game_injuries', str(espn_event_id))
+        injuries = parse_injuries(game_injuries, team_abbr_filter)
+        if injuries:
+            return injuries
+
         return []
 
     # Get injuries from ESPN event summary if we have an ESPN ID, otherwise fall back to team_starters
@@ -1188,12 +1226,6 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
             team_city = team_row['city'].iloc[0]
 
             data = load_raw_json('espn_news', str(espn_team_id))
-            if data is None:
-                url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?team={espn_team_id}&limit=20"
-                response = requests.get(url, timeout=3)
-                if response.status_code == 200:
-                    data = response.json()
-
             if not data:
                 return []
 
@@ -1388,7 +1420,7 @@ If {home} wins:
     # Fetch ESPN context (betting lines, weather) if available
     espn_context = None
     if next_game and next_game.get('espn_id'):
-        espn_service = ESPNAPIService()
+        espn_service = ESPNAPIService(RAW_DATA_MANIFEST)
         espn_event_id = next_game['espn_id']
         is_home = next_game['home_team'] == team_abbr
         espn_context = espn_service.get_game_context(
@@ -2501,6 +2533,8 @@ def main():
             logger.info("Using raw manifest at %s", raw_manifest.path)
 
     RAW_DATA_MANIFEST = raw_manifest
+    if RAW_DATA_MANIFEST:
+        warn_missing_raw_datasets(RAW_DATA_MANIFEST)
     logger.info(f"args: {args}")
 
     # Handle --deploy-only flag
@@ -2537,14 +2571,14 @@ def main():
         # run team stats generation
         logger.info("=> Generating team_stats.csv")
         with contextlib.redirect_stdout(None):
-            if not save_team_stats():
+            if not save_team_stats(RAW_DATA_MANIFEST):
                 logger.error("   Error: Failed to generate team stats")
                 sys.exit(1)
 
         logger.info("=> Generating team_starters.csv")
         # run team starters generation
         with contextlib.redirect_stdout(None):
-            if not save_team_starters("team_starters.csv"):
+            if not save_team_starters("team_starters.csv", RAW_DATA_MANIFEST):
                 logger.error("   Error: Failed to generate team starters")
                 sys.exit(1)
 
@@ -2613,7 +2647,8 @@ def main():
                     force_reanalyze=force_reanalyze,
                     game_ids=game_ids,
                     regenerate_type=regenerate_type,
-                    ai_model=args.ai_model
+                    ai_model=args.ai_model,
+                    manifest=RAW_DATA_MANIFEST,
                 )
         except Exception as e:
             logger.error(f"Error generating game analyses: {e}... continuing")
@@ -2700,7 +2735,8 @@ def main():
                         force_reanalyze=force_reanalyze,
                         game_ids=game_ids,
                         regenerate_type=regenerate_type,
-                        ai_model=args.ai_model
+                        ai_model=args.ai_model,
+                        manifest=RAW_DATA_MANIFEST,
                     )
             except Exception as e:
                 logger.error(f"Error generating game analyses: {e}... continuing")
