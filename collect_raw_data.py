@@ -14,6 +14,7 @@ from typing import Dict, Iterable, List, Optional, Tuple
 import pandas as pd
 import requests
 from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 try:
     import nflreadpy as nfl
@@ -24,6 +25,8 @@ except ImportError as exc:  # pragma: no cover - defensive guard for missing dep
 LOGGER = logging.getLogger("collect_raw_data")
 DEFAULT_RAW_DIR = Path("data/raw")
 SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
+MAX_EVENT_WORKERS = 8
+MAX_TEAM_WORKERS = 8
 
 
 def configure_logging(verbose: bool = False) -> None:
@@ -137,22 +140,28 @@ def collect_espn_event_payloads(
     season: int,
     week: int,
 ) -> Tuple[List[Dict], List[str]]:
-    artifact_entries: List[Dict] = []
-    team_ids: List[str] = []
-
     summary_url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary"
-
     event_list = list(events or [])
-    for event in tqdm(event_list, desc="ESPN summaries", unit="game"):
+    if not event_list:
+        return [], []
+
+    base_headers = dict(session.headers)
+
+    def process_event(event: Dict) -> Tuple[List[Dict], List[str]]:
         event_id = event.get("id")
         if not event_id:
-            continue
+            return [], []
 
-        try:
-            payload = fetch_json(session, summary_url, params={"event": event_id})
-        except requests.HTTPError as exc:
-            LOGGER.warning("Failed to fetch summary for %s: %s", event_id, exc)
-            continue
+        local_entries: List[Dict] = []
+        local_team_ids: List[str] = []
+
+        with requests.Session() as worker_session:
+            worker_session.headers.update(base_headers)
+            try:
+                payload = fetch_json(worker_session, summary_url, params={"event": event_id})
+            except requests.HTTPError as exc:
+                LOGGER.warning("Failed to fetch summary for %s: %s", event_id, exc)
+                return [], []
 
         game_dir = (
             output_dir
@@ -166,7 +175,7 @@ def collect_espn_event_payloads(
 
         summary_path = game_dir / "summary.json"
         write_json(summary_path, payload)
-        artifact_entries.append({
+        local_entries.append({
             "dataset": "espn_summary",
             "path": summary_path,
             "metadata": {
@@ -196,7 +205,7 @@ def collect_espn_event_payloads(
             section_filename = dataset_name.split("_", 1)[1] + ".json"
             section_path = game_dir / section_filename
             write_json(section_path, section_payload)
-            artifact_entries.append({
+            local_entries.append({
                 "dataset": dataset_name,
                 "path": section_path,
                 "metadata": {
@@ -212,7 +221,23 @@ def collect_espn_event_payloads(
                 team = competitor.get("team", {})
                 team_id = team.get("id")
                 if team_id is not None:
-                    team_ids.append(str(team_id))
+                    local_team_ids.append(str(team_id))
+
+        return local_entries, local_team_ids
+
+    artifact_entries: List[Dict] = []
+    team_ids: List[str] = []
+    max_workers = min(MAX_EVENT_WORKERS, len(event_list)) or 1
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = [executor.submit(process_event, event) for event in event_list]
+        for future in tqdm(as_completed(futures), total=len(futures), desc="ESPN summaries", unit="game"):
+            try:
+                entries, ids = future.result()
+            except Exception as exc:  # pragma: no cover - defensive guard
+                LOGGER.warning("Unhandled error processing event: %s", exc)
+                continue
+            artifact_entries.extend(entries)
+            team_ids.extend(ids)
 
     return artifact_entries, team_ids
 
@@ -351,43 +376,64 @@ def collect_team_endpoints(
     week: int,
 ) -> List[Dict]:
     unique_ids = sorted({tid for tid in team_ids if tid})
+    if not unique_ids:
+        return []
+
+    base_headers = dict(session.headers)
+
+    def process_team(team_id: str) -> List[Dict]:
+        entries: List[Dict] = []
+        identifier = str(team_id)
+        abbr = team_abbr_map.get(identifier)
+        filename = f"{identifier}-{abbr}.json" if abbr else f"{identifier}.json"
+
+        with requests.Session() as worker_session:
+            worker_session.headers.update(base_headers)
+            for endpoint_name in ("injuries", "depthchart", "news"):
+                try:
+                    if endpoint_name == "injuries":
+                        payload = fetch_team_injuries(worker_session, team_id)
+                    elif endpoint_name == "depthchart":
+                        payload = fetch_team_depthchart(worker_session, season, team_id)
+                    else:
+                        url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news"
+                        payload = fetch_json(worker_session, url, params={"team": team_id, "limit": 20})
+                except requests.HTTPError as exc:
+                    LOGGER.warning("Failed to fetch %s for team %s: %s", endpoint_name, team_id, exc)
+                    continue
+
+                path = (
+                    output_dir
+                    / "espn"
+                    / endpoint_name
+                    / f"season_{season}_week_{week}"
+                    / filename
+                )
+                write_json(path, payload)
+                entries.append({
+                    "dataset": f"espn_{endpoint_name}",
+                    "path": path,
+                    "metadata": {
+                        "team_id": team_id,
+                        "team_abbr": abbr,
+                        "season": season,
+                        "week": week,
+                    },
+                })
+
+        return entries
+
     results: List[Dict] = []
-
-    for team_id in tqdm(unique_ids, desc="ESPN team data", unit="team"):
-        for endpoint_name in ("injuries", "depthchart", "news"):
+    max_workers = min(MAX_TEAM_WORKERS, len(unique_ids)) or 1
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = [executor.submit(process_team, team_id) for team_id in unique_ids]
+        for future in tqdm(as_completed(futures), total=len(futures), desc="ESPN team data", unit="team"):
             try:
-                if endpoint_name == "injuries":
-                    payload = fetch_team_injuries(session, team_id)
-                elif endpoint_name == "depthchart":
-                    payload = fetch_team_depthchart(session, season, team_id)
-                else:
-                    url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/news"
-                    payload = fetch_json(session, url, params={"team": team_id, "limit": 20})
-            except requests.HTTPError as exc:
-                LOGGER.warning("Failed to fetch %s for team %s: %s", endpoint_name, team_id, exc)
+                entries = future.result()
+            except Exception as exc:  # pragma: no cover - defensive guard
+                LOGGER.warning("Unhandled error processing team endpoint: %s", exc)
                 continue
-
-            identifier = str(team_id)
-            abbr = team_abbr_map.get(identifier)
-            filename = f"{identifier}-{abbr}.json" if abbr else f"{identifier}.json"
-            path = (
-                output_dir
-                / "espn"
-                / endpoint_name
-                / f"season_{season}_week_{week}"
-                / filename
-            )
-            write_json(path, payload)
-            results.append({
-                "dataset": f"espn_{endpoint_name}",
-                "path": path,
-                "metadata": {
-                    "team_id": team_id,
-                    "team_abbr": abbr,
-                    "season": season,
-                    "week": week,
-                },
-            })
+            results.extend(entries)
 
     return results
 
