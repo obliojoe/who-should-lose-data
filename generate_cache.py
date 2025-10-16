@@ -18,7 +18,7 @@ import random
 import numpy as np
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import List, Optional
+from typing import Dict, List, Optional, Tuple
 from anthropic import Anthropic
 from dotenv import load_dotenv
 import requests
@@ -46,6 +46,8 @@ from raw_data_manifest import RawDataManifest
 is_ci = os.environ.get('CI') == 'true'
 
 RAW_DATA_MANIFEST: Optional[RawDataManifest] = None
+RAW_GAMES_DIR = Path('data/raw/espn/games')
+RAW_SCOREBOARD_DIR = Path('data/raw/espn/scoreboard')
 
 def filter_team_starters(data, team_abbr):
     """Filter team starters data for a specific team."""
@@ -88,6 +90,176 @@ def parse_injuries(summary_payload: Optional[dict], team_abbr: str) -> List[dict
     return injuries
 
 
+def parse_datetime(value: Optional[str]) -> Tuple[str, str]:
+    if not value:
+        return '', ''
+    try:
+        dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+    except ValueError:
+        return '', ''
+    date_str = dt.date().isoformat()
+    time_str = dt.time().strftime('%H:%M')
+    return date_str, time_str
+
+
+def parse_score(value: Optional[str], completed: bool) -> Optional[int]:
+    if value in (None, '', '-'):  # treat missing
+        return None
+    try:
+        score = int(value)
+    except (ValueError, TypeError):
+        return None
+    if not completed and score == 0:
+        return None
+    return score
+
+
+def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
+    metadata: Dict[str, Dict[str, Optional[str]]] = {}
+
+    if RAW_SCOREBOARD_DIR.exists():
+        for score_path in sorted(RAW_SCOREBOARD_DIR.glob('season_*_week_*.json')):
+            try:
+                scoreboard = json.loads(score_path.read_text())
+            except (OSError, json.JSONDecodeError):
+                continue
+
+            parts = score_path.stem.split('_')
+            try:
+                season = int(parts[1])
+                week = int(parts[3])
+            except (ValueError, IndexError):
+                season = None
+                week = None
+
+            for event in scoreboard.get('events', []) or []:
+                event_id = event.get('id')
+                if not event_id:
+                    continue
+
+                competitions = event.get('competitions', []) or []
+                if not competitions:
+                    continue
+                comp = competitions[0]
+
+                status_type = comp.get('status', {}).get('type', {}) or {}
+                state = status_type.get('state')
+                completed = bool(status_type.get('completed')) or state in {'post', 'final', 'completed'}
+
+                date_value = comp.get('date') or event.get('date')
+                game_date_str, game_time_str = parse_datetime(date_value)
+
+                venue = comp.get('venue', {})
+                venue_name = venue.get('fullName') or venue.get('displayName') or ''
+
+                away_team = home_team = None
+                away_score = home_score = None
+                for competitor in comp.get('competitors', []) or []:
+                    team = competitor.get('team', {})
+                    abbrev = team.get('abbreviation')
+                    score = competitor.get('score')
+                    if competitor.get('homeAway') == 'home':
+                        home_team = abbrev
+                        home_score = parse_score(score, completed)
+                    else:
+                        away_team = abbrev
+                        away_score = parse_score(score, completed)
+
+                meta = metadata.setdefault(str(event_id), {})
+                if season is not None:
+                    meta.setdefault('season', season)
+                if week is not None:
+                    meta.setdefault('week', week)
+                if game_date_str:
+                    meta['game_date'] = game_date_str
+                if game_time_str:
+                    meta['gametime'] = game_time_str
+                if venue_name:
+                    meta['stadium'] = venue_name
+                if away_team:
+                    meta['away_team'] = away_team
+                if home_team:
+                    meta['home_team'] = home_team
+                if away_score is not None:
+                    meta['away_score'] = away_score
+                if home_score is not None:
+                    meta['home_score'] = home_score
+                if state:
+                    meta['state'] = state
+                meta['completed'] = completed
+
+    if RAW_GAMES_DIR.exists():
+        for info_path in RAW_GAMES_DIR.glob('season_*/*/*/game_info.json'):
+            parts = info_path.parts
+            event_id = parts[-2]
+            try:
+                info = json.loads(info_path.read_text())
+            except (OSError, json.JSONDecodeError):
+                continue
+            venue = info.get('venue', {})
+            venue_name = venue.get('fullName') or venue.get('displayName') or ''
+            if venue_name:
+                meta = metadata.setdefault(event_id, {})
+                meta['stadium'] = venue_name
+
+        for summary_path in RAW_GAMES_DIR.glob('season_*/*/*/summary.json'):
+            parts = summary_path.parts
+            event_id = parts[-2]
+            try:
+                summary = json.loads(summary_path.read_text())
+            except (OSError, json.JSONDecodeError):
+                continue
+
+            competitions = summary.get('competitions', [])
+            if not competitions:
+                competitions = summary.get('header', {}).get('competitions', []) or []
+            if not competitions:
+                continue
+            comp = competitions[0]
+
+            status_type = comp.get('status', {}).get('type', {}) or {}
+            state = status_type.get('state')
+            completed = bool(status_type.get('completed')) or state in {'post', 'final', 'completed'}
+
+            game_date_str, game_time_str = parse_datetime(comp.get('date'))
+
+            venue = comp.get('venue', {})
+            venue_name = venue.get('fullName') or venue.get('displayName') or ''
+
+            away_team = home_team = None
+            away_score = home_score = None
+            for competitor in comp.get('competitors', []) or []:
+                team = competitor.get('team', {})
+                abbrev = team.get('abbreviation')
+                score = competitor.get('score')
+                if competitor.get('homeAway') == 'home':
+                    home_team = abbrev
+                    home_score = parse_score(score, completed)
+                else:
+                    away_team = abbrev
+                    away_score = parse_score(score, completed)
+
+            meta = metadata.setdefault(event_id, {})
+            if game_date_str and not meta.get('game_date'):
+                meta['game_date'] = game_date_str
+            if game_time_str and not meta.get('gametime'):
+                meta['gametime'] = game_time_str
+            if venue_name and not meta.get('stadium'):
+                meta['stadium'] = venue_name
+            if away_team and not meta.get('away_team'):
+                meta['away_team'] = away_team
+            if home_team and not meta.get('home_team'):
+                meta['home_team'] = home_team
+            if away_score is not None and meta.get('away_score') is None:
+                meta['away_score'] = away_score
+            if home_score is not None and meta.get('home_score') is None:
+                meta['home_score'] = home_score
+            if state and not meta.get('state'):
+                meta['state'] = state
+            if 'completed' not in meta:
+                meta['completed'] = completed
+
+    return metadata
 def load_raw_csv(dataset: str, identifier: Optional[str] = None) -> Optional[pd.DataFrame]:
     if RAW_DATA_MANIFEST is None:
         return None
@@ -106,20 +278,7 @@ def write_schedule_from_raw(manifest: RawDataManifest) -> int:
 
     schedule_df = pd.read_csv(entries[0].path)
 
-    venue_map = {}
-    if manifest:
-        for entry in manifest.entries('espn_game_info'):
-            try:
-                with entry.path.open('r', encoding='utf-8') as fh:
-                    game_info = json.load(fh)
-            except (OSError, json.JSONDecodeError):
-                continue
-
-            venue = (game_info or {}).get('venue', {})
-            venue_name = venue.get('fullName') or venue.get('displayName')
-            if venue_name:
-                event_id = entry.path.parent.name
-                venue_map[event_id] = venue_name
+    game_metadata = collect_game_metadata()
 
     def format_score(value):
         if pd.isna(value):
@@ -164,13 +323,30 @@ def write_schedule_from_raw(manifest: RawDataManifest) -> int:
     output['away_team'] = output['away_team'].replace(team_alias)
     output['home_team'] = output['home_team'].replace(team_alias)
 
-    if venue_map:
+    if game_metadata:
         for idx, espn_id in output['espn_id'].items():
             if not espn_id:
                 continue
-            venue_name = venue_map.get(espn_id)
-            if venue_name:
-                output.at[idx, 'stadium'] = venue_name
+            meta = game_metadata.get(str(espn_id))
+            if not meta:
+                continue
+
+            if meta.get('game_date') and not output.at[idx, 'game_date']:
+                output.at[idx, 'game_date'] = meta['game_date']
+            if meta.get('gametime') and not output.at[idx, 'gametime']:
+                output.at[idx, 'gametime'] = meta['gametime']
+            if meta.get('stadium'):
+                output.at[idx, 'stadium'] = meta['stadium']
+
+            if meta.get('away_team'):
+                output.at[idx, 'away_team'] = meta['away_team']
+            if meta.get('home_team'):
+                output.at[idx, 'home_team'] = meta['home_team']
+
+            if meta.get('away_score') is not None:
+                output.at[idx, 'away_score'] = int(meta['away_score'])
+            if meta.get('home_score') is not None:
+                output.at[idx, 'home_score'] = int(meta['home_score'])
 
     output = output.sort_values(['week_num', 'game_date', 'gametime', 'away_team']).reset_index(drop=True)
     output.to_csv('data/schedule.csv', index=False)
