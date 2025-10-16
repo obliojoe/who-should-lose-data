@@ -169,6 +169,11 @@ def collect_espn_event_payloads(
         artifact_entries.append({
             "dataset": "espn_summary",
             "path": summary_path,
+            "metadata": {
+                "season": season,
+                "week": week,
+                "event_id": event_id,
+            },
         })
 
         sections = {
@@ -194,6 +199,12 @@ def collect_espn_event_payloads(
             artifact_entries.append({
                 "dataset": dataset_name,
                 "path": section_path,
+                "metadata": {
+                    "season": season,
+                    "week": week,
+                    "event_id": event_id,
+                    "section": dataset_name,
+                },
             })
 
         for competition in event.get("competitions", []) or []:
@@ -337,9 +348,9 @@ def collect_team_endpoints(
     output_dir: Path,
     season: int,
     week: int,
-) -> List[Path]:
+) -> List[Dict]:
     unique_ids = sorted({tid for tid in team_ids if tid})
-    paths: List[Path] = []
+    results: List[Dict] = []
 
     for team_id in tqdm(unique_ids, desc="ESPN team data", unit="team"):
         for endpoint_name in ("injuries", "depthchart", "news"):
@@ -366,9 +377,18 @@ def collect_team_endpoints(
                 / filename
             )
             write_json(path, payload)
-            paths.append(path)
+            results.append({
+                "dataset": f"espn_{endpoint_name}",
+                "path": path,
+                "metadata": {
+                    "team_id": team_id,
+                    "team_abbr": abbr,
+                    "season": season,
+                    "week": week,
+                },
+            })
 
-    return paths
+    return results
 
 
 def collect_sagarin(output_dir: Path, timestamp: str) -> Optional[Path]:
@@ -509,7 +529,11 @@ def collect_single_week(
             "source": "espn",
             "path": str(scoreboard_path),
             "sha256": hash_file(scoreboard_path),
-            "metadata": {"events": len(scoreboard.get("events", []))},
+            "metadata": {
+                "season": season,
+                "week": week,
+                "events": len(scoreboard.get("events", [])),
+            },
         }
     )
 
@@ -522,28 +546,35 @@ def collect_single_week(
     )
     for entry in event_artifacts:
         path = entry["path"]
+        metadata = entry.get("metadata", {}).copy()
+        metadata.setdefault("season", season)
+        metadata.setdefault("week", week)
         artifacts.append(
             {
                 "dataset": entry["dataset"],
                 "source": "espn",
                 "path": str(path),
                 "sha256": hash_file(path),
-                "metadata": {},
+                "metadata": metadata,
             }
         )
 
     combined_team_ids = set(competitor_team_ids)
     all_team_ids, team_abbr_map = load_all_team_ids()
     combined_team_ids.update(all_team_ids)
-    team_paths = collect_team_endpoints(session, combined_team_ids, team_abbr_map, output_dir, season, week)
-    for path in team_paths:
+    team_entries = collect_team_endpoints(session, combined_team_ids, team_abbr_map, output_dir, season, week)
+    for entry in team_entries:
+        path = entry["path"]
+        metadata = entry.get("metadata", {}).copy()
+        metadata.setdefault("season", season)
+        metadata.setdefault("week", week)
         artifacts.append(
             {
-                "dataset": f"espn_{path.parent.parent.name}",
+                "dataset": entry["dataset"],
                 "source": "espn",
                 "path": str(path),
                 "sha256": hash_file(path),
-                "metadata": {},
+                "metadata": metadata,
             }
         )
 

@@ -74,7 +74,19 @@ class RawDataManifest:
 
         target = str(identifier)
         for entry in candidates:
+            meta = entry.metadata or {}
+            event_id = meta.get("event_id")
+            team_id = meta.get("team_id")
+            if event_id is not None and str(event_id) == target:
+                return entry
+            if team_id is not None and str(team_id) == target:
+                return entry
+
+        for entry in candidates:
             if entry.path.stem == target:
+                return entry
+            parent = entry.path.parent.name if entry.path.parent else None
+            if parent == target:
                 return entry
 
         return None
