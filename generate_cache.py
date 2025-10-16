@@ -106,6 +106,21 @@ def write_schedule_from_raw(manifest: RawDataManifest) -> int:
 
     schedule_df = pd.read_csv(entries[0].path)
 
+    venue_map = {}
+    if manifest:
+        for entry in manifest.entries('espn_game_info'):
+            try:
+                with entry.path.open('r', encoding='utf-8') as fh:
+                    game_info = json.load(fh)
+            except (OSError, json.JSONDecodeError):
+                continue
+
+            venue = (game_info or {}).get('venue', {})
+            venue_name = venue.get('fullName') or venue.get('displayName')
+            if venue_name:
+                event_id = entry.path.parent.name
+                venue_map[event_id] = venue_name
+
     def format_score(value):
         if pd.isna(value):
             return ''
@@ -148,6 +163,14 @@ def write_schedule_from_raw(manifest: RawDataManifest) -> int:
     team_alias = {'LA': 'LAR'}
     output['away_team'] = output['away_team'].replace(team_alias)
     output['home_team'] = output['home_team'].replace(team_alias)
+
+    if venue_map:
+        for idx, espn_id in output['espn_id'].items():
+            if not espn_id:
+                continue
+            venue_name = venue_map.get(espn_id)
+            if venue_name:
+                output.at[idx, 'stadium'] = venue_name
 
     output = output.sort_values(['week_num', 'game_date', 'gametime', 'away_team']).reset_index(drop=True)
     output.to_csv('data/schedule.csv', index=False)
