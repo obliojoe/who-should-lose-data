@@ -103,11 +103,13 @@ def save_to_cache(home_advantage, team_ratings):
     """Save the home advantage value, team ratings, and current timestamp to cache"""
     # Load existing cache to preserve last_content_update if ratings haven't changed
     existing_last_content_update = None
+    existing_home_advantage = None
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, 'r') as f:
                 old_cache = json.load(f)
                 existing_last_content_update = old_cache.get('last_content_update')
+                existing_home_advantage = old_cache.get('home_advantage')
         except Exception:
             pass
 
@@ -148,6 +150,12 @@ def save_to_cache(home_advantage, team_ratings):
             ratings_changed = True  # Assume changed if we can't read existing
     else:
         ratings_changed = True  # No existing file, so this is new data
+
+    # If nothing changed, leave cache/CSV untouched
+    if (not ratings_changed and existing_home_advantage is not None
+            and abs(float(existing_home_advantage) - float(home_advantage)) < 1e-6):
+        logger.info("Ratings and home advantage unchanged – leaving Sagarin cache/CSV untouched")
+        return
 
     # Determine last_content_update timestamp
     now = datetime.now().isoformat()
