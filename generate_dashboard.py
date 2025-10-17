@@ -252,7 +252,7 @@ def select_individual_highlights(starters_df):
     return highlights[:6]  # Return top 6
 
 
-def select_power_rankings(sagarin_df, team_records, teams_df):
+def select_power_rankings(sagarin_df, team_records, teams_df, teams_lookup):
     """
     Select power rankings using R1+SOV algorithm.
     Returns top 5, bottom 5, biggest riser, biggest faller.
@@ -310,7 +310,10 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
             'record': record,
             'trend': trend,
             'previous_rank': int(row['previous_rank']) if 'previous_rank' in row and pd.notna(row['previous_rank']) else None,
-            'movement': movement_str
+            'movement': movement_str,
+            'head_coach': teams_lookup.get(team_abbr, {}).get('head_coach', ''),
+            'offensive_coordinator': teams_lookup.get(team_abbr, {}).get('offensive_coordinator', ''),
+            'defensive_coordinator': teams_lookup.get(team_abbr, {}).get('defensive_coordinator', '')
         })
 
     # Bottom 5
@@ -353,7 +356,10 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
             'record': record,
             'trend': trend,
             'previous_rank': int(row['previous_rank']) if 'previous_rank' in row and pd.notna(row['previous_rank']) else None,
-            'movement': movement_str
+            'movement': movement_str,
+            'head_coach': teams_lookup.get(team_abbr, {}).get('head_coach', ''),
+            'offensive_coordinator': teams_lookup.get(team_abbr, {}).get('offensive_coordinator', ''),
+            'defensive_coordinator': teams_lookup.get(team_abbr, {}).get('defensive_coordinator', '')
         })
 
     def format_profile(row: pd.Series) -> dict:
@@ -370,13 +376,18 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
         else:
             movement_str = "0"
 
+        team_profile = teams_lookup.get(row['team_abbr'], {})
+
         return {
             'team': row['team_abbr'],
             'previous_rank': int(row['previous_rank']) if pd.notna(row.get('previous_rank')) else None,
             'current_rank': int(row['rank']) if pd.notna(row.get('rank')) else None,
             'movement': movement_str,
             'rating': round(float(row['rating']), 2),
-            'record': record
+            'record': record,
+            'head_coach': team_profile.get('head_coach', ''),
+            'offensive_coordinator': team_profile.get('offensive_coordinator', ''),
+            'defensive_coordinator': team_profile.get('defensive_coordinator', '')
         }
 
     # Find biggest riser and faller (movement already calculated above)
@@ -423,6 +434,8 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
             else:
                 movement_str = "0"
 
+        team_profile = teams_lookup.get(team_abbr, {})
+
         all_rankings.append({
             'rank': idx + 1,
             'team': team_abbr,
@@ -431,7 +444,10 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
             'record': record,
             'trend': trend,
             'previous_rank': int(row['previous_rank']) if 'previous_rank' in row and pd.notna(row['previous_rank']) else None,
-            'movement': movement_str
+            'movement': movement_str,
+            'head_coach': team_profile.get('head_coach', ''),
+            'offensive_coordinator': team_profile.get('offensive_coordinator', ''),
+            'defensive_coordinator': team_profile.get('defensive_coordinator', '')
         })
 
     return {
@@ -552,7 +568,11 @@ def select_game_of_week_and_meek(upcoming_games, team_records, sagarin_df, analy
             'betting_line': away_spread,  # Now relative to away team
             'over_under': betting.get('over_under'),
             'score': score,
-            'inverse_score': -score  # For finding worst game
+            'inverse_score': -score,  # For finding worst game
+            'stadium': game.get('stadium', ''),
+            'gametime': game.get('gametime', ''),
+            'away_head_coach': game.get('away_coach', ''),
+            'home_head_coach': game.get('home_coach', '')
         })
 
     # Log all game scores for debugging
@@ -575,7 +595,7 @@ def select_game_of_week_and_meek(upcoming_games, team_records, sagarin_df, analy
     return game_of_week, game_of_meek
 
 
-def select_week_preview(upcoming_games, game_of_week_id, team_records, sagarin_df, analysis_cache):
+def select_week_preview(upcoming_games, game_of_week_id, team_records, sagarin_df, analysis_cache, teams_lookup):
     """
     Select Thursday night game and 2-3 Sunday spotlight games.
     """
@@ -596,12 +616,23 @@ def select_week_preview(upcoming_games, game_of_week_id, team_records, sagarin_d
         if home_record_data['ties'] > 0:
             home_record += f"-{home_record_data['ties']}"
 
+        team_profile_away = teams_lookup.get(game['away_team'], {})
+        team_profile_home = teams_lookup.get(game['home_team'], {})
+
         game_data = {
             'espn_id': str(game['espn_id']),
             'away_team': game['away_team'],
             'away_record': away_record,
             'home_team': game['home_team'],
-            'home_record': home_record
+            'home_record': home_record,
+            'away_head_coach': team_profile_away.get('head_coach', ''),
+            'home_head_coach': team_profile_home.get('head_coach', ''),
+            'away_offensive_coordinator': team_profile_away.get('offensive_coordinator', ''),
+            'home_offensive_coordinator': team_profile_home.get('offensive_coordinator', ''),
+            'away_defensive_coordinator': team_profile_away.get('defensive_coordinator', ''),
+            'home_defensive_coordinator': team_profile_home.get('defensive_coordinator', ''),
+            'stadium': team_profile_home.get('stadium', ''),
+            'gametime': game.get('gametime', '')
         }
 
         if game['is_thursday']:
@@ -659,6 +690,7 @@ def generate_dashboard_content(ai_model=None):
         with open('data/teams.json', 'r', encoding='utf-8') as fh:
             teams_records = json.load(fh)
         teams_df = pd.DataFrame(teams_records)
+        teams_lookup = {record['team_abbr']: record for record in teams_records}
 
         with open('data/analysis_cache.json', 'r') as f:
             analysis_cache = json.load(f)
@@ -801,7 +833,7 @@ def generate_dashboard_content(ai_model=None):
         )
 
         # Always generate power rankings data for the dashboard JSON
-        power_rankings = select_power_rankings(sagarin_df, team_records, teams_df)
+        power_rankings = select_power_rankings(sagarin_df, team_records, teams_df, teams_lookup)
 
         # But don't include them in the AI prompt context if games have been played (they're stale)
         include_power_rankings_in_prompt = not any_games_played
@@ -816,7 +848,12 @@ def generate_dashboard_content(ai_model=None):
             all_week_games, team_records, sagarin_df, analysis_cache, game_analyses
         )
         thursday_night, sunday_spotlight = select_week_preview(
-            upcoming_games, game_of_week['espn_id'], team_records, sagarin_df, analysis_cache
+            upcoming_games,
+            game_of_week['espn_id'],
+            team_records,
+            sagarin_df,
+            analysis_cache,
+            teams_lookup
         )
 
         # Add game scores and analysis to game of week/meek
@@ -842,6 +879,18 @@ def generate_dashboard_content(ai_model=None):
                 game_obj['home_score'] = None
                 game_obj['analysis'] = game_analysis.get('analysis', '')
                 game_obj['analysis_type'] = 'pre_game'
+
+            away_profile = teams_lookup.get(game_obj['away_team'], {})
+            home_profile = teams_lookup.get(game_obj['home_team'], {})
+
+            game_obj.setdefault('away_head_coach', away_profile.get('head_coach', ''))
+            game_obj.setdefault('home_head_coach', home_profile.get('head_coach', ''))
+            game_obj.setdefault('away_offensive_coordinator', away_profile.get('offensive_coordinator', ''))
+            game_obj.setdefault('home_offensive_coordinator', home_profile.get('offensive_coordinator', ''))
+            game_obj.setdefault('away_defensive_coordinator', away_profile.get('defensive_coordinator', ''))
+            game_obj.setdefault('home_defensive_coordinator', home_profile.get('defensive_coordinator', ''))
+            if not game_obj.get('stadium'):
+                game_obj['stadium'] = game_analysis.get('stadium') or home_profile.get('stadium', '')
 
         # AI-BASED CREATIVE TEXT GENERATION
         logger.info("Generating creative text with AI...")
@@ -895,6 +944,7 @@ def generate_dashboard_content(ai_model=None):
 
             playoff_prob = analysis_cache['team_analyses'].get(team_abbr, {}).get('playoff_chance', 0)
             playoff_seed = playoff_seeds.get(team_abbr)
+            team_profile = teams_lookup.get(team_abbr, {})
 
             all_teams_context.append({
                 'team': team_abbr,
@@ -902,7 +952,11 @@ def generate_dashboard_content(ai_model=None):
                 'rating': round(float(row['rating']), 2),
                 'record': record,
                 'playoff_prob': round(playoff_prob, 1),
-                'playoff_seed': playoff_seed
+                'playoff_seed': playoff_seed,
+                'head_coach': team_profile.get('head_coach', ''),
+                'offensive_coordinator': team_profile.get('offensive_coordinator', ''),
+                'defensive_coordinator': team_profile.get('defensive_coordinator', ''),
+                'stadium': team_profile.get('stadium', '')
             })
 
         # Get week chaos data
@@ -983,6 +1037,13 @@ but don't force it. Let the drama emerge naturally.
             home_team = game_record['home_team']
             away_record = game_record.get('away_record', 'N/A')
             home_record = game_record.get('home_record', 'N/A')
+            away_head_coach = game_record.get('away_head_coach') or 'N/A'
+            home_head_coach = game_record.get('home_head_coach') or 'N/A'
+            away_oc = game_record.get('away_offensive_coordinator') or 'N/A'
+            home_oc = game_record.get('home_offensive_coordinator') or 'N/A'
+            away_dc = game_record.get('away_defensive_coordinator') or 'N/A'
+            home_dc = game_record.get('home_defensive_coordinator') or 'N/A'
+            stadium_name = game_record.get('stadium') or ''
 
             def _format_playoff_prob(value):
                 if value in (None, '', 'N/A'):
@@ -1011,6 +1072,15 @@ but don't force it. Let the drama emerge naturally.
             else:
                 lines.append(f"{away_team} Record: {away_record}")
                 lines.append(f"{home_team} Record: {home_record}")
+
+            lines.append(
+                f"Head Coaches: {away_team} - {away_head_coach}, {home_team} - {home_head_coach}"
+            )
+            lines.append(
+                f"Coordinators (OC/DC): {away_team} - {away_oc}/{away_dc}; {home_team} - {home_oc}/{home_dc}"
+            )
+            if stadium_name:
+                lines.append(f"Venue: {stadium_name}")
 
             return '\n'.join(lines)
 
