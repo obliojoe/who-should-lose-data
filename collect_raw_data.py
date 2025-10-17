@@ -9,7 +9,7 @@ import sys
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple, Set
+from typing import Any, Dict, Iterable, List, Optional, Tuple, Set
 
 import pandas as pd
 import requests
@@ -28,6 +28,34 @@ DEFAULT_RAW_DIR = Path("data/raw")
 SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
 MAX_EVENT_WORKERS = 8
 MAX_TEAM_WORKERS = 8
+
+
+EXTRA_NFLREADPY_DATASETS: Dict[str, Dict[str, Any]] = {
+    'rosters': {
+        'loader': nfl.load_rosters,
+        'mode': 'season',
+    },
+    'players': {
+        'loader': nfl.load_players,
+        'mode': 'static',
+    },
+    'teams': {
+        'loader': nfl.load_teams,
+        'mode': 'static',
+    },
+    'contracts': {
+        'loader': nfl.load_contracts,
+        'mode': 'static',
+    },
+    'combine': {
+        'loader': nfl.load_combine,
+        'mode': 'season',
+    },
+    'officials': {
+        'loader': nfl.load_officials,
+        'mode': 'season',
+    },
+}
 
 
 def configure_logging(verbose: bool = False) -> None:
@@ -491,7 +519,8 @@ def collect_nflreadpy_datasets(
     season: int,
     week: int,
     output_dir: Path,
-) -> List[Tuple[str, Path, int]]:
+    extras: Optional[Set[str]] = None,
+) -> List[Tuple[str, Path, Dict[str, Any]]]:
     dataset_plan: List[Dict] = [
         {"name": "schedules", "loader": nfl.load_schedules, "filter_week": False},
         {"name": "team_stats", "loader": nfl.load_team_stats, "filter_week": True},
@@ -550,7 +579,38 @@ def collect_nflreadpy_datasets(
 
             path = subdir / f"season_{season}_week_{week}.csv"
             write_dataframe(path, frame)
-            results.append((suffix, path, len(frame)))
+            results.append((suffix, path, {"records": len(frame)}))
+
+    extras = extras or set()
+    for extra in sorted(extras):
+        config = EXTRA_NFLREADPY_DATASETS.get(extra)
+        if not config:
+            continue
+
+        loader = config['loader']
+        mode = config.get('mode', 'static')
+
+        try:
+            if mode == 'season':
+                frame = loader([season]).to_pandas()
+            else:
+                frame = loader().to_pandas()
+        except Exception as exc:  # pragma: no cover - upstream data variability
+            LOGGER.warning("Failed to load extra nflreadpy dataset %s: %s", extra, exc)
+            continue
+
+        subdir = output_dir / "nflreadpy" / extra
+        ensure_dir(subdir)
+        if mode == 'season':
+            filename = f"season_{season}.csv"
+        else:
+            filename = "all.csv"
+        path = subdir / filename
+        write_dataframe(path, frame)
+        metadata = {"records": len(frame)}
+        if mode == 'season':
+            metadata['season'] = season
+        results.append((extra, path, metadata))
 
     return results
 
@@ -611,20 +671,58 @@ def load_all_team_ids() -> Tuple[List[str], Dict[str, str]]:
     return ids, mapping
 
 
+def _parse_dataset_flags(selection: str) -> Dict[str, bool]:
+    if not selection or selection.lower() == 'all':
+        return {'espn': True, 'nflreadpy': True}
+
+    requested = {item.strip().lower() for item in selection.split(',') if item.strip()}
+    valid = {'espn', 'nflreadpy'}
+    invalid = requested - valid
+    if invalid:
+        LOGGER.warning("Ignoring unknown dataset selectors: %s", ', '.join(sorted(invalid)))
+    flags = {name: (name in requested) for name in valid}
+    if not any(flags.values()):
+        LOGGER.warning("No valid dataset selectors provided; defaulting to all")
+        return {'espn': True, 'nflreadpy': True}
+    return flags
+
+
+def _parse_nflreadpy_extras(selection: str) -> Set[str]:
+    if not selection:
+        return set()
+    if selection.lower() == 'all':
+        return set(EXTRA_NFLREADPY_DATASETS.keys())
+    requested = {item.strip().lower() for item in selection.split(',') if item.strip()}
+    invalid = requested - set(EXTRA_NFLREADPY_DATASETS.keys())
+    if invalid:
+        LOGGER.warning("Ignoring unknown nflreadpy extras: %s", ', '.join(sorted(invalid)))
+    return requested & set(EXTRA_NFLREADPY_DATASETS.keys())
+
+
 def collect_single_week(
     session: requests.Session,
     output_dir: Path,
     season: int,
     week: int,
     timestamp: Optional[str] = None,
+    datasets: Optional[Dict[str, bool]] = None,
+    nflreadpy_extras: Optional[Set[str]] = None,
 ) -> Path:
     start_time = datetime.utcnow()
     timestamp = timestamp or datetime.utcnow().strftime("%Y%m%d_%H%M%S")
 
-    params = {"seasontype": 2, "year": season, "week": week}
-    scoreboard = fetch_json(session, SCOREBOARD_URL, params)
+    dataset_flags = datasets or {'espn': True, 'nflreadpy': True}
+    nflreadpy_extras = nflreadpy_extras or set()
+
+    scoreboard = None
+    if dataset_flags.get('espn', True):
+        params = {"seasontype": 2, "year": season, "week": week}
+        scoreboard = fetch_json(session, SCOREBOARD_URL, params)
+    else:
+        scoreboard = {"events": []}
 
     artifacts: List[Dict] = []
+    competitor_team_ids: List[str] = []
 
     manifest_dir = output_dir / "manifest"
     previous_manifest = None
@@ -641,100 +739,103 @@ def collect_single_week(
         except Exception as exc:  # pragma: no cover - defensive
             LOGGER.debug("Unable to load previous manifest for diff: %s", exc)
 
-    scoreboard_path = collect_scoreboard(scoreboard, output_dir, season, week)
-    artifacts.append(
-        {
-            "dataset": "espn_scoreboard",
-            "source": "espn",
-            "path": str(scoreboard_path),
-            "sha256": hash_file(scoreboard_path),
-            "metadata": {
-                "season": season,
-                "week": week,
-                "events": len(scoreboard.get("events", [])),
-            },
-        }
-    )
-
-    event_artifacts, competitor_team_ids = collect_espn_event_payloads(
-        session,
-        scoreboard.get("events", []),
-        output_dir,
-        season,
-        week,
-    )
-    for entry in event_artifacts:
-        path = entry["path"]
-        metadata = entry.get("metadata", {}).copy()
-        metadata.setdefault("season", season)
-        metadata.setdefault("week", week)
+    if dataset_flags.get('espn', True):
+        scoreboard_path = collect_scoreboard(scoreboard, output_dir, season, week)
         artifacts.append(
             {
-                "dataset": entry["dataset"],
+                "dataset": "espn_scoreboard",
                 "source": "espn",
-                "path": str(path),
-                "sha256": hash_file(path),
-                "metadata": metadata,
+                "path": str(scoreboard_path),
+                "sha256": hash_file(scoreboard_path),
+                "metadata": {
+                    "season": season,
+                    "week": week,
+                    "events": len(scoreboard.get("events", [])),
+                },
             }
         )
 
-    combined_team_ids = set(competitor_team_ids)
-    all_team_ids, team_abbr_map = load_all_team_ids()
-    combined_team_ids.update(all_team_ids)
-    team_entries = collect_team_endpoints(session, combined_team_ids, team_abbr_map, output_dir, season, week)
-    for entry in team_entries:
-        path = entry["path"]
-        metadata = entry.get("metadata", {}).copy()
-        metadata.setdefault("season", season)
-        metadata.setdefault("week", week)
-        artifacts.append(
-            {
-                "dataset": entry["dataset"],
-                "source": "espn",
-                "path": str(path),
-                "sha256": hash_file(path),
-                "metadata": metadata,
-            }
+        event_artifacts, competitor_team_ids = collect_espn_event_payloads(
+            session,
+            scoreboard.get("events", []),
+            output_dir,
+            season,
+            week,
         )
+        for entry in event_artifacts:
+            path = entry["path"]
+            metadata = entry.get("metadata", {}).copy()
+            metadata.setdefault("season", season)
+            metadata.setdefault("week", week)
+            artifacts.append(
+                {
+                    "dataset": entry["dataset"],
+                    "source": "espn",
+                    "path": str(path),
+                    "sha256": hash_file(path),
+                    "metadata": metadata,
+                }
+            )
 
-    standings_paths = collect_standings(session, season, output_dir)
-    for label, path in standings_paths:
-        artifacts.append(
-            {
-                "dataset": f"espn_standings_{label}",
-                "source": "espn",
-                "path": str(path),
-                "sha256": hash_file(path),
-                "metadata": {},
-            }
-        )
+        combined_team_ids = set(competitor_team_ids)
+        all_team_ids, team_abbr_map = load_all_team_ids()
+        combined_team_ids.update(all_team_ids)
+        team_entries = collect_team_endpoints(session, combined_team_ids, team_abbr_map, output_dir, season, week)
+        for entry in team_entries:
+            path = entry["path"]
+            metadata = entry.get("metadata", {}).copy()
+            metadata.setdefault("season", season)
+            metadata.setdefault("week", week)
+            artifacts.append(
+                {
+                    "dataset": entry["dataset"],
+                    "source": "espn",
+                    "path": str(path),
+                    "sha256": hash_file(path),
+                    "metadata": metadata,
+                }
+            )
 
-    nflreadpy_items = collect_nflreadpy_datasets(season, week, output_dir)
-    for dataset_name, path, record_count in nflreadpy_items:
-        metadata = {"records": record_count}
-        if dataset_name.startswith("nextgen_stats_"):
-            metadata["stat_type"] = dataset_name.split("_", 2)[-1]
-        artifacts.append(
-            {
-                "dataset": f"nflreadpy_{dataset_name}",
-                "source": "nflreadpy",
-                "path": str(path),
-                "sha256": hash_file(path),
-                "metadata": metadata,
-            }
-        )
+        standings_paths = collect_standings(session, season, output_dir)
+        for label, path in standings_paths:
+            artifacts.append(
+                {
+                    "dataset": f"espn_standings_{label}",
+                    "source": "espn",
+                    "path": str(path),
+                    "sha256": hash_file(path),
+                    "metadata": {},
+                }
+            )
 
-    sagarin_path = collect_sagarin(output_dir, timestamp)
-    if sagarin_path:
-        artifacts.append(
-            {
-                "dataset": "sagarin_html",
-                "source": "sagarin.com",
-                "path": str(sagarin_path),
-                "sha256": hash_file(sagarin_path),
-                "metadata": {},
-            }
-        )
+    if dataset_flags.get('nflreadpy', True):
+        nflreadpy_items = collect_nflreadpy_datasets(season, week, output_dir, extras=nflreadpy_extras)
+        for dataset_name, path, info in nflreadpy_items:
+            metadata = info if isinstance(info, dict) else {"records": info}
+            if dataset_name.startswith("nextgen_stats_"):
+                metadata["stat_type"] = dataset_name.split("_", 2)[-1]
+            artifacts.append(
+                {
+                    "dataset": f"nflreadpy_{dataset_name}",
+                    "source": "nflreadpy",
+                    "path": str(path),
+                    "sha256": hash_file(path),
+                    "metadata": metadata,
+                }
+            )
+
+    if dataset_flags.get('espn', True):
+        sagarin_path = collect_sagarin(output_dir, timestamp)
+        if sagarin_path:
+            artifacts.append(
+                {
+                    "dataset": "sagarin_html",
+                    "source": "sagarin.com",
+                    "path": str(sagarin_path),
+                    "sha256": hash_file(sagarin_path),
+                    "metadata": {},
+                }
+            )
 
     if previous_manifest:
         summary = summarize_manifest_changes(previous_manifest, artifacts)
@@ -793,6 +894,9 @@ def collect_raw_data(args: argparse.Namespace) -> Path:
     output_dir = Path(args.output_dir or DEFAULT_RAW_DIR)
     ensure_dir(output_dir)
 
+    dataset_flags = _parse_dataset_flags(args.datasets)
+    nflreadpy_extras = _parse_nflreadpy_extras(args.nflreadpy_extra)
+
     session = requests.Session()
     session.headers.update({
         "User-Agent": (
@@ -823,6 +927,8 @@ def collect_raw_data(args: argparse.Namespace) -> Path:
                 output_dir=output_dir,
                 season=base_season,
                 week=week,
+                datasets=dataset_flags,
+                nflreadpy_extras=nflreadpy_extras,
             )
 
         if latest_manifest_path is None:
@@ -843,6 +949,8 @@ def collect_raw_data(args: argparse.Namespace) -> Path:
         output_dir=output_dir,
         season=season,
         week=week,
+        datasets=dataset_flags,
+        nflreadpy_extras=nflreadpy_extras,
     )
 
 
@@ -857,6 +965,18 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         type=str,
         default=str(DEFAULT_RAW_DIR),
         help="Directory to store raw artifacts",
+    )
+    parser.add_argument(
+        "--datasets",
+        type=str,
+        default="all",
+        help="Comma-separated top-level datasets to collect (all, espn, nflreadpy)",
+    )
+    parser.add_argument(
+        "--nflreadpy-extra",
+        type=str,
+        default="",
+        help="Comma-separated nflreadpy extras to capture on demand (e.g., rosters,players)",
     )
     parser.add_argument("--verbose", action="store_true", help="Enable debug logging")
     return parser.parse_args(argv)
