@@ -114,9 +114,9 @@
   "CLE": {
     "ai_tagline": "Offensive flatline, playoff flatlined",
     "ai_status": "error",
-    "ai_error": "JSON parsing failed: Expecting value: line 1 column 1 (char 0)",
     "ai_provider": "claude",
-    "ai_model": "claude-3-7-sonnet-latest"
+    "ai_model": "claude-3-7-sonnet-latest",
+    "ai_error": "JSON parsing failed: Expecting value: line 1 column 1 (char 0)"
   },
   "DAL": {
     "ai_tagline": "Offensive fireworks, defensive dumpster fire",
@@ -375,9 +375,18 @@
     "ai_model": "claude-3-7-sonnet-latest"
   },
   "NYJ": {
-    "ai_tagline": "Winless wonders, red zone riddle",
-    "ai_status": "error",
-    "ai_error": "JSON parsing failed: Expecting value: line 1 column 1 (char 0)",
+    "ai_tagline": "Perfectly imperfect at losing games",
+    "ai_verdict": "The Jets aren't just bad - they're historically bad at 0-6, sitting alone in the NFL basement with the league's only winless record. Their offense has been a peculiar contradiction: 4th-ranked rushing attack (814 yards) paired with an anemic passing game (31st in yards) that can't convert when it matters most, evidenced by their horrific 13.3% third-down conversion rate (28th).\n\nTheir defense has been equally problematic, surrendering 28.3 points per game while generating minimal pressure (just 8 total sacks, 27th in NFL) and zero interceptions through six games. The -5 turnover margin perfectly encapsulates this team's struggles. **Most concerning might be their inability to compete in winnable games** - losing to Denver by just two points last week despite the Broncos' own struggles shows this team finds creative ways to lose regardless of opponent.",
+    "ai_xfactor": "This week's matchup against Carolina (3-3) presents the Jets' most realistic chance at a win in weeks, but they'll need to capitalize on the Panthers' 32nd-ranked pass rush (league-worst 5 sacks) to give Justin Fields time to operate. The betting line surprisingly favors Carolina by just 1.5 points with a low 41.5 over/under, suggesting oddsmakers see this as a potential rock fight between struggling offenses.\n\n**The absence of Garrett Wilson (doubtful with knee injury) looms large** as the Jets' already struggling passing attack loses its top weapon. Josh Reynolds (questionable with hip) becomes the critical X-factor - if he can play through his injury and provide Fields a reliable target, the Jets might actually have a chance to avoid 0-7. The defensive secondary faces additional challenges with corners Michael Carter II (concussion) and Qwan'tez Stiggers (hip) both questionable.",
+    "ai_reality_check": "The Jets' 13.3% third-down conversion rate isn't just bad - it's practically a mathematical impossibility for a professional football team. They've converted just 2 of 15 third-down attempts, essentially turning every third down into an invitation for the opponent to get the ball back. Even more remarkable is their 0.0% red zone touchdown percentage - they haven't scored a single touchdown when reaching the red zone this season.\n\nThe -5 turnover margin highlights a team that gives away possessions like they're sample cookies at the mall. While the defense has forced just one turnover all season, the offense has coughed up the ball 6 times.\n\nJets fans have mastered the art of self-delusion, convincing themselves that this 0-6 team is \"actually better than their record shows.\" Sure, and I'm \"actually\" Brad Pitt with a slight weight gain and different face. New head coach Aaron Glenn deserves time, but at this point, the Jets' playoff odds (0.1%) are roughly the same as your chances of winning the Powerball while being struck by lightning... twice.",
+    "ai_quotes": [
+      "The Jets' offensive strategy appears to be 'run effectively until it's third down, then immediately surrender possession' - a bold approach that's yielded predictable results.",
+      "Justin Fields saying he's been 'too conservative' is like a skydiver complaining they've been jumping from insufficient heights. Sometimes the problem isn't conservatism - it's the landing.",
+      "The Jets have turned losing one-possession games into performance art. They don't just lose - they methodically construct elaborate Rube Goldberg machines of disappointment that culminate in precisely timed heartbreak.",
+      "Aaron Glenn inherited a Ferrari with three wheels and no steering wheel. Now six games in, he's discovered the brakes don't work either, and the check engine light isn't a warning - it's the only thing that reliably turns on.",
+      "When your playoff odds hit 0.1%, you're not playing for January - you're auditioning for next September. The Jets aren't rebuilding so much as they're perpetually remodeling a house with a crumbling foundation."
+    ],
+    "ai_status": "success",
     "ai_provider": "claude",
     "ai_model": "claude-3-7-sonnet-latest"
   },
