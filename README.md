@@ -101,6 +101,9 @@ python collect_raw_data.py --season 2025 --week 5
 # Only pull nflreadpy datasets if you don't need the ESPN endpoints
 python collect_raw_data.py --season 2025 --week 5 --datasets nflreadpy
 
+# Include extra nflreadpy tables (e.g., contracts, rosters) on demand
+python collect_raw_data.py --season 2025 --week 5 --datasets nflreadpy --nflreadpy-extra rosters,contracts
+
 # Use the captured manifest (auto-detected as data/raw/manifest/latest.json)
 python generate_cache.py --raw-manifest data/raw/manifest/latest.json --simulations 1000
 ```
