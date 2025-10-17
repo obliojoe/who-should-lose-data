@@ -444,6 +444,217 @@ def build_injuries_report(
     }
 
 
+def build_depthcharts_report(
+    manifest: Optional[RawDataManifest],
+    team_records: List[Dict[str, Any]]
+) -> Optional[Dict[str, Any]]:
+    if manifest is None:
+        logger.warning("Depth chart report skipped: raw manifest not available")
+        return None
+
+    try:
+        entries = manifest.entries('espn_depthchart')
+    except Exception as exc:  # pragma: no cover - defensive
+        logger.warning("Depth chart report skipped: %s", exc)
+        return None
+
+    teams_lookup = {record['team_abbr']: record for record in team_records}
+
+    team_reports: Dict[str, Dict[str, Any]] = {}
+
+    for entry in entries:
+        meta = entry.metadata or {}
+        team_abbr = meta.get('team_abbr')
+        if not team_abbr:
+            continue
+
+        try:
+            with entry.path.open('r', encoding='utf-8') as fh:
+                payload = json.load(fh)
+        except Exception as exc:
+            logger.debug("Skipping depth chart for %s due to read error: %s", team_abbr, exc)
+            continue
+
+        items = payload.get('items') or []
+        schemes: List[Dict[str, Any]] = []
+        latest_ts = payload.get('lastUpdated') or payload.get('lastModified')
+
+        for scheme in items:
+            scheme_name = scheme.get('name') or scheme.get('abbreviation')
+            positions = scheme.get('positions') or {}
+            cleaned_positions: List[Dict[str, Any]] = []
+
+            for key, info in positions.items():
+                pos_meta = info.get('position', {}) or {}
+                abbreviation = pos_meta.get('abbreviation') or key.upper()
+                display_name = pos_meta.get('displayName') or abbreviation
+                athletes = info.get('athletes') or []
+
+                players: List[Dict[str, Any]] = []
+                for athlete in athletes:
+                    status_info = athlete.get('status') or {}
+                    record = {
+                        'athlete_id': athlete.get('id'),
+                        'name': athlete.get('fullName') or athlete.get('displayName'),
+                        'position': athlete.get('position'),
+                        'jersey': athlete.get('jersey'),
+                        'rank': athlete.get('rank'),
+                        'status': status_info.get('name') or status_info.get('type'),
+                        'status_code': status_info.get('abbreviation') or status_info.get('type'),
+                    }
+                    players.append(record)
+
+                players.sort(key=lambda rec: (rec.get('rank') if rec.get('rank') is not None else 999, rec.get('name') or ''))
+
+                # Keep the top player plus any backups with a notable status
+                notable_players: List[Dict[str, Any]] = []
+                for player in players:
+                    status = (player.get('status') or '').lower()
+                    if not notable_players:
+                        notable_players.append(player)
+                    elif status and status not in ('active', 'probable'):
+                        notable_players.append(player)
+                    if len(notable_players) >= 3:
+                        break
+
+                if not notable_players and players:
+                    notable_players.append(players[0])
+
+                cleaned_positions.append(
+                    {
+                        'abbreviation': abbreviation,
+                        'display_name': display_name,
+                        'players': notable_players,
+                    }
+                )
+
+            if cleaned_positions:
+                schemes.append(
+                    {
+                        'name': scheme_name,
+                        'positions': cleaned_positions,
+                    }
+                )
+
+        team_meta = teams_lookup.get(team_abbr, {})
+        team_reports[team_abbr] = {
+            'team_abbr': team_abbr,
+            'team_id': meta.get('team_id'),
+            'team_name': team_meta.get('full_name'),
+            'conference': team_meta.get('conference'),
+            'division': team_meta.get('division'),
+            'last_updated': latest_ts,
+            'schemes': schemes,
+        }
+
+    return {
+        'season': manifest.season,
+        'week': manifest.week,
+        'generated_at': datetime.now().isoformat(),
+        'teams': [team_reports[key] for key in sorted(team_reports.keys())]
+    }
+
+
+def build_news_report(
+    manifest: Optional[RawDataManifest],
+    team_records: List[Dict[str, Any]]
+) -> Optional[Dict[str, Any]]:
+    if manifest is None:
+        logger.warning("News report skipped: raw manifest not available")
+        return None
+
+    try:
+        entries = manifest.entries('espn_news')
+    except Exception as exc:  # pragma: no cover - defensive
+        logger.warning("News report skipped: %s", exc)
+        return None
+
+    teams_lookup = {record['team_abbr']: record for record in team_records}
+    espn_id_lookup = {str(record.get('espn_api_id')): record for record in team_records if record.get('espn_api_id') is not None}
+
+    team_reports: Dict[str, Dict[str, Any]] = {}
+
+    for entry in entries:
+        meta = entry.metadata or {}
+        team_abbr = meta.get('team_abbr')
+        if not team_abbr:
+            continue
+
+        try:
+            with entry.path.open('r', encoding='utf-8') as fh:
+                payload = json.load(fh)
+        except Exception as exc:
+            logger.debug("Skipping news for %s due to read error: %s", team_abbr, exc)
+            continue
+
+        articles = payload.get('articles') or []
+        filtered: List[Dict[str, Any]] = []
+
+        for article in articles:
+            categories = article.get('categories') or []
+            related_team_ids = {
+                str(cat.get('teamId') or (cat.get('team') or {}).get('id'))
+                for cat in categories
+                if cat.get('type') == 'team'
+            }
+
+            team_id = meta.get('team_id')
+            espn_team_id = str(team_id) if team_id is not None else None
+
+            is_team_article = (
+                (espn_team_id and espn_team_id in related_team_ids)
+                or not related_team_ids
+            )
+
+            if not is_team_article:
+                continue
+
+            headline = article.get('headline')
+            description = article.get('description')
+            if not headline:
+                continue
+
+            links = article.get('links', {}) or {}
+            web_link = links.get('web', {}).get('href') if isinstance(links.get('web'), dict) else None
+
+            entry_record = {
+                'headline': headline,
+                'description': description,
+                'published': article.get('published'),
+                'last_modified': article.get('lastModified'),
+                'byline': article.get('byline'),
+                'link': web_link or article.get('url'),
+            }
+
+            filtered.append(entry_record)
+
+        filtered.sort(key=lambda a: a.get('published') or '', reverse=True)
+        filtered = filtered[:5]
+
+        if not filtered:
+            continue
+
+        last_updated = filtered[0].get('published') or filtered[0].get('last_modified')
+        team_meta = teams_lookup.get(team_abbr, {})
+
+        team_reports[team_abbr] = {
+            'team_abbr': team_abbr,
+            'team_id': meta.get('team_id'),
+            'team_name': team_meta.get('full_name'),
+            'conference': team_meta.get('conference'),
+            'division': team_meta.get('division'),
+            'last_updated': last_updated,
+            'articles': filtered,
+        }
+
+    return {
+        'season': manifest.season,
+        'week': manifest.week,
+        'generated_at': datetime.now().isoformat(),
+        'teams': [team_reports[key] for key in sorted(team_reports.keys())]
+    }
+
+
 def load_team_injury_details(team_abbr: str, teams_df: pd.DataFrame) -> List[dict]:
     if RAW_DATA_MANIFEST is None:
         return []
@@ -2651,6 +2862,8 @@ def deploy_to_netlify():
             'data/team_stats.json',
             'data/team_starters.json',
             'data/injuries.json',
+            'data/depthcharts.json',
+            'data/news.json',
             'data/schedule.json',
             'data/teams.json',
             'data/game_analyses.json',
@@ -2852,6 +3065,22 @@ def main():
             injuries_path.write_text(json.dumps(injuries_report, indent=2), encoding='utf-8')
         else:
             logger.warning("Injuries report could not be generated")
+
+        logger.info("=> Generating depthcharts.json")
+        depthcharts_report = build_depthcharts_report(RAW_DATA_MANIFEST, team_records)
+        if depthcharts_report is not None:
+            depthcharts_path = Path('data/depthcharts.json')
+            depthcharts_path.write_text(json.dumps(depthcharts_report, indent=2), encoding='utf-8')
+        else:
+            logger.warning("Depth chart report could not be generated")
+
+        logger.info("=> Generating news.json")
+        news_report = build_news_report(RAW_DATA_MANIFEST, team_records)
+        if news_report is not None:
+            news_path = Path('data/news.json')
+            news_path.write_text(json.dumps(news_report, indent=2), encoding='utf-8')
+        else:
+            logger.warning("News report could not be generated")
 
         # run team stats generation
         logger.info("=> Generating team_stats.json")
@@ -3110,6 +3339,8 @@ def main():
                 'data/team_stats.json',
                 'data/team_starters.json',
                 'data/injuries.json',
+                'data/depthcharts.json',
+                'data/news.json',
                 'data/schedule.json',
                 'data/teams.json',
                 'data/game_analyses.json',

@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-17T09:41:56.888692",
+  "generated_at": "2025-10-17T10:03:21.882758",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -419,7 +419,7 @@
       "team_name": "Atlanta Falcons",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-17T08:02Z",
+      "last_updated": "2025-10-17T15:26Z",
       "injuries": [
         {
           "athlete_id": "4431194",
@@ -818,7 +818,7 @@
           },
           "short_comment": "ir",
           "long_comment": "ir",
-          "last_updated": "2025-10-17T08:02Z",
+          "last_updated": "2025-10-17T15:26Z",
           "source": "basic/manual"
         }
       ]
@@ -2739,7 +2739,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Chase secured 16 of 23 targets for 161 yards and a touchdown in the Bengals' 33-31 win over the Steelers on Thursday night.",
-          "long_comment": "Chase's eye-popping reception and target totals were career-high figures, as the All-Pro receiver put together a night for the ages in only his second game working with Joe Flacco. The 2021 first-round pick also struck for his fifth touchdown catch of the season on an eight-yard grab with under five minutes remaining in the second half. Chase's otherworldly numbers aren't completely surprising considering the multiple memorable performances he's already put together in his career, but Thursday's effort was clearly on another level. Given his undeniable chemistry with Flacco, Chase will remain an elite option in all formats during a Week 8 home matchup against the Jets on Sunday, Oct. 26.",
+          "long_comment": "Chase's eye-popping reception and target totals were career-high figures, as the All-Pro receiver put together a night for the ages in only his second game working with Joe Flacco. The 2021 first-round pick also struck for his fifth touchdown catch of the season on an eight-yard grab with under five minutes remaining in the first half. Chase's otherworldly numbers aren't completely surprising considering the multiple memorable performances he's already put together in his career, but Thursday's effort was clearly on another level. Given his undeniable chemistry with Flacco, Chase will remain an elite option in all formats during a Week 8 home matchup against the Jets on Sunday, Oct. 26.",
           "last_updated": "2025-10-17T03:47Z",
           "source": "basic/manual"
         },
@@ -6979,8 +6979,40 @@
       "team_name": "Los Angeles Rams",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-16T23:55Z",
+      "last_updated": "2025-10-17T15:41Z",
       "injuries": [
+        {
+          "athlete_id": "4426515",
+          "name": "Puka Nacua",
+          "position": "WR",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "Coach Sean McVay said Friday that Nacua (ankle) will be out for Sunday's game against the Jaguars in London, Stu Jackson of the Rams' official site reports.",
+          "long_comment": "With Nacua unavailable this weekend, Jordan Whittington, Tutu Atwell, Xavier Smith and Konata Mumpfield are candidates to see added opportunities alongside fellow WR Davante Adams. Nacua will thus target a potential return to action Nov. 2 versus the Saints, following the Rams' Week 8 bye.",
+          "last_updated": "2025-10-17T15:30Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "2515613",
+          "name": "Rob Havenstein",
+          "position": "OT",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "Havenstein (ankle) won't play Sunday against the Jaguars, Stu Jackson of the Rams' official site reports.",
+          "long_comment": "Havenstein will miss a third consecutive game Sunday in London. Warren McClendon will likely continue to fill in at right tackle. Havenstein's next chance to take the field will be Nov. 2 against the Saints following the Rams' Week 8 bye.",
+          "last_updated": "2025-10-17T15:41Z",
+          "source": "basic/manual"
+        },
         {
           "athlete_id": "4429096",
           "name": "Blake Corum",
@@ -7011,38 +7043,6 @@
           "short_comment": "Parkinson (concussion) was a full participant in practice for the second day in a row Thursday, Adam Caplan of SiriusXM NFL Radio reports.",
           "long_comment": "The tight end missed last Sunday's win over the Ravens after suffering the head injury in Week 5 against the 49ers. Parkinson appears on track to play this Sunday versus the Jaguars. He has four catches for 11 yards in four games this season.",
           "last_updated": "2025-10-16T23:49Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4426515",
-          "name": "Puka Nacua",
-          "position": "WR",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Nacua (ankle) was a non-participant at practice Thursday, Adam Caplan of SiriusXM NFL Radio reports.",
-          "long_comment": "Nacua is tending to a left ankle sprain following this past Sunday's win at Baltimore that has left him \"day-to-day,\" as coach Sean McVay called the wide receiver Monday, per Tyler Dragon of USA Today. Since then, Nacua has missed the first two practices of Week 7 prep as the Rams prepare to travel to London for Sunday's matchup with the Jaguars. The team could err on the side of caution with Nacua with a Week 8 bye on tap, but ultimately Friday's injury report will reveal his chances to suit up this weekend.",
-          "last_updated": "2025-10-16T20:44Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "2515613",
-          "name": "Rob Havenstein",
-          "position": "OT",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "questionable",
-          "long_comment": "questionable",
-          "last_updated": "2025-10-14T11:39Z",
           "source": "basic/manual"
         },
         {
@@ -9439,7 +9439,7 @@
       "team_name": "New York Giants",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-17T08:01Z",
+      "last_updated": "2025-10-17T15:25Z",
       "injuries": [
         {
           "athlete_id": "4361748",
@@ -9454,7 +9454,7 @@
           },
           "short_comment": "out",
           "long_comment": "out",
-          "last_updated": "2025-10-17T08:01Z",
+          "last_updated": "2025-10-17T15:25Z",
           "source": "basic/manual"
         },
         {
@@ -9582,7 +9582,7 @@
           },
           "short_comment": "questionable",
           "long_comment": "questionable",
-          "last_updated": "2025-10-17T08:01Z",
+          "last_updated": "2025-10-17T15:25Z",
           "source": "basic/manual"
         },
         {
@@ -9849,7 +9849,7 @@
       "team_name": "New York Jets",
       "conference": "AFC",
       "division": "AFC East",
-      "last_updated": "2025-10-16T20:21Z",
+      "last_updated": "2025-10-17T15:34Z",
       "injuries": [
         {
           "athlete_id": "4569618",
@@ -9862,9 +9862,9 @@
             "description": "doubtful",
             "name": "INJURY_STATUS_DOUBTFUL"
           },
-          "short_comment": "Wilson (knee) wasn't spotted at Thursday's practice, Rich Cimini of ESPN.com reports.",
-          "long_comment": "Wilson also logged a DNP on Wednesday, and though coach Aaron Glenn hasn't ruled out the wideout for Sunday's game against the Panthers, Adam Schefter of ESPN previously reported that Wilson is expected to miss a couple of weeks after hyperextending his knee Week 6. While Wilson is trending in the wrong direction ahead of the weekend, fellow WR Josh Reynolds (hip) participated in practice Thursday after missing Wednesday's session.",
-          "last_updated": "2025-10-16T16:52Z",
+          "short_comment": "Wilson (knee) will be listed as doubtful for Sunday's game against the Panthers, Jets coach Aaron Glenn revealed Friday, Rich Cimini of ESPN.com reports.",
+          "long_comment": "Wilson's doubtful designation isn't surprising given previous reports that he was likely to miss a couple weeks due to the knee injury he sustained in the Week 6 loss to Denver. The star wide receiver didn't practice during the Jets' preparation for Sunday's game against the Panthers. Josh Reynolds (hip) will likely work as the Jets' top wide receiver, while Mason Taylor could see additional targets against a Panthers defense that has allowed the most yards in the NFL to tight ends through six weeks.",
+          "last_updated": "2025-10-17T15:29Z",
           "source": "basic/manual"
         },
         {
@@ -9894,9 +9894,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Reynolds (hip) upgraded to limited practice participation Thursday, Rich Cimini of ESPN.com reports.",
-          "long_comment": "Reynolds didn't practice Wednesday, but his return to practice Thursday was a welcome sight for a Jets team that's expected to be without Garrett Wilson (knee) against the Panthers on Sunday. Reynolds is less than fully healthy himself but could work as the top option in the Jets' underwhelming receiving corps if he gains clearance to suit up Sunday.",
-          "last_updated": "2025-10-16T20:21Z",
+          "short_comment": "Reynolds (hip) is expected to practice without limitations Friday, per head coach Aaron Glenn, Zack Rosenblatt of The Athletic reports.",
+          "long_comment": "If Reynolds is a full participant in practice Friday, he may avoid an injury designation for Sunday's game against the Panthers. That would be a welcome sight for a Jets passing game that's expected to be without top wide receiver Garrett Wilson (knee). Other candidates for additional opportunities at wide receiver include Arian Smith, Allen Lazard and Tyler Johnson.",
+          "last_updated": "2025-10-17T15:34Z",
           "source": "basic/manual"
         },
         {
@@ -10669,7 +10669,7 @@
       "team_name": "Pittsburgh Steelers",
       "conference": "AFC",
       "division": "AFC North",
-      "last_updated": "2025-10-17T05:08Z",
+      "last_updated": "2025-10-17T15:14Z",
       "injuries": [
         {
           "athlete_id": "2978278",
@@ -10747,24 +10747,8 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Rodgers completed 23 of 34 passes for 249 yards with four touchdowns and two interceptions and rushed once for six yards in the Steelers' 33-31 loss to the Bengals on Thursday night.",
-          "long_comment": "Rodgers was outshined by fellow graybeard signal-caller Joe Flacco, but the former still tied a season high in touchdown passes. Rodgers connected with Pat Freiermuth for half his scoring tosses -- from 19 and 68 yards out -- and his other two TD strikes went to Freiermuth's position mates Jonnu Smith (10 yards) and Darnell Washington (two yards). Rodgers made several impressive throws throughout the night, including the second touchdown to Freiermuth and his game-ending Hail Mary attempt, corroborating he still has plenty of arm and continues to demonstrate his mostly difficult 2024 season with the Jets may have just been a hiccup. Rodgers and his teammates will next turn their attention to a Week 8 home showdown against his old Packers squad on Sunday night, Oct. 26.",
+          "long_comment": "Rodgers was outshined by fellow veteran signal-caller Joe Flacco, but the former still tied a season high in touchdown passes. Rodgers connected with Pat Freiermuth for half his scoring tosses -- from 19 and 68 yards out -- and his other two TD strikes went to Freiermuth's position mates Jonnu Smith (10 yards) and Darnell Washington (two yards). Rodgers made several impressive throws throughout the night, including the second touchdown to Freiermuth and his game-ending Hail Mary attempt, corroborating he still has plenty of arm strength and continues to demonstrate his mostly difficult 2024 season with the Jets may have just been a hiccup. Rodgers and his teammates will next turn their attention to a Week 8 home showdown against the Packers on Sunday night, Oct. 26.",
           "last_updated": "2025-10-17T04:09Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4035656",
-          "name": "Ben Skowronek",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Skowronek wasn't targeted during Sunday's 23-9 win over the Browns.",
-          "long_comment": "Although Calvin Austin (shoulder) was sidelined for Pittsburgh's Week 6 matchup Sunday, Skowronek played most of his snaps on special teams and wasn't involved in the passing game. Skowronek has been targeted just once over the Steelers' last four games, and he has minimal fantasy value, even if Austin is forced to miss more time.",
-          "last_updated": "2025-10-13T15:06Z",
           "source": "basic/manual"
         },
         {
@@ -10832,6 +10816,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "4430802",
+          "name": "Darnell Washington",
+          "position": "TE",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Washington secured three of five targets for two yards and a touchdown during Thursday's 33-31 loss to Cincinnati.",
+          "long_comment": "Washington was targeted five times for a second consecutive game, and while he didn't generate much yardage Thursday after accumulating 62 yards last week, he recorded his first touchdown of the season. Washington led the Steelers' tight ends in playing time in each of the last two games, but he played 63 percent of the team's offensive snaps Thursday, which ranked slightly behind Jonnu Smith (70 percent) and Pat Freiermuth (65 percent). Both Smith and Freiermuth were more productive in the passing game as well, and the three tight ends will likely continue to see some sort of timeshare as the season progresses.",
+          "last_updated": "2025-10-17T15:07Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "3929846",
           "name": "DeShon Elliott",
           "position": "S",
@@ -10890,9 +10890,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Smith secured three of four targets for 18 yards while rushing once for 10 yards during Sunday's 23-9 win over Cleveland.",
-          "long_comment": "Smith was on the field for just 25 percent of the Steelers' offensive snaps in Week 4, but he saw a much larger workload following the team's Week 5 bye. He played 69 percent of the team's offensive snaps against Cleveland, which still lagged behind Darnell Washington's 80 percent, but it signaled that Smith appears to have moved past the hip injury that plagued him before the bye. Over Smith's first five appearances of the season, he's secured 17 of 20 targets for 89 yards and a touchdown.",
-          "last_updated": "2025-10-13T15:18Z",
+          "short_comment": "Smith secured three of six targets for 28 yards and a touchdown during Thursday's 33-31 loss to the Bengals.",
+          "long_comment": "Although Smith's fantasy production remained somewhat limited Thursday, he tied for the team lead with six targets, which matched his season-best mark, while also racking up a season-high 28 receiving yards in the loss. Over the first six games of the 2025 campaign, Smith has secured 20 of 26 targets for 117 yards and two touchdowns while rushing once for 10 yards, putting him well behind the pace he set with the Dolphins last year, when he secured 88 of 111 targets for 884 yards and eight scores. Smith has split work with Pat Freiermuth and Darnell Washington early in the season, and the three tight ends will be difficult to rely on in fantasy as long as that trend continues.",
+          "last_updated": "2025-10-17T15:14Z",
           "source": "basic/manual"
         },
         {
@@ -10906,9 +10906,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Johnson rushed six times for 15 yards during Sunday's 23-9 win over the Browns.",
-          "long_comment": "Johnson saw six carries during the Steelers' Week 4 win over the Vikings, and he saw a similar workload following Pittsburgh's Week 5 bye. Jaylen Warren continues to serve as the team's clear lead back, but Johnson has seen slightly more opportunities over the past two games. The 22-year-old's 11 offensive snaps still lagged behind Warren (31) and Kenneth Gainwell (20), and Johnson's fantasy value will likely remain limited as long as those two remain healthy.",
-          "last_updated": "2025-10-13T14:33Z",
+          "short_comment": "Johnson was active but wasn't on the field for any snaps during Thursday's 33-31 loss to the Bengals.",
+          "long_comment": "Johnson recorded six carries in each of the Steelers' last two games, but he was held off the field Thursday night despite being active. Jaylen Warren was dominant in Thursday's loss, racking up 158 yards from scrimmage, while Kenneth Gainwell was on the field for 39 percent of Pittsburgh's offensive snaps, so work will likely continue to be hard to come by for Johnson as long as the team's top two running backs are healthy.",
+          "last_updated": "2025-10-17T14:49Z",
           "source": "basic/manual"
         },
         {
@@ -11002,9 +11002,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Wilson secured his lone target for 12 yards during Sunday's 23-9 win over the Browns.",
-          "long_comment": "Wilson was on the field for 15 offensive snaps Sunday, which was his highest mark since the Steelers' Week 2 loss to Seattle. Part of his uptick in playing time was likely due to Calvin Austin (shoulder) being sidelined. Although Wilson had a catch while racking up double-digit receiving yards for the first time this season, he has minimal fantasy value, even if Austin misses more time.",
-          "last_updated": "2025-10-13T15:11Z",
+          "short_comment": "Wilson secured both of his targets for 17 yards during Thursday's 33-31 loss to the Bengals.",
+          "long_comment": "Although Calvin Austin (shoulder) remained sidelined for a second consecutive game Thursday, Wilson didn't generate much production in the loss. Over the two games that Austin has missed, Wilson has secured all three of his targets for 29 yards, marking his most productive stretch of the season, but that hasn't been enough to garner much fantasy appeal.",
+          "last_updated": "2025-10-17T15:02Z",
           "source": "basic/manual"
         },
         {
@@ -11018,9 +11018,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Miller didn't draw a target while playing 26 of the Steelers' 59 snaps on offense in Sunday's 23-9 win over the Browns.",
-          "long_comment": "Miller has been active for all five of Pittsburgh's games to date but has yet to record a reception and has drawn just one target. The 26 snaps he played Week 6 were a season-high total and ranked second among Steelers wideouts, but Miller was unable to capitalize on the increased time on the field. Despite the underwhelming showing in Week 6, Miller could in store for another boosted snap count Thursday against the Bengals with fellow receiver Calvin Austin (shoulder) seemingly trending toward missing a second straight game.",
-          "last_updated": "2025-10-15T13:58Z",
+          "short_comment": "Miller secured his lone target for nine yards during Thursday's 33-31 loss to Cincinnati.",
+          "long_comment": "Miller was on the field for just eight offensive snaps Thursday after logging double-digit snaps in each of the team's last two games, but he still recorded his first reception of the season in the loss. Even though Calvin Austin (shoulder) remained sidelined for a second consecutive game Thursday, most of the Steelers' passing game flowed through DK Metcalf, Jaylen Warren and the team's three tight ends, leaving minimal work for Miller and the rest of the team's wide receivers.",
+          "last_updated": "2025-10-17T14:58Z",
           "source": "basic/manual"
         },
         {
@@ -12719,7 +12719,7 @@
       "team_name": "Washington Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-16T22:25Z",
+      "last_updated": "2025-10-17T15:42Z",
       "injuries": [
         {
           "athlete_id": "4262199",
@@ -12765,7 +12765,7 @@
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
           "short_comment": "Rodriguez (calf) was a non-participant at Thursday's practice.",
-          "long_comment": "Rodriguez hasn't logged any on-field work for five consecutive potential practices due to a lingering calf injury, but he still suited up this past Monday against the Bears and managed one offensive snap and three on special teams. With Jacory Croskey-Merritt leading the way and Jeremy McNichols filling in behind him, Rodriguez isn't a big part of the Commanders backfield at the moment, and it remains to be seen if he'll take on more work once he's back to full health.",
+          "long_comment": "Rodriguez has logged 'DNPs' for five consecutive practices due to a lingering calf injury, but he still suited up this past Monday against the Bears and managed one offensive snap and three on special teams. With Jacory Croskey-Merritt leading the way and Jeremy McNichols filling in behind him, Rodriguez isn't a big part of the Commanders backfield at the moment, and it remains to be seen if he'll take on more work once he's back to full health.",
           "last_updated": "2025-10-16T20:27Z",
           "source": "basic/manual"
         },
@@ -12780,9 +12780,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Samuel (heel) did not practice  Thursday.",
-          "long_comment": "Samuel managed to play through his heel injury in Washington's last two games, but his status now looks legitimately up in the air for Week 7 after back-to-back missed practices. It's possible the Commanders are simply taking a cautious approach to Samuel's activity level, but he may have to return as at least a limited participant Friday in order to have a realistic shot at suiting up for Sunday's road matchup against the Cowboys. Meanwhile, Terry McLaurin (quadriceps) was listed as limited in Wednesday's practice but downgraded to being deemed a non-participant Thursday.",
-          "last_updated": "2025-10-16T20:23Z",
+          "short_comment": "Samuel (heel) was on the field for the initial portion of Friday's practice, John Keim of ESPN.com reports.",
+          "long_comment": "Samuel was deemed a non-participant in Wednesday and Thursday's sessions, so his presence at Friday's practice is a positive sign ahead of Sunday's game against the Cowboys, though it remains to be seen how much work he'll get in. In any case, the Commanders' upcoming injury report will reveal the wideout's official participation level, as well as his Week 7 game status.",
+          "last_updated": "2025-10-17T15:18Z",
           "source": "basic/manual"
         },
         {
@@ -12812,9 +12812,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "McLaurin (quadriceps) didn't practice Thursday.",
-          "long_comment": "McLaurin was listed as something other than a non-participant for the first time since injuring his quad Week 3 by being limited at Wednesday's walkthrough. His downgrade to no activity one day later may be related to maintenance, but he now has just one more session this week to prove his health. Ultimately, Friday's practice report will reveal whether or not McLaurin has a chance to return to action Sunday at Dallas.",
-          "last_updated": "2025-10-16T20:09Z",
+          "short_comment": "McLaurin (quadriceps) was spotted at Friday's practice, Nicki Jhabvala of The Washington Post reports.",
+          "long_comment": "Per Jhabvala, McLaurin went to the side field while the rest of the team started individual drills, so it remains to be seen how the Commanders list the wideout's official participation level. After being deemed limited on Wednesday's practice report, McLaurin logged a 'DNP' on Thursday, so his his presence for Friday's session offers hope that he could return to action Sunday against the Cowboys. Meanwhile, fellow WR Deebo Samuel (heel) was also on the field Friday, on the heels of consecutive 'DNPs.'",
+          "last_updated": "2025-10-17T15:42Z",
           "source": "basic/manual"
         },
         {
