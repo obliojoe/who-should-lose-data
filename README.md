@@ -98,6 +98,9 @@ Raw API responses and league datasets can be captured ahead of a run for reprodu
 # Gather the latest scoreboard, ESPN game data, and nflreadpy tables
 python collect_raw_data.py --season 2025 --week 5
 
+# Only pull nflreadpy datasets if you don't need the ESPN endpoints
+python collect_raw_data.py --season 2025 --week 5 --datasets nflreadpy
+
 # Use the captured manifest (auto-detected as data/raw/manifest/latest.json)
 python generate_cache.py --raw-manifest data/raw/manifest/latest.json --simulations 1000
 ```
