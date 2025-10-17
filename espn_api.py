@@ -195,6 +195,35 @@ class ESPNAPIService:
         if weather:
             context['weather'] = weather
 
+        event = self._find_scoreboard_event(event_id)
+        if event:
+            competition = (event.get('competitions') or [None])[0] or {}
+            if competition.get('notes'):
+                context['notes'] = [note.get('headline') or note.get('text') for note in competition.get('notes', [])]
+            if competition.get('attendance') is not None:
+                context['attendance'] = competition.get('attendance')
+            context['neutral_site'] = competition.get('neutralSite', False)
+            broadcasts = competition.get('broadcasts', []) or []
+            if broadcasts:
+                context['broadcasts'] = [
+                    ', '.join(b.get('names') or []) or b.get('shortName') or b.get('type', {}).get('shortName')
+                    for b in broadcasts
+                ]
+            venue = competition.get('venue') or {}
+            if venue.get('fullName'):
+                context['venue'] = venue.get('fullName')
+            if venue.get('address') and venue['address'].get('city'):
+                context['venue_city'] = venue['address'].get('city')
+            if competition.get('weather'):
+                scoreboard_weather = competition['weather']
+                context.setdefault('weather', {})
+                context['weather'].update({
+                    'temperature': scoreboard_weather.get('temperature', context['weather'].get('temperature') if context.get('weather') else None),
+                    'condition': scoreboard_weather.get('displayValue') or scoreboard_weather.get('condition'),
+                    'wind_speed': (scoreboard_weather.get('wind') or {}).get('speed'),
+                    'detail': scoreboard_weather.get('text')
+                })
+
         return context
 
     def get_predictor_data(self, event_id: str) -> Optional[Dict]:

@@ -10,6 +10,18 @@ New 4-section structure focused on fan engagement:
 import json
 from datetime import datetime
 
+
+def _truncate_text(value, max_length=180):
+    """Return a trimmed ASCII-safe string with ellipsis when needed."""
+    if not value:
+        return None
+
+    text = str(value).strip()
+    if len(text) <= max_length:
+        return text
+
+    return text[: max_length - 3].rstrip() + "..."
+
 # Handle imports from both relative and absolute paths
 try:
     from stat_filter import StatFilter
@@ -92,7 +104,11 @@ def build_team_stats_json(team_abbr, stats_row, teams_dict, league_rankings=None
             "city": team_info['city'],
             "mascot": team_info['mascot'],
             "conference": team_info['conference'],
-            "division": team_info['division']
+            "division": team_info['division'],
+            "head_coach": team_info.get('head_coach', ''),
+            "offensive_coordinator": team_info.get('offensive_coordinator', ''),
+            "defensive_coordinator": team_info.get('defensive_coordinator', ''),
+            "stadium": team_info.get('stadium', '')
         },
         "record": {
             "wins": int(stats_row['wins']),
@@ -216,25 +232,83 @@ def build_injuries_json(team_injuries, opponent_injuries):
                 if injury_type:
                     status_text = f"{status_text} ({injury_type})"
 
+                if not status_text or status_text.lower().startswith('active'):
+                    continue
+
+                entry = {
+                    "name": name,
+                    "position": pos,
+                    "status": status_text
+                }
+
+                long_comment = _truncate_text(injury.get('long_comment'), max_length=220)
+                short_comment = _truncate_text(injury.get('short_comment'), max_length=160)
+                if long_comment:
+                    entry['note'] = long_comment
+                elif short_comment:
+                    entry['note'] = short_comment
+
+                if injury.get('last_updated'):
+                    entry['updated'] = injury['last_updated']
+
+                formatted.append(entry)
+            else:
+                # Handle legacy tuple format (name, pos, status)
+                name, pos, status = injury
+                status_text = status_map.get(status, status)
+                if not status_text or status_text.lower().startswith('active'):
+                    continue
                 formatted.append({
                     "name": name,
                     "position": pos,
                     "status": status_text
                 })
-            else:
-                # Handle legacy tuple format (name, pos, status)
-                name, pos, status = injury
-                formatted.append({
-                    "name": name,
-                    "position": pos,
-                    "status": status_map.get(status, status)
-                })
+
+            if len(formatted) >= 6:
+                break
 
         return formatted
 
     return {
         "team": format_injuries(team_injuries),
         "opponent": format_injuries(opponent_injuries)
+    }
+
+
+def build_depth_chart_json(team_alerts, opponent_alerts):
+    """Structure depth chart alerts for teams and opponents."""
+
+    def _format(alerts):
+        if not alerts:
+            return []
+        trimmed = []
+        for item in alerts:
+            trimmed.append({
+                'position': item.get('position'),
+                'player': item.get('player'),
+                'status': item.get('status')
+            })
+            if len(trimmed) >= 2:
+                break
+        return trimmed
+
+    return {
+        "team": _format(team_alerts),
+        "opponent": _format(opponent_alerts)
+    }
+
+
+def build_recent_form_json(team_recent, opponent_recent):
+    """Structure recent game results for both teams."""
+
+    def _format(entries):
+        if not entries:
+            return []
+        return entries[:4]
+
+    return {
+        "team": _format(team_recent),
+        "opponent": _format(opponent_recent)
     }
 
 
@@ -314,8 +388,8 @@ def build_schedule_json(team_schedule, team_abbr):
             upcoming_games.append(game_info)
 
     return {
-        "completed": completed_games,
-        "upcoming": upcoming_games
+        "completed": completed_games[-5:],
+        "upcoming": upcoming_games[:5]
     }
 
 
@@ -438,7 +512,11 @@ def build_team_analysis_prompt(
     espn_context=None,
     league_rankings=None,
     chaos_score=0,
-    chaos_details=None
+    chaos_details=None,
+    team_depth_alerts=None,
+    opponent_depth_alerts=None,
+    team_recent_form=None,
+    opponent_recent_form=None
 ):
     """
     Build AI analysis prompt using 5-section structure.
@@ -461,6 +539,8 @@ def build_team_analysis_prompt(
     injuries_json = build_injuries_json(team_injuries, opponent_injuries)
     news_json = build_news_json(team_news, opponent_news)
     schedule_json = build_schedule_json(team_schedule, team_abbr) if team_schedule else {}
+    depth_chart_json = build_depth_chart_json(team_depth_alerts, opponent_depth_alerts)
+    recent_form_json = build_recent_form_json(team_recent_form, opponent_recent_form)
     playoff_odds_json = build_playoff_odds_json(
         playoff_chance, division_chance, top_seed_chance,
         sb_appearance_chance, sb_win_chance
@@ -483,6 +563,8 @@ def build_team_analysis_prompt(
     injuries_str = json.dumps(injuries_json, separators=(',', ':'))
     news_str = json.dumps(news_json, separators=(',', ':'))
     schedule_str = json.dumps(schedule_json, separators=(',', ':'))
+    depth_chart_str = json.dumps(depth_chart_json, separators=(',', ':'))
+    recent_form_str = json.dumps(recent_form_json, separators=(',', ':'))
     playoff_odds_str = json.dumps(playoff_odds_json, separators=(',', ':'))
     standings_str = json.dumps(standings_json, separators=(',', ':'))
     espn_context_str = json.dumps(espn_context_json, separators=(',', ':'))
@@ -688,9 +770,20 @@ When analyzing head-to-head matchups, count carefully:
 {schedule_str}
 
 {'=' * 70}
+DEPTH CHART ALERTS
+{'=' * 70}
+Key lineup notes pulled from the latest depth chart snapshot (focus on non-active starters):
+{depth_chart_str}
+
+{'=' * 70}
 INJURIES
 {'=' * 70}
 {injuries_str}
+
+{'=' * 70}
+RECENT FORM (LAST 5 RESULTS)
+{'=' * 70}
+{recent_form_str}
 
 {'=' * 70}
 RECENT NEWS
