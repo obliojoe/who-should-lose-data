@@ -9,7 +9,7 @@ import sys
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple, Set
 
 import pandas as pd
 import requests
@@ -49,6 +49,39 @@ def write_json(path: Path, payload: Dict) -> None:
     ensure_dir(path.parent)
     with path.open("w", encoding="utf-8") as fh:
         json.dump(payload, fh, indent=2, sort_keys=True)
+
+
+def summarize_manifest_changes(
+    previous: Optional[Dict],
+    current_artifacts: List[Dict]
+) -> Optional[Dict[str, List[Dict]]]:
+    if not previous:
+        return None
+
+    prev_artifacts = previous.get("artifacts", [])
+    if not isinstance(prev_artifacts, list):
+        return None
+
+    prev_map = {art.get("path"): art for art in prev_artifacts if art.get("path")}
+    curr_map = {art.get("path"): art for art in current_artifacts if art.get("path")}
+
+    prev_paths: Set[str] = set(prev_map.keys())
+    curr_paths: Set[str] = set(curr_map.keys())
+
+    added_paths = curr_paths - prev_paths
+    removed_paths = prev_paths - curr_paths
+    common_paths = curr_paths & prev_paths
+
+    changed_paths = {
+        path for path in common_paths
+        if curr_map[path].get("sha256") != prev_map[path].get("sha256")
+    }
+
+    return {
+        "added": [curr_map[path] for path in sorted(added_paths)],
+        "removed": [prev_map[path] for path in sorted(removed_paths)],
+        "changed": [curr_map[path] for path in sorted(changed_paths)],
+    }
 
 
 def write_dataframe(path: Path, frame: pd.DataFrame) -> None:
@@ -579,6 +612,21 @@ def collect_single_week(
 
     artifacts: List[Dict] = []
 
+    manifest_dir = output_dir / "manifest"
+    previous_manifest = None
+    latest_path = manifest_dir / "latest.json"
+    if latest_path.exists():
+        try:
+            with latest_path.open('r', encoding='utf-8') as fh:
+                latest_manifest = json.load(fh)
+            if (
+                latest_manifest.get('season') == season and
+                latest_manifest.get('week') == week
+            ):
+                previous_manifest = latest_manifest
+        except Exception as exc:  # pragma: no cover - defensive
+            LOGGER.debug("Unable to load previous manifest for diff: %s", exc)
+
     scoreboard_path = collect_scoreboard(scoreboard, output_dir, season, week)
     artifacts.append(
         {
@@ -670,6 +718,46 @@ def collect_single_week(
                 "metadata": {},
             }
         )
+
+    if previous_manifest:
+        summary = summarize_manifest_changes(previous_manifest, artifacts)
+        if summary is not None:
+            added = summary['added']
+            removed = summary['removed']
+            changed = summary['changed']
+            if not added and not removed and not changed:
+                LOGGER.info(
+                    "No raw artifact changes detected for season %s week %s",
+                    season,
+                    week,
+                )
+            else:
+                LOGGER.info(
+                    "Raw artifact diff vs previous run: %d added, %d updated, %d removed",
+                    len(added),
+                    len(changed),
+                    len(removed),
+                )
+
+                def _log_sample(entries: List[Dict], prefix: str) -> None:
+                    for entry in entries[:5]:
+                        dataset = entry.get('dataset')
+                        meta = entry.get('metadata', {})
+                        marker = (
+                            meta.get('event_id')
+                            or meta.get('team_abbr')
+                            or meta.get('section')
+                            or meta.get('records')
+                        )
+                        label = f" ({marker})" if marker is not None else ""
+                        LOGGER.info("  %s %s%s", prefix, dataset, label)
+
+                if added:
+                    _log_sample(added, "+")
+                if changed:
+                    _log_sample(changed, "~")
+                if removed:
+                    _log_sample(removed, "-")
 
     manifest_path = build_manifest(output_dir, season, week, timestamp, artifacts)
     elapsed = datetime.utcnow() - start_time
