@@ -1,0 +1,65 @@
+{
+  "season": 2025,
+  "week": 7,
+  "generated_at": "2025-10-17T11:29:58.323439",
+  "players": [
+    {
+      "player_id": "00-0026158",
+      "player_name": "Joe Flacco",
+      "team_abbr": "CIN",
+      "position": "QB",
+      "number": 16,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.44431914893617,
+          "avg_completed_air_yards": 5.364838709677418,
+          "avg_intended_air_yards": 6.914444444444444,
+          "avg_air_yards_differential": -1.5496057347670256,
+          "aggressiveness": 10.638297872340424,
+          "max_completed_air_distance": 35.6954731023417,
+          "avg_air_yards_to_sticks": -1.9966666666666664,
+          "attempts": 47,
+          "pass_yards": 342,
+          "pass_touchdowns": 3,
+          "interceptions": 0,
+          "passer_rating": 108.64361702127658,
+          "completions": 31,
+          "completion_percentage": 65.95744680851064,
+          "expected_completion_percentage": 67.85404255319149,
+          "completion_percentage_above_expectation": -1.896595744680852,
+          "avg_air_distance": 20.043856391526347,
+          "max_air_distance": 36.30290621975052
+        }
+      }
+    },
+    {
+      "player_id": "00-0023459",
+      "player_name": "Aaron Rodgers",
+      "team_abbr": "PIT",
+      "position": "QB",
+      "number": 8,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.9055,
+          "avg_completed_air_yards": 4.387391304347827,
+          "avg_intended_air_yards": 8.675882352941175,
+          "avg_air_yards_differential": -4.288491048593348,
+          "aggressiveness": 2.941176470588235,
+          "max_completed_air_distance": 47.531603170943015,
+          "avg_air_yards_to_sticks": -0.1476470588235286,
+          "attempts": 34,
+          "pass_yards": 249,
+          "pass_touchdowns": 4,
+          "interceptions": 2,
+          "passer_rating": 103.6764705882353,
+          "completions": 23,
+          "completion_percentage": 67.64705882352942,
+          "expected_completion_percentage": 70.1191176470588,
+          "completion_percentage_above_expectation": -2.4720588235293803,
+          "avg_air_distance": 21.75316856959338,
+          "max_air_distance": 69.76013546431801
+        }
+      }
+    }
+  ]
+}

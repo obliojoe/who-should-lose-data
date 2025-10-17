@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-17T10:34:04.445026",
+  "generated_at": "2025-10-17T11:29:58.207305",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -9,8 +9,24 @@
       "team_name": "Arizona Cardinals",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-17T00:12Z",
+      "last_updated": "2025-10-17T16:23Z",
       "injuries": [
+        {
+          "athlete_id": "4362478",
+          "name": "Emari Demercado",
+          "position": "RB",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "Demercado (ankle) has been ruled out for Sunday's game against Green Bay, Josh Weinfuss of ESPN.com reports.",
+          "long_comment": "Demercado hasn't practiced since missing the second half of Sunday's loss to the Colts. Michael Carter took on more passing-down work in Demercado's absence, while Bam Knight got more playing time and carries. Carter and Knight figure to split work this Sunday, with D'Ernest Johnson or Jermar Jefferson potentially promoted from the practice squad for depth.",
+          "last_updated": "2025-10-17T16:15Z",
+          "source": "basic/manual"
+        },
         {
           "athlete_id": "4685503",
           "name": "Walter Nolen III",
@@ -22,9 +38,9 @@
             "description": "out",
             "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "Nolen (calf) was a limited participant at practice Thursday.",
-          "long_comment": "Nolen made his official return to practice for the first time since suffering a calf injury in late July. The defensive tackle has been on the reserve/PUP list for the entirety of his rookie campaign to this point, and he'll have one more chance to log a full practice before the team hosts Green Bay on Sunday.",
-          "last_updated": "2025-10-17T00:00Z",
+          "short_comment": "Head coach Jonathan Gannon said Friday that Nolen (calf) won't be activated for Sunday's game against the Packers, Bo Brack of PHNX Sports reports.",
+          "long_comment": "Nolen practiced Wednesday, opening his three-week window to come off the PUP list, but he won't be activated for Sunday's game against the Packers. The rookie first-round pick's next chance to make his NFL debut will come Nov. 3 in Dallas following the Cardinals' Week 8 bye.",
+          "last_updated": "2025-10-17T16:23Z",
           "source": "basic/manual"
         },
         {
@@ -57,22 +73,6 @@
           "short_comment": "questionable",
           "long_comment": "questionable",
           "last_updated": "2025-10-15T22:54Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4362478",
-          "name": "Emari Demercado",
-          "position": "RB",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Demercado (ankle) did not practice Thursday.",
-          "long_comment": "Demercado has now missed back-to-back practices due to a left ankle injury sustained during Arizona's loss to the Colts in Week 6. Unless he's able to return to practice in at least a limited capacity Friday, Demercado appears on track to miss Sunday's game against the Packers. That would position Michael Carter and Bam Knight to again split backfield opportunities with James Conner (knee) out for the year and Trey Benson (knee) on IR until at least Week 10.",
-          "last_updated": "2025-10-16T21:55Z",
           "source": "basic/manual"
         },
         {
@@ -118,9 +118,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Harrison (concussion) practiced in a limited fashion Thursday.",
-          "long_comment": "Harrison emerged from this past Sunday's defeat at Indianapolis with a concussion, and he so far has managed back-to-back capped sessions to begin Week 7 prep. He even was spotted hauling in passes from QB Jacoby Brissett while donning a yellow non-contact jersey Thursday, per Theo Mackie of The Arizona Republic. An independent neurologist will need to clear Harrison in order for the second-year pro to suit up Sunday against the Packers, but he at least appears to be making progress through the protocol for head injuries.",
-          "last_updated": "2025-10-16T21:17Z",
+          "short_comment": "Harrison (concussion) remains in concussion protocol Friday, Darren Urban of the Cardinals' official site reports.",
+          "long_comment": "The Cardinals listed Harrison as a limited participant Wednesday and Thursday, following his early exit from the Week 6 loss at Indianapolis. A full practice Friday would have fantasy managers feeling better, although Harrison will still need final clearance from a neurologist even if everything goes well on the practice field.",
+          "last_updated": "2025-10-17T16:19Z",
           "source": "basic/manual"
         },
         {
@@ -419,7 +419,7 @@
       "team_name": "Atlanta Falcons",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-17T15:26Z",
+      "last_updated": "2025-10-17T16:30Z",
       "injuries": [
         {
           "athlete_id": "4431194",
@@ -818,7 +818,7 @@
           },
           "short_comment": "ir",
           "long_comment": "ir",
-          "last_updated": "2025-10-17T15:26Z",
+          "last_updated": "2025-10-17T16:30Z",
           "source": "basic/manual"
         }
       ]
@@ -2059,7 +2059,7 @@
       "team_name": "Chicago Bears",
       "conference": "NFC",
       "division": "NFC North",
-      "last_updated": "2025-10-16T23:21Z",
+      "last_updated": "2025-10-17T16:38Z",
       "injuries": [
         {
           "athlete_id": "17427",
@@ -2088,9 +2088,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Swift was limited at Thursday's practice due to a groin injury.",
-          "long_comment": "Swift broke out with 175 yards from scrimmage and a receiving TD on 16 touches during Monday's 25-24 win at Washington. He wasn't listed on Wednesday's estimated injury report, but a groin issue has emerged since then for the Bears' No. 1 running back. Swift thus may need to practice in full Friday in order to avoid entering the weekend with a designation for Sunday's game against the Saints.",
-          "last_updated": "2025-10-16T20:14Z",
+          "short_comment": "Bears coach Ben Johnson said Friday morning that Swift's groin injury isn't something new from practice, Courtney Cronin of ESPN.com reports.",
+          "long_comment": "It sounds like Swift's addition to the injury report Thursday (as a limited participant) was a matter of maintenance rather than anything that might impact his Week 7 availability, but it's still worth keeping an eye on the situation unless he avoids a designation on the final injury report Friday afternoon.",
+          "last_updated": "2025-10-17T16:38Z",
           "source": "basic/manual"
         },
         {
@@ -3289,7 +3289,7 @@
       "team_name": "Dallas Cowboys",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-16T23:50Z",
+      "last_updated": "2025-10-17T16:29Z",
       "injuries": [
         {
           "athlete_id": "4362088",
@@ -3305,6 +3305,22 @@
           "short_comment": "Cowboys owner and general manager Jerry Jones said Wednesday that Overshown (knee) could return Week 11 versus the Raiders, after Dallas' bye, Todd Archer of ESPN reports.",
           "long_comment": "Overshown remains on the reserve/PUP list while working his way back from a torn ACL, MCL and PCL in his right knee suffered last December. Early in the regular season, Overshown said that he anticipated returning to action before Thanksgiving, a timetable that seems to still be realistic. Once cleared to retake the field, Overshown's presence will provide a notable boost for the Cowboys' defense, which has struggled significantly to open the 2025 campaign.",
           "last_updated": "2025-10-15T17:46Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4040966",
+          "name": "Trevon Diggs",
+          "position": "CB",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "out",
+          "long_comment": "out",
+          "last_updated": "2025-10-17T16:29Z",
           "source": "basic/manual"
         },
         {
@@ -3641,22 +3657,6 @@
           "short_comment": "James totaled 11 tackles (six solo) in Dallas' loss to the Panthers on Sunday.",
           "long_comment": "James had a strong outing despite the loss, as he led the team in tackles. The rookie fifth-round pick has gotten off to a hot start since making his debut in the Week 4 tie versus the Packers, as he's recorded 31 tackles (15 solo) in just three games played.",
           "last_updated": "2025-10-15T00:50Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4040966",
-          "name": "Trevon Diggs",
-          "position": "CB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Diggs (knee) is active for Sunday's contest against Carolina, Todd Archer of ESPN.com reports.",
-          "long_comment": "Diggs dealt with a knee injury throughout the week and was deemed questionable on Friday's final injury report. He's ultimately going to be able to play and will be joined as a starting cornerback by DaRon Bland, who is also active despite managing a shoulder issue.",
-          "last_updated": "2025-10-12T15:54Z",
           "source": "basic/manual"
         },
         {
@@ -5339,7 +5339,7 @@
       "team_name": "Indianapolis Colts",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-16T17:21Z",
+      "last_updated": "2025-10-17T16:19Z",
       "injuries": [
         {
           "athlete_id": "4061956",
@@ -5352,9 +5352,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Dulin (chest) remained a non-participant in practice Thursday, James Boyd of The Athletic reports.",
-          "long_comment": "Fellow wide receiver Josh Downs (concussion) remained sidelined Thursday as well. If neither Downs nor Dulin suit up Sunday against the Chargers, Adonai Mitchell or Anthony Gould would slide into three-receiver sets alongside Michael Pittman and Alec Pierce. Dulin could take on a larger role if he recovers in time to play Sunday and Downs doesn't.",
-          "last_updated": "2025-10-16T17:19Z",
+          "short_comment": "Dulin (chest) will remain a non-participant in practice Friday, James Boyd of The Athletic reports.",
+          "long_comment": "Dulin has not practiced at all this week, suggesting he will likely be ruled out for Sunday's game against the Chargers. The same is true for Josh Downs (concussion), so Adonai Mitchell has a nice opportunity to take on an increased role alongside Michael Pittman and Dameon Pierce if Mitchell can get back in the coaching staff's good graces. Anthony Gould rounds out the wide receiver depth chart.",
+          "last_updated": "2025-10-17T16:19Z",
           "source": "basic/manual"
         },
         {
@@ -5384,9 +5384,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Downs (concussion) remained sidelined at practice Thursday, James Boyd of The Athletic reports.",
-          "long_comment": "Downs didn't practice Wednesday, either, so what, if anything, the wideout is able to do Friday will loom large in terms of his Week 7 status. With Ashton Dulin (chest) also having missed back-to-back sessions, Michael Pittman, Alec Pierce, Adonai Mitchell and Anthony Gould currently are the Colts' healthy options at the WR position.",
-          "last_updated": "2025-10-16T17:18Z",
+          "short_comment": "Downs (concussion) isn't practicing Friday, James Boyd of The Athletic reports.",
+          "long_comment": "Downs didn't practice Wednesday or Thursday either, so his apparent non-participation Friday doesn't bode well for his chances of being cleared to play Sunday against the Chargers. The Colts' upcoming injury report will reveal whether Downs has a chance to play this weekend or is ruled out ahead of Week 7 action.",
+          "last_updated": "2025-10-17T16:07Z",
           "source": "basic/manual"
         },
         {
@@ -6979,7 +6979,7 @@
       "team_name": "Los Angeles Rams",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-17T15:41Z",
+      "last_updated": "2025-10-17T16:06Z",
       "injuries": [
         {
           "athlete_id": "4426515",
@@ -7088,9 +7088,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Adams recorded four receptions on nine targets for 39 yards in Sunday's 17-3 win over the Ravens.",
-          "long_comment": "Adams served as the Rams' top pass-catcher for most of the game with Puka Nacua (ankle) briefly sidelined and then playing at less than full strength for most of the game. Adams led the team with nine targets, but he converted that into his lowest yardage total of the season. Touchdowns have masked his underwhelming stat lines through the first seven games of the season, as Adams has now been held under 60 receiving yards in four of six contests.",
-          "last_updated": "2025-10-13T01:14Z",
+          "short_comment": "Adams is set to lead the Rams' receiving corps Sunday against the Jaguars, as coach Sean McVay said Friday that Puka Nacua (ankle) will be out, Stu Jackson of the Rams' official site reports.",
+          "long_comment": "Nacua's 65 targets are the most in the NFL, so there will be significant additional volume from Matthew Stafford to go around in Nacua's absence. Adams has already seen heavy volume in his first season with the Rams, catching 26 of 55 targets for 396 yards and three touchdowns through six games. Jordan Whittington and Tutu Atwell could also step into larger roles Sunday in London.",
+          "last_updated": "2025-10-17T16:02Z",
           "source": "basic/manual"
         },
         {
@@ -7360,9 +7360,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Atwell (hamstring) practiced in full Thursday, Adam Caplan of SiriusXM NFL Radio reports.",
-          "long_comment": "After pulling his hamstring at practice last Thursday, Atwell eventually was inactive for this past Sunday's win at Baltimore. On Monday, coach Sean McVay expressed optimism that Atwell would be able to return to action Week 7, per Sarah Barshop of ESPN.com. Atwell has since followed up Wednesday's limited session with all activity one day later, paving the way for him to suit up Sunday against the Jaguars in London. With Puka Nacua's (ankle) status up in the air, Atwell may take on a larger role in the Rams' passing game this weekend alongside Davante Adams and Jordan Whittington.",
-          "last_updated": "2025-10-16T20:50Z",
+          "short_comment": "Atwell could see additional opportunities Sunday against the Jaguars, as coach Sean McVay said Friday that Puka Nacua (ankle) will be out, Stu Jackson of the Rams' official site reports.",
+          "long_comment": "Atwell has been used sparingly, with Nacua and Davante Adams getting most of the attention from Matthew Stafford. In Nacua's absence, Atwell is set to join Adams and Jordan Whittington in three-receiver sets. Atwell doesn't need many opportunities to make an impact, as the deep threat is averaging 41.0 yards per catch in 2025, albeit on only four receptions.",
+          "last_updated": "2025-10-17T16:06Z",
           "source": "basic/manual"
         },
         {
@@ -9439,7 +9439,7 @@
       "team_name": "New York Giants",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-17T15:25Z",
+      "last_updated": "2025-10-17T16:29Z",
       "injuries": [
         {
           "athlete_id": "4361748",
@@ -9454,7 +9454,7 @@
           },
           "short_comment": "out",
           "long_comment": "out",
-          "last_updated": "2025-10-17T15:25Z",
+          "last_updated": "2025-10-17T16:29Z",
           "source": "basic/manual"
         },
         {
@@ -9582,7 +9582,7 @@
           },
           "short_comment": "questionable",
           "long_comment": "questionable",
-          "last_updated": "2025-10-17T15:25Z",
+          "last_updated": "2025-10-17T16:29Z",
           "source": "basic/manual"
         },
         {
@@ -12719,7 +12719,7 @@
       "team_name": "Washington Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-17T15:42Z",
+      "last_updated": "2025-10-17T16:25Z",
       "injuries": [
         {
           "athlete_id": "4262199",
@@ -12735,6 +12735,22 @@
           "short_comment": "Cosmi (PUP, knee) has been downgraded to out for Monday's game against the Bears.",
           "long_comment": "Cosmi will miss a second straight game since having had his 21-day practice window opened on Oct. 1. Once healthy, Cosmi is expected to reclaim his starting spot at right guard and provide a boost for Washington's offensive line, but for the time being he remains on the reserve/PUP list.",
           "last_updated": "2025-10-13T21:30Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3121422",
+          "name": "Terry McLaurin",
+          "position": "WR",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "McLaurin (quadriceps) is ruled out for Sunday's game at Dallas, Commanders writer Ben Standig reports.",
+          "long_comment": "McLaurin was listed as a limited participant on Wednesday's practice estimate, but he didn't participate Thursday when the Commanders actually held a practice. He then warmed up for practice Friday, before moving to a side field once his teammates started going through drills. Commanders coach Dan Quinn said Friday that McLaurin is getting closer to a return, but it doesn't seem the wideout was all that close to playing this Sunday. Next week could be a different story, with the benefit of an extra rehab day before facing the Chiefs on Monday Night Football (Oct. 27).",
+          "last_updated": "2025-10-17T16:25Z",
           "source": "basic/manual"
         },
         {
@@ -12764,9 +12780,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Rodriguez (calf) was a non-participant at Thursday's practice.",
-          "long_comment": "Rodriguez has logged 'DNPs' for five consecutive practices due to a lingering calf injury, but he still suited up this past Monday against the Bears and managed one offensive snap and three on special teams. With Jacory Croskey-Merritt leading the way and Jeremy McNichols filling in behind him, Rodriguez isn't a big part of the Commanders backfield at the moment, and it remains to be seen if he'll take on more work once he's back to full health.",
-          "last_updated": "2025-10-16T20:27Z",
+          "short_comment": "Rodriguez (calf) is participating in practice Friday, Nicki Jhabvala of The Athletic reports.",
+          "long_comment": "Rodriguez had been a non-participant in Washington's previous five practices, so this is a step in the right direction, though it remains to be seen if he'll be listed as a full participant or limited participant Friday. He was active for Monday's loss to the Bears but logged only one snap, opening up more opportunities for Jeremy McNichols alongside Jacory Croskey-Merritt.",
+          "last_updated": "2025-10-17T15:50Z",
           "source": "basic/manual"
         },
         {
@@ -12799,22 +12815,6 @@
           "short_comment": "Armstrong (hamstring) did not participate in Thursday's practice.",
           "long_comment": "Armstrong has opened the week with back-to-back DNPs due to a hamstring injury he picked up during Monday's loss to the Bears. He'll have to log at least a limited practice Friday in order to have a chance at playing against the Cowboys on Sunday. Armstrong has started in four of six regular-season games this year, so his absence would open the door for Jalyn Holmes, Jer'Zhan Newton and Eddie Goldman to see an increase in snaps on the defensive line.",
           "last_updated": "2025-10-16T22:22Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3121422",
-          "name": "Terry McLaurin",
-          "position": "WR",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "McLaurin (quadriceps) was spotted at Friday's practice, Nicki Jhabvala of The Washington Post reports.",
-          "long_comment": "Per Jhabvala, McLaurin went to the side field while the rest of the team started individual drills, so it remains to be seen how the Commanders list the wideout's official participation level. After being deemed limited on Wednesday's practice report, McLaurin logged a 'DNP' on Thursday, so his his presence for Friday's session offers hope that he could return to action Sunday against the Cowboys. Meanwhile, fellow WR Deebo Samuel (heel) was also on the field Friday, on the heels of consecutive 'DNPs.'",
-          "last_updated": "2025-10-17T15:42Z",
           "source": "basic/manual"
         },
         {

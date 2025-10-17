@@ -498,7 +498,12 @@ def collect_nflreadpy_datasets(
         {"name": "pbp", "loader": nfl.load_pbp, "filter_week": True},
         {"name": "player_stats", "loader": nfl.load_player_stats, "filter_week": True},
         {"name": "snap_counts", "loader": nfl.load_snap_counts, "filter_week": True},
-        {"name": "nextgen_stats", "loader": nfl.load_nextgen_stats, "filter_week": True},
+        {
+            "name": "nextgen_stats",
+            "loader": nfl.load_nextgen_stats,
+            "filter_week": True,
+            "stat_types": ["passing", "receiving", "rushing"],
+        },
         {"name": "ff_opportunity", "loader": nfl.load_ff_opportunity, "filter_week": True},
         {"name": "depth_charts", "loader": nfl.load_depth_charts, "filter_week": True},
         {"name": "rosters_weekly", "loader": nfl.load_rosters_weekly, "filter_week": True},
@@ -520,23 +525,32 @@ def collect_nflreadpy_datasets(
             LOGGER.info("Skipping %s: season %s > %s", dataset_name, season, max_season)
             continue
 
-        try:
-            frame = loader([season]).to_pandas()
-        except Exception as exc:  # pragma: no cover - upstream data variability
-            LOGGER.warning("Failed to load %s: %s", dataset_name, exc)
-            continue
+        stat_types = cfg.get("stat_types") or [None]
 
-        if filter_by_week and "week" in frame.columns:
-            frame = frame[frame["week"] == week] if not frame.empty else frame
+        for stat_type in stat_types:
+            loader_kwargs = {}
+            suffix = dataset_name
+            if stat_type:
+                loader_kwargs["stat_type"] = stat_type
+                suffix = f"{dataset_name}_{stat_type}"
 
-        path = (
-            output_dir
-            / "nflreadpy"
-            / dataset_name
-            / f"season_{season}_week_{week}.csv"
-        )
-        write_dataframe(path, frame)
-        results.append((dataset_name, path, len(frame)))
+            try:
+                frame = loader([season], **loader_kwargs).to_pandas()
+            except Exception as exc:  # pragma: no cover - upstream data variability
+                LOGGER.warning("Failed to load %s: %s", suffix, exc)
+                continue
+
+            if filter_by_week and "week" in frame.columns:
+                frame = frame[frame["week"] == week] if not frame.empty else frame
+
+            subdir = output_dir / "nflreadpy" / dataset_name
+            if stat_type:
+                subdir = subdir / stat_type
+            ensure_dir(subdir)
+
+            path = subdir / f"season_{season}_week_{week}.csv"
+            write_dataframe(path, frame)
+            results.append((suffix, path, len(frame)))
 
     return results
 
@@ -697,13 +711,16 @@ def collect_single_week(
 
     nflreadpy_items = collect_nflreadpy_datasets(season, week, output_dir)
     for dataset_name, path, record_count in nflreadpy_items:
+        metadata = {"records": record_count}
+        if dataset_name.startswith("nextgen_stats_"):
+            metadata["stat_type"] = dataset_name.split("_", 2)[-1]
         artifacts.append(
             {
                 "dataset": f"nflreadpy_{dataset_name}",
                 "source": "nflreadpy",
                 "path": str(path),
                 "sha256": hash_file(path),
-                "metadata": {"records": record_count},
+                "metadata": metadata,
             }
         )
 

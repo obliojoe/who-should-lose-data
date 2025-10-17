@@ -655,6 +655,113 @@ def build_news_report(
     }
 
 
+def build_nextgen_report(manifest: Optional[RawDataManifest]) -> Optional[Dict[str, Any]]:
+    if manifest is None:
+        logger.warning("Next Gen stats report skipped: raw manifest not available")
+        return None
+
+    dataset_map = {
+        'passing': 'nflreadpy_nextgen_stats_passing',
+        'receiving': 'nflreadpy_nextgen_stats_receiving',
+        'rushing': 'nflreadpy_nextgen_stats_rushing',
+    }
+
+    fallback = manifest.entries('nflreadpy_nextgen_stats')
+    if not fallback and not any(manifest.entries(name) for name in dataset_map.values()):
+        logger.info("No Next Gen stats available in manifest")
+        return None
+
+    def _clean(value: Any) -> Optional[Any]:
+        if value is None:
+            return None
+        if isinstance(value, (np.integer, np.int64, np.int32)):
+            return int(value)
+        if isinstance(value, (np.floating,)):
+            if np.isnan(value) or np.isinf(value):
+                return None
+            return float(value)
+        if isinstance(value, pd.Series):
+            return value.tolist()
+        return value
+
+    players: Dict[str, Dict[str, Any]] = {}
+
+    def _ingest(df: pd.DataFrame, stat_type: str) -> None:
+        nonlocal players
+        if df is None or df.empty:
+            return
+        excluded = {
+            'season', 'season_type', 'week', 'team_abbr', 'team',
+            'player_display_name', 'player_first_name', 'player_last_name',
+            'player_short_name', 'player_position', 'player_positions',
+            'player_jersey_number', 'player_id', 'player_gsis_id',
+        }
+
+        records = df.to_dict(orient='records')
+        for row in records:
+            player_id = row.get('player_gsis_id') or row.get('player_id')
+            if not player_id:
+                continue
+            player_id = str(player_id)
+
+            entry = players.setdefault(player_id, {
+                'player_id': player_id,
+                'player_name': row.get('player_display_name'),
+                'team_abbr': row.get('team_abbr'),
+                'position': row.get('player_position'),
+                'number': row.get('player_jersey_number'),
+            })
+
+            stats: Dict[str, Any] = {}
+            for key, value in row.items():
+                if key in excluded:
+                    continue
+                cleaned = _clean(value)
+                if cleaned is None:
+                    continue
+                stats[key] = cleaned
+
+            if stats:
+                entry.setdefault('stats', {})[stat_type] = stats
+
+            if row.get('team_abbr') and not entry.get('team_abbr'):
+                entry['team_abbr'] = row.get('team_abbr')
+            if row.get('player_position') and not entry.get('position'):
+                entry['position'] = row.get('player_position')
+            if row.get('player_jersey_number') and not entry.get('number'):
+                entry['number'] = row.get('player_jersey_number')
+
+    for stat_type, dataset_name in dataset_map.items():
+        df = manifest.load_dataframe(dataset_name)
+        if df is not None:
+            _ingest(df, stat_type)
+
+    # Fallback for older snapshots where only a single dataset exists
+    if not players and fallback:
+        df = manifest.load_dataframe('nflreadpy_nextgen_stats')
+        if df is not None:
+            _ingest(df, 'passing')
+
+    if not players:
+        logger.warning("Next Gen stats report could not be built; no data found")
+        return None
+
+    players_list = sorted(
+        players.values(),
+        key=lambda item: (
+            item.get('team_abbr') or '',
+            item.get('player_name') or ''
+        )
+    )
+
+    return {
+        'season': manifest.season,
+        'week': manifest.week,
+        'generated_at': datetime.now().isoformat(),
+        'players': players_list,
+    }
+
+
 def load_team_injury_details(team_abbr: str, teams_df: pd.DataFrame) -> List[dict]:
     if RAW_DATA_MANIFEST is None:
         return []
@@ -2865,6 +2972,7 @@ def deploy_to_netlify():
             'data/player_stats.json',
             'data/depthcharts.json',
             'data/news.json',
+            'data/nextgen_stats.json',
             'data/schedule.json',
             'data/teams.json',
             'data/game_analyses.json',
@@ -3082,6 +3190,14 @@ def main():
             news_path.write_text(json.dumps(news_report, indent=2), encoding='utf-8')
         else:
             logger.warning("News report could not be generated")
+
+        logger.info("=> Generating nextgen_stats.json")
+        nextgen_report = build_nextgen_report(RAW_DATA_MANIFEST)
+        if nextgen_report is not None:
+            nextgen_path = Path('data/nextgen_stats.json')
+            nextgen_path.write_text(json.dumps(nextgen_report, indent=2), encoding='utf-8')
+        else:
+            logger.warning("Next Gen stats report could not be generated")
 
         # run team stats generation
         logger.info("=> Generating team_stats.json")
@@ -3343,6 +3459,7 @@ def main():
                 'data/player_stats.json',
                 'data/depthcharts.json',
                 'data/news.json',
+                'data/nextgen_stats.json',
                 'data/schedule.json',
                 'data/teams.json',
                 'data/game_analyses.json',

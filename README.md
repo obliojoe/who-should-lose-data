@@ -175,6 +175,7 @@ Artifacts are written to the `data/` directory. Key files include:
 | `depthcharts.json` | Depth chart snapshots highlighting starters and notable status changes. |
 | `news.json` | Filtered team-specific ESPN headlines with publish timestamps. |
 | `player_stats.json` | Weekly and season stat splits (offense, defense, special teams) for current starters. |
+| `nextgen_stats.json` | Passing/receiving/rushing Next Gen Stats metrics for current starters. |
 | `teams.json` | Team metadata (colors, head coach, coordinators, stadium, ESPN IDs). |
 | `schedule.json` | Season schedule with live score updates. |
 | `sagarin.json` | Latest Sagarin ratings, prior-week comparison, and scrape history (used for simulations). |
