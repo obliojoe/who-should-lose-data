@@ -171,6 +171,7 @@ Artifacts are written to the `data/` directory. Key files include:
 | `power_rankings_history.json` | Historical power rankings by week with movement tracking. |
 | `team_stats.json` | Aggregated team-level statistics used as simulation inputs. |
 | `team_starters.json` | Starter depth charts and season-to-date production. |
+| `injuries.json` | Team injury reports (status, notes, last updates) aggregated from ESPN. |
 | `teams.json` | Team metadata (colors, head coach, coordinators, stadium, ESPN IDs). |
 | `schedule.json` | Season schedule with live score updates. |
 | `sagarin.json` | Latest Sagarin ratings, prior-week comparison, and scrape history (used for simulations). |

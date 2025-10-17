@@ -17,7 +17,7 @@ import random
 import numpy as np
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 from anthropic import Anthropic
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
@@ -341,6 +341,107 @@ def build_team_records(schedule_df: pd.DataFrame, coordinators_map: Dict[str, Di
         records.append(record)
 
     return sorted(records, key=lambda item: item['team_abbr'])
+
+
+def build_injuries_report(
+    manifest: Optional[RawDataManifest],
+    team_records: List[Dict[str, Any]]
+) -> Optional[Dict[str, Any]]:
+    """Aggregate latest ESPN injury reports into a consumer-friendly structure."""
+
+    if manifest is None:
+        logger.warning("Injuries report skipped: raw manifest not available")
+        return None
+
+    try:
+        entries = manifest.entries('espn_injuries')
+    except Exception as exc:  # pragma: no cover - defensive
+        logger.warning("Injuries report skipped: %s", exc)
+        return None
+
+    teams_lookup = {record['team_abbr']: record for record in team_records}
+
+    status_priority = {
+        'Out': 0,
+        'Doubtful': 1,
+        'Questionable': 2,
+        'Inactive': 3,
+        'Active': 4,
+    }
+
+    team_reports: Dict[str, Dict[str, Any]] = {}
+
+    for entry in entries:
+        meta = entry.metadata or {}
+        team_abbr = meta.get('team_abbr')
+        if not team_abbr:
+            continue
+
+        try:
+            with entry.path.open('r', encoding='utf-8') as fh:
+                payload = json.load(fh)
+        except Exception as exc:
+            logger.debug("Skipping injuries for %s due to read error: %s", team_abbr, exc)
+            continue
+
+        raw_items = payload.get('items') or []
+        injuries: List[Dict[str, Any]] = []
+
+        for item in raw_items:
+            athlete = item.get('athlete') or {}
+            status_info = item.get('type') or {}
+            source_info = item.get('source') or {}
+            status_text = item.get('status') or status_info.get('description')
+
+            sort_score = status_priority.get(status_text, status_priority.get(status_info.get('abbreviation'), 99))
+
+            record = {
+                'athlete_id': athlete.get('id'),
+                'name': athlete.get('fullName') or athlete.get('displayName'),
+                'position': athlete.get('position'),
+                'status': status_text,
+                'status_code': {
+                    'id': status_info.get('id'),
+                    'abbreviation': status_info.get('abbreviation'),
+                    'description': status_info.get('description'),
+                    'name': status_info.get('name'),
+                },
+                'short_comment': item.get('shortComment'),
+                'long_comment': item.get('longComment'),
+                'last_updated': item.get('date'),
+                'source': source_info.get('description') or source_info.get('state'),
+            }
+
+            record['_sort_key'] = (sort_score, record['name'] or '')
+            injuries.append(record)
+
+        injuries.sort(key=lambda rec: rec['_sort_key'])
+        for rec in injuries:
+            rec.pop('_sort_key', None)
+
+        last_updated = None
+        for rec in injuries:
+            ts = rec.get('last_updated')
+            if ts and (last_updated is None or ts > last_updated):
+                last_updated = ts
+
+        team_meta = teams_lookup.get(team_abbr, {})
+        team_reports[team_abbr] = {
+            'team_abbr': team_abbr,
+            'team_id': meta.get('team_id'),
+            'team_name': team_meta.get('full_name'),
+            'conference': team_meta.get('conference'),
+            'division': team_meta.get('division'),
+            'last_updated': last_updated,
+            'injuries': injuries,
+        }
+
+    return {
+        'season': manifest.season,
+        'week': manifest.week,
+        'generated_at': datetime.now().isoformat(),
+        'teams': [team_reports[key] for key in sorted(team_reports.keys())]
+    }
 
 
 def load_team_injury_details(team_abbr: str, teams_df: pd.DataFrame) -> List[dict]:
@@ -2549,6 +2650,7 @@ def deploy_to_netlify():
             'data/dashboard_content.json',
             'data/team_stats.json',
             'data/team_starters.json',
+            'data/injuries.json',
             'data/schedule.json',
             'data/teams.json',
             'data/game_analyses.json',
@@ -2742,6 +2844,14 @@ def main():
         team_records = build_team_records(schedule_df, coordinators_map)
         teams_path = Path('data/teams.json')
         teams_path.write_text(json.dumps(team_records, indent=2), encoding='utf-8')
+
+        logger.info("=> Generating injuries.json")
+        injuries_report = build_injuries_report(RAW_DATA_MANIFEST, team_records)
+        if injuries_report is not None:
+            injuries_path = Path('data/injuries.json')
+            injuries_path.write_text(json.dumps(injuries_report, indent=2), encoding='utf-8')
+        else:
+            logger.warning("Injuries report could not be generated")
 
         # run team stats generation
         logger.info("=> Generating team_stats.json")
@@ -2999,6 +3109,7 @@ def main():
                 'data/dashboard_content.json',
                 'data/team_stats.json',
                 'data/team_starters.json',
+                'data/injuries.json',
                 'data/schedule.json',
                 'data/teams.json',
                 'data/game_analyses.json',
