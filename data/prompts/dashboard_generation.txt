@@ -41,8 +41,8 @@ SECTION 2: GAME OF THE WEEK
 Game: TB @ DET
 Status: upcoming
 Spread: TB +4.5, Over/Under: 52.5
-TB Record: 5-1, Playoff Prob: 93.2%
-DET Record: 4-2, Playoff Prob: 78.6%
+TB Record: 5-1, Playoff Prob: 93.1%
+DET Record: 4-2, Playoff Prob: 78.5%
 Head Coaches: TB - Todd Bowles, DET - Dan Campbell
 Coordinators (OC/DC): TB - Josh Grizzard/Todd Bowles[a]; DET - John Morton/Kelvin Sheppard
 Venue: Ford Field
@@ -271,22 +271,22 @@ SECTION 7: PLAYOFF PICTURE
 Generate brief context (PLAIN STRING) for these specific 12 teams in playoff race:
 
 7a. TOP 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. TB - Record: 5-1, Playoff Prob: 93.2%, Current Seed: 1
-   2. BUF - Record: 4-2, Playoff Prob: 84.2%, Current Seed: 5
-   3. PHI - Record: 4-2, Playoff Prob: 80.8%, Current Seed: 4
-   4. IND - Record: 5-1, Playoff Prob: 79.7%, Current Seed: 1
+   1. TB - Record: 5-1, Playoff Prob: 93.1%, Current Seed: 1
+   2. BUF - Record: 4-2, Playoff Prob: 84.3%, Current Seed: 5
+   3. PHI - Record: 4-2, Playoff Prob: 80.7%, Current Seed: 4
+   4. IND - Record: 5-1, Playoff Prob: 79.6%, Current Seed: 1
 
 7b. MIDDLE 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. DET - Record: 4-2, Playoff Prob: 78.6%, Current Seed: 7
-   2. DEN - Record: 4-2, Playoff Prob: 77.2%, Current Seed: 7
-   3. NE - Record: 4-2, Playoff Prob: 74.8%, Current Seed: 4
-   4. SF - Record: 4-2, Playoff Prob: 74.7%, Current Seed: 3
+   1. DET - Record: 4-2, Playoff Prob: 78.5%, Current Seed: 7
+   2. DEN - Record: 4-2, Playoff Prob: 77.4%, Current Seed: 7
+   3. NE - Record: 4-2, Playoff Prob: 74.4%, Current Seed: 4
+   4. SF - Record: 4-2, Playoff Prob: 74.3%, Current Seed: 3
 
 7c. BOTTOM 4 PLAYOFF TEAMS (provide contexts in this exact order):
    1. TEN - Record: 1-4, Playoff Prob: 1.0%, Current Seed: 12
-   2. MIA - Record: 1-5, Playoff Prob: 0.7%, Current Seed: 14
+   2. MIA - Record: 1-5, Playoff Prob: 0.8%, Current Seed: 14
    3. NO - Record: 1-5, Playoff Prob: 0.2%, Current Seed: 16
-   4. NYJ - Record: 0-6, Playoff Prob: 0.1%, Current Seed: 16
+   4. NYJ - Record: 0-6, Playoff Prob: 0.2%, Current Seed: 16
 
 Return format: {"top_4": ["string1", "string2", "string3", "string4"], "middle_4": [...], "bottom_4": [...]}
 
