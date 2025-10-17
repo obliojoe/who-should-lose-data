@@ -15,6 +15,7 @@ import pandas as pd
 import requests
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from team_metadata import TEAM_METADATA
 
 try:
     import nflreadpy as nfl
@@ -533,22 +534,32 @@ def build_manifest(
 
 
 def load_all_team_ids() -> Tuple[List[str], Dict[str, str]]:
-    teams_path = Path("data/teams.csv")
-    if not teams_path.exists():
-        LOGGER.warning("teams.csv not found; team-level ESPN endpoints will be limited to active games")
-        return [], {}
+    teams_path = Path("data/teams.json")
+    if teams_path.exists():
+        try:
+            with teams_path.open('r', encoding='utf-8') as fh:
+                records = json.load(fh)
+        except Exception as exc:
+            LOGGER.warning("Failed to read teams.json (%s); falling back to static metadata", exc)
+            records = TEAM_METADATA
+    else:
+        LOGGER.warning("teams.json not found; falling back to static team metadata")
+        records = TEAM_METADATA
 
-    teams_df = pd.read_csv(teams_path)
-    if "espn_api_id" not in teams_df.columns:
-        LOGGER.warning("espn_api_id missing from teams.csv; cannot fetch full team endpoints")
-        return [], {}
+    if not isinstance(records, list):
+        LOGGER.warning("teams.json has unexpected format; falling back to static metadata")
+        records = TEAM_METADATA
 
     ids: List[str] = []
     mapping: Dict[str, str] = {}
-    for _, row in teams_df.dropna(subset=["espn_api_id"]).iterrows():
-        identifier = str(int(row["espn_api_id"]))
+    for record in records:
+        espn_id = record.get("espn_api_id")
+        team_abbr = record.get("team_abbr", "")
+        if espn_id is None:
+            continue
+        identifier = str(int(espn_id))
         ids.append(identifier)
-        mapping[identifier] = row.get("team_abbr", "")
+        mapping[identifier] = team_abbr
 
     return ids, mapping
 

@@ -182,8 +182,8 @@ python3 power_rankings_tracker.py team TB
 
 ### Input Files (data/)
 
-- **team_stats.csv** - Current records, point differentials
-- **schedule.csv** - All games with scores (completed games only)
+- **team_stats.json** - Current records, point differentials
+- **schedule.json** - All games with scores (completed games only)
 - **analysis_cache.json** - Playoff probabilities from Monte Carlo simulation
 
 ### Output Files (data/)

@@ -119,7 +119,7 @@ All flags are optional and can be combined to tailor the workflow. Run `python g
 
 ### Data generation
 
-- `--skip-data` – Skip ALL prerequisite data updates (schedule, standings, stats, starters, coordinators, etc.).
+- `--skip-data` – Skip ALL prerequisite data updates (schedule, standings, stats, starters, team metadata, etc.).
 - `--data-only` – Stop after data prerequisites (no simulations or AI stages).
 - `--deploy-only` – Skip all generation and only run deployment/commit logic (implies skipping data, simulations, and every AI phase).
 - `--force-sagarin` – Force a fresh Sagarin scrape instead of using cached rankings.
@@ -169,16 +169,16 @@ Artifacts are written to the `data/` directory. Key files include:
 | `pre_game_impacts.json` | Cached impact calculations for unplayed games. |
 | `standings_cache.json` | Standings with tiebreakers, division/conference records, and win percentages. |
 | `power_rankings_history.json` | Historical power rankings by week with movement tracking. |
-| `team_stats.csv` | Aggregated team-level statistics used as simulation inputs. |
-| `team_starters.csv` | Starter depth charts and season-to-date production. |
-| `coordinators.csv` | Offensive/defensive coordinator data fetched from ESPN. |
-| `schedule.csv` | Season schedule with live score updates. |
+| `team_stats.json` | Aggregated team-level statistics used as simulation inputs. |
+| `team_starters.json` | Starter depth charts and season-to-date production. |
+| `teams.json` | Team metadata (colors, head coach, coordinators, stadium, ESPN IDs). |
+| `schedule.json` | Season schedule with live score updates. |
 
 ## Pipeline details
 
 ### Phase 1 – Data prerequisites
 
-Triggered unless `--skip-data` is set (or `--deploy-only` is used). Updates schedule/scores, team stats, starters, coordinators, standings, and Sagarin ratings. Outputs land in `data/`.
+Triggered unless `--skip-data` is set (or `--deploy-only` is used). Updates schedule/scores, team stats, starters, consolidated team metadata, standings, and Sagarin ratings. Outputs land in `data/`.
 
 ### Phase 2 – Simulations
 
@@ -200,7 +200,7 @@ If requested, copy artifacts, push to Netlify, and/or commit changes. Use `--dep
 
 - **"No API key found"** – Populate `CLAUDE_API_KEY` or `OPENAI_API_KEY` in `.env`.
 - **Simulations feel slow** – Reduce `--simulations` during local runs or limit to specific AI regeneration flags.
-- **Game analysis errors** – Confirm ESPN IDs exist in `data/schedule.csv` and that the ESPN API is reachable.
+- **Game analysis errors** – Confirm ESPN IDs exist in `data/schedule.json` and that the ESPN API is reachable.
 - **Team AI requires simulations** – Regeneration depends on fresh simulations. Run with `--simulations ...` before `--regenerate-team-ai`.
 - **Logging** – Check `logs/` for detailed traces (e.g., `logs/generate_cache.log`, `logs/ai_service.log`). Create the directory ahead of time if it does not exist.
 

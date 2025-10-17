@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""
-Scrape NFL coordinator data from Wikipedia.
-
-This script fetches offensive and defensive coordinators for all 32 NFL teams
-from Wikipedia and saves them to a CSV file.
-"""
+"""Scrape NFL coordinator data from Wikipedia."""
 
 import requests
 from bs4 import BeautifulSoup
@@ -123,43 +118,55 @@ def fetch_coordinators(coordinator_type='offensive'):
         return {}
 
 
-def save_coordinators_csv(output_path='data/coordinators.csv'):
-    """
-    Fetch all coordinators and save to CSV.
-
-    Args:
-        output_path: Path to save CSV file
+def fetch_all_coordinators():
+    """Return a combined offensive/defensive coordinator mapping.
 
     Returns:
-        bool: True if successful
+        dict: {team_abbr: {"offensive_coordinator": str, "defensive_coordinator": str,
+                          "last_updated": str}}
     """
-    # Fetch both offensive and defensive coordinators
+
     offensive = fetch_coordinators('offensive')
     defensive = fetch_coordinators('defensive')
 
-    if not offensive or not defensive:
+    if not offensive and not defensive:
         logger.error("Failed to fetch coordinator data")
-        return False
+        return {}
 
-    # Combine data
     all_teams = set(offensive.keys()) | set(defensive.keys())
+    timestamp = datetime.now().strftime('%Y-%m-%d')
 
-    data = []
+    combined = {}
     for team_abbr in sorted(all_teams):
-        data.append({
-            'team_abbr': team_abbr,
+        combined[team_abbr] = {
             'offensive_coordinator': offensive.get(team_abbr, ''),
             'defensive_coordinator': defensive.get(team_abbr, ''),
-            'last_updated': datetime.now().strftime('%Y-%m-%d')
-        })
+            'last_updated': timestamp,
+        }
 
-    # Create DataFrame and save
-    df = pd.DataFrame(data)
+    return combined
+
+
+def save_coordinators_csv(output_path='data/coordinators.csv'):
+    """Fetch coordinators and persist them to CSV (legacy helper)."""
+
+    data = fetch_all_coordinators()
+    if not data:
+        return False
+
+    df = pd.DataFrame([
+        {
+            'team_abbr': team_abbr,
+            'offensive_coordinator': info.get('offensive_coordinator', ''),
+            'defensive_coordinator': info.get('defensive_coordinator', ''),
+            'last_updated': info.get('last_updated', ''),
+        }
+        for team_abbr, info in data.items()
+    ])
+
     df.to_csv(output_path, index=False)
+    logger.info(f"Saved {len(df)} coordinators to {output_path}")
 
-    logger.info(f"Saved {len(data)} coordinators to {output_path}")
-
-    # Display results
     print("\n" + "=" * 70)
     print("COORDINATOR DATA")
     print("=" * 70)

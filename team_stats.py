@@ -1,5 +1,8 @@
 import pandas as pd
 import logging
+import json
+import numpy as np
+from pathlib import Path
 from typing import Dict, Optional, Sequence
 
 from raw_data_manifest import RawDataManifest
@@ -303,7 +306,8 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
     season = manifest.season
     week = manifest.week
 
-    teams_df = pd.read_csv('data/teams.csv')
+    with open('data/teams.json', 'r', encoding='utf-8') as fh:
+        teams_df = pd.DataFrame(json.load(fh))
 
     weekly_team_stats = _load_weekly_csvs(manifest, 'nflreadpy_team_stats', upto_week=week)
     if weekly_team_stats is None or weekly_team_stats.empty:
@@ -543,33 +547,25 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
 def save_team_stats(manifest: Optional[RawDataManifest] = None) -> bool:
     try:
         team_stats_df = generate_team_stats(manifest=manifest)
-        output_file = "data/team_stats.csv"
-        team_stats_df.to_csv(output_file, index_label='team_abbr')
+        output_path = Path("data/team_stats.json")
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        records = (
+            team_stats_df.reset_index()
+            .replace({np.nan: None})
+            .to_dict(orient='records')
+        )
+        with output_path.open('w', encoding='utf-8') as fh:
+            json.dump(records, fh, indent=2)
         return True
     except Exception as exc:
-        logger.error("Error saving team_stats.csv: %s", exc)
+        logger.error("Error saving team_stats.json: %s", exc)
         return False
 
 if __name__ == "__main__":
-    # Generate stats
     print("Generating team statistics...")
-    team_stats_df = generate_team_stats()
-    
-    # Save to CSV with ties included
-    output_file = "data/team_stats.csv"
-    team_stats_df.to_csv(output_file, index_label='team_abbr')
-    print(f"\nTeam statistics saved to {output_file}")
-    
-    # Display summary of key stats for each team
-    print("\nKey Team Statistics:")
-    print("=" * 80)
-    
-    for team in sorted(team_stats_df.index):
-        stats = team_stats_df.loc[team]
-        print(f"\n{team}:")
-        print("-" * 40)
-        print(f"Record: {int(stats['wins'])}-{int(stats['losses'])}-{int(stats['ties'])} ({stats['win_pct']:.3f})")
-        print(f"Points: {int(stats['points_for'])} For / {int(stats['points_against'])} Against (Diff: {int(stats['point_diff']):+d})")
-    
-    print("\nComplete statistics available in team_stats.csv")
+    if save_team_stats():
+        print("\nTeam statistics saved to data/team_stats.json")
+    else:
+        print("Failed to generate team statistics")
     

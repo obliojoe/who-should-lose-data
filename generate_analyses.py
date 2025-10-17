@@ -328,11 +328,12 @@ def send_preview_to_claude(game_data, game_id, prompt_template=None, model="sonn
 
     # Get this week's completed games
     try:
-        schedule_df = pd.read_csv('data/schedule.csv')
+        with open('data/schedule.json', 'r', encoding='utf-8') as fh:
+            schedule_df = pd.DataFrame(json.load(fh))
         
         # Get the current game's info
         current_game = schedule_df[schedule_df['espn_id'] == int(game_id)].iloc[0]
-        current_week = current_game['week_num']  # Using week_num from schedule.csv
+        current_week = current_game['week_num']  # Week number from schedule data
         
         # Get completed games from same week
         this_week_games = schedule_df[
@@ -456,11 +457,12 @@ def get_team_abbreviation(team_name):
 
 def load_team_season_stats(away_team_abbr, home_team_abbr):
     """
-    Load comprehensive season statistics for both teams from team_stats.csv.
+    Load comprehensive season statistics for both teams from team_stats.json.
     Returns dict with stats for both teams, filtered to most relevant metrics.
     """
     try:
-        stats_df = pd.read_csv('data/team_stats.csv')
+        with open('data/team_stats.json', 'r', encoding='utf-8') as fh:
+            stats_df = pd.DataFrame(json.load(fh))
 
         # Fields to include for AI analysis
         stat_fields = [
@@ -618,7 +620,7 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
     if not is_completed and predictor_data:
         game_data['espn_predictor'] = predictor_data
 
-    # Add comprehensive team season stats from team_stats.csv (previews only)
+    # Add comprehensive team season stats from team_stats.json (previews only)
     # Note: Only add for upcoming games to avoid anachronistic stats in historical game analysis
     if not is_completed:
         team_season_stats = load_team_season_stats(game['away_team'], game['home_team'])
@@ -783,7 +785,8 @@ def batch_analyze_games(
         except json.JSONDecodeError:
             analyses = {}
 
-    schedule_df = pd.read_csv('data/schedule.csv')
+    with open('data/schedule.json', 'r', encoding='utf-8') as fh:
+        schedule_df = pd.DataFrame(json.load(fh))
     games = schedule_df.to_dict('records')
 
     # Get current date without time part
@@ -820,6 +823,21 @@ def batch_analyze_games(
                 if not (in_current_week or has_existing_preview):
                     continue
             # 'all' means process everything (no filter)
+
+        # Skip games that already have the correct analysis unless we're forcing
+        existing_analysis = analyses.get(game_id)
+        needs_analysis = (
+            force_reanalyze or
+            existing_analysis is None or
+            (is_completed and existing_analysis.get('analysis_type') == 'preview')
+        )
+
+        if not needs_analysis:
+            continue
+
+        # Only process games that are either completed or inside the preview window
+        if not (is_completed or is_upcoming):
+            continue
 
         games_to_process.append(game)
 
@@ -954,7 +972,7 @@ def main():
     parser.add_argument('--force-reanalyze', action='store_true',
                       help='Force reanalysis of games that already have analyses')
     parser.add_argument('--process-schedule', action='store_true',
-                      help='Process the schedule.csv file and save analyses to game_analyses.json')
+                      help='Process the schedule.json file and save analyses to game_analyses.json')
     
     args = parser.parse_args()
 

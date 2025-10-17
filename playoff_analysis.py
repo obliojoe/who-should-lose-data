@@ -1,4 +1,3 @@
-import csv
 from collections import defaultdict
 import datetime
 import logging
@@ -7,7 +6,7 @@ import sys
 
 from tqdm import tqdm
 from tiebreakers import apply_tiebreakers, apply_wildcard_tiebreakers
-from playoff_utils import format_percentage
+from playoff_utils import format_percentage, load_teams
 
 from datetime import datetime as dt
 import json
@@ -84,20 +83,9 @@ def made_playoffs(team, division_winners, wild_cards, teams):
     conference = teams[team]['conference']
     return team in division_winners or team in wild_cards[conference]
 
-def load_teams():
-    teams = {}
-    with open('data/teams.csv', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            teams[row['team_abbr']] = row
-    return teams
-
 def load_schedule():
-    schedule = []
-    with open('data/schedule.csv', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            schedule.append(row)
+    with open('data/schedule.json', 'r', encoding='utf-8') as f:
+        schedule = json.load(f)
     return schedule
 
 def get_game_context(team, game, teams):
@@ -308,10 +296,22 @@ def get_current_standings(schedule):
         'ties': 0
     })
     
+    def _parse_score(value):
+        if value in (None, '', 'nan'):
+            return None
+        try:
+            return int(value)
+        except (ValueError, TypeError):
+            try:
+                return int(float(value))
+            except (ValueError, TypeError):
+                return None
+
     for game in schedule:
-        if game['away_score'] and game['home_score']:  # If game has been played
-            away_score = int(game['away_score'])
-            home_score = int(game['home_score'])
+        away_score = _parse_score(game.get('away_score'))
+        home_score = _parse_score(game.get('home_score'))
+
+        if away_score is not None and home_score is not None:  # If game has been played
             
             if away_score > home_score:
                 standings[game['away_team']]['wins'] += 1
