@@ -2563,7 +2563,7 @@ def deploy_to_netlify():
         # Optional files
         optional_files = [
             'data/standings_cache.json',
-            'data/sagarin.csv'
+            'data/sagarin.json'
         ]
 
         for file in optional_files:
@@ -3004,7 +3004,7 @@ def main():
                 'data/game_analyses.json',
                 'data/team_notes.csv',
                 'data/standings_cache.json',
-                'data/sagarin.csv'
+                'data/sagarin.json'
             ]
 
             dirs_to_copy = [

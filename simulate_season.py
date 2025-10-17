@@ -1,4 +1,3 @@
-import csv
 import json
 import numpy as np
 from collections import defaultdict
@@ -43,10 +42,13 @@ def load_teams():
 
 def load_ratings():
     ratings = {}
-    with open('data/sagarin.csv', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            ratings[row['team_abbr']] = float(row['rating'])
+    with open('data/sagarin.json', 'r', encoding='utf-8') as f:
+        payload = json.load(f)
+    for team_abbr, info in payload.get('ratings', {}).items():
+        try:
+            ratings[team_abbr] = float(info.get('rating'))
+        except (TypeError, ValueError):
+            continue
     return ratings
 
 # Pre-compute valid scores and their weights once

@@ -90,7 +90,22 @@ def prepare_dashboard_data():
         schedule_df = pd.DataFrame(json.load(fh))
     with open('data/team_stats.json', 'r', encoding='utf-8') as fh:
         team_stats_df = pd.DataFrame(json.load(fh))
-    sagarin_df = pd.read_csv('data/sagarin.csv')
+    with open('data/sagarin.json', 'r', encoding='utf-8') as fh:
+        sagarin_payload = json.load(fh)
+    sagarin_rows = []
+    for team_abbr, info in sagarin_payload.get('ratings', {}).items():
+        row = {
+            'team_abbr': team_abbr,
+            'rating': info.get('rating')
+        }
+        if 'previous_rank' in info:
+            row['previous_rank'] = info.get('previous_rank')
+        if 'previous_rating' in info:
+            row['previous_rating'] = info.get('previous_rating')
+        sagarin_rows.append(row)
+    sagarin_df = pd.DataFrame(sagarin_rows)
+    if not sagarin_df.empty:
+        sagarin_df = sagarin_df.sort_values('rating', ascending=False).reset_index(drop=True)
     with open('data/team_starters.json', 'r', encoding='utf-8') as fh:
         starters_df = pd.DataFrame(json.load(fh))
     with open('data/teams.json', 'r', encoding='utf-8') as fh:

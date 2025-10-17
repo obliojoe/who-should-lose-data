@@ -306,7 +306,7 @@ You will receive a JSON object with the following structure:
 
 **Purpose**: Show team quality rankings based on Sagarin ratings.
 
-**Data Source**: Use `sagarin_cache.json` team_ratings
+**Data Source**: Use `sagarin.json` ratings snapshot
 
 **Requirements**:
 
