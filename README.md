@@ -173,6 +173,7 @@ Artifacts are written to the `data/` directory. Key files include:
 | `team_starters.json` | Starter depth charts and season-to-date production. |
 | `teams.json` | Team metadata (colors, head coach, coordinators, stadium, ESPN IDs). |
 | `schedule.json` | Season schedule with live score updates. |
+| `sagarin.json` | Latest Sagarin ratings, prior-week comparison, and scrape history (used for simulations). |
 
 ## Pipeline details
 

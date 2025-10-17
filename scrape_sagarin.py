@@ -1,39 +1,83 @@
-import re
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
-import os
-from datetime import datetime, timedelta
 import json
 import logging
-from typing import Optional
+import os
+import re
+from datetime import datetime, timedelta
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import requests
+from bs4 import BeautifulSoup
 
 from raw_data_manifest import RawDataManifest
 
-# Create logs directory if it doesn't exist
+# Logging setup ------------------------------------------------------------
 try:
     os.makedirs('logs', exist_ok=True)
-    # File logging setup
     file_handler = logging.FileHandler('logs/sagarin.log')
     file_handler.setLevel(logging.INFO)
-    file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    file_handler.setFormatter(file_formatter)
-except Exception as e:
-    # Fallback to console logging if file logging fails
-    print(f"Warning: Could not set up file logging: {e}")
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(formatter)
+except Exception as exc:  # pragma: no cover - defensive
+    print(f"Warning: Could not set up file logging: {exc}")
     file_handler = logging.StreamHandler()
     file_handler.setLevel(logging.INFO)
-    file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    file_handler.setFormatter(file_formatter)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(formatter)
 
-# Set up the logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 logger.addHandler(file_handler)
 
-CACHE_FILE = 'data/sagarin_cache.json'
-CSV_FILE = 'data/sagarin.csv'
+# File locations -----------------------------------------------------------
+SAGARIN_JSON = Path('data/sagarin.json')
+HISTORY_LIMIT = 52  # roughly one full season of weekly snapshots
 
+# -------------------------------------------------------------------------
+# Helpers
+# -------------------------------------------------------------------------
+
+def _load_existing_payload() -> Dict:
+    if SAGARIN_JSON.exists():
+        try:
+            with SAGARIN_JSON.open('r', encoding='utf-8') as fh:
+                payload = json.load(fh)
+                if isinstance(payload, dict):
+                    payload.setdefault('ratings', {})
+                    payload.setdefault('history', [])
+                    return payload
+        except Exception as exc:  # pragma: no cover - defensive
+            logger.warning("Failed to read %s: %s", SAGARIN_JSON, exc)
+    return {
+        'home_field_advantage': None,
+        'last_scraped': None,
+        'last_content_update': None,
+        'ratings': {},
+        'history': [],
+    }
+
+def _timestamp() -> str:
+    return datetime.now().isoformat()
+
+def _determine_current_week() -> Optional[int]:
+    schedule_path = Path('data/schedule.json')
+    if not schedule_path.exists():
+        return None
+    try:
+        with schedule_path.open('r', encoding='utf-8') as fh:
+            games = json.load(fh)
+        completed_weeks = [game.get('week_num') for game in games
+                           if game.get('home_score') not in (None, '', 'nan')
+                           and game.get('away_score') not in (None, '', 'nan')]
+        if completed_weeks:
+            return int(max(completed_weeks))
+    except Exception as exc:  # pragma: no cover - defensive
+        logger.debug("Unable to determine current week from schedule: %s", exc)
+    return None
+
+# -------------------------------------------------------------------------
+# Raw HTML sourcing helpers
+# -------------------------------------------------------------------------
 
 def load_raw_sagarin_html(manifest: Optional[RawDataManifest]) -> Optional[str]:
     """Return the most recent raw Sagarin HTML captured by collect_raw_data."""
@@ -49,7 +93,6 @@ def load_raw_sagarin_html(manifest: Optional[RawDataManifest]) -> Optional[str]:
     if not entries:
         return None
 
-    # Choose the newest file by modification time (fall back to lexical ordering)
     def _entry_sort_key(entry):
         try:
             return entry.path.stat().st_mtime
@@ -65,9 +108,13 @@ def load_raw_sagarin_html(manifest: Optional[RawDataManifest]) -> Optional[str]:
         logger.warning("Failed to read raw Sagarin HTML at %s: %s", latest_entry.path, exc)
         return None
 
-def load_team_abbrs():
+# -------------------------------------------------------------------------
+# Parsing helpers
+# -------------------------------------------------------------------------
+
+def load_team_abbrs() -> Dict[str, str]:
     teams = {}
-    with open("data/teams.json", 'r', encoding='utf-8') as fh:
+    with open('data/teams.json', 'r', encoding='utf-8') as fh:
         records = json.load(fh)
 
     for record in records:
@@ -82,225 +129,206 @@ def load_team_abbrs():
 
     return teams
 
-def should_update_cache():
-    """Check if we should update the cache based on last scrape time"""
-    if not os.path.exists(CACHE_FILE):
-        logger.info("No cache file found - will scrape new data")
-        return True
 
+def scrape_home_advantage(html_content: str) -> float:
+    pattern = r'HOME ADVANTAGE=\[\s*([0-9]+\.[0-9]+)\s*\]'
+    matches = re.findall(pattern, html_content)
+    if not matches:
+        return 0.0
     try:
-        with open(CACHE_FILE, 'r') as f:
-            cache_data = json.load(f)
-            # Use last_scraped if available, fall back to last_update for backwards compatibility
-            last_scraped_str = cache_data.get('last_scraped', cache_data.get('last_update'))
-            last_scraped = datetime.fromisoformat(last_scraped_str)
-            time_since_scrape = datetime.now() - last_scraped
+        return float(matches[0])
+    except ValueError:
+        return 0.0
 
-            if time_since_scrape > timedelta(days=1):
-                logger.info(f"Cache is {time_since_scrape.total_seconds() / 3600:.1f} hours old - will scrape new data")
-                return True
-            else:
-                # logger.info(f"Cache is only {time_since_scrape.total_seconds() / 3600:.1f} hours old - will use cached data")
-                return False
-    except (json.JSONDecodeError, KeyError, ValueError) as e:
-        logger.error(f"Error reading cache file: {str(e)}")
-        return True
 
-def save_to_cache(home_advantage, team_ratings):
-    """Save the home advantage value, team ratings, and current timestamp to cache"""
-    # Load existing cache to preserve last_content_update if ratings haven't changed
-    existing_last_content_update = None
-    existing_home_advantage = None
-    if os.path.exists(CACHE_FILE):
-        try:
-            with open(CACHE_FILE, 'r') as f:
-                old_cache = json.load(f)
-                existing_last_content_update = old_cache.get('last_content_update')
-                existing_home_advantage = old_cache.get('home_advantage')
-        except Exception:
-            pass
-
-    # Load existing CSV to check if ratings have changed
-    ratings_changed = False
-    previous_data = {}
-
-    if os.path.exists(CSV_FILE):
-        try:
-            existing_df = pd.read_csv(CSV_FILE)
-            if 'rating' in existing_df.columns and 'team_abbr' in existing_df.columns:
-                # Check if ratings have actually changed
-                existing_ratings = dict(zip(existing_df['team_abbr'], existing_df['rating']))
-                for team, new_rating in team_ratings.items():
-                    old_rating = existing_ratings.get(team)
-                    if old_rating is None or abs(float(old_rating) - float(new_rating)) > 0.001:
-                        ratings_changed = True
-                        break
-
-                # If ratings changed, store current ratings/ranks as "previous"
-                if ratings_changed:
-                    sorted_existing = existing_df.sort_values('rating', ascending=False).reset_index(drop=True)
-                    for idx, row in sorted_existing.iterrows():
-                        previous_data[row['team_abbr']] = {
-                            'previous_rank': idx + 1,
-                            'previous_rating': row['rating']
-                        }
-                else:
-                    # Ratings haven't changed - preserve existing previous_rank and previous_rating
-                    logger.info("Ratings unchanged - preserving historical data in CSV")
-                    for _, row in existing_df.iterrows():
-                        previous_data[row['team_abbr']] = {
-                            'previous_rank': row.get('previous_rank'),
-                            'previous_rating': row.get('previous_rating')
-                        }
-        except Exception as e:
-            logger.warning(f"Could not load previous rankings: {e}")
-            ratings_changed = True  # Assume changed if we can't read existing
-    else:
-        ratings_changed = True  # No existing file, so this is new data
-
-    # If nothing changed, leave cache/CSV untouched
-    if (not ratings_changed and existing_home_advantage is not None
-            and abs(float(existing_home_advantage) - float(home_advantage)) < 1e-6):
-        logger.info("Ratings and home advantage unchanged – leaving Sagarin cache/CSV untouched")
-        return
-
-    # Determine last_content_update timestamp
-    now = datetime.now().isoformat()
-    if ratings_changed:
-        last_content_update = now
-        logger.info(f"Ratings CHANGED - updating last_content_update to now")
-    else:
-        last_content_update = existing_last_content_update or now
-        logger.info(f"Ratings UNCHANGED - preserving last_content_update: {last_content_update}")
-
-    # Save cache with both timestamps
-    cache_data = {
-        'home_advantage': home_advantage,
-        'team_ratings': team_ratings,
-        'last_scraped': now,
-        'last_content_update': last_content_update,
-        'last_update': now  # Keep for backwards compatibility
-    }
-    with open(CACHE_FILE, 'w') as f:
-        json.dump(cache_data, f)
-    logger.info(f"Saved home advantage value to cache: {home_advantage}")
-
-    # Create new dataframe with current ratings
-    teams_df = pd.DataFrame(list(team_ratings.items()), columns=['team_abbr', 'rating'])
-    teams_df = teams_df.sort_values('rating', ascending=False).reset_index(drop=True)
-
-    # Add previous rank and rating columns
-    teams_df['previous_rank'] = teams_df['team_abbr'].map(lambda x: previous_data.get(x, {}).get('previous_rank', None))
-    teams_df['previous_rating'] = teams_df['team_abbr'].map(lambda x: previous_data.get(x, {}).get('previous_rating', None))
-
-    # Reorder columns for readability
-    teams_df = teams_df[['team_abbr', 'rating', 'previous_rank', 'previous_rating']]
-
-    teams_df.to_csv(CSV_FILE, index=False)
-    if ratings_changed:
-        logger.info(f"Saved NEW team ratings to {CSV_FILE} with updated historical data")
-    else:
-        logger.info(f"Saved team ratings to {CSV_FILE} (ratings unchanged, historical data preserved)")
-
-def load_from_cache():
-    """Load home advantage value and team ratings from cache"""
-    try:
-        with open(CACHE_FILE, 'r') as f:
-            cache_data = json.load(f)
-            home_advantage = cache_data['home_advantage']
-            team_ratings = cache_data.get('team_ratings', {})
-            logger.info(f"Loaded home advantage value from cache: {home_advantage}")
-            return home_advantage, team_ratings
-    except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
-        logger.error(f"Error loading from cache: {str(e)}")
-        return None, None
-
-def scrape_teams_and_ratings(html_content):
-    # Parse the HTML content using BeautifulSoup
+def scrape_team_ratings(html_content: str) -> List[Tuple[str, float]]:
     soup = BeautifulSoup(html_content, 'html.parser')
-    
-    # Find the table
-    data = soup.find_all('pre')[2].get_text()
+    pre_blocks = soup.find_all('pre')
+    if len(pre_blocks) < 3:
+        return []
+
+    data = pre_blocks[2].get_text()
     pattern = r'^\s*\d+\s+([\w\s]+)\s+=\s+(\d+\.\d+)'
 
-    results = []
+    results: List[Tuple[str, float]] = []
     for line in data.split('\n'):
         match = re.search(pattern, line)
         if match:
             team_name = match.group(1).strip()
-            rating = match.group(2)
-            results.append((team_name, rating))
-
+            rating_str = match.group(2)
+            try:
+                results.append((team_name, float(rating_str)))
+            except ValueError:
+                continue
     return results
 
-# Function to extract the first HOME ADVANTAGE number from an HTML file
-def scrape_home_advantage(html_content):
-    # Regex pattern to match the HOME ADVANTAGE number considering HTML tags
-    pattern = r'HOME ADVANTAGE=\[\s*([0-9]+\.[0-9]+)\s*\]'
-    matches = re.findall(pattern, html_content)
 
-    return matches[0] if matches else 0
-
-def extract_sagarin_metrics(html_content):
-    """Parse raw HTML into home-advantage and per-team ratings."""
-    home_advantage_str = scrape_home_advantage(html_content)
-    try:
-        home_advantage = float(home_advantage_str)
-    except (TypeError, ValueError):
-        home_advantage = 0.0
-
+def extract_sagarin_metrics(html_content: str) -> Tuple[float, Dict[str, float]]:
+    home_advantage = scrape_home_advantage(html_content)
     team_abbrs = load_team_abbrs()
-    team_ratings = {}
-    for team_name, rating in scrape_teams_and_ratings(html_content):
+    ratings: Dict[str, float] = {}
+    for team_name, rating in scrape_team_ratings(html_content):
         abbr = team_abbrs.get(team_name)
         if abbr:
-            try:
-                team_ratings[abbr] = float(rating)
-            except ValueError:
-                logger.debug("Skipping rating for %s due to parse error", team_name)
+            ratings[abbr] = rating
+    return home_advantage, ratings
 
-    return home_advantage, team_ratings
+# -------------------------------------------------------------------------
+# Cache + JSON helpers
+# -------------------------------------------------------------------------
+
+def should_update_cache() -> bool:
+    if not SAGARIN_JSON.exists():
+        logger.info("No sagarin.json file found – will fetch fresh data")
+        return True
+    try:
+        with SAGARIN_JSON.open('r', encoding='utf-8') as fh:
+            cache_data = json.load(fh)
+        last_scraped_str = cache_data.get('last_scraped') or cache_data.get('last_update')
+        if not last_scraped_str:
+            return True
+        last_scraped = datetime.fromisoformat(last_scraped_str)
+        if datetime.now() - last_scraped > timedelta(days=1):
+            logger.info("Sagarin snapshot is older than 24h – refreshing")
+            return True
+        return False
+    except Exception as exc:  # pragma: no cover - defensive
+        logger.warning("Failed to read %s: %s", SAGARIN_JSON, exc)
+        return True
 
 
-def scrape_sagarin(force_rescrape=False, manifest: Optional[RawDataManifest] = None):
-    """Main function to get Sagarin ratings, using cache when appropriate
+def load_from_cache() -> Tuple[Optional[float], Dict[str, float]]:
+    try:
+        with SAGARIN_JSON.open('r', encoding='utf-8') as fh:
+            payload = json.load(fh)
+        home_advantage = payload.get('home_field_advantage')
+        ratings_section = payload.get('ratings', {})
+        ratings = {team: info.get('rating') for team, info in ratings_section.items() if info}
+        logger.info("Loaded Sagarin data from sagarin.json")
+        return home_advantage, ratings
+    except Exception as exc:
+        logger.error("Error loading sagarin.json: %s", exc)
+        return None, {}
 
-    Args:
-        force_rescrape: If True, ignores cache and forces a fresh scrape from website
-    """
+
+def _ratings_changed(new_ratings: Dict[str, float], existing_ratings: Dict[str, Dict],
+                     tolerance: float = 1e-3) -> bool:
+    if len(new_ratings) != len(existing_ratings):
+        return True
+    for team, rating in new_ratings.items():
+        existing = existing_ratings.get(team, {}).get('rating')
+        if existing is None or abs(existing - rating) > tolerance:
+            return True
+    return False
+
+
+def save_to_json(home_advantage: float, team_ratings: Dict[str, float]) -> None:
+    existing_payload = _load_existing_payload()
+    existing_ratings = existing_payload.get('ratings', {})
+    existing_home_adv = existing_payload.get('home_field_advantage')
+
+    ratings_changed = _ratings_changed(team_ratings, existing_ratings)
+    home_adv_changed = existing_home_adv is None or abs(existing_home_adv - home_advantage) > 1e-6
+
+    if not ratings_changed and not home_adv_changed:
+        logger.info("Sagarin ratings and home advantage unchanged – leaving sagarin.json untouched")
+        return
+
+    now = _timestamp()
+    current_week = _determine_current_week()
+
+    sorted_ratings = sorted(team_ratings.items(), key=lambda item: item[1], reverse=True)
+
+    new_ratings_section: Dict[str, Dict] = {}
+    for idx, (team, rating) in enumerate(sorted_ratings, start=1):
+        previous_entry = existing_ratings.get(team, {})
+        team_history: List[Dict] = previous_entry.get('history', [])
+        if ratings_changed:
+            team_history = team_history[-9:]
+            team_history.append({
+                'timestamp': now,
+                'rating': rating,
+                'rank': idx,
+            })
+        new_entry = {
+            'rating': rating,
+            'rank': idx,
+            'previous_rank': previous_entry.get('rank'),
+            'previous_rating': previous_entry.get('rating'),
+        }
+        if team_history:
+            new_entry['history'] = team_history
+        new_ratings_section[team] = new_entry
+
+    history_snapshots: List[Dict] = existing_payload.get('history', [])
+    if ratings_changed or home_adv_changed:
+        snapshot = {
+            'timestamp': now,
+            'home_field_advantage': home_advantage,
+            'ratings': {team: rating for team, rating in sorted_ratings},
+        }
+        if current_week is not None:
+            snapshot['week'] = current_week
+        history_snapshots.append(snapshot)
+        history_snapshots = history_snapshots[-HISTORY_LIMIT:]
+
+    payload = {
+        'home_field_advantage': home_advantage,
+        'last_scraped': now,
+        'last_content_update': now if (ratings_changed or home_adv_changed)
+        else existing_payload.get('last_content_update', now),
+        'ratings': new_ratings_section,
+        'history': history_snapshots,
+    }
+
+    SAGARIN_JSON.parent.mkdir(parents=True, exist_ok=True)
+    with SAGARIN_JSON.open('w', encoding='utf-8') as fh:
+        json.dump(payload, fh, indent=2, sort_keys=True)
+    logger.info("Saved Sagarin ratings to %s", SAGARIN_JSON)
+
+# -------------------------------------------------------------------------
+# Main scrape orchestration
+# -------------------------------------------------------------------------
+
+def scrape_sagarin(force_rescrape: bool = False,
+                   manifest: Optional[RawDataManifest] = None) -> float:
+    """Fetch Sagarin ratings, updating sagarin.json when necessary."""
     if not force_rescrape:
         html_content = load_raw_sagarin_html(manifest)
         if html_content:
             home_advantage, team_ratings = extract_sagarin_metrics(html_content)
-            save_to_cache(home_advantage, team_ratings)
+            save_to_json(home_advantage, team_ratings)
             return home_advantage
 
         if not should_update_cache():
-            cached_value, team_ratings = load_from_cache()
+            cached_value, _ = load_from_cache()
             if cached_value is not None:
-                # Don't overwrite CSV when using cache - preserve historical data
-                logger.info("Using cached Sagarin ratings (CSV preserved)")
+                logger.info("Using cached Sagarin ratings (json up-to-date)")
                 return cached_value
 
-    # If we need to update, proceed with scraping
     if force_rescrape:
-        logger.info("Force rescrape requested - fetching fresh data from Sagarin website")
+        logger.info("Force rescrape requested – fetching live data from sagarin.com")
+
     try:
         logger.info("Attempting to scrape new Sagarin ratings...")
-        response = requests.get('http://sagarin.com/sports/nflsend.htm')
+        response = requests.get('http://sagarin.com/sports/nflsend.htm', timeout=15)
+        response.raise_for_status()
         home_advantage, team_ratings = extract_sagarin_metrics(response.text)
-        logger.info(f"Successfully scraped new home advantage value: {home_advantage}")
-
-        # Save both to cache and CSV
-        save_to_cache(home_advantage, team_ratings)
+        logger.info("Successfully scraped Sagarin ratings (home advantage %.2f)", home_advantage)
+        save_to_json(home_advantage, team_ratings)
         return home_advantage
-    except Exception as e:
-        logger.error(f"Error scraping Sagarin ratings: {str(e)}")
-        # If scraping fails, try to use cached value as fallback
-        cached_value, team_ratings = load_from_cache()
+    except Exception as exc:
+        logger.error("Error scraping Sagarin ratings: %s", exc)
+        cached_value, _ = load_from_cache()
         if cached_value is not None:
-            logger.info("Using cached value as fallback after scraping failed (CSV preserved)")
+            logger.info("Using cached Sagarin ratings after scrape failure")
             return cached_value
-        # If no cache available, return a default value
-        logger.warning("No cache available - using default home advantage value of 2.5")
-        return 2.5  # Default NFL home field advantage
+        logger.warning("No cache available – using default home advantage 2.5")
+        return 2.5
+
+# -------------------------------------------------------------------------
+# CLI entrypoint (legacy)
+# -------------------------------------------------------------------------
+if __name__ == '__main__':
+    force = '--force' in os.sys.argv
+    scrape_sagarin(force_rescrape=force, manifest=RawDataManifest.from_latest())

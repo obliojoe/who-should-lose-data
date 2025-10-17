@@ -1,4 +1,3 @@
-import csv
 import hashlib
 import json
 import os
@@ -36,14 +35,13 @@ def load_schedule():
     return schedule
 
 
-def load_ratings():
-    """Load Sagarin ratings from CSV file."""
-    ratings = {}
-    with open(f"{data_dir}sagarin.csv", 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            ratings[row['team_abbr']] = float(row['rating'])
-    return ratings
+def load_ratings() -> Dict[str, float]:
+    """Load Sagarin ratings from the JSON snapshot."""
+    ratings_path = Path(data_dir) / 'sagarin.json'
+    with ratings_path.open('r', encoding='utf-8') as fh:
+        payload = json.load(fh)
+    ratings_section = payload.get('ratings', {})
+    return {team: info.get('rating') for team, info in ratings_section.items() if info}
 
 def get_data_dir(data_dir=None):
     """Resolve the data directory path"""
