@@ -7533,38 +7533,88 @@
     "broadcast": "TV"
   },
   "401772941": {
-    "timestamp": "2025-10-13 09:51:22",
+    "timestamp": "2025-10-17 00:13:13",
     "game_date": "2025-10-16",
     "home_team": "CIN",
     "away_team": "PIT",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 33,
+    "away_score": 31,
     "stadium": "Paycor Stadium",
     "home_coach": "Zac Taylor",
     "away_coach": "Mike Tomlin",
-    "analysis_type": "preview",
-    "analysis": "**AFC North Showdown: Steelers Look to Extend Dominance Against Struggling Bengals**\n\nThe **Pittsburgh Steelers** roll into Cincinnati with momentum and swagger, riding a resurgent **Aaron Rodgers** and a defense that's been causing nightmares for opposing offenses. Rodgers has been nothing short of spectacular, throwing for 1,021 yards and 10 touchdowns against just 3 interceptions, transforming the Steelers' offensive identity in ways few thought possible at this stage of his career. Meanwhile, the **Cincinnati Bengals** are reeling, sporting a disappointing 2-4 record and searching for offensive consistency with **Jake Browning** at quarterback.\n\nThe key matchup will be Pittsburgh's ferocious pass rush against Cincinnati's vulnerable offensive line. **Nick Herbig** leads the Steelers with 4.5 sacks, and he'll be hunting Browning all afternoon. The Bengals' offensive line has already surrendered 16 sacks this season, a vulnerability the Steelers are perfectly positioned to exploit. **Ja'Marr Chase** remains Cincinnati's lone bright spot, leading the team with 42 receptions and 468 receiving yards, but he'll be battling against a Steelers secondary that's generating turnovers at an impressive clip. With **Trey Hendrickson** questionable for the Bengals and the Steelers' confidence sky-high, this looks like another potential blowout in a season that's already been unkind to Cincinnati.\n\nThe betting markets and predictive models heavily favor Pittsburgh, with ESPN's predictor giving the Steelers a 65% win probability and a projected 5-point victory. Expect a statement game from Rodgers and the Steelers, who seem determined to establish themselves as genuine AFC North contenders. The Bengals might keep it competitive early, but Pittsburgh's defensive pressure and offensive efficiency should prove too much to overcome in a comfortable road victory.",
+    "analysis_type": "post_game",
+    "analysis": "# Flacco Rallies Bengals to Dramatic 33-31 Victory Over Steelers\n\nIn a thrilling Thursday night AFC North showdown, **Joe Flacco** led the Cincinnati Bengals to a comeback 33-31 victory over the Pittsburgh Steelers, delivering a vintage performance that will be talked about for weeks. Flacco, in just his second start with the Bengals, orchestrated a game-winning drive that culminated in **Evan McPherson's** 36-yard field goal with seven seconds remaining.\n\nThe game was a quarterback duel for the ages, featuring two 40-something signal-callers - Flacco and **Aaron Rodgers** - who combined for seven total touchdowns. Flacco finished with 342 yards and three touchdowns, while **Ja'Marr Chase** set a franchise record with 16 receptions for 161 yards. Rodgers had an impressive but ultimately losing performance, throwing for 249 yards and four touchdowns, including a spectacular 68-yard scoring strike to **Pat Freiermuth** that briefly gave Pittsburgh the lead.\n\n## Key Statistics\n\n- **Joe Flacco**: 31/47, 342 yards, 3 TD, 0 INT\n- **Ja'Marr Chase**: 16 receptions, 161 yards, 1 TD (franchise record)\n- **Chase Brown**: 11 carries, 108 rushing yards\n- **Jaylen Warren**: 16 carries, 127 rushing yards\n- **Evan McPherson**: 4/4 field goals, including the game-winner\n\nThe victory snaps a four-game losing streak for the Bengals and provides a massive boost to their season, while the Steelers suffer a tough divisional loss that drops them to 4-2.",
     "ai_provider": "claude",
-    "ai_model": "claude-opus-4-1",
+    "ai_model": "claude-3-7-sonnet-latest",
     "betting": {
       "spread": 5.5,
-      "over_under": 42.5,
+      "over_under": 44.5,
       "provider": "ESPN BET",
-      "favorite": "PIT"
+      "favorite": "PIT",
+      "underdog": "CIN",
+      "moneyline_favorite": -240,
+      "moneyline_underdog": 200
     },
     "weather": {
-      "is_indoor": false,
-      "temperature": 59,
-      "condition": "Clear",
-      "wind_speed": 4
+      "is_indoor": false
     },
-    "predictor": {
-      "home_win_prob": 34.262,
-      "matchup_quality": 52.379,
-      "predicted_point_diff": -5.715,
-      "away_win_prob": 65.462
+    "leaders": {
+      "passingLeader": [
+        {
+          "player": "Joe Flacco",
+          "team": "CIN",
+          "position": "QB",
+          "jersey": "16",
+          "display_value": "31/47, 342 YDS, 3 TD",
+          "summary": "31/47, 3 TD"
+        },
+        {
+          "player": "Aaron Rodgers",
+          "team": "PIT",
+          "position": "QB",
+          "jersey": "8",
+          "display_value": "23/34, 249 YDS, 4 TD, 2 INT",
+          "summary": "23/34, 4 TD, 2 INT"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "player": "Chase Brown",
+          "team": "CIN",
+          "position": "RB",
+          "jersey": "30",
+          "display_value": "11 CAR, 108 YDS",
+          "summary": "11 CAR"
+        },
+        {
+          "player": "Jaylen Warren",
+          "team": "PIT",
+          "position": "RB",
+          "jersey": "30",
+          "display_value": "16 CAR, 127 YDS",
+          "summary": "16 CAR"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "player": "Ja'Marr Chase",
+          "team": "CIN",
+          "position": "WR",
+          "jersey": "1",
+          "display_value": "16 REC, 161 YDS, 1 TD",
+          "summary": "16 REC, 1 TD"
+        },
+        {
+          "player": "Pat Freiermuth",
+          "team": "PIT",
+          "position": "TE",
+          "jersey": "88",
+          "display_value": "5 REC, 111 YDS, 2 TD",
+          "summary": "5 REC, 2 TD"
+        }
+      ]
     },
-    "broadcast": "Streaming"
+    "broadcast": "Prime Video"
   },
   "401772635": {
     "timestamp": "2025-10-13 09:51:21",

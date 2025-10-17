@@ -1,26 +1,26 @@
 {
-  "timestamp": "2025-10-15T14:48:28.311796",
+  "timestamp": "2025-10-17T00:13:38.092387",
   "week": 7,
   "week_chaos": {
-    "score": 27.6,
+    "score": 28.1,
     "description": "Relatively calm week for most teams",
     "num_high_chaos_teams": 0,
     "highest_chaos_teams": []
   },
   "league_pulse": {
-    "summary": "The NFL landscape is buzzing with surprising frontrunners as **Tampa Bay** and **Indianapolis** have stormed to 5-1 starts, establishing themselves as the teams to beat. Meanwhile, the **NFC West** continues to be a gauntlet with **San Francisco**, **Seattle**, and **LA Rams** all sitting at 4-2 in what might be the league's most competitive division. *Quarterback excellence* has defined the early season narrative, particularly in **Detroit** where the Lions' high-powered offense has them looking like legitimate contenders. On the flip side, traditional powerhouses **Baltimore** and **Kansas City** have struggled to find consistency, with the Ravens stumbling to a shocking 1-5 start.",
+    "summary": "As Week 7 unfolds, the NFL landscape is taking shape with surprising contenders emerging. **Tampa Bay** and **Indianapolis** have stormed to impressive 5-1 records, silencing preseason doubters with *dominant* offensive showings. The **NFC West** continues to be a battleground with three 4-2 teams fighting for supremacy, while the once-mighty **Ravens** and **Browns** find themselves in unfamiliar territory at 1-5. Meanwhile, **Cincinnati** delivered the week's first stunner, knocking off division rival **Pittsburgh** in a Thursday night thriller that may reshape the AFC North race.",
     "key_storylines": [
       {
-        "title": "Colts Galloping to Glory",
-        "description": "Indianapolis has emerged as the AFC's biggest surprise, racing to a 5-1 record behind Jonathan Taylor's dominant ground game. Their offense leads the league in scoring, transforming what many expected to be a rebuilding year into a potential championship campaign."
+        "title": "Colts' Unexpected Surge",
+        "description": "Indianapolis has emerged as the AFC's top seed behind Jonathan Taylor's rushing dominance and perfect red zone efficiency. Their explosive offense has outscored opponents by a staggering 78 points through six games."
       },
       {
-        "title": "Motor City Renaissance",
-        "description": "Detroit's explosive offense has the Lions roaring to relevance with a 4-2 record. With Jared Goff distributing touchdowns at a record pace and Amon-Ra St. Brown finding the end zone consistently, the Lions are proving their playoff ambitions are legitimate."
+        "title": "NFC West Logjam",
+        "description": "San Francisco, Seattle, and Los Angeles all stand at 4-2, creating a three-way division battle with no clear frontrunner. The trio represents perhaps the NFL's deepest division with each team showcasing playoff-caliber talent."
       },
       {
-        "title": "Ravens' Shocking Freefall",
-        "description": "Baltimore's disastrous 1-5 start represents one of the season's most unexpected storylines. Despite their abysmal record, analytics still give them nearly an 18% chance to make the playoffs, suggesting their performances might be better than their record indicates."
+        "title": "AFC North Power Shift",
+        "description": "Cincinnati's victory over Pittsburgh has breathed new life into the Bengals' season while raising questions about the Steelers' contender status. Meanwhile, Baltimore's shocking 1-5 start has put their playoff hopes in serious jeopardy."
       }
     ]
   },
@@ -29,40 +29,56 @@
     "away_team": "TB",
     "away_record": "5-1",
     "away_rank": 1,
-    "away_playoff_prob": 92.8,
+    "away_playoff_prob": 93.2,
     "home_team": "DET",
     "home_record": "4-2",
-    "home_rank": 6,
-    "home_playoff_prob": 78.7,
+    "home_rank": 5,
+    "home_playoff_prob": 78.6,
     "betting_line": 4.5,
     "over_under": 52.5,
-    "quality_score": 154.8,
+    "stadium": "Ford Field",
+    "gametime": "19:00",
+    "away_head_coach": "Todd Bowles",
+    "home_head_coach": "Dan Campbell",
+    "quality_score": 155.9,
     "status": "upcoming",
     "away_score": null,
     "home_score": null,
     "analysis": "In a clash of rising NFC contenders, the **Detroit Lions** host the **Tampa Bay Buccaneers** at Ford Field in what promises to be an electrifying Week 7 matchup. The Lions, riding the momentum of their explosive offensive attack, look to continue their home dominance against a surprisingly resilient Buccaneers squad that has transformed into a legitimate playoff threat under **Baker Mayfield's** leadership.\n\nThe key storyline centers on **Jared Goff** and the Lions' high-octane offense facing a Tampa Bay defense that has shown surprising resilience. **Jahmyr Gibbs** and **Amon-Ra St. Brown** provide dynamic playmaking capabilities that could stress the Buccaneers' defensive schemes, while **Aidan Hutchinson** leads a Lions pass rush intent on disrupting Mayfield's rhythm. However, Tampa Bay isn't without firepower - Mayfield has been remarkably efficient, throwing 12 touchdowns against just one interception, suggesting this could develop into a potential shootout.\n\nInjuries could significantly impact the game's dynamics, with both teams facing notable absences. The Lions are missing cornerback **Terrion Arnold** and offensive tackle **Taylor Decker**, while the Buccaneers will be without running back **Bucky Irving** and wide receiver **Chris Godwin Jr.** These personnel challenges might force strategic adjustments that could swing momentum. With the Lions favored by 4.5 points and boasting a home-field advantage, they appear positioned to continue their offensive explosion, but Mayfield and the Buccaneers have proven they cannot be overlooked in what should be a thrilling NFC battle.",
     "analysis_type": "pre_game",
-    "tagline": "NFC powerhouses collide as the league-leading Buccaneers (5-1) visit the surging Lions (4-2) in what promises to be an offensive showcase with playoff implications and potential conference seeding at stake."
+    "away_offensive_coordinator": "Josh Grizzard",
+    "home_offensive_coordinator": "John Morton",
+    "away_defensive_coordinator": "Todd Bowles[a]",
+    "home_defensive_coordinator": "Kelvin Sheppard",
+    "tagline": "Two of the NFC's hottest teams collide as the surging Buccaneers bring their conference-best 5-1 record to face Detroit's high-powered passing attack in what promises to be a potential playoff preview with seeding implications."
   },
   "game_of_the_meek": {
     "espn_id": "401772754",
     "away_team": "MIA",
     "away_record": "1-5",
     "away_rank": 31,
-    "away_playoff_prob": 1.0,
+    "away_playoff_prob": 0.7,
     "home_team": "CLE",
     "home_record": "1-5",
     "home_rank": 27,
     "home_playoff_prob": 1.6,
     "betting_line": 2.5,
     "over_under": 40.5,
-    "quality_score": 7.3,
+    "stadium": "Huntington Bank Field",
+    "gametime": "13:00",
+    "away_head_coach": "Mike McDaniel",
+    "home_head_coach": "Kevin Stefanski",
+    "quality_score": 7.2,
     "status": "upcoming",
     "away_score": null,
     "home_score": null,
     "analysis": "**Battle of the Basement Dwellers: Dolphins vs. Browns in Cleveland**\n\nThe 1-5 **Miami Dolphins** travel to Cleveland to face another struggling 1-5 squad in the **Browns**, with both teams desperately seeking to avoid sinking further into the NFL's bottom tier. This matchup feels less like a football game and more like a playoff-hope hospice, where postseason dreams come to quietly expire.\n\n**Tua Tagovailoa** enters with an intriguing yet concerning stat line - 1,213 passing yards paired with 11 touchdowns and 7 interceptions. His explosive potential is matched only by his propensity for high-risk throws. The Dolphins will likely lean heavily on the electric **De'Von Achane**, who's already accumulated 390 rushing yards and 3 touchdowns, to stabilize their offensive attack. For Cleveland, **Dillon Gabriel** brings quarterback intrigue, coming off a massive 430-yard performance that suggests potential explosiveness.\n\nThe game's most compelling subplot might be defensive playmakers: **Myles Garrett** for Cleveland and **Bradley Chubb** for Miami are both sitting at 4 sacks, creating a pass-rushing duel that could decisively swing momentum. With multiple key injuries on both sides - including questionable status for Cleveland's tight end **David Njoku** and Miami's defensive depth - this game promises unpredictability. Expect a gritty, potentially sloppy affair where the team that makes fewer mistakes will likely emerge victorious in what amounts to an elimination game for playoff relevance.",
     "analysis_type": "pre_game",
-    "tagline": "The 'One-Win Wonder Bowl' features Miami and Cleveland desperately searching for relevance in a matchup so uninspiring that even the low over/under of 40.5 points seems optimistically high."
+    "away_offensive_coordinator": "Frank Smith",
+    "home_offensive_coordinator": "Tommy Rees",
+    "away_defensive_coordinator": "Anthony Weaver",
+    "home_defensive_coordinator": "Jim Schwartz",
+    "tagline": "The 'One-Win Bowl' features two struggling franchises desperately searching for answers, as Miami's floundering offense meets Cleveland's equally ineffective unit in what could be a race to 20 points."
   },
   "stat_leaders": {
     "offense": [
@@ -72,7 +88,7 @@
         "value": 32.3,
         "unit": "",
         "rank": 1,
-        "context": "Scoring machine"
+        "context": "Offensive juggernaut"
       },
       {
         "team": "DAL",
@@ -80,7 +96,7 @@
         "value": 393.5,
         "unit": " yds",
         "rank": 1,
-        "context": "Moving chains consistently"
+        "context": "Moving the chains effortlessly"
       },
       {
         "team": "SF",
@@ -88,7 +104,7 @@
         "value": 306.3,
         "unit": " yds",
         "rank": 1,
-        "context": "Air raid offense"
+        "context": "Air raid specialists"
       },
       {
         "team": "ATL",
@@ -99,12 +115,12 @@
         "context": "Ground game dominance"
       },
       {
-        "team": "PHI",
+        "team": "IND",
         "stat": "Red Zone %",
-        "value": 87.5,
+        "value": 100.0,
         "unit": "%",
         "rank": 1,
-        "context": "Unstoppable in scoring range"
+        "context": "Perfect in scoring territory"
       }
     ],
     "defense": [
@@ -114,7 +130,7 @@
         "value": 12.2,
         "unit": "",
         "rank": 1,
-        "context": "Brick wall defense"
+        "context": "Fortress-like resistance"
       },
       {
         "team": "DEN",
@@ -130,15 +146,15 @@
         "value": 10.0,
         "unit": "",
         "rank": 1,
-        "context": "Ballhawking secondary"
+        "context": "Ballhawks galore"
       },
       {
-        "team": "TEN",
+        "team": "MIN",
         "stat": "Third Down Defense",
-        "value": 28.4,
+        "value": 0.0,
         "unit": "%",
         "rank": 1,
-        "context": "Drive-killing specialists"
+        "context": "Third down brick wall"
       },
       {
         "team": "CHI",
@@ -146,14 +162,14 @@
         "value": 9,
         "unit": "",
         "rank": 1,
-        "context": "Takeaway artists"
+        "context": "Takeaway machines"
       }
     ],
     "efficiency": [
       {
-        "team": "GB",
+        "team": "NYG",
         "stat": "Third Down Conversion",
-        "value": 51.5,
+        "value": 73.3,
         "unit": "%",
         "rank": 1,
         "context": "Third down conversion masters"
@@ -167,12 +183,12 @@
         "context": "Pinpoint passing attack"
       },
       {
-        "team": "PHI",
+        "team": "IND",
         "stat": "Red Zone Efficiency",
-        "value": 87.5,
+        "value": 100.0,
         "unit": "%",
         "rank": 1,
-        "context": "Scoring zone perfection"
+        "context": "Automatic in red zone"
       },
       {
         "team": "SEA",
@@ -180,7 +196,7 @@
         "value": 6.5,
         "unit": "",
         "rank": 1,
-        "context": "Explosive play specialists"
+        "context": "Explosive play generators"
       },
       {
         "team": "IND",
@@ -188,7 +204,7 @@
         "value": 78,
         "unit": "",
         "rank": 1,
-        "context": "Complete team dominance"
+        "context": "Outscoring opponents handily"
       }
     ]
   },
@@ -200,7 +216,7 @@
       "leader_stat": "Passing Yards",
       "stat_line": "1684 pass yds, 12 TDs, 2 INTs",
       "season_projection": "5725 pass yds, 40 TDs",
-      "context": "Stafford is on pace for a career-defining 5,725-yard season while maintaining excellent ball security with just 2 interceptions through six games."
+      "context": "Stafford is on pace for a career-defining 5,725-yard season while maintaining an impressive 6:1 TD-to-INT ratio through six games."
     },
     {
       "player": "Jared Goff",
@@ -209,7 +225,7 @@
       "leader_stat": "Passing TDs",
       "stat_line": "1390 pass yds, 14 TDs, 2 INTs",
       "season_projection": "4726 pass yds, 47 TDs",
-      "context": "Goff's remarkable 14 touchdown passes have him projected for a staggering 47 TDs, fueling Detroit's high-powered offensive attack."
+      "context": "Goff's 14 touchdown passes have him on track for a remarkable 47 TD season, powering Detroit's high-octane offensive attack."
     },
     {
       "player": "Jonathan Taylor",
@@ -218,7 +234,7 @@
       "leader_stat": "Rushing Yards",
       "stat_line": "603 rush yds, 7 TDs",
       "season_projection": "2050 rush yds, 23 TDs",
-      "context": "Taylor has been unstoppable with 603 rushing yards, putting him on track for over 2,000 yards as the engine of Indianapolis' league-leading offense."
+      "context": "Taylor has been unstoppable with 603 rushing yards and 7 touchdowns, positioning himself for a monster 2,050-yard, 23-TD campaign."
     },
     {
       "player": "Jonathan Taylor",
@@ -227,7 +243,7 @@
       "leader_stat": "Rushing TDs",
       "stat_line": "603 rush yds, 7 TDs",
       "season_projection": "2050 rush yds, 23 TDs",
-      "context": "Already with 7 rushing touchdowns, Taylor is projected to find the end zone 23 times this season, making him the league's premier red zone threat."
+      "context": "With 7 rushing touchdowns already, Taylor is scoring at a historic pace that could result in 23 end zone visits by season's end."
     },
     {
       "player": "Jaxon Smith-Njigba",
@@ -236,7 +252,7 @@
       "leader_stat": "Receiving Yards",
       "stat_line": "696 rec yds, 3 TDs",
       "season_projection": "2366 rec yds, 10 TDs",
-      "context": "Smith-Njigba has emerged as the league's top receiving target with 696 yards and is on pace for an astounding 2,366-yard season."
+      "context": "The Seattle wideout is accumulating yards at a blistering rate, with his 696 receiving yards projecting to a massive 2,366-yard season."
     },
     {
       "player": "Amon-Ra St. Brown",
@@ -245,61 +261,76 @@
       "leader_stat": "Receiving TDs",
       "stat_line": "452 rec yds, 6 TDs",
       "season_projection": "1536 rec yds, 20 TDs",
-      "context": "St. Brown has become a touchdown magnet with 6 scores already, projecting to an incredible 20 receiving TDs if he maintains this red-hot pace."
+      "context": "St. Brown has been a touchdown machine with 6 scores already, putting him on pace for an eye-popping 20 receiving touchdowns this season."
     }
   ],
   "power_rankings": {
-    "last_updated": "2025-10-15T14:48:00.437206",
+    "last_updated": "2025-10-17T00:13:01.606038",
     "top_5": [
       {
         "rank": 1,
         "team": "TB",
         "team_name": "Tampa Bay Buccaneers",
-        "rating": 83.92,
+        "rating": 83.98,
         "record": "5-1",
         "trend": "steady",
         "previous_rank": 1,
-        "movement": "0"
+        "movement": "0",
+        "head_coach": "Todd Bowles",
+        "offensive_coordinator": "Josh Grizzard",
+        "defensive_coordinator": "Todd Bowles[a]"
       },
       {
         "rank": 2,
         "team": "IND",
         "team_name": "Indianapolis Colts",
-        "rating": 79.07,
+        "rating": 79.1,
         "record": "5-1",
-        "trend": "up",
-        "previous_rank": 3,
-        "movement": "+1"
+        "trend": "steady",
+        "previous_rank": 2,
+        "movement": "0",
+        "head_coach": "Shane Steichen",
+        "offensive_coordinator": "Jim Bob Cooter",
+        "defensive_coordinator": "Lou Anarumo"
       },
       {
         "rank": 3,
-        "team": "PIT",
-        "team_name": "Pittsburgh Steelers",
-        "rating": 76.82,
-        "record": "4-1",
+        "team": "GB",
+        "team_name": "Green Bay Packers",
+        "rating": 73.12,
+        "record": "3-1-1",
         "trend": "up",
-        "previous_rank": 8,
-        "movement": "+5"
+        "previous_rank": 4,
+        "movement": "+1",
+        "head_coach": "Matt LaFleur",
+        "offensive_coordinator": "Adam Stenavich",
+        "defensive_coordinator": "Jeff Hafley"
       },
       {
         "rank": 4,
-        "team": "GB",
-        "team_name": "Green Bay Packers",
-        "rating": 72.61,
-        "record": "3-1-1",
-        "trend": "up",
-        "previous_rank": 9,
-        "movement": "+5"
-      },
-      {
-        "rank": 5,
         "team": "PHI",
         "team_name": "Philadelphia Eagles",
         "rating": 71.73,
         "record": "4-2",
-        "trend": "down",
-        "previous_rank": 2,
-        "movement": "-3"
+        "trend": "up",
+        "previous_rank": 5,
+        "movement": "+1",
+        "head_coach": "Nick Sirianni",
+        "offensive_coordinator": "Kevin Patullo",
+        "defensive_coordinator": "Vic Fangio"
+      },
+      {
+        "rank": 5,
+        "team": "DET",
+        "team_name": "Detroit Lions",
+        "rating": 67.75,
+        "record": "4-2",
+        "trend": "up",
+        "previous_rank": 6,
+        "movement": "+1",
+        "head_coach": "Dan Campbell",
+        "offensive_coordinator": "John Morton",
+        "defensive_coordinator": "Kelvin Sheppard"
       }
     ],
     "bottom_5": [
@@ -307,51 +338,66 @@
         "rank": 28,
         "team": "BAL",
         "team_name": "Baltimore Ravens",
-        "rating": 18.24,
+        "rating": 18.9,
         "record": "1-5",
-        "trend": "down",
-        "previous_rank": 26,
-        "movement": "-2"
+        "trend": "steady",
+        "previous_rank": 28,
+        "movement": "0",
+        "head_coach": "John Harbaugh",
+        "offensive_coordinator": "Todd Monken",
+        "defensive_coordinator": "Zach Orr"
       },
       {
         "rank": 29,
         "team": "TEN",
         "team_name": "Tennessee Titans",
-        "rating": 17.97,
+        "rating": 17.96,
         "record": "1-5",
-        "trend": "up",
-        "previous_rank": 30,
-        "movement": "+1"
+        "trend": "steady",
+        "previous_rank": 29,
+        "movement": "0",
+        "head_coach": "Brian Callahan",
+        "offensive_coordinator": "Nick Holz",
+        "defensive_coordinator": "Dennard Wilson"
       },
       {
         "rank": 30,
         "team": "NO",
         "team_name": "New Orleans Saints",
-        "rating": 17.16,
+        "rating": 17.17,
         "record": "1-5",
-        "trend": "up",
-        "previous_rank": 31,
-        "movement": "+1"
+        "trend": "steady",
+        "previous_rank": 30,
+        "movement": "0",
+        "head_coach": "Kellen Moore",
+        "offensive_coordinator": "Doug Nussmeier",
+        "defensive_coordinator": "Brandon Staley"
       },
       {
         "rank": 31,
         "team": "MIA",
         "team_name": "Miami Dolphins",
-        "rating": 12.82,
+        "rating": 12.77,
         "record": "1-5",
-        "trend": "down",
-        "previous_rank": 28,
-        "movement": "-3"
+        "trend": "steady",
+        "previous_rank": 31,
+        "movement": "0",
+        "head_coach": "Mike McDaniel",
+        "offensive_coordinator": "Frank Smith",
+        "defensive_coordinator": "Anthony Weaver"
       },
       {
         "rank": 32,
         "team": "NYJ",
         "team_name": "New York Jets",
-        "rating": 10.74,
+        "rating": 10.73,
         "record": "0-6",
         "trend": "steady",
         "previous_rank": 32,
-        "movement": "0"
+        "movement": "0",
+        "head_coach": "Aaron Glenn",
+        "offensive_coordinator": "Tanner Engstrand",
+        "defensive_coordinator": "Steve Wilks"
       }
     ],
     "all_rankings": [
@@ -359,261 +405,339 @@
         "rank": 1,
         "team": "TB",
         "team_name": "Tampa Bay Buccaneers",
-        "rating": 83.92,
+        "rating": 83.98,
         "record": "5-1",
         "trend": "steady",
         "previous_rank": 1,
-        "movement": "0"
+        "movement": "0",
+        "head_coach": "Todd Bowles",
+        "offensive_coordinator": "Josh Grizzard",
+        "defensive_coordinator": "Todd Bowles[a]"
       },
       {
         "rank": 2,
         "team": "IND",
         "team_name": "Indianapolis Colts",
-        "rating": 79.07,
+        "rating": 79.1,
         "record": "5-1",
-        "trend": "up",
-        "previous_rank": 3,
-        "movement": "+1"
+        "trend": "steady",
+        "previous_rank": 2,
+        "movement": "0",
+        "head_coach": "Shane Steichen",
+        "offensive_coordinator": "Jim Bob Cooter",
+        "defensive_coordinator": "Lou Anarumo"
       },
       {
         "rank": 3,
-        "team": "PIT",
-        "team_name": "Pittsburgh Steelers",
-        "rating": 76.82,
-        "record": "4-1",
+        "team": "GB",
+        "team_name": "Green Bay Packers",
+        "rating": 73.12,
+        "record": "3-1-1",
         "trend": "up",
-        "previous_rank": 8,
-        "movement": "+5"
+        "previous_rank": 4,
+        "movement": "+1",
+        "head_coach": "Matt LaFleur",
+        "offensive_coordinator": "Adam Stenavich",
+        "defensive_coordinator": "Jeff Hafley"
       },
       {
         "rank": 4,
-        "team": "GB",
-        "team_name": "Green Bay Packers",
-        "rating": 72.61,
-        "record": "3-1-1",
-        "trend": "up",
-        "previous_rank": 9,
-        "movement": "+5"
-      },
-      {
-        "rank": 5,
         "team": "PHI",
         "team_name": "Philadelphia Eagles",
         "rating": 71.73,
         "record": "4-2",
-        "trend": "down",
-        "previous_rank": 2,
-        "movement": "-3"
+        "trend": "up",
+        "previous_rank": 5,
+        "movement": "+1",
+        "head_coach": "Nick Sirianni",
+        "offensive_coordinator": "Kevin Patullo",
+        "defensive_coordinator": "Vic Fangio"
+      },
+      {
+        "rank": 5,
+        "team": "DET",
+        "team_name": "Detroit Lions",
+        "rating": 67.75,
+        "record": "4-2",
+        "trend": "up",
+        "previous_rank": 6,
+        "movement": "+1",
+        "head_coach": "Dan Campbell",
+        "offensive_coordinator": "John Morton",
+        "defensive_coordinator": "Kelvin Sheppard"
       },
       {
         "rank": 6,
-        "team": "DET",
-        "team_name": "Detroit Lions",
-        "rating": 67.26,
+        "team": "DEN",
+        "team_name": "Denver Broncos",
+        "rating": 67.67,
         "record": "4-2",
-        "trend": "down",
-        "previous_rank": 4,
-        "movement": "-2"
+        "trend": "up",
+        "previous_rank": 9,
+        "movement": "+3",
+        "head_coach": "Sean Payton",
+        "offensive_coordinator": "Joe Lombardi",
+        "defensive_coordinator": "Vance Joseph"
       },
       {
         "rank": 7,
         "team": "JAX",
         "team_name": "Jacksonville Jaguars",
-        "rating": 67.08,
+        "rating": 67.58,
         "record": "4-2",
-        "trend": "down",
-        "previous_rank": 6,
-        "movement": "-1"
+        "trend": "steady",
+        "previous_rank": 7,
+        "movement": "0",
+        "head_coach": "Liam Coen",
+        "offensive_coordinator": "Grant Udinski",
+        "defensive_coordinator": "Anthony Campanile"
       },
       {
         "rank": 8,
-        "team": "SF",
-        "team_name": "San Francisco 49ers",
-        "rating": 67.07,
+        "team": "NE",
+        "team_name": "New England Patriots",
+        "rating": 67.26,
         "record": "4-2",
-        "trend": "down",
-        "previous_rank": 7,
-        "movement": "-1"
+        "trend": "steady",
+        "previous_rank": 8,
+        "movement": "0",
+        "head_coach": "Mike Vrabel",
+        "offensive_coordinator": "Josh McDaniels",
+        "defensive_coordinator": "Terrell Williams"
       },
       {
         "rank": 9,
-        "team": "NE",
-        "team_name": "New England Patriots",
-        "rating": 66.53,
+        "team": "SF",
+        "team_name": "San Francisco 49ers",
+        "rating": 67.03,
         "record": "4-2",
         "trend": "up",
         "previous_rank": 11,
-        "movement": "+2"
+        "movement": "+2",
+        "head_coach": "Kyle Shanahan",
+        "offensive_coordinator": "Klay Kubiak",
+        "defensive_coordinator": "Robert Saleh"
       },
       {
         "rank": 10,
         "team": "SEA",
         "team_name": "Seattle Seahawks",
-        "rating": 66.49,
+        "rating": 65.88,
         "record": "4-2",
-        "trend": "up",
-        "previous_rank": 12,
-        "movement": "+2"
+        "trend": "steady",
+        "previous_rank": 10,
+        "movement": "0",
+        "head_coach": "Mike Macdonald",
+        "offensive_coordinator": "Klint Kubiak",
+        "defensive_coordinator": "Aden Durde"
       },
       {
         "rank": 11,
-        "team": "DEN",
-        "team_name": "Denver Broncos",
-        "rating": 66.44,
+        "team": "LAC",
+        "team_name": "Los Angeles Chargers",
+        "rating": 65.58,
         "record": "4-2",
-        "trend": "down",
-        "previous_rank": 10,
-        "movement": "-1"
+        "trend": "up",
+        "previous_rank": 12,
+        "movement": "+1",
+        "head_coach": "Jim Harbaugh",
+        "offensive_coordinator": "Greg Roman",
+        "defensive_coordinator": "Jesse Minter"
       },
       {
         "rank": 12,
-        "team": "LAC",
-        "team_name": "Los Angeles Chargers",
-        "rating": 65.55,
+        "team": "LAR",
+        "team_name": "Los Angeles Rams",
+        "rating": 64.53,
         "record": "4-2",
         "trend": "up",
         "previous_rank": 13,
-        "movement": "+1"
+        "movement": "+1",
+        "head_coach": "Sean McVay",
+        "offensive_coordinator": "Mike LaFleur",
+        "defensive_coordinator": "Chris Shula"
       },
       {
         "rank": 13,
-        "team": "LAR",
-        "team_name": "Los Angeles Rams",
-        "rating": 64.82,
+        "team": "PIT",
+        "team_name": "Pittsburgh Steelers",
+        "rating": 64.23,
         "record": "4-2",
-        "trend": "up",
-        "previous_rank": 14,
-        "movement": "+1"
+        "trend": "down",
+        "previous_rank": 3,
+        "movement": "-10",
+        "head_coach": "Mike Tomlin",
+        "offensive_coordinator": "Arthur Smith",
+        "defensive_coordinator": "Teryl Austin"
       },
       {
         "rank": 14,
         "team": "BUF",
         "team_name": "Buffalo Bills",
-        "rating": 63.37,
+        "rating": 63.98,
         "record": "4-2",
-        "trend": "down",
-        "previous_rank": 5,
-        "movement": "-9"
+        "trend": "steady",
+        "previous_rank": 14,
+        "movement": "0",
+        "head_coach": "Sean McDermott",
+        "offensive_coordinator": "Joe Brady",
+        "defensive_coordinator": "Bobby Babich"
       },
       {
         "rank": 15,
         "team": "ATL",
         "team_name": "Atlanta Falcons",
-        "rating": 60.62,
-        "record": "3-2",
-        "trend": "up",
-        "previous_rank": 17,
-        "movement": "+2"
+        "rating": 60.83,
+        "record": "3-1",
+        "trend": "steady",
+        "previous_rank": 15,
+        "movement": "0",
+        "head_coach": "Raheem Morris",
+        "offensive_coordinator": "Zac Robinson",
+        "defensive_coordinator": "Jeff Ulbrich"
       },
       {
         "rank": 16,
-        "team": "KC",
-        "team_name": "Kansas City Chiefs",
-        "rating": 54.65,
-        "record": "3-3",
+        "team": "MIN",
+        "team_name": "Minnesota Vikings",
+        "rating": 54.64,
+        "record": "3-2",
         "trend": "up",
-        "previous_rank": 18,
-        "movement": "+2"
+        "previous_rank": 17,
+        "movement": "+1",
+        "head_coach": "Kevin O'Connell",
+        "offensive_coordinator": "Wes Phillips",
+        "defensive_coordinator": "Brian Flores"
       },
       {
         "rank": 17,
-        "team": "MIN",
-        "team_name": "Minnesota Vikings",
-        "rating": 53.9,
-        "record": "3-2",
+        "team": "KC",
+        "team_name": "Kansas City Chiefs",
+        "rating": 54.47,
+        "record": "3-3",
         "trend": "down",
-        "previous_rank": 15,
-        "movement": "-2"
+        "previous_rank": 16,
+        "movement": "-1",
+        "head_coach": "Andy Reid",
+        "offensive_coordinator": "Matt Nagy",
+        "defensive_coordinator": "Steve Spagnuolo"
       },
       {
         "rank": 18,
         "team": "CHI",
         "team_name": "Chicago Bears",
-        "rating": 53.59,
+        "rating": 53.5,
         "record": "3-2",
-        "trend": "up",
-        "previous_rank": 21,
-        "movement": "+3"
+        "trend": "steady",
+        "previous_rank": 18,
+        "movement": "0",
+        "head_coach": "Ben Johnson",
+        "offensive_coordinator": "Declan Doyle",
+        "defensive_coordinator": "Dennis Allen"
       },
       {
         "rank": 19,
         "team": "WAS",
         "team_name": "Washington Commanders",
-        "rating": 50.6,
+        "rating": 50.7,
         "record": "3-3",
-        "trend": "down",
-        "previous_rank": 16,
-        "movement": "-3"
+        "trend": "steady",
+        "previous_rank": 19,
+        "movement": "0",
+        "head_coach": "Dan Quinn",
+        "offensive_coordinator": "Kliff Kingsbury",
+        "defensive_coordinator": "Joe Whitt Jr."
       },
       {
         "rank": 20,
-        "team": "CAR",
-        "team_name": "Carolina Panthers",
-        "rating": 43.46,
-        "record": "3-3",
+        "team": "CIN",
+        "team_name": "Cincinnati Bengals",
+        "rating": 47.14,
+        "record": "3-4",
         "trend": "up",
-        "previous_rank": 24,
-        "movement": "+4"
+        "previous_rank": 22,
+        "movement": "+2",
+        "head_coach": "Zac Taylor",
+        "offensive_coordinator": "Dan Pitcher",
+        "defensive_coordinator": "Al Golden"
       },
       {
         "rank": 21,
-        "team": "HOU",
-        "team_name": "Houston Texans",
-        "rating": 39.05,
+        "team": "CAR",
+        "team_name": "Carolina Panthers",
+        "rating": 43.5,
         "record": "2-3",
         "trend": "down",
         "previous_rank": 20,
-        "movement": "-1"
+        "movement": "-1",
+        "head_coach": "Dave Canales",
+        "offensive_coordinator": "Brad Idzik",
+        "defensive_coordinator": "Ejiro Evero"
       },
       {
         "rank": 22,
-        "team": "CIN",
-        "team_name": "Cincinnati Bengals",
-        "rating": 36.34,
-        "record": "2-4",
+        "team": "HOU",
+        "team_name": "Houston Texans",
+        "rating": 38.02,
+        "record": "1-3",
         "trend": "down",
-        "previous_rank": 19,
-        "movement": "-3"
+        "previous_rank": 21,
+        "movement": "-1",
+        "head_coach": "DeMeco Ryans",
+        "offensive_coordinator": "Nick Caley",
+        "defensive_coordinator": "Matt Burke"
       },
       {
         "rank": 23,
         "team": "NYG",
         "team_name": "New York Giants",
-        "rating": 35.16,
+        "rating": 35.15,
         "record": "2-4",
-        "trend": "up",
-        "previous_rank": 29,
-        "movement": "+6"
+        "trend": "steady",
+        "previous_rank": 23,
+        "movement": "0",
+        "head_coach": "Brian Daboll",
+        "offensive_coordinator": "Mike Kafka",
+        "defensive_coordinator": "Shane Bowen"
       },
       {
         "rank": 24,
         "team": "LV",
         "team_name": "Las Vegas Raiders",
-        "rating": 33.72,
+        "rating": 33.03,
         "record": "2-4",
-        "trend": "down",
-        "previous_rank": 23,
-        "movement": "-1"
+        "trend": "steady",
+        "previous_rank": 24,
+        "movement": "0",
+        "head_coach": "Pete Carroll",
+        "offensive_coordinator": "Chip Kelly",
+        "defensive_coordinator": "Patrick Graham"
       },
       {
         "rank": 25,
         "team": "DAL",
         "team_name": "Dallas Cowboys",
-        "rating": 30.92,
+        "rating": 30.89,
         "record": "2-3-1",
-        "trend": "down",
-        "previous_rank": 22,
-        "movement": "-3"
+        "trend": "steady",
+        "previous_rank": 25,
+        "movement": "0",
+        "head_coach": "Brian Schottenheimer",
+        "offensive_coordinator": "Klayton Adams",
+        "defensive_coordinator": "Matt Eberflus"
       },
       {
         "rank": 26,
         "team": "ARI",
         "team_name": "Arizona Cardinals",
-        "rating": 29.44,
+        "rating": 29.47,
         "record": "2-4",
-        "trend": "down",
-        "previous_rank": 25,
-        "movement": "-1"
+        "trend": "steady",
+        "previous_rank": 26,
+        "movement": "0",
+        "head_coach": "Jonathan Gannon",
+        "offensive_coordinator": "Drew Petzing",
+        "defensive_coordinator": "Nick Rallis"
       },
       {
         "rank": 27,
@@ -623,179 +747,196 @@
         "record": "1-5",
         "trend": "steady",
         "previous_rank": 27,
-        "movement": "0"
+        "movement": "0",
+        "head_coach": "Kevin Stefanski",
+        "offensive_coordinator": "Tommy Rees",
+        "defensive_coordinator": "Jim Schwartz"
       },
       {
         "rank": 28,
         "team": "BAL",
         "team_name": "Baltimore Ravens",
-        "rating": 18.24,
+        "rating": 18.9,
         "record": "1-5",
-        "trend": "down",
-        "previous_rank": 26,
-        "movement": "-2"
+        "trend": "steady",
+        "previous_rank": 28,
+        "movement": "0",
+        "head_coach": "John Harbaugh",
+        "offensive_coordinator": "Todd Monken",
+        "defensive_coordinator": "Zach Orr"
       },
       {
         "rank": 29,
         "team": "TEN",
         "team_name": "Tennessee Titans",
-        "rating": 17.97,
-        "record": "1-5",
-        "trend": "up",
-        "previous_rank": 30,
-        "movement": "+1"
+        "rating": 17.96,
+        "record": "1-4",
+        "trend": "steady",
+        "previous_rank": 29,
+        "movement": "0",
+        "head_coach": "Brian Callahan",
+        "offensive_coordinator": "Nick Holz",
+        "defensive_coordinator": "Dennard Wilson"
       },
       {
         "rank": 30,
         "team": "NO",
         "team_name": "New Orleans Saints",
-        "rating": 17.16,
+        "rating": 17.17,
         "record": "1-5",
-        "trend": "up",
-        "previous_rank": 31,
-        "movement": "+1"
+        "trend": "steady",
+        "previous_rank": 30,
+        "movement": "0",
+        "head_coach": "Kellen Moore",
+        "offensive_coordinator": "Doug Nussmeier",
+        "defensive_coordinator": "Brandon Staley"
       },
       {
         "rank": 31,
         "team": "MIA",
         "team_name": "Miami Dolphins",
-        "rating": 12.82,
+        "rating": 12.77,
         "record": "1-5",
-        "trend": "down",
-        "previous_rank": 28,
-        "movement": "-3"
+        "trend": "steady",
+        "previous_rank": 31,
+        "movement": "0",
+        "head_coach": "Mike McDaniel",
+        "offensive_coordinator": "Frank Smith",
+        "defensive_coordinator": "Anthony Weaver"
       },
       {
         "rank": 32,
         "team": "NYJ",
         "team_name": "New York Jets",
-        "rating": 10.74,
+        "rating": 10.73,
         "record": "0-6",
         "trend": "steady",
         "previous_rank": 32,
-        "movement": "0"
+        "movement": "0",
+        "head_coach": "Aaron Glenn",
+        "offensive_coordinator": "Tanner Engstrand",
+        "defensive_coordinator": "Steve Wilks"
       }
     ],
     "biggest_riser": {
-      "team": "NYG",
-      "previous_rank": 29,
-      "current_rank": 23,
-      "movement": "+6",
-      "rating": 35.16,
-      "record": "2-4",
-      "reason": "The Giants have climbed six spots after showing signs of life with improved offensive production that suggests their 2-4 record may not reflect their true potential."
+      "team": "DEN",
+      "previous_rank": 9,
+      "current_rank": 6,
+      "movement": "+3",
+      "rating": 67.67,
+      "record": "4-2",
+      "head_coach": "Sean Payton",
+      "offensive_coordinator": "Joe Lombardi",
+      "defensive_coordinator": "Vance Joseph",
+      "reason": "Denver's defense has been terrorizing quarterbacks with a league-leading 30 sacks, propelling them into serious contender status in the competitive AFC West."
     },
     "biggest_faller": {
-      "team": "BUF",
-      "previous_rank": 5,
-      "current_rank": 14,
-      "movement": "-9",
-      "rating": 63.37,
+      "team": "PIT",
+      "previous_rank": 3,
+      "current_rank": 13,
+      "movement": "-10",
+      "rating": 64.23,
       "record": "4-2",
-      "reason": "Despite their winning record, Buffalo has plummeted nine spots as concerns grow about their consistency and ability to compete with the AFC's elite teams."
+      "head_coach": "Mike Tomlin",
+      "offensive_coordinator": "Arthur Smith",
+      "defensive_coordinator": "Teryl Austin",
+      "reason": "Pittsburgh's shocking loss to division rival Cincinnati exposed defensive vulnerabilities and raises questions about their legitimacy as an AFC contender despite their winning record."
     }
   },
   "playoff_snapshot": {
     "top_4": [
       {
         "team": "TB",
-        "probability": 92.8,
+        "probability": 93.2,
         "current_seed": 1,
         "record": "5-1",
-        "key_info": "Tampa Bay's dominant start has them firmly in control of the NFC South with the conference's top seed."
+        "key_info": "Commanding the NFC with a conference-best record and nearly locked playoff spot"
       },
       {
         "team": "BUF",
-        "probability": 84.6,
+        "probability": 84.2,
         "current_seed": 5,
         "record": "4-2",
-        "key_info": "Buffalo remains a strong playoff contender despite recent struggles, benefiting from the AFC East's relative weakness."
+        "key_info": "Strong positioning as a wild card despite sharing division with Patriots"
       },
       {
         "team": "PHI",
         "probability": 80.8,
         "current_seed": 4,
         "record": "4-2",
-        "key_info": "Philadelphia's balanced attack has them leading a competitive NFC East with playoff positioning looking secure."
+        "key_info": "Leading NFC East with balanced attack and favorable remaining schedule"
       },
       {
         "team": "IND",
-        "probability": 79.5,
+        "probability": 79.7,
         "current_seed": 1,
         "record": "5-1",
-        "key_info": "Indianapolis has been the AFC's biggest surprise, earning the conference's top seed behind a potent offense."
+        "key_info": "AFC's surprise powerhouse with perfect red zone efficiency"
       }
     ],
     "middle_4": [
       {
         "team": "DET",
-        "probability": 78.7,
-        "current_seed": 6,
+        "probability": 78.6,
+        "current_seed": 7,
         "record": "4-2",
-        "key_info": "Detroit's resurgence continues as they challenge Green Bay for NFC North supremacy."
-      },
-      {
-        "team": "PIT",
-        "probability": 78.7,
-        "current_seed": 2,
-        "record": "4-1",
-        "key_info": "Pittsburgh has quietly built a strong playoff position with an efficient defense and mistake-free football."
+        "key_info": "Emerging as serious NFC North contender behind efficient passing attack"
       },
       {
         "team": "DEN",
-        "probability": 76.8,
+        "probability": 77.2,
         "current_seed": 7,
         "record": "4-2",
-        "key_info": "Denver's unexpected success has them positioned as a wild card favorite in the competitive AFC West."
+        "key_info": "Defense-driven playoff push with league-leading sack production"
+      },
+      {
+        "team": "NE",
+        "probability": 74.8,
+        "current_seed": 4,
+        "record": "4-2",
+        "key_info": "Surprising AFC East leaders defying preseason expectations"
       },
       {
         "team": "SF",
-        "probability": 75.0,
+        "probability": 74.7,
         "current_seed": 3,
         "record": "4-2",
-        "key_info": "San Francisco leads a brutally competitive NFC West where three teams share identical 4-2 records."
+        "key_info": "Battling through competitive NFC West with playoff experience"
       }
     ],
     "bottom_4": [
       {
         "team": "TEN",
-        "probability": 1.1,
-        "current_seed": 15,
-        "record": "1-5",
-        "key_info": "Tennessee's playoff hopes are virtually extinguished after a disastrous start that's left them at the bottom of the AFC South."
+        "probability": 1.0,
+        "current_seed": 12,
+        "record": "1-4",
+        "key_info": "Struggling to find identity with slim playoff chances remaining"
       },
       {
         "team": "MIA",
-        "probability": 1.0,
-        "current_seed": 13,
+        "probability": 0.7,
+        "current_seed": 14,
         "record": "1-5",
-        "key_info": "Miami's season is spiraling with just a 1% playoff chance as quarterback questions continue to plague them."
-      },
-      {
-        "team": "NYJ",
-        "probability": 0.2,
-        "current_seed": 16,
-        "record": "0-6",
-        "key_info": "The Jets remain the league's only winless team with playoff dreams already dashed before midseason."
+        "key_info": "Season slipping away after five consecutive losses"
       },
       {
         "team": "NO",
-        "probability": 0.1,
+        "probability": 0.2,
         "current_seed": 16,
         "record": "1-5",
-        "key_info": "New Orleans' playoff probability has essentially vanished, sitting at a microscopic 0.1% after their disappointing start."
+        "key_info": "Playoff hopes virtually extinguished after disastrous start"
+      },
+      {
+        "team": "NYJ",
+        "probability": 0.1,
+        "current_seed": 16,
+        "record": "0-6",
+        "key_info": "Winless and facing insurmountable odds to salvage season"
       }
     ]
   },
   "week_preview": {
-    "thursday_night": {
-      "espn_id": "401772941",
-      "away_team": "PIT",
-      "away_record": "4-1",
-      "home_team": "CIN",
-      "home_record": "2-4",
-      "tagline": "Steelers seek North dominance over desperate Bengals"
-    },
+    "thursday_night": null,
     "sunday_spotlight": [
       {
         "espn_id": "401772756",
@@ -803,7 +944,15 @@
         "away_record": "5-1",
         "home_team": "LAC",
         "home_record": "4-2",
-        "tagline": "AFC powerhouses clash in playoff preview"
+        "away_head_coach": "Shane Steichen",
+        "home_head_coach": "Jim Harbaugh",
+        "away_offensive_coordinator": "Jim Bob Cooter",
+        "home_offensive_coordinator": "Greg Roman",
+        "away_defensive_coordinator": "Lou Anarumo",
+        "home_defensive_coordinator": "Jesse Minter",
+        "stadium": "SoFi Stadium",
+        "gametime": "16:05",
+        "tagline": "AFC powerhouses clash in offensive showdown"
       },
       {
         "espn_id": "401772635",
@@ -811,17 +960,33 @@
         "away_record": "4-2",
         "home_team": "JAX",
         "home_record": "4-2",
-        "tagline": "Identical records, contrasting styles collide"
+        "away_head_coach": "Sean McVay",
+        "home_head_coach": "Liam Coen",
+        "away_offensive_coordinator": "Mike LaFleur",
+        "home_offensive_coordinator": "Grant Udinski",
+        "away_defensive_coordinator": "Chris Shula",
+        "home_defensive_coordinator": "Anthony Campanile",
+        "stadium": "EverBank Stadium",
+        "gametime": "09:30",
+        "tagline": "International battle between emerging contenders"
       },
       {
         "espn_id": "401772924",
         "away_team": "ATL",
-        "away_record": "3-2",
+        "away_record": "3-1",
         "home_team": "SF",
         "home_record": "4-2",
-        "tagline": "Falcons' aerial attack meets 49ers' defense"
+        "away_head_coach": "Raheem Morris",
+        "home_head_coach": "Kyle Shanahan",
+        "away_offensive_coordinator": "Zac Robinson",
+        "home_offensive_coordinator": "Klay Kubiak",
+        "away_defensive_coordinator": "Jeff Ulbrich",
+        "home_defensive_coordinator": "Robert Saleh",
+        "stadium": "Levi's Stadium",
+        "gametime": "20:20",
+        "tagline": "NFC heavyweights meet in primetime shootout"
       }
     ],
-    "total_games": 15
+    "total_games": 14
   }
 }

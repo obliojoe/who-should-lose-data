@@ -6,13 +6,11 @@ Current Week: 7
 This data is available for reference throughout all your responses.
 
 FULL LEAGUE STANDINGS (all 32 teams with records):
-[{"team":"PIT","conference":"AFC","division":"AFC North","record":"4-1","division_rank":1,"conference_rank":2,"playoff_seed":2},{"team":"CIN","conference":"AFC","division":"AFC North","record":"2-4","division_rank":2,"conference_rank":10,"playoff_seed":10},{"team":"BAL","conference":"AFC","division":"AFC North","record":"1-5","division_rank":3,"conference_rank":12,"playoff_seed":12},{"team":"CLE","conference":"AFC","division":"AFC North","record":"1-5","division_rank":4,"conference_rank":14,"playoff_seed":14},{"team":"IND","conference":"AFC","division":"AFC South","record":"5-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"JAX","conference":"AFC","division":"AFC South","record":"4-2","division_rank":2,"conference_rank":5,"playoff_seed":6},{"team":"HOU","conference":"AFC","division":"AFC South","record":"2-3","division_rank":3,"conference_rank":9,"playoff_seed":9},{"team":"TEN","conference":"AFC","division":"AFC South","record":"1-5","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"NE","conference":"AFC","division":"AFC East","record":"4-2","division_rank":1,"conference_rank":7,"playoff_seed":4},{"team":"BUF","conference":"AFC","division":"AFC East","record":"4-2","division_rank":2,"conference_rank":4,"playoff_seed":5},{"team":"MIA","conference":"AFC","division":"AFC East","record":"1-5","division_rank":3,"conference_rank":13,"playoff_seed":13},{"team":"NYJ","conference":"AFC","division":"AFC East","record":"0-6","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"LAC","conference":"AFC","division":"AFC West","record":"4-2","division_rank":1,"conference_rank":3,"playoff_seed":3},{"team":"DEN","conference":"AFC","division":"AFC West","record":"4-2","division_rank":2,"conference_rank":6,"playoff_seed":7},{"team":"KC","conference":"AFC","division":"AFC West","record":"3-3","division_rank":3,"conference_rank":8,"playoff_seed":8},{"team":"LV","conference":"AFC","division":"AFC West","record":"2-4","division_rank":4,"conference_rank":11,"playoff_seed":11},{"team":"GB","conference":"NFC","division":"NFC North","record":"3-1-1","division_rank":1,"conference_rank":2,"playoff_seed":2},{"team":"DET","conference":"NFC","division":"NFC North","record":"4-2","division_rank":2,"conference_rank":6,"playoff_seed":6},{"team":"MIN","conference":"NFC","division":"NFC North","record":"3-2","division_rank":3,"conference_rank":9,"playoff_seed":9},{"team":"CHI","conference":"NFC","division":"NFC North","record":"3-2","division_rank":4,"conference_rank":10,"playoff_seed":10},{"team":"TB","conference":"NFC","division":"NFC South","record":"5-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"ATL","conference":"NFC","division":"NFC South","record":"3-2","division_rank":2,"conference_rank":8,"playoff_seed":8},{"team":"CAR","conference":"NFC","division":"NFC South","record":"3-3","division_rank":3,"conference_rank":11,"playoff_seed":11},{"team":"NO","conference":"NFC","division":"NFC South","record":"1-5","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"PHI","conference":"NFC","division":"NFC East","record":"4-2","division_rank":1,"conference_rank":4,"playoff_seed":4},{"team":"WAS","conference":"NFC","division":"NFC East","record":"3-3","division_rank":2,"conference_rank":12,"playoff_seed":12},{"team":"DAL","conference":"NFC","division":"NFC East","record":"2-3-1","division_rank":3,"conference_rank":13,"playoff_seed":13},{"team":"NYG","conference":"NFC","division":"NFC East","record":"2-4","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"SF","conference":"NFC","division":"NFC West","record":"4-2","division_rank":1,"conference_rank":3,"playoff_seed":3},{"team":"SEA","conference":"NFC","division":"NFC West","record":"4-2","division_rank":2,"conference_rank":5,"playoff_seed":5},{"team":"LAR","conference":"NFC","division":"NFC West","record":"4-2","division_rank":3,"conference_rank":7,"playoff_seed":7},{"team":"ARI","conference":"NFC","division":"NFC West","record":"2-4","division_rank":4,"conference_rank":14,"playoff_seed":14}]
+[{"team":"PIT","conference":"AFC","division":"AFC North","record":"4-2","division_rank":1,"conference_rank":3,"playoff_seed":3},{"team":"CIN","conference":"AFC","division":"AFC North","record":"3-4","division_rank":2,"conference_rank":9,"playoff_seed":9},{"team":"BAL","conference":"AFC","division":"AFC North","record":"1-5","division_rank":3,"conference_rank":13,"playoff_seed":13},{"team":"CLE","conference":"AFC","division":"AFC North","record":"1-5","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"IND","conference":"AFC","division":"AFC South","record":"5-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"JAX","conference":"AFC","division":"AFC South","record":"4-2","division_rank":2,"conference_rank":5,"playoff_seed":6},{"team":"HOU","conference":"AFC","division":"AFC South","record":"1-3","division_rank":3,"conference_rank":11,"playoff_seed":11},{"team":"TEN","conference":"AFC","division":"AFC South","record":"1-4","division_rank":4,"conference_rank":12,"playoff_seed":12},{"team":"NE","conference":"AFC","division":"AFC East","record":"4-2","division_rank":1,"conference_rank":7,"playoff_seed":4},{"team":"BUF","conference":"AFC","division":"AFC East","record":"4-2","division_rank":2,"conference_rank":4,"playoff_seed":5},{"team":"MIA","conference":"AFC","division":"AFC East","record":"1-5","division_rank":3,"conference_rank":14,"playoff_seed":14},{"team":"NYJ","conference":"AFC","division":"AFC East","record":"0-6","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"LAC","conference":"AFC","division":"AFC West","record":"4-2","division_rank":1,"conference_rank":2,"playoff_seed":2},{"team":"DEN","conference":"AFC","division":"AFC West","record":"4-2","division_rank":2,"conference_rank":6,"playoff_seed":7},{"team":"KC","conference":"AFC","division":"AFC West","record":"3-3","division_rank":3,"conference_rank":8,"playoff_seed":8},{"team":"LV","conference":"AFC","division":"AFC West","record":"2-4","division_rank":4,"conference_rank":10,"playoff_seed":10},{"team":"GB","conference":"NFC","division":"NFC North","record":"3-1-1","division_rank":1,"conference_rank":3,"playoff_seed":2},{"team":"DET","conference":"NFC","division":"NFC North","record":"4-2","division_rank":2,"conference_rank":7,"playoff_seed":7},{"team":"MIN","conference":"NFC","division":"NFC North","record":"3-2","division_rank":3,"conference_rank":9,"playoff_seed":9},{"team":"CHI","conference":"NFC","division":"NFC North","record":"3-2","division_rank":4,"conference_rank":10,"playoff_seed":10},{"team":"TB","conference":"NFC","division":"NFC South","record":"5-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"ATL","conference":"NFC","division":"NFC South","record":"3-1","division_rank":2,"conference_rank":2,"playoff_seed":5},{"team":"CAR","conference":"NFC","division":"NFC South","record":"2-3","division_rank":3,"conference_rank":13,"playoff_seed":13},{"team":"NO","conference":"NFC","division":"NFC South","record":"1-5","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"PHI","conference":"NFC","division":"NFC East","record":"4-2","division_rank":1,"conference_rank":5,"playoff_seed":4},{"team":"WAS","conference":"NFC","division":"NFC East","record":"3-3","division_rank":2,"conference_rank":11,"playoff_seed":11},{"team":"DAL","conference":"NFC","division":"NFC East","record":"2-3-1","division_rank":3,"conference_rank":12,"playoff_seed":12},{"team":"NYG","conference":"NFC","division":"NFC East","record":"2-4","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"SF","conference":"NFC","division":"NFC West","record":"4-2","division_rank":1,"conference_rank":4,"playoff_seed":3},{"team":"SEA","conference":"NFC","division":"NFC West","record":"4-2","division_rank":2,"conference_rank":6,"playoff_seed":6},{"team":"LAR","conference":"NFC","division":"NFC West","record":"4-2","division_rank":3,"conference_rank":8,"playoff_seed":8},{"team":"ARI","conference":"NFC","division":"NFC West","record":"2-4","division_rank":4,"conference_rank":14,"playoff_seed":14}]
 
-NOTE: No games have been completed this week yet.
+COMPLETED GAMES THIS WEEK:
+[{"away":"PIT","away_score":31,"home":"CIN","home_score":33}]
 
-
-ALL 32 TEAMS (Power Rankings):
-[{"team":"TB","rank":1,"rating":83.92,"record":"5-1","playoff_prob":92.8,"playoff_seed":1},{"team":"IND","rank":2,"rating":79.07,"record":"5-1","playoff_prob":79.5,"playoff_seed":1},{"team":"PIT","rank":3,"rating":76.82,"record":"4-1","playoff_prob":78.7,"playoff_seed":2},{"team":"GB","rank":4,"rating":72.61,"record":"3-1-1","playoff_prob":70.4,"playoff_seed":2},{"team":"PHI","rank":5,"rating":71.73,"record":"4-2","playoff_prob":80.8,"playoff_seed":4},{"team":"DET","rank":6,"rating":67.26,"record":"4-2","playoff_prob":78.7,"playoff_seed":6},{"team":"JAX","rank":7,"rating":67.08,"record":"4-2","playoff_prob":62.3,"playoff_seed":6},{"team":"SF","rank":8,"rating":67.07,"record":"4-2","playoff_prob":75.0,"playoff_seed":3},{"team":"NE","rank":9,"rating":66.53,"record":"4-2","playoff_prob":74.4,"playoff_seed":4},{"team":"SEA","rank":10,"rating":66.49,"record":"4-2","playoff_prob":53.0,"playoff_seed":5},{"team":"DEN","rank":11,"rating":66.44,"record":"4-2","playoff_prob":76.8,"playoff_seed":7},{"team":"LAC","rank":12,"rating":65.55,"record":"4-2","playoff_prob":70.8,"playoff_seed":3},{"team":"LAR","rank":13,"rating":64.82,"record":"4-2","playoff_prob":60.6,"playoff_seed":7},{"team":"BUF","rank":14,"rating":63.37,"record":"4-2","playoff_prob":84.6,"playoff_seed":5},{"team":"ATL","rank":15,"rating":60.62,"record":"3-2","playoff_prob":48.9,"playoff_seed":8},{"team":"KC","rank":16,"rating":54.65,"record":"3-3","playoff_prob":73.2,"playoff_seed":8},{"team":"MIN","rank":17,"rating":53.9,"record":"3-2","playoff_prob":31.4,"playoff_seed":9},{"team":"CHI","rank":18,"rating":53.59,"record":"3-2","playoff_prob":31.1,"playoff_seed":10},{"team":"WAS","rank":19,"rating":50.6,"record":"3-3","playoff_prob":51.6,"playoff_seed":12},{"team":"CAR","rank":20,"rating":43.46,"record":"3-3","playoff_prob":15.6,"playoff_seed":11},{"team":"HOU","rank":21,"rating":39.05,"record":"2-3","playoff_prob":45.4,"playoff_seed":9},{"team":"CIN","rank":22,"rating":36.34,"record":"2-4","playoff_prob":27.2,"playoff_seed":10},{"team":"NYG","rank":23,"rating":35.16,"record":"2-4","playoff_prob":1.4,"playoff_seed":15},{"team":"LV","rank":24,"rating":33.72,"record":"2-4","playoff_prob":5.3,"playoff_seed":11},{"team":"DAL","rank":25,"rating":30.92,"record":"2-3-1","playoff_prob":2.3,"playoff_seed":13},{"team":"ARI","rank":26,"rating":29.44,"record":"2-4","playoff_prob":6.4,"playoff_seed":14},{"team":"CLE","rank":27,"rating":26.57,"record":"1-5","playoff_prob":1.6,"playoff_seed":14},{"team":"BAL","rank":28,"rating":18.24,"record":"1-5","playoff_prob":17.8,"playoff_seed":12},{"team":"TEN","rank":29,"rating":17.97,"record":"1-5","playoff_prob":1.1,"playoff_seed":15},{"team":"NO","rank":30,"rating":17.16,"record":"1-5","playoff_prob":0.1,"playoff_seed":16},{"team":"MIA","rank":31,"rating":12.82,"record":"1-5","playoff_prob":1.0,"playoff_seed":13},{"team":"NYJ","rank":32,"rating":10.74,"record":"0-6","playoff_prob":0.2,"playoff_seed":16}]
 
 
 === END GENERAL CONTEXT ===
@@ -43,8 +41,11 @@ SECTION 2: GAME OF THE WEEK
 Game: TB @ DET
 Status: upcoming
 Spread: TB +4.5, Over/Under: 52.5
-TB Record: 5-1, Playoff Prob: 92.8%
-DET Record: 4-2, Playoff Prob: 78.7%
+TB Record: 5-1, Playoff Prob: 93.2%
+DET Record: 4-2, Playoff Prob: 78.6%
+Head Coaches: TB - Todd Bowles, DET - Dan Campbell
+Coordinators (OC/DC): TB - Josh Grizzard/Todd Bowles[a]; DET - John Morton/Kelvin Sheppard
+Venue: Ford Field
 
 2. game_of_week_tagline (1-2 sentences)
    - If completed: Brief recap highlighting what made it the best game or why it did not live up to expectations
@@ -60,6 +61,9 @@ Status: upcoming
 Spread: MIA +2.5, Over/Under: 40.5
 MIA Record: 1-5
 CLE Record: 1-5
+Head Coaches: MIA - Mike McDaniel, CLE - Kevin Stefanski
+Coordinators (OC/DC): MIA - Frank Smith/Anthony Weaver; CLE - Tommy Rees/Jim Schwartz
+Venue: Huntington Bank Field
 
 3. game_of_meek_tagline (1-2 sentences)
    - If completed: Humorous recap of why it was forgettable or why it was better than expected
@@ -101,9 +105,9 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
     "rank": 1
   },
   {
-    "team": "PHI",
+    "team": "IND",
     "stat": "Red Zone %",
-    "value": 87.5,
+    "value": 100.0,
     "unit": "%",
     "rank": 1
   }
@@ -133,9 +137,9 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
     "rank": 1
   },
   {
-    "team": "TEN",
+    "team": "MIN",
     "stat": "Third Down Defense",
-    "value": 28.4,
+    "value": 0.0,
     "unit": "%",
     "rank": 1
   },
@@ -151,9 +155,9 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
 4c. EFFICIENCY LEADERS (provide exactly 5 context phrases in order):
 [
   {
-    "team": "GB",
+    "team": "NYG",
     "stat": "Third Down Conversion",
-    "value": 51.5,
+    "value": 73.3,
     "unit": "%",
     "rank": 1
   },
@@ -165,9 +169,9 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
     "rank": 1
   },
   {
-    "team": "PHI",
+    "team": "IND",
     "stat": "Red Zone Efficiency",
-    "value": 87.5,
+    "value": 100.0,
     "unit": "%",
     "rank": 1
   },
@@ -255,11 +259,11 @@ Generate context for the following 6 individual stat leaders (PLAIN STRINGS expl
 SECTION 6: POWER RANKINGS
 Generate 1-sentence reasons for biggest movers:
 
-6a. Biggest Riser: NYG
-   Moved from #29 to #23 (Record: 2-4)
+6a. Biggest Riser: DEN
+   Moved from #9 to #6 (Record: 4-2)
 
-6b. Biggest Faller: BUF
-   Moved from #5 to #14 (Record: 4-2)
+6b. Biggest Faller: PIT
+   Moved from #3 to #13 (Record: 4-2)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -267,22 +271,22 @@ SECTION 7: PLAYOFF PICTURE
 Generate brief context (PLAIN STRING) for these specific 12 teams in playoff race:
 
 7a. TOP 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. TB - Record: 5-1, Playoff Prob: 92.8%, Current Seed: 1
-   2. BUF - Record: 4-2, Playoff Prob: 84.6%, Current Seed: 5
+   1. TB - Record: 5-1, Playoff Prob: 93.2%, Current Seed: 1
+   2. BUF - Record: 4-2, Playoff Prob: 84.2%, Current Seed: 5
    3. PHI - Record: 4-2, Playoff Prob: 80.8%, Current Seed: 4
-   4. IND - Record: 5-1, Playoff Prob: 79.5%, Current Seed: 1
+   4. IND - Record: 5-1, Playoff Prob: 79.7%, Current Seed: 1
 
 7b. MIDDLE 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. DET - Record: 4-2, Playoff Prob: 78.7%, Current Seed: 6
-   2. PIT - Record: 4-1, Playoff Prob: 78.7%, Current Seed: 2
-   3. DEN - Record: 4-2, Playoff Prob: 76.8%, Current Seed: 7
-   4. SF - Record: 4-2, Playoff Prob: 75.0%, Current Seed: 3
+   1. DET - Record: 4-2, Playoff Prob: 78.6%, Current Seed: 7
+   2. DEN - Record: 4-2, Playoff Prob: 77.2%, Current Seed: 7
+   3. NE - Record: 4-2, Playoff Prob: 74.8%, Current Seed: 4
+   4. SF - Record: 4-2, Playoff Prob: 74.7%, Current Seed: 3
 
 7c. BOTTOM 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. TEN - Record: 1-5, Playoff Prob: 1.1%, Current Seed: 15
-   2. MIA - Record: 1-5, Playoff Prob: 1.0%, Current Seed: 13
-   3. NYJ - Record: 0-6, Playoff Prob: 0.2%, Current Seed: 16
-   4. NO - Record: 1-5, Playoff Prob: 0.1%, Current Seed: 16
+   1. TEN - Record: 1-4, Playoff Prob: 1.0%, Current Seed: 12
+   2. MIA - Record: 1-5, Playoff Prob: 0.7%, Current Seed: 14
+   3. NO - Record: 1-5, Playoff Prob: 0.2%, Current Seed: 16
+   4. NYJ - Record: 0-6, Playoff Prob: 0.1%, Current Seed: 16
 
 Return format: {"top_4": ["string1", "string2", "string3", "string4"], "middle_4": [...], "bottom_4": [...]}
 
@@ -292,13 +296,7 @@ SECTION 8: WEEK PREVIEW
 Generate brief taglines (5-8 words) for the following games:
 
 8a. Thursday Night Game:
-{
-  "espn_id": "401772941",
-  "away_team": "PIT",
-  "away_record": "4-1",
-  "home_team": "CIN",
-  "home_record": "2-4"
-}
+None
 
 8b. Sunday Spotlight Games (provide 3 taglines):
 [
@@ -307,21 +305,45 @@ Generate brief taglines (5-8 words) for the following games:
     "away_team": "IND",
     "away_record": "5-1",
     "home_team": "LAC",
-    "home_record": "4-2"
+    "home_record": "4-2",
+    "away_head_coach": "Shane Steichen",
+    "home_head_coach": "Jim Harbaugh",
+    "away_offensive_coordinator": "Jim Bob Cooter",
+    "home_offensive_coordinator": "Greg Roman",
+    "away_defensive_coordinator": "Lou Anarumo",
+    "home_defensive_coordinator": "Jesse Minter",
+    "stadium": "SoFi Stadium",
+    "gametime": "16:05"
   },
   {
     "espn_id": "401772635",
     "away_team": "LAR",
     "away_record": "4-2",
     "home_team": "JAX",
-    "home_record": "4-2"
+    "home_record": "4-2",
+    "away_head_coach": "Sean McVay",
+    "home_head_coach": "Liam Coen",
+    "away_offensive_coordinator": "Mike LaFleur",
+    "home_offensive_coordinator": "Grant Udinski",
+    "away_defensive_coordinator": "Chris Shula",
+    "home_defensive_coordinator": "Anthony Campanile",
+    "stadium": "EverBank Stadium",
+    "gametime": "09:30"
   },
   {
     "espn_id": "401772924",
     "away_team": "ATL",
-    "away_record": "3-2",
+    "away_record": "3-1",
     "home_team": "SF",
-    "home_record": "4-2"
+    "home_record": "4-2",
+    "away_head_coach": "Raheem Morris",
+    "home_head_coach": "Kyle Shanahan",
+    "away_offensive_coordinator": "Zac Robinson",
+    "home_offensive_coordinator": "Klay Kubiak",
+    "away_defensive_coordinator": "Jeff Ulbrich",
+    "home_defensive_coordinator": "Robert Saleh",
+    "stadium": "Levi's Stadium",
+    "gametime": "20:20"
   }
 ]
 
