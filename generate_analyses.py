@@ -33,6 +33,228 @@ try:
 except Exception:
     TEAMS_METADATA = {team['team_abbr']: team for team in TEAM_METADATA}
 
+
+def _get_espn_team_id(team_abbr: str) -> Optional[int]:
+    profile = TEAMS_METADATA.get(team_abbr)
+    if not profile:
+        return None
+    espn_id = profile.get('espn_api_id')
+    if espn_id is None:
+        return None
+    try:
+        return int(espn_id)
+    except (TypeError, ValueError):
+        return None
+
+
+def _normalize_name(value: Optional[str]) -> str:
+    if not value or not isinstance(value, str):
+        return ''
+    return ''.join(value.lower().replace("'", '').replace('-', ' ').split())
+
+
+def _load_schedule_dataframe() -> Optional[pd.DataFrame]:
+    try:
+        with open('data/schedule.json', 'r', encoding='utf-8') as fh:
+            schedule_df = pd.DataFrame(json.load(fh))
+        schedule_df['home_score'] = pd.to_numeric(schedule_df['home_score'], errors='coerce')
+        schedule_df['away_score'] = pd.to_numeric(schedule_df['away_score'], errors='coerce')
+        schedule_df['game_datetime'] = pd.to_datetime(
+            schedule_df['game_date'] + ' ' + schedule_df['gametime'].fillna('00:00'),
+            errors='coerce'
+        )
+        return schedule_df
+    except Exception:
+        return None
+
+
+def _load_team_recent_form(team_abbr: str, limit: int = 5) -> List[dict]:
+    schedule_df = _load_schedule_dataframe()
+    if schedule_df is None:
+        return []
+
+    team_games = schedule_df[
+        (schedule_df['home_team'] == team_abbr) | (schedule_df['away_team'] == team_abbr)
+    ]
+    team_games = team_games[team_games['home_score'].notna() & team_games['away_score'].notna()]
+    if team_games.empty:
+        return []
+
+    team_games = team_games.sort_values('game_datetime').tail(limit)
+    recent = []
+    for _, row in team_games.iterrows():
+        is_home = row['home_team'] == team_abbr
+        opponent = row['away_team'] if is_home else row['home_team']
+        home_score = int(row['home_score'])
+        away_score = int(row['away_score'])
+        result = 'W' if (is_home and home_score > away_score) or (not is_home and away_score > home_score) else 'L'
+        if home_score == away_score:
+            result = 'T'
+
+        recent.append({
+            'week': int(row.get('week_num', 0) or 0),
+            'date': row.get('game_date'),
+            'opponent': opponent,
+            'location': 'home' if is_home else 'away',
+            'score': f"{row['home_team']} {home_score}-{away_score} {row['away_team']}",
+            'result': result
+        })
+
+    return recent
+
+
+def _load_team_injury_notes(team_abbr: str, limit: int = 6) -> List[dict]:
+    if RAW_DATA_MANIFEST is None:
+        return []
+    espn_id = _get_espn_team_id(team_abbr)
+    if espn_id is None:
+        return []
+
+    try:
+        data = RAW_DATA_MANIFEST.load_json('espn_injuries', str(espn_id))
+    except ValueError:
+        data = None
+
+    if not data:
+        return []
+
+    items = []
+    for item in data.get('items', []) or []:
+        athlete = item.get('athlete', {}) or {}
+        detail = item.get('details', {}) or {}
+        status = item.get('status') or detail.get('description') or detail.get('detail')
+
+        items.append({
+            'player': athlete.get('fullName') or athlete.get('displayName'),
+            'position': athlete.get('position'),
+            'status': status,
+            'injury': detail.get('type') or detail.get('detail'),
+            'short_comment': item.get('shortComment'),
+            'long_comment': item.get('longComment'),
+            'last_updated': item.get('date')
+        })
+
+    return items[:limit]
+
+
+def _load_team_headlines(team_abbr: str, limit: int = 3) -> List[dict]:
+    if RAW_DATA_MANIFEST is None:
+        return []
+    espn_id = _get_espn_team_id(team_abbr)
+    if espn_id is None:
+        return []
+
+    try:
+        data = RAW_DATA_MANIFEST.load_json('espn_news', str(espn_id))
+    except ValueError:
+        data = None
+
+    if not data:
+        return []
+
+    headlines = []
+    for article in data.get('articles', []) or []:
+        headlines.append({
+            'headline': article.get('headline'),
+            'description': article.get('description'),
+            'published': article.get('published')
+        })
+        if len(headlines) >= limit:
+            break
+
+    return headlines
+
+
+def _load_depth_chart_flags(team_abbr: str, limit: int = 6) -> List[dict]:
+    if RAW_DATA_MANIFEST is None:
+        return []
+    espn_id = _get_espn_team_id(team_abbr)
+    if espn_id is None:
+        return []
+
+    try:
+        data = RAW_DATA_MANIFEST.load_json('espn_depthchart', str(espn_id))
+    except ValueError:
+        data = None
+
+    if not data:
+        return []
+
+    notable_statuses = {
+        'Out', 'Questionable', 'Doubtful', 'Injured Reserve', 'Suspended', 'Physically Unable to Perform',
+        'Non-Football Injury', 'Practice Squad', 'Limited', 'Game-Time Decision', 'Not Active'
+    }
+
+    alerts = []
+    for grouping in data.get('items', []) or []:
+        positions = grouping.get('positions', {}) or {}
+        for pos_key, pos_info in positions.items():
+            for athlete in pos_info.get('athletes', []) or []:
+                status_info = athlete.get('status', {}) or {}
+                status_name = status_info.get('name') or status_info.get('abbreviation') or status_info.get('type')
+                if status_name and status_name not in notable_statuses:
+                    continue
+                if status_name:
+                    alerts.append({
+                        'position': pos_info.get('position', {}).get('displayName') or pos_key.upper(),
+                        'player': athlete.get('fullName') or athlete.get('displayName'),
+                        'jersey': athlete.get('jersey'),
+                        'status': status_name
+                    })
+    return alerts[:limit]
+
+
+def _load_scoreboard_context(event_id: str) -> Dict:
+    if RAW_DATA_MANIFEST is None:
+        return {}
+    identifiers = RAW_DATA_MANIFEST.list_identifiers('espn_scoreboard')
+    if not identifiers:
+        return {}
+
+    try:
+        scoreboard = RAW_DATA_MANIFEST.load_json('espn_scoreboard', identifiers[-1])
+    except ValueError:
+        scoreboard = None
+
+    if not scoreboard:
+        return {}
+
+    for event in scoreboard.get('events', []) or []:
+        if str(event.get('id')) != str(event_id):
+            continue
+        competition = (event.get('competitions') or [None])[0] or {}
+        context: Dict = {}
+        if competition.get('notes'):
+            context['notes'] = [note.get('headline') or note.get('text') for note in competition.get('notes', [])]
+        if competition.get('attendance') is not None:
+            context['attendance'] = competition.get('attendance')
+        context['neutral_site'] = competition.get('neutralSite', False)
+        if competition.get('broadcasts'):
+            context['broadcasts'] = [
+                ', '.join(b.get('names') or []) or b.get('shortName') or b.get('type', {}).get('shortName')
+                for b in competition.get('broadcasts', [])
+            ]
+        venue = competition.get('venue') or {}
+        if venue.get('fullName'):
+            context['venue'] = venue.get('fullName')
+        if venue.get('address'):
+            context['venue_city'] = venue.get('address', {}).get('city')
+        status = competition.get('status', {}).get('type', {}) or {}
+        if status.get('detail'):
+            context['status_detail'] = status.get('detail')
+        weather = competition.get('weather') or {}
+        if weather:
+            context.setdefault('weather', {})
+            context['weather'].update({
+                'temperature': weather.get('temperature'),
+                'condition': weather.get('displayValue') or weather.get('condition'),
+                'wind': weather.get('wind', {}).get('displayValue'),
+                'humidity': weather.get('humidity')
+            })
+        return context
+    return {}
+
+
 def fetch_game_json(game_id):
     """Load stored ESPN summary JSON for a given game ID."""
     manifest = RAW_DATA_MANIFEST or RawDataManifest.from_latest()
@@ -382,6 +604,12 @@ IMPORTANT: The game data includes multiple sections:
 - **leaders**: Top players in key statistical categories
 - **injuries**: Current injury reports
 - **gameInfo**: Venue, weather conditions
+- **team_profiles/head_coaches/coordinators**: Coaching context and stadium information for each team
+- **injury_report**: Extended injury notes with detailed comments and last-updated timestamps
+- **recent_news**: Latest team-specific headlines
+- **depth_chart_alerts**: Notable starter/lineup status changes from the latest depth chart snapshot
+- **recent_form**: Last five game results for each team
+- **event_context**: Broadcast, neutral-site, attendance, and special event notes pulled from the scoreboard feed
 
 Use the team_season_stats section for detailed statistical analysis - it has the most comprehensive data.
 
@@ -603,6 +831,14 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
 
         # Get betting/weather (available for all games)
         espn_context = espn_service.get_game_context(game_id, game['home_team'], game['away_team'])
+        scoreboard_context = _load_scoreboard_context(game_id)
+        if scoreboard_context:
+            if espn_context is None:
+                espn_context = {}
+            espn_context.setdefault('event', {}).update(scoreboard_context)
+            game_data['event_context'] = scoreboard_context
+        if scoreboard_context.get('venue') and not game_data.get('stadium'):
+            game_data['stadium'] = scoreboard_context.get('venue')
 
         # Get predictor data for upcoming games
         if not is_completed:
@@ -639,6 +875,22 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
             'offensive': home_profile.get('offensive_coordinator', ''),
             'defensive': home_profile.get('defensive_coordinator', ''),
         },
+    }
+    game_data['injury_report'] = {
+        game['away_team']: _load_team_injury_notes(game['away_team']),
+        game['home_team']: _load_team_injury_notes(game['home_team'])
+    }
+    game_data['recent_news'] = {
+        game['away_team']: _load_team_headlines(game['away_team']),
+        game['home_team']: _load_team_headlines(game['home_team'])
+    }
+    game_data['depth_chart_alerts'] = {
+        game['away_team']: _load_depth_chart_flags(game['away_team']),
+        game['home_team']: _load_depth_chart_flags(game['home_team'])
+    }
+    game_data['recent_form'] = {
+        game['away_team']: _load_team_recent_form(game['away_team']),
+        game['home_team']: _load_team_recent_form(game['home_team'])
     }
 
     # Add ESPN betting lines to game_data for AI context

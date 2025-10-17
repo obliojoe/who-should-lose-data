@@ -52,6 +52,13 @@ TEAM_ALIAS = {
     'WSH': 'WAS',
 }
 
+
+def _normalize_name(value: Optional[str]) -> str:
+    if not value or not isinstance(value, str):
+        return ''
+    return ''.join(value.lower().replace("'", '').replace('-', ' ').split())
+
+
 def filter_team_starters(data, team_abbr):
     """Filter team starters data for a specific team."""
     lines = data.split('\n')
@@ -335,6 +342,118 @@ def build_team_records(schedule_df: pd.DataFrame, coordinators_map: Dict[str, Di
 
     return sorted(records, key=lambda item: item['team_abbr'])
 
+
+def load_team_injury_details(team_abbr: str, teams_df: pd.DataFrame) -> List[dict]:
+    if RAW_DATA_MANIFEST is None:
+        return []
+
+    team_row = teams_df[teams_df['team_abbr'] == team_abbr]
+    if team_row.empty:
+        return []
+
+    espn_id = team_row.iloc[0].get('espn_api_id')
+    if pd.isna(espn_id):
+        return []
+
+    try:
+        data = RAW_DATA_MANIFEST.load_json('espn_injuries', str(int(espn_id)))
+    except ValueError:
+        data = None
+
+    if not data:
+        return []
+
+    details: List[dict] = []
+    for item in data.get('items', []) or []:
+        athlete = item.get('athlete', {}) or {}
+        detail_info = item.get('details', {}) or {}
+        status_text = item.get('status') or detail_info.get('description') or detail_info.get('detail')
+
+        details.append({
+            'player': athlete.get('fullName') or athlete.get('displayName') or 'Unknown',
+            'position': athlete.get('position') or '',
+            'status': status_text or '',
+            'type': detail_info.get('type') or detail_info.get('detail') or '',
+            'long_comment': item.get('longComment') or '',
+            'short_comment': item.get('shortComment') or '',
+            'last_updated': item.get('date')
+        })
+
+    return details
+
+
+def merge_injury_details(base_list: List[dict], extended_list: List[dict]) -> List[dict]:
+    if not extended_list:
+        return base_list
+
+    base_map = {}
+    for entry in base_list:
+        if isinstance(entry, dict):
+            base_map[_normalize_name(entry.get('player'))] = entry
+
+    for detail in extended_list:
+        key = _normalize_name(detail.get('player'))
+        if key in base_map:
+            target = base_map[key]
+            for field in ('type', 'long_comment', 'short_comment', 'last_updated'):
+                if detail.get(field):
+                    target[field] = detail[field]
+            if detail.get('status'):
+                target['status'] = detail['status']
+            if detail.get('position') and not target.get('position'):
+                target['position'] = detail['position']
+        else:
+            base_list.append(detail)
+
+    return base_list
+
+
+def load_depth_chart_alerts(team_abbr: str, teams_df: pd.DataFrame) -> List[dict]:
+    if RAW_DATA_MANIFEST is None:
+        return []
+
+    team_row = teams_df[teams_df['team_abbr'] == team_abbr]
+    if team_row.empty:
+        return []
+
+    espn_id = team_row.iloc[0].get('espn_api_id')
+    if pd.isna(espn_id):
+        return []
+
+    try:
+        data = RAW_DATA_MANIFEST.load_json('espn_depthchart', str(int(espn_id)))
+    except ValueError:
+        data = None
+
+    if not data:
+        return []
+
+    notable_statuses = {
+        'Out', 'Questionable', 'Doubtful', 'Injured Reserve', 'Inactive', 'Suspended',
+        'Physically Unable to Perform', 'Non-Football Injury', 'Practice Squad', 'Limited',
+        'Game-Time Decision', 'Reserve', 'COVID-19', 'Not Active'
+    }
+
+    alerts: List[dict] = []
+    for grouping in data.get('items', []) or []:
+        positions = grouping.get('positions', {}) or {}
+        for pos_key, pos_info in positions.items():
+            athletes = pos_info.get('athletes', []) or []
+            for athlete in athletes:
+                status_info = athlete.get('status', {}) or {}
+                status_name = status_info.get('name') or status_info.get('abbreviation') or status_info.get('type')
+                rank = athlete.get('rank')
+                if status_name and status_name not in notable_statuses:
+                    continue
+                if status_name or (rank == 1 and status_name):
+                    alerts.append({
+                        'position': pos_info.get('position', {}).get('displayName') or pos_key.upper(),
+                        'player': athlete.get('fullName') or athlete.get('displayName'),
+                        'jersey': athlete.get('jersey'),
+                        'status': status_name or 'Status Unspecified'
+                    })
+
+    return alerts
 
 def load_raw_csv(dataset: str, identifier: Optional[str] = None) -> Optional[pd.DataFrame]:
     if RAW_DATA_MANIFEST is None:
@@ -1169,6 +1288,16 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
         if next_opponent != "NONE" and not opponent_injuries:
             opponent_injuries = get_key_injuries_fallback(next_opponent)
 
+    # Merge in extended injury details from the dedicated injury feed
+    team_injury_details = load_team_injury_details(team_abbr, teams_df)
+    opponent_injury_details = load_team_injury_details(next_opponent, teams_df) if next_opponent != "NONE" else []
+    team_injuries = merge_injury_details(team_injuries, team_injury_details)
+    if next_opponent != "NONE":
+        opponent_injuries = merge_injury_details(opponent_injuries, opponent_injury_details)
+
+    team_depth_alerts = load_depth_chart_alerts(team_abbr, teams_df)
+    opponent_depth_alerts = load_depth_chart_alerts(next_opponent, teams_df) if next_opponent != "NONE" else []
+
     # Fetch recent news headlines for both teams
     def get_team_news(team_abbr_filter):
         """Get recent ESPN headlines for a team (only team-specific, not generic NFL news)"""
@@ -1206,7 +1335,11 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
                 ])
 
                 if contains_team and not generic_multi_team:
-                    team_specific.append({'headline': headline, 'published': a.get('published', '')})
+                    team_specific.append({
+                        'headline': headline,
+                        'published': a.get('published', ''),
+                        'description': description
+                    })
                     if len(team_specific) >= 3:  # Stop at 3
                         break
 
@@ -1215,8 +1348,52 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
             logger.warning(f"Failed to fetch news for {team_abbr_filter}: {e}")
             return []
 
+    def get_recent_form(team_abbr_filter, limit=5):
+        try:
+            team_games = schedule_pd[
+                (schedule_pd['home_team'] == team_abbr_filter) |
+                (schedule_pd['away_team'] == team_abbr_filter)
+            ].copy()
+
+            team_games['home_score'] = pd.to_numeric(team_games['home_score'], errors='coerce')
+            team_games['away_score'] = pd.to_numeric(team_games['away_score'], errors='coerce')
+            team_games = team_games[team_games['home_score'].notna() & team_games['away_score'].notna()]
+            if team_games.empty:
+                return []
+
+            team_games['game_datetime'] = pd.to_datetime(
+                team_games['game_date'] + ' ' + team_games['gametime'].fillna('00:00'),
+                errors='coerce'
+            )
+            team_games = team_games.sort_values('game_datetime').tail(limit)
+
+            recent = []
+            for _, row in team_games.iterrows():
+                is_home = row['home_team'] == team_abbr_filter
+                opponent = row['away_team'] if is_home else row['home_team']
+                home_score = int(row['home_score'])
+                away_score = int(row['away_score'])
+                result = 'W' if (is_home and home_score > away_score) or (not is_home and away_score > home_score) else 'L'
+                if home_score == away_score:
+                    result = 'T'
+
+                recent.append({
+                    'week': int(row.get('week_num', 0) or 0),
+                    'date': row.get('game_date'),
+                    'opponent': opponent,
+                    'location': 'home' if is_home else 'away',
+                    'score': f"{row['home_team']} {home_score}-{away_score} {row['away_team']}",
+                    'result': result
+                })
+
+            return recent
+        except Exception:
+            return []
+
     team_news = get_team_news(team_abbr)
     opponent_news = get_team_news(next_opponent) if next_opponent != "NONE" else []
+    team_recent_form = get_recent_form(team_abbr)
+    opponent_recent_form = get_recent_form(next_opponent) if next_opponent != "NONE" else []
 
     # get this team's starting qb from team_starters
     starting_qb = get_starting_qb_from_team_starters(team_abbr)
@@ -1419,7 +1596,11 @@ If {home} wins:
         espn_context=espn_context,
         league_rankings=league_rankings,
         chaos_score=chaos_score,
-        chaos_details=chaos_details
+        chaos_details=chaos_details,
+        team_depth_alerts=team_depth_alerts,
+        opponent_depth_alerts=opponent_depth_alerts,
+        team_recent_form=team_recent_form,
+        opponent_recent_form=opponent_recent_form
     )
 
         
