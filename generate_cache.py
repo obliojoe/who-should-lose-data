@@ -408,7 +408,7 @@ def merge_injury_details(base_list: List[dict], extended_list: List[dict]) -> Li
     return base_list
 
 
-def load_depth_chart_alerts(team_abbr: str, teams_df: pd.DataFrame) -> List[dict]:
+def load_depth_chart_alerts(team_abbr: str, teams_df: pd.DataFrame, limit: int = 2) -> List[dict]:
     if RAW_DATA_MANIFEST is None:
         return []
 
@@ -453,6 +453,8 @@ def load_depth_chart_alerts(team_abbr: str, teams_df: pd.DataFrame) -> List[dict
                         'status': status_name or 'Status Unspecified'
                     })
 
+    if limit:
+        return alerts[:limit]
     return alerts
 
 def load_raw_csv(dataset: str, identifier: Optional[str] = None) -> Optional[pd.DataFrame]:
@@ -1292,11 +1294,14 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
     team_injury_details = load_team_injury_details(team_abbr, teams_df)
     opponent_injury_details = load_team_injury_details(next_opponent, teams_df) if next_opponent != "NONE" else []
     team_injuries = merge_injury_details(team_injuries, team_injury_details)
+    team_injuries = (team_injuries or [])[:6]
+
     if next_opponent != "NONE":
         opponent_injuries = merge_injury_details(opponent_injuries, opponent_injury_details)
+        opponent_injuries = (opponent_injuries or [])[:6]
 
-    team_depth_alerts = load_depth_chart_alerts(team_abbr, teams_df)
-    opponent_depth_alerts = load_depth_chart_alerts(next_opponent, teams_df) if next_opponent != "NONE" else []
+    team_depth_alerts = (load_depth_chart_alerts(team_abbr, teams_df) or [])[:2]
+    opponent_depth_alerts = (load_depth_chart_alerts(next_opponent, teams_df) or [])[:2] if next_opponent != "NONE" else []
 
     # Fetch recent news headlines for both teams
     def get_team_news(team_abbr_filter):
@@ -1390,10 +1395,10 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
         except Exception:
             return []
 
-    team_news = get_team_news(team_abbr)
-    opponent_news = get_team_news(next_opponent) if next_opponent != "NONE" else []
-    team_recent_form = get_recent_form(team_abbr)
-    opponent_recent_form = get_recent_form(next_opponent) if next_opponent != "NONE" else []
+    team_news = get_team_news(team_abbr)[:2]
+    opponent_news = get_team_news(next_opponent)[:2] if next_opponent != "NONE" else []
+    team_recent_form = get_recent_form(team_abbr, limit=4)
+    opponent_recent_form = get_recent_form(next_opponent, limit=4) if next_opponent != "NONE" else []
 
     # get this team's starting qb from team_starters
     starting_qb = get_starting_qb_from_team_starters(team_abbr)

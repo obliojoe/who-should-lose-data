@@ -6,7 +6,7 @@ import argparse
 import logging
 import signal
 import sys
-from typing import Optional
+from typing import Dict, List, Optional
 
 import pandas as pd
 from anthropic import Anthropic
@@ -32,6 +32,18 @@ try:
     TEAMS_METADATA = load_teams()
 except Exception:
     TEAMS_METADATA = {team['team_abbr']: team for team in TEAM_METADATA}
+
+
+def _truncate_text(value: Optional[str], max_length: int = 180) -> Optional[str]:
+    """Return a trimmed ASCII-safe string with ellipsis when needed."""
+    if not value:
+        return None
+
+    text = str(value).strip()
+    if len(text) <= max_length:
+        return text
+
+    return text[: max_length - 3].rstrip() + "..."
 
 
 def _get_espn_team_id(team_abbr: str) -> Optional[int]:
@@ -124,20 +136,28 @@ def _load_team_injury_notes(team_abbr: str, limit: int = 6) -> List[dict]:
         detail = item.get('details', {}) or {}
         status = item.get('status') or detail.get('description') or detail.get('detail')
 
-        items.append({
+        short_comment = _truncate_text(item.get('shortComment'), max_length=160)
+        long_comment = _truncate_text(item.get('longComment'), max_length=220)
+
+        details = {
             'player': athlete.get('fullName') or athlete.get('displayName'),
             'position': athlete.get('position'),
             'status': status,
             'injury': detail.get('type') or detail.get('detail'),
-            'short_comment': item.get('shortComment'),
-            'long_comment': item.get('longComment'),
             'last_updated': item.get('date')
-        })
+        }
+
+        if short_comment:
+            details['short_comment'] = short_comment
+        if long_comment:
+            details['long_comment'] = long_comment
+
+        items.append(details)
 
     return items[:limit]
 
 
-def _load_team_headlines(team_abbr: str, limit: int = 3) -> List[dict]:
+def _load_team_headlines(team_abbr: str, limit: int = 2) -> List[dict]:
     if RAW_DATA_MANIFEST is None:
         return []
     espn_id = _get_espn_team_id(team_abbr)
@@ -154,18 +174,26 @@ def _load_team_headlines(team_abbr: str, limit: int = 3) -> List[dict]:
 
     headlines = []
     for article in data.get('articles', []) or []:
-        headlines.append({
-            'headline': article.get('headline'),
-            'description': article.get('description'),
+        headline = _truncate_text(article.get('headline'), max_length=160)
+        description = _truncate_text(article.get('description'), max_length=200)
+        if not headline:
+            continue
+
+        entry = {
+            'headline': headline,
             'published': article.get('published')
-        })
+        }
+        if description:
+            entry['description'] = description
+
+        headlines.append(entry)
         if len(headlines) >= limit:
             break
 
     return headlines
 
 
-def _load_depth_chart_flags(team_abbr: str, limit: int = 6) -> List[dict]:
+def _load_depth_chart_flags(team_abbr: str, limit: int = 3) -> List[dict]:
     if RAW_DATA_MANIFEST is None:
         return []
     espn_id = _get_espn_team_id(team_abbr)
@@ -224,8 +252,17 @@ def _load_scoreboard_context(event_id: str) -> Dict:
             continue
         competition = (event.get('competitions') or [None])[0] or {}
         context: Dict = {}
-        if competition.get('notes'):
-            context['notes'] = [note.get('headline') or note.get('text') for note in competition.get('notes', [])]
+        notes = []
+        for note in competition.get('notes', []) or []:
+            text = note.get('headline') or note.get('text')
+            text = _truncate_text(text, max_length=200)
+            if not text:
+                continue
+            notes.append(text)
+            if len(notes) >= 3:
+                break
+        if notes:
+            context['notes'] = notes
         if competition.get('attendance') is not None:
             context['attendance'] = competition.get('attendance')
         context['neutral_site'] = competition.get('neutralSite', False)
@@ -889,8 +926,8 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
         game['home_team']: _load_depth_chart_flags(game['home_team'])
     }
     game_data['recent_form'] = {
-        game['away_team']: _load_team_recent_form(game['away_team']),
-        game['home_team']: _load_team_recent_form(game['home_team'])
+        game['away_team']: _load_team_recent_form(game['away_team'], limit=4),
+        game['home_team']: _load_team_recent_form(game['home_team'], limit=4)
     }
 
     # Add ESPN betting lines to game_data for AI context

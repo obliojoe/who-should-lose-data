@@ -10,6 +10,18 @@ New 4-section structure focused on fan engagement:
 import json
 from datetime import datetime
 
+
+def _truncate_text(value, max_length=180):
+    """Return a trimmed ASCII-safe string with ellipsis when needed."""
+    if not value:
+        return None
+
+    text = str(value).strip()
+    if len(text) <= max_length:
+        return text
+
+    return text[: max_length - 3].rstrip() + "..."
+
 # Handle imports from both relative and absolute paths
 try:
     from stat_filter import StatFilter
@@ -220,26 +232,40 @@ def build_injuries_json(team_injuries, opponent_injuries):
                 if injury_type:
                     status_text = f"{status_text} ({injury_type})"
 
+                if not status_text or status_text.lower().startswith('active'):
+                    continue
+
                 entry = {
                     "name": name,
                     "position": pos,
                     "status": status_text
                 }
-                if injury.get('short_comment'):
-                    entry['short_comment'] = injury['short_comment']
-                if injury.get('long_comment'):
-                    entry['long_comment'] = injury['long_comment']
+
+                long_comment = _truncate_text(injury.get('long_comment'), max_length=220)
+                short_comment = _truncate_text(injury.get('short_comment'), max_length=160)
+                if long_comment:
+                    entry['note'] = long_comment
+                elif short_comment:
+                    entry['note'] = short_comment
+
                 if injury.get('last_updated'):
-                    entry['last_updated'] = injury['last_updated']
+                    entry['updated'] = injury['last_updated']
+
                 formatted.append(entry)
             else:
                 # Handle legacy tuple format (name, pos, status)
                 name, pos, status = injury
+                status_text = status_map.get(status, status)
+                if not status_text or status_text.lower().startswith('active'):
+                    continue
                 formatted.append({
                     "name": name,
                     "position": pos,
-                    "status": status_map.get(status, status)
+                    "status": status_text
                 })
+
+            if len(formatted) >= 6:
+                break
 
         return formatted
 
@@ -255,7 +281,16 @@ def build_depth_chart_json(team_alerts, opponent_alerts):
     def _format(alerts):
         if not alerts:
             return []
-        return alerts
+        trimmed = []
+        for item in alerts:
+            trimmed.append({
+                'position': item.get('position'),
+                'player': item.get('player'),
+                'status': item.get('status')
+            })
+            if len(trimmed) >= 2:
+                break
+        return trimmed
 
     return {
         "team": _format(team_alerts),
@@ -269,7 +304,7 @@ def build_recent_form_json(team_recent, opponent_recent):
     def _format(entries):
         if not entries:
             return []
-        return entries
+        return entries[:4]
 
     return {
         "team": _format(team_recent),
@@ -353,8 +388,8 @@ def build_schedule_json(team_schedule, team_abbr):
             upcoming_games.append(game_info)
 
     return {
-        "completed": completed_games,
-        "upcoming": upcoming_games
+        "completed": completed_games[-5:],
+        "upcoming": upcoming_games[:5]
     }
 
 
