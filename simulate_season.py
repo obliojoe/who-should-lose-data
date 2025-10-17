@@ -63,6 +63,19 @@ SCORE_WEIGHTS = np.array([3 if score in COMMON_SCORES else 1 for score in VALID_
 GLOBAL_RNG = np.random.default_rng()
 
 
+def _parse_score(value):
+    """Return an integer score or None if missing/invalid."""
+    if value in (None, '', 'nan'):
+        return None
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        try:
+            return int(float(value))
+        except (ValueError, TypeError):
+            return None
+
+
 def _head_to_head_default():
     return {'wins': 0, 'losses': 0, 'ties': 0}
 
@@ -231,16 +244,17 @@ def initialize_standings(schedule, teams):
     standings = defaultdict(_team_record_default)
     
     for game in schedule:
+        away_score = _parse_score(game.get('away_score'))
+        home_score = _parse_score(game.get('home_score'))
+
         # Skip games that haven't been played
-        if not game['away_score'] or not game['home_score']:
+        if away_score is None or home_score is None:
             continue
-            
+
         try:
-            away_score = int(game['away_score'])
-            home_score = int(game['home_score'])
             away_team = game['away_team']
             home_team = game['home_team']
-            
+
             # Check if same division
             same_division = teams[away_team]['division'] == teams[home_team]['division']
             # Check if same conference
@@ -343,16 +357,22 @@ def _simulate_single_season(schedule, teams, base_ratings, home_field_advantage,
     schedule_output = [game.copy() for game in schedule] if include_schedule else None
 
     for game in schedule:
-        if game['away_score'] and game['home_score']:
+        away_score = _parse_score(game.get('away_score'))
+        home_score = _parse_score(game.get('home_score'))
+
+        if away_score is not None and home_score is not None:
             game_results.append({
                 'home_team': game['home_team'],
                 'away_team': game['away_team'],
-                'home_score': int(game['home_score']),
-                'away_score': int(game['away_score'])
+                'home_score': home_score,
+                'away_score': away_score
             })
 
     for game in schedule:
-        if not game['away_score'] and not game['home_score']:
+        away_score = _parse_score(game.get('away_score'))
+        home_score = _parse_score(game.get('home_score'))
+
+        if away_score is None and home_score is None:
             home_team = game['home_team']
             away_team = game['away_team']
             result = simulate_game(home_team, away_team, ratings, home_field_advantage, rng=rng)
