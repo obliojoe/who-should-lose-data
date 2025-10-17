@@ -1,7 +1,8 @@
-import logging
 import json
+import logging
+import math
 from pathlib import Path
-from typing import Dict, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 import pandas as pd
@@ -18,6 +19,87 @@ TEAM_ALIAS = {
 }
 
 RAW_DEPTHCHART_DIR = Path('data/raw/espn/depthchart')
+
+PLAYER_STAT_CATEGORIES: Dict[str, List[str]] = {
+    'passing': [
+        'completions', 'attempts', 'passing_yards', 'passing_tds', 'passing_interceptions',
+        'sacks_suffered', 'sack_yards_lost', 'passing_air_yards', 'passing_yards_after_catch',
+        'passing_first_downs', 'passing_epa', 'passing_cpoe', 'passing_2pt_conversions', 'pacr'
+    ],
+    'rushing': [
+        'carries', 'rushing_yards', 'rushing_tds', 'rushing_fumbles', 'rushing_fumbles_lost',
+        'rushing_first_downs', 'rushing_epa', 'rushing_2pt_conversions'
+    ],
+    'receiving': [
+        'receptions', 'targets', 'receiving_yards', 'receiving_tds', 'receiving_fumbles',
+        'receiving_fumbles_lost', 'receiving_air_yards', 'receiving_yards_after_catch',
+        'receiving_first_downs', 'receiving_epa', 'receiving_2pt_conversions', 'racr',
+        'target_share', 'air_yards_share', 'wopr'
+    ],
+    'defense': [
+        'def_tackles_solo', 'def_tackles_with_assist', 'def_tackle_assists',
+        'def_tackles_for_loss', 'def_tackles_for_loss_yards', 'def_fumbles_forced',
+        'def_sacks', 'def_sack_yards', 'def_qb_hits', 'def_interceptions',
+        'def_interception_yards', 'def_pass_defended', 'def_tds', 'def_fumbles', 'def_safeties'
+    ],
+    'returns': [
+        'punt_returns', 'punt_return_yards', 'punt_return_tds',
+        'kickoff_returns', 'kickoff_return_yards', 'kickoff_return_tds',
+        'special_teams_tds', 'misc_yards'
+    ],
+    'kicking': [
+        'fg_made', 'fg_att', 'fg_missed', 'fg_blocked', 'fg_long', 'fg_pct',
+        'fg_made_0_19', 'fg_made_20_29', 'fg_made_30_39', 'fg_made_40_49', 'fg_made_50_59', 'fg_made_60_',
+        'fg_missed_0_19', 'fg_missed_20_29', 'fg_missed_30_39', 'fg_missed_40_49',
+        'fg_missed_50_59', 'fg_missed_60_', 'fg_made_list', 'fg_missed_list', 'fg_blocked_list',
+        'fg_made_distance', 'fg_missed_distance', 'fg_blocked_distance',
+        'pat_made', 'pat_att', 'pat_missed', 'pat_blocked', 'pat_pct',
+        'gwfg_made', 'gwfg_att', 'gwfg_missed', 'gwfg_blocked', 'gwfg_distance'
+    ],
+    'misc': [
+        'penalties', 'penalty_yards', 'fumble_recovery_own', 'fumble_recovery_yards_own',
+        'fumble_recovery_opp', 'fumble_recovery_yards_opp', 'fumble_recovery_tds'
+    ],
+    'fantasy': ['fantasy_points', 'fantasy_points_ppr'],
+}
+
+
+def _clean_value(value: Any) -> Optional[Any]:
+    if value is None:
+        return None
+    if isinstance(value, (np.integer, np.int64, np.int32)):
+        return int(value)
+    if isinstance(value, (np.floating,)):
+        if math.isnan(value) or math.isinf(value):
+            return None
+        return float(value)
+    if isinstance(value, float):
+        if math.isnan(value) or math.isinf(value):
+            return None
+        return value
+    if isinstance(value, (np.bool_,)):
+        return bool(value)
+    return value
+
+
+def _extract_stat_categories(row: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    categories: Dict[str, Dict[str, Any]] = {}
+    for category, fields in PLAYER_STAT_CATEGORIES.items():
+        payload: Dict[str, Any] = {}
+        for field in fields:
+            if field not in row:
+                continue
+            cleaned = _clean_value(row.get(field))
+            if cleaned is None:
+                continue
+            if isinstance(cleaned, (int, float)) and cleaned == 0:
+                continue
+            if isinstance(cleaned, str) and cleaned == '':
+                continue
+            payload[field] = cleaned
+        if payload:
+            categories[category] = payload
+    return categories
 
 
 def _require_manifest(manifest: Optional[RawDataManifest]) -> RawDataManifest:
@@ -216,6 +298,9 @@ def get_current_starters(manifest: Optional[RawDataManifest] = None) -> pd.DataF
     weekly_player_stats = _load_week_csv(manifest, 'nflreadpy_player_stats')
     season_player_stats = _load_weekly_history(manifest, 'nflreadpy_player_stats')
 
+    weekly_stats_raw = weekly_player_stats.copy() if weekly_player_stats is not None else None
+    season_stats_raw = season_player_stats.copy() if season_player_stats is not None else None
+
     if roster_df is None or roster_df.empty:
         raise RuntimeError('No roster data available in raw snapshot')
     if depth_df is None or depth_df.empty:
@@ -306,6 +391,9 @@ def get_current_starters(manifest: Optional[RawDataManifest] = None) -> pd.DataF
             starters['birth_date'], errors='coerce'
         ).dt.year
 
+    if 'position_group' not in starters.columns and 'position_group_roster' in starters.columns:
+        starters['position_group'] = starters['position_group_roster']
+
     if 'player_name' not in starters.columns:
         for candidate in (
             'full_name_depth',
@@ -324,10 +412,12 @@ def get_current_starters(manifest: Optional[RawDataManifest] = None) -> pd.DataF
 
     base_columns = {
         'team': 'team_abbr',
+        'gsis_id': 'player_id',
         'pos_abb': 'position',
+        'position_group': 'position_group',
+        'pos_grp': 'formation',
         'player_name': 'player_name',
         'jersey_number': 'number',
-        'pos_grp': 'formation',
         'status': 'status',
         'height': 'height',
         'weight': 'weight',
@@ -337,41 +427,15 @@ def get_current_starters(manifest: Optional[RawDataManifest] = None) -> pd.DataF
         'birth_date': 'birth_date',
         'entry_year': 'entry_year',
         'draft_number': 'draft_pick',
-        'completions_week': 'completions_week',
-        'attempts_week': 'attempts_week',
-        'passing_yards_week': 'passing_yards_week',
-        'passing_tds_week': 'passing_tds_week',
-        'interceptions_week': 'interceptions_week',
-        'carries_week': 'carries_week',
-        'rushing_yards_week': 'rushing_yards_week',
-        'rushing_tds_week': 'rushing_tds_week',
-        'receptions_week': 'receptions_week',
-        'targets_week': 'targets_week',
-        'receiving_yards_week': 'receiving_yards_week',
-        'receiving_tds_week': 'receiving_tds_week',
-        'completions_season': 'completions_season',
-        'attempts_season': 'attempts_season',
-        'passing_yards_season': 'passing_yards_season',
-        'passing_tds_season': 'passing_tds_season',
-        'interceptions_season': 'interceptions_season',
-        'carries_season': 'carries_season',
-        'rushing_yards_season': 'rushing_yards_season',
-        'rushing_tds_season': 'rushing_tds_season',
-        'receptions_season': 'receptions_season',
-        'targets_season': 'targets_season',
-        'receiving_yards_season': 'receiving_yards_season',
-        'receiving_tds_season': 'receiving_tds_season',
-        'games_played': 'games_played',
     }
 
     available_columns = [col for col in base_columns if col in starters.columns]
     result = starters[available_columns].rename(columns={col: base_columns[col] for col in available_columns})
 
-    stat_columns = [
-        col for col in result.columns if any(suffix in col for suffix in ('_week', '_season', 'pct', 'per', 'rating'))
-    ]
-    for col in stat_columns:
-        result[col] = pd.to_numeric(result[col], errors='coerce').fillna(0)
+    if 'number' in result.columns:
+        result['number'] = result['number'].apply(
+            lambda val: int(val) if pd.notna(val) else None
+        )
 
     mapping = build_espn_player_map()
     if mapping:
@@ -399,18 +463,134 @@ def get_current_starters(manifest: Optional[RawDataManifest] = None) -> pd.DataF
     else:
         result['espn_player_id'] = ''
 
-    return result
+    player_stats = build_player_stats_records(
+        result,
+        weekly_player_stats,
+        season_stats_raw,
+        latest_week,
+    )
+
+    return result, player_stats
+
+
+def build_player_stats_records(
+    starters_df: pd.DataFrame,
+    weekly_stats: Optional[pd.DataFrame],
+    season_stats_raw: Optional[pd.DataFrame],
+    latest_week: Optional[int],
+) -> List[Dict[str, Any]]:
+    starters_records = starters_df.replace({np.nan: None}).to_dict(orient='records')
+    player_ids = {str(record.get('player_id')) for record in starters_records if record.get('player_id')}
+
+    weekly_map: Dict[str, Dict[str, Any]] = {}
+    if weekly_stats is not None and not weekly_stats.empty:
+        weekly_copy = weekly_stats.copy()
+        if 'player_id' in weekly_copy.columns:
+            weekly_copy['player_id'] = weekly_copy['player_id'].astype(str)
+            weekly_filtered = weekly_copy[weekly_copy['player_id'].isin(player_ids)]
+            weekly_map = {
+                row['player_id']: {k: _clean_value(v) for k, v in row.items()}
+                for row in weekly_filtered.to_dict(orient='records')
+            }
+
+    season_map: Dict[str, Dict[str, Any]] = {}
+    games_played_map: Dict[str, int] = {}
+    if season_stats_raw is not None and not season_stats_raw.empty:
+        season_copy = season_stats_raw.copy()
+        if 'player_id' in season_copy.columns:
+            season_copy['player_id'] = season_copy['player_id'].astype(str)
+            season_filtered = season_copy[season_copy['player_id'].isin(player_ids)]
+
+            if not season_filtered.empty:
+                games_played_map = (
+                    season_filtered.groupby('player_id')['week']
+                    .nunique()
+                    .to_dict()
+                )
+
+                numeric_cols = season_filtered.select_dtypes(include=[np.number]).columns.tolist()
+                if numeric_cols:
+                    season_totals = (
+                        season_filtered.groupby('player_id')[numeric_cols]
+                        .sum(min_count=1)
+                        .reset_index()
+                    )
+                else:
+                    season_totals = pd.DataFrame({'player_id': season_filtered['player_id'].unique()})
+
+                latest_info = (
+                    season_filtered.sort_values(['player_id', 'week'])
+                    .groupby('player_id')
+                    .tail(1)[['player_id', 'team', 'position', 'position_group']]
+                )
+
+                season_totals = season_totals.merge(latest_info, on='player_id', how='left')
+                season_map = {
+                    row['player_id']: {k: _clean_value(v) for k, v in row.items()}
+                    for row in season_totals.to_dict(orient='records')
+                }
+
+    player_stats: List[Dict[str, Any]] = []
+
+    for starter in starters_records:
+        player_id = starter.get('player_id')
+        if not player_id:
+            continue
+
+        record: Dict[str, Any] = {
+            'player_id': player_id,
+            'team_abbr': starter.get('team_abbr'),
+            'player_name': starter.get('player_name'),
+            'number': starter.get('number'),
+            'position': starter.get('position'),
+            'position_group': starter.get('position_group'),
+            'espn_player_id': starter.get('espn_player_id') or None,
+        }
+
+        weekly_row = weekly_map.get(player_id)
+        if weekly_row:
+            record['weekly'] = _extract_stat_categories(weekly_row)
+            week_value = weekly_row.get('week')
+            cleaned_week = _clean_value(week_value)
+            if cleaned_week is not None:
+                record['week'] = cleaned_week
+            opponent = weekly_row.get('opponent_team')
+            if opponent:
+                record['weekly_opponent'] = opponent
+
+        season_row = season_map.get(player_id)
+        if season_row:
+            record['season'] = _extract_stat_categories(season_row)
+            if season_row.get('team') and not record.get('team_abbr'):
+                record['team_abbr'] = season_row.get('team')
+
+        games_played = games_played_map.get(player_id)
+        if games_played is not None:
+            record['games_played'] = int(games_played)
+        elif record.get('weekly'):
+            record['games_played'] = 1
+        else:
+            record['games_played'] = 0
+
+        player_stats.append(record)
+
+    return player_stats
 
 
 def save_team_starters(manifest: Optional[RawDataManifest] = None) -> bool:
     try:
-        team_starters_df = get_current_starters(manifest)
+        team_starters_df, player_stats = get_current_starters(manifest)
         output_path = Path('data/team_starters.json')
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
         records = team_starters_df.replace({np.nan: None}).to_dict(orient='records')
         with output_path.open('w', encoding='utf-8') as fh:
             json.dump(records, fh, indent=2)
+
+        stats_path = Path('data/player_stats.json')
+        stats_path.parent.mkdir(parents=True, exist_ok=True)
+        with stats_path.open('w', encoding='utf-8') as fh:
+            json.dump(player_stats, fh, indent=2)
         return True
     except Exception as exc:
         logger.error("Error saving team_starters.json: %s", exc)
@@ -418,7 +598,6 @@ def save_team_starters(manifest: Optional[RawDataManifest] = None) -> bool:
 
 
 if __name__ == "__main__":
-    starters_df = get_current_starters()
     save_team_starters()
 
 
