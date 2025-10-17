@@ -9,7 +9,7 @@ import sys
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple, Set
 
 import pandas as pd
 import requests
@@ -49,6 +49,39 @@ def write_json(path: Path, payload: Dict) -> None:
     ensure_dir(path.parent)
     with path.open("w", encoding="utf-8") as fh:
         json.dump(payload, fh, indent=2, sort_keys=True)
+
+
+def summarize_manifest_changes(
+    previous: Optional[Dict],
+    current_artifacts: List[Dict]
+) -> Optional[Dict[str, List[Dict]]]:
+    if not previous:
+        return None
+
+    prev_artifacts = previous.get("artifacts", [])
+    if not isinstance(prev_artifacts, list):
+        return None
+
+    prev_map = {art.get("path"): art for art in prev_artifacts if art.get("path")}
+    curr_map = {art.get("path"): art for art in current_artifacts if art.get("path")}
+
+    prev_paths: Set[str] = set(prev_map.keys())
+    curr_paths: Set[str] = set(curr_map.keys())
+
+    added_paths = curr_paths - prev_paths
+    removed_paths = prev_paths - curr_paths
+    common_paths = curr_paths & prev_paths
+
+    changed_paths = {
+        path for path in common_paths
+        if curr_map[path].get("sha256") != prev_map[path].get("sha256")
+    }
+
+    return {
+        "added": [curr_map[path] for path in sorted(added_paths)],
+        "removed": [prev_map[path] for path in sorted(removed_paths)],
+        "changed": [curr_map[path] for path in sorted(changed_paths)],
+    }
 
 
 def write_dataframe(path: Path, frame: pd.DataFrame) -> None:
@@ -465,7 +498,12 @@ def collect_nflreadpy_datasets(
         {"name": "pbp", "loader": nfl.load_pbp, "filter_week": True},
         {"name": "player_stats", "loader": nfl.load_player_stats, "filter_week": True},
         {"name": "snap_counts", "loader": nfl.load_snap_counts, "filter_week": True},
-        {"name": "nextgen_stats", "loader": nfl.load_nextgen_stats, "filter_week": True},
+        {
+            "name": "nextgen_stats",
+            "loader": nfl.load_nextgen_stats,
+            "filter_week": True,
+            "stat_types": ["passing", "receiving", "rushing"],
+        },
         {"name": "ff_opportunity", "loader": nfl.load_ff_opportunity, "filter_week": True},
         {"name": "depth_charts", "loader": nfl.load_depth_charts, "filter_week": True},
         {"name": "rosters_weekly", "loader": nfl.load_rosters_weekly, "filter_week": True},
@@ -487,23 +525,32 @@ def collect_nflreadpy_datasets(
             LOGGER.info("Skipping %s: season %s > %s", dataset_name, season, max_season)
             continue
 
-        try:
-            frame = loader([season]).to_pandas()
-        except Exception as exc:  # pragma: no cover - upstream data variability
-            LOGGER.warning("Failed to load %s: %s", dataset_name, exc)
-            continue
+        stat_types = cfg.get("stat_types") or [None]
 
-        if filter_by_week and "week" in frame.columns:
-            frame = frame[frame["week"] == week] if not frame.empty else frame
+        for stat_type in stat_types:
+            loader_kwargs = {}
+            suffix = dataset_name
+            if stat_type:
+                loader_kwargs["stat_type"] = stat_type
+                suffix = f"{dataset_name}_{stat_type}"
 
-        path = (
-            output_dir
-            / "nflreadpy"
-            / dataset_name
-            / f"season_{season}_week_{week}.csv"
-        )
-        write_dataframe(path, frame)
-        results.append((dataset_name, path, len(frame)))
+            try:
+                frame = loader([season], **loader_kwargs).to_pandas()
+            except Exception as exc:  # pragma: no cover - upstream data variability
+                LOGGER.warning("Failed to load %s: %s", suffix, exc)
+                continue
+
+            if filter_by_week and "week" in frame.columns:
+                frame = frame[frame["week"] == week] if not frame.empty else frame
+
+            subdir = output_dir / "nflreadpy" / dataset_name
+            if stat_type:
+                subdir = subdir / stat_type
+            ensure_dir(subdir)
+
+            path = subdir / f"season_{season}_week_{week}.csv"
+            write_dataframe(path, frame)
+            results.append((suffix, path, len(frame)))
 
     return results
 
@@ -579,6 +626,21 @@ def collect_single_week(
 
     artifacts: List[Dict] = []
 
+    manifest_dir = output_dir / "manifest"
+    previous_manifest = None
+    latest_path = manifest_dir / "latest.json"
+    if latest_path.exists():
+        try:
+            with latest_path.open('r', encoding='utf-8') as fh:
+                latest_manifest = json.load(fh)
+            if (
+                latest_manifest.get('season') == season and
+                latest_manifest.get('week') == week
+            ):
+                previous_manifest = latest_manifest
+        except Exception as exc:  # pragma: no cover - defensive
+            LOGGER.debug("Unable to load previous manifest for diff: %s", exc)
+
     scoreboard_path = collect_scoreboard(scoreboard, output_dir, season, week)
     artifacts.append(
         {
@@ -649,13 +711,16 @@ def collect_single_week(
 
     nflreadpy_items = collect_nflreadpy_datasets(season, week, output_dir)
     for dataset_name, path, record_count in nflreadpy_items:
+        metadata = {"records": record_count}
+        if dataset_name.startswith("nextgen_stats_"):
+            metadata["stat_type"] = dataset_name.split("_", 2)[-1]
         artifacts.append(
             {
                 "dataset": f"nflreadpy_{dataset_name}",
                 "source": "nflreadpy",
                 "path": str(path),
                 "sha256": hash_file(path),
-                "metadata": {"records": record_count},
+                "metadata": metadata,
             }
         )
 
@@ -670,6 +735,46 @@ def collect_single_week(
                 "metadata": {},
             }
         )
+
+    if previous_manifest:
+        summary = summarize_manifest_changes(previous_manifest, artifacts)
+        if summary is not None:
+            added = summary['added']
+            removed = summary['removed']
+            changed = summary['changed']
+            if not added and not removed and not changed:
+                LOGGER.info(
+                    "No raw artifact changes detected for season %s week %s",
+                    season,
+                    week,
+                )
+            else:
+                LOGGER.info(
+                    "Raw artifact diff vs previous run: %d added, %d updated, %d removed",
+                    len(added),
+                    len(changed),
+                    len(removed),
+                )
+
+                def _log_sample(entries: List[Dict], prefix: str) -> None:
+                    for entry in entries[:5]:
+                        dataset = entry.get('dataset')
+                        meta = entry.get('metadata', {})
+                        marker = (
+                            meta.get('event_id')
+                            or meta.get('team_abbr')
+                            or meta.get('section')
+                            or meta.get('records')
+                        )
+                        label = f" ({marker})" if marker is not None else ""
+                        LOGGER.info("  %s %s%s", prefix, dataset, label)
+
+                if added:
+                    _log_sample(added, "+")
+                if changed:
+                    _log_sample(changed, "~")
+                if removed:
+                    _log_sample(removed, "-")
 
     manifest_path = build_manifest(output_dir, season, week, timestamp, artifacts)
     elapsed = datetime.utcnow() - start_time
