@@ -38,14 +38,25 @@ def calculate_current_standings(teams, schedule):
     head_to_head = defaultdict(lambda: defaultdict(int))
 
     # Process each completed game
+    def _parse_score(value):
+        if value in (None, '', 'nan'):
+            return None
+        try:
+            return int(value)
+        except (ValueError, TypeError):
+            try:
+                return int(float(value))
+            except (ValueError, TypeError):
+                return None
+
     for game in schedule:
-        if not (game['away_score'] and game['home_score']):
+        away_score = _parse_score(game.get('away_score'))
+        home_score = _parse_score(game.get('home_score'))
+        if away_score is None or home_score is None:
             continue
 
         away_team = game['away_team']
         home_team = game['home_team']
-        away_score = int(game['away_score'])
-        home_score = int(game['home_score'])
 
         # Record head-to-head
         if away_score > home_score:
