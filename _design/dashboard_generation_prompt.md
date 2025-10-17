@@ -42,7 +42,7 @@ You will receive a JSON object with the following structure:
     ]
   },
   "game_of_the_week": {
-    "espn_id": "<ESPN game ID from schedule.csv>",
+    "espn_id": "<ESPN game ID from schedule.json>",
     "away_team": "<3-letter team abbreviation>",
     "away_record": "<W-L or W-L-T>",
     "home_team": "<3-letter team abbreviation>",
@@ -52,7 +52,7 @@ You will receive a JSON object with the following structure:
     "over_under": <Optional: total points line>
   },
   "game_of_the_meek": {
-    "espn_id": "<ESPN game ID from schedule.csv>",
+    "espn_id": "<ESPN game ID from schedule.json>",
     "away_team": "<3-letter team abbreviation>",
     "away_record": "<W-L or W-L-T>",
     "home_team": "<3-letter team abbreviation>",
@@ -245,7 +245,7 @@ You will receive a JSON object with the following structure:
 **Requirements**:
 - Exactly 5 stats per category
 - Diverse stats (don't repeat similar stats)
-- Use actual rank-1 leaders from team_stats.csv when possible
+- Use actual rank-1 leaders from team_stats.json when possible
 - **Include `unit` field** for proper display ("%", " yds", " sacks", etc.)
 - Context should be concise (2-6 words) and add color/explanation
 - Value should be precise (use decimal precision from data)
@@ -534,7 +534,7 @@ Before finalizing, ensure:
 - ✅ Statistics are specific and accurate from source data
 - ✅ Team abbreviations are valid 3-letter codes
 - ✅ Probabilities are between 0-100
-- ✅ ESPN IDs match actual games in schedule.csv
+- ✅ ESPN IDs match actual games in schedule.json
 - ✅ Records format is "W-L" or "W-L-T"
 - ✅ Context phrases are concise and add value
 - ✅ Narratives are compelling and data-driven

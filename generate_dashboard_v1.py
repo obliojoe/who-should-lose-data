@@ -86,11 +86,15 @@ def prepare_dashboard_data():
     logger.info("Preparing dashboard data...")
 
     # Load all required data files
-    schedule_df = pd.read_csv('data/schedule.csv')
-    team_stats_df = pd.read_csv('data/team_stats.csv')
+    with open('data/schedule.json', 'r', encoding='utf-8') as fh:
+        schedule_df = pd.DataFrame(json.load(fh))
+    with open('data/team_stats.json', 'r', encoding='utf-8') as fh:
+        team_stats_df = pd.DataFrame(json.load(fh))
     sagarin_df = pd.read_csv('data/sagarin.csv')
-    starters_df = pd.read_csv('data/team_starters.csv')
-    teams_df = pd.read_csv('data/teams.csv')
+    with open('data/team_starters.json', 'r', encoding='utf-8') as fh:
+        starters_df = pd.DataFrame(json.load(fh))
+    with open('data/teams.json', 'r', encoding='utf-8') as fh:
+        teams_df = pd.DataFrame(json.load(fh))
 
     # Create division lookup
     divisions = dict(zip(teams_df['team_abbr'], teams_df['division']))

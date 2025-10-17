@@ -1,4 +1,5 @@
 import csv
+import json
 import numpy as np
 from collections import defaultdict
 from concurrent.futures import ProcessPoolExecutor
@@ -26,19 +27,18 @@ logger.addHandler(file_handler)
 logger.propagate = False  # Don't propagate to parent loggers
 
 def load_schedule():
-    schedule = []
-    with open('data/schedule.csv', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            schedule.append(row)
+    with open('data/schedule.json', 'r', encoding='utf-8') as f:
+        schedule = json.load(f)
     return schedule
 
 def load_teams():
     teams = {}
-    with open('data/teams.csv', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            teams[row['team_abbr']] = row
+    with open('data/teams.json', 'r', encoding='utf-8') as f:
+        records = json.load(f)
+        for record in records:
+            item = dict(record)
+            item['espn_api_id'] = int(item.get('espn_api_id', 0) or 0)
+            teams[item['team_abbr']] = item
     return teams
 
 def load_ratings():

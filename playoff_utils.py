@@ -3,29 +3,41 @@ import hashlib
 import json
 import os
 from pathlib import Path
+from typing import Dict
+
+from team_metadata import TEAM_METADATA
 
 data_dir = "data/"
 
-def load_teams():
-    """Load team data from CSV file"""
-    teams = {}
-    with open(f"{data_dir}teams.csv", 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            teams[row['team_abbr']] = row
+
+def load_teams() -> Dict[str, dict]:
+    """Load team data from the consolidated JSON export."""
+    teams_path = Path(data_dir) / 'teams.json'
+    if teams_path.exists():
+        with open(teams_path, 'r', encoding='utf-8') as fh:
+            teams_list = json.load(fh)
+    else:
+        teams_list = TEAM_METADATA
+
+    teams: Dict[str, dict] = {}
+    for record in teams_list:
+        item = dict(record)
+        item['espn_api_id'] = int(item.get('espn_api_id', 0) or 0)
+        teams[item['team_abbr']] = item
+
     return teams
 
+
 def load_schedule():
-    """Load schedule data from CSV file"""
-    schedule = []
-    with open(f"{data_dir}schedule.csv", 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            schedule.append(row)
+    """Load schedule data from the JSON export."""
+    schedule_path = Path(data_dir) / 'schedule.json'
+    with open(schedule_path, 'r', encoding='utf-8') as fh:
+        schedule = json.load(fh)
     return schedule
 
+
 def load_ratings():
-    """Load Sagarin ratings from CSV file"""
+    """Load Sagarin ratings from CSV file."""
     ratings = {}
     with open(f"{data_dir}sagarin.csv", 'r') as f:
         reader = csv.DictReader(f)

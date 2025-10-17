@@ -67,12 +67,19 @@ def load_raw_sagarin_html(manifest: Optional[RawDataManifest]) -> Optional[str]:
 
 def load_team_abbrs():
     teams = {}
-    with open("data/teams.csv") as f:
-        for line in f:
-            team_abbr, city, mascot = line.strip().split(",")[:3]
-            if mascot == "Commanders":
-                mascot = "Redskins"
-            teams[city + " " + mascot] = team_abbr
+    with open("data/teams.json", 'r', encoding='utf-8') as fh:
+        records = json.load(fh)
+
+    for record in records:
+        city = record.get('city', '')
+        mascot = record.get('mascot', '')
+        team_abbr = record.get('team_abbr', '')
+        if not team_abbr or not city or not mascot:
+            continue
+
+        lookup_mascot = 'Redskins' if mascot == 'Commanders' else mascot
+        teams[f"{city} {lookup_mascot}"] = team_abbr
+
     return teams
 
 def should_update_cache():

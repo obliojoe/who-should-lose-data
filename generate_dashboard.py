@@ -32,7 +32,7 @@ def select_stat_leaders(team_stats_df, sagarin_df):
     Select top 5 stats for each category using code logic.
     Returns structured data ready for AI to add context.
     """
-    # team_stats.csv already has season totals (week 15 is aggregated row)
+    # team_stats.json already has season totals (week 15 is aggregated row)
     # Just select the columns we need - no need to aggregate
     season_stats = team_stats_df[['team_abbr', 'points_per_game', 'points_against_per_game',
                                    'yards_per_game', 'passing_yards', 'rushing_yards',
@@ -267,6 +267,9 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
     if 'movement' not in sagarin_df.columns:
         sagarin_df['movement'] = 0
 
+    movement_series = pd.to_numeric(sagarin_df['movement'], errors='coerce').fillna(0)
+    sagarin_df = sagarin_df.assign(_movement=movement_series)
+
     # Top 5
     top_5 = []
     for idx, row in sagarin_df.head(5).iterrows():
@@ -283,7 +286,7 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
 
         # Determine trend
         trend = 'steady'
-        movement = int(row['movement']) if pd.notna(row['movement']) else 0
+        movement = int(row['_movement']) if pd.notna(row['_movement']) else 0
         if movement > 0:
             trend = 'up'
         elif movement < 0:
@@ -326,7 +329,7 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
 
         # Determine trend
         trend = 'steady'
-        movement = int(row['movement']) if pd.notna(row['movement']) else 0
+        movement = int(row['_movement']) if pd.notna(row['_movement']) else 0
         if movement > 0:
             trend = 'up'
         elif movement < 0:
@@ -353,43 +356,45 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
             'movement': movement_str
         })
 
+    def format_profile(row: pd.Series) -> dict:
+        record_data = team_records.get(row['team_abbr'], {'wins': 0, 'losses': 0, 'ties': 0})
+        record = f"{record_data['wins']}-{record_data['losses']}"
+        if record_data['ties'] > 0:
+            record += f"-{record_data['ties']}"
+
+        movement_val = int(row['_movement']) if pd.notna(row['_movement']) else 0
+        if movement_val > 0:
+            movement_str = f"+{movement_val}"
+        elif movement_val < 0:
+            movement_str = f"{movement_val}"
+        else:
+            movement_str = "0"
+
+        return {
+            'team': row['team_abbr'],
+            'previous_rank': int(row['previous_rank']) if pd.notna(row.get('previous_rank')) else None,
+            'current_rank': int(row['rank']) if pd.notna(row.get('rank')) else None,
+            'movement': movement_str,
+            'rating': round(float(row['rating']), 2),
+            'record': record
+        }
+
     # Find biggest riser and faller (movement already calculated above)
     biggest_riser = None
     biggest_faller = None
 
-    # Biggest riser (positive movement)
-    if sagarin_df['movement'].max() > 0:
-        riser_row = sagarin_df.loc[sagarin_df['movement'].idxmax()]
-        record_data = team_records.get(riser_row['team_abbr'], {'wins': 0, 'losses': 0, 'ties': 0})
-        record = f"{record_data['wins']}-{record_data['losses']}"
-        if record_data['ties'] > 0:
-            record += f"-{record_data['ties']}"
+    if not sagarin_df.empty:
+        if movement_series.max() > 0:
+            riser_row = sagarin_df.loc[movement_series.idxmax()]
+            biggest_riser = format_profile(riser_row)
+        else:
+            biggest_riser = format_profile(sagarin_df.iloc[0])
 
-        biggest_riser = {
-            'team': riser_row['team_abbr'],
-            'previous_rank': int(riser_row['previous_rank']) if pd.notna(riser_row['previous_rank']) else None,
-            'current_rank': int(riser_row['rank']),
-            'movement': f"+{int(riser_row['movement'])}",
-            'rating': round(float(riser_row['rating']), 2),
-            'record': record
-        }
-
-    # Biggest faller (negative movement)
-    if sagarin_df['movement'].min() < 0:
-        faller_row = sagarin_df.loc[sagarin_df['movement'].idxmin()]
-        record_data = team_records.get(faller_row['team_abbr'], {'wins': 0, 'losses': 0, 'ties': 0})
-        record = f"{record_data['wins']}-{record_data['losses']}"
-        if record_data['ties'] > 0:
-            record += f"-{record_data['ties']}"
-
-        biggest_faller = {
-            'team': faller_row['team_abbr'],
-            'previous_rank': int(faller_row['previous_rank']) if pd.notna(faller_row['previous_rank']) else None,
-            'current_rank': int(faller_row['rank']),
-            'movement': f"{int(faller_row['movement'])}",  # Will be negative
-            'rating': round(float(faller_row['rating']), 2),
-            'record': record
-        }
+        if movement_series.min() < 0:
+            faller_row = sagarin_df.loc[movement_series.idxmin()]
+            biggest_faller = format_profile(faller_row)
+        else:
+            biggest_faller = format_profile(sagarin_df.iloc[-1])
 
     # Full rankings (all 32 teams)
     all_rankings = []
@@ -402,7 +407,7 @@ def select_power_rankings(sagarin_df, team_records, teams_df):
 
         # Determine trend
         trend = 'steady'
-        movement = int(row['movement'])
+        movement = int(row['_movement'])
         if movement > 0:
             trend = 'up'
         elif movement < 0:
@@ -632,8 +637,15 @@ def generate_dashboard_content(ai_model=None):
         logger.info("Preparing dashboard data...")
 
         # Load all data files
-        schedule_df = pd.read_csv('data/schedule.csv')
-        team_stats_df = pd.read_csv('data/team_stats.csv')
+        with open('data/schedule.json', 'r', encoding='utf-8') as fh:
+            schedule_df = pd.DataFrame(json.load(fh))
+
+        # Normalize score columns: blank strings -> NaN, numeric strings -> numbers
+        for score_col in ('away_score', 'home_score'):
+            if score_col in schedule_df.columns:
+                schedule_df[score_col] = pd.to_numeric(schedule_df[score_col], errors='coerce')
+        with open('data/team_stats.json', 'r', encoding='utf-8') as fh:
+            team_stats_df = pd.DataFrame(json.load(fh))
 
         # Load R1+SOV power rankings instead of Sagarin
         from power_rankings_dashboard import get_power_rankings_df
@@ -642,8 +654,11 @@ def generate_dashboard_content(ai_model=None):
         sagarin_df = get_power_rankings_df(int(current_week))
         logger.info(f"Loaded {len(sagarin_df)} R1+SOV power rankings")
 
-        starters_df = pd.read_csv('data/team_starters.csv')
-        teams_df = pd.read_csv('data/teams.csv')
+        with open('data/team_starters.json', 'r', encoding='utf-8') as fh:
+            starters_df = pd.DataFrame(json.load(fh))
+        with open('data/teams.json', 'r', encoding='utf-8') as fh:
+            teams_records = json.load(fh)
+        teams_df = pd.DataFrame(teams_records)
 
         with open('data/analysis_cache.json', 'r') as f:
             analysis_cache = json.load(f)
@@ -908,15 +923,99 @@ but don't force it. Let the drama emerge naturally.
 """
 
         # Get completed games from this week
+        def _int_or_none(value):
+            """Convert score fields to ints, tolerating blanks/NaN."""
+            if value in (None, '', 'nan'):
+                return None
+            try:
+                return int(value)
+            except (ValueError, TypeError):
+                try:
+                    return int(float(value))
+                except (ValueError, TypeError):
+                    return None
+
         completed_games = []
         for game in all_week_games:
-            if pd.notna(game.get('away_score')) and pd.notna(game.get('home_score')):
+            away_score = _int_or_none(game.get('away_score'))
+            home_score = _int_or_none(game.get('home_score'))
+            if away_score is not None and home_score is not None:
                 completed_games.append({
                     'away': game['away_team'],
-                    'away_score': int(game['away_score']),
+                    'away_score': away_score,
                     'home': game['home_team'],
-                    'home_score': int(game['home_score'])
+                    'home_score': home_score
                 })
+
+        def _format_spread(team_abbr: str, value):
+            """Create a friendly spread string for prompt output."""
+            if value in (None, '', 'N/A'):
+                return f"{team_abbr} N/A"
+            if isinstance(value, str) and value.strip().upper() in {'PK', 'PICK', 'EVEN'}:
+                return f"{team_abbr} PK"
+            try:
+                spread = float(value)
+            except (TypeError, ValueError):
+                return f"{team_abbr} {value}"
+
+            if abs(spread) < 1e-6:
+                return f"{team_abbr} PK"
+
+            formatted = f"{abs(spread):.1f}".rstrip('0').rstrip('.')
+            if spread > 0:
+                return f"{team_abbr} +{formatted}"
+            return f"{team_abbr} -{formatted}"
+
+        def _format_over_under(value):
+            """Normalize over/under values for display."""
+            if value in (None, '', 'N/A'):
+                return 'N/A'
+            try:
+                total = float(value)
+            except (TypeError, ValueError):
+                return str(value)
+            return f"{total:.1f}".rstrip('0').rstrip('.')
+
+        def _build_game_details(game_record, include_playoff_probs=False):
+            lines = []
+            status = game_record.get('status')
+            away_team = game_record['away_team']
+            home_team = game_record['home_team']
+            away_record = game_record.get('away_record', 'N/A')
+            home_record = game_record.get('home_record', 'N/A')
+
+            def _format_playoff_prob(value):
+                if value in (None, '', 'N/A'):
+                    return 'N/A'
+                try:
+                    pct = float(value)
+                except (TypeError, ValueError):
+                    return str(value)
+                formatted = f"{pct:.1f}".rstrip('0').rstrip('.')
+                return f"{formatted}%"
+
+            if status == 'completed':
+                away_score = game_record.get('away_score', 'N/A')
+                home_score = game_record.get('home_score', 'N/A')
+                lines.append(f"FINAL SCORE: {away_team} {away_score} - {home_team} {home_score}")
+            else:
+                spread_text = _format_spread(away_team, game_record.get('betting_line'))
+                ou_text = _format_over_under(game_record.get('over_under'))
+                lines.append(f"Spread: {spread_text}, Over/Under: {ou_text}")
+
+            if include_playoff_probs:
+                away_prob = _format_playoff_prob(game_record.get('away_playoff_prob'))
+                home_prob = _format_playoff_prob(game_record.get('home_playoff_prob'))
+                lines.append(f"{away_team} Record: {away_record}, Playoff Prob: {away_prob}")
+                lines.append(f"{home_team} Record: {home_record}, Playoff Prob: {home_prob}")
+            else:
+                lines.append(f"{away_team} Record: {away_record}")
+                lines.append(f"{home_team} Record: {home_record}")
+
+            return '\n'.join(lines)
+
+        game_of_week_details = _build_game_details(game_of_week, include_playoff_probs=True)
+        game_of_meek_details = _build_game_details(game_of_meek, include_playoff_probs=False)
 
         # Build prompt with comprehensive context
         # REFACTORED STRUCTURE: Put data inline with each request to reduce cognitive load
@@ -967,9 +1066,7 @@ SECTION 2: GAME OF THE WEEK
 
 Game: {game_of_week['away_team']} @ {game_of_week['home_team']}
 Status: {game_of_week.get('status', 'upcoming')}
-{f'''FINAL SCORE: {game_of_week['away_team']} {game_of_week.get('away_score')} - {game_of_week['home_team']} {game_of_week.get('home_score')}''' if game_of_week.get('status') == 'completed' else f'''Spread: {game_of_week['away_team']} {f"+{game_of_week.get('betting_line')}" if game_of_week.get('betting_line', 0) > 0 else game_of_week.get('betting_line', 'N/A')}, Over/Under: {game_of_week.get('over_under', 'N/A')}
-{game_of_week['away_team']} Record: {game_of_week.get('away_record', 'N/A')}, Playoff Prob: {game_of_week.get('away_playoff_prob', 'N/A')}%
-{game_of_week['home_team']} Record: {game_of_week.get('home_record', 'N/A')}, Playoff Prob: {game_of_week.get('home_playoff_prob', 'N/A')}%'''}
+{game_of_week_details}
 
 2. game_of_week_tagline (1-2 sentences)
    - If completed: Brief recap highlighting what made it the best game or why it did not live up to expectations
@@ -982,9 +1079,7 @@ SECTION 3: GAME OF THE MEEK
 
 Game: {game_of_meek['away_team']} @ {game_of_meek['home_team']}
 Status: {game_of_meek.get('status', 'upcoming')}
-{f'''FINAL SCORE: {game_of_meek['away_team']} {game_of_meek.get('away_score')} - {game_of_meek['home_team']} {game_of_meek.get('home_score')}''' if game_of_meek.get('status') == 'completed' else f'''Spread: {game_of_meek['away_team']} {f"+{game_of_meek.get('betting_line')}" if game_of_meek.get('betting_line', 0) > 0 else game_of_meek.get('betting_line', 'N/A')}, Over/Under: {game_of_meek.get('over_under', 'N/A')}
-{game_of_meek['away_team']} Record: {game_of_meek.get('away_record', 'N/A')}
-{game_of_meek['home_team']} Record: {game_of_meek.get('home_record', 'N/A')}'''}
+{game_of_meek_details}
 
 3. game_of_meek_tagline (1-2 sentences)
    - If completed: Humorous recap of why it was forgettable or why it was better than expected

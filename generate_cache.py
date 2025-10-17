@@ -2,7 +2,6 @@
 
 import base64
 import contextlib
-from io import StringIO
 import sys
 import os
 import json
@@ -16,7 +15,7 @@ from tqdm import tqdm
 from pathlib import Path
 import random
 import numpy as np
-from collections import defaultdict
+from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Dict, List, Optional, Tuple
 from anthropic import Anthropic
@@ -41,13 +40,13 @@ from update_scores import update_scores_and_dates
 from generate_analyses import batch_analyze_games
 import subprocess
 from raw_data_manifest import RawDataManifest
+from team_metadata import TEAM_METADATA
 
 is_ci = os.environ.get('CI') == 'true'
 
 RAW_DATA_MANIFEST: Optional[RawDataManifest] = None
 RAW_GAMES_DIR = Path('data/raw/espn/games')
 RAW_SCOREBOARD_DIR = Path('data/raw/espn/scoreboard')
-RAW_DEPTHCHART_DIR = Path('data/raw/espn/depthchart')
 TEAM_ALIAS = {
     'LA': 'LAR',
     'WSH': 'WAS',
@@ -286,92 +285,57 @@ def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
     return metadata
 
 
-def normalize_player_name(name: Optional[str]) -> str:
-    if not name or not isinstance(name, str):
-        return ''
-    normalized = name.lower()
-    for suffix in [' jr', ' sr', ' iii', ' ii', ' iv']:
-        if normalized.endswith(suffix):
-            normalized = normalized[: -len(suffix)]
-    normalized = normalized.replace('.', '').replace("'", '').replace('-', ' ')
-    normalized = ''.join(ch for ch in normalized if ch.isalnum() or ch.isspace())
-    normalized = normalized.replace(' ', '')
-    return normalized
+def build_team_records(schedule_df: pd.DataFrame, coordinators_map: Dict[str, Dict[str, str]]) -> List[dict]:
+    """Combine static team metadata with latest coordinator, coach, and stadium data."""
+
+    base_lookup = {team['team_abbr']: dict(team) for team in TEAM_METADATA}
+
+    schedule_copy = schedule_df.copy()
+    schedule_copy['game_date_dt'] = pd.to_datetime(schedule_copy.get('game_date'), errors='coerce')
+    schedule_copy['gametime_sort'] = schedule_copy.get('gametime').fillna('')
+    schedule_copy = schedule_copy.sort_values(['game_date_dt', 'gametime_sort'])
+
+    latest_head_coach: Dict[str, str] = {}
+    stadium_counts: Dict[str, Counter] = defaultdict(Counter)
+
+    for _, row in schedule_copy.iterrows():
+        home_team = row.get('home_team')
+        away_team = row.get('away_team')
+        home_coach = (row.get('home_coach') or '').strip()
+        away_coach = (row.get('away_coach') or '').strip()
+        stadium_name = (row.get('stadium') or '').strip()
+
+        if home_team and home_coach:
+            latest_head_coach[home_team] = home_coach
+        if away_team and away_coach:
+            latest_head_coach[away_team] = away_coach
+
+        if home_team and stadium_name:
+            stadium_counts[home_team][stadium_name] += 1
+
+    records: List[dict] = []
+
+    for team_abbr, base in base_lookup.items():
+        record = dict(base)
+        record['full_name'] = f"{record['city']} {record['mascot']}"
+        record['espn_api_id'] = int(record['espn_api_id'])
+        record['head_coach'] = latest_head_coach.get(team_abbr, '')
+
+        coordinator_info = coordinators_map.get(team_abbr, {}) if coordinators_map else {}
+        record['offensive_coordinator'] = coordinator_info.get('offensive_coordinator', '')
+        record['defensive_coordinator'] = coordinator_info.get('defensive_coordinator', '')
+        record['coordinators_last_updated'] = coordinator_info.get('last_updated', '')
+
+        if stadium_counts.get(team_abbr):
+            record['stadium'] = stadium_counts[team_abbr].most_common(1)[0][0]
+        else:
+            record['stadium'] = ''
+
+        records.append(record)
+
+    return sorted(records, key=lambda item: item['team_abbr'])
 
 
-def build_espn_player_map() -> Dict[Tuple[str, str, Optional[str]], str]:
-    mapping: Dict[Tuple[str, str, Optional[str]], str] = {}
-    if not RAW_DEPTHCHART_DIR.exists():
-        return mapping
-
-    for depth_path in RAW_DEPTHCHART_DIR.glob('season_*_week_*/*.json'):
-        stem = depth_path.stem
-        team_abbr = stem.split('-', 1)[1] if '-' in stem else None
-        if not team_abbr:
-            continue
-
-        try:
-            depth_data = json.loads(depth_path.read_text())
-        except (OSError, json.JSONDecodeError):
-            continue
-
-        for item in depth_data.get('items', []) or []:
-            positions = item.get('positions', {}) or {}
-            for pos_data in positions.values():
-                for athlete in pos_data.get('athletes', []) or []:
-                    espn_id = athlete.get('id')
-                    full_name = athlete.get('fullName') or athlete.get('displayName')
-                    jersey = athlete.get('jersey')
-                    if not espn_id or not full_name:
-                        continue
-
-                    key = (team_abbr, normalize_player_name(full_name), str(jersey) if jersey else None)
-                    mapping[key] = espn_id
-                    if jersey:
-                        general_key = (team_abbr, normalize_player_name(full_name), None)
-                        mapping.setdefault(general_key, espn_id)
-
-    return mapping
-
-
-def attach_espn_ids_to_team_starters(csv_path: Path) -> None:
-    if not csv_path.exists():
-        return
-
-    mapping = build_espn_player_map()
-    if not mapping:
-        return
-
-    try:
-        starters_df = pd.read_csv(csv_path)
-    except Exception:
-        return
-
-    if 'player_name' not in starters_df.columns or 'team_abbr' not in starters_df.columns:
-        return
-
-    espn_ids: List[Optional[str]] = []
-    for _, row in starters_df.iterrows():
-        team = row.get('team_abbr')
-        name = normalize_player_name(row.get('player_name'))
-        jersey_value = row.get('number')
-        jersey = None
-        if pd.notna(jersey_value):
-            try:
-                jersey = str(int(jersey_value))
-            except (ValueError, TypeError):
-                jersey = str(jersey_value).strip()
-
-        espn_id = None
-        if team and name:
-            key_exact = (team, name, jersey)
-            key_general = (team, name, None)
-            espn_id = mapping.get(key_exact) or mapping.get(key_general)
-
-        espn_ids.append(str(espn_id) if espn_id else '')
-
-    starters_df['espn_player_id'] = espn_ids
-    starters_df.to_csv(csv_path, index=False)
 def load_raw_csv(dataset: str, identifier: Optional[str] = None) -> Optional[pd.DataFrame]:
     if RAW_DATA_MANIFEST is None:
         return None
@@ -408,7 +372,7 @@ def warn_missing_raw_datasets(manifest: RawDataManifest) -> None:
 
 
 def write_schedule_from_raw(manifest: RawDataManifest) -> int:
-    """Build data/schedule.csv from captured nflreadpy schedule snapshot."""
+    """Build data/schedule.json from captured nflreadpy schedule snapshot."""
     entries = manifest.entries('nflreadpy_schedules')
     if not entries:
         raise ValueError('No raw schedule data found in manifest')
@@ -486,7 +450,10 @@ def write_schedule_from_raw(manifest: RawDataManifest) -> int:
                 output.at[idx, 'home_score'] = int(meta['home_score'])
 
     output = output.sort_values(['week_num', 'game_date', 'gametime', 'away_team']).reset_index(drop=True)
-    output.to_csv('data/schedule.csv', index=False)
+    records = output.replace({np.nan: None}).to_dict(orient='records')
+    schedule_path = Path('data/schedule.json')
+    schedule_path.parent.mkdir(parents=True, exist_ok=True)
+    schedule_path.write_text(json.dumps(records, indent=2), encoding='utf-8')
     return len(output)
 
 
@@ -963,11 +930,18 @@ def build_prompt_context(schedule=None):
     """Load heavy prompt inputs once so they can be reused across teams."""
     data_dir = get_data_dir()
 
-    # Load shared CSV data once
-    team_starters = pd.read_csv(os.path.join(data_dir, 'team_starters.csv'))
-    schedule_df = pd.read_csv(os.path.join(data_dir, 'schedule.csv'))
-    team_stats_df = pd.read_csv(os.path.join(data_dir, 'team_stats.csv'))
-    teams_df = pd.read_csv(os.path.join(data_dir, 'teams.csv'))
+    # Load shared data once
+    with open(os.path.join(data_dir, 'team_starters.json'), 'r', encoding='utf-8') as fh:
+        team_starters = pd.DataFrame(json.load(fh))
+    with open(os.path.join(data_dir, 'schedule.json'), 'r', encoding='utf-8') as fh:
+        schedule_records = json.load(fh)
+    schedule_df = pd.DataFrame(schedule_records)
+    with open(os.path.join(data_dir, 'team_stats.json'), 'r', encoding='utf-8') as fh:
+        team_stats_df = pd.DataFrame(json.load(fh))
+    with open(os.path.join(data_dir, 'teams.json'), 'r', encoding='utf-8') as fh:
+        teams_records = json.load(fh)
+    teams_df = pd.DataFrame(teams_records)
+    teams_lookup = {record['team_abbr']: record for record in teams_records}
 
     from prompt_builder import calculate_league_rankings
 
@@ -978,17 +952,10 @@ def build_prompt_context(schedule=None):
         'team_stats_df': team_stats_df,
         'league_rankings': calculate_league_rankings(team_stats_df.copy()),
         'team_notes_df': pd.read_csv(os.path.join(data_dir, 'team_notes.csv')),
-        'schedule_csv': Path(data_dir, 'schedule.csv').read_text(),
         'teams_df': teams_df,
+        'teams_lookup': teams_lookup,
         'schedule_list': schedule if schedule is not None else load_schedule(),
     }
-
-    coordinators_path = os.path.join(data_dir, 'coordinators.csv')
-    if os.path.exists(coordinators_path):
-        context['coordinators_df'] = pd.read_csv(coordinators_path)
-    else:
-        logger.warning(f"Coordinators file not found at {coordinators_path} - coordinator info will be omitted")
-        context['coordinators_df'] = None
 
     return context
 
@@ -1005,9 +972,8 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
     league_rankings = prompt_context['league_rankings']
     team_notes_pd = prompt_context['team_notes_df']
     team_starters = prompt_context['team_starters'].copy()
-    schedule_data = prompt_context['schedule_csv']
-    coordinators_pd = prompt_context.get('coordinators_df')
     teams_df = prompt_context['teams_df']
+    teams_lookup = prompt_context.get('teams_lookup', {})
 
     def get_team_notes(team_abbrs):
         """Get team notes from team_notes.csv"""
@@ -1062,32 +1028,20 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
         return None
 
     # get head coach and stadium from most recent game in schedule data (the last game where team_abbr is either home or away team and has scores)
-    head_coach, stadium = get_team_info_from_schedule(team_abbr)
+    base_team_profile = teams_lookup.get(team_abbr, {})
+    head_coach = base_team_profile.get('head_coach', '')
+    stadium = base_team_profile.get('stadium', '')
 
-    # Add head coach to teams dict for this team
+    schedule_head_coach, schedule_stadium = get_team_info_from_schedule(team_abbr)
+    if not head_coach and schedule_head_coach:
+        head_coach = schedule_head_coach
+    if not stadium and schedule_stadium:
+        stadium = schedule_stadium
+
     if head_coach:
         teams[team_abbr]['head_coach'] = head_coach
-
-    # filter out the schedule data for the team in question, include the csv header row
-    schedule_df = pd.read_csv(StringIO(schedule_data))
-    schedule_df = schedule_df[
-        ((schedule_df['home_team'] == team_abbr) | (schedule_df['away_team'] == team_abbr))
-    ]
-
-    def format_score(score):
-        """Convert score to proper format, handling empty strings and NaN values"""
-        if pd.isna(score) or score == '' or score == 'nan':
-            return ''
-        try:
-            return str(int(float(score)))
-        except (ValueError, TypeError):
-            return ''
-
-    # Apply formatting to all scores to clean up nan values
-    schedule_df['home_score'] = schedule_df['home_score'].apply(format_score)
-    schedule_df['away_score'] = schedule_df['away_score'].apply(format_score)
-
-    schedule_data = schedule_df.to_csv(index=False)
+    if stadium:
+        teams[team_abbr]['stadium'] = stadium
 
     # get this team's previous played game
     previous_game = None
@@ -1119,7 +1073,10 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
     else:
         next_opponent = next_game['away_team'] if next_game['home_team'] == team_abbr else next_game['home_team']
         next_opponent_qb = get_starting_qb_from_team_starters(next_opponent)
-        next_opponent_coach = get_team_info_from_schedule(next_opponent)[0]
+        next_opponent_profile = teams_lookup.get(next_opponent, {}) if next_opponent != "NONE" else {}
+        next_opponent_coach = next_opponent_profile.get('head_coach') if next_opponent_profile else None
+        if not next_opponent_coach and next_opponent != "NONE":
+            next_opponent_coach = get_team_info_from_schedule(next_opponent)[0]
         next_game_stadium = get_next_game_stadium(team_abbr)
 
         # Add head coach to teams dict for opponent
@@ -1407,15 +1364,20 @@ If {home} wins:
     # Get coordinator data if available
     team_coordinators = None
     opponent_coordinators = None
-    if coordinators_pd is not None:
-        team_coord_row = coordinators_pd[coordinators_pd['team_abbr'] == team_abbr]
-        if not team_coord_row.empty:
-            team_coordinators = team_coord_row.iloc[0]
 
-        if next_opponent != "NONE":
-            opponent_coord_row = coordinators_pd[coordinators_pd['team_abbr'] == next_opponent]
-            if not opponent_coord_row.empty:
-                opponent_coordinators = opponent_coord_row.iloc[0]
+    if base_team_profile:
+        team_coordinators = {
+            'offensive_coordinator': base_team_profile.get('offensive_coordinator'),
+            'defensive_coordinator': base_team_profile.get('defensive_coordinator'),
+        }
+
+    if next_opponent != "NONE":
+        opponent_profile = teams_lookup.get(next_opponent, {})
+        if opponent_profile:
+            opponent_coordinators = {
+                'offensive_coordinator': opponent_profile.get('offensive_coordinator'),
+                'defensive_coordinator': opponent_profile.get('defensive_coordinator'),
+            }
 
     # Fetch ESPN context (betting lines, weather) if available
     espn_context = None
@@ -2271,7 +2233,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         import pandas as pd
 
         # Get completed weeks to find current week
-        schedule_df = pd.read_csv('data/schedule.csv')
+        schedule_df = pd.DataFrame(load_schedule())
+        for score_col in ('away_score', 'home_score'):
+            if score_col in schedule_df.columns:
+                schedule_df[score_col] = pd.to_numeric(schedule_df[score_col], errors='coerce')
         current_week = schedule_df[schedule_df['away_score'].notna()]['week_num'].max()
 
         # Force recalculate current week with fresh playoff probabilities
@@ -2396,10 +2361,10 @@ def deploy_to_netlify():
             'data/analysis_cache.json',
             'data/team_analyses.json',
             'data/dashboard_content.json',
-            'data/team_stats.csv',
-            'data/team_starters.csv',
-            'data/schedule.csv',
-            'data/teams.csv',
+            'data/team_stats.json',
+            'data/team_starters.json',
+            'data/schedule.json',
+            'data/teams.json',
             'data/game_analyses.json',
             'data/team_notes.csv'
         ]
@@ -2412,7 +2377,6 @@ def deploy_to_netlify():
         # Optional files
         optional_files = [
             'data/standings_cache.json',
-            'data/coordinators.csv',
             'data/sagarin.csv'
         ]
 
@@ -2564,7 +2528,7 @@ def main():
     if not args.skip_data:
         logger.info("Generating data files")
         # Add score update at start
-        logger.info("=> schedule.csv -- scores and dates")
+        logger.info("=> schedule.json -- scores and dates")
         if RAW_DATA_MANIFEST and RAW_DATA_MANIFEST.entries('nflreadpy_schedules'):
             games_written = write_schedule_from_raw(RAW_DATA_MANIFEST)
             logger.info(f"   Wrote schedule from raw snapshot ({games_written} games)")
@@ -2572,32 +2536,40 @@ def main():
             scores_updated = update_scores_and_dates()  # Capture return value
             logger.info(f"   Updated {scores_updated} game scores")  # Add log message
 
+        # Build consolidated team metadata
+        logger.info("=> Building teams.json")
+        coordinators_map: Dict[str, Dict[str, str]] = {}
+        try:
+            from fetch_coordinators import fetch_all_coordinators
+            coordinators_map = fetch_all_coordinators() or {}
+        except Exception as e:
+            logger.warning(f"Error fetching coordinators: {e}... continuing without coordinator data")
+
+        try:
+            with open('data/schedule.json', 'r', encoding='utf-8') as fh:
+                schedule_records = json.load(fh)
+            schedule_df = pd.DataFrame(schedule_records)
+        except Exception as err:
+            logger.error(f"Failed to load schedule.json for team metadata: {err}")
+            schedule_df = pd.DataFrame()
+
+        team_records = build_team_records(schedule_df, coordinators_map)
+        teams_path = Path('data/teams.json')
+        teams_path.write_text(json.dumps(team_records, indent=2), encoding='utf-8')
+
         # run team stats generation
-        logger.info("=> Generating team_stats.csv")
+        logger.info("=> Generating team_stats.json")
         with contextlib.redirect_stdout(None):
             if not save_team_stats(RAW_DATA_MANIFEST):
                 logger.error("   Error: Failed to generate team stats")
                 sys.exit(1)
 
-        logger.info("=> Generating team_starters.csv")
+        logger.info("=> Generating team_starters.json")
         # run team starters generation
         with contextlib.redirect_stdout(None):
-            if not save_team_starters("team_starters.csv", RAW_DATA_MANIFEST):
+            if not save_team_starters(RAW_DATA_MANIFEST):
                 logger.error("   Error: Failed to generate team starters")
                 sys.exit(1)
-
-        team_starters_path = Path('data/team_starters.csv')
-        attach_espn_ids_to_team_starters(team_starters_path)
-
-        # Fetch coordinators data
-        logger.info("=> Fetching coordinators.csv")
-        try:
-            from fetch_coordinators import save_coordinators_csv
-            with contextlib.redirect_stdout(None):
-                if not save_coordinators_csv():
-                    logger.warning("   Warning: Failed to fetch coordinators - continuing without coordinator data")
-        except Exception as e:
-            logger.warning(f"Error fetching coordinators: {e}... continuing without coordinator data")
 
         # Generate standings cache (before AI analysis so it can potentially use this data)
         logger.info("=> Generating standings_cache.json")
@@ -2637,7 +2609,7 @@ def main():
                 logger.info(f"Regenerating game AI for teams: {', '.join(team_abbrs)}")
 
                 # Load schedule to find games involving these teams
-                schedule_df = pd.read_csv('data/schedule.csv')
+                schedule_df = pd.DataFrame(load_schedule())
                 team_games = schedule_df[
                     (schedule_df['away_team'].isin(team_abbrs)) |
                     (schedule_df['home_team'].isin(team_abbrs))
@@ -2730,7 +2702,7 @@ def main():
                         logger.info(f"Regenerating game AI for teams: {', '.join(team_abbrs)}")
 
                         # Load schedule to find games involving these teams
-                        schedule_df = pd.read_csv('data/schedule.csv')
+                        schedule_df = pd.DataFrame(load_schedule())
                         team_games = schedule_df[
                             (schedule_df['away_team'].isin(team_abbrs)) |
                             (schedule_df['home_team'].isin(team_abbrs))
@@ -2839,14 +2811,13 @@ def main():
                 'data/analysis_cache.json',
                 'data/team_analyses.json',
                 'data/dashboard_content.json',
-                'data/team_stats.csv',
-                'data/team_starters.csv',
-                'data/schedule.csv',
-                'data/teams.csv',
+                'data/team_stats.json',
+                'data/team_starters.json',
+                'data/schedule.json',
+                'data/teams.json',
                 'data/game_analyses.json',
                 'data/team_notes.csv',
                 'data/standings_cache.json',
-                'data/coordinators.csv',
                 'data/sagarin.csv'
             ]
 

@@ -1,8 +1,9 @@
-import csv
+import json
 import logging
 from typing import Dict, List, Optional
 
 from raw_data_manifest import RawDataManifest
+from team_metadata import TEAM_METADATA
 
 
 logger = logging.getLogger('espn_api')
@@ -24,20 +25,26 @@ class ESPNAPIService:
     def _build_team_map(self) -> Dict[str, str]:
         mapping: Dict[str, str] = {}
         try:
-            with open('data/teams.csv', newline='', encoding='utf-8') as fh:
-                reader = csv.DictReader(fh)
-                for row in reader:
-                    espn_id = row.get('espn_api_id')
-                    abbr = row.get('team_abbr')
-                    if not espn_id or not abbr:
-                        continue
-                    try:
-                        identifier = str(int(float(espn_id)))
-                    except ValueError:
-                        identifier = str(espn_id).strip()
-                    mapping[identifier] = abbr
+            with open('data/teams.json', 'r', encoding='utf-8') as fh:
+                records = json.load(fh)
+            for record in records:
+                espn_id = record.get('espn_api_id')
+                abbr = record.get('team_abbr')
+                if espn_id is None or not abbr:
+                    continue
+                try:
+                    identifier = str(int(espn_id))
+                except (TypeError, ValueError):
+                    identifier = str(espn_id).strip()
+                mapping[identifier] = abbr
         except FileNotFoundError:
-            logger.warning("teams.csv not found; ESPN team mapping will be limited")
+            logger.warning("teams.json not found; falling back to static team metadata")
+            for record in TEAM_METADATA:
+                espn_id = record.get('espn_api_id')
+                team_abbr = record.get('team_abbr')
+                if espn_id is None or not team_abbr:
+                    continue
+                mapping[str(int(espn_id))] = team_abbr
         except Exception as exc:
             logger.warning("Failed to load team mapping: %s", exc)
 

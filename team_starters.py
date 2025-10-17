@@ -1,8 +1,9 @@
 import logging
-import os
+import json
 from pathlib import Path
-from typing import Dict, Optional, Sequence
+from typing import Dict, Optional, Sequence, Tuple
 
+import numpy as np
 import pandas as pd
 
 from raw_data_manifest import RawDataManifest
@@ -15,6 +16,8 @@ TEAM_ALIAS = {
     'LA': 'LAR',
     'WSH': 'WAS',
 }
+
+RAW_DEPTHCHART_DIR = Path('data/raw/espn/depthchart')
 
 
 def _require_manifest(manifest: Optional[RawDataManifest]) -> RawDataManifest:
@@ -370,21 +373,98 @@ def get_current_starters(manifest: Optional[RawDataManifest] = None) -> pd.DataF
     for col in stat_columns:
         result[col] = pd.to_numeric(result[col], errors='coerce').fillna(0)
 
+    mapping = build_espn_player_map()
+    if mapping:
+        espn_ids = []
+        for _, row in result.iterrows():
+            team = row.get('team_abbr')
+            name = normalize_player_name(row.get('player_name'))
+            jersey = row.get('number')
+            jersey_key = None
+            if pd.notna(jersey):
+                try:
+                    jersey_key = str(int(jersey))
+                except (TypeError, ValueError):
+                    jersey_key = str(jersey).strip() if isinstance(jersey, str) else None
+
+            espn_id = None
+            if team and name:
+                key_exact = (team, name, jersey_key)
+                key_general = (team, name, None)
+                espn_id = mapping.get(key_exact) or mapping.get(key_general)
+
+            espn_ids.append(str(espn_id) if espn_id else '')
+
+        result['espn_player_id'] = espn_ids
+    else:
+        result['espn_player_id'] = ''
+
     return result
 
 
-def save_team_starters(filename: str, manifest: Optional[RawDataManifest] = None) -> bool:
+def save_team_starters(manifest: Optional[RawDataManifest] = None) -> bool:
     try:
         team_starters_df = get_current_starters(manifest)
-        os.makedirs('data', exist_ok=True)
-        csv_path = Path('data') / filename
-        team_starters_df.to_csv(csv_path, index=False)
+        output_path = Path('data/team_starters.json')
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+        records = team_starters_df.replace({np.nan: None}).to_dict(orient='records')
+        with output_path.open('w', encoding='utf-8') as fh:
+            json.dump(records, fh, indent=2)
         return True
     except Exception as exc:
-        logger.error("Error saving %s: %s", filename, exc)
+        logger.error("Error saving team_starters.json: %s", exc)
         return False
 
 
 if __name__ == "__main__":
     starters_df = get_current_starters()
-    save_team_starters('team_starters.csv')
+    save_team_starters()
+
+
+def normalize_player_name(name: Optional[str]) -> str:
+    if not name or not isinstance(name, str):
+        return ''
+    normalized = name.lower()
+    for suffix in [' jr', ' sr', ' iii', ' ii', ' iv']:
+        if normalized.endswith(suffix):
+            normalized = normalized[: -len(suffix)]
+    normalized = normalized.replace('.', '').replace("'", '').replace('-', ' ')
+    normalized = ''.join(ch for ch in normalized if ch.isalnum() or ch.isspace())
+    normalized = normalized.replace(' ', '')
+    return normalized
+
+
+def build_espn_player_map() -> Dict[Tuple[str, str, Optional[str]], str]:
+    mapping: Dict[Tuple[str, str, Optional[str]], str] = {}
+    if not RAW_DEPTHCHART_DIR.exists():
+        return mapping
+
+    for depth_path in RAW_DEPTHCHART_DIR.glob('season_*_week_*/*.json'):
+        stem = depth_path.stem
+        team_abbr = stem.split('-', 1)[1] if '-' in stem else None
+        if not team_abbr:
+            continue
+
+        try:
+            depth_data = json.loads(depth_path.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+
+        for item in depth_data.get('items', []) or []:
+            positions = item.get('positions', {}) or {}
+            for pos_data in positions.values():
+                for athlete in pos_data.get('athletes', []) or []:
+                    espn_id = athlete.get('id')
+                    full_name = athlete.get('fullName') or athlete.get('displayName')
+                    jersey = athlete.get('jersey')
+                    if not espn_id or not full_name:
+                        continue
+
+                    key = (team_abbr, normalize_player_name(full_name), str(jersey) if jersey else None)
+                    mapping[key] = espn_id
+                    if jersey:
+                        general_key = (team_abbr, normalize_player_name(full_name), None)
+                        mapping.setdefault(general_key, espn_id)
+
+    return mapping

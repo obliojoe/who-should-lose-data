@@ -1,4 +1,3 @@
-import csv
 from collections import defaultdict
 import datetime
 import logging
@@ -7,7 +6,7 @@ import sys
 
 from tqdm import tqdm
 from tiebreakers import apply_tiebreakers, apply_wildcard_tiebreakers
-from playoff_utils import format_percentage
+from playoff_utils import format_percentage, load_teams
 
 from datetime import datetime as dt
 import json
@@ -84,20 +83,9 @@ def made_playoffs(team, division_winners, wild_cards, teams):
     conference = teams[team]['conference']
     return team in division_winners or team in wild_cards[conference]
 
-def load_teams():
-    teams = {}
-    with open('data/teams.csv', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            teams[row['team_abbr']] = row
-    return teams
-
 def load_schedule():
-    schedule = []
-    with open('data/schedule.csv', 'r') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            schedule.append(row)
+    with open('data/schedule.json', 'r', encoding='utf-8') as f:
+        schedule = json.load(f)
     return schedule
 
 def get_game_context(team, game, teams):

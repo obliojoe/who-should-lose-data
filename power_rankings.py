@@ -15,7 +15,6 @@ Strength of Victory (SOV) is the average win percentage of teams you've beaten,
 providing a measure of the quality of your wins.
 """
 
-import csv
 import json
 from typing import List, Dict
 from pathlib import Path
@@ -38,40 +37,57 @@ class PowerRankings:
         self._calculate_playoff_seeds()
 
     def _load_team_stats(self):
-        """Load team statistics from CSV"""
-        stats_file = self.data_dir / 'team_stats.csv'
+        """Load team statistics from JSON export."""
+        stats_file = self.data_dir / 'team_stats.json'
 
-        with open(stats_file, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                team = row['team_abbr']
-                self.teams[team] = {
-                    'wins': int(row['wins']),
-                    'losses': int(row['losses']),
-                    'ties': int(row['ties']),
-                    'win_pct': float(row['win_pct']),
-                    'record': f"{row['wins']}-{row['losses']}" + (f"-{row['ties']}" if int(row['ties']) > 0 else ""),
-                    'point_diff': int(row['point_diff']),
-                    'points_for': int(row['points_for']),
-                    'points_against': int(row['points_against'])
-                }
+        with open(stats_file, 'r', encoding='utf-8') as fh:
+            rows = json.load(fh)
+
+        for row in rows:
+            team = row['team_abbr']
+            wins = int(row.get('wins', 0) or 0)
+            losses = int(row.get('losses', 0) or 0)
+            ties = int(row.get('ties', 0) or 0)
+            win_pct = float(row.get('win_pct', 0.0) or 0.0)
+            point_diff = int(row.get('point_diff', 0) or 0)
+            points_for = int(row.get('points_for', 0) or 0)
+            points_against = int(row.get('points_against', 0) or 0)
+
+            record = f"{wins}-{losses}"
+            if ties > 0:
+                record += f"-{ties}"
+
+            self.teams[team] = {
+                'wins': wins,
+                'losses': losses,
+                'ties': ties,
+                'win_pct': win_pct,
+                'record': record,
+                'point_diff': point_diff,
+                'points_for': points_for,
+                'points_against': points_against
+            }
 
     def _load_schedule(self):
-        """Load schedule data from CSV"""
-        schedule_file = self.data_dir / 'schedule.csv'
+        """Load schedule data from JSON export."""
+        schedule_file = self.data_dir / 'schedule.json'
 
-        with open(schedule_file, 'r') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                # Only include completed games (those with scores)
-                if row['away_score'] and row['home_score']:
-                    self.schedule.append({
-                        'week': int(row['week_num']),
-                        'away_team': row['away_team'],
-                        'home_team': row['home_team'],
-                        'away_score': int(row['away_score']),
-                        'home_score': int(row['home_score'])
-                    })
+        with open(schedule_file, 'r', encoding='utf-8') as fh:
+            games = json.load(fh)
+
+        for row in games:
+            away_score = row.get('away_score')
+            home_score = row.get('home_score')
+            if away_score in (None, '') or home_score in (None, ''):
+                continue
+
+            self.schedule.append({
+                'week': int(row['week_num']),
+                'away_team': row['away_team'],
+                'home_team': row['home_team'],
+                'away_score': int(away_score),
+                'home_score': int(home_score)
+            })
 
     def _load_playoff_probabilities(self):
         """Load playoff probabilities from analysis cache"""
