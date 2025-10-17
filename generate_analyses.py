@@ -13,6 +13,8 @@ from anthropic import Anthropic
 from dotenv import load_dotenv
 
 from raw_data_manifest import RawDataManifest
+from playoff_utils import load_teams
+from team_metadata import TEAM_METADATA
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -26,6 +28,10 @@ if not logger.handlers:
 load_dotenv()
 
 RAW_DATA_MANIFEST: Optional[RawDataManifest] = None
+try:
+    TEAMS_METADATA = load_teams()
+except Exception:
+    TEAMS_METADATA = {team['team_abbr']: team for team in TEAM_METADATA}
 
 def fetch_game_json(game_id):
     """Load stored ESPN summary JSON for a given game ID."""
@@ -611,6 +617,29 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
 
     except Exception as e:
         logger.debug(f"Failed to fetch ESPN data for {game_id}: {str(e)}")
+
+    # Attach team metadata for AI context
+    away_profile = TEAMS_METADATA.get(game['away_team'], {})
+    home_profile = TEAMS_METADATA.get(game['home_team'], {})
+    game_data['team_profiles'] = {
+        game['away_team']: away_profile,
+        game['home_team']: home_profile,
+    }
+    game_data['stadium'] = game_data.get('stadium') or home_profile.get('stadium', '')
+    game_data['head_coaches'] = {
+        game['away_team']: away_profile.get('head_coach', ''),
+        game['home_team']: home_profile.get('head_coach', ''),
+    }
+    game_data['coordinators'] = {
+        game['away_team']: {
+            'offensive': away_profile.get('offensive_coordinator', ''),
+            'defensive': away_profile.get('defensive_coordinator', ''),
+        },
+        game['home_team']: {
+            'offensive': home_profile.get('offensive_coordinator', ''),
+            'defensive': home_profile.get('defensive_coordinator', ''),
+        },
+    }
 
     # Add ESPN betting lines to game_data for AI context
     if espn_context and espn_context.get('betting'):

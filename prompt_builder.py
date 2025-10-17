@@ -92,7 +92,11 @@ def build_team_stats_json(team_abbr, stats_row, teams_dict, league_rankings=None
             "city": team_info['city'],
             "mascot": team_info['mascot'],
             "conference": team_info['conference'],
-            "division": team_info['division']
+            "division": team_info['division'],
+            "head_coach": team_info.get('head_coach', ''),
+            "offensive_coordinator": team_info.get('offensive_coordinator', ''),
+            "defensive_coordinator": team_info.get('defensive_coordinator', ''),
+            "stadium": team_info.get('stadium', '')
         },
         "record": {
             "wins": int(stats_row['wins']),
