@@ -296,10 +296,22 @@ def get_current_standings(schedule):
         'ties': 0
     })
     
+    def _parse_score(value):
+        if value in (None, '', 'nan'):
+            return None
+        try:
+            return int(value)
+        except (ValueError, TypeError):
+            try:
+                return int(float(value))
+            except (ValueError, TypeError):
+                return None
+
     for game in schedule:
-        if game['away_score'] and game['home_score']:  # If game has been played
-            away_score = int(game['away_score'])
-            home_score = int(game['home_score'])
+        away_score = _parse_score(game.get('away_score'))
+        home_score = _parse_score(game.get('home_score'))
+
+        if away_score is not None and home_score is not None:  # If game has been played
             
             if away_score > home_score:
                 standings[game['away_team']]['wins'] += 1
