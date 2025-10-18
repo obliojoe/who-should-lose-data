@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-18T02:16:37.053450",
+  "generated_at": "2025-10-18T13:32:36.996332",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -9,7 +9,7 @@
       "team_name": "Arizona Cardinals",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-18T01:05Z",
+      "last_updated": "2025-10-18T18:14Z",
       "injuries": [
         {
           "athlete_id": "4362478",
@@ -86,9 +86,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Murray (foot) is listed as questionable for Sunday's game versus the Packers, Tyler Drake of ArizonaSports.com reports.",
-          "long_comment": "Murray already has missed one contest due to a mid-foot sprain, and despite being limited during all three Week 7 sessions, he was seen throwing to reserve pass catchers Thursday and Friday, suggesting Jacoby Brissett is more likely than Murray to start again this weekend. The Cardinals have three QBs on the active roster, so even if Murray isn't active Sunday, he could be available as the emergency third quarterback behind Brissett and Kedon Slovis.",
-          "last_updated": "2025-10-17T20:33Z",
+          "short_comment": "The Cardinals are planning to start Jacoby Brissett instead of Murray (foot) against the Packers on Sunday, Ian Rapoport of NFL Network reports.",
+          "long_comment": "Murray drew the questionable tag for Sunday's game after being a limited practice participant all week. However, with the Cardinals on a bye for Week 8, it appears the team will sit Murray to give him more time to heal from a mid-foot sprain, which makes Week 9 against the Cowboys on Monday, Nov. 3 the next opportunity for the 28-year-old quarterback to play. Brissett had a strong showing in the Cardinals' Week 7 loss to the Colts, with the veteran completing 27 of 44 passes for 320 yards, two touchdowns and one interception while turning three carries into 19 yards.",
+          "last_updated": "2025-10-18T18:11Z",
           "source": "basic/manual"
         },
         {
@@ -188,22 +188,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4363538",
-          "name": "Chad Ryland",
-          "position": "PK",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Ryland went 2-for-2 on field-goal tries and made all three of his extra-point attempts in Sunday's 31-27 loss to the Colts.",
-          "long_comment": "Ryland connected on a 40-yard field goal in the second quarter before later adding a 44-yard make in the fourth. The kicker has now made multiple field goals in five of six games this season, and he'll look to maintain his consistent production in Week 7 versus the Packers.",
-          "last_updated": "2025-10-13T01:28Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4428633",
           "name": "Dadrion Taylor-Demerson",
           "position": "S",
@@ -297,6 +281,22 @@
           "short_comment": "Dortch caught all three of his targets for nine yards and a touchdown in Sunday's 31-27 loss to the Colts.",
           "long_comment": "Dortch's trip to the end zone was his first touchdown of the 2025 campaign. The 27-year-old wideout's 44 percent offensive snap share was his second highest mark of the season, likely due to teammate Marvin Harrison leaving the game early due to a concussion suffered in the second quarter of the contest. Despite scoring his first touchdown of the season and playing more snaps in Week 6, Dortch remains very difficult to trust for fantasy purposes, even if Harrison is sidelined for a Week 7 matchup against the Packers.",
           "last_updated": "2025-10-15T02:33Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "2578570",
+          "name": "Jacoby Brissett",
+          "position": "QB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "The Cardinals are planning to start Brissett against the Packers on Sunday, Ian Rapoport of NFL Network reports.",
+          "long_comment": "The Cardinals are on a bye Week 8, and it appears they will give Kyler Murray additional time to heal from a mid-foot sprain and target a potential return for Week 9 against the Cowboys on Monday, Nov. 3. That puts Brissett in line for a second-straight start while Kedon Slovis serves as the backup quarterback. Brissett played well during Arizona's Week 6 loss to Indianapolis, with the veteran quarterback completing 27 of 44 passes (61.4 percent) for 320 yards, two touchdowns and one interception while adding 19 rushing yards on three carries.",
+          "last_updated": "2025-10-18T18:14Z",
           "source": "basic/manual"
         },
         {
@@ -419,7 +419,7 @@
       "team_name": "Atlanta Falcons",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-18T07:02Z",
+      "last_updated": "2025-10-18T19:22Z",
       "injuries": [
         {
           "athlete_id": "4431194",
@@ -818,7 +818,7 @@
           },
           "short_comment": "ir",
           "long_comment": "ir",
-          "last_updated": "2025-10-18T07:02Z",
+          "last_updated": "2025-10-18T19:22Z",
           "source": "basic/manual"
         }
       ]
@@ -1649,24 +1649,8 @@
       "team_name": "Carolina Panthers",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-17T18:12Z",
+      "last_updated": "2025-10-18T19:21Z",
       "injuries": [
-        {
-          "athlete_id": "4036063",
-          "name": "Patrick Jones II",
-          "position": "LB",
-          "status": "Out",
-          "status_code": {
-            "id": "4",
-            "abbreviation": "O",
-            "description": "out",
-            "name": "INJURY_STATUS_OUT"
-          },
-          "short_comment": "Head coach Dave Canales announced Wednesday that Jones will miss the rest of the 2025 season due to a back injury that will require surgery, Darin Gantt of the Panthers' official site reports.",
-          "long_comment": "Jones presumably sustained the injury during the Panthers' Week 6 win over the Cowboys. He underwent imaging Monday, and the results revealed that the injury was severe enough for him to warrant season-ending surgery. The 2021 third-rounder will end the 2025 regular season with nine tackles (six solo), including 1.0 sacks, and one pass defense across four games. Rookie second-rounder Nic Scourton is expected to step into a more prominent role at linebacker in Jones' absence, and more rotational snaps on defense should be available for Princely Umanmielen and Thomas Incoom.",
-          "last_updated": "2025-10-15T22:14Z",
-          "source": "basic/manual"
-        },
         {
           "athlete_id": "4362647",
           "name": "Damien Lewis",
@@ -1681,6 +1665,22 @@
           "short_comment": "questionable",
           "long_comment": "questionable",
           "last_updated": "2025-10-16T20:02Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4695883",
+          "name": "Jalen Coker",
+          "position": "WR",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "The Panthers reinstated Coker (quadriceps) from injured reserve Saturday, Darin Gantt of the team's official site reports.",
+          "long_comment": "Coker has been a full practice participant over the past two weeks, and his reinstatement from IR indicates that he is tracking toward playing against the Jets on Sunday. The second-year wideout finished his rookie campaign with 32 catches (on 46 targets) for 478 yards and two touchdowns across 11 regular-season games. Coker should be utilized in two- and three-wideout sets alongside rookie first-rounder Tetairoa McMillan, which would result in a decrease in offensive snaps for Xavier Legette and Hunter Renfrow.",
+          "last_updated": "2025-10-18T17:54Z",
           "source": "basic/manual"
         },
         {
@@ -1729,6 +1729,22 @@
           "short_comment": "Evans (hamstring) has no injury designation ahead of Sunday's matchup against the Jets.",
           "long_comment": "Evans missed the Panthers' Week 6 win over the Cowboys and was limited in practice both Wednesday and Thursday, but he upgraded to a full session Friday and is now in line to play Sunday. The 26-year-old corner from Missouri has played 57 total snaps (50 on special teams, seven on defense) through five appearances this season, recording four total tackles.",
           "last_updated": "2025-10-17T18:06Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3056608",
+          "name": "Austin Corbett",
+          "position": "C",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "",
+          "long_comment": "",
+          "last_updated": "2025-10-18T19:21Z",
           "source": "basic/manual"
         },
         {
@@ -2020,9 +2036,9 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "3056608",
-          "name": "Austin Corbett",
-          "position": "C",
+          "athlete_id": "4036063",
+          "name": "Patrick Jones II",
+          "position": "LB",
           "status": "Injured Reserve",
           "status_code": {
             "id": "5",
@@ -2030,25 +2046,9 @@
             "description": "Injured Reserve",
             "name": "INJURY_STATUS_IR"
           },
-          "short_comment": "The Panthers designated Corbett (knee) to return from injured reserve Wednesday.",
-          "long_comment": "Corbett sustained an MCL injury in his left knee in Week 2 against the Cardinals, which necessitated his placement on injured reserve. He has progressed enough in his recovery to return to practice and was limited in Wednesday's session. Even if Corbett practices in full over the next two days, he is not guaranteed to be reinstated from IR ahead of Sunday's road game against the Jets.",
-          "last_updated": "2025-10-16T00:52Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4695883",
-          "name": "Jalen Coker",
-          "position": "WR",
-          "status": "Injured Reserve",
-          "status_code": {
-            "id": "5",
-            "abbreviation": "IR",
-            "description": "Injured Reserve",
-            "name": "INJURY_STATUS_IR"
-          },
-          "short_comment": "Panthers coach Dave Canales said Friday that Coker (quadriceps) will play against the Jets on Sunday, even though he's listed as questionable and remains on injured reserve, Joe Person of The Athletic reports.",
-          "long_comment": "Coker has been a full practice participant for two weeks now, potentially allowing him to be free of restrictions for his 2025 debut. He's a candidate to start for a WR-needy team, though it's unclear what his role will be this Sunday.",
-          "last_updated": "2025-10-17T16:58Z",
+          "short_comment": "ir",
+          "long_comment": "ir",
+          "last_updated": "2025-10-18T18:00Z",
           "source": "basic/manual"
         }
       ]
@@ -3021,7 +3021,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Robinson (knee) does not carry an injury designation ahead of Sunday's game versus Miami, Mary Kay Cabot of The Cleveland Plain Dealer reports.",
-          "long_comment": "Robinson was limited at practice to start the week after hurting his knee in Week 6 at Pittsburgh, but he was able to work through the injury and be cleared for Week 7. He should again start at left tackle Sunday, this time against a Dolphins defense that hasn't looked very disruptive so far this season.",
+          "long_comment": "Robinson was limited at practice to start the week after hurting his knee in Week 6 at Pittsburgh, but he was able to work through the injury and get cleared for Week 7. He should again start at left tackle Sunday, this time against a Dolphins defense that hasn't looked very disruptive so far this season.",
           "last_updated": "2025-10-18T00:25Z",
           "source": "basic/manual"
         },
@@ -3289,7 +3289,7 @@
       "team_name": "Dallas Cowboys",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-18T01:20Z",
+      "last_updated": "2025-10-18T17:41Z",
       "injuries": [
         {
           "athlete_id": "4362088",
@@ -3353,6 +3353,22 @@
           "short_comment": "questionable",
           "long_comment": "questionable",
           "last_updated": "2025-10-14T11:39Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4431006",
+          "name": "Caelen Carson",
+          "position": "CB",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "Carson (knee) is listed as questionable for Sunday's game against Washington, Jon Machota of The Athletic reports.",
+          "long_comment": "Carson has been a full participant in practice for two straight weeks, and the 2024 fifth-rounder has a chance to be reinstated from the Cowboys' injured reserve ahead of Sunday's NFC East clash. Carson opened the season on IR due to a knee injury that he sustained during training camp in late July. His return would be a welcome one for the Cowboys' secondary, given that Dallas will be without Trevon Diggs (concussion).",
+          "last_updated": "2025-10-17T22:32Z",
           "source": "basic/manual"
         },
         {
@@ -3660,22 +3676,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4431006",
-          "name": "Caelen Carson",
-          "position": "CB",
-          "status": "Injured Reserve",
-          "status_code": {
-            "id": "5",
-            "abbreviation": "IR",
-            "description": "Injured Reserve",
-            "name": "INJURY_STATUS_IR"
-          },
-          "short_comment": "Carson (knee) is listed as questionable for Sunday's game against Washington, Jon Machota of The Athletic reports.",
-          "long_comment": "Carson has been a full participant in practice for two straight weeks, and the 2024 fifth-rounder has a chance to be reinstated from the Cowboys' injured reserve ahead of Sunday's NFC East clash. Carson opened the season on IR due to a knee injury that he sustained during training camp in late July. His return would be a welcome one for the Cowboys' secondary, given that Dallas will be without Trevon Diggs (concussion).",
-          "last_updated": "2025-10-17T22:32Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4426485",
           "name": "Jonathan Mingo",
           "position": "WR",
@@ -3686,9 +3686,9 @@
             "description": "Injured Reserve",
             "name": "INJURY_STATUS_IR"
           },
-          "short_comment": "Mingo (knee) is listed as questionable for Sunday's game against the Commanders, Jon Machota of The Athletic reports.",
-          "long_comment": "Mingo ended the week strong with a full practice Friday, and the third-year wideout has a chance to make his 2025 debut Sunday. Even if he does return, Mingo would likely work in a rotational role in the Cowboys' offense, given that CeeDee Lamb (ankle) and KaVontae Turpin (foot) have both been cleared to play in Sunday's NFC East tilt.",
-          "last_updated": "2025-10-17T22:29Z",
+          "short_comment": "Mingo (knee) has been ruled out for Sunday's game against the Commanders and will remain on injured reserve.",
+          "long_comment": "Mingo earned the questionable tag for Week 7 after logging a full practice Friday, bu the third-year wideout hasn't progressed enough in his recovery to return from a PCL sprain in his right knee that he sustained during the preseason in mid-August. Mingo's 21-day window to be reinstated from injured reserve opened Oct. 1, and he would be forced to remain on IR for the rest of the season if he's not reinstated by the Cowboys prior to the window closing. Mingo's next opportunity to make his 2025 regular-season debut is Week 8 against the Broncos on Sunday, Oct. 26.",
+          "last_updated": "2025-10-18T17:41Z",
           "source": "basic/manual"
         }
       ]
@@ -3699,7 +3699,7 @@
       "team_name": "Denver Broncos",
       "conference": "AFC",
       "division": "AFC West",
-      "last_updated": "2025-10-18T00:40Z",
+      "last_updated": "2025-10-18T19:15Z",
       "injuries": [
         {
           "athlete_id": "4687592",
@@ -3715,6 +3715,22 @@
           "short_comment": "Elliss (shoulder) has been ruled out  ahead of Sunday's game against the Giants.",
           "long_comment": "Elliss was sidelined for Denver's Week 6 win over the Jets and failed to practice in any capacity this week. He'll miss his second consecutive game, and it appears his absence could extend beyond Week 7.",
           "last_updated": "2025-10-18T00:40Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3916903",
+          "name": "Dre Greenlaw",
+          "position": "LB",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "questionable",
+          "long_comment": "questionable",
+          "last_updated": "2025-10-18T19:15Z",
           "source": "basic/manual"
         },
         {
@@ -4051,22 +4067,6 @@
           "short_comment": "Lutz went 2-for-2 on field-goal attempts and made his lone extra-point try during the Broncos' 13-11 win over the Jets on Sunday.",
           "long_comment": "Lutz put the Broncos on the board with a 57-yard field goal in the first quarter, and he connected on a 27-yard chip shot late in the fourth quarter to put Denver up for good. Lutz has not missed a kick since Week 2 against the Colts and is now 7-for-8 on field-goal attempts and 14-for-14 on extra-point tries through the first six games of the regular season.",
           "last_updated": "2025-10-12T16:50Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3916903",
-          "name": "Dre Greenlaw",
-          "position": "LB",
-          "status": "Injured Reserve",
-          "status_code": {
-            "id": "5",
-            "abbreviation": "IR",
-            "description": "Injured Reserve",
-            "name": "INJURY_STATUS_IR"
-          },
-          "short_comment": "Greenlaw (quadriceps) is listed as questionable for Sunday's game against the Giants.",
-          "long_comment": "Greenlaw ended the week on a high note with a full practice Friday after being limited in the first two sessions of the week. The Broncos released quarterback Sam Ehlinger on Friday to open a spot on the 53-man roster, and Chris Tomasson of The Denver Gazette relays that the open spot is meant for Greenlaw, indicating that the veteran linebacker will be activated from IR ahead of Sunday's game. Alex Singleton has played every single defensive snap through the Broncos' first six games of the regular season, so Greenlaw's return likely will result in less playing time at inside linebacker for Justin Strnad.",
-          "last_updated": "2025-10-17T21:20Z",
           "source": "basic/manual"
         },
         {
@@ -4519,7 +4519,7 @@
       "team_name": "Green Bay Packers",
       "conference": "NFC",
       "division": "NFC North",
-      "last_updated": "2025-10-18T01:59Z",
+      "last_updated": "2025-10-18T18:21Z",
       "injuries": [
         {
           "athlete_id": "4248528",
@@ -4634,6 +4634,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "4428037",
+          "name": "Jacob Monk",
+          "position": "C",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "questionable",
+          "long_comment": "questionable",
+          "last_updated": "2025-10-18T18:21Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4047365",
           "name": "Josh Jacobs",
           "position": "RB",
@@ -4647,6 +4663,22 @@
           "short_comment": "Jacobs (illness/calf) is listed as questionable for Sunday's game at Arizona despite upgrading to full practice participation Friday, Wes Hodkiewicz of the Packers' official site reports.",
           "long_comment": "Fantasy managers would rather see the injury designation removed entirely, but an upgrade to full participation, despite the addition of a calf concern to the injury report, is the second-best sign. Jacobs was limited Wednesday and Thursday due to an illness, never missing practice entirely, so there shouldn't be any issues in terms of mental preparation. He'll likely be ready for his normal workload Sunday, after piling up 307 total yards and four TDs over the past two games.",
           "last_updated": "2025-10-17T20:30Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4259493",
+          "name": "Keisean Nixon",
+          "position": "CB",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "questionable",
+          "long_comment": "questionable",
+          "last_updated": "2025-10-18T18:21Z",
           "source": "basic/manual"
         },
         {
@@ -4842,22 +4874,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4701936",
-          "name": "Matthew Golden",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Golden recorded three receptions on five targets for 86 yards in Sunday's 27-18 win over the Bengals. He added two rushes for 16 yards.",
-          "long_comment": "Golden continues to get more involved in the Green Bay offense, as he's now earned at least five targets in each of his last three games. He was impressive with the opportunity, ripping off long gains of  35 and 31 yards, the latter of which all but clinched a win for the Packers. Golden topped 100 yards from scrimmage for the first time in his career while showcasing his ability to work deep down the field and also pick up yards after the catch. He appears to be earning trust from coaches and Jordan Love, which should lead to more consistent usage as the season progresses.",
-          "last_updated": "2025-10-13T04:57Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4379416",
           "name": "Quay Walker",
           "position": "LB",
@@ -4890,22 +4906,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4428037",
-          "name": "Jacob Monk",
-          "position": "C",
-          "status": "Injured Reserve",
-          "status_code": {
-            "id": "5",
-            "abbreviation": "IR",
-            "description": "Injured Reserve",
-            "name": "INJURY_STATUS_IR"
-          },
-          "short_comment": "Monk (hamstring) is considered questionable ahead of Sunday's game against the Cardinals, Wes Hodkiewicz of the Packers' official site reports.",
-          "long_comment": "Monk has been sidelined all season by the hamstring injury but has been practicing for the last 10 days. He logged three limited sessions in preparation for Sunday's game against the Cardinals, but it's still unclear whether he'll be activated for the matchup.",
-          "last_updated": "2025-10-18T01:59Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4429023",
           "name": "MarShawn Lloyd",
           "position": "RB",
@@ -4929,7 +4929,7 @@
       "team_name": "Houston Texans",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-18T02:31Z",
+      "last_updated": "2025-10-18T16:27Z",
       "injuries": [
         {
           "athlete_id": "4577494",
@@ -4974,9 +4974,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Kirk (hamstring) was limited at practice Friday.",
-          "long_comment": "Kirk wasn't listed on Thursday's initial injury report, so his addition a day later is notable. Added context regarding his status will arrive no later than Saturday when the Texans post their Week 7 injury designations ahead of Monday night's game against the Seahawks. If Kirk is limited or out versus Seattle,  Xavier Hutchinson, Jayden Higgins and Jaylin Noel would be candidates to absorb added snaps alongside top WR Nico Collins.",
-          "last_updated": "2025-10-17T23:28Z",
+          "short_comment": "Kirk (hamstring) will not participate in Saturday's practice, Aaron Wilson of KPRC 2 Houston reports.",
+          "long_comment": "Kirk popped up on Friday's practice report as a limited participant due to a hamstring injury. His downgrade to a DNP doesn't bode well for his chances of playing against the Seahawks on Monday, and his injury designation should be announced by the Texans following the conclusion of Saturday's practice. The Texans would turn to Xavier Hutchinson and rookies Jayden Higgins and Jaylin Noel to take on larger roles in the offense behind top wideout Nico Collins if Kirk is not cleared to play against Seattle.",
+          "last_updated": "2025-10-18T16:27Z",
           "source": "basic/manual"
         },
         {
@@ -5041,38 +5041,6 @@
           "short_comment": "Brooks had two rushes for 15 yards in Sunday's 44-10 win over Baltimore in Week 5.",
           "long_comment": "Brooks was one of five running backs for the game and played 11 snaps. Houston won its second consecutive game while running the ball more than passing it, which may explain why so many backs were active. Brooks had been a healthy scratch Weeks 1 and 3 before suiting up the last two games.",
           "last_updated": "2025-10-06T11:42Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3117256",
-          "name": "Dalton Schultz",
-          "position": "TE",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Schultz recorded five receptions on six targets for 60 yards in Sunday's 44-10 win over the Ravens.",
-          "long_comment": "Schultz was C.J. Stroud's favorite target in the first half, recording four receptions on four targets for 53 yards. Schultz played a key role on multiple scoring drives for Houston, recording 11- and 12-yard receptions to keep a pair of possessions alive on third down before logging a 21-yard catch to set up a touchdown just before halftime. This was Schultz's highest yardage total of the season, and he has five receptions in three consecutive contests.",
-          "last_updated": "2025-10-06T01:44Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4360238",
-          "name": "Dameon Pierce",
-          "position": "RB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Pierce had seven carries for 21 yards in Sunday's 44-10 win over the Ravens in Week 5.",
-          "long_comment": "Active for the first time since Week 1, Pierce played a season-high 16 snaps, and all his carries came in the fourth quarter after Houston built a 41-10 lead. Nick Chubb and Woody Marks are clearly at the top of the depth chart, and it's unclear why head coach DeMeco Ryans would make Pierce active following three consecutive healthy scratches.",
-          "last_updated": "2025-10-06T11:33Z",
           "source": "basic/manual"
         },
         {
@@ -5204,6 +5172,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "3128720",
+          "name": "Nick Chubb",
+          "position": "RB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Chubb could have a busy Week 7 against Seattle on Monday, if the Texans can establish the running game, as head coach DeMeco Ryans said earlier in the week, Jonathan M. Alexander of the Houston Chronicle reports. \"When you can run the ball, you can sustain drives,\" Ryans said. \"That's the key. That allows (offensive coordinator Nick) Caley to be able to open up the playbook and call whatever he's installed that particular week.\"",
+          "long_comment": "Establishing the ground attack won't be easy against the Seahawks, who have allowed the second-fewest rushing yards per game (79.0 ypg). Chubb hasn't looked like the former All-Pro he once was in Cleveland, but he has been effective at times. And rookie Woody Marks has emerged as a potential playmaker out of the backfield. Chubb is coming off his best game of the season in Week 5, when he rushed for a season-high 61 yards and a touchdown in a win over the Ravens.",
+          "last_updated": "2025-10-18T14:17Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "3134448",
           "name": "Tremon Smith",
           "position": "CB",
@@ -5249,6 +5233,22 @@
           "short_comment": "Anderson recorded three total tackles (one solo) in Sunday's 44-10 win over the Ravens.",
           "long_comment": "Anderson played a season-low 19 snaps on defense, likely based on the team's ability to blow out Baltimore, but he was still able to compile at least three takedowns for the fourth time this season. The defensive end has now registered 17 total tackles (11 solo), including 3.0 sacks, over five games this year.",
           "last_updated": "2025-10-08T03:28Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4429059",
+          "name": "Woody Marks",
+          "position": "RB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Marks could see an uptick in playing time and touches Week 7 against Seattle on Monday, if the Texans can establish their ground game, as articulated by head coach DeMeco Ryans earlier in the week, Jonathan M. Alexander of the Houston Chronicle reports.",
+          "long_comment": "Ryans talked about sustaining drives through the run, which would open up offensive coordinator Nick Caley's playbook. That suggests Marks and starter Nick Chubb could play major roles against the Seahawks, although Seattle's defense has been stingy against the run (79.0 ypg). Marks had a mini-breakout Week 4, when he had a combined 119 yards from scrimmage on 21 touches and a touchdown in a win over the Titans. His touches dropped in Week 5, but Marks has emerged as a potential playmaker for an offense that showed little life over the first three weeks of the season.",
+          "last_updated": "2025-10-18T14:46Z",
           "source": "basic/manual"
         },
         {
@@ -7850,22 +7850,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4035232",
-          "name": "Tyrel Dodson",
-          "position": "LB",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Dodson (concussion) is listed as questionable for Sunday's game against the Browns, Zac Jackson of The Athletic reports.",
-          "long_comment": "Dodson has yet to clear the NFL's five-step concussion protocol by gaining clearance from an independent neurologist, but head coach Mike McDaniel said Friday that the Dolphins are \"hopeful and confident\" that Dodson will do so after logging three full practices, per Marcel Louis-Jacques of ESPN.com. If Dodson exits concussion protocol, the starting middle linebacker will suit up Sunday.",
-          "last_updated": "2025-10-17T20:15Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4040537",
           "name": "Aaron Brewer",
           "position": "G",
@@ -8167,6 +8151,22 @@
           "short_comment": "Tagovailoa completed 21 of 32 passes for 205 yards with a touchdown and three interceptions while adding one carry for four yards in the Dolphins' 29-27 loss to the Chargers on Sunday.",
           "long_comment": "Tagovailoa's turnover issues persisted in the narrow loss, although the last of his three interceptions came on a last-gasp play to close out the contest. The 2020 first-round pick's first two INTs were much more ill-timed, as Tagovailoa short-circuited drives at the Chargers' 39-yard line and his own 37, which led to 10 points for Los Angeles. Tagovailoa did lead Miami to two fourth-quarter touchdown drives and capped the second one off with a seven-yard scoring toss to Darren Waller with 46 seconds remaining, but he also undeniably played a direct part in the Dolphins falling to 1-5. Tagovailoa's Week 7 matchup is far from ideal in terms of his quest to atone for the turnover-filled performance, as a road trip to Cleveland to face the Browns' aggressive defense awaits.",
           "last_updated": "2025-10-12T23:09Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4035232",
+          "name": "Tyrel Dodson",
+          "position": "LB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Dodson (concussion) is listed as questionable for Sunday's game against the Browns, Zac Jackson of The Athletic reports.",
+          "long_comment": "Dodson has yet to clear the NFL's five-step concussion protocol by gaining clearance from an independent neurologist, but head coach Mike McDaniel said Friday that the Dolphins are \"hopeful and confident\" that Dodson will do so after logging three full practices, per Marcel Louis-Jacques of ESPN.com. If Dodson exits concussion protocol, the starting middle linebacker will suit up Sunday.",
+          "last_updated": "2025-10-17T20:15Z",
           "source": "basic/manual"
         },
         {
@@ -9439,7 +9439,7 @@
       "team_name": "New York Giants",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-18T07:01Z",
+      "last_updated": "2025-10-18T19:21Z",
       "injuries": [
         {
           "athlete_id": "4361748",
@@ -9454,7 +9454,39 @@
           },
           "short_comment": "out",
           "long_comment": "out",
-          "last_updated": "2025-10-18T07:01Z",
+          "last_updated": "2025-10-18T19:21Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4036132",
+          "name": "Chauncey Golston",
+          "position": "DE",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "out",
+          "long_comment": "out",
+          "last_updated": "2025-10-18T16:15Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3916945",
+          "name": "Darius Slayton",
+          "position": "WR",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "Slayton (hamstring) has been ruled out for Sunday's game against the Broncos, Dan Salomone of the Giants' official site reports.",
+          "long_comment": "Slayton has not practiced since injuring his hamstring during the Giants' Week 5 loss to the Saints. The seventh-year wideout will be sidelined for a second straight game due to his injury, and he'll work to progress enough in his recovery to return in Week 8 against the Eagles on Sunday, Oct. 26. Lil'Jordan Humphrey should be elevated from the practice squad to the active roster for a second-straight week to join the Giants' wide receiver corps that consists of Wan'Dale Robinson, Jalin Hyatt, Beaux Collins and Gunner Olszewski.",
+          "last_updated": "2025-10-18T16:19Z",
           "source": "basic/manual"
         },
         {
@@ -9519,38 +9551,6 @@
           "short_comment": "The Giants designated Dimukeje (pectoral) to return from injured reserve Wednesday, Dan Salomone of the Giants' official site reports.",
           "long_comment": "Dimukeje did not participate in training camp and has been sidelined all season due to a pec tear that he suffered during offseason workouts. He returned to a full practice  session Wednesday, though it wouldn't be a surprise to see the Giants give Dimukeje a chance to ramp up across the next couple of weeks before he returns to game action.",
           "last_updated": "2025-10-16T02:49Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4036132",
-          "name": "Chauncey Golston",
-          "position": "DE",
-          "status": "Doubtful",
-          "status_code": {
-            "id": "3",
-            "abbreviation": "D",
-            "description": "doubtful",
-            "name": "INJURY_STATUS_DOUBTFUL"
-          },
-          "short_comment": "doubtful",
-          "long_comment": "doubtful",
-          "last_updated": "2025-10-17T18:35Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3916945",
-          "name": "Darius Slayton",
-          "position": "WR",
-          "status": "Doubtful",
-          "status_code": {
-            "id": "3",
-            "abbreviation": "D",
-            "description": "doubtful",
-            "name": "INJURY_STATUS_DOUBTFUL"
-          },
-          "short_comment": "Slayton (hamstring) is listed as doubtful for Sunday's game against the Broncos, Dan Salomone of the Giants' official site reports.",
-          "long_comment": "Slayton hasn't practiced since injuring his hamstring during a Week 5 loss to the Saints. He's now expected to miss a second straight game, freeing up snaps/routes for Jalin Hyatt, Lil'Jordan Humphrey and Beaux Collins alongside Wan'Dale Robinson.",
-          "last_updated": "2025-10-17T18:33Z",
           "source": "basic/manual"
         },
         {
@@ -9849,7 +9849,7 @@
       "team_name": "New York Jets",
       "conference": "AFC",
       "division": "AFC East",
-      "last_updated": "2025-10-18T00:26Z",
+      "last_updated": "2025-10-18T17:06Z",
       "injuries": [
         {
           "athlete_id": "4371959",
@@ -9862,9 +9862,9 @@
             "description": "doubtful",
             "name": "INJURY_STATUS_DOUBTFUL"
           },
-          "short_comment": "doubtful",
-          "long_comment": "doubtful",
-          "last_updated": "2025-10-17T19:56Z",
+          "short_comment": "Jones (hip) is listed as doubtful ahead of Sunday's matchup against the Panthers, Rich Cimini of ESPN.com reports.",
+          "long_comment": "The Indiana product was unable to practice all week after sustaining a hip injury in the Jets' Week 6 loss to the Broncos, so it's no surprise that he'll likely be sidelined Sunday. Jones has played primarily on special teams this season (three defensive snaps and 105 special-teams snaps), recording four total tackles. Mark Robinson could see increased work as a reserve outside linebacker if Jones is out in Week 7.",
+          "last_updated": "2025-10-17T19:52Z",
           "source": "basic/manual"
         },
         {
@@ -9897,6 +9897,22 @@
           "short_comment": "Stiggers (hip) is doubtful for Sunday's game against the Panthers, Rich Cimini of ESPN.com reports.",
           "long_comment": "Stiggers was unable to practice at all throughout the week, though he hasn't been officially ruled out. The Jets will be short-handed on special teams if he can't suit up.",
           "last_updated": "2025-10-18T00:26Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4567416",
+          "name": "Ja'Markis Weston",
+          "position": "DE",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "questionable",
+          "long_comment": "questionable",
+          "last_updated": "2025-10-18T17:06Z",
           "source": "basic/manual"
         },
         {
@@ -10234,22 +10250,6 @@
           "long_comment": "McDonald was evaluated for a concussion in Sunday's loss to Denver. He apparently cleared those checks and should be available for a Week 7 matchup against the Panthers.",
           "last_updated": "2025-10-15T23:46Z",
           "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4567416",
-          "name": "Ja'Markis Weston",
-          "position": "DE",
-          "status": "Injured Reserve",
-          "status_code": {
-            "id": "5",
-            "abbreviation": "IR",
-            "description": "Injured Reserve",
-            "name": "INJURY_STATUS_IR"
-          },
-          "short_comment": "Weston (groin) has been ruled out for Sunday's game against the Broncos, Eric Allen of the Jets' official site reports.",
-          "long_comment": "The undrafted rookie opened the season on IR due to a groin injury. He was cleared to return to practice Wednesday and ended the week strong with a full session Friday, but he has not been given the green light to make his NFL regular-season debut. Weston's next opportunity to do so is Week 7 against the Panthers on Sunday, Oct. 19.",
-          "last_updated": "2025-10-12T01:27Z",
-          "source": "basic/manual"
         }
       ]
     },
@@ -10305,7 +10305,7 @@
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
           "short_comment": "Dickerson (ankle) is questionable  for Sunday's game against the Vikings.",
-          "long_comment": "Dickerson was sidelined in Week 6 against the Giants but returned to log a pair of limited practices before turning in a full session Sunday. If active, his return would provide a big boost to the Eagles' rushing attack.",
+          "long_comment": "Dickerson was sidelined in Week 6 against the Giants but returned to log a pair of limited practices before turning in a full session Friday. If active, his return would provide a big boost to the Eagles' rushing attack.",
           "last_updated": "2025-10-18T00:36Z",
           "source": "basic/manual"
         },
@@ -11583,7 +11583,7 @@
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
           "short_comment": "Green (neck) is listed as questionable for Sunday's game versus the Falcons, Nick Wagoner of ESPN.com reports.",
-          "long_comment": "Green has been able to play through his neck issue during San Francisco's past two games, so it may be that he's on the 'probable' end of the official questionable designation. If for some reason he can't play in Week 7 though, 2023 fifth-rounder Darrell Luter could be in line for extra work on the boundary.",
+          "long_comment": "Green has been able to play through his neck issue during San Francisco's past two games, so it may be that he's on the \"probable\" end of the official questionable designation. If for some reason he can't play in Week 7, however, 2023 fifth-rounder Darrell Luter could be in line for extra work on the boundary.",
           "last_updated": "2025-10-17T23:33Z",
           "source": "basic/manual"
         },
@@ -11727,7 +11727,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Watkins does not have an injury designation ahead of Sunday's game against the Falcons, Briana Jeannel of the 49ers' official site reports.",
-          "long_comment": "Watkins has dealt with a calf injury since Week 3 and will enter game day without an injury designation for the first time since. He was a healthy scratch in Weeks 1 and 2, so there's no guarantee he'll be active. However, Watkins could have a chance to suit up with Rickey Pearsall (knee) and Marquez Valdes-Scantling (calf) both ruled out for Sunday's matchup.",
+          "long_comment": "Watkins has dealt with a calf injury since Week 3 but will enter game day without an injury designation. He was a healthy scratch in Weeks 1 and 2, so there's no guarantee he'll be active. However, Watkins could have a chance to suit up with Rickey Pearsall (knee) and Marquez Valdes-Scantling (calf) both ruled out for Sunday's matchup.",
           "last_updated": "2025-10-18T00:07Z",
           "source": "basic/manual"
         },
@@ -11855,7 +11855,7 @@
             "name": "INJURY_STATUS_IR"
           },
           "short_comment": "Head coach Kyle Shanahan said Friday that Cowing (hamstring) is \"getting close\" to returning from injured reserve, Nick Wagoner of ESPN.com reports.",
-          "long_comment": "The 2024 fourth-rounder pulled his hamstring during training camp in late July, and the injury was severe enough for Cowing to start the regular season on injured reserve. He would be eligible to return to practice once the 49ers designate him to return from IR, and that could happen as soon as next week leading up to the 49ers' Week 8 clash against the Texans on Sunday, Oct. 26.",
+          "long_comment": "The 2024 fourth-rounder pulled his hamstring during training camp in late July, and the injury was severe enough for Cowing to start the regular season on injured reserve. He would be eligible to return to practice once the 49ers designate him to return from IR, which could happen as soon as next week leading up to the 49ers' Week 8 clash against the Texans on Sunday, Oct. 26.",
           "last_updated": "2025-10-17T23:32Z",
           "source": "basic/manual"
         },
@@ -11899,38 +11899,70 @@
       "team_name": "Tampa Bay Buccaneers",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-17T22:06Z",
+      "last_updated": "2025-10-18T16:54Z",
       "injuries": [
         {
           "athlete_id": "4596448",
           "name": "Bucky Irving",
           "position": "RB",
-          "status": "Doubtful",
+          "status": "Out",
           "status_code": {
-            "id": "3",
-            "abbreviation": "D",
-            "description": "doubtful",
-            "name": "INJURY_STATUS_DOUBTFUL"
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "Irving (foot/shoulder) didn't practice Friday, Jenna Laine of ESPN.com reports.",
-          "long_comment": "The Buccaneers have been slow to rule out injured players all season, but coach Todd Bowles did acknowledge Monday that Irving is unlikely to play this week. Rachaad White is preparing for another start Monday at Detroit.",
-          "last_updated": "2025-10-17T20:18Z",
+          "short_comment": "Irving (foot) has been ruled out for Monday's game against the Lions, Adam Schefter of ESPN reports.",
+          "long_comment": "The announcement doesn't come as much of a surprise, given that Irving has been held out of practice while working through foot and shoulder injuries. In his absence, Rachaad White will continue to operate as the Bucs' lead option out of the backfield while Sean Tucker serves in a reserve role. Irving's next opportunity to play is Week 8 against the Saints on Sunday, Oct. 26.",
+          "last_updated": "2025-10-18T16:47Z",
           "source": "basic/manual"
         },
         {
           "athlete_id": "3116165",
           "name": "Chris Godwin Jr.",
           "position": "WR",
-          "status": "Doubtful",
+          "status": "Out",
           "status_code": {
-            "id": "3",
-            "abbreviation": "D",
-            "description": "doubtful",
-            "name": "INJURY_STATUS_DOUBTFUL"
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "Godwin (fibula) didn't practice Friday, Jenna Laine of ESPN.com reports.",
-          "long_comment": "Buccaneers coach Todd Bowles said Monday that Godwin is unlikely to play this week. Continued absences from practice suggest Godwin may be ruled out as soon as Saturday, while the Bucs at least are leaving the door cracked open for fellow wideouts Mike Evans (hamstring) and Emeka Egbuka (hamstring).",
-          "last_updated": "2025-10-17T20:20Z",
+          "short_comment": "Godwin (fibula) has been ruled out for Monday's game against the Lions, Adam Schefter of ESPN reports.",
+          "long_comment": "Godwin will be sidelined for a second consecutive game due to a fibula injury that he picked up during the Buccaneers' Week 5 win over the Seahawks. The injury isn't related to the fibula that he broke during the 2024 campaign, but the Bucs will continue to play things cautiously with the veteran wideout. With Tampa Bay on a bye in Week 9, the Buccaneers could hold Godwin out for Week 8 against the Saints to give the veteran wideout more time to heal, per Greg Auman of Fox Sports. With Godwin and Bucky Irving (foot/shoulder) both ruled out, Baker Mayfield and the Buccaneers may have to rely more heavily on Rachaad White, Sterling Shepard, Tez Johnson and Cade Otton in the offense depending on the statuses of Mike Evans (hamstring) and Emeka Egbuka (hamstring), both of whom are considered game-time calls for Monday night's game in Detroit.",
+          "last_updated": "2025-10-18T16:54Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4568024",
+          "name": "Josh Williams",
+          "position": "RB",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "Williams (concussion) didn't practice Friday, Jenna Laine of ESPN.com reports.",
+          "long_comment": "The 24-year-old running back entered the league's concussion protocol following the Bucs' Week 6 win over the 49ers. Williams has been sidelined for Tampa Bay's first two practices of the week, and he faces an uphill battle to play in Monday's road game against Detroit.",
+          "last_updated": "2025-10-17T22:06Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4686884",
+          "name": "Luke Haggard",
+          "position": "OT",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "out",
+          "long_comment": "out",
+          "last_updated": "2025-10-18T16:33Z",
           "source": "basic/manual"
         },
         {
@@ -11944,25 +11976,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Egbuka (hamstring) didn't practice Friday, Jenna Laine of ESPN.com reports.",
-          "long_comment": "The Buccaneers haven't ruled Egbuka out for Monday's game at Detroit, but reports suggest he's unlikely to play -- an idea now backed up by consecutive missed practices. Chris Godwin (fibula) also hasn't practiced this week, while Mike Evans managed a limited session Thursday before sitting out Friday. Fantasy managers should prepare to be without Egbuka this week, even if the Bucs leave the door open as long as possible. A Monday game makes things tricky for fantasy managers, with so many moving parts in Tampa Bay's offense (again).",
-          "last_updated": "2025-10-17T20:17Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4568024",
-          "name": "Josh Williams",
-          "position": "RB",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Williams (concussion) didn't practice Friday, Jenna Laine of ESPN.com reports.",
-          "long_comment": "The 24-year-old running back entered the league's concussion protocol following the Bucs' Week 6 win over the 49ers. Williams has been sidelined for Tampa Bay's first two practices of the week, and he faces an uphill battle to play in Monday's road game against Detroit.",
-          "last_updated": "2025-10-17T22:06Z",
+          "short_comment": "Egbuka (hamstring) was a limited participant in Saturday's practice and is considered a game-time decision for Monday's game against the Lions, Adam Schefter of ESPN reports.",
+          "long_comment": "The rookie wideout suffered a hamstring injury against the 49ers in Week 6, which caused him to miss the first two practices of the week. However, Egubka managed to practice in a limited capacity Saturday, which gives him a chance at playing Monday night in Detroit. With two games taking place Monday, fantasy managers won't have as many options to work with if Egbuka ends up not playing. Chris Godwin (fibula) has been ruled out and Egbuka and Mike Evans (hamstring) are both game-time calls, which leaves Sterling Shepard, Tez Johnson, Ryan Miller and Kameron Johnson as the Tampa Bay wideouts without an injury designation heading into Week 7. Tight end Cade Otton would also be in line for an uptick in targets from Baker Mayfield if one or both of Egbuka and Evans were ruled out.",
+          "last_updated": "2025-10-18T16:39Z",
           "source": "basic/manual"
         },
         {
@@ -11982,22 +11998,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4686884",
-          "name": "Luke Haggard",
-          "position": "OT",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Haggard is questionable to return to Sunday's game against the 49ers due to a shoulder injury, Jenna Laine of ESPN.com reports.",
-          "long_comment": "Haggard appeared to suffer the injury in the fourth quarter. Elijah Klein has stepped in at right guard in Haggard's absence.",
-          "last_updated": "2025-10-12T23:19Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "16737",
           "name": "Mike Evans",
           "position": "WR",
@@ -12008,9 +12008,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Evans (hamstring) didn't practice Friday, Jenna Laine of ESPN.com reports.",
-          "long_comment": "The report notes that Evans may just be getting the day off for maintenance before returning to practice Saturday. He was a limited participant Thursday, making his first practice appearance of any kind since straining his left hamstring in a Week 3 win over the Jets. There's risk of a game-day decision, which would be all the more difficult for fantasy managers with Evans and the Bucs playing on Monday this week (at Detroit).",
-          "last_updated": "2025-10-17T20:14Z",
+          "short_comment": "Evans (hamstring) was a limited participant in Saturday's practice and is considered a game-time decision for Monday's game against Detroit, Adam Schefter of ESPN reports.",
+          "long_comment": "The veteran wide receiver was on the field for Saturday's practice after taking a rest day Friday. Evans has not yet been given the green light to make his return from a three-game absence, and he joins rookie Emeka Egbuka (hamstring) as game-time calls for Monday night against the Lions. Chris Godwin (fibula) has already been ruled out, and with the Bucs playing in the penultimate game of Week 7, fantasy managers won't have as many options at wide receiver to fall back on if one or both of Evans and Egbuka was to ultimately be ruled out. Sterling Shepard, seventh-round rookie Tez Johnson, Ryan Miller, Kameron Johnson and tight end Cade Otton would be in line to see more targets from Baker Mayfield if Evans or Egubka (or both) were to be sidelined.",
+          "last_updated": "2025-10-18T16:43Z",
           "source": "basic/manual"
         },
         {
@@ -12309,7 +12309,7 @@
       "team_name": "Tennessee Titans",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-17T23:20Z",
+      "last_updated": "2025-10-18T18:26Z",
       "injuries": [
         {
           "athlete_id": "3843843",
@@ -12389,6 +12389,22 @@
           "short_comment": "Jones (knee) is listed as questionable ahead of Sunday's matchup against the Patriots, Jim Wyatt of the Titans' official site reports.",
           "long_comment": "Despite logging consecutive DNPs to finish the Titans' week of practice, Jones still has a chance to suit up Sunday. The 28-year-old has appeared in all six of Tennessee's games thus far, recording 17 total tackles, including 1.0 sacks, over 265 defensive snaps. If he's sidelined in Week 7, Jihad Ward is likely to start as one of the Titans' top outside linebackers.",
           "last_updated": "2025-10-17T19:48Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "15153",
+          "name": "Johnny Hekker",
+          "position": "P",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "questionable",
+          "long_comment": "questionable",
+          "last_updated": "2025-10-18T18:26Z",
           "source": "basic/manual"
         },
         {
@@ -12533,22 +12549,6 @@
           "short_comment": "Helm recorded two receptions on three targets for 15 yards in Sunday's 20-10 loss to the Raiders.",
           "long_comment": "Helm saw a slight downturn in snap rate relative to his Week 5 performance, as he was on the field for only 49 percent of offensive snaps. He still managed to earn three targets, but he was less involved than veteran tight end Chig Okonkwo. Helm remains inconsistent, though he could see his role expand as the Titans turn their attention to developing Cam Ward and auditioning players for a role in 2026.",
           "last_updated": "2025-10-14T06:40Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4431437",
-          "name": "JC Latham",
-          "position": "OT",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Latham (hip) is active for Sunday's contest against the Raiders.",
-          "long_comment": "Latham suffered a hip injury in Week 1 that kept him out for the last four weeks. With a strong practice Friday to finish the week, the 22-year-old is set to reclaim his starting position at tackle to bolster the offensive line for Sunday's matchup against the Raiders.",
-          "last_updated": "2025-10-12T18:49Z",
           "source": "basic/manual"
         },
         {
@@ -12719,8 +12719,24 @@
       "team_name": "Washington Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-18T01:03Z",
+      "last_updated": "2025-10-18T18:50Z",
       "injuries": [
+        {
+          "athlete_id": "3126486",
+          "name": "Deebo Samuel",
+          "position": "WR",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "Samuel (heel) has been ruled out for Sunday's game against the Cowboys.",
+          "long_comment": "Samuel was able to draw the questionable tag for Week 7 after logging a limited practice Friday, but the seventh-year wideout will not travel with the team to Dallas due to a lingering heel injury. The Commanders will be without Samuel, Terry McLaurin (quadriceps) and Noah Brown (groin) for Sunday's NFC East tilt, which leaves Luke McCaffrey, rookie fourth-rounder Jaylin Lane and Chris Moore as the top wideouts in the passing game for Jayden Daniels. Tight end Zach Ertz would also be in line for more work on offense in the absence of Samuel, but the former is listed as questionable for Week 7 due to foot and shoulder injuries. Samuel's next opportunity to play is Week 8 against the Chiefs on Monday, Oct. 27.",
+          "last_updated": "2025-10-18T18:38Z",
+          "source": "basic/manual"
+        },
         {
           "athlete_id": "4262199",
           "name": "Sam Cosmi",
@@ -12733,7 +12749,7 @@
             "name": "INJURY_STATUS_OUT"
           },
           "short_comment": "Cosmi (knee) is officially listed as questionable for Sunday's game at Dallas, John Keim of ESPN.com reports.",
-          "long_comment": "Cosmi was a full participant at practice the entire week, but he still has yet to be activated from the Commanders' reserve/PUP list. If he can't step back in as the starting right guard in Week 7, veteran Andrew Wylie should get another start at that spot.",
+          "long_comment": "Cosmi was a full participant at practice the entire week, but he  has yet to be activated from the Commanders' reserve/PUP list. If he can't step back in as the starting right guard in Week 7, veteran Andrew Wylie should get another start at that spot.",
           "last_updated": "2025-10-18T00:58Z",
           "source": "basic/manual"
         },
@@ -12751,22 +12767,6 @@
           "short_comment": "McLaurin (quadriceps) was spotted at Friday's practice, Nicki Jhabvala of The Washington Post reports.",
           "long_comment": "Per Jhabvala, McLaurin went to the side field while the rest of the team started individual drills, so it remains to be seen how the Commanders list the wideout's official participation level. After being deemed limited on Wednesday's practice report, McLaurin logged a DNP on Thursday, so his his presence for Friday's session offers hope that he could return to action Sunday against the Cowboys. Meanwhile, fellow WR Deebo Samuel (heel) also was on the field Friday, according to Jhabvala, on the heels of consecutive DNPs.",
           "last_updated": "2025-10-17T15:42Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3126486",
-          "name": "Deebo Samuel",
-          "position": "WR",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Samuel (heel) is listed as questionable for Sunday's game at Dallas, Commanders writer Ben Standig reports.",
-          "long_comment": "Samuel returned to practice Friday, but he was a limited participant and suggested to reporters that he's not sure if he'll play Sunday. He did play through the same injury the past two weeks, including Week 5 when he had an 8-96-1 receiving line against the Chargers. Samuel slumped to 4-15-0 in Monday's loss to the Bears, but his playing time wasn't impacted, handling a 72 percent snap share and 90 percent route share. With Terry McLaurin (quad) out again and TE Zach Ertz (shoulder/calf) listed as questionable, Washington is running low on healthy pass catchers.",
-          "last_updated": "2025-10-17T20:10Z",
           "source": "basic/manual"
         },
         {
@@ -13020,9 +13020,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "McCaffrey brought in his only target for a 33-yard touchdown and returned four kickoffs for 127 yards in the Commanders' 25-24 loss to the Bears on Monday night.",
-          "long_comment": "McCaffrey got wide open down the left side of the field in the third quarter for his touchdown, erasing a 16-10 deficit in the process. The second-year wideout also had a splash play on his only catch in Week 5 against the Chargers, with that reception covering a season-high 50 yards. Despite his obvious big-play potential, McCaffrey has notably seen only three targets over the last two games with both Terry McLaurin (quadriceps) and Noah Brown (groin, knee) missing from those contests, keeping his fantasy value limited to deep leagues and large-field DFS tournaments in a Week 7 road matchup against the Cowboys on Sunday.",
-          "last_updated": "2025-10-14T04:16Z",
+          "short_comment": "McCaffrey is slated to serve as the Commanders' top wide receiver for Sunday's NFC East tilt against the Cowboys due to the absences of Terry McLaurin (quadriceps), Noah Brown (groin/knee) and Deebo Samuel (heel), Mike Garafolo of NFL Network reports.",
+          "long_comment": "McLaurin will miss a fourth straight game while working through a quadriceps injury, Brown was placed on injured reserve Wednesday and Samuel was officially ruled out Saturday due to a lingering heel issue. That leaves the Commanders with three healthy wide receivers on the active roster in McCaffrey, rookie fourth-rounder Jaylin Lane and veteran Chris Moore while Robbie Chosen, Ja'Corey Brooks, Jacoby Jones and Treylon Burks are options to be elevated from the practice squad for Sunday's contest. McCaffrey hasn't seen more than three targets in each of the first six games of the regular season. However, he has caught three touchdown passes over his last four games, and the 2024 third-rounder should see more targets from Jayden Daniels against a Dallas secondary that will be without starting cornerback Trevon Diggs (concussion) and could be without starting safety Juanyeh Thomas (migraine).",
+          "last_updated": "2025-10-18T18:50Z",
           "source": "basic/manual"
         },
         {
