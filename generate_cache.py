@@ -305,6 +305,7 @@ def fetch_head_coach_metadata(base_lookup: Dict[str, dict]) -> Dict[str, Dict[st
     })
 
     coach_map: Dict[str, Dict[str, Any]] = {}
+    coach_cache: Dict[str, Dict[str, Any]] = {}
 
     for team_abbr, base in base_lookup.items():
         espn_id = int(base.get('espn_api_id') or 0)
@@ -338,12 +339,67 @@ def fetch_head_coach_metadata(base_lookup: Dict[str, dict]) -> Dict[str, Dict[st
             continue
 
         head_coach = coaches[0]
-        coach_map[team_abbr] = {
-            'id': str(head_coach.get('id') or '').strip(),
+        coach_id = str(head_coach.get('id') or '').strip()
+
+        profile: Dict[str, Any] = {
+            'id': coach_id,
             'first_name': (head_coach.get('firstName') or '').strip(),
             'last_name': (head_coach.get('lastName') or '').strip(),
             'experience': head_coach.get('experience'),
         }
+
+        if coach_id:
+            detail = coach_cache.get(coach_id)
+            if detail is None:
+                detail = {}
+                detail_url = f"https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/coaches/{coach_id}?lang=en&region=us"
+                try:
+                    detail_resp = session.get(detail_url, timeout=10)
+                    detail_resp.raise_for_status()
+                    detail_data = detail_resp.json()
+
+                    detail['first_name'] = (detail_data.get('firstName') or '').strip()
+                    detail['last_name'] = (detail_data.get('lastName') or '').strip()
+                    detail['date_of_birth'] = detail_data.get('dateOfBirth')
+                    detail['birth_place'] = detail_data.get('birthPlace') or {}
+                    detail['experience'] = detail_data.get('experience')
+
+                    headshot = detail_data.get('headshot')
+                    if isinstance(headshot, dict):
+                        detail['headshot'] = headshot.get('href') or ''
+
+                    college_ref = detail_data.get('college', {}).get('$ref') if isinstance(detail_data.get('college'), dict) else None
+                    if college_ref:
+                        try:
+                            college_resp = session.get(college_ref, timeout=10)
+                            college_resp.raise_for_status()
+                            college_data = college_resp.json()
+                            detail['college'] = {
+                                'id': str(college_data.get('id') or '').strip(),
+                                'name': college_data.get('name') or college_data.get('fullName') or college_data.get('displayName') or '',
+                                'abbreviation': college_data.get('abbrev') or college_data.get('abbreviation') or '',
+                            }
+                        except requests.RequestException:
+                            pass
+
+                except requests.RequestException as exc:
+                    logger_local.debug(
+                        "Coach detail request failed for %s (id %s): %s",
+                        team_abbr,
+                        coach_id,
+                        exc,
+                    )
+                except ValueError:
+                    pass
+
+                coach_cache[coach_id] = detail
+
+            detail = coach_cache.get(coach_id) or {}
+            for key, value in detail.items():
+                if value:
+                    profile[key] = value
+
+        coach_map[team_abbr] = profile
 
     return coach_map
 
@@ -386,13 +442,30 @@ def build_team_records(schedule_df: pd.DataFrame, coordinators_map: Dict[str, Di
         coach_meta = head_coach_metadata.get(team_abbr, {})
         record['head_coach_id'] = coach_meta.get('id', '')
 
-        base_head_coach = latest_head_coach.get(team_abbr, '')
+        base_head_coach = latest_head_coach.get(team_abbr, '').strip()
+        first = (coach_meta.get('first_name') or '').strip()
+        last = (coach_meta.get('last_name') or '').strip()
+        full_name = f"{first} {last}".strip()
+
         if base_head_coach:
             record['head_coach'] = base_head_coach
+        elif full_name:
+            record['head_coach'] = full_name
         else:
-            first = coach_meta.get('first_name', '')
-            last = coach_meta.get('last_name', '')
-            record['head_coach'] = f"{first} {last}".strip() if (first or last) else ''
+            record['head_coach'] = ''
+
+        profile = {
+            'id': coach_meta.get('id', ''),
+            'first_name': first,
+            'last_name': last,
+            'full_name': full_name,
+            'experience': coach_meta.get('experience'),
+            'date_of_birth': coach_meta.get('date_of_birth'),
+            'birth_place': coach_meta.get('birth_place'),
+            'college': coach_meta.get('college'),
+            'headshot': coach_meta.get('headshot', ''),
+        }
+        record['head_coach_profile'] = {k: v for k, v in profile.items() if v}
 
         coordinator_info = coordinators_map.get(team_abbr, {}) if coordinators_map else {}
         record['offensive_coordinator'] = coordinator_info.get('offensive_coordinator', '')
