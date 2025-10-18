@@ -6,7 +6,9 @@ import argparse
 import logging
 import signal
 import sys
+from pathlib import Path
 from typing import Dict, List, Optional
+from functools import lru_cache
 
 import pandas as pd
 from anthropic import Anthropic
@@ -292,14 +294,65 @@ def _load_scoreboard_context(event_id: str) -> Dict:
     return {}
 
 
+@lru_cache(maxsize=1)
+def _load_schedule_index() -> Dict[str, Dict[str, int]]:
+    try:
+        with open('data/schedule.json', 'r', encoding='utf-8') as fh:
+            schedule = json.load(fh)
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+    index: Dict[str, Dict[str, int]] = {}
+    for game in schedule or []:
+        game_id = str(game.get('espn_id', '')).strip()
+        if not game_id:
+            continue
+        week = game.get('week_num')
+        game_date = game.get('game_date')
+        try:
+            season = int(str(game_date)[:4]) if game_date else None
+        except ValueError:
+            season = None
+        index[game_id] = {
+            'week': int(week) if week not in (None, '') else None,
+            'season': season,
+        }
+    return index
+
+
 def fetch_game_json(game_id):
     """Load stored ESPN summary JSON for a given game ID."""
     manifest = RAW_DATA_MANIFEST or RawDataManifest.from_latest()
-    if not manifest:
-        logger.warning("No raw data manifest available when loading game %s", game_id)
+    if manifest:
+        payload = manifest.load_json('espn_summary', str(game_id))
+        if payload is not None:
+            return payload
+
+    # Fallback: search raw snapshot directories directly (supports older weeks no longer in manifest)
+    base_dir = Path('data/raw/espn/games')
+    if not base_dir.exists():
+        logger.warning("Raw ESPN directory missing when loading game %s", game_id)
         return None
 
-    return manifest.load_json('espn_summary', str(game_id))
+    schedule_index = _load_schedule_index()
+    info = schedule_index.get(str(game_id))
+    matches = []
+    if info and info.get('season') and info.get('week'):
+        candidate = base_dir / f"season_{info['season']}" / f"week_{info['week']}" / str(game_id) / 'summary.json'
+        if candidate.exists():
+            matches = [candidate]
+    if not matches:
+        matches = sorted(base_dir.glob(f'season_*/week_*/{game_id}/summary.json'))
+    if not matches:
+        return None
+
+    summary_path = matches[-1]
+    try:
+        with summary_path.open('r', encoding='utf-8') as fh:
+            return json.load(fh)
+    except (OSError, json.JSONDecodeError) as exc:
+        logger.error("Failed to read fallback summary for game %s at %s: %s", game_id, summary_path, exc)
+        return None
 
 def clean_article(article, game_team_ids):
     """
@@ -579,6 +632,14 @@ Game Data:
         ai_service = AIService()
         # Use generate_text for plain text response (not JSON)
         analysis, status = ai_service.generate_text(prompt, system_message=system_prompt)
+        if status != "success":
+            logger.error(
+                "AI provider failed to generate analysis for game %s (status=%s): %s",
+                game_id,
+                status,
+                (analysis[:200] + "...") if isinstance(analysis, str) and len(analysis) > 200 else analysis,
+            )
+            return None
         return analysis
 
     except Exception as e:
@@ -601,14 +662,19 @@ def send_preview_to_claude(game_data, game_id, prompt_template=None, model="sonn
         elif 'espn_id' not in schedule_df.columns:
             logger.warning("schedule.json missing 'espn_id' column; cannot match games to weeks")
 
-        # Get the current game's info
-        current_games = schedule_df[schedule_df.get('espn_id') == int(game_id)] if 'espn_id' in schedule_df.columns else pd.DataFrame()
+        # Normalize ESPN IDs to strings for reliable matching
+        game_id_str = str(game_id).strip()
+        espn_id_series = None
+        if 'espn_id' in schedule_df.columns:
+            espn_id_series = schedule_df['espn_id'].astype(str).str.strip()
+            espn_id_series = espn_id_series.replace({'': pd.NA, 'nan': pd.NA, 'None': pd.NA})
+            current_games = schedule_df[espn_id_series == game_id_str]
+        else:
+            current_games = pd.DataFrame()
         if current_games.empty:
-            available = schedule_df['espn_id'].dropna().astype(int).tolist() if 'espn_id' in schedule_df.columns else []
             logger.warning(
-                "Game %s not found in schedule.json. Available game ids sample: %s",
+                "Game %s not found in schedule.json",
                 game_id,
-                available[:10],
             )
             raise ValueError(f"Game {game_id} not found in schedule.json")
 
@@ -620,7 +686,7 @@ def send_preview_to_claude(game_data, game_id, prompt_template=None, model="sonn
         # Get completed games from same week
         this_week_games = schedule_df[
             (schedule_df['week_num'] == current_week) &  # Same week
-            (schedule_df['espn_id'] != int(game_id)) &  # Not the current game
+            (schedule_df.index != current_game.name) &  # Not the current game
             (schedule_df['away_score'].notna()) &  # Has scores
             (schedule_df['home_score'].notna())
         ]
@@ -706,6 +772,14 @@ Game Data:
         ai_service = AIService()
         # Use generate_text for plain text response (not JSON)
         analysis, status = ai_service.generate_text(prompt, system_message=system_prompt)
+        if status != "success":
+            logger.error(
+                "AI provider failed to generate preview for game %s (status=%s): %s",
+                game_id,
+                status,
+                (analysis[:200] + "...") if isinstance(analysis, str) and len(analysis) > 200 else analysis,
+            )
+            return None
         return analysis
 
     except Exception as e:
@@ -878,6 +952,11 @@ def _process_single_game(game, analyses, force_reanalyze, current_date, week_fro
     # Fetch and clean game data
     game_data = fetch_and_clean_game(game_id)
     if not game_data:
+        logger.error(
+            "No ESPN summary data found for %s (game_id=%s). Ensure collect_raw_data captured espn_summary files.",
+            matchup_str,
+            game_id,
+        )
         return (game_id, None, matchup_str, "error")
 
     # Fetch ESPN supplemental data BEFORE generating analysis

@@ -687,6 +687,31 @@ def generate_dashboard_content(ai_model=None):
 
         with open('data/team_starters.json', 'r', encoding='utf-8') as fh:
             starters_df = pd.DataFrame(json.load(fh))
+
+        if 'passing_yards_season' not in starters_df.columns:
+            try:
+                with open('data/player_stats.json', 'r', encoding='utf-8') as fh:
+                    player_stats_records = json.load(fh)
+
+                stats_df = pd.json_normalize(player_stats_records, sep='_')
+                stat_field_map = {
+                    'season_passing_passing_yards': 'passing_yards_season',
+                    'season_passing_passing_tds': 'passing_tds_season',
+                    'season_passing_passing_interceptions': 'interceptions_season',
+                    'season_rushing_rushing_yards': 'rushing_yards_season',
+                    'season_rushing_rushing_tds': 'rushing_tds_season',
+                    'season_receiving_receiving_yards': 'receiving_yards_season',
+                    'season_receiving_receiving_tds': 'receiving_tds_season',
+                }
+                available_fields = {src: dst for src, dst in stat_field_map.items() if src in stats_df.columns}
+                if available_fields:
+                    merge_fields = ['player_id'] + list(available_fields.keys())
+                    stats_subset = stats_df[merge_fields].rename(columns=available_fields)
+                    starters_df = starters_df.merge(stats_subset, on='player_id', how='left')
+                    for column in available_fields.values():
+                        starters_df[column] = pd.to_numeric(starters_df[column], errors='coerce')
+            except (OSError, json.JSONDecodeError, ValueError) as exc:
+                logger.warning("Unable to augment team starter stats: %s", exc)
         with open('data/teams.json', 'r', encoding='utf-8') as fh:
             teams_records = json.load(fh)
         teams_df = pd.DataFrame(teams_records)
