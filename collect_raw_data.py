@@ -509,12 +509,25 @@ def collect_sagarin(output_dir: Path, season: int, week: int, timestamp: str) ->
         LOGGER.warning("Unable to fetch Sagarin ratings page: %s", exc)
         return None
 
-    history_path = output_dir / "sagarin" / "html" / f"raw_{timestamp}.html"
-    ensure_dir(history_path.parent)
-    history_path.write_text(response.text, encoding="utf-8")
-
     stable_path = output_dir / "sagarin" / "html" / f"season_{season}_week_{week}.html"
-    stable_path.write_text(response.text, encoding="utf-8")
+    ensure_dir(stable_path.parent)
+
+    new_content = response.text
+    previous_content = None
+    if stable_path.exists():
+        try:
+            previous_content = stable_path.read_text(encoding="utf-8")
+        except OSError:
+            previous_content = None
+
+    if previous_content != new_content:
+        stable_path.write_text(new_content, encoding="utf-8")
+        history_path = output_dir / "sagarin" / "html" / f"raw_{timestamp}.html"
+        ensure_dir(history_path.parent)
+        history_path.write_text(new_content, encoding="utf-8")
+    else:
+        LOGGER.debug("Sagarin HTML unchanged; reusing existing snapshot")
+
     return stable_path
 
 
