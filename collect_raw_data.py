@@ -500,7 +500,7 @@ def collect_team_endpoints(
     return results
 
 
-def collect_sagarin(output_dir: Path, timestamp: str) -> Optional[Path]:
+def collect_sagarin(output_dir: Path, season: int, week: int, timestamp: str) -> Optional[Path]:
     url = "http://sagarin.com/sports/nflsend.htm"
     try:
         response = requests.get(url, timeout=20)
@@ -509,10 +509,26 @@ def collect_sagarin(output_dir: Path, timestamp: str) -> Optional[Path]:
         LOGGER.warning("Unable to fetch Sagarin ratings page: %s", exc)
         return None
 
-    path = output_dir / "sagarin" / "html" / f"raw_{timestamp}.html"
-    ensure_dir(path.parent)
-    path.write_text(response.text, encoding="utf-8")
-    return path
+    stable_path = output_dir / "sagarin" / "html" / f"season_{season}_week_{week}.html"
+    ensure_dir(stable_path.parent)
+
+    new_content = response.text
+    previous_content = None
+    if stable_path.exists():
+        try:
+            previous_content = stable_path.read_text(encoding="utf-8")
+        except OSError:
+            previous_content = None
+
+    if previous_content != new_content:
+        stable_path.write_text(new_content, encoding="utf-8")
+        history_path = output_dir / "sagarin" / "html" / f"raw_{timestamp}.html"
+        ensure_dir(history_path.parent)
+        history_path.write_text(new_content, encoding="utf-8")
+    else:
+        LOGGER.debug("Sagarin HTML unchanged; reusing existing snapshot")
+
+    return stable_path
 
 
 def collect_nflreadpy_datasets(
@@ -825,7 +841,7 @@ def collect_single_week(
             )
 
     if dataset_flags.get('espn', True):
-        sagarin_path = collect_sagarin(output_dir, timestamp)
+        sagarin_path = collect_sagarin(output_dir, season, week, timestamp)
         if sagarin_path:
             artifacts.append(
                 {
