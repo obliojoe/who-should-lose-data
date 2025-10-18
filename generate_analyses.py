@@ -1214,6 +1214,25 @@ def batch_analyze_games(
     current_date = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
     week_from_now = current_date + timedelta(days=7)
 
+    completed_games = schedule_df[
+        schedule_df['away_score'].notna() & schedule_df['home_score'].notna()
+    ]
+    current_week = None
+    if not completed_games.empty and 'week_num' in completed_games.columns:
+        current_week = int(float(completed_games['week_num'].max()))
+
+    if current_week is None:
+        week_series = schedule_df['week_num'] if 'week_num' in schedule_df.columns else pd.Series(dtype=int)
+        if not week_series.empty:
+            current_week = int(float(pd.to_numeric(week_series, errors='coerce').dropna().min()))
+        else:
+            current_week = 1
+
+    allowed_preview_weeks = {current_week}
+    # Allow next week's previews starting Tuesday (weekday() >= 1)
+    if current_date.weekday() >= 1:
+        allowed_preview_weeks.add(current_week + 1)
+
     # Filter games based on criteria
     games_to_process = []
     for game in games:
@@ -1224,7 +1243,16 @@ def batch_analyze_games(
         is_completed = not (pd.isna(game['home_score']) or pd.isna(game['away_score']) or \
                           str(game['home_score']).strip() == '' or str(game['away_score']).strip() == '')
 
-        is_upcoming = not is_completed and game_date >= current_date and game_date <= week_from_now
+        try:
+            game_week = int(float(game.get('week_num')))
+        except (TypeError, ValueError):
+            game_week = 0
+        is_upcoming = (
+            not is_completed
+            and game_date >= current_date
+            and game_date <= week_from_now
+            and game_week in allowed_preview_weeks
+        )
 
         # Filter by game IDs if specified
         if game_ids is not None and game_id not in game_ids:
@@ -1238,7 +1266,11 @@ def batch_analyze_games(
                 continue
             elif regenerate_type == 'weekly-refresh':
                 # Include games from this week OR games that already have a preview
-                in_current_week = game_date >= current_date and game_date <= week_from_now
+                in_current_week = (
+                    game_date >= current_date
+                    and game_date <= week_from_now
+                    and game_week in allowed_preview_weeks
+                )
                 has_existing_preview = game_id in analyses and analyses[game_id].get('analysis_type') == 'preview'
 
                 if not (in_current_week or has_existing_preview):
