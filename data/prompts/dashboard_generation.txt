@@ -40,7 +40,7 @@ SECTION 2: GAME OF THE WEEK
 
 Game: TB @ DET
 Status: upcoming
-Spread: TB +4.5, Over/Under: 52.5
+Spread: TB +5.5, Over/Under: 52.5
 TB Record: 5-1, Playoff Prob: 92.9%
 DET Record: 4-2, Playoff Prob: 78.5%
 Head Coaches: TB - Todd Bowles, DET - Dan Campbell
@@ -58,7 +58,7 @@ SECTION 3: GAME OF THE MEEK
 
 Game: MIA @ CLE
 Status: upcoming
-Spread: MIA +2.5, Over/Under: 40.5
+Spread: MIA +2.5, Over/Under: 35.5
 MIA Record: 1-5
 CLE Record: 1-5
 Head Coaches: MIA - Mike McDaniel, CLE - Kevin Stefanski
@@ -105,9 +105,9 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
     "rank": 1
   },
   {
-    "team": "IND",
+    "team": "PHI",
     "stat": "Red Zone %",
-    "value": 100.0,
+    "value": 87.5,
     "unit": "%",
     "rank": 1
   }
@@ -137,9 +137,9 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
     "rank": 1
   },
   {
-    "team": "MIN",
+    "team": "TEN",
     "stat": "Third Down Defense",
-    "value": 0.0,
+    "value": 28.4,
     "unit": "%",
     "rank": 1
   },
@@ -155,9 +155,9 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
 4c. EFFICIENCY LEADERS (provide exactly 5 context phrases in order):
 [
   {
-    "team": "NYG",
+    "team": "GB",
     "stat": "Third Down Conversion",
-    "value": 73.3,
+    "value": 51.5,
     "unit": "%",
     "rank": 1
   },
@@ -169,9 +169,9 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
     "rank": 1
   },
   {
-    "team": "IND",
+    "team": "PHI",
     "stat": "Red Zone Efficiency",
-    "value": 100.0,
+    "value": 87.5,
     "unit": "%",
     "rank": 1
   },

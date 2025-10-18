@@ -429,8 +429,34 @@ def get_current_starters(manifest: Optional[RawDataManifest] = None) -> pd.DataF
         'draft_number': 'draft_pick',
     }
 
-    available_columns = [col for col in base_columns if col in starters.columns]
-    result = starters[available_columns].rename(columns={col: base_columns[col] for col in available_columns})
+    rename_map = {col: base_columns[col] for col in base_columns if col in starters.columns}
+
+    # Drop pre-existing columns that would collide with rename targets to avoid duplicates
+    for src_col, target_col in rename_map.items():
+        if src_col != target_col and target_col in starters.columns:
+            starters = starters.drop(columns=[target_col])
+
+    starters = starters.rename(columns=rename_map)
+
+    # Ensure we do not carry duplicate column names forward (pandas warns otherwise)
+    starters = starters.loc[:, ~starters.columns.duplicated()]
+
+    stat_columns = [
+        col
+        for col in starters.columns
+        if col.endswith('_season') or col.endswith('_week')
+    ]
+    optional_columns = [col for col in ('games_played', 'week', 'weekly_opponent') if col in starters.columns]
+
+    ordered_columns: List[str] = []
+    for col in list(rename_map.values()) + stat_columns + optional_columns:
+        if col not in ordered_columns:
+            ordered_columns.append(col)
+
+    if not ordered_columns:
+        ordered_columns = list(starters.columns)
+
+    result = starters[ordered_columns].copy()
 
     if 'number' in result.columns:
         result['number'] = result['number'].apply(
