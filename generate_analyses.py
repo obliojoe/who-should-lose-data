@@ -595,10 +595,21 @@ def send_preview_to_claude(game_data, game_id, prompt_template=None, model="sonn
     try:
         with open('data/schedule.json', 'r', encoding='utf-8') as fh:
             schedule_df = pd.DataFrame(json.load(fh))
-        
+
+        if schedule_df.empty:
+            logger.warning("schedule.json is empty; game previews will omit weekly context")
+        elif 'espn_id' not in schedule_df.columns:
+            logger.warning("schedule.json missing 'espn_id' column; cannot match games to weeks")
+
         # Get the current game's info
-        current_games = schedule_df[schedule_df['espn_id'] == int(game_id)]
+        current_games = schedule_df[schedule_df.get('espn_id') == int(game_id)] if 'espn_id' in schedule_df.columns else pd.DataFrame()
         if current_games.empty:
+            available = schedule_df['espn_id'].dropna().astype(int).tolist() if 'espn_id' in schedule_df.columns else []
+            logger.warning(
+                "Game %s not found in schedule.json. Available game ids sample: %s",
+                game_id,
+                available[:10],
+            )
             raise ValueError(f"Game {game_id} not found in schedule.json")
 
         current_game = current_games.iloc[0]
