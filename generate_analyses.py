@@ -597,8 +597,14 @@ def send_preview_to_claude(game_data, game_id, prompt_template=None, model="sonn
             schedule_df = pd.DataFrame(json.load(fh))
         
         # Get the current game's info
-        current_game = schedule_df[schedule_df['espn_id'] == int(game_id)].iloc[0]
-        current_week = current_game['week_num']  # Week number from schedule data
+        current_games = schedule_df[schedule_df['espn_id'] == int(game_id)]
+        if current_games.empty:
+            raise ValueError(f"Game {game_id} not found in schedule.json")
+
+        current_game = current_games.iloc[0]
+        current_week = current_game.get('week_num')
+        if pd.isna(current_week):
+            raise ValueError(f"Week number missing for game {game_id}")
         
         # Get completed games from same week
         this_week_games = schedule_df[
@@ -611,7 +617,14 @@ def send_preview_to_claude(game_data, game_id, prompt_template=None, model="sonn
         # Format game results
         game_results = []
         for _, game in this_week_games.iterrows():
-            result = f"{game['away_team']} {int(game['away_score'])} @ {game['home_team']} {int(game['home_score'])}"
+            try:
+                away_score = int(float(game['away_score']))
+                home_score = int(float(game['home_score']))
+            except (TypeError, ValueError):
+                away_score = game.get('away_score')
+                home_score = game.get('home_score')
+
+            result = f"{game['away_team']} {away_score} @ {game['home_team']} {home_score}"
             game_results.append(result)
             
         week_results = "\n".join(game_results)
