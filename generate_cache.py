@@ -18,10 +18,13 @@ import numpy as np
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Any, Dict, List, Optional, Tuple
+
+import requests
 from anthropic import Anthropic
 from dotenv import load_dotenv
 from bs4 import BeautifulSoup
 import pandas as pd
+
 from ai_service import AIService
 from prompt_builder import build_team_analysis_prompt
 from espn_api import ESPNAPIService
@@ -292,10 +295,64 @@ def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
     return metadata
 
 
+def fetch_head_coach_metadata(base_lookup: Dict[str, dict]) -> Dict[str, Dict[str, Any]]:
+    """Fetch head coach ids (and names) from ESPN for each team."""
+
+    logger_local = logging.getLogger(__name__)
+    session = requests.Session()
+    session.headers.update({
+        'User-Agent': 'WhoShouldLose/1.0 (https://whoshouldlose.com; data pipeline)'
+    })
+
+    coach_map: Dict[str, Dict[str, Any]] = {}
+
+    for team_abbr, base in base_lookup.items():
+        espn_id = int(base.get('espn_api_id') or 0)
+        if not espn_id:
+            continue
+
+        url = f"https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/{espn_id}/roster?type=coach"
+        try:
+            resp = session.get(url, timeout=10)
+            resp.raise_for_status()
+            payload = resp.json()
+        except requests.RequestException as exc:
+            logger_local.warning(
+                "Failed to fetch head coach metadata for %s (team id %s): %s",
+                team_abbr,
+                espn_id,
+                exc,
+            )
+            continue
+        except ValueError as exc:
+            logger_local.warning(
+                "Invalid JSON while reading coach metadata for %s: %s",
+                team_abbr,
+                exc,
+            )
+            continue
+
+        coaches = payload.get('coach') or []
+        if not coaches:
+            logger_local.debug("No coach payload returned for %s", team_abbr)
+            continue
+
+        head_coach = coaches[0]
+        coach_map[team_abbr] = {
+            'id': str(head_coach.get('id') or '').strip(),
+            'first_name': (head_coach.get('firstName') or '').strip(),
+            'last_name': (head_coach.get('lastName') or '').strip(),
+            'experience': head_coach.get('experience'),
+        }
+
+    return coach_map
+
+
 def build_team_records(schedule_df: pd.DataFrame, coordinators_map: Dict[str, Dict[str, str]]) -> List[dict]:
     """Combine static team metadata with latest coordinator, coach, and stadium data."""
 
     base_lookup = {team['team_abbr']: dict(team) for team in TEAM_METADATA}
+    head_coach_metadata = fetch_head_coach_metadata(base_lookup)
 
     schedule_copy = schedule_df.copy()
     schedule_copy['game_date_dt'] = pd.to_datetime(schedule_copy.get('game_date'), errors='coerce')
@@ -326,7 +383,16 @@ def build_team_records(schedule_df: pd.DataFrame, coordinators_map: Dict[str, Di
         record = dict(base)
         record['full_name'] = f"{record['city']} {record['mascot']}"
         record['espn_api_id'] = int(record['espn_api_id'])
-        record['head_coach'] = latest_head_coach.get(team_abbr, '')
+        coach_meta = head_coach_metadata.get(team_abbr, {})
+        record['head_coach_id'] = coach_meta.get('id', '')
+
+        base_head_coach = latest_head_coach.get(team_abbr, '')
+        if base_head_coach:
+            record['head_coach'] = base_head_coach
+        else:
+            first = coach_meta.get('first_name', '')
+            last = coach_meta.get('last_name', '')
+            record['head_coach'] = f"{first} {last}".strip() if (first or last) else ''
 
         coordinator_info = coordinators_map.get(team_abbr, {}) if coordinators_map else {}
         record['offensive_coordinator'] = coordinator_info.get('offensive_coordinator', '')
