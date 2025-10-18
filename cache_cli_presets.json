@@ -32,6 +32,7 @@
     "skip_sims": false,
     "simulations": 10000,
     "regenerate_team_ai": "all",
+    "regenerate_game_ai": "weekly-refresh",
     "ai_model": "sonnet-3.7",
     "commit": false,
     "deploy_netlify": false,
@@ -122,6 +123,19 @@
     "ai_model": "sonnet-3.7",
     "commit": true,
     "deploy_netlify": true,
+    "test_mode": false
+  },
+  "refresh-ai-weekly-no-sims-deploy": {
+    "skip_data": false,
+    "raw_manifest": "data/raw/manifest/latest.json",
+    "skip_sims": true,
+    "regenerate_team_ai": "all",
+    "regenerate_game_ai": "weekly-refresh",
+    "ai_model": "sonnet-3.7",
+    "commit": true,
+    "deploy_netlify": true,
+    "team_ai_workers": 32,
+    "game_ai_workers": 5,
     "test_mode": false
   }
 }
