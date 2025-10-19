@@ -679,6 +679,36 @@ def build_collect_command(options):
     return "python collect_raw_data.py"
 
 
+def prompt_collect_raw(options):
+    """Ask the user whether to run collect_raw_data.py before generate_cache."""
+
+    # Skip prompting when running a preset via CLI argument
+    if options.get('_from_cli_preset'):
+        return options
+
+    default_run = not options.get('skip_data', False)
+    run_collect = ask_yes_no(
+        "Run collect_raw_data.py before generate_cache?",
+        default=default_run,
+    )
+    options['collect_raw_before'] = run_collect
+
+    if run_collect:
+        default_args = '' if options.get('_from_preset') else options.get('collect_raw_args', '')
+        collect_args = ask_text(
+            "collect_raw_data.py arguments (leave blank for defaults)",
+            default=default_args,
+        )
+        if collect_args.strip():
+            options['collect_raw_args'] = collect_args.strip()
+        else:
+            options.pop('collect_raw_args', None)
+    else:
+        options.pop('collect_raw_args', None)
+
+    return options
+
+
 def display_command(cmd, title="Command to run"):
     """Display command in a nice formatted box"""
     print("\n")
@@ -799,6 +829,7 @@ Examples:
             print(f"\n🚀 Running preset: {args.preset}")
             print("─" * 60)
             options = presets[args.preset]
+            options['_from_cli_preset'] = True
             summary = get_preset_summary(options)
             print(f"Configuration: {summary}\n")
 
@@ -825,6 +856,7 @@ Examples:
         # Normal interactive mode
         show_banner()
         options = ask_questions()
+        options = prompt_collect_raw(options)
 
         # Check if this came from a preset (has no _mode or _from_preset marker)
         from_preset = options.get('_from_preset', False)
