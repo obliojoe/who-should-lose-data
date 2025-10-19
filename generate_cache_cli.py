@@ -169,6 +169,8 @@ def get_preset_summary(options):
         parts.append("Netlify")
     if options.get('raw_manifest'):
         parts.append("Raw manifest")
+    if options.get('collect_raw_before'):
+        parts.append("Collect raw data first")
 
     return ", ".join(parts) if parts else "No operations"
 
@@ -358,6 +360,19 @@ def ask_questions(mode=None):
         )
         if manifest_path:
             options['raw_manifest'] = manifest_path
+
+    run_collect_raw = ask_yes_no(
+        "Run collect_raw_data.py before generate_cache?",
+        default=not options.get('skip_data', False)
+    )
+    if run_collect_raw:
+        options['collect_raw_before'] = True
+        collect_args = ask_text(
+            "collect_raw_data.py arguments (leave blank for default auto-detect)",
+            default=""
+        )
+        if collect_args.strip():
+            options['collect_raw_args'] = collect_args.strip()
 
     print("\n🎲 SIMULATIONS")
     print("─" * 60)
@@ -653,12 +668,57 @@ def build_command(options):
     return " ".join(cmd_parts)
 
 
-def display_command(cmd):
+def build_collect_command(options):
+    """Return collect_raw_data.py command if requested."""
+    if not options.get('collect_raw_before'):
+        return None
+
+    args = options.get('collect_raw_args', '').strip()
+    if args:
+        return f"python collect_raw_data.py {args}"
+    return "python collect_raw_data.py"
+
+
+def prompt_collect_raw(options):
+    """Ask the user whether to run collect_raw_data.py before generate_cache."""
+
+    # Skip prompting when running a preset via CLI argument
+    if options.get('_from_cli_preset'):
+        return options
+
+    default_run = not options.get('skip_data', False)
+    run_collect = ask_yes_no(
+        "Run collect_raw_data.py before generate_cache?",
+        default=default_run,
+    )
+    options['collect_raw_before'] = run_collect
+
+    if run_collect:
+        default_args = '' if options.get('_from_preset') else options.get('collect_raw_args', '')
+        collect_args = ask_text(
+            "collect_raw_data.py arguments (leave blank for defaults)",
+            default=default_args,
+        )
+        if collect_args.strip():
+            options['collect_raw_args'] = collect_args.strip()
+        else:
+            options.pop('collect_raw_args', None)
+    else:
+        options.pop('collect_raw_args', None)
+
+    return options
+
+
+def display_command(cmd, title="Command to run"):
     """Display command in a nice formatted box"""
     print("\n")
     print("╔" + "═" * 78 + "╗")
     print("║" + " " * 78 + "║")
-    print("║  Command to run:" + " " * 61 + "║")
+    header = f"  {title}:"
+    padding_header = 78 - len(header)
+    if padding_header < 0:
+        padding_header = 0
+    print("║" + header + " " * padding_header + "║")
     print("║" + " " * 78 + "║")
 
     # Word wrap the command if it's too long
@@ -769,11 +829,21 @@ Examples:
             print(f"\n🚀 Running preset: {args.preset}")
             print("─" * 60)
             options = presets[args.preset]
+            options['_from_cli_preset'] = True
             summary = get_preset_summary(options)
             print(f"Configuration: {summary}\n")
 
             cmd = build_command(options)
-            print(f"Command: {cmd}\n")
+            collect_cmd = build_collect_command(options)
+            if collect_cmd:
+                display_command(collect_cmd, title="Run collect_raw_data.py first")
+            display_command(cmd)
+
+            if collect_cmd:
+                print("\n📥 Running collect_raw_data.py first...")
+                if not run_command(collect_cmd):
+                    print("\n⚠️  collect_raw_data.py did not complete successfully; skipping generate_cache.")
+                    sys.exit(1)
 
             success = run_command(cmd)
             if success:
@@ -786,11 +856,15 @@ Examples:
         # Normal interactive mode
         show_banner()
         options = ask_questions()
+        options = prompt_collect_raw(options)
 
         # Check if this came from a preset (has no _mode or _from_preset marker)
         from_preset = options.get('_from_preset', False)
 
         cmd = build_command(options)
+        collect_cmd = build_collect_command(options)
+        if collect_cmd:
+            display_command(collect_cmd, title="Run collect_raw_data.py first")
         display_command(cmd)
 
         # Offer to save preset BEFORE running (only for interactive mode, not from preset)
@@ -827,6 +901,12 @@ Examples:
                     print("⚠️  No preset name provided, skipping save")
 
             if should_run:
+                if collect_cmd:
+                    print("\n📥 Running collect_raw_data.py first...")
+                    if not run_command(collect_cmd):
+                        print("\n⚠️  collect_raw_data.py did not complete successfully; skipping generate_cache.")
+                        sys.exit(1)
+
                 success = run_command(cmd)
                 if success:
                     print("\n✓ All done!")
@@ -837,10 +917,21 @@ Examples:
                 print("\n✓ Command ready to copy!")
                 print("  You can run it manually by copying the command above.")
         else:
+            collect_cmd = build_collect_command(options)
+            if collect_cmd:
+                display_command(collect_cmd, title="Run collect_raw_data.py first")
+            display_command(cmd)
+
             # Running from preset - just ask if they want to run it
             run_now = ask_yes_no("Run this command now?", default=True)
 
             if run_now:
+                if collect_cmd:
+                    print("\n📥 Running collect_raw_data.py first...")
+                    if not run_command(collect_cmd):
+                        print("\n⚠️  collect_raw_data.py did not complete successfully; skipping generate_cache.")
+                        sys.exit(1)
+
                 success = run_command(cmd)
                 if success:
                     print("\n✓ All done!")

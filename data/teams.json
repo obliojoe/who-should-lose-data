@@ -9,7 +9,26 @@
     "primary_color": "#97233F",
     "secondary_color": "#000000",
     "full_name": "Arizona Cardinals",
+    "head_coach_id": "17751",
     "head_coach": "Jonathan Gannon",
+    "head_coach_profile": {
+      "id": "17751",
+      "first_name": "Jonathan",
+      "last_name": "Gannon",
+      "full_name": "Jonathan Gannon",
+      "experience": 2,
+      "date_of_birth": "1983-04-04T08:00Z",
+      "birth_place": {
+        "city": "Cleveland",
+        "state": "Ohio",
+        "country": "USA"
+      },
+      "college": {
+        "id": "97",
+        "name": "Louisville",
+        "abbreviation": "LOU"
+      }
+    },
     "offensive_coordinator": "Drew Petzing",
     "defensive_coordinator": "Nick Rallis",
     "coordinators_last_updated": "2025-10-18",
@@ -25,7 +44,20 @@
     "primary_color": "#A71930",
     "secondary_color": "#000000",
     "full_name": "Atlanta Falcons",
+    "head_coach_id": "2333612",
     "head_coach": "Raheem Morris",
+    "head_coach_profile": {
+      "id": "2333612",
+      "first_name": "Raheem",
+      "last_name": "Morris",
+      "full_name": "Raheem Morris",
+      "experience": 5,
+      "college": {
+        "id": "2275",
+        "name": "Hofstra",
+        "abbreviation": "HOF"
+      }
+    },
     "offensive_coordinator": "Zac Robinson",
     "defensive_coordinator": "Jeff Ulbrich",
     "coordinators_last_updated": "2025-10-18",
@@ -41,7 +73,27 @@
     "primary_color": "#241773",
     "secondary_color": "#000000",
     "full_name": "Baltimore Ravens",
+    "head_coach_id": "17587",
     "head_coach": "John Harbaugh",
+    "head_coach_profile": {
+      "id": "17587",
+      "first_name": "John",
+      "last_name": "Harbaugh",
+      "full_name": "John Harbaugh",
+      "experience": 17,
+      "date_of_birth": "1962-09-23T07:00Z",
+      "birth_place": {
+        "city": "Perrysburg",
+        "state": "Ohio",
+        "country": "USA"
+      },
+      "college": {
+        "id": "193",
+        "name": "Miami (OH)",
+        "abbreviation": "M-OH"
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/17587.jpg"
+    },
     "offensive_coordinator": "Todd Monken",
     "defensive_coordinator": "Zach Orr",
     "coordinators_last_updated": "2025-10-18",
@@ -57,7 +109,16 @@
     "primary_color": "#00338D",
     "secondary_color": "#C60C30",
     "full_name": "Buffalo Bills",
+    "head_coach_id": "2552857",
     "head_coach": "Sean McDermott",
+    "head_coach_profile": {
+      "id": "2552857",
+      "first_name": "Sean",
+      "last_name": "McDermott",
+      "full_name": "Sean McDermott",
+      "experience": 7,
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/2552857.jpg"
+    },
     "offensive_coordinator": "Joe Brady",
     "defensive_coordinator": "Bobby Babich",
     "coordinators_last_updated": "2025-10-18",
@@ -73,7 +134,15 @@
     "primary_color": "#0085CA",
     "secondary_color": "#101820",
     "full_name": "Carolina Panthers",
+    "head_coach_id": "17762",
     "head_coach": "Dave Canales",
+    "head_coach_profile": {
+      "id": "17762",
+      "first_name": "Dave",
+      "last_name": "Canales",
+      "full_name": "Dave Canales",
+      "experience": 1
+    },
     "offensive_coordinator": "Brad Idzik",
     "defensive_coordinator": "Ejiro Evero",
     "coordinators_last_updated": "2025-10-18",
@@ -89,7 +158,24 @@
     "primary_color": "#0B162A",
     "secondary_color": "#C83803",
     "full_name": "Chicago Bears",
+    "head_coach_id": "2180177",
     "head_coach": "Ben Johnson",
+    "head_coach_profile": {
+      "id": "2180177",
+      "first_name": "Ben",
+      "last_name": "Johnson",
+      "full_name": "Ben Johnson",
+      "birth_place": {
+        "city": "Fairview",
+        "state": "North Carolina",
+        "country": "USA"
+      },
+      "college": {
+        "id": "153",
+        "name": "North Carolina",
+        "abbreviation": "UNC"
+      }
+    },
     "offensive_coordinator": "Declan Doyle",
     "defensive_coordinator": "Dennis Allen",
     "coordinators_last_updated": "2025-10-18",
@@ -105,7 +191,22 @@
     "primary_color": "#FB4F14",
     "secondary_color": "#000000",
     "full_name": "Cincinnati Bengals",
+    "head_coach_id": "2184471",
     "head_coach": "Zac Taylor",
+    "head_coach_profile": {
+      "id": "2184471",
+      "first_name": "Zac",
+      "last_name": "Taylor",
+      "full_name": "Zac Taylor",
+      "experience": 6,
+      "date_of_birth": "1983-05-10T07:00Z",
+      "birth_place": {
+        "city": "Norman",
+        "state": "Oklahoma",
+        "country": "USA"
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/2184471.jpg"
+    },
     "offensive_coordinator": "Dan Pitcher",
     "defensive_coordinator": "Al Golden",
     "coordinators_last_updated": "2025-10-18",
@@ -121,7 +222,15 @@
     "primary_color": "#311D00",
     "secondary_color": "#FF3C00",
     "full_name": "Cleveland Browns",
+    "head_coach_id": "4408695",
     "head_coach": "Kevin Stefanski",
+    "head_coach_profile": {
+      "id": "4408695",
+      "first_name": "Kevin",
+      "last_name": "Stefanski",
+      "full_name": "Kevin Stefanski",
+      "experience": 5
+    },
     "offensive_coordinator": "Tommy Rees",
     "defensive_coordinator": "Jim Schwartz",
     "coordinators_last_updated": "2025-10-18",
@@ -137,7 +246,14 @@
     "primary_color": "#003594",
     "secondary_color": "#041E42",
     "full_name": "Dallas Cowboys",
+    "head_coach_id": "17530",
     "head_coach": "Brian Schottenheimer",
+    "head_coach_profile": {
+      "id": "17530",
+      "first_name": "Brian",
+      "last_name": "Schottenheimer",
+      "full_name": "Brian Schottenheimer"
+    },
     "offensive_coordinator": "Klayton Adams",
     "defensive_coordinator": "Matt Eberflus",
     "coordinators_last_updated": "2025-10-18",
@@ -153,7 +269,27 @@
     "primary_color": "#FB4F14",
     "secondary_color": "#002244",
     "full_name": "Denver Broncos",
+    "head_coach_id": "17567",
     "head_coach": "Sean Payton",
+    "head_coach_profile": {
+      "id": "17567",
+      "first_name": "Sean",
+      "last_name": "Payton",
+      "full_name": "Sean Payton",
+      "experience": 17,
+      "date_of_birth": "1963-12-29T08:00Z",
+      "birth_place": {
+        "city": "San Mateo",
+        "state": "California",
+        "country": "USA"
+      },
+      "college": {
+        "id": "2197",
+        "name": "Eastern Illinois",
+        "abbreviation": "EIU"
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/17567.jpg"
+    },
     "offensive_coordinator": "Joe Lombardi",
     "defensive_coordinator": "Vance Joseph",
     "coordinators_last_updated": "2025-10-18",
@@ -169,7 +305,26 @@
     "primary_color": "#0076B6",
     "secondary_color": "#B0B7BC",
     "full_name": "Detroit Lions",
+    "head_coach_id": "1832",
     "head_coach": "Dan Campbell",
+    "head_coach_profile": {
+      "id": "1832",
+      "first_name": "Dan",
+      "last_name": "Campbell",
+      "full_name": "Dan Campbell",
+      "experience": 5,
+      "date_of_birth": "1976-04-13T08:00Z",
+      "birth_place": {
+        "city": "Glen Rose",
+        "state": "Texas",
+        "country": "USA"
+      },
+      "college": {
+        "id": "245",
+        "name": "Texas A&M",
+        "abbreviation": "TA&M"
+      }
+    },
     "offensive_coordinator": "John Morton",
     "defensive_coordinator": "Kelvin Sheppard",
     "coordinators_last_updated": "2025-10-18",
@@ -185,7 +340,16 @@
     "primary_color": "#203731",
     "secondary_color": "#FFB612",
     "full_name": "Green Bay Packers",
+    "head_coach_id": "4082797",
     "head_coach": "Matt LaFleur",
+    "head_coach_profile": {
+      "id": "4082797",
+      "first_name": "Matt",
+      "last_name": "LaFleur",
+      "full_name": "Matt LaFleur",
+      "experience": 6,
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/4082797.jpg"
+    },
     "offensive_coordinator": "Adam Stenavich",
     "defensive_coordinator": "Jeff Hafley",
     "coordinators_last_updated": "2025-10-18",
@@ -201,7 +365,26 @@
     "primary_color": "#03202F",
     "secondary_color": "#A71930",
     "full_name": "Houston Texans",
+    "head_coach_id": "9619",
     "head_coach": "DeMeco Ryans",
+    "head_coach_profile": {
+      "id": "9619",
+      "first_name": "DeMeco",
+      "last_name": "Ryans",
+      "full_name": "DeMeco Ryans",
+      "experience": 2,
+      "date_of_birth": "1984-07-28T07:00Z",
+      "birth_place": {
+        "city": "Bessemer",
+        "state": "Alabama",
+        "country": "USA"
+      },
+      "college": {
+        "id": "333",
+        "name": "Alabama",
+        "abbreviation": "ALA"
+      }
+    },
     "offensive_coordinator": "Nick Caley",
     "defensive_coordinator": "Matt Burke",
     "coordinators_last_updated": "2025-10-18",
@@ -217,7 +400,25 @@
     "primary_color": "#002C5F",
     "secondary_color": "#A2AAAD",
     "full_name": "Indianapolis Colts",
+    "head_coach_id": "2126648",
     "head_coach": "Shane Steichen",
+    "head_coach_profile": {
+      "id": "2126648",
+      "first_name": "Shane",
+      "last_name": "Steichen",
+      "full_name": "Shane Steichen",
+      "experience": 2,
+      "birth_place": {
+        "city": "El Dorado Hills",
+        "state": "California",
+        "country": "USA"
+      },
+      "college": {
+        "id": "2439",
+        "name": "UNLV",
+        "abbreviation": "UNLV"
+      }
+    },
     "offensive_coordinator": "Jim Bob Cooter",
     "defensive_coordinator": "Lou Anarumo",
     "coordinators_last_updated": "2025-10-18",
@@ -233,7 +434,24 @@
     "primary_color": "#006778",
     "secondary_color": "#9F792C",
     "full_name": "Jacksonville Jaguars",
+    "head_coach_id": "2161829",
     "head_coach": "Liam Coen",
+    "head_coach_profile": {
+      "id": "2161829",
+      "first_name": "Liam",
+      "last_name": "Coen",
+      "full_name": "Liam Coen",
+      "birth_place": {
+        "city": "Newport",
+        "state": "Rhode Island",
+        "country": "USA"
+      },
+      "college": {
+        "id": "113",
+        "name": "Massachusetts",
+        "abbreviation": "MASS"
+      }
+    },
     "offensive_coordinator": "Grant Udinski",
     "defensive_coordinator": "Anthony Campanile",
     "coordinators_last_updated": "2025-10-18",
@@ -249,7 +467,27 @@
     "primary_color": "#E31837",
     "secondary_color": "#FFB81C",
     "full_name": "Kansas City Chiefs",
+    "head_coach_id": "17553",
     "head_coach": "Andy Reid",
+    "head_coach_profile": {
+      "id": "17553",
+      "first_name": "Andy",
+      "last_name": "Reid",
+      "full_name": "Andy Reid",
+      "experience": 26,
+      "date_of_birth": "1958-03-19T08:00Z",
+      "birth_place": {
+        "city": "Los Angeles",
+        "state": "California",
+        "country": "USA"
+      },
+      "college": {
+        "id": "39",
+        "name": "Connecticut College",
+        "abbreviation": ""
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/17553.jpg"
+    },
     "offensive_coordinator": "Matt Nagy",
     "defensive_coordinator": "Steve Spagnuolo",
     "coordinators_last_updated": "2025-10-18",
@@ -265,7 +503,25 @@
     "primary_color": "#0080C6",
     "secondary_color": "#FFC20E",
     "full_name": "Los Angeles Chargers",
+    "head_coach_id": "27",
     "head_coach": "Jim Harbaugh",
+    "head_coach_profile": {
+      "id": "27",
+      "first_name": "Jim",
+      "last_name": "Harbaugh",
+      "full_name": "Jim Harbaugh",
+      "experience": 5,
+      "date_of_birth": "1963-12-23T08:00Z",
+      "birth_place": {
+        "city": "Toledo",
+        "state": "Ohio"
+      },
+      "college": {
+        "id": "130",
+        "name": "Michigan",
+        "abbreviation": "MICH"
+      }
+    },
     "offensive_coordinator": "Greg Roman",
     "defensive_coordinator": "Jesse Minter",
     "coordinators_last_updated": "2025-10-18",
@@ -281,7 +537,16 @@
     "primary_color": "#003594",
     "secondary_color": "#FFA300",
     "full_name": "Los Angeles Rams",
+    "head_coach_id": "2499338",
     "head_coach": "Sean McVay",
+    "head_coach_profile": {
+      "id": "2499338",
+      "first_name": "Sean",
+      "last_name": "McVay",
+      "full_name": "Sean McVay",
+      "experience": 8,
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/2499338.jpg"
+    },
     "offensive_coordinator": "Mike LaFleur",
     "defensive_coordinator": "Chris Shula",
     "coordinators_last_updated": "2025-10-18",
@@ -297,7 +562,27 @@
     "primary_color": "#000000",
     "secondary_color": "#A5ACAF",
     "full_name": "Las Vegas Raiders",
+    "head_coach_id": "17596",
     "head_coach": "Pete Carroll",
+    "head_coach_profile": {
+      "id": "17596",
+      "first_name": "Pete",
+      "last_name": "Carroll",
+      "full_name": "Pete Carroll",
+      "experience": 18,
+      "date_of_birth": "1951-09-15T07:00Z",
+      "birth_place": {
+        "city": "San Francisco",
+        "state": "California",
+        "country": "USA"
+      },
+      "college": {
+        "id": "279",
+        "name": "Pacific",
+        "abbreviation": "PAC"
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/17596.jpg"
+    },
     "offensive_coordinator": "Chip Kelly",
     "defensive_coordinator": "Patrick Graham",
     "coordinators_last_updated": "2025-10-18",
@@ -313,7 +598,15 @@
     "primary_color": "#008E97",
     "secondary_color": "#FC4C02",
     "full_name": "Miami Dolphins",
+    "head_coach_id": "4712737",
     "head_coach": "Mike McDaniel",
+    "head_coach_profile": {
+      "id": "4712737",
+      "first_name": "Mike",
+      "last_name": "McDaniel",
+      "full_name": "Mike McDaniel",
+      "experience": 3
+    },
     "offensive_coordinator": "Frank Smith",
     "defensive_coordinator": "Anthony Weaver",
     "coordinators_last_updated": "2025-10-18",
@@ -329,7 +622,20 @@
     "primary_color": "#4F2683",
     "secondary_color": "#FFC62F",
     "full_name": "Minnesota Vikings",
+    "head_coach_id": "2146711",
     "head_coach": "Kevin O'Connell",
+    "head_coach_profile": {
+      "id": "2146711",
+      "first_name": "Kevin",
+      "last_name": "O'Connell",
+      "full_name": "Kevin O'Connell",
+      "experience": 3,
+      "college": {
+        "id": "21",
+        "name": "San Diego State",
+        "abbreviation": "SDSU"
+      }
+    },
     "offensive_coordinator": "Wes Phillips",
     "defensive_coordinator": "Brian Flores",
     "coordinators_last_updated": "2025-10-18",
@@ -345,7 +651,27 @@
     "primary_color": "#002244",
     "secondary_color": "#C60C30",
     "full_name": "New England Patriots",
+    "head_coach_id": "1257",
     "head_coach": "Mike Vrabel",
+    "head_coach_profile": {
+      "id": "1257",
+      "first_name": "Mike",
+      "last_name": "Vrabel",
+      "full_name": "Mike Vrabel",
+      "experience": 6,
+      "date_of_birth": "1975-08-14T07:00Z",
+      "birth_place": {
+        "city": "Akron",
+        "state": "Ohio",
+        "country": "USA"
+      },
+      "college": {
+        "id": "194",
+        "name": "Ohio State",
+        "abbreviation": "OSU"
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/1257.jpg"
+    },
     "offensive_coordinator": "Josh McDaniels",
     "defensive_coordinator": "Terrell Williams",
     "coordinators_last_updated": "2025-10-18",
@@ -361,7 +687,25 @@
     "primary_color": "#D3BC8D",
     "secondary_color": "#101820",
     "full_name": "New Orleans Saints",
+    "head_coach_id": "14882",
     "head_coach": "Kellen Moore",
+    "head_coach_profile": {
+      "id": "14882",
+      "first_name": "Kellen",
+      "last_name": "Moore",
+      "full_name": "Kellen Moore",
+      "date_of_birth": "1988-07-05T07:00Z",
+      "birth_place": {
+        "city": "Prosser",
+        "state": "Washington",
+        "country": "USA"
+      },
+      "college": {
+        "id": "68",
+        "name": "Boise State",
+        "abbreviation": "BOIS"
+      }
+    },
     "offensive_coordinator": "Doug Nussmeier",
     "defensive_coordinator": "Brandon Staley",
     "coordinators_last_updated": "2025-10-18",
@@ -377,7 +721,15 @@
     "primary_color": "#0B2265",
     "secondary_color": "#A71930",
     "full_name": "New York Giants",
+    "head_coach_id": "2333487",
     "head_coach": "Brian Daboll",
+    "head_coach_profile": {
+      "id": "2333487",
+      "first_name": "Brian",
+      "last_name": "Daboll",
+      "full_name": "Brian Daboll",
+      "experience": 3
+    },
     "offensive_coordinator": "Mike Kafka",
     "defensive_coordinator": "Shane Bowen",
     "coordinators_last_updated": "2025-10-18",
@@ -393,7 +745,25 @@
     "primary_color": "#125740",
     "secondary_color": "#000000",
     "full_name": "New York Jets",
+    "head_coach_id": "558",
     "head_coach": "Aaron Glenn",
+    "head_coach_profile": {
+      "id": "558",
+      "first_name": "Aaron",
+      "last_name": "Glenn",
+      "full_name": "Aaron Glenn",
+      "date_of_birth": "1972-07-16T07:00Z",
+      "birth_place": {
+        "city": "Humble",
+        "state": "Texas",
+        "country": "USA"
+      },
+      "college": {
+        "id": "245",
+        "name": "Texas A&M",
+        "abbreviation": "TA&M"
+      }
+    },
     "offensive_coordinator": "Tanner Engstrand",
     "defensive_coordinator": "Steve Wilks",
     "coordinators_last_updated": "2025-10-18",
@@ -409,7 +779,15 @@
     "primary_color": "#004C54",
     "secondary_color": "#A5ACAF",
     "full_name": "Philadelphia Eagles",
+    "head_coach_id": "4372439",
     "head_coach": "Nick Sirianni",
+    "head_coach_profile": {
+      "id": "4372439",
+      "first_name": "Nick",
+      "last_name": "Sirianni",
+      "full_name": "Nick Sirianni",
+      "experience": 4
+    },
     "offensive_coordinator": "Kevin Patullo",
     "defensive_coordinator": "Vic Fangio",
     "coordinators_last_updated": "2025-10-18",
@@ -425,7 +803,27 @@
     "primary_color": "#FFB612",
     "secondary_color": "#101820",
     "full_name": "Pittsburgh Steelers",
+    "head_coach_id": "17582",
     "head_coach": "Mike Tomlin",
+    "head_coach_profile": {
+      "id": "17582",
+      "first_name": "Mike",
+      "last_name": "Tomlin",
+      "full_name": "Mike Tomlin",
+      "experience": 18,
+      "date_of_birth": "1972-03-15T08:00Z",
+      "birth_place": {
+        "city": "Hampton",
+        "state": "Virginia",
+        "country": "USA"
+      },
+      "college": {
+        "id": "2729",
+        "name": "William & Mary",
+        "abbreviation": "W&M"
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/17582.jpg"
+    },
     "offensive_coordinator": "Arthur Smith",
     "defensive_coordinator": "Teryl Austin",
     "coordinators_last_updated": "2025-10-18",
@@ -441,7 +839,16 @@
     "primary_color": "#002244",
     "secondary_color": "#69BE28",
     "full_name": "Seattle Seahawks",
+    "head_coach_id": "5044374",
     "head_coach": "Mike Macdonald",
+    "head_coach_profile": {
+      "id": "5044374",
+      "first_name": "Mike",
+      "last_name": "Macdonald",
+      "full_name": "Mike Macdonald",
+      "experience": 1,
+      "date_of_birth": "1987-06-26T07:00Z"
+    },
     "offensive_coordinator": "Klint Kubiak",
     "defensive_coordinator": "Aden Durde",
     "coordinators_last_updated": "2025-10-18",
@@ -457,7 +864,16 @@
     "primary_color": "#AA0000",
     "secondary_color": "#B3995D",
     "full_name": "San Francisco 49ers",
+    "head_coach_id": "17533",
     "head_coach": "Kyle Shanahan",
+    "head_coach_profile": {
+      "id": "17533",
+      "first_name": "Kyle",
+      "last_name": "Shanahan",
+      "full_name": "Kyle Shanahan",
+      "experience": 8,
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/17533.jpg"
+    },
     "offensive_coordinator": "Klay Kubiak",
     "defensive_coordinator": "Robert Saleh",
     "coordinators_last_updated": "2025-10-18",
@@ -473,7 +889,26 @@
     "primary_color": "#D50A0A",
     "secondary_color": "#34302B",
     "full_name": "Tampa Bay Buccaneers",
+    "head_coach_id": "7157",
     "head_coach": "Todd Bowles",
+    "head_coach_profile": {
+      "id": "7157",
+      "first_name": "Todd",
+      "last_name": "Bowles",
+      "full_name": "Todd Bowles",
+      "experience": 8,
+      "date_of_birth": "1963-11-18T08:00Z",
+      "birth_place": {
+        "city": "Elizabeth",
+        "state": "New Jersey"
+      },
+      "college": {
+        "id": "218",
+        "name": "Temple",
+        "abbreviation": "TEM"
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/7157.jpg"
+    },
     "offensive_coordinator": "Josh Grizzard",
     "defensive_coordinator": "Todd Bowles[a]",
     "coordinators_last_updated": "2025-10-18",
@@ -489,7 +924,27 @@
     "primary_color": "#0C2340",
     "secondary_color": "#4B92DB",
     "full_name": "Tennessee Titans",
+    "head_coach_id": "2333657",
     "head_coach": "Brian Callahan",
+    "head_coach_profile": {
+      "id": "2333657",
+      "first_name": "Mike",
+      "last_name": "McCoy",
+      "full_name": "Mike McCoy",
+      "experience": 5,
+      "date_of_birth": "1972-04-01T08:00Z",
+      "birth_place": {
+        "city": "Novato",
+        "state": "California",
+        "country": "USA"
+      },
+      "college": {
+        "id": "42",
+        "name": "Hartford",
+        "abbreviation": "HART"
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/2333657.jpg"
+    },
     "offensive_coordinator": "Nick Holz",
     "defensive_coordinator": "Dennard Wilson",
     "coordinators_last_updated": "2025-10-18",
@@ -505,7 +960,21 @@
     "primary_color": "#773141",
     "secondary_color": "#FFB612",
     "full_name": "Washington Commanders",
+    "head_coach_id": "2485644",
     "head_coach": "Dan Quinn",
+    "head_coach_profile": {
+      "id": "2485644",
+      "first_name": "Dan",
+      "last_name": "Quinn",
+      "full_name": "Dan Quinn",
+      "experience": 7,
+      "college": {
+        "id": "2532",
+        "name": "Salisbury University",
+        "abbreviation": "SU"
+      },
+      "headshot": "https://a.espncdn.com/i/headshots/nfl/coaches/65/2485644.jpg"
+    },
     "offensive_coordinator": "Kliff Kingsbury",
     "defensive_coordinator": "Joe Whitt Jr.",
     "coordinators_last_updated": "2025-10-18",

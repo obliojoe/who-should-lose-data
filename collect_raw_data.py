@@ -26,8 +26,8 @@ except ImportError as exc:  # pragma: no cover - defensive guard for missing dep
 LOGGER = logging.getLogger("collect_raw_data")
 DEFAULT_RAW_DIR = Path("data/raw")
 SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
-MAX_EVENT_WORKERS = 8
-MAX_TEAM_WORKERS = 8
+MAX_EVENT_WORKERS = 6
+MAX_TEAM_WORKERS = 6
 
 
 EXTRA_NFLREADPY_DATASETS: Dict[str, Dict[str, Any]] = {
@@ -201,6 +201,8 @@ def collect_espn_event_payloads(
     output_dir: Path,
     season: int,
     week: int,
+    *,
+    max_event_workers: Optional[int] = None,
 ) -> Tuple[List[Dict], List[str]]:
     summary_url = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary"
     event_list = list(events or [])
@@ -289,7 +291,8 @@ def collect_espn_event_payloads(
 
     artifact_entries: List[Dict] = []
     team_ids: List[str] = []
-    max_workers = min(MAX_EVENT_WORKERS, len(event_list)) or 1
+    worker_limit = max_event_workers or MAX_EVENT_WORKERS
+    max_workers = min(worker_limit, len(event_list)) or 1
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = [executor.submit(process_event, event) for event in event_list]
         for future in tqdm(as_completed(futures), total=len(futures), desc="ESPN summaries", unit="game"):
@@ -436,6 +439,8 @@ def collect_team_endpoints(
     output_dir: Path,
     season: int,
     week: int,
+    *,
+    max_team_workers: Optional[int] = None,
 ) -> List[Dict]:
     unique_ids = sorted({tid for tid in team_ids if tid})
     if not unique_ids:
@@ -486,7 +491,8 @@ def collect_team_endpoints(
         return entries
 
     results: List[Dict] = []
-    max_workers = min(MAX_TEAM_WORKERS, len(unique_ids)) or 1
+    worker_limit = max_team_workers or MAX_TEAM_WORKERS
+    max_workers = min(worker_limit, len(unique_ids)) or 1
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = [executor.submit(process_team, team_id) for team_id in unique_ids]
         for future in tqdm(as_completed(futures), total=len(futures), desc="ESPN team data", unit="team"):
@@ -723,6 +729,9 @@ def collect_single_week(
     timestamp: Optional[str] = None,
     datasets: Optional[Dict[str, bool]] = None,
     nflreadpy_extras: Optional[Set[str]] = None,
+    *,
+    max_event_workers: Optional[int] = None,
+    max_team_workers: Optional[int] = None,
 ) -> Path:
     start_time = datetime.utcnow()
     timestamp = timestamp or datetime.utcnow().strftime("%Y%m%d_%H%M%S")
@@ -777,6 +786,7 @@ def collect_single_week(
             output_dir,
             season,
             week,
+            max_event_workers=max_event_workers,
         )
         for entry in event_artifacts:
             path = entry["path"]
@@ -796,7 +806,15 @@ def collect_single_week(
         combined_team_ids = set(competitor_team_ids)
         all_team_ids, team_abbr_map = load_all_team_ids()
         combined_team_ids.update(all_team_ids)
-        team_entries = collect_team_endpoints(session, combined_team_ids, team_abbr_map, output_dir, season, week)
+        team_entries = collect_team_endpoints(
+            session,
+            combined_team_ids,
+            team_abbr_map,
+            output_dir,
+            season,
+            week,
+            max_team_workers=max_team_workers,
+        )
         for entry in team_entries:
             path = entry["path"]
             metadata = entry.get("metadata", {}).copy()
@@ -921,6 +939,10 @@ def collect_raw_data(args: argparse.Namespace) -> Path:
         )
     })
 
+    event_workers = args.espn_event_workers or MAX_EVENT_WORKERS
+    team_workers = args.espn_team_workers or MAX_TEAM_WORKERS
+    LOGGER.info("Using up to %s event workers and %s team workers for ESPN API calls", event_workers, team_workers)
+
     if args.start_week or args.end_week:
         if args.week:
             raise ValueError("Use either --week or --start-week/--end-week, not both")
@@ -945,6 +967,8 @@ def collect_raw_data(args: argparse.Namespace) -> Path:
                 week=week,
                 datasets=dataset_flags,
                 nflreadpy_extras=nflreadpy_extras,
+                max_event_workers=event_workers,
+                max_team_workers=team_workers,
             )
 
         if latest_manifest_path is None:
@@ -967,6 +991,8 @@ def collect_raw_data(args: argparse.Namespace) -> Path:
         week=week,
         datasets=dataset_flags,
         nflreadpy_extras=nflreadpy_extras,
+        max_event_workers=event_workers,
+        max_team_workers=team_workers,
     )
 
 
@@ -993,6 +1019,18 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
         type=str,
         default="",
         help="Comma-separated nflreadpy extras to capture on demand (e.g., rosters,players)",
+    )
+    parser.add_argument(
+        "--espn-event-workers",
+        type=int,
+        default=None,
+        help=f"Max parallel requests for ESPN event payloads (default {MAX_EVENT_WORKERS})",
+    )
+    parser.add_argument(
+        "--espn-team-workers",
+        type=int,
+        default=None,
+        help=f"Max parallel requests for ESPN team endpoints (default {MAX_TEAM_WORKERS})",
     )
     parser.add_argument("--verbose", action="store_true", help="Enable debug logging")
     return parser.parse_args(argv)

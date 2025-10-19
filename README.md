@@ -115,7 +115,7 @@ Artifacts saved in `data/raw/` include:
 - Source HTML for the Sagarin ratings page (reused by the cache builder when present)
 - A manifest linking each dataset to its on-disk path
 
-> **Tip:** Run `collect_raw_data.py` for each week you need in the aggregate metrics (e.g., `--week 1` up through the current week). The pipeline now reads the season-to-date play-by-play and player stats from `data/raw/`, so backfilling prior weeks ensures conversion and red-zone rates stay accurate. `generate_cache.py` will log a warning if the manifest is missing any required raw datasets. ESPN game and team endpoints are harvested in parallel, so a full weekly snapshot completes significantly faster than the earlier serial downloader.
+> **Tip:** Run `collect_raw_data.py` for each week you need in the aggregate metrics (e.g., `--week 1` up through the current week). The pipeline now reads the season-to-date play-by-play and player stats from `data/raw/`, so backfilling prior weeks ensures conversion and red-zone rates stay accurate. `generate_cache.py` will log a warning if the manifest is missing any required raw datasets. ESPN game and team endpoints are harvested in parallel (default: 6 workers each); if you brush up against API throttles you can dial that back with `--espn-event-workers` and `--espn-team-workers`.
 
 `generate_cache.py` automatically loads `data/raw/manifest/latest.json` when available, falling back to live API calls only if the manifest is missing.
 
@@ -182,7 +182,7 @@ Artifacts are written to the `data/` directory. Key files include:
 | `news.json` | Filtered team-specific ESPN headlines with publish timestamps. |
 | `player_stats.json` | Weekly and season stat splits (offense, defense, special teams) for current starters. |
 | `nextgen_stats.json` | Passing/receiving/rushing Next Gen Stats metrics for current starters. |
-| `teams.json` | Team metadata (colors, head coach, coordinators, stadium, ESPN IDs). |
+| `teams.json` | Team metadata (colors, head coach + ESPN id/profile, coordinators, stadium, ESPN IDs). |
 | `schedule.json` | Season schedule with live score updates. |
 | `sagarin.json` | Latest Sagarin ratings, prior-week comparison, and scrape history (used for simulations). |
 
