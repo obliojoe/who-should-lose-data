@@ -1219,7 +1219,9 @@ def batch_analyze_games(
     ]
     current_week = None
     if not completed_games.empty and 'week_num' in completed_games.columns:
-        current_week = int(float(completed_games['week_num'].max()))
+        completed_weeks = pd.to_numeric(completed_games['week_num'], errors='coerce').dropna()
+        if not completed_weeks.empty:
+            current_week = int(completed_weeks.max())
 
     if current_week is None:
         week_series = schedule_df['week_num'] if 'week_num' in schedule_df.columns else pd.Series(dtype=int)
