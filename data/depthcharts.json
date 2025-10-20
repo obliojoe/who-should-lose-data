@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-20T11:01:42.546013",
+  "generated_at": "2025-10-20T16:49:28.335575",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -1765,19 +1765,19 @@
                   "status_code": "Active"
                 },
                 {
-                  "athlete_id": "4568703",
-                  "name": "Dorian Strong",
+                  "athlete_id": "4688931",
+                  "name": "Maxwell Hairston",
                   "position": "CB",
-                  "jersey": "43",
+                  "jersey": "31",
                   "rank": 2,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 },
                 {
-                  "athlete_id": "4688931",
-                  "name": "Maxwell Hairston",
+                  "athlete_id": "4568703",
+                  "name": "Dorian Strong",
                   "position": "CB",
-                  "jersey": "31",
+                  "jersey": "43",
                   "rank": 3,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
@@ -4927,6 +4927,15 @@
                   "status_code": "Active"
                 },
                 {
+                  "athlete_id": "3916903",
+                  "name": "Dre Greenlaw",
+                  "position": "LB",
+                  "jersey": "57",
+                  "rank": 2,
+                  "status": "News",
+                  "status_code": "News"
+                },
+                {
                   "athlete_id": "4241807",
                   "name": "Garret Wallow",
                   "position": "LB",
@@ -5328,7 +5337,7 @@
                   "name": "Daniel Thomas",
                   "position": "S",
                   "jersey": "2",
-                  "rank": 3,
+                  "rank": 4,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -5378,22 +5387,13 @@
               "display_name": "Left Defensive Tackle",
               "players": [
                 {
-                  "athlete_id": "4431615",
-                  "name": "Tyleik Williams",
-                  "position": "DT",
-                  "jersey": "91",
-                  "rank": 1,
-                  "status": "Active",
-                  "status_code": "Active"
-                },
-                {
                   "athlete_id": "4361662",
                   "name": "Alim McNeill",
                   "position": "DT",
                   "jersey": "54",
-                  "rank": 4,
-                  "status": "Day-To-Day",
-                  "status_code": "Day-To-Day"
+                  "rank": 1,
+                  "status": "Active",
+                  "status_code": "Active"
                 },
                 {
                   "athlete_id": "4039020",
@@ -5426,10 +5426,10 @@
               "display_name": "Nickel Back",
               "players": [
                 {
-                  "athlete_id": "4239694",
-                  "name": "Amik Robertson",
+                  "athlete_id": "3916144",
+                  "name": "Arthur Maulet",
                   "position": "CB",
-                  "jersey": "21",
+                  "jersey": "27",
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
@@ -5441,10 +5441,10 @@
               "display_name": "Right Cornerback",
               "players": [
                 {
-                  "athlete_id": "3910229",
-                  "name": "Rock Ya-Sin",
+                  "athlete_id": "4239694",
+                  "name": "Amik Robertson",
                   "position": "CB",
-                  "jersey": "23",
+                  "jersey": "21",
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
@@ -5454,7 +5454,7 @@
                   "name": "D.J. Reed",
                   "position": "CB",
                   "jersey": "4",
-                  "rank": 3,
+                  "rank": 4,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 },
@@ -5463,7 +5463,7 @@
                   "name": "Ennis Rakestraw Jr.",
                   "position": "CB",
                   "jersey": "9",
-                  "rank": 4,
+                  "rank": 5,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -6431,7 +6431,7 @@
                   "name": "Jimmie Ward",
                   "position": "S",
                   "jersey": "20",
-                  "rank": 3,
+                  "rank": 2,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -6464,15 +6464,6 @@
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
-                },
-                {
-                  "athlete_id": "17447",
-                  "name": "Denico Autry",
-                  "position": "DE",
-                  "jersey": "96",
-                  "rank": 3,
-                  "status": "Day-To-Day",
-                  "status_code": "Day-To-Day"
                 }
               ]
             },
@@ -6557,7 +6548,7 @@
                   "name": "Jaylin Smith",
                   "position": "CB",
                   "jersey": "22",
-                  "rank": 2,
+                  "rank": 3,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -6638,15 +6629,6 @@
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
-                },
-                {
-                  "athlete_id": "4432758",
-                  "name": "Jaylen Reed",
-                  "position": "S",
-                  "jersey": "23",
-                  "rank": 2,
-                  "status": "Day-To-Day",
-                  "status_code": "Day-To-Day"
                 }
               ]
             },
@@ -8167,10 +8149,10 @@
               "display_name": "Right Defensive Tackle",
               "players": [
                 {
-                  "athlete_id": "4591008",
-                  "name": "Omarr Norman-Lott",
+                  "athlete_id": "3122930",
+                  "name": "Derrick Nnadi",
                   "position": "DT",
-                  "jersey": "55",
+                  "jersey": "92",
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
@@ -10662,10 +10644,10 @@
               "display_name": "Right Inside Linebacker",
               "players": [
                 {
-                  "athlete_id": "4430280",
-                  "name": "Ivan Pace Jr.",
+                  "athlete_id": "3056916",
+                  "name": "Eric Wilson",
                   "position": "LB",
-                  "jersey": "0",
+                  "jersey": "55",
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
@@ -11249,6 +11231,15 @@
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
+                },
+                {
+                  "athlete_id": "4686885",
+                  "name": "Caleb Murphy",
+                  "position": "OL",
+                  "jersey": null,
+                  "rank": 3,
+                  "status": "Inactive",
+                  "status_code": "Inactive"
                 }
               ]
             }
@@ -12923,10 +12914,10 @@
               "display_name": "Center",
               "players": [
                 {
-                  "athlete_id": "4428681",
-                  "name": "Joe Tippmann",
+                  "athlete_id": "4242000",
+                  "name": "Josh Myers",
                   "position": "C",
-                  "jersey": "66",
+                  "jersey": "71",
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
@@ -14225,7 +14216,7 @@
                   "name": "AJ Finley",
                   "position": "S",
                   "jersey": "30",
-                  "rank": 3,
+                  "rank": 4,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -15611,15 +15602,6 @@
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
-                },
-                {
-                  "athlete_id": "4040622",
-                  "name": "Mike Jordan",
-                  "position": "G",
-                  "jersey": "60",
-                  "rank": 3,
-                  "status": "Practice Squad",
-                  "status_code": "Practice Squad"
                 }
               ]
             },
