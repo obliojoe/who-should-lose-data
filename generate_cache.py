@@ -2709,24 +2709,31 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
         # Clear each team's significant games before adding new ones
         for team_abbr in teams:
-            if team_abbr in cache_data['team_analyses']:
-                cache_data['team_analyses'][team_abbr]['significant_games'] = []
+            playoff_pct = (playoff_appearances[team_abbr] / num_simulations) * 100
+            division_pct = (division_wins[team_abbr] / num_simulations) * 100
+            top_seed_pct = (top_seed_wins[team_abbr] / num_simulations) * 100
+
             if team_abbr not in cache_data['team_analyses']:
                 cache_data['team_analyses'][team_abbr] = {
-                    'playoff_chance': (playoff_appearances[team_abbr] / num_simulations) * 100,
-                    'division_chance': (division_wins[team_abbr] / num_simulations) * 100,
-                    'top_seed_chance': (top_seed_wins[team_abbr] / num_simulations) * 100,
+                    'playoff_chance': round(playoff_pct, 1),
+                    'division_chance': round(division_pct, 1),
+                    'top_seed_chance': round(top_seed_pct, 1),
                     'significant_games': []
                 }
+
+            team_analysis = cache_data['team_analyses'][team_abbr]
+            team_analysis['playoff_chance'] = round(playoff_pct, 1)
+            team_analysis['division_chance'] = round(division_pct, 1)
+            team_analysis['top_seed_chance'] = round(top_seed_pct, 1)
+            team_analysis['significant_games'] = []
 
         team_clinch_states: Dict[str, Dict[str, str]] = {}
         team_utility_weights: Dict[str, Dict[str, float]] = {}
 
         for team_abbr in teams:
-            team_info = cache_data['team_analyses'].get(team_abbr, {})
-            playoff_chance = team_info.get('playoff_chance', 0.0)
-            division_chance = team_info.get('division_chance', 0.0)
-            top_seed_chance = team_info.get('top_seed_chance', 0.0)
+            playoff_chance = (playoff_appearances[team_abbr] / num_simulations) * 100
+            division_chance = (division_wins[team_abbr] / num_simulations) * 100
+            top_seed_chance = (top_seed_wins[team_abbr] / num_simulations) * 100
 
             states = {
                 'playoffs': classify_goal_state(playoff_chance),
