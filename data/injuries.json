@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-19T21:25:04.233422",
+  "generated_at": "2025-10-19T21:47:24.504025",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -419,7 +419,7 @@
       "team_name": "Atlanta Falcons",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-20T03:03Z",
+      "last_updated": "2025-10-20T03:40Z",
       "injuries": [
         {
           "athlete_id": "4431194",
@@ -818,7 +818,7 @@
           },
           "short_comment": "ir",
           "long_comment": "ir",
-          "last_updated": "2025-10-20T03:03Z",
+          "last_updated": "2025-10-20T03:40Z",
           "source": "basic/manual"
         }
       ]
@@ -1935,7 +1935,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Dowdle rushed the ball 17 times for 79 yards in Sunday's 13-6 win over the Jets. He added one reception on two targets for 17 yards.",
-          "long_comment": "Chuba Hubbard returned after a two-game absence and drew the start over Dowdle. The duo then alternated possessions, with Dowdle turning in the far more efficient performance, out-gaining Hubbard 96-48. Dowdle has certainly gained a more significant role in the Carolina offense with his strong showings across the last three weeks, though it doesn't appear that the team is prepared to turn the backfield over to him fully at this point.",
+          "long_comment": "Chuba Hubbard returned after a two-game absence and drew the start over Dowdle. The duo then alternated possessions, with Dowdle turning in the far more efficient performance by outgaining Hubbard, 96-48 in total yardage. Dowdle has certainly gained a more significant role in the Carolina offense with his strong showings across the last three weeks, though it doesn't appear the team is prepared to turn the backfield over to him fully at this point.",
           "last_updated": "2025-10-19T22:42Z",
           "source": "basic/manual"
         },
@@ -2174,22 +2174,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4426374",
-          "name": "Tyrique Stevenson",
-          "position": "CB",
-          "status": "Doubtful",
-          "status_code": {
-            "id": "3",
-            "abbreviation": "D",
-            "description": "doubtful",
-            "name": "INJURY_STATUS_DOUBTFUL"
-          },
-          "short_comment": "Stevenson (shoulder) is doubtful to return to Sunday's game against New Orleans.",
-          "long_comment": "Stevenson is doubtful to return to Sunday's game against the Saints after injuring his shoulder. The Miami (FL) product has started every game for the Bears this year, and had three tackles and a pass deflection before getting injured this week.",
-          "last_updated": "2025-10-19T19:00Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4258595",
           "name": "Cole Kmet",
           "position": "TE",
@@ -2203,6 +2187,22 @@
           "short_comment": "Kmet exited Sunday's game against the Saints after sustaining a back injury.",
           "long_comment": "Prior to that, Kmet caught his only target for 16 yards. While he's sidelined, Colston Loveland and Durham Smythe are available to handle the Bears' tight-end duties versus New Orleans.",
           "last_updated": "2025-10-19T19:21Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4426374",
+          "name": "Tyrique Stevenson",
+          "position": "CB",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "Stevenson (shoulder) is doubtful to return to Sunday's game against New Orleans.",
+          "long_comment": "Stevenson thus is unlikely to get back into this Week 7 contest. The Miami (FL) product has started every game for the Bears this year, and had three tackles and a pass deflection before getting injured this week.",
+          "last_updated": "2025-10-19T19:00Z",
           "source": "basic/manual"
         },
         {
@@ -6557,7 +6557,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Worthy recorded three receptions on four targets for 35 yards in Sunday's 31-0 win over the Raiders. He added one rush for 13 yards.",
-          "long_comment": "Worthy saw only four targets for the second consecutive game, a concerning trend given the return of Rashee Rice in Sunday's shutout win. Rice immediately came back to lead the team in every receiving stat, and will likely remain Patrick Mahomes' favorite target moving forward. That will leave Worthy reliant on big plays to produce strong fantasy performances and make him more of a boom or bust option in future weeks.",
+          "long_comment": "Worthy saw only four targets for the second consecutive game, a concerning trend given the return of Rashee Rice in Sunday's shutout win. Rice immediately came back to lead the team in every receiving stat and will likely remain Patrick Mahomes' favorite target moving forward. That will leave Worthy reliant on big plays to produce strong fantasy performances and make him more of a boom-or-bust option in future weeks.",
           "last_updated": "2025-10-19T23:58Z",
           "source": "basic/manual"
         }
@@ -6823,7 +6823,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Haskins (chest) is listed as active for Sunday's game against the Colts.",
-          "long_comment": "Haskins was an addition to the Chargers' injury report Thursday but was listed as a full participant at that day's practice. Though the running back followed that up with a full session Friday, he was still deemed questionable for Sunday's contest. With his active status confirmed, Haskins -- who had six carries and a catch in last week's win over Miami -- is available to work behind Kimani Vidal (who was the team's starter versus the Dolphins, while recording 18 carries, three catches and a TD), with practice-squad elevation Nyheim Hines also on hand.",
+          "long_comment": "Haskins was an addition to the Chargers' injury report Thursday but was listed as a full participant at that day's practice. Though the running back followed that up with a full session Friday, he was still deemed questionable for Sunday's contest. With his active status confirmed, Haskins -- who had six carries and a catch in last week's win over Miami -- is available to work behind Kimani Vidal (who was the team's starter versus the Dolphins while recording 18 carries, three catches and a TD), with practice-squad elevation Nyheim Hines also on hand.",
           "last_updated": "2025-10-19T18:38Z",
           "source": "basic/manual"
         },
@@ -6903,7 +6903,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Vidal carried the ball nine times for 20 yards and caught four of five targets for 15 yards in Sunday's 38-24 loss to the Colts.",
-          "long_comment": "After a huge Week 6 performance against the Dolphins as the Chargers' lead back, Vidal had much less success in Week 7. While he still led Los Angeles in carries, Justin Herbert actually led the team in rushing yards with a meager 31. With Omarion Hampton (ankle) likely still more than a month away from his return, Vidal will maintain his spot at the top of the depth chart heading into a Week 8 clash with a Vikings defense that just held Saquon Barkley to 44 rushing yards and 2.4 yards per carry.",
+          "long_comment": "After a huge Week 6 performance against the Dolphins as the Chargers' lead back, Vidal had much less success in Week 7. While he still led Los Angeles in carries, Justin Herbert actually led the team in rushing yards with a meager 31. With Omarion Hampton (IR, ankle) likely still more than a month away from his return, Vidal will maintain his spot at the top of the depth chart heading into a Week 8 clash with a Vikings defense that just held Saquon Barkley to 44 rushing yards and 2.4 yards per carry.",
           "last_updated": "2025-10-20T00:49Z",
           "source": "basic/manual"
         },
@@ -7377,7 +7377,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Higbee had three receptions on six targets for 19 yards in Sunday's 35-7 win over Jacksonville.",
-          "long_comment": "Higbee wound up finishing second in team targets behind WR Davante Adams with Puka Nacua (ankle) sitting out the overseas contest in London. That's where the good news ends, as rookie TE Terrance Ferguson cashed in a 31-yard touchdown with his only reception Sunday. Higbee will carry a 13-121-1 receiving line into the Rams' upcoming bye week, numbers that should keep him off the fantasy radar when the team resumes play against the Saints on Nov. 2.",
+          "long_comment": "Higbee wound up finishing second in team targets behind WR Davante Adams due to Puka Nacua (ankle) sitting out the overseas contest in London. That's where the good news ends, as rookie TE Terrance Ferguson cashed in a 31-yard touchdown with his only reception Sunday. Higbee will carry a 13-121-1 receiving line into the Rams' upcoming bye week, numbers that should keep him off the fantasy radar when the team resumes play against the Saints on Nov. 2.",
           "last_updated": "2025-10-19T18:13Z",
           "source": "basic/manual"
         }
@@ -7924,9 +7924,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "questionable",
-          "long_comment": "questionable",
-          "last_updated": "2025-10-19T20:07Z",
+          "short_comment": "Waller (pectoral) won't return to Sunday's game against the Browns.",
+          "long_comment": "Prior to his exit, Waller didn't record a catch. In his absence, Julian Hill and Tanner Conner will handle Miami's TE duties versus Cleveland. Waller's next chance to see game action will be next Sunday against the Falcons.",
+          "last_updated": "2025-10-19T19:17Z",
           "source": "basic/manual"
         },
         {
@@ -8619,7 +8619,7 @@
       "team_name": "New England Patriots",
       "conference": "AFC",
       "division": "AFC East",
-      "last_updated": "2025-10-19T23:06Z",
+      "last_updated": "2025-10-20T03:25Z",
       "injuries": [
         {
           "athlete_id": "3925350",
@@ -8840,9 +8840,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Boutte caught all five of his targets for 93 yards and two touchdowns in Sunday's 25-19 win over the Saints.",
-          "long_comment": "While his target volume was modest, it was Boutte's biggest share since Week 1, and he led the Patriots in receptions and receiving yards Sunday while hauling in scores of 25 and 29 yards from Drake Maye in the first half. Boutte will take an 18-301-3 line on 23 targets this season into a Week 7 clash with the Titans, and with Maye seemingly headed for a breakout campaign, the third-year wideout's fantasy value may be on the upswing.",
-          "last_updated": "2025-10-13T00:31Z",
+          "short_comment": "Boutte recorded two receptions on two targets for 55 yards and a touchdown in Sunday's 31-13 win over the Titans.",
+          "long_comment": "Boutte saw only two targets, his lowest total since Week 2. However, he still managed to turn in a productive effort thanks primarily to a 39-yard touchdown just before halftime to give the Patriots a lead they wouldn't concede. Boutte has now found the end zone in consecutive games, also logging his second and third-best yardage totals of the season in those contests.",
+          "last_updated": "2025-10-20T03:25Z",
           "source": "basic/manual"
         },
         {
@@ -9330,9 +9330,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Johnson brought in five of seven targets for 79 yards in the Saints' 26-14 loss to the Bears on Sunday.",
-          "long_comment": "The veteran tight end tied Chris Olave for the team lead in receptions while checking in as the runner-up to him in receiving yards. Johnson's yardage total was a new season high and his best since Week 1 of the season, while his target tally was just two fewer than the combined number of looks he'd seen in the previous three games. Sunday's level of involvement was particularly encouraging considering the availability of both Taysom Hill and Foster Moreau, and Johnson should continue to be a focal point of the offense in a Week 8 home matchup against a Buccaneers defense that's notoriously generous to tight ends.",
-          "last_updated": "2025-10-20T01:15Z",
+          "short_comment": "Johnson accrued five receptions (on seven targets) for 79 yards during Sunday's 26-14 loss to the Bears.",
+          "long_comment": "Johnson posted a season high in receiving yards following three straight underwhelming performances with fewer than 30 receiving yards. The 29-year-old had a slow start before heating up in the second half, catching all four of his targets for 73 yards. Johnson has now posted at least five catches in four of seven games this season, and he's consistently been the Saints' No. 3 pass catcher behind wideouts Chris Olave and Rashid Shaheed, who logged seven and nine targets, respectively. The tight end will look to catch his second touchdown of the season when the Saints next play versus the Buccaneers in Week 8.",
+          "last_updated": "2025-10-19T23:13Z",
           "source": "basic/manual"
         },
         {
@@ -9439,7 +9439,7 @@
       "team_name": "New York Giants",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-20T03:03Z",
+      "last_updated": "2025-10-20T03:42Z",
       "injuries": [
         {
           "athlete_id": "4361748",
@@ -9454,7 +9454,7 @@
           },
           "short_comment": "out",
           "long_comment": "out",
-          "last_updated": "2025-10-20T03:02Z",
+          "last_updated": "2025-10-20T03:42Z",
           "source": "basic/manual"
         },
         {
@@ -9849,7 +9849,7 @@
       "team_name": "New York Jets",
       "conference": "AFC",
       "division": "AFC East",
-      "last_updated": "2025-10-20T02:21Z",
+      "last_updated": "2025-10-20T03:11Z",
       "injuries": [
         {
           "athlete_id": "4371959",
@@ -10188,22 +10188,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4808766",
-          "name": "Mason Taylor",
-          "position": "TE",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Taylor secured his only target for two yards in the Jets' 13-11 loss to the Broncos in London on Sunday.",
-          "long_comment": "Just one week after posting a career-best 9-67-0 line on 12 targets, Taylor nearly pulled a complete disappearing act in Sunday's low-scoring loss. However, the rookie tight end was hardly the only Jets pass catcher to experience a forgettable afternoon, considering Justin Fields threw for just 45 yards and was sacked nine times. The Week 7 outlook for the entire offense is much brighter, however, as New York welcomes in the Panthers to MetLife Stadium for a Week 7 matchup next Sunday.",
-          "last_updated": "2025-10-12T17:23Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "10621",
           "name": "Nick Folk",
           "position": "PK",
@@ -10233,6 +10217,22 @@
           "short_comment": "Johnson didn't catch his only target in Sunday's 13-11 loss to the Broncos.",
           "long_comment": "Justin Fields threw for just 45 yards, so Johnson unsurprisingly failed to get involved in the low-scoring loss. Even if Garrett Wilson (knee) were to sit out Week 7 against the Panthers, Johnson's upside would be capped due to Fields' struggles throwing the ball.",
           "last_updated": "2025-10-13T15:47Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "14163",
+          "name": "Tyrod Taylor",
+          "position": "QB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Taylor completed 10 of 22 passes for 126 yards, no touchdowns and two interceptions in Sunday's 13-6 loss to the Panthers. He added three rushes for 11 yards.",
+          "long_comment": "Taylor replaced Justin Fields to start the third quarter and brought some life to the offense, accounting for most of the Jets' offensive production. However, he was also intercepted twice while a comeback was still possible, negating his positive work. Despite the inconsistent results, Taylor could be in line for a Week 8 start against the Bengals, as coach Aaron Glenn stated he will evaluate the position throughout the week, per Rich Cimini of ESPN.",
+          "last_updated": "2025-10-20T03:11Z",
           "source": "basic/manual"
         },
         {
@@ -10481,7 +10481,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Goedert brought in all three targets for 18 yards in the Eagles' 28-22 win over the Vikings on Sunday.",
-          "long_comment": "Goedert was a distant third in receiving yards and saw only half the targets of the runner-up in that category, A.J. Brown. The veteran tight end has taken a more prominent role in the offense on certain weeks so far this season -- none more prominently than in Week 6 against the Giants (9-110-1) -- but Goedert is still a clear third cog behind DeVonta Smith and Brown and has 37 receiving yards or fewer in four of the last five games. Goedert gets another crack at the G-Men in a Week 8 home matchup next Sunday afternoon.",
+          "long_comment": "Goedert was a distant third in receiving yards and saw only half the targets of the runner-up in that category, A.J. Brown. The veteran tight end has taken a more prominent role in the offense on certain weeks so far this season -- especially in Week 6 against the Giants (9-110-1) -- but Goedert is still a clear third cog behind DeVonta Smith and Brown and has 37 receiving yards or fewer in four of the last five games. Goedert gets another crack at the G-Men in a Week 8 home matchup next Sunday afternoon.",
           "last_updated": "2025-10-20T00:41Z",
           "source": "basic/manual"
         },
@@ -11489,7 +11489,7 @@
       "team_name": "San Francisco 49ers",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-20T02:03Z",
+      "last_updated": "2025-10-20T03:33Z",
       "injuries": [
         {
           "athlete_id": "4360438",
@@ -11652,22 +11652,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4241474",
-          "name": "Brian Robinson Jr.",
-          "position": "RB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Robinson did not record a carry and caught all three of his targets for eight yards in Sunday's 30-19 loss to the Buccaneers.",
-          "long_comment": "It was an odd usage game for Robinson after he did not receive a carry for the first time in six appearances this year. Equally abnormal, the veteran backup's three targets Sunday matched the combined total from his previous five contests. The end result was still unsavory from a fantasy perspective, as Robinson was unable to do much with just five snaps played on offense (seven percent). Fantasy managers shouldn't expect much from Robinson in games that starter Christian McCaffrey is healthy for. The same can be said for next Sunday's tilt against the Falcons.",
-          "last_updated": "2025-10-13T16:50Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4686308",
           "name": "CJ West",
           "position": "DT",
@@ -11681,6 +11665,22 @@
           "short_comment": "",
           "long_comment": "",
           "last_updated": "2025-10-16T22:21Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3117251",
+          "name": "Christian McCaffrey",
+          "position": "RB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "McCaffrey rushed 24 times for 129 yards and two touchdowns while bringing in seven of eight targets for 72 yards in Sunday's 20-10 win over the Falcons.",
+          "long_comment": "The levee finally broke in terms of McCaffrey's ground game after he cracked the century mark in rushing for the first time this season. It was also the dual-threat superstar's first game with multiple trips to the end zone in 2025, bringing his rushing touchdown total on par with the three receiving scores he has provided fantasy managers so far. McCaffrey also served as the 49ers' leading receiver in a truly dominating performance from start to finish. CMC has been an absolute monster in fantasy this season with over 900 combined yards from scrimmage, making him virtually matchup-proof heading into next Sunday's tilt against a stingy Houston defense.",
+          "last_updated": "2025-10-20T03:33Z",
           "source": "basic/manual"
         },
         {
@@ -12309,7 +12309,7 @@
       "team_name": "Tennessee Titans",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-20T02:59Z",
+      "last_updated": "2025-10-20T03:35Z",
       "injuries": [
         {
           "athlete_id": "3843843",
@@ -12488,22 +12488,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4431268",
-          "name": "Chimere Dike",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Dike recorded two receptions on three targets for eight yards in Sunday's 20-10 loss to the Raiders. He also returned three kickoffs for 66 yards.",
-          "long_comment": "It was a mixed performance for Dike, who recorded a career-best 54 percent offensive snap rate. However, he earned only three targets and was inefficient with the opportunity. Dike has now been held to single-digit yards from scrimmage in five of six games this season.",
-          "last_updated": "2025-10-14T06:30Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "3926229",
           "name": "Cody Barton",
           "position": "LB",
@@ -12664,6 +12648,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "3916148",
+          "name": "Tony Pollard",
+          "position": "RB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Pollard rushed the ball six times for 18 yards in Sunday's 31-13 loss to the Patriots. He added six receptions on six targets for 43 yards.",
+          "long_comment": "Pollard slipped into an even workload with Tyjae Spears on the ground, though the Titans attempted only 12 rushes as a team. Instead, Pollard earned most of his fantasy value as a pass catcher, with six catches marking his highest total since Week 14 of the 2023 campaign. While it was a positive for Week 7, the likelihood of Pollard repeating this performance consistently moving forward is slim. Given the state of the Titans' offense and the split in workload, Pollard has lost much of his fantasy appeal since Spears has returned.",
+          "last_updated": "2025-10-20T03:35Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "2577327",
           "name": "Tyler Lockett",
           "position": "WR",
@@ -12719,7 +12719,7 @@
       "team_name": "Washington Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-20T03:00Z",
+      "last_updated": "2025-10-20T03:20Z",
       "injuries": [
         {
           "athlete_id": "4361090",
@@ -13084,9 +13084,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Ertz (shoulder) is active for Sunday's game against the Cowboys.",
-          "long_comment": "The veteran tight end was reported to be trending toward suiting up for Sunday's divisional clash, and that now has been made official. Ertz, who's averaging a modest 4.5 targets per game, should be in for a boost in volume against Dallas due to the absences of WRs Terry McLaurin (quadriceps), Deebo Samuel (heel) and Noah Brown (IR, groin/knee).",
-          "last_updated": "2025-10-19T18:59Z",
+          "short_comment": "Ertz (shoulder) had three receptions on seven targets for 37 yards and a touchdown in Sunday's 44-22 loss to Dallas.",
+          "long_comment": "Ertz was one of the few bright spots on either side of the ball for the Commanders in the blowout loss. The veteran starter cashed in his second touchdown in as many weeks, bringing his season receiving line up to 23-229-4 in seven appearances. Ertz showed no limitations from the shoulder injury that plagued him during the practice week, setting him up for another start against the Chiefs on Monday Night Football in Week 8.",
+          "last_updated": "2025-10-20T03:20Z",
           "source": "basic/manual"
         },
         {
