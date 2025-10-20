@@ -1209,6 +1209,7 @@ def save_pre_game_impact(week, espn_id, team_abbr, impact_data):
     cache[week_str][espn_id][team_abbr] = {
         'impact': impact_data.get('impact', 0),
         'root_against': impact_data.get('root_against'),
+        'impact_breakdown': impact_data.get('impact_breakdown'),
         'debug_stats': impact_data.get('debug_stats', {})
     }
 
@@ -2335,7 +2336,22 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
     away_expected_value += SEED_VALUES[0] * (away_miss_playoffs_pct / 100)
 
     # Total impact is the absolute difference in expected seed values
-    total_impact = abs(home_expected_value - away_expected_value)
+    seed_value_impact = abs(home_expected_value - away_expected_value)
+
+    # Calculate swings for primary fan-facing metrics
+    playoff_swing = abs(home_playoff_pct - away_playoff_pct)
+    division_swing = abs(home_division_pct - away_division_pct)
+    top_seed_swing = abs(home_top_seed_pct - away_top_seed_pct)
+
+    swing_candidates = {
+        'playoff': playoff_swing,
+        'division': division_swing,
+        'top_seed': top_seed_swing,
+        'seed_value': seed_value_impact,
+    }
+
+    impact_type = max(swing_candidates, key=swing_candidates.get)
+    impact_score = swing_candidates[impact_type]
 
     # Determine which outcome is better for this team
     if home_expected_value > away_expected_value:
@@ -2369,13 +2385,20 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
         # Expected seed value metrics (the new core calculation)
         'home_expected_seed_value': round(home_expected_value, 1),
         'away_expected_seed_value': round(away_expected_value, 1),
-        'seed_value_impact': round(total_impact, 1),
+        'seed_value_impact': round(seed_value_impact, 1),
+        'playoff_swing': round(playoff_swing, 1),
+        'division_swing': round(division_swing, 1),
+        'top_seed_swing': round(top_seed_swing, 1),
+        'impact_breakdown': {
+            'max_type': impact_type,
+            'max_value': round(impact_score, 1)
+        },
 
         # Root against (useful for UI)
         'root_against': root_against
     }
 
-    return total_impact, debug_stats
+    return impact_score, debug_stats
 
 def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_team_ai=None, seed=None, ai_model=None, force_sagarin=False, home_field_override=None):
     """Generate the analysis cache file"""
@@ -2676,27 +2699,31 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
             if not is_completed:  # Unplayed game - process normally
                 for team_abbr in teams:
-                    total_impact, debug_stats = calculate_game_impact(
+                    impact_score, debug_stats = calculate_game_impact(
                         game_id, team_abbr, game_impacts
                     )
 
                     # Save to pre-game cache (overwrites until game completes)
                     if current_week and int(game['week_num']) == current_week:
                         save_pre_game_impact(current_week, game['espn_id'], team_abbr, {
-                            'impact': round(total_impact, 2),
+                            'impact': round(impact_score, 2),
                             'root_against': debug_stats.get('root_against'),
+                            'impact_breakdown': debug_stats.get('impact_breakdown'),
                             'debug_stats': debug_stats
                         })
 
                     # Include all games with any measurable impact (> 0)
                     # Let UI decide filtering/display thresholds
                     # Use 0.01 threshold to exclude true zeros while catching tiny impacts
-                    if total_impact >= 0.01:
+                    if impact_score >= 0.01:
+                        breakdown = debug_stats.get('impact_breakdown', {})
                         cache_data['team_analyses'][team_abbr]['significant_games'].append({
                             'date': game['game_date'],
                             'away_team': game['away_team'],
                             'home_team': game['home_team'],
-                            'impact': round(total_impact, 1),
+                            'impact': round(impact_score, 1),
+                            'impact_type': breakdown.get('max_type'),
+                            'impact_breakdown': breakdown,
                             'gametime': game['gametime'],
                             'stadium': game['stadium'],
                             'week': int(game['week_num']),
@@ -2717,7 +2744,11 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                                 impact_data = pre_game_impacts[week_str][game['espn_id']][team_abbr]
 
                     # Include game if it had impact > 0.01 (same threshold as unplayed games)
-                    if impact_data.get('impact', 0) >= 0.01:
+                    impact_value = impact_data.get('impact', 0)
+                    if impact_value >= 0.01:
+                        breakdown = impact_data.get('impact_breakdown')
+                        if not breakdown and impact_data.get('debug_stats'):
+                            breakdown = impact_data['debug_stats'].get('impact_breakdown')
                         # Add completed game with scores and pre-game impact
                         cache_data['team_analyses'][team_abbr]['significant_games'].append({
                             'date': game['game_date'],
@@ -2725,7 +2756,9 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                             'home_team': game['home_team'],
                             'away_score': int(game['away_score']),
                             'home_score': int(game['home_score']),
-                            'impact': impact_data.get('impact', 0),  # Use cached pre-game impact
+                            'impact': impact_value,
+                            'impact_type': (breakdown or {}).get('max_type'),
+                            'impact_breakdown': breakdown,
                             'gametime': game['gametime'],
                             'stadium': game['stadium'],
                             'week': int(game['week_num']),
