@@ -1,8 +1,463 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-20T01:45:29.726795",
+  "generated_at": "2025-10-20T11:01:42.629272",
   "players": [
+    {
+      "player_id": "00-0037157",
+      "player_name": "Bam Knight",
+      "team_abbr": "ARI",
+      "position": "RB",
+      "number": 20,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.51701754385965,
+          "percent_attempts_gte_eight_defenders": 15.384615384615383,
+          "avg_time_to_los": 2.652,
+          "rush_attempts": 13,
+          "rush_yards": 57,
+          "avg_rush_yards": 4.384615384615385,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 57.3191031549527,
+          "rush_yards_over_expected": -0.3191031549526997,
+          "rush_yards_over_expected_per_att": -0.024546396534823,
+          "rush_pct_over_expected": 0.4615384615384615
+        }
+      }
+    },
+    {
+      "player_id": "00-0033119",
+      "player_name": "Jacoby Brissett",
+      "team_abbr": "ARI",
+      "position": "QB",
+      "number": 7,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.880527777777777,
+          "avg_completed_air_yards": 6.239199999999999,
+          "avg_intended_air_yards": 8.220571428571427,
+          "avg_air_yards_differential": -1.9813714285714283,
+          "aggressiveness": 8.333333333333332,
+          "max_completed_air_distance": 54.44367089019623,
+          "avg_air_yards_to_sticks": -1.3222857142857152,
+          "attempts": 36,
+          "pass_yards": 279,
+          "pass_touchdowns": 2,
+          "interceptions": 0,
+          "passer_rating": 110.7638888888889,
+          "completions": 25,
+          "completion_percentage": 69.44444444444444,
+          "expected_completion_percentage": 64.53805555555554,
+          "completion_percentage_above_expectation": 4.906388888888898,
+          "avg_air_distance": 21.61057896234295,
+          "max_air_distance": 54.44367089019623
+        }
+      }
+    },
+    {
+      "player_id": "00-0039849",
+      "player_name": "Marvin Harrison Jr.",
+      "team_abbr": "ARI",
+      "position": "WR",
+      "number": 18,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.053333333333334,
+          "avg_separation": 2.8874238932959817,
+          "avg_intended_air_yards": 19.025,
+          "percent_share_of_intended_air_yards": 39.673988600027805,
+          "receptions": 2,
+          "targets": 6,
+          "catch_percentage": 33.33333333333333,
+          "yards": 58,
+          "rec_touchdowns": 0,
+          "avg_yac": 4.844999999999999,
+          "avg_expected_yac": 2.446996535277064,
+          "avg_yac_above_expectation": 2.398003464722935
+        }
+      }
+    },
+    {
+      "player_id": "00-0037744",
+      "player_name": "Trey McBride",
+      "team_abbr": "ARI",
+      "position": "TE",
+      "number": 85,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.251818181818183,
+          "avg_separation": 3.195736107099262,
+          "avg_intended_air_yards": 6.084615384615384,
+          "percent_share_of_intended_air_yards": 27.492006117058253,
+          "receptions": 10,
+          "targets": 13,
+          "catch_percentage": 76.92307692307693,
+          "yards": 74,
+          "rec_touchdowns": 2,
+          "avg_yac": 2.9620000000000006,
+          "avg_expected_yac": 2.5671719515776656,
+          "avg_yac_above_expectation": 0.394828048422335
+        }
+      }
+    },
+    {
+      "player_id": "00-0038542",
+      "player_name": "Bijan Robinson",
+      "team_abbr": "ATL",
+      "position": "RB",
+      "number": 7,
+      "stats": {
+        "rushing": {
+          "efficiency": 6.876749999999999,
+          "percent_attempts_gte_eight_defenders": 14.285714285714285,
+          "avg_time_to_los": 3.6707692307692303,
+          "rush_attempts": 14,
+          "rush_yards": 40,
+          "avg_rush_yards": 2.857142857142857,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 70.55716333203422,
+          "rush_yards_over_expected": -30.55716333203422,
+          "rush_yards_over_expected_per_att": -2.1826545237167303,
+          "rush_pct_over_expected": 0.2857142857142857
+        }
+      }
+    },
+    {
+      "player_id": "00-0036309",
+      "player_name": "Darnell Mooney",
+      "team_abbr": "ATL",
+      "position": "WR",
+      "number": 1,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 3.458,
+          "avg_separation": 4.209751608445769,
+          "avg_intended_air_yards": 23.458,
+          "percent_share_of_intended_air_yards": 32.97441664323868,
+          "receptions": 3,
+          "targets": 5,
+          "catch_percentage": 60.0,
+          "yards": 68,
+          "rec_touchdowns": 0,
+          "avg_yac": 5.063333333333333,
+          "avg_expected_yac": 1.1657258964432298,
+          "avg_yac_above_expectation": 3.897607436890103
+        }
+      }
+    },
+    {
+      "player_id": "00-0037238",
+      "player_name": "Drake London",
+      "team_abbr": "ATL",
+      "position": "WR",
+      "number": 5,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 3.3933333333333326,
+          "avg_separation": 2.1513564484519194,
+          "avg_intended_air_yards": 13.281,
+          "percent_share_of_intended_air_yards": 37.33764408209164,
+          "receptions": 4,
+          "targets": 10,
+          "catch_percentage": 40.0,
+          "yards": 42,
+          "rec_touchdowns": 0,
+          "avg_yac": 1.4200000000000037,
+          "avg_expected_yac": 1.2487915471228048,
+          "avg_yac_above_expectation": 0.1712084528771986
+        }
+      }
+    },
+    {
+      "player_id": "00-0036970",
+      "player_name": "Kyle Pitts",
+      "team_abbr": "ATL",
+      "position": "TE",
+      "number": 8,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 9.361666666666666,
+          "avg_separation": 3.4202157124901533,
+          "avg_intended_air_yards": 7.551000000000002,
+          "percent_share_of_intended_air_yards": 21.228563396120325,
+          "receptions": 7,
+          "targets": 10,
+          "catch_percentage": 70.0,
+          "yards": 62,
+          "rec_touchdowns": 0,
+          "avg_yac": 3.132857142857141,
+          "avg_expected_yac": 3.8570358483159617,
+          "avg_yac_above_expectation": -0.7241787054588209
+        }
+      }
+    },
+    {
+      "player_id": "00-0039917",
+      "player_name": "Michael Penix Jr.",
+      "team_abbr": "ATL",
+      "position": "QB",
+      "number": 9,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.83842105263158,
+          "avg_completed_air_yards": 6.7023809523809526,
+          "avg_intended_air_yards": 9.880555555555558,
+          "avg_air_yards_differential": -3.1781746031746057,
+          "aggressiveness": 13.157894736842104,
+          "max_completed_air_distance": 41.51319428808147,
+          "avg_air_yards_to_sticks": 0.8250000000000008,
+          "attempts": 38,
+          "pass_yards": 241,
+          "pass_touchdowns": 1,
+          "interceptions": 0,
+          "passer_rating": 83.33333333333334,
+          "completions": 21,
+          "completion_percentage": 55.26315789473685,
+          "expected_completion_percentage": 61.53342105263159,
+          "completion_percentage_above_expectation": -6.270263157894739,
+          "avg_air_distance": 25.56200873488622,
+          "max_air_distance": 49.24385443890437
+        }
+      }
+    },
+    {
+      "player_id": "00-0039150",
+      "player_name": "Bryce Young",
+      "team_abbr": "CAR",
+      "position": "QB",
+      "number": 9,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 3.1313599999999995,
+          "avg_completed_air_yards": 2.0280000000000005,
+          "avg_intended_air_yards": 5.485416666666667,
+          "avg_air_yards_differential": -3.457416666666666,
+          "aggressiveness": 20.0,
+          "max_completed_air_distance": 20.705016300404115,
+          "avg_air_yards_to_sticks": -3.389583333333333,
+          "attempts": 25,
+          "pass_yards": 138,
+          "pass_touchdowns": 1,
+          "interceptions": 0,
+          "passer_rating": 88.41666666666667,
+          "completions": 15,
+          "completion_percentage": 60.0,
+          "expected_completion_percentage": 64.19720000000001,
+          "completion_percentage_above_expectation": -4.197200000000009,
+          "avg_air_distance": 18.86531452549936,
+          "max_air_distance": 37.19323863284831
+        }
+      }
+    },
+    {
+      "player_id": "00-0036555",
+      "player_name": "Chuba Hubbard",
+      "team_abbr": "CAR",
+      "position": "RB",
+      "number": 30,
+      "stats": {
+        "rushing": {
+          "efficiency": 5.377096774193549,
+          "percent_attempts_gte_eight_defenders": 28.57142857142857,
+          "avg_time_to_los": 2.493363636363636,
+          "rush_attempts": 14,
+          "rush_yards": 31,
+          "avg_rush_yards": 2.2142857142857144,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 51.62726454501598,
+          "rush_yards_over_expected": -20.627264545015983,
+          "rush_yards_over_expected_per_att": -1.473376038929713,
+          "rush_pct_over_expected": 0.3571428571428571
+        }
+      }
+    },
+    {
+      "player_id": "00-0036139",
+      "player_name": "Rico Dowdle",
+      "team_abbr": "CAR",
+      "position": "RB",
+      "number": 5,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.4124050632911382,
+          "percent_attempts_gte_eight_defenders": 17.647058823529413,
+          "avg_time_to_los": 2.9621176470588235,
+          "rush_attempts": 17,
+          "rush_yards": 79,
+          "avg_rush_yards": 4.647058823529412,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 63.073447770385,
+          "rush_yards_over_expected": 15.926552229614998,
+          "rush_yards_over_expected_per_att": 0.9368560135067646,
+          "rush_pct_over_expected": 0.4705882352941176
+        }
+      }
+    },
+    {
+      "player_id": "00-0040124",
+      "player_name": "Tetairoa McMillan",
+      "team_abbr": "CAR",
+      "position": "WR",
+      "number": 4,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.488,
+          "avg_separation": 3.5884957152016383,
+          "avg_intended_air_yards": 9.734,
+          "percent_share_of_intended_air_yards": 20.67983853834714,
+          "receptions": 3,
+          "targets": 5,
+          "catch_percentage": 60.0,
+          "yards": 33,
+          "rec_touchdowns": 0,
+          "avg_yac": 5.7700000000000005,
+          "avg_expected_yac": 3.580496578454207,
+          "avg_yac_above_expectation": 2.1895034215457936
+        }
+      }
+    },
+    {
+      "player_id": "00-0039342",
+      "player_name": "Xavier Legette",
+      "team_abbr": "CAR",
+      "position": "WR",
+      "number": 17,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.188000000000001,
+          "avg_separation": 2.610945350295136,
+          "avg_intended_air_yards": 9.879090909090907,
+          "percent_share_of_intended_air_yards": 46.17378372636499,
+          "receptions": 9,
+          "targets": 11,
+          "catch_percentage": 81.81818181818183,
+          "yards": 92,
+          "rec_touchdowns": 1,
+          "avg_yac": 1.986666666666667,
+          "avg_expected_yac": 1.8948413454029125,
+          "avg_yac_above_expectation": 0.0918253212637545
+        }
+      }
+    },
+    {
+      "player_id": "00-0039918",
+      "player_name": "Caleb Williams",
+      "team_abbr": "CHI",
+      "position": "QB",
+      "number": 18,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 3.742423076923077,
+          "avg_completed_air_yards": 5.258666666666667,
+          "avg_intended_air_yards": 7.883200000000001,
+          "avg_air_yards_differential": -2.6245333333333347,
+          "aggressiveness": 15.384615384615383,
+          "max_completed_air_distance": 29.874812133300512,
+          "avg_air_yards_to_sticks": -1.5968,
+          "attempts": 26,
+          "pass_yards": 172,
+          "pass_touchdowns": 0,
+          "interceptions": 1,
+          "passer_rating": 61.69871794871794,
+          "completions": 15,
+          "completion_percentage": 57.692307692307686,
+          "expected_completion_percentage": 66.33961538461539,
+          "completion_percentage_above_expectation": -8.647307692307699,
+          "avg_air_distance": 20.96183749642573,
+          "max_air_distance": 38.64481465863176
+        }
+      }
+    },
+    {
+      "player_id": "00-0036275",
+      "player_name": "D'Andre Swift",
+      "team_abbr": "CHI",
+      "position": "RB",
+      "number": 4,
+      "stats": {
+        "rushing": {
+          "efficiency": 2.790645161290323,
+          "percent_attempts_gte_eight_defenders": 5.263157894736842,
+          "avg_time_to_los": 2.716315789473684,
+          "rush_attempts": 19,
+          "rush_yards": 124,
+          "avg_rush_yards": 6.526315789473684,
+          "rush_touchdowns": 1,
+          "expected_rush_yards": 93.9604739758868,
+          "rush_yards_over_expected": 30.03952602411321,
+          "rush_yards_over_expected_per_att": 1.5810276854796428,
+          "rush_pct_over_expected": 0.4210526315789473
+        }
+      }
+    },
+    {
+      "player_id": "00-0034827",
+      "player_name": "DJ Moore",
+      "team_abbr": "CHI",
+      "position": "WR",
+      "number": 2,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 8.937999999999999,
+          "avg_separation": 2.37402420804638,
+          "avg_intended_air_yards": 6.446000000000001,
+          "percent_share_of_intended_air_yards": 16.353764968540695,
+          "receptions": 3,
+          "targets": 5,
+          "catch_percentage": 60.0,
+          "yards": 43,
+          "rec_touchdowns": 0,
+          "avg_yac": 7.153333333333333,
+          "avg_expected_yac": 2.9998617051913548,
+          "avg_yac_above_expectation": 4.153471628141979
+        }
+      }
+    },
+    {
+      "player_id": "00-0040236",
+      "player_name": "Kyle Monangai",
+      "team_abbr": "CHI",
+      "position": "RB",
+      "number": 25,
+      "stats": {
+        "rushing": {
+          "efficiency": 2.6933333333333334,
+          "percent_attempts_gte_eight_defenders": 23.07692307692308,
+          "avg_time_to_los": 2.407153846153846,
+          "rush_attempts": 13,
+          "rush_yards": 81,
+          "avg_rush_yards": 6.230769230769231,
+          "rush_touchdowns": 1,
+          "expected_rush_yards": 58.00429025743341,
+          "rush_yards_over_expected": 22.99570974256659,
+          "rush_yards_over_expected_per_att": 1.7689007494281992,
+          "rush_pct_over_expected": 0.3846153846153846
+        }
+      }
+    },
+    {
+      "player_id": "00-0039919",
+      "player_name": "Rome Odunze",
+      "team_abbr": "CHI",
+      "position": "WR",
+      "number": 15,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 8.478333333333333,
+          "avg_separation": 3.141393812994828,
+          "avg_intended_air_yards": 14.356666666666667,
+          "percent_share_of_intended_air_yards": 43.70813882687233,
+          "receptions": 2,
+          "targets": 6,
+          "catch_percentage": 33.33333333333333,
+          "yards": 31,
+          "rec_touchdowns": 0,
+          "avg_yac": 9.204999999999998,
+          "avg_expected_yac": 7.905216770481047,
+          "avg_yac_above_expectation": 1.299783229518951
+        }
+      }
+    },
     {
       "player_id": "00-0038597",
       "player_name": "Chase Brown",
@@ -18,7 +473,7 @@
           "rush_yards": 108,
           "avg_rush_yards": 9.818181818181818,
           "rush_touchdowns": 0,
-          "expected_rush_yards": 42.33672971770549,
+          "expected_rush_yards": 42.33672971770548,
           "rush_yards_over_expected": 65.66327028229452,
           "rush_yards_over_expected_per_att": 5.96938820748132,
           "rush_pct_over_expected": 0.7272727272727273
@@ -97,6 +552,1748 @@
           "avg_yac": 5.794999999999999,
           "avg_expected_yac": 5.9478938218539765,
           "avg_yac_above_expectation": -0.1528938218539774
+        }
+      }
+    },
+    {
+      "player_id": "00-0040704",
+      "player_name": "Dillon Gabriel",
+      "team_abbr": "CLE",
+      "position": "QB",
+      "number": 8,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.720388888888889,
+          "avg_completed_air_yards": 1.8761538461538447,
+          "avg_intended_air_yards": 4.267777777777777,
+          "avg_air_yards_differential": -2.3916239316239323,
+          "aggressiveness": 16.666666666666664,
+          "max_completed_air_distance": 26.77636644505748,
+          "avg_air_yards_to_sticks": -6.343333333333334,
+          "attempts": 18,
+          "pass_yards": 116,
+          "pass_touchdowns": 0,
+          "interceptions": 0,
+          "passer_rating": 89.12037037037037,
+          "completions": 13,
+          "completion_percentage": 72.22222222222221,
+          "expected_completion_percentage": 70.19666666666667,
+          "completion_percentage_above_expectation": 2.025555555555542,
+          "avg_air_distance": 17.32402930360898,
+          "max_air_distance": 43.2210411720958
+        }
+      }
+    },
+    {
+      "player_id": "00-0040663",
+      "player_name": "Harold Fannin Jr.",
+      "team_abbr": "CLE",
+      "position": "TE",
+      "number": 44,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 3.9675,
+          "avg_separation": 5.539046167039958,
+          "avg_intended_air_yards": 2.8879999999999995,
+          "percent_share_of_intended_air_yards": 18.79718823223119,
+          "receptions": 4,
+          "targets": 5,
+          "catch_percentage": 80.0,
+          "yards": 36,
+          "rec_touchdowns": 0,
+          "avg_yac": 6.720000000000001,
+          "avg_expected_yac": 6.720265236903515,
+          "avg_yac_above_expectation": -0.0002652369035143
+        }
+      }
+    },
+    {
+      "player_id": "00-0040784",
+      "player_name": "Quinshon Judkins",
+      "team_abbr": "CLE",
+      "position": "RB",
+      "number": 10,
+      "stats": {
+        "rushing": {
+          "efficiency": 4.131666666666667,
+          "percent_attempts_gte_eight_defenders": 52.0,
+          "avg_time_to_los": 3.0565789473684206,
+          "rush_attempts": 25,
+          "rush_yards": 84,
+          "avg_rush_yards": 3.36,
+          "rush_touchdowns": 3,
+          "expected_rush_yards": 64.21933161425595,
+          "rush_yards_over_expected": 14.78066838574405,
+          "rush_yards_over_expected_per_att": 0.6158611827393354,
+          "rush_pct_over_expected": 0.2916666666666667
+        }
+      }
+    },
+    {
+      "player_id": "00-0036358",
+      "player_name": "CeeDee Lamb",
+      "team_abbr": "DAL",
+      "position": "WR",
+      "number": 88,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.361250000000001,
+          "avg_separation": 2.271791430084298,
+          "avg_intended_air_yards": 10.06375,
+          "percent_share_of_intended_air_yards": 39.13381616682057,
+          "receptions": 5,
+          "targets": 8,
+          "catch_percentage": 62.5,
+          "yards": 110,
+          "rec_touchdowns": 1,
+          "avg_yac": 12.296000000000005,
+          "avg_expected_yac": 4.3058570813547705,
+          "avg_yac_above_expectation": 7.990142918645232
+        }
+      }
+    },
+    {
+      "player_id": "00-0033077",
+      "player_name": "Dak Prescott",
+      "team_abbr": "DAL",
+      "position": "QB",
+      "number": 4,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.7616,
+          "avg_completed_air_yards": 5.90904761904762,
+          "avg_intended_air_yards": 6.8576666666666695,
+          "avg_air_yards_differential": -0.94861904761905,
+          "aggressiveness": 20.0,
+          "max_completed_air_distance": 48.58177641873545,
+          "avg_air_yards_to_sticks": -2.0756666666666663,
+          "attempts": 30,
+          "pass_yards": 264,
+          "pass_touchdowns": 3,
+          "interceptions": 0,
+          "passer_rating": 130.41666666666666,
+          "completions": 21,
+          "completion_percentage": 70.0,
+          "expected_completion_percentage": 66.59866666666666,
+          "completion_percentage_above_expectation": 3.4013333333333406,
+          "avg_air_distance": 20.09051076833348,
+          "max_air_distance": 48.58177641873545
+        }
+      }
+    },
+    {
+      "player_id": "00-0037247",
+      "player_name": "George Pickens",
+      "team_abbr": "DAL",
+      "position": "WR",
+      "number": 3,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 4.669999999999999,
+          "avg_separation": 1.9637189398896409,
+          "avg_intended_air_yards": 17.305000000000003,
+          "percent_share_of_intended_air_yards": 50.46906139114372,
+          "receptions": 4,
+          "targets": 6,
+          "catch_percentage": 66.66666666666666,
+          "yards": 82,
+          "rec_touchdowns": 0,
+          "avg_yac": 3.102499999999999,
+          "avg_expected_yac": 1.896321583496681,
+          "avg_yac_above_expectation": 1.2061784165033185
+        }
+      }
+    },
+    {
+      "player_id": "00-0038041",
+      "player_name": "Jake Ferguson",
+      "team_abbr": "DAL",
+      "position": "TE",
+      "number": 87,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 8.133333333333335,
+          "avg_separation": 3.3376505997037,
+          "avg_intended_air_yards": 1.4571428571428575,
+          "percent_share_of_intended_air_yards": 4.957954600690225,
+          "receptions": 7,
+          "targets": 7,
+          "catch_percentage": 100.0,
+          "yards": 29,
+          "rec_touchdowns": 2,
+          "avg_yac": 2.8785714285714272,
+          "avg_expected_yac": 3.040484685879814,
+          "avg_yac_above_expectation": -0.1619132573083868
+        }
+      }
+    },
+    {
+      "player_id": "00-0036997",
+      "player_name": "Javonte Williams",
+      "team_abbr": "DAL",
+      "position": "RB",
+      "number": 33,
+      "stats": {
+        "rushing": {
+          "efficiency": 2.8331896551724136,
+          "percent_attempts_gte_eight_defenders": 26.31578947368421,
+          "avg_time_to_los": 2.913294117647059,
+          "rush_attempts": 19,
+          "rush_yards": 116,
+          "avg_rush_yards": 6.105263157894737,
+          "rush_touchdowns": 1,
+          "expected_rush_yards": 77.83188280411719,
+          "rush_yards_over_expected": 36.168117195882814,
+          "rush_yards_over_expected_per_att": 2.009339844215712,
+          "rush_pct_over_expected": 0.4444444444444444
+        }
+      }
+    },
+    {
+      "player_id": "00-0039732",
+      "player_name": "Bo Nix",
+      "team_abbr": "DEN",
+      "position": "QB",
+      "number": 10,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.670755102040817,
+          "avg_completed_air_yards": 5.207037037037037,
+          "avg_intended_air_yards": 8.423469387755102,
+          "avg_air_yards_differential": -3.2164323507180645,
+          "aggressiveness": 18.0,
+          "max_completed_air_distance": 43.69609822398333,
+          "avg_air_yards_to_sticks": -0.2908163265306121,
+          "attempts": 50,
+          "pass_yards": 279,
+          "pass_touchdowns": 2,
+          "interceptions": 0,
+          "passer_rating": 83.66666666666667,
+          "completions": 27,
+          "completion_percentage": 54.0,
+          "expected_completion_percentage": 62.924600000000005,
+          "completion_percentage_above_expectation": -8.924600000000005,
+          "avg_air_distance": 21.56328777418569,
+          "max_air_distance": 59.62083528431985
+        }
+      }
+    },
+    {
+      "player_id": "00-0034348",
+      "player_name": "Courtland Sutton",
+      "team_abbr": "DEN",
+      "position": "WR",
+      "number": 14,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.337,
+          "avg_separation": 1.8131961442190143,
+          "avg_intended_air_yards": 11.610000000000005,
+          "percent_share_of_intended_air_yards": 28.128407026044837,
+          "receptions": 6,
+          "targets": 10,
+          "catch_percentage": 60.0,
+          "yards": 87,
+          "rec_touchdowns": 0,
+          "avg_yac": 3.871666666666666,
+          "avg_expected_yac": 3.446607868794956,
+          "avg_yac_above_expectation": 0.4250587978717099
+        }
+      }
+    },
+    {
+      "player_id": "00-0033881",
+      "player_name": "Evan Engram",
+      "team_abbr": "DEN",
+      "position": "TE",
+      "number": 1,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.024000000000001,
+          "avg_separation": 6.457053846110068,
+          "avg_intended_air_yards": 0.8787499999999997,
+          "percent_share_of_intended_air_yards": 1.7032101756511202,
+          "receptions": 5,
+          "targets": 8,
+          "catch_percentage": 62.5,
+          "yards": 42,
+          "rec_touchdowns": 0,
+          "avg_yac": 7.67,
+          "avg_expected_yac": 6.65152498877178,
+          "avg_yac_above_expectation": 1.0184750112282197
+        }
+      }
+    },
+    {
+      "player_id": "00-0036158",
+      "player_name": "J.K. Dobbins",
+      "team_abbr": "DEN",
+      "position": "RB",
+      "number": 27,
+      "stats": {
+        "rushing": {
+          "efficiency": 2.8962962962962964,
+          "percent_attempts_gte_eight_defenders": 14.285714285714285,
+          "avg_time_to_los": 2.7207142857142865,
+          "rush_attempts": 14,
+          "rush_yards": 81,
+          "avg_rush_yards": 5.785714285714286,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 52.92032117181444,
+          "rush_yards_over_expected": 28.07967882818556,
+          "rush_yards_over_expected_per_att": 2.005691344870397,
+          "rush_pct_over_expected": 0.5714285714285714
+        }
+      }
+    },
+    {
+      "player_id": "00-0038976",
+      "player_name": "Marvin Mims Jr.",
+      "team_abbr": "DEN",
+      "position": "WR",
+      "number": 19,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 8.5875,
+          "avg_separation": 3.7051537788512334,
+          "avg_intended_air_yards": 12.577142857142857,
+          "percent_share_of_intended_air_yards": 21.330102967898245,
+          "receptions": 6,
+          "targets": 7,
+          "catch_percentage": 85.71428571428571,
+          "yards": 85,
+          "rec_touchdowns": 0,
+          "avg_yac": 5.3500000000000005,
+          "avg_expected_yac": 5.478615270521232,
+          "avg_yac_above_expectation": -0.1286152705212311
+        }
+      }
+    },
+    {
+      "player_id": "00-0039868",
+      "player_name": "Troy Franklin",
+      "team_abbr": "DEN",
+      "position": "WR",
+      "number": 11,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.657777777777778,
+          "avg_separation": 1.7700165721801355,
+          "avg_intended_air_yards": 17.206,
+          "percent_share_of_intended_air_yards": 41.6862507571169,
+          "receptions": 3,
+          "targets": 10,
+          "catch_percentage": 30.0,
+          "yards": 19,
+          "rec_touchdowns": 1,
+          "avg_yac": -0.183333333333333,
+          "avg_expected_yac": 0.9424707476881088,
+          "avg_yac_above_expectation": -1.1258040810214418
+        }
+      }
+    },
+    {
+      "player_id": "00-0036264",
+      "player_name": "Jordan Love",
+      "team_abbr": "GB",
+      "position": "QB",
+      "number": 10,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.908931034482759,
+          "avg_completed_air_yards": 5.447368421052632,
+          "avg_intended_air_yards": 7.233571428571427,
+          "avg_air_yards_differential": -1.786203007518797,
+          "aggressiveness": 13.79310344827586,
+          "max_completed_air_distance": 36.12729992678667,
+          "avg_air_yards_to_sticks": -0.3735714285714285,
+          "attempts": 29,
+          "pass_yards": 179,
+          "pass_touchdowns": 1,
+          "interceptions": 0,
+          "passer_rating": 93.89367816091956,
+          "completions": 19,
+          "completion_percentage": 65.51724137931035,
+          "expected_completion_percentage": 66.43172413793103,
+          "completion_percentage_above_expectation": -0.9144827586206788,
+          "avg_air_distance": 20.24986835442371,
+          "max_air_distance": 48.157953652538026
+        }
+      }
+    },
+    {
+      "player_id": "00-0035700",
+      "player_name": "Josh Jacobs",
+      "team_abbr": "GB",
+      "position": "RB",
+      "number": 8,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.7092727272727264,
+          "percent_attempts_gte_eight_defenders": 23.07692307692308,
+          "avg_time_to_los": 2.5464166666666666,
+          "rush_attempts": 13,
+          "rush_yards": 55,
+          "avg_rush_yards": 4.230769230769231,
+          "rush_touchdowns": 2,
+          "expected_rush_yards": 53.72706350955776,
+          "rush_yards_over_expected": 1.272936490442241,
+          "rush_yards_over_expected_per_att": 0.09791819157248,
+          "rush_pct_over_expected": 0.4615384615384615
+        }
+      }
+    },
+    {
+      "player_id": "00-0037816",
+      "player_name": "Romeo Doubs",
+      "team_abbr": "GB",
+      "position": "WR",
+      "number": 87,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.394999999999999,
+          "avg_separation": 2.080933517682699,
+          "avg_intended_air_yards": 15.4675,
+          "percent_share_of_intended_air_yards": 61.09410486817419,
+          "receptions": 6,
+          "targets": 8,
+          "catch_percentage": 75.0,
+          "yards": 72,
+          "rec_touchdowns": 0,
+          "avg_yac": 1.2349999999999994,
+          "avg_expected_yac": 1.204845168178906,
+          "avg_yac_above_expectation": 0.0301548318210933
+        }
+      }
+    },
+    {
+      "player_id": "00-0038996",
+      "player_name": "Tucker Kraft",
+      "team_abbr": "GB",
+      "position": "TE",
+      "number": 85,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.731999999999999,
+          "avg_separation": 3.47081039294194,
+          "avg_intended_air_yards": 4.432,
+          "percent_share_of_intended_air_yards": 21.882097363483755,
+          "receptions": 5,
+          "targets": 10,
+          "catch_percentage": 50.0,
+          "yards": 58,
+          "rec_touchdowns": 1,
+          "avg_yac": 6.556000000000003,
+          "avg_expected_yac": 5.454144678545978,
+          "avg_yac_above_expectation": 1.1018553214540248
+        }
+      }
+    },
+    {
+      "player_id": "00-0037664",
+      "player_name": "Alec Pierce",
+      "team_abbr": "IND",
+      "position": "WR",
+      "number": 14,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.578,
+          "avg_separation": 1.5487661344139003,
+          "avg_intended_air_yards": 24.222,
+          "percent_share_of_intended_air_yards": 69.06167137114018,
+          "receptions": 5,
+          "targets": 10,
+          "catch_percentage": 50.0,
+          "yards": 98,
+          "rec_touchdowns": 0,
+          "avg_yac": 1.537999999999999,
+          "avg_expected_yac": 2.543380001429682,
+          "avg_yac_above_expectation": -1.0053800014296832
+        }
+      }
+    },
+    {
+      "player_id": "00-0035710",
+      "player_name": "Daniel Jones",
+      "team_abbr": "IND",
+      "position": "QB",
+      "number": 17,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.883818181818182,
+          "avg_completed_air_yards": 6.830869565217392,
+          "avg_intended_air_yards": 10.960312500000002,
+          "avg_air_yards_differential": -4.1294429347826105,
+          "aggressiveness": 17.647058823529413,
+          "max_completed_air_distance": 54.057407448008455,
+          "avg_air_yards_to_sticks": 2.272812500000001,
+          "attempts": 34,
+          "pass_yards": 288,
+          "pass_touchdowns": 2,
+          "interceptions": 0,
+          "passer_rating": 113.3578431372549,
+          "completions": 23,
+          "completion_percentage": 67.64705882352942,
+          "expected_completion_percentage": 59.18617647058824,
+          "completion_percentage_above_expectation": 8.460882352941184,
+          "avg_air_distance": 23.816144691055868,
+          "max_air_distance": 63.29454399867337
+        }
+      }
+    },
+    {
+      "player_id": "00-0036223",
+      "player_name": "Jonathan Taylor",
+      "team_abbr": "IND",
+      "position": "RB",
+      "number": 28,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.2103191489361707,
+          "percent_attempts_gte_eight_defenders": 25.0,
+          "avg_time_to_los": 2.767071428571428,
+          "rush_attempts": 16,
+          "rush_yards": 94,
+          "avg_rush_yards": 5.875,
+          "rush_touchdowns": 3,
+          "expected_rush_yards": 65.64368996459287,
+          "rush_yards_over_expected": 28.35631003540713,
+          "rush_yards_over_expected_per_att": 1.772269377212946,
+          "rush_pct_over_expected": 0.5
+        }
+      }
+    },
+    {
+      "player_id": "00-0036252",
+      "player_name": "Michael Pittman",
+      "team_abbr": "IND",
+      "position": "WR",
+      "number": 11,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.371111111111111,
+          "avg_separation": 3.2622670543136496,
+          "avg_intended_air_yards": 5.928888888888889,
+          "percent_share_of_intended_air_yards": 15.213982265560402,
+          "receptions": 7,
+          "targets": 9,
+          "catch_percentage": 77.77777777777779,
+          "yards": 58,
+          "rec_touchdowns": 1,
+          "avg_yac": 3.509999999999999,
+          "avg_expected_yac": 3.2239489162872945,
+          "avg_yac_above_expectation": 0.2860510837127044
+        }
+      }
+    },
+    {
+      "player_id": "00-0040128",
+      "player_name": "Tyler Warren",
+      "team_abbr": "IND",
+      "position": "TE",
+      "number": 84,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.8100000000000005,
+          "avg_separation": 5.164829772732562,
+          "avg_intended_air_yards": 8.808,
+          "percent_share_of_intended_air_yards": 12.556667522025483,
+          "receptions": 4,
+          "targets": 5,
+          "catch_percentage": 80.0,
+          "yards": 69,
+          "rec_touchdowns": 1,
+          "avg_yac": 13.845,
+          "avg_expected_yac": 12.814117695832463,
+          "avg_yac_above_expectation": 1.030882304167534
+        }
+      }
+    },
+    {
+      "player_id": "00-0039893",
+      "player_name": "Brian Thomas Jr.",
+      "team_abbr": "JAX",
+      "position": "WR",
+      "number": 7,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.410000000000001,
+          "avg_separation": 2.7447904269387835,
+          "avg_intended_air_yards": 13.994285714285716,
+          "percent_share_of_intended_air_yards": 18.60836198544916,
+          "receptions": 3,
+          "targets": 7,
+          "catch_percentage": 42.85714285714285,
+          "yards": 31,
+          "rec_touchdowns": 0,
+          "avg_yac": 1.066666666666665,
+          "avg_expected_yac": 2.7981847964059248,
+          "avg_yac_above_expectation": -1.7315181297392594
+        }
+      }
+    },
+    {
+      "player_id": "00-0038606",
+      "player_name": "Parker Washington",
+      "team_abbr": "JAX",
+      "position": "WR",
+      "number": 11,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.937,
+          "avg_separation": 1.6510429019636192,
+          "avg_intended_air_yards": 19.935,
+          "percent_share_of_intended_air_yards": 37.86828258267957,
+          "receptions": 4,
+          "targets": 10,
+          "catch_percentage": 40.0,
+          "yards": 52,
+          "rec_touchdowns": 0,
+          "avg_yac": 1.552500000000001,
+          "avg_expected_yac": 2.4127282662226435,
+          "avg_yac_above_expectation": -0.8602282662226424
+        }
+      }
+    },
+    {
+      "player_id": "00-0040718",
+      "player_name": "Travis Hunter",
+      "team_abbr": "JAX",
+      "position": "WR",
+      "number": 12,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.086923076923076,
+          "avg_separation": 3.5537186786065886,
+          "avg_intended_air_yards": 8.45142857142857,
+          "percent_share_of_intended_air_yards": 22.47592272476872,
+          "receptions": 8,
+          "targets": 14,
+          "catch_percentage": 57.14285714285714,
+          "yards": 101,
+          "rec_touchdowns": 1,
+          "avg_yac": 5.288750000000001,
+          "avg_expected_yac": 5.12878329293772,
+          "avg_yac_above_expectation": 0.1599667070622814
+        }
+      }
+    },
+    {
+      "player_id": "00-0036971",
+      "player_name": "Trevor Lawrence",
+      "team_abbr": "JAX",
+      "position": "QB",
+      "number": 16,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.8699375000000007,
+          "avg_completed_air_yards": 8.873043478260868,
+          "avg_intended_air_yards": 11.20063829787234,
+          "avg_air_yards_differential": -2.3275948196114715,
+          "aggressiveness": 14.583333333333334,
+          "max_completed_air_distance": 47.49981578911648,
+          "avg_air_yards_to_sticks": 1.9240425531914889,
+          "attempts": 48,
+          "pass_yards": 296,
+          "pass_touchdowns": 1,
+          "interceptions": 0,
+          "passer_rating": 74.65277777777779,
+          "completions": 23,
+          "completion_percentage": 47.91666666666667,
+          "expected_completion_percentage": 60.58375,
+          "completion_percentage_above_expectation": -12.667083333333323,
+          "avg_air_distance": 23.69118180079284,
+          "max_air_distance": 50.41942879486042
+        }
+      }
+    },
+    {
+      "player_id": "00-0040078",
+      "player_name": "Brashard Smith",
+      "team_abbr": "KC",
+      "position": "RB",
+      "number": 24,
+      "stats": {
+        "rushing": {
+          "efficiency": 4.858205128205128,
+          "percent_attempts_gte_eight_defenders": 50.0,
+          "avg_time_to_los": 2.8203333333333336,
+          "rush_attempts": 14,
+          "rush_yards": 39,
+          "avg_rush_yards": 2.7857142857142856,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 44.973190207658746,
+          "rush_yards_over_expected": -5.973190207658746,
+          "rush_yards_over_expected_per_att": -0.4266564434041961,
+          "rush_pct_over_expected": 0.3571428571428571
+        }
+      }
+    },
+    {
+      "player_id": "00-0037197",
+      "player_name": "Isiah Pacheco",
+      "team_abbr": "KC",
+      "position": "RB",
+      "number": 10,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.742456140350877,
+          "percent_attempts_gte_eight_defenders": 20.0,
+          "avg_time_to_los": 2.7802857142857147,
+          "rush_attempts": 15,
+          "rush_yards": 57,
+          "avg_rush_yards": 3.8,
+          "rush_touchdowns": 1,
+          "expected_rush_yards": 67.61558205907484,
+          "rush_yards_over_expected": -10.61558205907484,
+          "rush_yards_over_expected_per_att": -0.7077054706049892,
+          "rush_pct_over_expected": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "player_id": "00-0033873",
+      "player_name": "Patrick Mahomes",
+      "team_abbr": "KC",
+      "position": "QB",
+      "number": 15,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.2681714285714283,
+          "avg_completed_air_yards": 4.181538461538461,
+          "avg_intended_air_yards": 5.543235294117644,
+          "avg_air_yards_differential": -1.3616968325791827,
+          "aggressiveness": 8.571428571428571,
+          "max_completed_air_distance": 40.42114793026047,
+          "avg_air_yards_to_sticks": -3.0744117647058817,
+          "attempts": 35,
+          "pass_yards": 286,
+          "pass_touchdowns": 3,
+          "interceptions": 0,
+          "passer_rating": 126.60714285714285,
+          "completions": 26,
+          "completion_percentage": 74.28571428571429,
+          "expected_completion_percentage": 74.19085714285714,
+          "completion_percentage_above_expectation": 0.0948571428571511,
+          "avg_air_distance": 17.35460182872082,
+          "max_air_distance": 51.986007732850574
+        }
+      }
+    },
+    {
+      "player_id": "00-0039067",
+      "player_name": "Rashee Rice",
+      "team_abbr": "KC",
+      "position": "WR",
+      "number": 4,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.176,
+          "avg_separation": 3.581144644905605,
+          "avg_intended_air_yards": 1.6060000000000012,
+          "percent_share_of_intended_air_yards": 8.521250066323564,
+          "receptions": 7,
+          "targets": 10,
+          "catch_percentage": 70.0,
+          "yards": 42,
+          "rec_touchdowns": 2,
+          "avg_yac": 5.305714285714285,
+          "avg_expected_yac": 5.594790043443156,
+          "avg_yac_above_expectation": -0.2890757577288712
+        }
+      }
+    },
+    {
+      "player_id": "00-0036355",
+      "player_name": "Justin Herbert",
+      "team_abbr": "LAC",
+      "position": "QB",
+      "number": 10,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 3.1322363636363635,
+          "avg_completed_air_yards": 7.61054054054054,
+          "avg_intended_air_yards": 8.907222222222222,
+          "avg_air_yards_differential": -1.2966816816816822,
+          "aggressiveness": 12.727272727272728,
+          "max_completed_air_distance": 44.34986809450509,
+          "avg_air_yards_to_sticks": 0.0924074074074076,
+          "attempts": 55,
+          "pass_yards": 420,
+          "pass_touchdowns": 3,
+          "interceptions": 2,
+          "passer_rating": 92.99242424242424,
+          "completions": 37,
+          "completion_percentage": 67.27272727272727,
+          "expected_completion_percentage": 60.888909090909095,
+          "completion_percentage_above_expectation": 6.383818181818171,
+          "avg_air_distance": 21.483019832492488,
+          "max_air_distance": 46.50064623206865
+        }
+      }
+    },
+    {
+      "player_id": "00-0030279",
+      "player_name": "Keenan Allen",
+      "team_abbr": "LAC",
+      "position": "WR",
+      "number": 13,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.042142857142857,
+          "avg_separation": 2.4764468971568028,
+          "avg_intended_air_yards": 9.117857142857142,
+          "percent_share_of_intended_air_yards": 26.53901328509948,
+          "receptions": 11,
+          "targets": 14,
+          "catch_percentage": 78.57142857142857,
+          "yards": 119,
+          "rec_touchdowns": 1,
+          "avg_yac": 2.749090909090909,
+          "avg_expected_yac": 2.061362936785891,
+          "avg_yac_above_expectation": 0.6877279723050185
+        }
+      }
+    },
+    {
+      "player_id": "00-0039915",
+      "player_name": "Ladd McConkey",
+      "team_abbr": "LAC",
+      "position": "WR",
+      "number": 15,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.648571428571429,
+          "avg_separation": 3.154444499764934,
+          "avg_intended_air_yards": 10.877333333333333,
+          "percent_share_of_intended_air_yards": 33.92170315391172,
+          "receptions": 9,
+          "targets": 15,
+          "catch_percentage": 60.0,
+          "yards": 67,
+          "rec_touchdowns": 0,
+          "avg_yac": 1.891111111111111,
+          "avg_expected_yac": 2.676011061974682,
+          "avg_yac_above_expectation": -0.7848999508635712
+        }
+      }
+    },
+    {
+      "player_id": "00-0040189",
+      "player_name": "Oronde Gadsden II",
+      "team_abbr": "LAC",
+      "position": "TE",
+      "number": 86,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.25625,
+          "avg_separation": 3.079605577841624,
+          "avg_intended_air_yards": 10.773333333333332,
+          "percent_share_of_intended_air_yards": 20.158423252042663,
+          "receptions": 7,
+          "targets": 9,
+          "catch_percentage": 77.77777777777779,
+          "yards": 164,
+          "rec_touchdowns": 1,
+          "avg_yac": 9.037142857142856,
+          "avg_expected_yac": 3.597749733119047,
+          "avg_yac_above_expectation": 5.439393124023811
+        }
+      }
+    },
+    {
+      "player_id": "00-0038544",
+      "player_name": "Quentin Johnston",
+      "team_abbr": "LAC",
+      "position": "WR",
+      "number": 1,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 3.17,
+          "avg_separation": 2.1874363741340166,
+          "avg_intended_air_yards": 12.670000000000002,
+          "percent_share_of_intended_air_yards": 15.804902388823056,
+          "receptions": 2,
+          "targets": 6,
+          "catch_percentage": 33.33333333333333,
+          "yards": 30,
+          "rec_touchdowns": 1,
+          "avg_yac": 0.754999999999999,
+          "avg_expected_yac": 1.206531232817042,
+          "avg_yac_above_expectation": -0.4515312328170431
+        }
+      }
+    },
+    {
+      "player_id": "00-0039738",
+      "player_name": "Blake Corum",
+      "team_abbr": "LAR",
+      "position": "RB",
+      "number": 22,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.872432432432432,
+          "percent_attempts_gte_eight_defenders": 33.33333333333333,
+          "avg_time_to_los": 2.591583333333334,
+          "rush_attempts": 12,
+          "rush_yards": 37,
+          "avg_rush_yards": 3.083333333333333,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 41.62901388160976,
+          "rush_yards_over_expected": -4.629013881609758,
+          "rush_yards_over_expected_per_att": -0.3857511568008132,
+          "rush_pct_over_expected": 0.5
+        }
+      }
+    },
+    {
+      "player_id": "00-0031381",
+      "player_name": "Davante Adams",
+      "team_abbr": "LAR",
+      "position": "WR",
+      "number": 17,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.046250000000001,
+          "avg_separation": 1.6084863506721176,
+          "avg_intended_air_yards": 12.29375,
+          "percent_share_of_intended_air_yards": 27.799762564305496,
+          "receptions": 5,
+          "targets": 8,
+          "catch_percentage": 62.5,
+          "yards": 35,
+          "rec_touchdowns": 3,
+          "avg_yac": 0.1920000000000009,
+          "avg_expected_yac": 0.3972974206956906,
+          "avg_yac_above_expectation": -0.2052974206956896
+        }
+      }
+    },
+    {
+      "player_id": "00-0037840",
+      "player_name": "Kyren Williams",
+      "team_abbr": "LAR",
+      "position": "RB",
+      "number": 23,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.5296296296296306,
+          "percent_attempts_gte_eight_defenders": 25.0,
+          "avg_time_to_los": 2.606272727272727,
+          "rush_attempts": 12,
+          "rush_yards": 54,
+          "avg_rush_yards": 4.5,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 54.00527179733957,
+          "rush_yards_over_expected": -0.0052717973395743,
+          "rush_yards_over_expected_per_att": -0.0004393164449645,
+          "rush_pct_over_expected": 0.4166666666666667
+        }
+      }
+    },
+    {
+      "player_id": "00-0026498",
+      "player_name": "Matthew Stafford",
+      "team_abbr": "LAR",
+      "position": "QB",
+      "number": 9,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.7326969696969687,
+          "avg_completed_air_yards": 6.26047619047619,
+          "avg_intended_air_yards": 10.72060606060606,
+          "avg_air_yards_differential": -4.460129870129871,
+          "aggressiveness": 30.303030303030305,
+          "max_completed_air_distance": 46.38381722109555,
+          "avg_air_yards_to_sticks": 4.205454545454545,
+          "attempts": 33,
+          "pass_yards": 182,
+          "pass_touchdowns": 5,
+          "interceptions": 0,
+          "passer_rating": 117.67676767676768,
+          "completions": 21,
+          "completion_percentage": 63.63636363636363,
+          "expected_completion_percentage": 58.21969696969697,
+          "completion_percentage_above_expectation": 5.416666666666664,
+          "avg_air_distance": 24.27246338091602,
+          "max_air_distance": 50.02988107121583
+        }
+      }
+    },
+    {
+      "player_id": "00-0033110",
+      "player_name": "Tyler Higbee",
+      "team_abbr": "LAR",
+      "position": "TE",
+      "number": 89,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 3.3280000000000003,
+          "avg_separation": 1.8981616003418595,
+          "avg_intended_air_yards": 6.786666666666668,
+          "percent_share_of_intended_air_yards": 11.509977952399796,
+          "receptions": 3,
+          "targets": 6,
+          "catch_percentage": 50.0,
+          "yards": 19,
+          "rec_touchdowns": 0,
+          "avg_yac": 2.806666666666667,
+          "avg_expected_yac": 4.630080621661061,
+          "avg_yac_above_expectation": -1.8234139549943935
+        }
+      }
+    },
+    {
+      "player_id": "00-0030565",
+      "player_name": "Geno Smith",
+      "team_abbr": "LV",
+      "position": "QB",
+      "number": 7,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.4730625,
+          "avg_completed_air_yards": -0.2129999999999992,
+          "avg_intended_air_yards": 3.6100000000000008,
+          "avg_air_yards_differential": -3.823,
+          "aggressiveness": 12.5,
+          "max_completed_air_distance": 25.74092655675005,
+          "avg_air_yards_to_sticks": -9.456666666666663,
+          "attempts": 16,
+          "pass_yards": 67,
+          "pass_touchdowns": 0,
+          "interceptions": 0,
+          "passer_rating": 71.61458333333334,
+          "completions": 10,
+          "completion_percentage": 62.5,
+          "expected_completion_percentage": 67.1425,
+          "completion_percentage_above_expectation": -4.642499999999998,
+          "avg_air_distance": 18.92852936301649,
+          "max_air_distance": 36.19444294363432
+        }
+      }
+    },
+    {
+      "player_id": "00-0038563",
+      "player_name": "Tre Tucker",
+      "team_abbr": "LV",
+      "position": "WR",
+      "number": 1,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.445,
+          "avg_separation": 6.64700619393241,
+          "avg_intended_air_yards": 1.608333333333336,
+          "percent_share_of_intended_air_yards": 17.661054172767233,
+          "receptions": 5,
+          "targets": 6,
+          "catch_percentage": 83.33333333333334,
+          "yards": 33,
+          "rec_touchdowns": 0,
+          "avg_yac": 7.059999999999997,
+          "avg_expected_yac": 8.108419109562693,
+          "avg_yac_above_expectation": -1.0484191095626958
+        }
+      }
+    },
+    {
+      "player_id": "00-0039040",
+      "player_name": "De'Von Achane",
+      "team_abbr": "MIA",
+      "position": "RB",
+      "number": 28,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.598292682926829,
+          "percent_attempts_gte_eight_defenders": 23.07692307692308,
+          "avg_time_to_los": 3.091181818181818,
+          "rush_attempts": 13,
+          "rush_yards": 82,
+          "avg_rush_yards": 6.307692307692308,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 48.47786275921212,
+          "rush_yards_over_expected": 33.52213724078788,
+          "rush_yards_over_expected_per_att": 2.5786259415990678,
+          "rush_pct_over_expected": 0.2307692307692307
+        }
+      }
+    },
+    {
+      "player_id": "00-0039880",
+      "player_name": "Malik Washington",
+      "team_abbr": "MIA",
+      "position": "WR",
+      "number": 6,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.5175,
+          "avg_separation": 2.728468764726292,
+          "avg_intended_air_yards": 5.478571428571428,
+          "percent_share_of_intended_air_yards": 20.16192629199306,
+          "receptions": 5,
+          "targets": 7,
+          "catch_percentage": 71.42857142857143,
+          "yards": 30,
+          "rec_touchdowns": 0,
+          "avg_yac": 3.0120000000000005,
+          "avg_expected_yac": 5.238458835321535,
+          "avg_yac_above_expectation": -2.2264588353215347
+        }
+      }
+    },
+    {
+      "player_id": "00-0036212",
+      "player_name": "Tua Tagovailoa",
+      "team_abbr": "MIA",
+      "position": "QB",
+      "number": 1,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.498434782608696,
+          "avg_completed_air_yards": 2.9249999999999994,
+          "avg_intended_air_yards": 5.451818181818182,
+          "avg_air_yards_differential": -2.5268181818181827,
+          "aggressiveness": 4.3478260869565215,
+          "max_completed_air_distance": 30.351988402738957,
+          "avg_air_yards_to_sticks": -4.457272727272727,
+          "attempts": 23,
+          "pass_yards": 100,
+          "pass_touchdowns": 0,
+          "interceptions": 3,
+          "passer_rating": 24.094202898550723,
+          "completions": 12,
+          "completion_percentage": 52.17391304347826,
+          "expected_completion_percentage": 65.11739130434782,
+          "completion_percentage_above_expectation": -12.94347826086956,
+          "avg_air_distance": 19.9963706906642,
+          "max_air_distance": 43.40455736440587
+        }
+      }
+    },
+    {
+      "player_id": "00-0032950",
+      "player_name": "Carson Wentz",
+      "team_abbr": "MIN",
+      "position": "QB",
+      "number": 11,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.961428571428572,
+          "avg_completed_air_yards": 7.397307692307692,
+          "avg_intended_air_yards": 10.46125,
+          "avg_air_yards_differential": -3.063942307692308,
+          "aggressiveness": 21.428571428571427,
+          "max_completed_air_distance": 48.4544662544125,
+          "avg_air_yards_to_sticks": 1.46125,
+          "attempts": 42,
+          "pass_yards": 313,
+          "pass_touchdowns": 0,
+          "interceptions": 2,
+          "passer_rating": 64.88095238095238,
+          "completions": 26,
+          "completion_percentage": 61.90476190476191,
+          "expected_completion_percentage": 60.52690476190475,
+          "completion_percentage_above_expectation": 1.3778571428571524,
+          "avg_air_distance": 24.090934917273056,
+          "max_air_distance": 54.13103453657615
+        }
+      }
+    },
+    {
+      "player_id": "00-0038994",
+      "player_name": "Jordan Addison",
+      "team_abbr": "MIN",
+      "position": "WR",
+      "number": 3,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.722727272727272,
+          "avg_separation": 2.792229733130993,
+          "avg_intended_air_yards": 16.231666666666666,
+          "percent_share_of_intended_air_yards": 46.547974668419165,
+          "receptions": 9,
+          "targets": 12,
+          "catch_percentage": 75.0,
+          "yards": 128,
+          "rec_touchdowns": 0,
+          "avg_yac": 1.198888888888889,
+          "avg_expected_yac": 1.6607325860882964,
+          "avg_yac_above_expectation": -0.4618436971994075
+        }
+      }
+    },
+    {
+      "player_id": "00-0037525",
+      "player_name": "Jordan Mason",
+      "team_abbr": "MIN",
+      "position": "RB",
+      "number": 27,
+      "stats": {
+        "rushing": {
+          "efficiency": 4.825263157894736,
+          "percent_attempts_gte_eight_defenders": 6.666666666666667,
+          "avg_time_to_los": 2.889153846153846,
+          "rush_attempts": 15,
+          "rush_yards": 57,
+          "avg_rush_yards": 3.8,
+          "rush_touchdowns": 1,
+          "expected_rush_yards": 61.187513089909054,
+          "rush_yards_over_expected": -5.187513089909054,
+          "rush_yards_over_expected_per_att": -0.3705366492792181,
+          "rush_pct_over_expected": 0.4285714285714285
+        }
+      }
+    },
+    {
+      "player_id": "00-0036322",
+      "player_name": "Justin Jefferson",
+      "team_abbr": "MIN",
+      "position": "WR",
+      "number": 18,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.335555555555555,
+          "avg_separation": 2.023489284457924,
+          "avg_intended_air_yards": 11.831,
+          "percent_share_of_intended_air_yards": 28.27338989126538,
+          "receptions": 5,
+          "targets": 10,
+          "catch_percentage": 50.0,
+          "yards": 79,
+          "rec_touchdowns": 0,
+          "avg_yac": 12.246000000000004,
+          "avg_expected_yac": 5.146374127708761,
+          "avg_yac_above_expectation": 7.099625872291243
+        }
+      }
+    },
+    {
+      "player_id": "00-0035229",
+      "player_name": "T.J. Hockenson",
+      "team_abbr": "MIN",
+      "position": "TE",
+      "number": 87,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.061428571428571,
+          "avg_separation": 4.219026617856188,
+          "avg_intended_air_yards": 4.047777777777778,
+          "percent_share_of_intended_air_yards": 8.705938582865338,
+          "receptions": 6,
+          "targets": 9,
+          "catch_percentage": 66.66666666666666,
+          "yards": 43,
+          "rec_touchdowns": 0,
+          "avg_yac": 4.401666666666666,
+          "avg_expected_yac": 5.752196399099527,
+          "avg_yac_above_expectation": -1.350529732432861
+        }
+      }
+    },
+    {
+      "player_id": "00-0039851",
+      "player_name": "Drake Maye",
+      "team_abbr": "NE",
+      "position": "QB",
+      "number": 10,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.5989565217391304,
+          "avg_completed_air_yards": 7.812380952380953,
+          "avg_intended_air_yards": 8.156521739130437,
+          "avg_air_yards_differential": -0.3441407867494837,
+          "aggressiveness": 17.391304347826086,
+          "max_completed_air_distance": 52.57733447028292,
+          "avg_air_yards_to_sticks": -0.147826086956522,
+          "attempts": 23,
+          "pass_yards": 222,
+          "pass_touchdowns": 2,
+          "interceptions": 0,
+          "passer_rating": 135.86956521739128,
+          "completions": 21,
+          "completion_percentage": 91.30434782608695,
+          "expected_completion_percentage": 66.91869565217391,
+          "completion_percentage_above_expectation": 24.385652173913044,
+          "avg_air_distance": 19.94397682105975,
+          "max_air_distance": 52.57733447028292
+        }
+      }
+    },
+    {
+      "player_id": "00-0033090",
+      "player_name": "Hunter Henry",
+      "team_abbr": "NE",
+      "position": "TE",
+      "number": 85,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.1275,
+          "avg_separation": 4.263312692684577,
+          "avg_intended_air_yards": 5.366,
+          "percent_share_of_intended_air_yards": 13.423053832299376,
+          "receptions": 4,
+          "targets": 5,
+          "catch_percentage": 80.0,
+          "yards": 33,
+          "rec_touchdowns": 0,
+          "avg_yac": 4.470000000000001,
+          "avg_expected_yac": 4.875425391707267,
+          "avg_yac_above_expectation": -0.4054253917072667
+        }
+      }
+    },
+    {
+      "player_id": "00-0036875",
+      "player_name": "Rhamondre Stevenson",
+      "team_abbr": "NE",
+      "position": "RB",
+      "number": 38,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.730681818181819,
+          "percent_attempts_gte_eight_defenders": 22.22222222222222,
+          "avg_time_to_los": 2.913875,
+          "rush_attempts": 18,
+          "rush_yards": 88,
+          "avg_rush_yards": 4.888888888888889,
+          "rush_touchdowns": 1,
+          "expected_rush_yards": 57.55969516799384,
+          "rush_yards_over_expected": 30.440304832006163,
+          "rush_yards_over_expected_per_att": 1.6911280462225646,
+          "rush_pct_over_expected": 0.5555555555555556
+        }
+      }
+    },
+    {
+      "player_id": "00-0031588",
+      "player_name": "Stefon Diggs",
+      "team_abbr": "NE",
+      "position": "WR",
+      "number": 8,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.081428571428572,
+          "avg_separation": 2.472133391910464,
+          "avg_intended_air_yards": 6.54,
+          "percent_share_of_intended_air_yards": 22.903742245347207,
+          "receptions": 7,
+          "targets": 7,
+          "catch_percentage": 100.0,
+          "yards": 69,
+          "rec_touchdowns": 0,
+          "avg_yac": 3.3171428571428563,
+          "avg_expected_yac": 2.977096152123717,
+          "avg_yac_above_expectation": 0.3400467050191391
+        }
+      }
+    },
+    {
+      "player_id": "00-0033906",
+      "player_name": "Alvin Kamara",
+      "team_abbr": "NO",
+      "position": "RB",
+      "number": 41,
+      "stats": {
+        "rushing": {
+          "efficiency": 5.832142857142856,
+          "percent_attempts_gte_eight_defenders": 0.0,
+          "avg_time_to_los": 2.7161,
+          "rush_attempts": 11,
+          "rush_yards": 28,
+          "avg_rush_yards": 2.5454545454545454,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 42.00202631873002,
+          "rush_yards_over_expected": -16.002026318730017,
+          "rush_yards_over_expected_per_att": -1.6002026318730018,
+          "rush_pct_over_expected": 0.2
+        }
+      }
+    },
+    {
+      "player_id": "00-0037239",
+      "player_name": "Chris Olave",
+      "team_abbr": "NO",
+      "position": "WR",
+      "number": 12,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.248333333333334,
+          "avg_separation": 1.444493235140588,
+          "avg_intended_air_yards": 19.77857142857143,
+          "percent_share_of_intended_air_yards": 38.00543523017376,
+          "receptions": 5,
+          "targets": 7,
+          "catch_percentage": 71.42857142857143,
+          "yards": 98,
+          "rec_touchdowns": 2,
+          "avg_yac": 2.744,
+          "avg_expected_yac": 4.975891026512182,
+          "avg_yac_above_expectation": -2.231891026512182
+        }
+      }
+    },
+    {
+      "player_id": "00-0036040",
+      "player_name": "Juwan Johnson",
+      "team_abbr": "NO",
+      "position": "TE",
+      "number": 83,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.388333333333333,
+          "avg_separation": 4.563016008410038,
+          "avg_intended_air_yards": 8.494285714285716,
+          "percent_share_of_intended_air_yards": 16.32216091575394,
+          "receptions": 5,
+          "targets": 7,
+          "catch_percentage": 71.42857142857143,
+          "yards": 79,
+          "rec_touchdowns": 0,
+          "avg_yac": 8.073999999999998,
+          "avg_expected_yac": 7.878332798511235,
+          "avg_yac_above_expectation": 0.1956672014887628
+        }
+      }
+    },
+    {
+      "player_id": "00-0037545",
+      "player_name": "Rashid Shaheed",
+      "team_abbr": "NO",
+      "position": "WR",
+      "number": 22,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.707777777777777,
+          "avg_separation": 2.497678526598242,
+          "avg_intended_air_yards": 14.67111111111111,
+          "percent_share_of_intended_air_yards": 36.24584808806171,
+          "receptions": 4,
+          "targets": 9,
+          "catch_percentage": 44.44444444444444,
+          "yards": 40,
+          "rec_touchdowns": 0,
+          "avg_yac": 3.532500000000001,
+          "avg_expected_yac": 3.932642958450572,
+          "avg_yac_above_expectation": -0.4001429584505702
+        }
+      }
+    },
+    {
+      "player_id": "00-0039376",
+      "player_name": "Spencer Rattler",
+      "team_abbr": "NO",
+      "position": "QB",
+      "number": 2,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.8387187500000004,
+          "avg_completed_air_yards": 8.220500000000001,
+          "avg_intended_air_yards": 11.751290322580644,
+          "avg_air_yards_differential": -3.5307903225806427,
+          "aggressiveness": 12.5,
+          "max_completed_air_distance": 54.88874565883247,
+          "avg_air_yards_to_sticks": 1.783548387096774,
+          "attempts": 32,
+          "pass_yards": 233,
+          "pass_touchdowns": 2,
+          "interceptions": 3,
+          "passer_rating": 66.27604166666666,
+          "completions": 20,
+          "completion_percentage": 62.5,
+          "expected_completion_percentage": 61.28500000000001,
+          "completion_percentage_above_expectation": 1.2149999999999892,
+          "avg_air_distance": 22.909955618361547,
+          "max_air_distance": 56.99244248143784
+        }
+      }
+    },
+    {
+      "player_id": "00-0040715",
+      "player_name": "Cam Skattebo",
+      "team_abbr": "NYG",
+      "position": "RB",
+      "number": 44,
+      "stats": {
+        "rushing": {
+          "efficiency": 4.454666666666666,
+          "percent_attempts_gte_eight_defenders": 25.0,
+          "avg_time_to_los": 2.8468,
+          "rush_attempts": 16,
+          "rush_yards": 60,
+          "avg_rush_yards": 3.75,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 48.305403250605366,
+          "rush_yards_over_expected": 11.694596749394634,
+          "rush_yards_over_expected_per_att": 0.7309122968371646,
+          "rush_pct_over_expected": 0.5
+        }
+      }
+    },
+    {
+      "player_id": "00-0040691",
+      "player_name": "Jaxson Dart",
+      "team_abbr": "NYG",
+      "position": "QB",
+      "number": 6,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.9316060606060605,
+          "avg_completed_air_yards": 8.146666666666667,
+          "avg_intended_air_yards": 10.576969696969696,
+          "avg_air_yards_differential": -2.4303030303030297,
+          "aggressiveness": 9.090909090909092,
+          "max_completed_air_distance": 45.24987624292469,
+          "avg_air_yards_to_sticks": 0.9709090909090908,
+          "attempts": 33,
+          "pass_yards": 283,
+          "pass_touchdowns": 3,
+          "interceptions": 1,
+          "passer_rating": 93.37121212121212,
+          "completions": 15,
+          "completion_percentage": 45.45454545454545,
+          "expected_completion_percentage": 63.563333333333325,
+          "completion_percentage_above_expectation": -18.108787878787872,
+          "avg_air_distance": 23.070020917984397,
+          "max_air_distance": 55.06288859113731
+        }
+      }
+    },
+    {
+      "player_id": "00-0039847",
+      "player_name": "Theo Johnson",
+      "team_abbr": "NYG",
+      "position": "TE",
+      "number": 84,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.043333333333334,
+          "avg_separation": 4.358004989594591,
+          "avg_intended_air_yards": 4.222857142857143,
+          "percent_share_of_intended_air_yards": 8.468943387577356,
+          "receptions": 3,
+          "targets": 7,
+          "catch_percentage": 42.85714285714285,
+          "yards": 66,
+          "rec_touchdowns": 1,
+          "avg_yac": 15.863333333333337,
+          "avg_expected_yac": 17.833258076814673,
+          "avg_yac_above_expectation": -1.9699247434813376
+        }
+      }
+    },
+    {
+      "player_id": "00-0038117",
+      "player_name": "Wan'Dale Robinson",
+      "team_abbr": "NYG",
+      "position": "WR",
+      "number": 17,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.09909090909091,
+          "avg_separation": 2.59796606473747,
+          "avg_intended_air_yards": 10.456666666666663,
+          "percent_share_of_intended_air_yards": 35.950034380013754,
+          "receptions": 6,
+          "targets": 12,
+          "catch_percentage": 50.0,
+          "yards": 95,
+          "rec_touchdowns": 0,
+          "avg_yac": 7.3516666666666675,
+          "avg_expected_yac": 5.619622337931673,
+          "avg_yac_above_expectation": 1.732044328734994
+        }
+      }
+    },
+    {
+      "player_id": "00-0038120",
+      "player_name": "Breece Hall",
+      "team_abbr": "NYJ",
+      "position": "RB",
+      "number": 20,
+      "stats": {
+        "rushing": {
+          "efficiency": 4.3539473684210535,
+          "percent_attempts_gte_eight_defenders": 18.181818181818183,
+          "avg_time_to_los": 2.497636363636363,
+          "rush_attempts": 11,
+          "rush_yards": 38,
+          "avg_rush_yards": 3.4545454545454546,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 54.08493773397588,
+          "rush_yards_over_expected": -16.084937733975877,
+          "rush_yards_over_expected_per_att": -1.4622670667250797,
+          "rush_pct_over_expected": 0.2727272727272727
+        }
+      }
+    },
+    {
+      "player_id": "00-0033943",
+      "player_name": "Josh Reynolds",
+      "team_abbr": "NYJ",
+      "position": "WR",
+      "number": 83,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 8.283333333333333,
+          "avg_separation": 0.9905868196754984,
+          "avg_intended_air_yards": 18.01777777777778,
+          "percent_share_of_intended_air_yards": 43.52587502684133,
+          "receptions": 3,
+          "targets": 9,
+          "catch_percentage": 33.33333333333333,
+          "yards": 29,
+          "rec_touchdowns": 0,
+          "avg_yac": 1.0799999999999983,
+          "avg_expected_yac": 1.6019663438704017,
+          "avg_yac_above_expectation": -0.5219663438704032
+        }
+      }
+    },
+    {
+      "player_id": "00-0040736",
+      "player_name": "Mason Taylor",
+      "team_abbr": "NYJ",
+      "position": "TE",
+      "number": 85,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 8.898,
+          "avg_separation": 3.509793826949285,
+          "avg_intended_air_yards": 5.780000000000001,
+          "percent_share_of_intended_air_yards": 7.757139789564099,
+          "receptions": 3,
+          "targets": 5,
+          "catch_percentage": 60.0,
+          "yards": 31,
+          "rec_touchdowns": 0,
+          "avg_yac": 5.136666666666666,
+          "avg_expected_yac": 4.945889054478054,
+          "avg_yac_above_expectation": 0.1907776121886115
+        }
+      }
+    },
+    {
+      "player_id": "00-0028118",
+      "player_name": "Tyrod Taylor",
+      "team_abbr": "NYJ",
+      "position": "QB",
+      "number": 2,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 3.1707727272727277,
+          "avg_completed_air_yards": 9.064000000000002,
+          "avg_intended_air_yards": 14.902499999999998,
+          "avg_air_yards_differential": -5.838499999999996,
+          "aggressiveness": 31.818181818181817,
+          "max_completed_air_distance": 31.997951496931805,
+          "avg_air_yards_to_sticks": 5.2525,
+          "attempts": 22,
+          "pass_yards": 126,
+          "pass_touchdowns": 0,
+          "interceptions": 2,
+          "passer_rating": 25.946969696969692,
+          "completions": 10,
+          "completion_percentage": 45.45454545454545,
+          "expected_completion_percentage": 54.334545454545456,
+          "completion_percentage_above_expectation": -8.880000000000003,
+          "avg_air_distance": 27.0330989903552,
+          "max_air_distance": 57.50716129318156
+        }
+      }
+    },
+    {
+      "player_id": "00-0035676",
+      "player_name": "A.J. Brown",
+      "team_abbr": "PHI",
+      "position": "WR",
+      "number": 11,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 8.333333333333334,
+          "avg_separation": 1.250744764138772,
+          "avg_intended_air_yards": 17.783333333333335,
+          "percent_share_of_intended_air_yards": 38.47818247385504,
+          "receptions": 4,
+          "targets": 6,
+          "catch_percentage": 66.66666666666666,
+          "yards": 121,
+          "rec_touchdowns": 2,
+          "avg_yac": 7.797499999999998,
+          "avg_expected_yac": 3.4932333015635493,
+          "avg_yac_above_expectation": 4.304266698436448
+        }
+      }
+    },
+    {
+      "player_id": "00-0036912",
+      "player_name": "DeVonta Smith",
+      "team_abbr": "PHI",
+      "position": "WR",
+      "number": 6,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.619,
+          "avg_separation": 3.019333879132826,
+          "avg_intended_air_yards": 15.435454545454546,
+          "percent_share_of_intended_air_yards": 61.22971510998919,
+          "receptions": 9,
+          "targets": 11,
+          "catch_percentage": 81.81818181818183,
+          "yards": 183,
+          "rec_touchdowns": 1,
+          "avg_yac": 4.654444444444443,
+          "avg_expected_yac": 3.8697465813215786,
+          "avg_yac_above_expectation": 0.7846978631228643
+        }
+      }
+    },
+    {
+      "player_id": "00-0036389",
+      "player_name": "Jalen Hurts",
+      "team_abbr": "PHI",
+      "position": "QB",
+      "number": 1,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 3.3875652173913045,
+          "avg_completed_air_yards": 12.196315789473685,
+          "avg_intended_air_yards": 12.056521739130432,
+          "avg_air_yards_differential": 0.1397940503432497,
+          "aggressiveness": 17.391304347826086,
+          "max_completed_air_distance": 54.55135195391587,
+          "avg_air_yards_to_sticks": 2.143478260869565,
+          "attempts": 23,
+          "pass_yards": 326,
+          "pass_touchdowns": 3,
+          "interceptions": 0,
+          "passer_rating": 158.33333333333331,
+          "completions": 19,
+          "completion_percentage": 82.6086956521739,
+          "expected_completion_percentage": 57.56782608695651,
+          "completion_percentage_above_expectation": 25.0408695652174,
+          "avg_air_distance": 25.56402802805217,
+          "max_air_distance": 54.55135195391587
+        }
+      }
+    },
+    {
+      "player_id": "00-0034844",
+      "player_name": "Saquon Barkley",
+      "team_abbr": "PHI",
+      "position": "RB",
+      "number": 26,
+      "stats": {
+        "rushing": {
+          "efficiency": 6.315454545454545,
+          "percent_attempts_gte_eight_defenders": 50.0,
+          "avg_time_to_los": 2.9289333333333336,
+          "rush_attempts": 18,
+          "rush_yards": 44,
+          "avg_rush_yards": 2.4444444444444446,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 34.509311361890134,
+          "rush_yards_over_expected": 3.490688638109866,
+          "rush_yards_over_expected_per_att": 0.232712575873991,
+          "rush_pct_over_expected": 0.4
         }
       }
     },
@@ -190,9 +2387,9 @@
           "rush_yards": 127,
           "avg_rush_yards": 7.9375,
           "rush_touchdowns": 0,
-          "expected_rush_yards": 64.30172236744656,
-          "rush_yards_over_expected": 62.69827763255344,
-          "rush_yards_over_expected_per_att": 3.91864235203459,
+          "expected_rush_yards": 64.30172236744657,
+          "rush_yards_over_expected": 62.69827763255343,
+          "rush_yards_over_expected_per_att": 3.918642352034589,
           "rush_pct_over_expected": 0.6875
         }
       }
@@ -240,6 +2437,275 @@
           "avg_yac": 12.494,
           "avg_expected_yac": 3.327019512077584,
           "avg_yac_above_expectation": 9.166980487922416
+        }
+      }
+    },
+    {
+      "player_id": "00-0033280",
+      "player_name": "Christian McCaffrey",
+      "team_abbr": "SF",
+      "position": "RB",
+      "number": 23,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.287751937984496,
+          "percent_attempts_gte_eight_defenders": 41.66666666666667,
+          "avg_time_to_los": 2.7007727272727275,
+          "rush_attempts": 24,
+          "rush_yards": 129,
+          "avg_rush_yards": 5.375,
+          "rush_touchdowns": 2,
+          "expected_rush_yards": 111.777903376321,
+          "rush_yards_over_expected": 17.222096623679008,
+          "rush_yards_over_expected_per_att": 0.7175873593199587,
+          "rush_pct_over_expected": 0.625
+        }
+      }
+    },
+    {
+      "player_id": "00-0036259",
+      "player_name": "Jauan Jennings",
+      "team_abbr": "SF",
+      "position": "WR",
+      "number": 15,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.328571428571429,
+          "avg_separation": 2.5005302777895464,
+          "avg_intended_air_yards": 5.891428571428569,
+          "percent_share_of_intended_air_yards": 37.46025978744662,
+          "receptions": 4,
+          "targets": 7,
+          "catch_percentage": 57.14285714285714,
+          "yards": 31,
+          "rec_touchdowns": 0,
+          "avg_yac": 2.382500000000002,
+          "avg_expected_yac": 2.5946712272658488,
+          "avg_yac_above_expectation": -0.2121712272658467
+        }
+      }
+    },
+    {
+      "player_id": "00-0036972",
+      "player_name": "Mac Jones",
+      "team_abbr": "SF",
+      "position": "QB",
+      "number": 10,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.7178076923076926,
+          "avg_completed_air_yards": 2.6982352941176475,
+          "avg_intended_air_yards": 4.587083333333333,
+          "avg_air_yards_differential": -1.8888480392156857,
+          "aggressiveness": 7.6923076923076925,
+          "max_completed_air_distance": 26.599537589965728,
+          "avg_air_yards_to_sticks": -3.62125,
+          "attempts": 26,
+          "pass_yards": 152,
+          "pass_touchdowns": 0,
+          "interceptions": 1,
+          "passer_rating": 64.90384615384616,
+          "completions": 17,
+          "completion_percentage": 65.38461538461539,
+          "expected_completion_percentage": 71.37192307692307,
+          "completion_percentage_above_expectation": -5.987307692307681,
+          "avg_air_distance": 18.107365695647868,
+          "max_air_distance": 54.81956585015974
+        }
+      }
+    },
+    {
+      "player_id": "00-0040676",
+      "player_name": "Cam Ward",
+      "team_abbr": "TEN",
+      "position": "QB",
+      "number": 1,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.847235294117646,
+          "avg_completed_air_yards": 4.587599999999999,
+          "avg_intended_air_yards": 5.6171875,
+          "avg_air_yards_differential": -1.0295875000000008,
+          "aggressiveness": 8.823529411764707,
+          "max_completed_air_distance": 50.04696394387975,
+          "avg_air_yards_to_sticks": -3.070312500000001,
+          "attempts": 34,
+          "pass_yards": 255,
+          "pass_touchdowns": 1,
+          "interceptions": 1,
+          "passer_rating": 92.15686274509804,
+          "completions": 25,
+          "completion_percentage": 73.52941176470588,
+          "expected_completion_percentage": 67.38911764705881,
+          "completion_percentage_above_expectation": 6.140294117647073,
+          "avg_air_distance": 19.223508332527334,
+          "max_air_distance": 50.04696394387975
+        }
+      }
+    },
+    {
+      "player_id": "00-0040170",
+      "player_name": "Elic Ayomanor",
+      "team_abbr": "TEN",
+      "position": "WR",
+      "number": 5,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 7.029999999999999,
+          "avg_separation": 2.5275779381932084,
+          "avg_intended_air_yards": 7.82,
+          "percent_share_of_intended_air_yards": 21.752433936022253,
+          "receptions": 2,
+          "targets": 5,
+          "catch_percentage": 40.0,
+          "yards": 29,
+          "rec_touchdowns": 0,
+          "avg_yac": 7.110000000000003,
+          "avg_expected_yac": 9.82870708633368,
+          "avg_yac_above_expectation": -2.7187070863336764
+        }
+      }
+    },
+    {
+      "player_id": "00-0040584",
+      "player_name": "Gunnar Helm",
+      "team_abbr": "TEN",
+      "position": "TE",
+      "number": 84,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.3275,
+          "avg_separation": 3.2559985495996115,
+          "avg_intended_air_yards": 8.059999999999999,
+          "percent_share_of_intended_air_yards": 22.42002781641168,
+          "receptions": 4,
+          "targets": 5,
+          "catch_percentage": 80.0,
+          "yards": 36,
+          "rec_touchdowns": 0,
+          "avg_yac": 3.335000000000001,
+          "avg_expected_yac": 3.969436727254276,
+          "avg_yac_above_expectation": -0.6344367272542755
+        }
+      }
+    },
+    {
+      "player_id": "00-0032398",
+      "player_name": "Chris Moore",
+      "team_abbr": "WAS",
+      "position": "WR",
+      "number": 19,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 8.09,
+          "avg_separation": 2.644953239338009,
+          "avg_intended_air_yards": 13.86,
+          "percent_share_of_intended_air_yards": 23.344337398100105,
+          "receptions": 2,
+          "targets": 5,
+          "catch_percentage": 40.0,
+          "yards": 59,
+          "rec_touchdowns": 0,
+          "avg_yac": 14.86,
+          "avg_expected_yac": 11.858763301448562,
+          "avg_yac_above_expectation": 3.0012366985514376
+        }
+      }
+    },
+    {
+      "player_id": "00-0040242",
+      "player_name": "Jacory Croskey-Merritt",
+      "team_abbr": "WAS",
+      "position": "RB",
+      "number": 22,
+      "stats": {
+        "rushing": {
+          "efficiency": 4.606363636363636,
+          "percent_attempts_gte_eight_defenders": 38.46153846153847,
+          "avg_time_to_los": 2.9028181818181817,
+          "rush_attempts": 13,
+          "rush_yards": 33,
+          "avg_rush_yards": 2.5384615384615383,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 31.67875091916133,
+          "rush_yards_over_expected": 1.321249080838669,
+          "rush_yards_over_expected_per_att": 0.1016345446798976,
+          "rush_pct_over_expected": 0.3846153846153846
+        }
+      }
+    },
+    {
+      "player_id": "00-0039910",
+      "player_name": "Jayden Daniels",
+      "team_abbr": "WAS",
+      "position": "QB",
+      "number": 5,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 3.1235000000000004,
+          "avg_completed_air_yards": 6.748333333333334,
+          "avg_intended_air_yards": 8.00952380952381,
+          "avg_air_yards_differential": -1.2611904761904755,
+          "aggressiveness": 9.090909090909092,
+          "max_completed_air_distance": 47.1414096098112,
+          "avg_air_yards_to_sticks": -0.0380952380952377,
+          "attempts": 22,
+          "pass_yards": 156,
+          "pass_touchdowns": 1,
+          "interceptions": 0,
+          "passer_rating": 92.23484848484848,
+          "completions": 12,
+          "completion_percentage": 54.54545454545454,
+          "expected_completion_percentage": 69.13,
+          "completion_percentage_above_expectation": -14.584545454545456,
+          "avg_air_distance": 21.73546884972717,
+          "max_air_distance": 47.1414096098112
+        }
+      }
+    },
+    {
+      "player_id": "00-0040164",
+      "player_name": "Jaylin Lane",
+      "team_abbr": "WAS",
+      "position": "WR",
+      "number": 83,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.846,
+          "avg_separation": 3.165291174716742,
+          "avg_intended_air_yards": 18.94833333333333,
+          "percent_share_of_intended_air_yards": 38.297513979653694,
+          "receptions": 3,
+          "targets": 6,
+          "catch_percentage": 50.0,
+          "yards": 60,
+          "rec_touchdowns": 0,
+          "avg_yac": 2.056666666666666,
+          "avg_expected_yac": 3.502094892814663,
+          "avg_yac_above_expectation": -1.445428226147997
+        }
+      }
+    },
+    {
+      "player_id": "00-0030061",
+      "player_name": "Zach Ertz",
+      "team_abbr": "WAS",
+      "position": "TE",
+      "number": 86,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.335714285714286,
+          "avg_separation": 2.788690205098733,
+          "avg_intended_air_yards": 8.58857142857143,
+          "percent_share_of_intended_air_yards": 20.25197062588425,
+          "receptions": 3,
+          "targets": 7,
+          "catch_percentage": 42.85714285714285,
+          "yards": 37,
+          "rec_touchdowns": 1,
+          "avg_yac": 5.426666666666665,
+          "avg_expected_yac": 3.4159277597893074,
+          "avg_yac_above_expectation": 2.0107389068773576
         }
       }
     }

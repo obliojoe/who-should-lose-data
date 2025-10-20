@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-20T01:45:32.234476",
+  "timestamp": "2025-10-20T11:01:45.505790",
   "num_simulations": 100000,
   "sagarin_hash": "a995cc8a4752ccc4151a17dc119d592c",
   "seed_multipliers": {
@@ -239,6 +239,110 @@
             "root_against_seed_only": "TEN"
           },
           "completed": true
+        },
+        {
+          "date": "2025-10-20",
+          "away_team": "HOU",
+          "home_team": "SEA",
+          "impact": 0.4,
+          "impact_breakdown": {
+            "signed_swings": {
+              "playoff_pp": 0.45,
+              "division_pp": 0.27,
+              "top_seed_pp": -0.0,
+              "seed_value_pp": 0.18
+            },
+            "weighted_contributions": {
+              "playoff": 0.263,
+              "division": 0.079,
+              "top_seed": -0.0,
+              "seed": 0.021
+            },
+            "dominant_reason": "playoff",
+            "conflict": false
+          },
+          "utility_weights": {
+            "playoff": 0.5882352941176471,
+            "division": 0.29411764705882354,
+            "top_seed": 0.0,
+            "seed": 0.11764705882352942
+          },
+          "clinch_state": {
+            "playoffs": "open",
+            "division": "open",
+            "top_seed": "eliminated"
+          },
+          "gametime": "22:00",
+          "stadium": "Lumen Field",
+          "week": 7,
+          "day": "Sunday",
+          "root_against": "SEA",
+          "espn_id": "401772826",
+          "debug_stats": {
+            "total_sims": 100000,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 2.8,
+            "away_playoff_pct": 3.3,
+            "home_division_pct": 0.3,
+            "away_division_pct": 0.6,
+            "home_top_seed_pct": 0.0,
+            "away_top_seed_pct": 0.0,
+            "home_sb_appearance_pct": 0.1,
+            "away_sb_appearance_pct": 0.1,
+            "home_sb_win_pct": 0.0,
+            "away_sb_win_pct": 0.0,
+            "home_seeds": {
+              "7": 1.5,
+              "6": 0.78,
+              "5": 0.25,
+              "4": 0.19,
+              "3": 0.09,
+              "2": 0.03,
+              "1": 0.0
+            },
+            "away_seeds": {
+              "7": 1.55,
+              "6": 0.85,
+              "5": 0.31,
+              "4": 0.36,
+              "2": 0.06,
+              "3": 0.15
+            },
+            "home_expected_seed_value": 0.8,
+            "away_expected_seed_value": 1.0,
+            "seed_value_impact": 0.2,
+            "impact_breakdown": {
+              "signed_swings": {
+                "playoff_pp": 0.45,
+                "division_pp": 0.27,
+                "top_seed_pp": -0.0,
+                "seed_value_pp": 0.18
+              },
+              "weighted_contributions": {
+                "playoff": 0.263,
+                "division": 0.079,
+                "top_seed": -0.0,
+                "seed": 0.021
+              },
+              "dominant_reason": "playoff",
+              "conflict": false
+            },
+            "utility_weights": {
+              "playoff": 0.5882352941176471,
+              "division": 0.29411764705882354,
+              "top_seed": 0.0,
+              "seed": 0.11764705882352942
+            },
+            "clinch_state": {
+              "playoffs": "open",
+              "division": "open",
+              "top_seed": "eliminated"
+            },
+            "root_against": "SEA",
+            "root_against_seed_only": "SEA"
+          },
+          "completed": false
         },
         {
           "date": "2025-10-19",
@@ -576,11 +680,11 @@
           "week": 6
         }
       },
-      "chaos_score": 8.1,
+      "chaos_score": 8.2,
       "chaos_details": {
-        "chaos_score": 8.1,
-        "playoff_swing": 8.8,
-        "division_swing": 1.9,
+        "chaos_score": 8.2,
+        "playoff_swing": 8.9,
+        "division_swing": 2.0,
         "seed_swing": 4.5,
         "best_case": {
           "playoff_pct": 11.7,
@@ -588,8 +692,8 @@
           "seed_value": 4.5
         },
         "worst_case": {
-          "playoff_pct": 2.9,
-          "division_pct": 0.4,
+          "playoff_pct": 2.8,
+          "division_pct": 0.3,
           "seed_value": 0
         },
         "explanation": "Relatively stable"
@@ -601,10 +705,10 @@
       "mascot": "Falcons",
       "conference": "NFC",
       "division": "NFC South",
-      "playoff_chance": 37.9,
-      "division_chance": 10.4,
-      "top_seed_chance": 1.1,
-      "super_bowl_appearance_chance": 2.1,
+      "playoff_chance": 38.3,
+      "division_chance": 10.3,
+      "top_seed_chance": 1.0,
+      "super_bowl_appearance_chance": 2.2,
       "super_bowl_win_chance": 0.8,
       "num_simulations": 100000,
       "significant_games": [
@@ -829,16 +933,16 @@
           "impact": 2.1,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -0.1,
-              "division_pp": -7.24,
-              "top_seed_pp": -0.22,
-              "seed_value_pp": -1.59
+              "playoff_pp": -0.15,
+              "division_pp": -7.35,
+              "top_seed_pp": -0.13,
+              "seed_value_pp": -1.55
             },
             "weighted_contributions": {
-              "playoff": -0.051,
-              "division": -1.809,
-              "top_seed": -0.033,
-              "seed": -0.159
+              "playoff": -0.076,
+              "division": -1.837,
+              "top_seed": -0.02,
+              "seed": -0.155
             },
             "dominant_reason": "division",
             "conflict": false
@@ -862,51 +966,51 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 37.9,
-            "away_playoff_pct": 37.8,
-            "home_division_pct": 12.7,
-            "away_division_pct": 5.4,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 38.3,
+            "away_playoff_pct": 38.2,
+            "home_division_pct": 12.6,
+            "away_division_pct": 5.3,
             "home_top_seed_pct": 1.1,
-            "away_top_seed_pct": 0.9,
-            "home_sb_appearance_pct": 2.2,
-            "away_sb_appearance_pct": 2.1,
-            "home_sb_win_pct": 0.9,
-            "away_sb_win_pct": 0.7,
+            "away_top_seed_pct": 1.0,
+            "home_sb_appearance_pct": 2.1,
+            "away_sb_appearance_pct": 2.3,
+            "home_sb_win_pct": 0.8,
+            "away_sb_win_pct": 0.9,
             "home_seeds": {
-              "3": 3.91,
-              "7": 10.36,
-              "5": 6.13,
-              "4": 4.99,
-              "6": 8.8,
-              "2": 2.64,
-              "1": 1.12
+              "3": 4.05,
+              "2": 2.51,
+              "7": 10.6,
+              "6": 8.98,
+              "5": 6.11,
+              "4": 4.97,
+              "1": 1.09
             },
             "away_seeds": {
-              "5": 10.49,
-              "7": 11.17,
-              "1": 0.91,
-              "6": 10.76,
-              "2": 1.51,
-              "4": 1.33,
-              "3": 1.69
+              "5": 10.78,
+              "7": 11.16,
+              "6": 10.94,
+              "3": 1.45,
+              "4": 1.41,
+              "1": 0.95,
+              "2": 1.46
             },
             "home_expected_seed_value": 14.3,
-            "away_expected_seed_value": 12.7,
-            "seed_value_impact": 1.6,
+            "away_expected_seed_value": 12.8,
+            "seed_value_impact": 1.5,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -0.1,
-                "division_pp": -7.24,
-                "top_seed_pp": -0.22,
-                "seed_value_pp": -1.59
+                "playoff_pp": -0.15,
+                "division_pp": -7.35,
+                "top_seed_pp": -0.13,
+                "seed_value_pp": -1.55
               },
               "weighted_contributions": {
-                "playoff": -0.051,
-                "division": -1.809,
-                "top_seed": -0.033,
-                "seed": -0.159
+                "playoff": -0.076,
+                "division": -1.837,
+                "top_seed": -0.02,
+                "seed": -0.155
               },
               "dominant_reason": "division",
               "conflict": false
@@ -931,19 +1035,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 1.8,
+          "impact": 2.3,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 3.2,
-              "division_pp": 0.29,
+              "playoff_pp": 3.96,
+              "division_pp": 0.53,
               "top_seed_pp": 0.12,
-              "seed_value_pp": 1.2
+              "seed_value_pp": 1.46
             },
             "weighted_contributions": {
-              "playoff": 1.6,
-              "division": 0.073,
-              "top_seed": 0.019,
-              "seed": 0.12
+              "playoff": 1.982,
+              "division": 0.132,
+              "top_seed": 0.018,
+              "seed": 0.146
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -967,51 +1071,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 36.5,
-            "away_playoff_pct": 39.7,
-            "home_division_pct": 10.2,
-            "away_division_pct": 10.5,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 36.6,
+            "away_playoff_pct": 40.5,
+            "home_division_pct": 10.1,
+            "away_division_pct": 10.6,
             "home_top_seed_pct": 1.0,
             "away_top_seed_pct": 1.1,
-            "home_sb_appearance_pct": 2.0,
+            "home_sb_appearance_pct": 2.1,
             "away_sb_appearance_pct": 2.3,
             "home_sb_win_pct": 0.8,
             "away_sb_win_pct": 0.9,
             "home_seeds": {
-              "7": 10.36,
-              "5": 6.97,
-              "3": 3.19,
-              "4": 3.9,
-              "6": 8.98,
-              "2": 2.14,
-              "1": 1.0
+              "3": 3.17,
+              "5": 7.18,
+              "7": 10.43,
+              "6": 8.88,
+              "2": 2.0,
+              "4": 3.92,
+              "1": 0.99
             },
             "away_seeds": {
-              "3": 3.22,
-              "5": 8.24,
-              "7": 10.95,
-              "4": 3.72,
-              "6": 10.03,
-              "1": 1.13,
-              "2": 2.46
+              "5": 8.13,
+              "2": 2.43,
+              "7": 11.24,
+              "6": 10.56,
+              "3": 3.32,
+              "4": 3.74,
+              "1": 1.11
             },
-            "home_expected_seed_value": 13.3,
-            "away_expected_seed_value": 14.5,
-            "seed_value_impact": 1.2,
+            "home_expected_seed_value": 13.2,
+            "away_expected_seed_value": 14.7,
+            "seed_value_impact": 1.5,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 3.2,
-                "division_pp": 0.29,
+                "playoff_pp": 3.96,
+                "division_pp": 0.53,
                 "top_seed_pp": 0.12,
-                "seed_value_pp": 1.2
+                "seed_value_pp": 1.46
               },
               "weighted_contributions": {
-                "playoff": 1.6,
-                "division": 0.073,
-                "top_seed": 0.019,
-                "seed": 0.12
+                "playoff": 1.982,
+                "division": 0.132,
+                "top_seed": 0.018,
+                "seed": 0.146
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -1649,8 +1753,8 @@
       "chaos_score": 40.5,
       "chaos_details": {
         "chaos_score": 40.5,
-        "playoff_swing": 31.6,
-        "division_swing": 16.8,
+        "playoff_swing": 31.5,
+        "division_swing": 16.9,
         "seed_swing": 33.1,
         "best_case": {
           "playoff_pct": 68.1,
@@ -1658,8 +1762,8 @@
           "seed_value": 33.1
         },
         "worst_case": {
-          "playoff_pct": 36.5,
-          "division_pct": 5.4,
+          "playoff_pct": 36.6,
+          "division_pct": 5.3,
           "seed_value": 0
         },
         "explanation": "Relatively stable"
@@ -1671,9 +1775,9 @@
       "mascot": "Ravens",
       "conference": "AFC",
       "division": "AFC North",
-      "playoff_chance": 21.8,
-      "division_chance": 17.9,
-      "top_seed_chance": 0.0,
+      "playoff_chance": 22.1,
+      "division_chance": 18.0,
+      "top_seed_chance": 0.1,
       "super_bowl_appearance_chance": 2.7,
       "super_bowl_win_chance": 1.4,
       "num_simulations": 100000,
@@ -2107,216 +2211,6 @@
           "completed": true
         },
         {
-          "date": "2025-10-20",
-          "away_team": "TB",
-          "home_team": "DET",
-          "impact": 0.3,
-          "impact_breakdown": {
-            "signed_swings": {
-              "playoff_pp": -0.31,
-              "division_pp": -0.41,
-              "top_seed_pp": -0.03,
-              "seed_value_pp": -0.16
-            },
-            "weighted_contributions": {
-              "playoff": -0.184,
-              "division": -0.121,
-              "top_seed": -0.0,
-              "seed": -0.019
-            },
-            "dominant_reason": "playoff",
-            "conflict": false
-          },
-          "utility_weights": {
-            "playoff": 0.5882352941176471,
-            "division": 0.29411764705882354,
-            "top_seed": 0.0,
-            "seed": 0.11764705882352942
-          },
-          "clinch_state": {
-            "playoffs": "open",
-            "division": "open",
-            "top_seed": "eliminated"
-          },
-          "gametime": "19:00",
-          "stadium": "Ford Field",
-          "week": 7,
-          "day": "Sunday",
-          "root_against": "TB",
-          "espn_id": "401772816",
-          "debug_stats": {
-            "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 21.9,
-            "away_playoff_pct": 21.6,
-            "home_division_pct": 18.0,
-            "away_division_pct": 17.6,
-            "home_top_seed_pct": 0.1,
-            "away_top_seed_pct": 0.0,
-            "home_sb_appearance_pct": 2.7,
-            "away_sb_appearance_pct": 2.6,
-            "home_sb_win_pct": 1.4,
-            "away_sb_win_pct": 1.4,
-            "home_seeds": {
-              "2": 0.37,
-              "7": 2.61,
-              "4": 15.48,
-              "3": 2.1,
-              "6": 1.07,
-              "5": 0.24,
-              "1": 0.05
-            },
-            "away_seeds": {
-              "2": 0.4,
-              "4": 15.16,
-              "7": 2.68,
-              "3": 2.01,
-              "6": 1.05,
-              "5": 0.29,
-              "1": 0.03
-            },
-            "home_expected_seed_value": 9.3,
-            "away_expected_seed_value": 9.1,
-            "seed_value_impact": 0.2,
-            "impact_breakdown": {
-              "signed_swings": {
-                "playoff_pp": -0.31,
-                "division_pp": -0.41,
-                "top_seed_pp": -0.03,
-                "seed_value_pp": -0.16
-              },
-              "weighted_contributions": {
-                "playoff": -0.184,
-                "division": -0.121,
-                "top_seed": -0.0,
-                "seed": -0.019
-              },
-              "dominant_reason": "playoff",
-              "conflict": false
-            },
-            "utility_weights": {
-              "playoff": 0.5882352941176471,
-              "division": 0.29411764705882354,
-              "top_seed": 0.0,
-              "seed": 0.11764705882352942
-            },
-            "clinch_state": {
-              "playoffs": "open",
-              "division": "open",
-              "top_seed": "eliminated"
-            },
-            "root_against": "TB",
-            "root_against_seed_only": "TB"
-          },
-          "completed": false
-        },
-        {
-          "date": "2025-10-20",
-          "away_team": "HOU",
-          "home_team": "SEA",
-          "impact": 0.4,
-          "impact_breakdown": {
-            "signed_swings": {
-              "playoff_pp": -0.7,
-              "division_pp": 0.23,
-              "top_seed_pp": -0.0,
-              "seed_value_pp": -0.13
-            },
-            "weighted_contributions": {
-              "playoff": -0.414,
-              "division": 0.067,
-              "top_seed": -0.0,
-              "seed": -0.016
-            },
-            "dominant_reason": "playoff",
-            "conflict": true
-          },
-          "utility_weights": {
-            "playoff": 0.5882352941176471,
-            "division": 0.29411764705882354,
-            "top_seed": 0.0,
-            "seed": 0.11764705882352942
-          },
-          "clinch_state": {
-            "playoffs": "open",
-            "division": "open",
-            "top_seed": "eliminated"
-          },
-          "gametime": "22:00",
-          "stadium": "Lumen Field",
-          "week": 7,
-          "day": "Sunday",
-          "root_against": "HOU",
-          "espn_id": "401772826",
-          "debug_stats": {
-            "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 22.1,
-            "away_playoff_pct": 21.4,
-            "home_division_pct": 17.8,
-            "away_division_pct": 18.0,
-            "home_top_seed_pct": 0.0,
-            "away_top_seed_pct": 0.0,
-            "home_sb_appearance_pct": 2.8,
-            "away_sb_appearance_pct": 2.6,
-            "home_sb_win_pct": 1.5,
-            "away_sb_win_pct": 1.4,
-            "home_seeds": {
-              "2": 0.37,
-              "4": 15.16,
-              "7": 2.87,
-              "3": 2.2,
-              "6": 1.18,
-              "5": 0.3,
-              "1": 0.04
-            },
-            "away_seeds": {
-              "7": 2.31,
-              "4": 15.66,
-              "2": 0.39,
-              "6": 0.91,
-              "3": 1.91,
-              "5": 0.2,
-              "1": 0.04
-            },
-            "home_expected_seed_value": 9.3,
-            "away_expected_seed_value": 9.2,
-            "seed_value_impact": 0.1,
-            "impact_breakdown": {
-              "signed_swings": {
-                "playoff_pp": -0.7,
-                "division_pp": 0.23,
-                "top_seed_pp": -0.0,
-                "seed_value_pp": -0.13
-              },
-              "weighted_contributions": {
-                "playoff": -0.414,
-                "division": 0.067,
-                "top_seed": -0.0,
-                "seed": -0.016
-              },
-              "dominant_reason": "playoff",
-              "conflict": true
-            },
-            "utility_weights": {
-              "playoff": 0.5882352941176471,
-              "division": 0.29411764705882354,
-              "top_seed": 0.0,
-              "seed": 0.11764705882352942
-            },
-            "clinch_state": {
-              "playoffs": "open",
-              "division": "open",
-              "top_seed": "eliminated"
-            },
-            "root_against": "HOU",
-            "root_against_seed_only": "HOU"
-          },
-          "completed": false
-        },
-        {
           "date": "2025-10-19",
           "away_team": "NO",
           "home_team": "CHI",
@@ -2646,15 +2540,15 @@
           "impact": 2.3,
           "impact_breakdown": null,
           "utility_weights": {
-            "playoff": 0.5882352941176471,
-            "division": 0.29411764705882354,
-            "top_seed": 0.0,
-            "seed": 0.11764705882352942
+            "playoff": 0.5,
+            "division": 0.25,
+            "top_seed": 0.15,
+            "seed": 0.1
           },
           "clinch_state": {
             "playoffs": "open",
             "division": "open",
-            "top_seed": "eliminated"
+            "top_seed": "open"
           },
           "gametime": "20:15",
           "stadium": "Paycor Stadium",
@@ -2740,11 +2634,11 @@
       "mascot": "Bills",
       "conference": "AFC",
       "division": "AFC East",
-      "playoff_chance": 85.0,
-      "division_chance": 44.7,
-      "top_seed_chance": 18.4,
-      "super_bowl_appearance_chance": 18.4,
-      "super_bowl_win_chance": 10.3,
+      "playoff_chance": 84.8,
+      "division_chance": 44.6,
+      "top_seed_chance": 18.3,
+      "super_bowl_appearance_chance": 18.2,
+      "super_bowl_win_chance": 10.2,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -3284,126 +3178,21 @@
         },
         {
           "date": "2025-10-20",
-          "away_team": "TB",
-          "home_team": "DET",
-          "impact": 0.3,
-          "impact_breakdown": {
-            "signed_swings": {
-              "playoff_pp": -0.4,
-              "division_pp": -0.18,
-              "top_seed_pp": -0.29,
-              "seed_value_pp": -0.27
-            },
-            "weighted_contributions": {
-              "playoff": -0.199,
-              "division": -0.044,
-              "top_seed": -0.044,
-              "seed": -0.027
-            },
-            "dominant_reason": "playoff",
-            "conflict": false
-          },
-          "utility_weights": {
-            "playoff": 0.5,
-            "division": 0.25,
-            "top_seed": 0.15,
-            "seed": 0.1
-          },
-          "clinch_state": {
-            "playoffs": "open",
-            "division": "open",
-            "top_seed": "open"
-          },
-          "gametime": "19:00",
-          "stadium": "Ford Field",
-          "week": 7,
-          "day": "Sunday",
-          "root_against": "TB",
-          "espn_id": "401772816",
-          "debug_stats": {
-            "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 85.1,
-            "away_playoff_pct": 84.7,
-            "home_division_pct": 44.8,
-            "away_division_pct": 44.6,
-            "home_top_seed_pct": 18.5,
-            "away_top_seed_pct": 18.2,
-            "home_sb_appearance_pct": 18.4,
-            "away_sb_appearance_pct": 18.4,
-            "home_sb_win_pct": 10.2,
-            "away_sb_win_pct": 10.5,
-            "home_seeds": {
-              "1": 18.52,
-              "5": 19.59,
-              "4": 4.39,
-              "6": 12.1,
-              "2": 13.24,
-              "7": 8.63,
-              "3": 8.63
-            },
-            "away_seeds": {
-              "3": 8.67,
-              "5": 19.04,
-              "1": 18.22,
-              "7": 8.73,
-              "6": 12.33,
-              "2": 13.45,
-              "4": 4.27
-            },
-            "home_expected_seed_value": 47.6,
-            "away_expected_seed_value": 47.3,
-            "seed_value_impact": 0.3,
-            "impact_breakdown": {
-              "signed_swings": {
-                "playoff_pp": -0.4,
-                "division_pp": -0.18,
-                "top_seed_pp": -0.29,
-                "seed_value_pp": -0.27
-              },
-              "weighted_contributions": {
-                "playoff": -0.199,
-                "division": -0.044,
-                "top_seed": -0.044,
-                "seed": -0.027
-              },
-              "dominant_reason": "playoff",
-              "conflict": false
-            },
-            "utility_weights": {
-              "playoff": 0.5,
-              "division": 0.25,
-              "top_seed": 0.15,
-              "seed": 0.1
-            },
-            "clinch_state": {
-              "playoffs": "open",
-              "division": "open",
-              "top_seed": "open"
-            },
-            "root_against": "TB",
-            "root_against_seed_only": "TB"
-          },
-          "completed": false
-        },
-        {
-          "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
           "impact": 1.5,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -2.48,
-              "division_pp": -0.51,
-              "top_seed_pp": -0.32,
-              "seed_value_pp": -1.3
+              "playoff_pp": -2.08,
+              "division_pp": -1.0,
+              "top_seed_pp": -0.71,
+              "seed_value_pp": -1.46
             },
             "weighted_contributions": {
-              "playoff": -1.242,
-              "division": -0.127,
-              "top_seed": -0.048,
-              "seed": -0.13
+              "playoff": -1.038,
+              "division": -0.25,
+              "top_seed": -0.106,
+              "seed": -0.146
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -3427,51 +3216,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 86.0,
-            "away_playoff_pct": 83.5,
-            "home_division_pct": 44.9,
-            "away_division_pct": 44.4,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 85.7,
+            "away_playoff_pct": 83.6,
+            "home_division_pct": 45.0,
+            "away_division_pct": 44.0,
             "home_top_seed_pct": 18.6,
-            "away_top_seed_pct": 18.2,
-            "home_sb_appearance_pct": 18.8,
-            "away_sb_appearance_pct": 17.8,
-            "home_sb_win_pct": 10.6,
-            "away_sb_win_pct": 10.0,
+            "away_top_seed_pct": 17.9,
+            "home_sb_appearance_pct": 18.6,
+            "away_sb_appearance_pct": 17.6,
+            "home_sb_win_pct": 10.4,
+            "away_sb_win_pct": 9.9,
             "home_seeds": {
-              "5": 20.43,
-              "1": 18.56,
-              "6": 12.19,
-              "3": 8.65,
-              "7": 8.47,
-              "2": 13.47,
-              "4": 4.27
+              "7": 8.58,
+              "1": 18.57,
+              "5": 20.22,
+              "3": 8.64,
+              "2": 13.36,
+              "6": 11.88,
+              "4": 4.41
             },
             "away_seeds": {
-              "1": 18.24,
-              "4": 4.47,
-              "3": 8.64,
-              "2": 13.09,
-              "6": 12.14,
-              "7": 8.91,
-              "5": 18.06
+              "3": 8.62,
+              "5": 18.18,
+              "1": 17.86,
+              "4": 4.52,
+              "6": 12.21,
+              "2": 12.98,
+              "7": 9.22
             },
-            "home_expected_seed_value": 48.1,
-            "away_expected_seed_value": 46.8,
-            "seed_value_impact": 1.3,
+            "home_expected_seed_value": 47.9,
+            "away_expected_seed_value": 46.5,
+            "seed_value_impact": 1.5,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -2.48,
-                "division_pp": -0.51,
-                "top_seed_pp": -0.32,
-                "seed_value_pp": -1.3
+                "playoff_pp": -2.08,
+                "division_pp": -1.0,
+                "top_seed_pp": -0.71,
+                "seed_value_pp": -1.46
               },
               "weighted_contributions": {
-                "playoff": -1.242,
-                "division": -0.127,
-                "top_seed": -0.048,
-                "seed": -0.13
+                "playoff": -1.038,
+                "division": -0.25,
+                "top_seed": -0.106,
+                "seed": -0.146
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -3892,14 +3681,14 @@
           "week": 6
         }
       },
-      "chaos_score": 35.2,
+      "chaos_score": 35.1,
       "chaos_details": {
-        "chaos_score": 35.2,
-        "playoff_swing": 2.7,
+        "chaos_score": 35.1,
+        "playoff_swing": 2.6,
         "division_swing": 19.9,
         "seed_swing": 55.2,
         "best_case": {
-          "playoff_pct": 86.0,
+          "playoff_pct": 85.9,
           "division_pct": 61.7,
           "seed_value": 55.2
         },
@@ -3918,7 +3707,7 @@
       "conference": "NFC",
       "division": "NFC South",
       "playoff_chance": 21.4,
-      "division_chance": 4.6,
+      "division_chance": 4.7,
       "top_seed_chance": 0.4,
       "super_bowl_appearance_chance": 0.4,
       "super_bowl_win_chance": 0.1,
@@ -4142,19 +3931,19 @@
           "date": "2025-10-20",
           "away_team": "TB",
           "home_team": "DET",
-          "impact": 1.0,
+          "impact": 1.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -0.08,
-              "division_pp": -3.58,
-              "top_seed_pp": -0.07,
-              "seed_value_pp": -0.81
+              "playoff_pp": -0.3,
+              "division_pp": -3.75,
+              "top_seed_pp": -0.06,
+              "seed_value_pp": -0.87
             },
             "weighted_contributions": {
-              "playoff": -0.039,
-              "division": -0.896,
-              "top_seed": -0.011,
-              "seed": -0.081
+              "playoff": -0.151,
+              "division": -0.937,
+              "top_seed": -0.009,
+              "seed": -0.087
             },
             "dominant_reason": "division",
             "conflict": false
@@ -4178,12 +3967,12 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 21.4,
-            "away_playoff_pct": 21.3,
-            "home_division_pct": 5.8,
-            "away_division_pct": 2.2,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 21.5,
+            "away_playoff_pct": 21.2,
+            "home_division_pct": 5.9,
+            "away_division_pct": 2.1,
             "home_top_seed_pct": 0.4,
             "away_top_seed_pct": 0.3,
             "home_sb_appearance_pct": 0.4,
@@ -4191,38 +3980,38 @@
             "home_sb_win_pct": 0.1,
             "away_sb_win_pct": 0.1,
             "home_seeds": {
-              "3": 1.64,
-              "7": 7.13,
-              "5": 3.28,
-              "4": 2.77,
-              "1": 0.38,
-              "6": 5.19,
-              "2": 1.0
+              "6": 5.1,
+              "2": 0.97,
+              "7": 7.3,
+              "4": 2.94,
+              "5": 3.26,
+              "1": 0.37,
+              "3": 1.61
             },
             "away_seeds": {
-              "6": 6.26,
-              "5": 5.02,
-              "7": 7.82,
-              "3": 0.67,
-              "2": 0.52,
-              "1": 0.3,
-              "4": 0.71
+              "7": 7.73,
+              "5": 5.14,
+              "6": 6.22,
+              "4": 0.69,
+              "2": 0.45,
+              "3": 0.69,
+              "1": 0.31
             },
             "home_expected_seed_value": 7.4,
-            "away_expected_seed_value": 6.6,
-            "seed_value_impact": 0.8,
+            "away_expected_seed_value": 6.5,
+            "seed_value_impact": 0.9,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -0.08,
-                "division_pp": -3.58,
-                "top_seed_pp": -0.07,
-                "seed_value_pp": -0.81
+                "playoff_pp": -0.3,
+                "division_pp": -3.75,
+                "top_seed_pp": -0.06,
+                "seed_value_pp": -0.87
               },
               "weighted_contributions": {
-                "playoff": -0.039,
-                "division": -0.896,
-                "top_seed": -0.011,
-                "seed": -0.081
+                "playoff": -0.151,
+                "division": -0.937,
+                "top_seed": -0.009,
+                "seed": -0.087
               },
               "dominant_reason": "division",
               "conflict": false
@@ -4247,19 +4036,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 1.3,
+          "impact": 1.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 2.39,
-              "division_pp": 0.0,
-              "top_seed_pp": 0.05,
-              "seed_value_pp": 0.74
+              "playoff_pp": 2.3,
+              "division_pp": 0.07,
+              "top_seed_pp": 0.07,
+              "seed_value_pp": 0.7
             },
             "weighted_contributions": {
-              "playoff": 1.195,
-              "division": 0.001,
-              "top_seed": 0.007,
-              "seed": 0.074
+              "playoff": 1.15,
+              "division": 0.017,
+              "top_seed": 0.01,
+              "seed": 0.07
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -4283,12 +4072,12 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 20.3,
-            "away_playoff_pct": 22.7,
-            "home_division_pct": 4.6,
-            "away_division_pct": 4.6,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 20.5,
+            "away_playoff_pct": 22.8,
+            "home_division_pct": 4.7,
+            "away_division_pct": 4.7,
             "home_top_seed_pct": 0.3,
             "away_top_seed_pct": 0.4,
             "home_sb_appearance_pct": 0.4,
@@ -4296,38 +4085,38 @@
             "home_sb_win_pct": 0.1,
             "away_sb_win_pct": 0.1,
             "home_seeds": {
-              "3": 1.27,
-              "5": 3.54,
-              "4": 2.23,
-              "7": 6.96,
-              "6": 5.19,
-              "1": 0.33,
-              "2": 0.8
+              "7": 7.04,
+              "6": 5.12,
+              "4": 2.26,
+              "5": 3.62,
+              "1": 0.32,
+              "2": 0.78,
+              "3": 1.31
             },
             "away_seeds": {
-              "6": 5.98,
-              "7": 7.86,
-              "5": 4.24,
-              "4": 1.96,
-              "3": 1.41,
-              "1": 0.38,
-              "2": 0.9
+              "6": 5.89,
+              "2": 0.83,
+              "7": 7.96,
+              "5": 4.17,
+              "3": 1.34,
+              "4": 2.18,
+              "1": 0.39
             },
             "home_expected_seed_value": 6.8,
             "away_expected_seed_value": 7.5,
             "seed_value_impact": 0.7,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 2.39,
-                "division_pp": 0.0,
-                "top_seed_pp": 0.05,
-                "seed_value_pp": 0.74
+                "playoff_pp": 2.3,
+                "division_pp": 0.07,
+                "top_seed_pp": 0.07,
+                "seed_value_pp": 0.7
               },
               "weighted_contributions": {
-                "playoff": 1.195,
-                "division": 0.001,
-                "top_seed": 0.007,
-                "seed": 0.074
+                "playoff": 1.15,
+                "division": 0.017,
+                "top_seed": 0.01,
+                "seed": 0.07
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -5073,11 +4862,11 @@
       "chaos_details": {
         "chaos_score": 15.1,
         "playoff_swing": 15.1,
-        "division_swing": 4.3,
+        "division_swing": 4.4,
         "seed_swing": 9.4,
         "best_case": {
           "playoff_pct": 23.4,
-          "division_pct": 5.8,
+          "division_pct": 5.9,
           "seed_value": 9.4
         },
         "worst_case": {
@@ -5095,8 +4884,8 @@
       "conference": "NFC",
       "division": "NFC North",
       "playoff_chance": 36.6,
-      "division_chance": 6.9,
-      "top_seed_chance": 1.2,
+      "division_chance": 7.1,
+      "top_seed_chance": 1.3,
       "super_bowl_appearance_chance": 1.8,
       "super_bowl_win_chance": 0.6,
       "num_simulations": 100000,
@@ -5640,21 +5429,21 @@
           "date": "2025-10-20",
           "away_team": "TB",
           "home_team": "DET",
-          "impact": 1.9,
+          "impact": 2.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.73,
-              "division_pp": 3.88,
-              "top_seed_pp": -0.31,
-              "seed_value_pp": 1.19
+              "playoff_pp": 2.32,
+              "division_pp": 3.8,
+              "top_seed_pp": -0.4,
+              "seed_value_pp": 1.34
             },
             "weighted_contributions": {
-              "playoff": 0.864,
-              "division": 0.97,
-              "top_seed": -0.047,
-              "seed": 0.119
+              "playoff": 1.158,
+              "division": 0.951,
+              "top_seed": -0.061,
+              "seed": 0.134
             },
-            "dominant_reason": "division",
+            "dominant_reason": "playoff",
             "conflict": true
           },
           "utility_weights": {
@@ -5676,53 +5465,53 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 36.0,
-            "away_playoff_pct": 37.8,
-            "home_division_pct": 5.7,
-            "away_division_pct": 9.6,
-            "home_top_seed_pct": 1.3,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 35.8,
+            "away_playoff_pct": 38.1,
+            "home_division_pct": 5.9,
+            "away_division_pct": 9.7,
+            "home_top_seed_pct": 1.4,
             "away_top_seed_pct": 1.0,
             "home_sb_appearance_pct": 1.8,
             "away_sb_appearance_pct": 1.8,
             "home_sb_win_pct": 0.6,
-            "away_sb_win_pct": 0.6,
+            "away_sb_win_pct": 0.7,
             "home_seeds": {
-              "6": 9.95,
-              "5": 9.52,
-              "7": 10.88,
-              "1": 1.34,
+              "7": 10.6,
+              "6": 10.0,
+              "5": 9.35,
+              "4": 1.26,
+              "3": 1.58,
               "2": 1.6,
-              "3": 1.54,
-              "4": 1.21
+              "1": 1.43
             },
             "away_seeds": {
-              "5": 8.22,
-              "6": 9.44,
-              "3": 2.96,
-              "4": 3.33,
-              "2": 2.25,
-              "7": 10.55,
-              "1": 1.02
+              "3": 2.97,
+              "5": 8.29,
+              "6": 9.64,
+              "7": 10.53,
+              "1": 1.03,
+              "4": 3.3,
+              "2": 2.38
             },
-            "home_expected_seed_value": 12.4,
-            "away_expected_seed_value": 13.6,
-            "seed_value_impact": 1.2,
+            "home_expected_seed_value": 12.5,
+            "away_expected_seed_value": 13.8,
+            "seed_value_impact": 1.3,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 1.73,
-                "division_pp": 3.88,
-                "top_seed_pp": -0.31,
-                "seed_value_pp": 1.19
+                "playoff_pp": 2.32,
+                "division_pp": 3.8,
+                "top_seed_pp": -0.4,
+                "seed_value_pp": 1.34
               },
               "weighted_contributions": {
-                "playoff": 0.864,
-                "division": 0.97,
-                "top_seed": -0.047,
-                "seed": 0.119
+                "playoff": 1.158,
+                "division": 0.951,
+                "top_seed": -0.061,
+                "seed": 0.134
               },
-              "dominant_reason": "division",
+              "dominant_reason": "playoff",
               "conflict": true
             },
             "utility_weights": {
@@ -5745,22 +5534,22 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 1.5,
+          "impact": 1.1,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 2.74,
-              "division_pp": 0.1,
-              "top_seed_pp": 0.15,
-              "seed_value_pp": 0.99
+              "playoff_pp": 2.22,
+              "division_pp": -0.22,
+              "top_seed_pp": 0.04,
+              "seed_value_pp": 0.69
             },
             "weighted_contributions": {
-              "playoff": 1.372,
-              "division": 0.026,
-              "top_seed": 0.022,
-              "seed": 0.099
+              "playoff": 1.111,
+              "division": -0.054,
+              "top_seed": 0.007,
+              "seed": 0.069
             },
             "dominant_reason": "playoff",
-            "conflict": false
+            "conflict": true
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -5781,54 +5570,54 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 35.4,
-            "away_playoff_pct": 38.2,
-            "home_division_pct": 6.9,
-            "away_division_pct": 7.0,
-            "home_top_seed_pct": 1.2,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 35.6,
+            "away_playoff_pct": 37.8,
+            "home_division_pct": 7.2,
+            "away_division_pct": 6.9,
+            "home_top_seed_pct": 1.3,
             "away_top_seed_pct": 1.3,
             "home_sb_appearance_pct": 1.8,
-            "away_sb_appearance_pct": 1.7,
+            "away_sb_appearance_pct": 1.8,
             "home_sb_win_pct": 0.6,
             "away_sb_win_pct": 0.6,
             "home_seeds": {
-              "6": 9.35,
-              "5": 8.51,
-              "7": 10.69,
-              "1": 1.17,
-              "3": 1.94,
-              "2": 1.8,
-              "4": 1.96
+              "7": 10.48,
+              "3": 2.05,
+              "5": 8.47,
+              "6": 9.48,
+              "1": 1.28,
+              "4": 1.98,
+              "2": 1.86
             },
             "away_seeds": {
-              "5": 9.91,
-              "6": 10.39,
-              "4": 1.77,
-              "2": 1.82,
-              "7": 10.89,
-              "3": 2.07,
-              "1": 1.32
+              "7": 10.7,
+              "6": 10.43,
+              "5": 9.74,
+              "2": 1.83,
+              "3": 1.99,
+              "4": 1.81,
+              "1": 1.33
             },
-            "home_expected_seed_value": 12.4,
-            "away_expected_seed_value": 13.4,
-            "seed_value_impact": 1.0,
+            "home_expected_seed_value": 12.6,
+            "away_expected_seed_value": 13.3,
+            "seed_value_impact": 0.7,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 2.74,
-                "division_pp": 0.1,
-                "top_seed_pp": 0.15,
-                "seed_value_pp": 0.99
+                "playoff_pp": 2.22,
+                "division_pp": -0.22,
+                "top_seed_pp": 0.04,
+                "seed_value_pp": 0.69
               },
               "weighted_contributions": {
-                "playoff": 1.372,
-                "division": 0.026,
-                "top_seed": 0.022,
-                "seed": 0.099
+                "playoff": 1.111,
+                "division": -0.054,
+                "top_seed": 0.007,
+                "seed": 0.069
               },
               "dominant_reason": "playoff",
-              "conflict": false
+              "conflict": true
             },
             "utility_weights": {
               "playoff": 0.5,
@@ -6463,13 +6252,13 @@
       "chaos_score": 24.1,
       "chaos_details": {
         "chaos_score": 24.1,
-        "playoff_swing": 23.4,
-        "division_swing": 7.2,
-        "seed_swing": 15.8,
+        "playoff_swing": 23.3,
+        "division_swing": 7.3,
+        "seed_swing": 15.9,
         "best_case": {
-          "playoff_pct": 38.2,
-          "division_pct": 9.6,
-          "seed_value": 15.8
+          "playoff_pct": 38.1,
+          "division_pct": 9.7,
+          "seed_value": 15.9
         },
         "worst_case": {
           "playoff_pct": 14.8,
@@ -6485,11 +6274,11 @@
       "mascot": "Bengals",
       "conference": "AFC",
       "division": "AFC North",
-      "playoff_chance": 41.3,
+      "playoff_chance": 41.2,
       "division_chance": 30.3,
       "top_seed_chance": 0.9,
-      "super_bowl_appearance_chance": 2.3,
-      "super_bowl_win_chance": 0.9,
+      "super_bowl_appearance_chance": 2.4,
+      "super_bowl_win_chance": 1.0,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -6924,22 +6713,22 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 0.8,
+          "impact": 1.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -1.66,
-              "division_pp": 0.23,
-              "top_seed_pp": -0.05,
-              "seed_value_pp": -0.45
+              "playoff_pp": -2.06,
+              "division_pp": -0.21,
+              "top_seed_pp": -0.18,
+              "seed_value_pp": -0.72
             },
             "weighted_contributions": {
-              "playoff": -0.832,
-              "division": 0.058,
-              "top_seed": -0.007,
-              "seed": -0.045
+              "playoff": -1.029,
+              "division": -0.052,
+              "top_seed": -0.028,
+              "seed": -0.072
             },
             "dominant_reason": "playoff",
-            "conflict": true
+            "conflict": false
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -6960,54 +6749,54 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 42.0,
-            "away_playoff_pct": 40.3,
-            "home_division_pct": 30.2,
-            "away_division_pct": 30.4,
-            "home_top_seed_pct": 0.9,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 42.1,
+            "away_playoff_pct": 40.0,
+            "home_division_pct": 30.4,
+            "away_division_pct": 30.2,
+            "home_top_seed_pct": 1.0,
             "away_top_seed_pct": 0.8,
-            "home_sb_appearance_pct": 2.4,
+            "home_sb_appearance_pct": 2.5,
             "away_sb_appearance_pct": 2.2,
             "home_sb_win_pct": 1.0,
-            "away_sb_win_pct": 0.8,
+            "away_sb_win_pct": 0.9,
             "home_seeds": {
-              "2": 2.66,
-              "4": 20.44,
+              "4": 20.58,
+              "6": 3.73,
               "7": 6.34,
-              "6": 3.76,
-              "3": 6.22,
-              "5": 1.69,
-              "1": 0.89
+              "3": 6.16,
+              "2": 2.67,
+              "5": 1.64,
+              "1": 0.96
             },
             "away_seeds": {
-              "6": 3.17,
-              "3": 6.25,
-              "4": 20.78,
-              "2": 2.56,
-              "7": 5.38,
-              "5": 1.34,
-              "1": 0.84
+              "7": 5.53,
+              "6": 3.04,
+              "2": 2.52,
+              "5": 1.29,
+              "4": 20.61,
+              "3": 6.27,
+              "1": 0.78
             },
-            "home_expected_seed_value": 18.3,
-            "away_expected_seed_value": 17.9,
-            "seed_value_impact": 0.5,
+            "home_expected_seed_value": 18.4,
+            "away_expected_seed_value": 17.7,
+            "seed_value_impact": 0.7,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -1.66,
-                "division_pp": 0.23,
-                "top_seed_pp": -0.05,
-                "seed_value_pp": -0.45
+                "playoff_pp": -2.06,
+                "division_pp": -0.21,
+                "top_seed_pp": -0.18,
+                "seed_value_pp": -0.72
               },
               "weighted_contributions": {
-                "playoff": -0.832,
-                "division": 0.058,
-                "top_seed": -0.007,
-                "seed": -0.045
+                "playoff": -1.029,
+                "division": -0.052,
+                "top_seed": -0.028,
+                "seed": -0.072
               },
               "dominant_reason": "playoff",
-              "conflict": true
+              "conflict": false
             },
             "utility_weights": {
               "playoff": 0.5,
@@ -7343,8 +7132,8 @@
       "mascot": "Browns",
       "conference": "AFC",
       "division": "AFC North",
-      "playoff_chance": 2.1,
-      "division_chance": 1.2,
+      "playoff_chance": 2.0,
+      "division_chance": 1.1,
       "top_seed_chance": 0.0,
       "super_bowl_appearance_chance": 0.0,
       "super_bowl_win_chance": 0.0,
@@ -7495,8 +7284,8 @@
       "mascot": "Cowboys",
       "conference": "NFC",
       "division": "NFC East",
-      "playoff_chance": 4.8,
-      "division_chance": 2.8,
+      "playoff_chance": 4.6,
+      "division_chance": 2.6,
       "top_seed_chance": 0.0,
       "super_bowl_appearance_chance": 0.1,
       "super_bowl_win_chance": 0.0,
@@ -7610,21 +7399,126 @@
         },
         {
           "date": "2025-10-20",
-          "away_team": "HOU",
-          "home_team": "SEA",
+          "away_team": "TB",
+          "home_team": "DET",
           "impact": 0.4,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 0.58,
-              "division_pp": 0.17,
-              "top_seed_pp": 0.0,
-              "seed_value_pp": 0.2
+              "playoff_pp": 0.54,
+              "division_pp": 0.19,
+              "top_seed_pp": -0.0,
+              "seed_value_pp": 0.18
             },
             "weighted_contributions": {
-              "playoff": 0.34,
-              "division": 0.051,
+              "playoff": 0.317,
+              "division": 0.055,
+              "top_seed": -0.0,
+              "seed": 0.022
+            },
+            "dominant_reason": "playoff",
+            "conflict": false
+          },
+          "utility_weights": {
+            "playoff": 0.5882352941176471,
+            "division": 0.29411764705882354,
+            "top_seed": 0.0,
+            "seed": 0.11764705882352942
+          },
+          "clinch_state": {
+            "playoffs": "open",
+            "division": "open",
+            "top_seed": "eliminated"
+          },
+          "gametime": "19:00",
+          "stadium": "Ford Field",
+          "week": 7,
+          "day": "Sunday",
+          "root_against": "DET",
+          "espn_id": "401772816",
+          "debug_stats": {
+            "total_sims": 100000,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 4.5,
+            "away_playoff_pct": 5.0,
+            "home_division_pct": 2.5,
+            "away_division_pct": 2.7,
+            "home_top_seed_pct": 0.0,
+            "away_top_seed_pct": 0.0,
+            "home_sb_appearance_pct": 0.1,
+            "away_sb_appearance_pct": 0.1,
+            "home_sb_win_pct": 0.0,
+            "away_sb_win_pct": 0.0,
+            "home_seeds": {
+              "3": 0.33,
+              "7": 1.28,
+              "4": 2.13,
+              "6": 0.49,
+              "5": 0.16,
+              "2": 0.06,
+              "1": 0.02
+            },
+            "away_seeds": {
+              "4": 2.33,
+              "7": 1.39,
+              "6": 0.7,
+              "5": 0.19,
+              "3": 0.31,
+              "2": 0.07,
+              "1": 0.02
+            },
+            "home_expected_seed_value": 1.7,
+            "away_expected_seed_value": 1.8,
+            "seed_value_impact": 0.2,
+            "impact_breakdown": {
+              "signed_swings": {
+                "playoff_pp": 0.54,
+                "division_pp": 0.19,
+                "top_seed_pp": -0.0,
+                "seed_value_pp": 0.18
+              },
+              "weighted_contributions": {
+                "playoff": 0.317,
+                "division": 0.055,
+                "top_seed": -0.0,
+                "seed": 0.022
+              },
+              "dominant_reason": "playoff",
+              "conflict": false
+            },
+            "utility_weights": {
+              "playoff": 0.5882352941176471,
+              "division": 0.29411764705882354,
               "top_seed": 0.0,
-              "seed": 0.023
+              "seed": 0.11764705882352942
+            },
+            "clinch_state": {
+              "playoffs": "open",
+              "division": "open",
+              "top_seed": "eliminated"
+            },
+            "root_against": "DET",
+            "root_against_seed_only": "DET"
+          },
+          "completed": false
+        },
+        {
+          "date": "2025-10-20",
+          "away_team": "HOU",
+          "home_team": "SEA",
+          "impact": 0.3,
+          "impact_breakdown": {
+            "signed_swings": {
+              "playoff_pp": 0.48,
+              "division_pp": 0.04,
+              "top_seed_pp": 0.01,
+              "seed_value_pp": 0.15
+            },
+            "weighted_contributions": {
+              "playoff": 0.283,
+              "division": 0.01,
+              "top_seed": 0.0,
+              "seed": 0.018
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -7648,51 +7542,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 4.6,
-            "away_playoff_pct": 5.1,
-            "home_division_pct": 2.7,
-            "away_division_pct": 2.9,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 4.4,
+            "away_playoff_pct": 4.9,
+            "home_division_pct": 2.6,
+            "away_division_pct": 2.6,
             "home_top_seed_pct": 0.0,
             "away_top_seed_pct": 0.0,
             "home_sb_appearance_pct": 0.1,
             "away_sb_appearance_pct": 0.1,
             "home_sb_win_pct": 0.0,
-            "away_sb_win_pct": 0.1,
+            "away_sb_win_pct": 0.0,
             "home_seeds": {
-              "4": 2.26,
-              "7": 1.21,
-              "5": 0.18,
-              "6": 0.47,
-              "2": 0.08,
-              "3": 0.34,
+              "4": 2.21,
+              "5": 0.14,
+              "7": 1.23,
+              "3": 0.3,
+              "6": 0.49,
+              "2": 0.06,
               "1": 0.01
             },
             "away_seeds": {
-              "7": 1.34,
-              "5": 0.25,
-              "4": 2.4,
-              "6": 0.68,
-              "3": 0.38,
+              "3": 0.35,
+              "7": 1.43,
+              "4": 2.17,
+              "6": 0.65,
+              "5": 0.22,
               "2": 0.07,
-              "1": 0.02
+              "1": 0.03
             },
-            "home_expected_seed_value": 1.7,
-            "away_expected_seed_value": 1.9,
+            "home_expected_seed_value": 1.6,
+            "away_expected_seed_value": 1.8,
             "seed_value_impact": 0.2,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 0.58,
-                "division_pp": 0.17,
-                "top_seed_pp": 0.0,
-                "seed_value_pp": 0.2
+                "playoff_pp": 0.48,
+                "division_pp": 0.04,
+                "top_seed_pp": 0.01,
+                "seed_value_pp": 0.15
               },
               "weighted_contributions": {
-                "playoff": 0.34,
-                "division": 0.051,
+                "playoff": 0.283,
+                "division": 0.01,
                 "top_seed": 0.0,
-                "seed": 0.023
+                "seed": 0.018
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -7940,16 +7834,16 @@
           "week": 6
         }
       },
-      "chaos_score": 4.6,
+      "chaos_score": 4.4,
       "chaos_details": {
-        "chaos_score": 4.6,
-        "playoff_swing": 4.4,
-        "division_swing": 2.7,
-        "seed_swing": 2.2,
+        "chaos_score": 4.4,
+        "playoff_swing": 4.3,
+        "division_swing": 2.5,
+        "seed_swing": 2.1,
         "best_case": {
-          "playoff_pct": 5.1,
-          "division_pct": 2.9,
-          "seed_value": 2.2
+          "playoff_pct": 5.0,
+          "division_pct": 2.7,
+          "seed_value": 2.1
         },
         "worst_case": {
           "playoff_pct": 0.7,
@@ -7965,10 +7859,10 @@
       "mascot": "Broncos",
       "conference": "AFC",
       "division": "AFC West",
-      "playoff_chance": 79.8,
-      "division_chance": 38.4,
-      "top_seed_chance": 12.0,
-      "super_bowl_appearance_chance": 15.2,
+      "playoff_chance": 80.0,
+      "division_chance": 38.6,
+      "top_seed_chance": 12.1,
+      "super_bowl_appearance_chance": 15.3,
       "super_bowl_win_chance": 8.0,
       "num_simulations": 100000,
       "significant_games": [
@@ -8618,22 +8512,22 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 1.7,
+          "impact": 1.9,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -2.95,
-              "division_pp": 0.33,
-              "top_seed_pp": -0.8,
-              "seed_value_pp": -1.46
+              "playoff_pp": -3.0,
+              "division_pp": -0.35,
+              "top_seed_pp": -0.94,
+              "seed_value_pp": -1.71
             },
             "weighted_contributions": {
-              "playoff": -1.473,
-              "division": 0.081,
-              "top_seed": -0.121,
-              "seed": -0.146
+              "playoff": -1.501,
+              "division": -0.088,
+              "top_seed": -0.14,
+              "seed": -0.171
             },
             "dominant_reason": "playoff",
-            "conflict": true
+            "conflict": false
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -8654,54 +8548,54 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 81.0,
-            "away_playoff_pct": 78.1,
-            "home_division_pct": 38.3,
-            "away_division_pct": 38.6,
-            "home_top_seed_pct": 12.4,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 81.3,
+            "away_playoff_pct": 78.3,
+            "home_division_pct": 38.7,
+            "away_division_pct": 38.4,
+            "home_top_seed_pct": 12.5,
             "away_top_seed_pct": 11.6,
-            "home_sb_appearance_pct": 15.5,
-            "away_sb_appearance_pct": 14.9,
-            "home_sb_win_pct": 8.1,
-            "away_sb_win_pct": 7.8,
+            "home_sb_appearance_pct": 15.6,
+            "away_sb_appearance_pct": 14.8,
+            "home_sb_win_pct": 8.3,
+            "away_sb_win_pct": 7.6,
             "home_seeds": {
-              "2": 12.63,
-              "1": 12.38,
-              "6": 14.44,
-              "5": 17.65,
-              "7": 10.64,
-              "3": 9.6,
-              "4": 3.7
+              "4": 3.64,
+              "3": 9.92,
+              "6": 14.24,
+              "7": 10.53,
+              "2": 12.67,
+              "5": 17.76,
+              "1": 12.52
             },
             "away_seeds": {
-              "7": 10.89,
-              "2": 12.44,
-              "4": 3.96,
-              "5": 15.19,
-              "6": 13.37,
-              "1": 11.57,
-              "3": 10.64
+              "3": 10.21,
+              "2": 12.47,
+              "7": 11.12,
+              "6": 13.44,
+              "5": 15.32,
+              "1": 11.58,
+              "4": 4.13
             },
-            "home_expected_seed_value": 41.6,
+            "home_expected_seed_value": 41.8,
             "away_expected_seed_value": 40.1,
-            "seed_value_impact": 1.5,
+            "seed_value_impact": 1.7,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -2.95,
-                "division_pp": 0.33,
-                "top_seed_pp": -0.8,
-                "seed_value_pp": -1.46
+                "playoff_pp": -3.0,
+                "division_pp": -0.35,
+                "top_seed_pp": -0.94,
+                "seed_value_pp": -1.71
               },
               "weighted_contributions": {
-                "playoff": -1.473,
-                "division": 0.081,
-                "top_seed": -0.121,
-                "seed": -0.146
+                "playoff": -1.501,
+                "division": -0.088,
+                "top_seed": -0.14,
+                "seed": -0.171
               },
               "dominant_reason": "playoff",
-              "conflict": true
+              "conflict": false
             },
             "utility_weights": {
               "playoff": 0.5,
@@ -9080,11 +8974,11 @@
       "mascot": "Lions",
       "conference": "NFC",
       "division": "NFC North",
-      "playoff_chance": 79.2,
-      "division_chance": 43.3,
-      "top_seed_chance": 12.6,
+      "playoff_chance": 79.1,
+      "division_chance": 43.2,
+      "top_seed_chance": 12.7,
       "super_bowl_appearance_chance": 18.0,
-      "super_bowl_win_chance": 10.0,
+      "super_bowl_win_chance": 9.9,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -9519,19 +9413,19 @@
           "date": "2025-10-20",
           "away_team": "TB",
           "home_team": "DET",
-          "impact": 19.9,
+          "impact": 19.5,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -20.68,
-              "division_pp": -21.74,
-              "top_seed_pp": -14.03,
-              "seed_value_pp": -20.54
+              "playoff_pp": -20.4,
+              "division_pp": -20.81,
+              "top_seed_pp": -14.09,
+              "seed_value_pp": -20.18
             },
             "weighted_contributions": {
-              "playoff": -10.338,
-              "division": -5.435,
-              "top_seed": -2.105,
-              "seed": -2.054
+              "playoff": -10.198,
+              "division": -5.202,
+              "top_seed": -2.114,
+              "seed": -2.018
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -9555,51 +9449,51 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 85.8,
-            "away_playoff_pct": 65.1,
-            "home_division_pct": 50.2,
-            "away_division_pct": 28.4,
-            "home_top_seed_pct": 17.1,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 85.6,
+            "away_playoff_pct": 65.2,
+            "home_division_pct": 49.8,
+            "away_division_pct": 29.0,
+            "home_top_seed_pct": 17.2,
             "away_top_seed_pct": 3.1,
             "home_sb_appearance_pct": 21.2,
             "away_sb_appearance_pct": 11.3,
-            "home_sb_win_pct": 11.9,
-            "away_sb_win_pct": 6.0,
+            "home_sb_win_pct": 11.8,
+            "away_sb_win_pct": 5.9,
             "home_seeds": {
-              "1": 17.09,
-              "5": 16.34,
-              "6": 11.48,
-              "4": 7.31,
-              "7": 7.82,
-              "2": 14.49,
-              "3": 11.28
+              "5": 16.76,
+              "1": 17.19,
+              "3": 11.12,
+              "6": 11.24,
+              "2": 14.18,
+              "7": 7.8,
+              "4": 7.29
             },
             "away_seeds": {
-              "7": 11.56,
-              "6": 12.72,
-              "3": 8.64,
-              "4": 9.82,
-              "2": 6.91,
-              "5": 12.42,
-              "1": 3.06
+              "5": 12.03,
+              "3": 8.92,
+              "7": 11.49,
+              "2": 7.11,
+              "4": 9.85,
+              "6": 12.69,
+              "1": 3.1
             },
-            "home_expected_seed_value": 48.3,
-            "away_expected_seed_value": 27.8,
-            "seed_value_impact": 20.5,
+            "home_expected_seed_value": 48.2,
+            "away_expected_seed_value": 28.0,
+            "seed_value_impact": 20.2,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -20.68,
-                "division_pp": -21.74,
-                "top_seed_pp": -14.03,
-                "seed_value_pp": -20.54
+                "playoff_pp": -20.4,
+                "division_pp": -20.81,
+                "top_seed_pp": -14.09,
+                "seed_value_pp": -20.18
               },
               "weighted_contributions": {
-                "playoff": -10.338,
-                "division": -5.435,
-                "top_seed": -2.105,
-                "seed": -2.054
+                "playoff": -10.198,
+                "division": -5.202,
+                "top_seed": -2.114,
+                "seed": -2.018
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -9624,19 +9518,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 0.7,
+          "impact": 0.8,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.48,
-              "division_pp": -0.4,
-              "top_seed_pp": 0.17,
-              "seed_value_pp": 0.67
+              "playoff_pp": 1.34,
+              "division_pp": -0.19,
+              "top_seed_pp": 0.6,
+              "seed_value_pp": 0.84
             },
             "weighted_contributions": {
-              "playoff": 0.742,
-              "division": -0.1,
-              "top_seed": 0.026,
-              "seed": 0.067
+              "playoff": 0.668,
+              "division": -0.048,
+              "top_seed": 0.09,
+              "seed": 0.084
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -9660,51 +9554,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
+            "home_wins": 57233,
+            "away_wins": 42767,
             "home_playoff_pct": 78.6,
-            "away_playoff_pct": 80.1,
-            "home_division_pct": 43.4,
-            "away_division_pct": 43.0,
-            "home_top_seed_pct": 12.6,
-            "away_top_seed_pct": 12.7,
-            "home_sb_appearance_pct": 17.9,
-            "away_sb_appearance_pct": 18.2,
-            "home_sb_win_pct": 10.0,
-            "away_sb_win_pct": 10.0,
+            "away_playoff_pct": 79.9,
+            "home_division_pct": 43.3,
+            "away_division_pct": 43.1,
+            "home_top_seed_pct": 12.5,
+            "away_top_seed_pct": 13.1,
+            "home_sb_appearance_pct": 17.7,
+            "away_sb_appearance_pct": 18.5,
+            "home_sb_win_pct": 9.7,
+            "away_sb_win_pct": 10.2,
             "home_seeds": {
-              "5": 14.45,
-              "7": 9.01,
-              "1": 12.55,
-              "6": 11.7,
-              "3": 10.59,
-              "2": 11.93,
-              "4": 8.36
+              "5": 14.5,
+              "2": 11.95,
+              "3": 10.45,
+              "7": 9.2,
+              "1": 12.47,
+              "4": 8.4,
+              "6": 11.58
             },
             "away_seeds": {
-              "1": 12.73,
-              "5": 15.94,
-              "7": 9.0,
-              "6": 12.11,
-              "4": 7.78,
-              "2": 12.29,
-              "3": 10.24
+              "5": 16.27,
+              "1": 13.07,
+              "3": 10.39,
+              "6": 11.87,
+              "2": 11.93,
+              "7": 8.66,
+              "4": 7.7
             },
-            "home_expected_seed_value": 41.5,
-            "away_expected_seed_value": 42.2,
-            "seed_value_impact": 0.7,
+            "home_expected_seed_value": 41.4,
+            "away_expected_seed_value": 42.3,
+            "seed_value_impact": 0.8,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 1.48,
-                "division_pp": -0.4,
-                "top_seed_pp": 0.17,
-                "seed_value_pp": 0.67
+                "playoff_pp": 1.34,
+                "division_pp": -0.19,
+                "top_seed_pp": 0.6,
+                "seed_value_pp": 0.84
               },
               "weighted_contributions": {
-                "playoff": 0.742,
-                "division": -0.1,
-                "top_seed": 0.026,
-                "seed": 0.067
+                "playoff": 0.668,
+                "division": -0.048,
+                "top_seed": 0.09,
+                "seed": 0.084
               },
               "dominant_reason": "playoff",
               "conflict": true
@@ -10339,20 +10233,20 @@
           "week": 6
         }
       },
-      "chaos_score": 44.9,
+      "chaos_score": 44.4,
       "chaos_details": {
-        "chaos_score": 44.9,
-        "playoff_swing": 20.7,
-        "division_swing": 23.6,
-        "seed_swing": 50.7,
+        "chaos_score": 44.4,
+        "playoff_swing": 20.4,
+        "division_swing": 23.0,
+        "seed_swing": 50.6,
         "best_case": {
-          "playoff_pct": 85.8,
+          "playoff_pct": 85.6,
           "division_pct": 52.0,
-          "seed_value": 50.7
+          "seed_value": 50.6
         },
         "worst_case": {
-          "playoff_pct": 65.1,
-          "division_pct": 28.4,
+          "playoff_pct": 65.2,
+          "division_pct": 29.0,
           "seed_value": 0
         },
         "explanation": "Relatively stable"
@@ -10364,10 +10258,10 @@
       "mascot": "Packers",
       "conference": "NFC",
       "division": "NFC North",
-      "playoff_chance": 77.8,
-      "division_chance": 42.6,
-      "top_seed_chance": 14.9,
-      "super_bowl_appearance_chance": 14.5,
+      "playoff_chance": 77.6,
+      "division_chance": 42.4,
+      "top_seed_chance": 14.6,
+      "super_bowl_appearance_chance": 14.7,
       "super_bowl_win_chance": 7.3,
       "num_simulations": 100000,
       "significant_games": [
@@ -10803,19 +10697,19 @@
           "date": "2025-10-20",
           "away_team": "TB",
           "home_team": "DET",
-          "impact": 4.7,
+          "impact": 3.9,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.95,
-              "division_pp": 14.93,
-              "top_seed_pp": -2.21,
-              "seed_value_pp": 3.08
+              "playoff_pp": 1.1,
+              "division_pp": 14.06,
+              "top_seed_pp": -2.63,
+              "seed_value_pp": 2.51
             },
             "weighted_contributions": {
-              "playoff": 0.974,
-              "division": 3.732,
-              "top_seed": -0.332,
-              "seed": 0.308
+              "playoff": 0.552,
+              "division": 3.514,
+              "top_seed": -0.395,
+              "seed": 0.251
             },
             "dominant_reason": "division",
             "conflict": true
@@ -10839,51 +10733,51 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
+            "home_wins": 68337,
+            "away_wins": 31663,
             "home_playoff_pct": 77.2,
-            "away_playoff_pct": 79.2,
-            "home_division_pct": 37.8,
-            "away_division_pct": 52.8,
-            "home_top_seed_pct": 15.6,
-            "away_top_seed_pct": 13.4,
-            "home_sb_appearance_pct": 14.4,
-            "away_sb_appearance_pct": 14.7,
-            "home_sb_win_pct": 7.4,
-            "away_sb_win_pct": 7.2,
+            "away_playoff_pct": 78.3,
+            "home_division_pct": 38.0,
+            "away_division_pct": 52.1,
+            "home_top_seed_pct": 15.5,
+            "away_top_seed_pct": 12.8,
+            "home_sb_appearance_pct": 14.6,
+            "away_sb_appearance_pct": 14.8,
+            "home_sb_win_pct": 7.2,
+            "away_sb_win_pct": 7.4,
             "home_seeds": {
-              "5": 18.17,
-              "1": 15.56,
-              "7": 9.17,
-              "2": 10.46,
-              "3": 7.4,
-              "4": 4.43,
-              "6": 12.02
+              "1": 15.46,
+              "5": 18.29,
+              "3": 7.55,
+              "7": 8.92,
+              "6": 12.03,
+              "2": 10.57,
+              "4": 4.42
             },
             "away_seeds": {
-              "1": 13.35,
-              "7": 7.81,
-              "5": 9.52,
               "6": 9.05,
-              "3": 13.64,
-              "2": 14.61,
-              "4": 11.18
+              "3": 13.11,
+              "1": 12.83,
+              "2": 15.0,
+              "7": 7.66,
+              "5": 9.58,
+              "4": 11.11
             },
-            "home_expected_seed_value": 41.4,
-            "away_expected_seed_value": 44.5,
-            "seed_value_impact": 3.1,
+            "home_expected_seed_value": 41.5,
+            "away_expected_seed_value": 44.0,
+            "seed_value_impact": 2.5,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 1.95,
-                "division_pp": 14.93,
-                "top_seed_pp": -2.21,
-                "seed_value_pp": 3.08
+                "playoff_pp": 1.1,
+                "division_pp": 14.06,
+                "top_seed_pp": -2.63,
+                "seed_value_pp": 2.51
               },
               "weighted_contributions": {
-                "playoff": 0.974,
-                "division": 3.732,
-                "top_seed": -0.332,
-                "seed": 0.308
+                "playoff": 0.552,
+                "division": 3.514,
+                "top_seed": -0.395,
+                "seed": 0.251
               },
               "dominant_reason": "division",
               "conflict": true
@@ -10908,22 +10802,22 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 0.8,
+          "impact": 1.1,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.49,
-              "division_pp": -0.22,
-              "top_seed_pp": 0.32,
-              "seed_value_pp": 0.74
+              "playoff_pp": 1.87,
+              "division_pp": 0.07,
+              "top_seed_pp": 0.4,
+              "seed_value_pp": 1.16
             },
             "weighted_contributions": {
-              "playoff": 0.746,
-              "division": -0.054,
-              "top_seed": 0.048,
-              "seed": 0.074
+              "playoff": 0.935,
+              "division": 0.017,
+              "top_seed": 0.061,
+              "seed": 0.116
             },
             "dominant_reason": "playoff",
-            "conflict": true
+            "conflict": false
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -10944,54 +10838,54 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 77.2,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 76.8,
             "away_playoff_pct": 78.7,
-            "home_division_pct": 42.7,
+            "home_division_pct": 42.4,
             "away_division_pct": 42.5,
-            "home_top_seed_pct": 14.7,
-            "away_top_seed_pct": 15.0,
-            "home_sb_appearance_pct": 14.3,
+            "home_top_seed_pct": 14.5,
+            "away_top_seed_pct": 14.9,
+            "home_sb_appearance_pct": 14.6,
             "away_sb_appearance_pct": 14.8,
-            "home_sb_win_pct": 7.3,
-            "away_sb_win_pct": 7.3,
+            "home_sb_win_pct": 7.2,
+            "away_sb_win_pct": 7.4,
             "home_seeds": {
-              "1": 14.72,
-              "7": 8.93,
-              "2": 11.77,
-              "5": 14.68,
-              "4": 6.81,
-              "3": 9.38,
-              "6": 10.89
+              "1": 14.45,
+              "6": 11.17,
+              "3": 9.47,
+              "2": 11.67,
+              "5": 14.6,
+              "7": 8.6,
+              "4": 6.83
             },
             "away_seeds": {
-              "5": 16.41,
-              "7": 8.48,
-              "1": 15.04,
-              "3": 9.38,
-              "6": 11.32,
-              "2": 11.8,
-              "4": 6.25
+              "6": 10.98,
+              "5": 16.78,
+              "3": 9.1,
+              "7": 8.41,
+              "2": 12.38,
+              "1": 14.86,
+              "4": 6.15
             },
-            "home_expected_seed_value": 42.1,
-            "away_expected_seed_value": 42.8,
-            "seed_value_impact": 0.7,
+            "home_expected_seed_value": 41.8,
+            "away_expected_seed_value": 42.9,
+            "seed_value_impact": 1.2,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 1.49,
-                "division_pp": -0.22,
-                "top_seed_pp": 0.32,
-                "seed_value_pp": 0.74
+                "playoff_pp": 1.87,
+                "division_pp": 0.07,
+                "top_seed_pp": 0.4,
+                "seed_value_pp": 1.16
               },
               "weighted_contributions": {
-                "playoff": 0.746,
-                "division": -0.054,
-                "top_seed": 0.048,
-                "seed": 0.074
+                "playoff": 0.935,
+                "division": 0.017,
+                "top_seed": 0.061,
+                "seed": 0.116
               },
               "dominant_reason": "playoff",
-              "conflict": true
+              "conflict": false
             },
             "utility_weights": {
               "playoff": 0.5,
@@ -11666,15 +11560,15 @@
           "week": 6
         }
       },
-      "chaos_score": 45.8,
+      "chaos_score": 45.6,
       "chaos_details": {
-        "chaos_score": 45.8,
+        "chaos_score": 45.6,
         "playoff_swing": 22.8,
-        "division_swing": 28.4,
+        "division_swing": 27.7,
         "seed_swing": 47.2,
         "best_case": {
           "playoff_pct": 79.8,
-          "division_pct": 52.8,
+          "division_pct": 52.1,
           "seed_value": 47.2
         },
         "worst_case": {
@@ -11691,10 +11585,10 @@
       "mascot": "Texans",
       "conference": "AFC",
       "division": "AFC South",
-      "playoff_chance": 43.5,
+      "playoff_chance": 43.2,
       "division_chance": 11.9,
-      "top_seed_chance": 3.2,
-      "super_bowl_appearance_chance": 5.8,
+      "top_seed_chance": 3.3,
+      "super_bowl_appearance_chance": 5.9,
       "super_bowl_win_chance": 3.0,
       "num_simulations": 100000,
       "significant_games": [
@@ -12235,126 +12129,21 @@
         },
         {
           "date": "2025-10-20",
-          "away_team": "TB",
-          "home_team": "DET",
-          "impact": 0.4,
-          "impact_breakdown": {
-            "signed_swings": {
-              "playoff_pp": 0.64,
-              "division_pp": 0.21,
-              "top_seed_pp": 0.27,
-              "seed_value_pp": 0.33
-            },
-            "weighted_contributions": {
-              "playoff": 0.32,
-              "division": 0.052,
-              "top_seed": 0.041,
-              "seed": 0.033
-            },
-            "dominant_reason": "playoff",
-            "conflict": false
-          },
-          "utility_weights": {
-            "playoff": 0.5,
-            "division": 0.25,
-            "top_seed": 0.15,
-            "seed": 0.1
-          },
-          "clinch_state": {
-            "playoffs": "open",
-            "division": "open",
-            "top_seed": "open"
-          },
-          "gametime": "19:00",
-          "stadium": "Ford Field",
-          "week": 7,
-          "day": "Sunday",
-          "root_against": "DET",
-          "espn_id": "401772816",
-          "debug_stats": {
-            "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 43.3,
-            "away_playoff_pct": 43.9,
-            "home_division_pct": 11.9,
-            "away_division_pct": 12.1,
-            "home_top_seed_pct": 3.1,
-            "away_top_seed_pct": 3.4,
-            "home_sb_appearance_pct": 5.8,
-            "away_sb_appearance_pct": 5.9,
-            "home_sb_win_pct": 3.0,
-            "away_sb_win_pct": 3.1,
-            "home_seeds": {
-              "3": 3.23,
-              "7": 10.98,
-              "5": 10.4,
-              "6": 10.04,
-              "4": 1.93,
-              "2": 3.6,
-              "1": 3.09
-            },
-            "away_seeds": {
-              "1": 3.36,
-              "6": 10.44,
-              "5": 10.16,
-              "7": 11.26,
-              "4": 1.83,
-              "2": 3.58,
-              "3": 3.29
-            },
-            "home_expected_seed_value": 17.3,
-            "away_expected_seed_value": 17.6,
-            "seed_value_impact": 0.3,
-            "impact_breakdown": {
-              "signed_swings": {
-                "playoff_pp": 0.64,
-                "division_pp": 0.21,
-                "top_seed_pp": 0.27,
-                "seed_value_pp": 0.33
-              },
-              "weighted_contributions": {
-                "playoff": 0.32,
-                "division": 0.052,
-                "top_seed": 0.041,
-                "seed": 0.033
-              },
-              "dominant_reason": "playoff",
-              "conflict": false
-            },
-            "utility_weights": {
-              "playoff": 0.5,
-              "division": 0.25,
-              "top_seed": 0.15,
-              "seed": 0.1
-            },
-            "clinch_state": {
-              "playoffs": "open",
-              "division": "open",
-              "top_seed": "open"
-            },
-            "root_against": "DET",
-            "root_against_seed_only": "DET"
-          },
-          "completed": false
-        },
-        {
-          "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
           "impact": 16.9,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 24.05,
-              "division_pp": 11.45,
-              "top_seed_pp": 4.57,
-              "seed_value_pp": 13.09
+              "playoff_pp": 24.32,
+              "division_pp": 10.95,
+              "top_seed_pp": 4.7,
+              "seed_value_pp": 13.0
             },
             "weighted_contributions": {
-              "playoff": 12.023,
-              "division": 2.862,
-              "top_seed": 0.686,
-              "seed": 1.309
+              "playoff": 12.162,
+              "division": 2.737,
+              "top_seed": 0.705,
+              "seed": 1.3
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -12378,51 +12167,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 33.2,
-            "away_playoff_pct": 57.2,
-            "home_division_pct": 7.0,
-            "away_division_pct": 18.5,
-            "home_top_seed_pct": 1.2,
-            "away_top_seed_pct": 5.8,
-            "home_sb_appearance_pct": 3.7,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 32.8,
+            "away_playoff_pct": 57.1,
+            "home_division_pct": 7.2,
+            "away_division_pct": 18.2,
+            "home_top_seed_pct": 1.3,
+            "away_top_seed_pct": 6.0,
+            "home_sb_appearance_pct": 3.8,
             "away_sb_appearance_pct": 8.6,
             "home_sb_win_pct": 1.9,
-            "away_sb_win_pct": 4.5,
+            "away_sb_win_pct": 4.4,
             "home_seeds": {
-              "7": 10.35,
-              "6": 8.5,
-              "5": 7.32,
-              "3": 2.23,
-              "4": 1.62,
-              "2": 1.95,
-              "1": 1.22
+              "1": 1.28,
+              "6": 8.57,
+              "5": 7.03,
+              "7": 9.95,
+              "4": 1.64,
+              "2": 2.08,
+              "3": 2.24
             },
             "away_seeds": {
-              "3": 4.61,
-              "5": 14.35,
-              "1": 5.79,
-              "6": 12.39,
-              "7": 12.03,
-              "2": 5.79,
-              "4": 2.28
+              "7": 12.04,
+              "5": 14.13,
+              "6": 12.76,
+              "1": 5.98,
+              "2": 5.59,
+              "3": 4.32,
+              "4": 2.29
             },
             "home_expected_seed_value": 11.8,
-            "away_expected_seed_value": 24.9,
-            "seed_value_impact": 13.1,
+            "away_expected_seed_value": 24.8,
+            "seed_value_impact": 13.0,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 24.05,
-                "division_pp": 11.45,
-                "top_seed_pp": 4.57,
-                "seed_value_pp": 13.09
+                "playoff_pp": 24.32,
+                "division_pp": 10.95,
+                "top_seed_pp": 4.7,
+                "seed_value_pp": 13.0
               },
               "weighted_contributions": {
-                "playoff": 12.023,
-                "division": 2.862,
-                "top_seed": 0.686,
-                "seed": 1.309
+                "playoff": 12.162,
+                "division": 2.737,
+                "top_seed": 0.705,
+                "seed": 1.3
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -13060,17 +12849,17 @@
       "chaos_score": 31.6,
       "chaos_details": {
         "chaos_score": 31.6,
-        "playoff_swing": 24.0,
-        "division_swing": 11.5,
-        "seed_swing": 27.5,
+        "playoff_swing": 24.3,
+        "division_swing": 11.0,
+        "seed_swing": 27.4,
         "best_case": {
-          "playoff_pct": 57.2,
-          "division_pct": 18.5,
-          "seed_value": 27.5
+          "playoff_pct": 57.1,
+          "division_pct": 18.2,
+          "seed_value": 27.4
         },
         "worst_case": {
-          "playoff_pct": 33.2,
-          "division_pct": 7.0,
+          "playoff_pct": 32.8,
+          "division_pct": 7.2,
           "seed_value": 0
         },
         "explanation": "Relatively stable"
@@ -13082,11 +12871,11 @@
       "mascot": "Colts",
       "conference": "AFC",
       "division": "AFC South",
-      "playoff_chance": 90.2,
-      "division_chance": 71.4,
+      "playoff_chance": 90.0,
+      "division_chance": 71.5,
       "top_seed_chance": 28.6,
-      "super_bowl_appearance_chance": 10.4,
-      "super_bowl_win_chance": 4.4,
+      "super_bowl_appearance_chance": 10.2,
+      "super_bowl_win_chance": 4.3,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -13735,19 +13524,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 3.7,
+          "impact": 3.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -1.89,
-              "division_pp": -9.06,
-              "top_seed_pp": -1.24,
-              "seed_value_pp": -3.36
+              "playoff_pp": -1.64,
+              "division_pp": -7.85,
+              "top_seed_pp": -0.93,
+              "seed_value_pp": -2.8
             },
             "weighted_contributions": {
-              "playoff": -0.946,
-              "division": -2.265,
-              "top_seed": -0.186,
-              "seed": -0.336
+              "playoff": -0.819,
+              "division": -1.963,
+              "top_seed": -0.139,
+              "seed": -0.28
             },
             "dominant_reason": "division",
             "conflict": false
@@ -13771,51 +13560,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 91.0,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 90.7,
             "away_playoff_pct": 89.1,
-            "home_division_pct": 75.3,
-            "away_division_pct": 66.2,
-            "home_top_seed_pct": 29.2,
-            "away_top_seed_pct": 27.9,
-            "home_sb_appearance_pct": 10.7,
-            "away_sb_appearance_pct": 9.9,
-            "home_sb_win_pct": 4.5,
-            "away_sb_win_pct": 4.1,
+            "home_division_pct": 74.8,
+            "away_division_pct": 67.0,
+            "home_top_seed_pct": 29.0,
+            "away_top_seed_pct": 28.0,
+            "home_sb_appearance_pct": 10.3,
+            "away_sb_appearance_pct": 10.0,
+            "home_sb_win_pct": 4.4,
+            "away_sb_win_pct": 4.3,
             "home_seeds": {
-              "1": 29.17,
-              "3": 17.48,
-              "5": 4.97,
-              "2": 20.59,
-              "7": 5.19,
-              "4": 8.07,
-              "6": 5.51
+              "3": 17.45,
+              "6": 5.63,
+              "2": 20.35,
+              "1": 28.95,
+              "7": 5.12,
+              "4": 8.06,
+              "5": 5.13
             },
             "away_seeds": {
-              "6": 7.82,
-              "5": 8.34,
-              "1": 27.93,
-              "4": 5.18,
-              "2": 18.87,
-              "3": 14.26,
-              "7": 6.68
+              "6": 7.67,
+              "1": 28.02,
+              "2": 18.85,
+              "5": 8.21,
+              "4": 5.48,
+              "3": 14.61,
+              "7": 6.22
             },
-            "home_expected_seed_value": 62.4,
-            "away_expected_seed_value": 59.1,
-            "seed_value_impact": 3.4,
+            "home_expected_seed_value": 62.1,
+            "away_expected_seed_value": 59.3,
+            "seed_value_impact": 2.8,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -1.89,
-                "division_pp": -9.06,
-                "top_seed_pp": -1.24,
-                "seed_value_pp": -3.36
+                "playoff_pp": -1.64,
+                "division_pp": -7.85,
+                "top_seed_pp": -0.93,
+                "seed_value_pp": -2.8
               },
               "weighted_contributions": {
-                "playoff": -0.946,
-                "division": -2.265,
-                "top_seed": -0.186,
-                "seed": -0.336
+                "playoff": -0.819,
+                "division": -1.963,
+                "top_seed": -0.139,
+                "seed": -0.28
               },
               "dominant_reason": "division",
               "conflict": false
@@ -14236,16 +14025,16 @@
           "week": 6
         }
       },
-      "chaos_score": 51.5,
+      "chaos_score": 51.2,
       "chaos_details": {
-        "chaos_score": 51.5,
+        "chaos_score": 51.2,
         "playoff_swing": 19.8,
-        "division_swing": 25.7,
-        "seed_swing": 63.7,
+        "division_swing": 25.2,
+        "seed_swing": 63.5,
         "best_case": {
           "playoff_pct": 91.4,
-          "division_pct": 75.3,
-          "seed_value": 63.7
+          "division_pct": 74.8,
+          "seed_value": 63.5
         },
         "worst_case": {
           "playoff_pct": 71.6,
@@ -14261,9 +14050,9 @@
       "mascot": "Jaguars",
       "conference": "AFC",
       "division": "AFC South",
-      "playoff_chance": 49.8,
+      "playoff_chance": 49.9,
       "division_chance": 16.6,
-      "top_seed_chance": 3.0,
+      "top_seed_chance": 3.2,
       "super_bowl_appearance_chance": 3.5,
       "super_bowl_win_chance": 1.4,
       "num_simulations": 100000,
@@ -14914,19 +14703,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 2.7,
+          "impact": 3.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -3.89,
-              "division_pp": -2.37,
-              "top_seed_pp": -0.05,
-              "seed_value_pp": -1.68
+              "playoff_pp": -4.31,
+              "division_pp": -3.06,
+              "top_seed_pp": -0.23,
+              "seed_value_pp": -2.04
             },
             "weighted_contributions": {
-              "playoff": -1.943,
-              "division": -0.593,
-              "top_seed": -0.007,
-              "seed": -0.168
+              "playoff": -2.153,
+              "division": -0.766,
+              "top_seed": -0.034,
+              "seed": -0.204
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -14950,51 +14739,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 51.5,
-            "away_playoff_pct": 47.6,
-            "home_division_pct": 17.6,
-            "away_division_pct": 15.3,
-            "home_top_seed_pct": 3.1,
-            "away_top_seed_pct": 3.0,
-            "home_sb_appearance_pct": 3.6,
-            "away_sb_appearance_pct": 3.3,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 51.7,
+            "away_playoff_pct": 47.4,
+            "home_division_pct": 17.9,
+            "away_division_pct": 14.8,
+            "home_top_seed_pct": 3.3,
+            "away_top_seed_pct": 3.1,
+            "home_sb_appearance_pct": 3.5,
+            "away_sb_appearance_pct": 3.4,
             "home_sb_win_pct": 1.5,
             "away_sb_win_pct": 1.3,
             "home_seeds": {
               "6": 11.91,
-              "5": 9.06,
-              "3": 5.52,
-              "2": 4.89,
-              "4": 4.16,
-              "7": 12.91,
-              "1": 3.06
+              "2": 4.98,
+              "5": 9.14,
+              "7": 12.78,
+              "1": 3.29,
+              "4": 4.02,
+              "3": 5.6
             },
             "away_seeds": {
-              "1": 3.01,
-              "3": 4.71,
-              "5": 8.68,
-              "6": 11.39,
-              "7": 12.29,
-              "2": 4.5,
-              "4": 3.04
+              "3": 4.31,
+              "1": 3.06,
+              "6": 11.36,
+              "7": 12.36,
+              "2": 4.64,
+              "4": 2.81,
+              "5": 8.86
             },
-            "home_expected_seed_value": 20.9,
+            "home_expected_seed_value": 21.2,
             "away_expected_seed_value": 19.2,
-            "seed_value_impact": 1.7,
+            "seed_value_impact": 2.0,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -3.89,
-                "division_pp": -2.37,
-                "top_seed_pp": -0.05,
-                "seed_value_pp": -1.68
+                "playoff_pp": -4.31,
+                "division_pp": -3.06,
+                "top_seed_pp": -0.23,
+                "seed_value_pp": -2.04
               },
               "weighted_contributions": {
-                "playoff": -1.943,
-                "division": -0.593,
-                "top_seed": -0.007,
-                "seed": -0.168
+                "playoff": -2.153,
+                "division": -0.766,
+                "top_seed": -0.034,
+                "seed": -0.204
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -15415,11 +15204,11 @@
           "week": 6
         }
       },
-      "chaos_score": 42.5,
+      "chaos_score": 42.7,
       "chaos_details": {
-        "chaos_score": 42.5,
-        "playoff_swing": 26.1,
-        "division_swing": 22.4,
+        "chaos_score": 42.7,
+        "playoff_swing": 26.3,
+        "division_swing": 22.9,
         "seed_swing": 40.2,
         "best_case": {
           "playoff_pct": 73.7,
@@ -15427,8 +15216,8 @@
           "seed_value": 40.2
         },
         "worst_case": {
-          "playoff_pct": 47.6,
-          "division_pct": 15.3,
+          "playoff_pct": 47.4,
+          "division_pct": 14.8,
           "seed_value": 0
         },
         "explanation": "Relatively stable"
@@ -15440,11 +15229,11 @@
       "mascot": "Chiefs",
       "conference": "AFC",
       "division": "AFC West",
-      "playoff_chance": 75.5,
-      "division_chance": 42.4,
-      "top_seed_chance": 9.3,
+      "playoff_chance": 75.7,
+      "division_chance": 42.5,
+      "top_seed_chance": 9.4,
       "super_bowl_appearance_chance": 22.3,
-      "super_bowl_win_chance": 13.2,
+      "super_bowl_win_chance": 13.4,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -16093,19 +15882,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 1.1,
+          "impact": 1.6,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -2.03,
-              "division_pp": 0.28,
-              "top_seed_pp": -0.51,
-              "seed_value_pp": -1.0
+              "playoff_pp": -2.75,
+              "division_pp": 0.06,
+              "top_seed_pp": -0.62,
+              "seed_value_pp": -1.28
             },
             "weighted_contributions": {
-              "playoff": -1.017,
-              "division": 0.071,
-              "top_seed": -0.076,
-              "seed": -0.1
+              "playoff": -1.374,
+              "division": 0.016,
+              "top_seed": -0.093,
+              "seed": -0.128
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -16129,51 +15918,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 76.4,
-            "away_playoff_pct": 74.3,
-            "home_division_pct": 42.3,
-            "away_division_pct": 42.6,
-            "home_top_seed_pct": 9.5,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 76.9,
+            "away_playoff_pct": 74.1,
+            "home_division_pct": 42.5,
+            "away_division_pct": 42.5,
+            "home_top_seed_pct": 9.6,
             "away_top_seed_pct": 9.0,
-            "home_sb_appearance_pct": 22.7,
-            "away_sb_appearance_pct": 21.7,
-            "home_sb_win_pct": 13.4,
-            "away_sb_win_pct": 12.9,
+            "home_sb_appearance_pct": 22.9,
+            "away_sb_appearance_pct": 21.6,
+            "home_sb_win_pct": 13.8,
+            "away_sb_win_pct": 13.0,
             "home_seeds": {
-              "4": 6.8,
-              "1": 9.55,
-              "2": 12.64,
-              "5": 11.0,
-              "3": 13.31,
-              "6": 12.05,
-              "7": 11.01
+              "2": 12.67,
+              "3": 13.47,
+              "7": 11.41,
+              "6": 12.0,
+              "1": 9.64,
+              "5": 11.02,
+              "4": 6.67
             },
             "away_seeds": {
-              "4": 7.44,
-              "2": 12.12,
-              "1": 9.04,
-              "5": 10.2,
-              "3": 13.96,
-              "7": 10.5,
-              "6": 11.05
+              "5": 10.1,
+              "4": 7.15,
+              "7": 10.61,
+              "1": 9.02,
+              "3": 14.25,
+              "6": 10.91,
+              "2": 12.1
             },
-            "home_expected_seed_value": 39.0,
+            "home_expected_seed_value": 39.3,
             "away_expected_seed_value": 38.0,
-            "seed_value_impact": 1.0,
+            "seed_value_impact": 1.3,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -2.03,
-                "division_pp": 0.28,
-                "top_seed_pp": -0.51,
-                "seed_value_pp": -1.0
+                "playoff_pp": -2.75,
+                "division_pp": 0.06,
+                "top_seed_pp": -0.62,
+                "seed_value_pp": -1.28
               },
               "weighted_contributions": {
-                "playoff": -1.017,
-                "division": 0.071,
-                "top_seed": -0.076,
-                "seed": -0.1
+                "playoff": -1.374,
+                "division": 0.016,
+                "top_seed": -0.093,
+                "seed": -0.128
               },
               "dominant_reason": "playoff",
               "conflict": true
@@ -16380,16 +16169,16 @@
           "week": 6
         }
       },
-      "chaos_score": 44.3,
+      "chaos_score": 44.5,
       "chaos_details": {
-        "chaos_score": 44.3,
-        "playoff_swing": 25.1,
-        "division_swing": 27.9,
-        "seed_swing": 41.7,
+        "chaos_score": 44.5,
+        "playoff_swing": 25.4,
+        "division_swing": 27.8,
+        "seed_swing": 41.9,
         "best_case": {
-          "playoff_pct": 76.6,
-          "division_pct": 42.6,
-          "seed_value": 41.7
+          "playoff_pct": 76.9,
+          "division_pct": 42.5,
+          "seed_value": 41.9
         },
         "worst_case": {
           "playoff_pct": 51.5,
@@ -16405,11 +16194,11 @@
       "mascot": "Chargers",
       "conference": "AFC",
       "division": "AFC West",
-      "playoff_chance": 58.3,
-      "division_chance": 18.9,
-      "top_seed_chance": 4.1,
-      "super_bowl_appearance_chance": 5.7,
-      "super_bowl_win_chance": 2.5,
+      "playoff_chance": 58.2,
+      "division_chance": 18.7,
+      "top_seed_chance": 4.2,
+      "super_bowl_appearance_chance": 5.8,
+      "super_bowl_win_chance": 2.6,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -16951,22 +16740,22 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 2.0,
+          "impact": 1.8,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -3.39,
-              "division_pp": -0.54,
-              "top_seed_pp": -0.27,
-              "seed_value_pp": -1.42
+              "playoff_pp": -3.56,
+              "division_pp": 0.26,
+              "top_seed_pp": -0.05,
+              "seed_value_pp": -1.18
             },
             "weighted_contributions": {
-              "playoff": -1.695,
-              "division": -0.135,
-              "top_seed": -0.04,
-              "seed": -0.142
+              "playoff": -1.782,
+              "division": 0.065,
+              "top_seed": -0.007,
+              "seed": -0.118
             },
             "dominant_reason": "playoff",
-            "conflict": false
+            "conflict": true
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -16987,54 +16776,54 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 59.8,
-            "away_playoff_pct": 56.4,
-            "home_division_pct": 19.1,
-            "away_division_pct": 18.6,
-            "home_top_seed_pct": 4.3,
-            "away_top_seed_pct": 4.0,
-            "home_sb_appearance_pct": 5.9,
-            "away_sb_appearance_pct": 5.5,
-            "home_sb_win_pct": 2.6,
-            "away_sb_win_pct": 2.4,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 59.7,
+            "away_playoff_pct": 56.2,
+            "home_division_pct": 18.5,
+            "away_division_pct": 18.8,
+            "home_top_seed_pct": 4.2,
+            "away_top_seed_pct": 4.2,
+            "home_sb_appearance_pct": 6.0,
+            "away_sb_appearance_pct": 5.6,
+            "home_sb_win_pct": 2.7,
+            "away_sb_win_pct": 2.5,
             "home_seeds": {
-              "7": 13.77,
-              "6": 13.84,
-              "2": 6.26,
-              "3": 6.64,
-              "5": 13.06,
-              "1": 4.26,
+              "7": 13.7,
+              "3": 6.18,
+              "1": 4.2,
+              "6": 14.36,
+              "2": 6.21,
+              "5": 13.13,
               "4": 1.96
             },
             "away_seeds": {
-              "6": 13.0,
-              "3": 6.53,
-              "7": 13.58,
-              "5": 11.24,
-              "2": 5.96,
-              "1": 4.0,
-              "4": 2.1
+              "1": 4.15,
+              "6": 12.81,
+              "2": 5.98,
+              "5": 11.21,
+              "7": 13.35,
+              "4": 2.07,
+              "3": 6.6
             },
-            "home_expected_seed_value": 24.9,
-            "away_expected_seed_value": 23.5,
-            "seed_value_impact": 1.4,
+            "home_expected_seed_value": 24.8,
+            "away_expected_seed_value": 23.6,
+            "seed_value_impact": 1.2,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -3.39,
-                "division_pp": -0.54,
-                "top_seed_pp": -0.27,
-                "seed_value_pp": -1.42
+                "playoff_pp": -3.56,
+                "division_pp": 0.26,
+                "top_seed_pp": -0.05,
+                "seed_value_pp": -1.18
               },
               "weighted_contributions": {
-                "playoff": -1.695,
-                "division": -0.135,
-                "top_seed": -0.04,
-                "seed": -0.142
+                "playoff": -1.782,
+                "division": 0.065,
+                "top_seed": -0.007,
+                "seed": -0.118
               },
               "dominant_reason": "playoff",
-              "conflict": false
+              "conflict": true
             },
             "utility_weights": {
               "playoff": 0.5,
@@ -17131,11 +16920,11 @@
           "week": 6
         }
       },
-      "chaos_score": 43.7,
+      "chaos_score": 43.8,
       "chaos_details": {
-        "chaos_score": 43.7,
+        "chaos_score": 43.8,
         "playoff_swing": 25.6,
-        "division_swing": 18.0,
+        "division_swing": 18.1,
         "seed_swing": 46.0,
         "best_case": {
           "playoff_pct": 81.1,
@@ -17144,7 +16933,7 @@
         },
         "worst_case": {
           "playoff_pct": 55.5,
-          "division_pct": 18.6,
+          "division_pct": 18.5,
           "seed_value": 0
         },
         "explanation": "Relatively stable"
@@ -17156,11 +16945,11 @@
       "mascot": "Rams",
       "conference": "NFC",
       "division": "NFC West",
-      "playoff_chance": 70.1,
+      "playoff_chance": 70.2,
       "division_chance": 34.0,
-      "top_seed_chance": 8.3,
-      "super_bowl_appearance_chance": 8.9,
-      "super_bowl_win_chance": 4.0,
+      "top_seed_chance": 8.2,
+      "super_bowl_appearance_chance": 8.8,
+      "super_bowl_win_chance": 3.9,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -17486,128 +17275,23 @@
         },
         {
           "date": "2025-10-20",
-          "away_team": "TB",
-          "home_team": "DET",
-          "impact": 0.7,
-          "impact_breakdown": {
-            "signed_swings": {
-              "playoff_pp": 1.56,
-              "division_pp": 0.24,
-              "top_seed_pp": -1.17,
-              "seed_value_pp": 0.08
-            },
-            "weighted_contributions": {
-              "playoff": 0.782,
-              "division": 0.059,
-              "top_seed": -0.175,
-              "seed": 0.008
-            },
-            "dominant_reason": "playoff",
-            "conflict": true
-          },
-          "utility_weights": {
-            "playoff": 0.5,
-            "division": 0.25,
-            "top_seed": 0.15,
-            "seed": 0.1
-          },
-          "clinch_state": {
-            "playoffs": "open",
-            "division": "open",
-            "top_seed": "open"
-          },
-          "gametime": "19:00",
-          "stadium": "Ford Field",
-          "week": 7,
-          "day": "Sunday",
-          "root_against": "DET",
-          "espn_id": "401772816",
-          "debug_stats": {
-            "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 69.6,
-            "away_playoff_pct": 71.2,
-            "home_division_pct": 33.9,
-            "away_division_pct": 34.2,
-            "home_top_seed_pct": 8.7,
-            "away_top_seed_pct": 7.5,
-            "home_sb_appearance_pct": 8.8,
-            "away_sb_appearance_pct": 9.1,
-            "home_sb_win_pct": 4.0,
-            "away_sb_win_pct": 4.1,
-            "home_seeds": {
-              "3": 8.73,
-              "4": 6.93,
-              "2": 9.58,
-              "1": 8.69,
-              "6": 11.91,
-              "5": 13.68,
-              "7": 10.12
-            },
-            "away_seeds": {
-              "2": 9.64,
-              "7": 9.63,
-              "4": 7.22,
-              "6": 11.69,
-              "5": 15.71,
-              "1": 7.52,
-              "3": 9.78
-            },
-            "home_expected_seed_value": 34.2,
-            "away_expected_seed_value": 34.3,
-            "seed_value_impact": 0.1,
-            "impact_breakdown": {
-              "signed_swings": {
-                "playoff_pp": 1.56,
-                "division_pp": 0.24,
-                "top_seed_pp": -1.17,
-                "seed_value_pp": 0.08
-              },
-              "weighted_contributions": {
-                "playoff": 0.782,
-                "division": 0.059,
-                "top_seed": -0.175,
-                "seed": 0.008
-              },
-              "dominant_reason": "playoff",
-              "conflict": true
-            },
-            "utility_weights": {
-              "playoff": 0.5,
-              "division": 0.25,
-              "top_seed": 0.15,
-              "seed": 0.1
-            },
-            "clinch_state": {
-              "playoffs": "open",
-              "division": "open",
-              "top_seed": "open"
-            },
-            "root_against": "DET",
-            "root_against_seed_only": "DET"
-          },
-          "completed": false
-        },
-        {
-          "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 4.2,
+          "impact": 4.6,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 3.68,
-              "division_pp": 7.48,
-              "top_seed_pp": 0.83,
-              "seed_value_pp": 3.4
+              "playoff_pp": 4.16,
+              "division_pp": 8.24,
+              "top_seed_pp": 0.75,
+              "seed_value_pp": 3.67
             },
             "weighted_contributions": {
-              "playoff": 1.84,
-              "division": 1.871,
-              "top_seed": 0.125,
-              "seed": 0.34
+              "playoff": 2.081,
+              "division": 2.06,
+              "top_seed": 0.113,
+              "seed": 0.367
             },
-            "dominant_reason": "division",
+            "dominant_reason": "playoff",
             "conflict": false
           },
           "utility_weights": {
@@ -17629,53 +17313,53 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 68.6,
-            "away_playoff_pct": 72.2,
-            "home_division_pct": 30.8,
-            "away_division_pct": 38.3,
-            "home_top_seed_pct": 8.0,
-            "away_top_seed_pct": 8.8,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 68.4,
+            "away_playoff_pct": 72.6,
+            "home_division_pct": 30.5,
+            "away_division_pct": 38.7,
+            "home_top_seed_pct": 7.9,
+            "away_top_seed_pct": 8.6,
             "home_sb_appearance_pct": 8.5,
-            "away_sb_appearance_pct": 9.4,
-            "home_sb_win_pct": 3.8,
-            "away_sb_win_pct": 4.2,
+            "away_sb_appearance_pct": 9.3,
+            "home_sb_win_pct": 3.7,
+            "away_sb_win_pct": 4.1,
             "home_seeds": {
-              "4": 5.7,
-              "1": 7.96,
-              "6": 12.4,
-              "5": 14.79,
-              "7": 10.58,
-              "2": 8.97,
-              "3": 8.17
+              "2": 8.92,
+              "7": 10.42,
+              "6": 12.59,
+              "1": 7.86,
+              "4": 5.66,
+              "5": 14.96,
+              "3": 8.03
             },
             "away_seeds": {
-              "3": 10.26,
-              "2": 10.45,
-              "4": 8.79,
-              "6": 11.09,
-              "7": 9.15,
-              "5": 13.72,
-              "1": 8.79
+              "1": 8.62,
+              "2": 10.59,
+              "6": 11.17,
+              "5": 13.65,
+              "4": 9.12,
+              "3": 10.37,
+              "7": 9.08
             },
-            "home_expected_seed_value": 32.8,
-            "away_expected_seed_value": 36.2,
-            "seed_value_impact": 3.4,
+            "home_expected_seed_value": 32.7,
+            "away_expected_seed_value": 36.3,
+            "seed_value_impact": 3.7,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 3.68,
-                "division_pp": 7.48,
-                "top_seed_pp": 0.83,
-                "seed_value_pp": 3.4
+                "playoff_pp": 4.16,
+                "division_pp": 8.24,
+                "top_seed_pp": 0.75,
+                "seed_value_pp": 3.67
               },
               "weighted_contributions": {
-                "playoff": 1.84,
-                "division": 1.871,
-                "top_seed": 0.125,
-                "seed": 0.34
+                "playoff": 2.081,
+                "division": 2.06,
+                "top_seed": 0.113,
+                "seed": 0.367
               },
-              "dominant_reason": "division",
+              "dominant_reason": "playoff",
               "conflict": false
             },
             "utility_weights": {
@@ -18226,11 +17910,11 @@
       "mascot": "Raiders",
       "conference": "AFC",
       "division": "AFC West",
-      "playoff_chance": 3.8,
+      "playoff_chance": 3.6,
       "division_chance": 0.3,
       "top_seed_chance": 0.0,
       "super_bowl_appearance_chance": 0.1,
-      "super_bowl_win_chance": 0.1,
+      "super_bowl_win_chance": 0.0,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -18772,22 +18456,22 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 0.5,
+          "impact": 0.4,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -0.72,
-              "division_pp": -0.07,
-              "top_seed_pp": -0.01,
-              "seed_value_pp": -0.21
+              "playoff_pp": -0.67,
+              "division_pp": 0.03,
+              "top_seed_pp": -0.0,
+              "seed_value_pp": -0.17
             },
             "weighted_contributions": {
-              "playoff": -0.424,
-              "division": -0.021,
+              "playoff": -0.393,
+              "division": 0.008,
               "top_seed": -0.0,
-              "seed": -0.025
+              "seed": -0.02
             },
             "dominant_reason": "playoff",
-            "conflict": false
+            "conflict": true
           },
           "utility_weights": {
             "playoff": 0.5882352941176471,
@@ -18808,12 +18492,12 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 4.1,
-            "away_playoff_pct": 3.4,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 3.9,
+            "away_playoff_pct": 3.2,
             "home_division_pct": 0.3,
-            "away_division_pct": 0.2,
+            "away_division_pct": 0.3,
             "home_top_seed_pct": 0.0,
             "away_top_seed_pct": 0.0,
             "home_sb_appearance_pct": 0.2,
@@ -18821,21 +18505,21 @@
             "home_sb_win_pct": 0.1,
             "away_sb_win_pct": 0.0,
             "home_seeds": {
-              "7": 2.14,
-              "3": 0.14,
-              "6": 1.19,
-              "4": 0.1,
-              "5": 0.48,
+              "7": 2.0,
               "2": 0.03,
+              "6": 1.16,
+              "4": 0.1,
+              "5": 0.5,
+              "3": 0.12,
               "1": 0.01
             },
             "away_seeds": {
-              "7": 1.85,
-              "6": 0.92,
-              "5": 0.39,
+              "7": 1.65,
+              "6": 0.91,
+              "4": 0.13,
+              "5": 0.4,
               "3": 0.1,
-              "2": 0.03,
-              "4": 0.08,
+              "2": 0.05,
               "1": 0.0
             },
             "home_expected_seed_value": 1.1,
@@ -18843,19 +18527,19 @@
             "seed_value_impact": 0.2,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -0.72,
-                "division_pp": -0.07,
-                "top_seed_pp": -0.01,
-                "seed_value_pp": -0.21
+                "playoff_pp": -0.67,
+                "division_pp": 0.03,
+                "top_seed_pp": -0.0,
+                "seed_value_pp": -0.17
               },
               "weighted_contributions": {
-                "playoff": -0.424,
-                "division": -0.021,
+                "playoff": -0.393,
+                "division": 0.008,
                 "top_seed": -0.0,
-                "seed": -0.025
+                "seed": -0.02
               },
               "dominant_reason": "playoff",
-              "conflict": false
+              "conflict": true
             },
             "utility_weights": {
               "playoff": 0.5882352941176471,
@@ -19066,8 +18750,8 @@
       "mascot": "Vikings",
       "conference": "NFC",
       "division": "NFC North",
-      "playoff_chance": 21.0,
-      "division_chance": 7.2,
+      "playoff_chance": 21.2,
+      "division_chance": 7.3,
       "top_seed_chance": 0.5,
       "super_bowl_appearance_chance": 1.6,
       "super_bowl_win_chance": 0.7,
@@ -19505,19 +19189,19 @@
           "date": "2025-10-20",
           "away_team": "TB",
           "home_team": "DET",
-          "impact": 2.1,
+          "impact": 1.9,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 2.6,
-              "division_pp": 2.93,
-              "top_seed_pp": -0.13,
-              "seed_value_pp": 1.16
+              "playoff_pp": 2.27,
+              "division_pp": 2.95,
+              "top_seed_pp": -0.2,
+              "seed_value_pp": 1.08
             },
             "weighted_contributions": {
-              "playoff": 1.299,
-              "division": 0.733,
-              "top_seed": -0.019,
-              "seed": 0.116
+              "playoff": 1.134,
+              "division": 0.737,
+              "top_seed": -0.03,
+              "seed": 0.108
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -19541,51 +19225,51 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 20.1,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 20.4,
             "away_playoff_pct": 22.7,
             "home_division_pct": 6.3,
-            "away_division_pct": 9.2,
+            "away_division_pct": 9.3,
             "home_top_seed_pct": 0.5,
-            "away_top_seed_pct": 0.4,
+            "away_top_seed_pct": 0.3,
             "home_sb_appearance_pct": 1.6,
-            "away_sb_appearance_pct": 1.7,
+            "away_sb_appearance_pct": 1.8,
             "home_sb_win_pct": 0.7,
             "away_sb_win_pct": 0.7,
             "home_seeds": {
-              "4": 2.6,
-              "2": 1.22,
-              "1": 0.51,
-              "6": 4.64,
-              "5": 2.75,
-              "3": 1.97,
-              "7": 6.47
+              "3": 2.04,
+              "4": 2.63,
+              "6": 4.66,
+              "7": 6.55,
+              "5": 2.89,
+              "1": 0.54,
+              "2": 1.14
             },
             "away_seeds": {
-              "3": 2.59,
-              "6": 4.49,
-              "7": 6.38,
-              "4": 5.1,
-              "5": 2.65,
-              "1": 0.38,
-              "2": 1.16
+              "4": 4.98,
+              "5": 2.56,
+              "3": 2.72,
+              "2": 1.25,
+              "6": 4.42,
+              "7": 6.44,
+              "1": 0.34
             },
-            "home_expected_seed_value": 7.3,
-            "away_expected_seed_value": 8.4,
-            "seed_value_impact": 1.2,
+            "home_expected_seed_value": 7.4,
+            "away_expected_seed_value": 8.5,
+            "seed_value_impact": 1.1,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 2.6,
-                "division_pp": 2.93,
-                "top_seed_pp": -0.13,
-                "seed_value_pp": 1.16
+                "playoff_pp": 2.27,
+                "division_pp": 2.95,
+                "top_seed_pp": -0.2,
+                "seed_value_pp": 1.08
               },
               "weighted_contributions": {
-                "playoff": 1.299,
-                "division": 0.733,
-                "top_seed": -0.019,
-                "seed": 0.116
+                "playoff": 1.134,
+                "division": 0.737,
+                "top_seed": -0.03,
+                "seed": 0.108
               },
               "dominant_reason": "playoff",
               "conflict": true
@@ -19610,19 +19294,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 1.2,
+          "impact": 1.4,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.96,
-              "division_pp": 0.52,
-              "top_seed_pp": 0.08,
-              "seed_value_pp": 0.72
+              "playoff_pp": 2.44,
+              "division_pp": 0.34,
+              "top_seed_pp": 0.11,
+              "seed_value_pp": 0.9
             },
             "weighted_contributions": {
-              "playoff": 0.979,
-              "division": 0.129,
-              "top_seed": 0.012,
-              "seed": 0.072
+              "playoff": 1.218,
+              "division": 0.085,
+              "top_seed": 0.017,
+              "seed": 0.09
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -19646,51 +19330,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
+            "home_wins": 57233,
+            "away_wins": 42767,
             "home_playoff_pct": 20.1,
-            "away_playoff_pct": 22.1,
-            "home_division_pct": 7.0,
+            "away_playoff_pct": 22.6,
+            "home_division_pct": 7.1,
             "away_division_pct": 7.5,
             "home_top_seed_pct": 0.4,
             "away_top_seed_pct": 0.5,
             "home_sb_appearance_pct": 1.6,
             "away_sb_appearance_pct": 1.7,
             "home_sb_win_pct": 0.7,
-            "away_sb_win_pct": 0.6,
+            "away_sb_win_pct": 0.7,
             "home_seeds": {
-              "4": 3.33,
-              "2": 1.16,
-              "3": 2.08,
-              "1": 0.44,
-              "6": 4.3,
-              "5": 2.57,
-              "7": 6.26
+              "5": 2.5,
+              "6": 4.2,
+              "4": 3.45,
+              "3": 2.17,
+              "7": 6.29,
+              "2": 1.09,
+              "1": 0.43
             },
             "away_seeds": {
-              "4": 3.48,
-              "3": 2.27,
-              "7": 6.69,
-              "5": 2.91,
-              "6": 4.98,
-              "2": 1.25,
-              "1": 0.52
+              "3": 2.36,
+              "4": 3.27,
+              "6": 5.1,
+              "7": 6.81,
+              "1": 0.54,
+              "5": 3.18,
+              "2": 1.3
             },
             "home_expected_seed_value": 7.3,
-            "away_expected_seed_value": 8.1,
-            "seed_value_impact": 0.7,
+            "away_expected_seed_value": 8.2,
+            "seed_value_impact": 0.9,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 1.96,
-                "division_pp": 0.52,
-                "top_seed_pp": 0.08,
-                "seed_value_pp": 0.72
+                "playoff_pp": 2.44,
+                "division_pp": 0.34,
+                "top_seed_pp": 0.11,
+                "seed_value_pp": 0.9
               },
               "weighted_contributions": {
-                "playoff": 0.979,
-                "division": 0.129,
-                "top_seed": 0.012,
-                "seed": 0.072
+                "playoff": 1.218,
+                "division": 0.085,
+                "top_seed": 0.017,
+                "seed": 0.09
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -20286,11 +19970,11 @@
       "mascot": "Patriots",
       "conference": "AFC",
       "division": "AFC East",
-      "playoff_chance": 82.1,
-      "division_chance": 55.2,
+      "playoff_chance": 82.3,
+      "division_chance": 55.4,
       "top_seed_chance": 12.9,
-      "super_bowl_appearance_chance": 7.4,
-      "super_bowl_win_chance": 3.2,
+      "super_bowl_appearance_chance": 7.7,
+      "super_bowl_win_chance": 3.1,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -20832,19 +20516,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 1.2,
+          "impact": 0.7,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -2.06,
-              "division_pp": 0.51,
-              "top_seed_pp": -1.02,
-              "seed_value_pp": -1.11
+              "playoff_pp": -1.46,
+              "division_pp": 1.0,
+              "top_seed_pp": -0.89,
+              "seed_value_pp": -0.67
             },
             "weighted_contributions": {
-              "playoff": -1.031,
-              "division": 0.128,
-              "top_seed": -0.152,
-              "seed": -0.111
+              "playoff": -0.73,
+              "division": 0.249,
+              "top_seed": -0.133,
+              "seed": -0.067
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -20868,51 +20552,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
+            "home_wins": 57233,
+            "away_wins": 42767,
             "home_playoff_pct": 83.0,
-            "away_playoff_pct": 80.9,
+            "away_playoff_pct": 81.5,
             "home_division_pct": 55.0,
-            "away_division_pct": 55.5,
+            "away_division_pct": 56.0,
             "home_top_seed_pct": 13.3,
-            "away_top_seed_pct": 12.3,
-            "home_sb_appearance_pct": 7.5,
-            "away_sb_appearance_pct": 7.4,
+            "away_top_seed_pct": 12.4,
+            "home_sb_appearance_pct": 7.7,
+            "away_sb_appearance_pct": 7.6,
             "home_sb_win_pct": 3.2,
-            "away_sb_win_pct": 3.2,
+            "away_sb_win_pct": 3.1,
             "home_seeds": {
-              "3": 15.12,
-              "4": 11.43,
-              "6": 9.53,
-              "1": 13.34,
-              "5": 10.58,
-              "2": 15.13,
-              "7": 7.84
+              "1": 13.26,
+              "5": 10.6,
+              "4": 11.38,
+              "7": 7.97,
+              "3": 15.27,
+              "2": 15.04,
+              "6": 9.44
             },
             "away_seeds": {
-              "5": 8.99,
-              "7": 7.69,
-              "4": 12.07,
-              "3": 15.95,
-              "2": 15.19,
-              "1": 12.32,
-              "6": 8.68
+              "2": 15.46,
+              "3": 15.83,
+              "4": 12.29,
+              "7": 7.88,
+              "1": 12.37,
+              "5": 9.04,
+              "6": 8.63
             },
-            "home_expected_seed_value": 46.3,
-            "away_expected_seed_value": 45.2,
-            "seed_value_impact": 1.1,
+            "home_expected_seed_value": 46.2,
+            "away_expected_seed_value": 45.5,
+            "seed_value_impact": 0.7,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -2.06,
-                "division_pp": 0.51,
-                "top_seed_pp": -1.02,
-                "seed_value_pp": -1.11
+                "playoff_pp": -1.46,
+                "division_pp": 1.0,
+                "top_seed_pp": -0.89,
+                "seed_value_pp": -0.67
               },
               "weighted_contributions": {
-                "playoff": -1.031,
-                "division": 0.128,
-                "top_seed": -0.152,
-                "seed": -0.111
+                "playoff": -0.73,
+                "division": 0.249,
+                "top_seed": -0.133,
+                "seed": -0.067
               },
               "dominant_reason": "playoff",
               "conflict": true
@@ -22004,11 +21688,11 @@
       "mascot": "Eagles",
       "conference": "NFC",
       "division": "NFC East",
-      "playoff_chance": 90.5,
+      "playoff_chance": 90.4,
       "division_chance": 83.8,
-      "top_seed_chance": 19.4,
-      "super_bowl_appearance_chance": 22.5,
-      "super_bowl_win_chance": 12.1,
+      "top_seed_chance": 19.3,
+      "super_bowl_appearance_chance": 22.4,
+      "super_bowl_win_chance": 12.2,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -22545,6 +22229,216 @@
             "root_against_seed_only": "NYG"
           },
           "completed": true
+        },
+        {
+          "date": "2025-10-20",
+          "away_team": "TB",
+          "home_team": "DET",
+          "impact": 0.5,
+          "impact_breakdown": {
+            "signed_swings": {
+              "playoff_pp": 0.3,
+              "division_pp": -0.36,
+              "top_seed_pp": -2.54,
+              "seed_value_pp": -1.31
+            },
+            "weighted_contributions": {
+              "playoff": 0.149,
+              "division": -0.09,
+              "top_seed": -0.381,
+              "seed": -0.131
+            },
+            "dominant_reason": "top_seed",
+            "conflict": true
+          },
+          "utility_weights": {
+            "playoff": 0.5,
+            "division": 0.25,
+            "top_seed": 0.15,
+            "seed": 0.1
+          },
+          "clinch_state": {
+            "playoffs": "open",
+            "division": "open",
+            "top_seed": "open"
+          },
+          "gametime": "19:00",
+          "stadium": "Ford Field",
+          "week": 7,
+          "day": "Sunday",
+          "root_against": "TB",
+          "espn_id": "401772816",
+          "debug_stats": {
+            "total_sims": 100000,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 90.3,
+            "away_playoff_pct": 90.6,
+            "home_division_pct": 83.9,
+            "away_division_pct": 83.5,
+            "home_top_seed_pct": 20.1,
+            "away_top_seed_pct": 17.6,
+            "home_sb_appearance_pct": 22.3,
+            "away_sb_appearance_pct": 22.7,
+            "home_sb_win_pct": 12.2,
+            "away_sb_win_pct": 12.3,
+            "home_seeds": {
+              "4": 23.27,
+              "6": 2.27,
+              "5": 1.3,
+              "1": 20.14,
+              "3": 21.39,
+              "2": 19.07,
+              "7": 2.88
+            },
+            "away_seeds": {
+              "2": 19.32,
+              "4": 26.17,
+              "3": 20.42,
+              "1": 17.6,
+              "6": 2.56,
+              "7": 2.9,
+              "5": 1.65
+            },
+            "home_expected_seed_value": 58.3,
+            "away_expected_seed_value": 57.0,
+            "seed_value_impact": 1.3,
+            "impact_breakdown": {
+              "signed_swings": {
+                "playoff_pp": 0.3,
+                "division_pp": -0.36,
+                "top_seed_pp": -2.54,
+                "seed_value_pp": -1.31
+              },
+              "weighted_contributions": {
+                "playoff": 0.149,
+                "division": -0.09,
+                "top_seed": -0.381,
+                "seed": -0.131
+              },
+              "dominant_reason": "top_seed",
+              "conflict": true
+            },
+            "utility_weights": {
+              "playoff": 0.5,
+              "division": 0.25,
+              "top_seed": 0.15,
+              "seed": 0.1
+            },
+            "clinch_state": {
+              "playoffs": "open",
+              "division": "open",
+              "top_seed": "open"
+            },
+            "root_against": "TB",
+            "root_against_seed_only": "TB"
+          },
+          "completed": false
+        },
+        {
+          "date": "2025-10-20",
+          "away_team": "HOU",
+          "home_team": "SEA",
+          "impact": 0.5,
+          "impact_breakdown": {
+            "signed_swings": {
+              "playoff_pp": 0.72,
+              "division_pp": -0.31,
+              "top_seed_pp": 1.09,
+              "seed_value_pp": 0.78
+            },
+            "weighted_contributions": {
+              "playoff": 0.362,
+              "division": -0.077,
+              "top_seed": 0.164,
+              "seed": 0.078
+            },
+            "dominant_reason": "playoff",
+            "conflict": true
+          },
+          "utility_weights": {
+            "playoff": 0.5,
+            "division": 0.25,
+            "top_seed": 0.15,
+            "seed": 0.1
+          },
+          "clinch_state": {
+            "playoffs": "open",
+            "division": "open",
+            "top_seed": "open"
+          },
+          "gametime": "22:00",
+          "stadium": "Lumen Field",
+          "week": 7,
+          "day": "Sunday",
+          "root_against": "SEA",
+          "espn_id": "401772826",
+          "debug_stats": {
+            "total_sims": 100000,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 90.1,
+            "away_playoff_pct": 90.8,
+            "home_division_pct": 83.9,
+            "away_division_pct": 83.6,
+            "home_top_seed_pct": 18.9,
+            "away_top_seed_pct": 20.0,
+            "home_sb_appearance_pct": 22.2,
+            "away_sb_appearance_pct": 22.8,
+            "home_sb_win_pct": 12.1,
+            "away_sb_win_pct": 12.4,
+            "home_seeds": {
+              "4": 24.66,
+              "3": 21.28,
+              "1": 18.87,
+              "2": 19.09,
+              "7": 2.72,
+              "5": 1.24,
+              "6": 2.25
+            },
+            "away_seeds": {
+              "4": 23.56,
+              "2": 19.24,
+              "6": 2.5,
+              "5": 1.64,
+              "1": 19.96,
+              "7": 3.11,
+              "3": 20.82
+            },
+            "home_expected_seed_value": 57.5,
+            "away_expected_seed_value": 58.3,
+            "seed_value_impact": 0.8,
+            "impact_breakdown": {
+              "signed_swings": {
+                "playoff_pp": 0.72,
+                "division_pp": -0.31,
+                "top_seed_pp": 1.09,
+                "seed_value_pp": 0.78
+              },
+              "weighted_contributions": {
+                "playoff": 0.362,
+                "division": -0.077,
+                "top_seed": 0.164,
+                "seed": 0.078
+              },
+              "dominant_reason": "playoff",
+              "conflict": true
+            },
+            "utility_weights": {
+              "playoff": 0.5,
+              "division": 0.25,
+              "top_seed": 0.15,
+              "seed": 0.1
+            },
+            "clinch_state": {
+              "playoffs": "open",
+              "division": "open",
+              "top_seed": "open"
+            },
+            "root_against": "SEA",
+            "root_against_seed_only": "SEA"
+          },
+          "completed": false
         },
         {
           "date": "2025-10-19",
@@ -23160,16 +23054,16 @@
           "week": 6
         }
       },
-      "chaos_score": 50.9,
+      "chaos_score": 52.1,
       "chaos_details": {
-        "chaos_score": 50.9,
-        "playoff_swing": 20.0,
-        "division_swing": 32.9,
-        "seed_swing": 58.0,
+        "chaos_score": 52.1,
+        "playoff_swing": 20.3,
+        "division_swing": 33.0,
+        "seed_swing": 60.1,
         "best_case": {
-          "playoff_pct": 90.5,
-          "division_pct": 83.8,
-          "seed_value": 58.0
+          "playoff_pct": 90.8,
+          "division_pct": 83.9,
+          "seed_value": 60.1
         },
         "worst_case": {
           "playoff_pct": 70.5,
@@ -23186,9 +23080,9 @@
       "conference": "AFC",
       "division": "AFC North",
       "playoff_chance": 66.2,
-      "division_chance": 50.7,
-      "top_seed_chance": 7.4,
-      "super_bowl_appearance_chance": 6.1,
+      "division_chance": 50.5,
+      "top_seed_chance": 7.2,
+      "super_bowl_appearance_chance": 5.9,
       "super_bowl_win_chance": 2.6,
       "num_simulations": 100000,
       "significant_games": [
@@ -23731,19 +23625,19 @@
           "date": "2025-10-20",
           "away_team": "TB",
           "home_team": "DET",
-          "impact": 0.8,
+          "impact": 0.5,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 0.92,
-              "division_pp": 0.85,
-              "top_seed_pp": 0.26,
-              "seed_value_pp": 0.65
+              "playoff_pp": 0.49,
+              "division_pp": 0.41,
+              "top_seed_pp": 0.45,
+              "seed_value_pp": 0.45
             },
             "weighted_contributions": {
-              "playoff": 0.462,
-              "division": 0.213,
-              "top_seed": 0.039,
-              "seed": 0.065
+              "playoff": 0.243,
+              "division": 0.102,
+              "top_seed": 0.067,
+              "seed": 0.045
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -23767,51 +23661,51 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 65.9,
-            "away_playoff_pct": 66.9,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 66.1,
+            "away_playoff_pct": 66.5,
             "home_division_pct": 50.4,
-            "away_division_pct": 51.2,
-            "home_top_seed_pct": 7.3,
-            "away_top_seed_pct": 7.6,
-            "home_sb_appearance_pct": 6.0,
-            "away_sb_appearance_pct": 6.2,
+            "away_division_pct": 50.8,
+            "home_top_seed_pct": 7.1,
+            "away_top_seed_pct": 7.5,
+            "home_sb_appearance_pct": 5.8,
+            "away_sb_appearance_pct": 6.1,
             "home_sb_win_pct": 2.6,
             "away_sb_win_pct": 2.7,
             "home_seeds": {
-              "2": 9.15,
-              "6": 5.24,
-              "7": 7.14,
-              "5": 3.17,
-              "1": 7.3,
-              "4": 21.58,
-              "3": 12.35
+              "5": 3.26,
+              "4": 21.52,
+              "2": 9.25,
+              "3": 12.57,
+              "1": 7.06,
+              "6": 5.2,
+              "7": 7.2
             },
             "away_seeds": {
-              "1": 7.56,
-              "3": 13.08,
-              "6": 5.17,
-              "2": 9.36,
-              "4": 21.23,
-              "5": 3.22,
-              "7": 7.24
+              "2": 9.24,
+              "3": 12.91,
+              "4": 21.16,
+              "7": 7.28,
+              "1": 7.5,
+              "6": 5.35,
+              "5": 3.11
             },
             "home_expected_seed_value": 34.6,
-            "away_expected_seed_value": 35.3,
-            "seed_value_impact": 0.7,
+            "away_expected_seed_value": 35.0,
+            "seed_value_impact": 0.4,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 0.92,
-                "division_pp": 0.85,
-                "top_seed_pp": 0.26,
-                "seed_value_pp": 0.65
+                "playoff_pp": 0.49,
+                "division_pp": 0.41,
+                "top_seed_pp": 0.45,
+                "seed_value_pp": 0.45
               },
               "weighted_contributions": {
-                "playoff": 0.462,
-                "division": 0.213,
-                "top_seed": 0.039,
-                "seed": 0.065
+                "playoff": 0.243,
+                "division": 0.102,
+                "top_seed": 0.067,
+                "seed": 0.045
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -23836,22 +23730,22 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 1.2,
+          "impact": 1.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -1.97,
-              "division_pp": -0.47,
-              "top_seed_pp": -0.31,
-              "seed_value_pp": -0.96
+              "playoff_pp": -1.81,
+              "division_pp": 0.09,
+              "top_seed_pp": -0.1,
+              "seed_value_pp": -0.7
             },
             "weighted_contributions": {
-              "playoff": -0.986,
-              "division": -0.117,
-              "top_seed": -0.046,
-              "seed": -0.096
+              "playoff": -0.903,
+              "division": 0.023,
+              "top_seed": -0.016,
+              "seed": -0.07
             },
             "dominant_reason": "playoff",
-            "conflict": false
+            "conflict": true
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -23872,54 +23766,54 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 67.1,
-            "away_playoff_pct": 65.1,
-            "home_division_pct": 50.9,
-            "away_division_pct": 50.4,
-            "home_top_seed_pct": 7.5,
-            "away_top_seed_pct": 7.2,
-            "home_sb_appearance_pct": 6.2,
-            "away_sb_appearance_pct": 5.9,
-            "home_sb_win_pct": 2.7,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 67.0,
+            "away_playoff_pct": 65.2,
+            "home_division_pct": 50.5,
+            "away_division_pct": 50.6,
+            "home_top_seed_pct": 7.2,
+            "away_top_seed_pct": 7.1,
+            "home_sb_appearance_pct": 6.1,
+            "away_sb_appearance_pct": 5.7,
+            "home_sb_win_pct": 2.6,
             "away_sb_win_pct": 2.6,
             "home_seeds": {
-              "6": 5.51,
-              "7": 7.32,
-              "1": 7.51,
-              "5": 3.39,
-              "3": 12.8,
-              "4": 21.2,
-              "2": 9.35
+              "5": 3.4,
+              "3": 12.65,
+              "2": 9.48,
+              "4": 21.12,
+              "1": 7.24,
+              "6": 5.48,
+              "7": 7.61
             },
             "away_seeds": {
-              "2": 9.04,
-              "5": 2.92,
-              "1": 7.2,
-              "4": 21.84,
-              "3": 12.3,
-              "7": 6.98,
-              "6": 4.82
+              "2": 8.93,
+              "4": 21.8,
+              "3": 12.71,
+              "1": 7.14,
+              "6": 4.93,
+              "7": 6.71,
+              "5": 2.96
             },
-            "home_expected_seed_value": 35.2,
+            "home_expected_seed_value": 35.0,
             "away_expected_seed_value": 34.3,
-            "seed_value_impact": 1.0,
+            "seed_value_impact": 0.7,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -1.97,
-                "division_pp": -0.47,
-                "top_seed_pp": -0.31,
-                "seed_value_pp": -0.96
+                "playoff_pp": -1.81,
+                "division_pp": 0.09,
+                "top_seed_pp": -0.1,
+                "seed_value_pp": -0.7
               },
               "weighted_contributions": {
-                "playoff": -0.986,
-                "division": -0.117,
-                "top_seed": -0.046,
-                "seed": -0.096
+                "playoff": -0.903,
+                "division": 0.023,
+                "top_seed": -0.016,
+                "seed": -0.07
               },
               "dominant_reason": "playoff",
-              "conflict": false
+              "conflict": true
             },
             "utility_weights": {
               "playoff": 0.5,
@@ -24470,9 +24364,9 @@
       "conference": "NFC",
       "division": "NFC West",
       "playoff_chance": 52.0,
-      "division_chance": 20.4,
-      "top_seed_chance": 3.2,
-      "super_bowl_appearance_chance": 4.4,
+      "division_chance": 20.5,
+      "top_seed_chance": 3.3,
+      "super_bowl_appearance_chance": 4.5,
       "super_bowl_win_chance": 1.8,
       "num_simulations": 100000,
       "significant_games": [
@@ -24801,19 +24695,19 @@
           "date": "2025-10-20",
           "away_team": "TB",
           "home_team": "DET",
-          "impact": 0.7,
+          "impact": 1.1,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.71,
-              "division_pp": -0.08,
-              "top_seed_pp": -0.81,
-              "seed_value_pp": 0.2
+              "playoff_pp": 2.21,
+              "division_pp": 0.03,
+              "top_seed_pp": -0.42,
+              "seed_value_pp": 0.5
             },
             "weighted_contributions": {
-              "playoff": 0.854,
-              "division": -0.02,
-              "top_seed": -0.122,
-              "seed": 0.02
+              "playoff": 1.104,
+              "division": 0.007,
+              "top_seed": -0.063,
+              "seed": 0.05
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -24837,51 +24731,51 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 51.4,
-            "away_playoff_pct": 53.1,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 51.3,
+            "away_playoff_pct": 53.5,
             "home_division_pct": 20.5,
-            "away_division_pct": 20.4,
+            "away_division_pct": 20.6,
             "home_top_seed_pct": 3.4,
-            "away_top_seed_pct": 2.6,
-            "home_sb_appearance_pct": 4.5,
-            "away_sb_appearance_pct": 4.4,
+            "away_top_seed_pct": 3.0,
+            "home_sb_appearance_pct": 4.4,
+            "away_sb_appearance_pct": 4.6,
             "home_sb_win_pct": 1.8,
             "away_sb_win_pct": 1.8,
             "home_seeds": {
-              "6": 11.0,
-              "2": 5.31,
-              "7": 11.16,
-              "5": 8.8,
-              "3": 6.35,
-              "4": 5.39,
-              "1": 3.43
+              "4": 5.4,
+              "5": 8.72,
+              "7": 11.23,
+              "3": 6.21,
+              "6": 10.86,
+              "1": 3.4,
+              "2": 5.52
             },
             "away_seeds": {
-              "3": 7.34,
-              "5": 10.71,
-              "2": 5.26,
-              "7": 10.98,
-              "4": 5.18,
-              "6": 11.07,
-              "1": 2.62
+              "2": 5.27,
+              "5": 10.67,
+              "3": 7.02,
+              "1": 2.98,
+              "7": 11.05,
+              "6": 11.26,
+              "4": 5.29
             },
             "home_expected_seed_value": 21.9,
-            "away_expected_seed_value": 22.1,
-            "seed_value_impact": 0.2,
+            "away_expected_seed_value": 22.4,
+            "seed_value_impact": 0.5,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 1.71,
-                "division_pp": -0.08,
-                "top_seed_pp": -0.81,
-                "seed_value_pp": 0.2
+                "playoff_pp": 2.21,
+                "division_pp": 0.03,
+                "top_seed_pp": -0.42,
+                "seed_value_pp": 0.5
               },
               "weighted_contributions": {
-                "playoff": 0.854,
-                "division": -0.02,
-                "top_seed": -0.122,
-                "seed": 0.02
+                "playoff": 1.104,
+                "division": 0.007,
+                "top_seed": -0.063,
+                "seed": 0.05
               },
               "dominant_reason": "playoff",
               "conflict": true
@@ -24906,19 +24800,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 17.6,
+          "impact": 17.9,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -24.22,
-              "division_pp": -14.37,
-              "top_seed_pp": -3.88,
-              "seed_value_pp": -13.64
+              "playoff_pp": -24.52,
+              "division_pp": -14.53,
+              "top_seed_pp": -3.93,
+              "seed_value_pp": -13.86
             },
             "weighted_contributions": {
-              "playoff": -12.111,
-              "division": -3.594,
-              "top_seed": -0.581,
-              "seed": -1.364
+              "playoff": -12.261,
+              "division": -3.632,
+              "top_seed": -0.589,
+              "seed": -1.386
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -24942,51 +24836,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 62.4,
-            "away_playoff_pct": 38.1,
-            "home_division_pct": 26.6,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 62.5,
+            "away_playoff_pct": 38.0,
+            "home_division_pct": 26.7,
             "away_division_pct": 12.2,
-            "home_top_seed_pct": 4.8,
+            "home_top_seed_pct": 4.9,
             "away_top_seed_pct": 1.0,
             "home_sb_appearance_pct": 5.9,
             "away_sb_appearance_pct": 2.5,
-            "home_sb_win_pct": 2.4,
+            "home_sb_win_pct": 2.5,
             "away_sb_win_pct": 1.0,
             "home_seeds": {
-              "6": 12.59,
-              "3": 8.39,
-              "2": 7.39,
-              "7": 11.52,
-              "5": 11.64,
-              "4": 5.99,
-              "1": 4.83
+              "2": 7.64,
+              "5": 11.63,
+              "7": 11.65,
+              "3": 8.23,
+              "4": 5.94,
+              "1": 4.94,
+              "6": 12.49
             },
             "away_seeds": {
-              "6": 8.92,
+              "4": 4.61,
+              "5": 6.27,
+              "7": 10.54,
+              "3": 4.1,
+              "6": 8.97,
               "2": 2.5,
-              "7": 10.56,
-              "1": 0.95,
-              "5": 6.42,
-              "3": 4.35,
-              "4": 4.42
+              "1": 1.01
             },
-            "home_expected_seed_value": 27.8,
+            "home_expected_seed_value": 28.0,
             "away_expected_seed_value": 14.1,
-            "seed_value_impact": 13.6,
+            "seed_value_impact": 13.9,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": -24.22,
-                "division_pp": -14.37,
-                "top_seed_pp": -3.88,
-                "seed_value_pp": -13.64
+                "playoff_pp": -24.52,
+                "division_pp": -14.53,
+                "top_seed_pp": -3.93,
+                "seed_value_pp": -13.86
               },
               "weighted_contributions": {
-                "playoff": -12.111,
-                "division": -3.594,
-                "top_seed": -0.581,
-                "seed": -1.364
+                "playoff": -12.261,
+                "division": -3.632,
+                "top_seed": -0.589,
+                "seed": -1.386
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -25664,19 +25558,19 @@
           "week": 6
         }
       },
-      "chaos_score": 35.5,
+      "chaos_score": 35.7,
       "chaos_details": {
-        "chaos_score": 35.5,
-        "playoff_swing": 24.3,
+        "chaos_score": 35.7,
+        "playoff_swing": 24.5,
         "division_swing": 18.8,
-        "seed_swing": 30.5,
+        "seed_swing": 30.7,
         "best_case": {
-          "playoff_pct": 62.4,
+          "playoff_pct": 62.5,
           "division_pct": 31.0,
-          "seed_value": 30.5
+          "seed_value": 30.7
         },
         "worst_case": {
-          "playoff_pct": 38.1,
+          "playoff_pct": 38.0,
           "division_pct": 12.2,
           "seed_value": 0
         },
@@ -25689,10 +25583,10 @@
       "mascot": "49ers",
       "conference": "NFC",
       "division": "NFC West",
-      "playoff_chance": 81.1,
-      "division_chance": 45.2,
-      "top_seed_chance": 13.5,
-      "super_bowl_appearance_chance": 7.1,
+      "playoff_chance": 80.7,
+      "division_chance": 45.1,
+      "top_seed_chance": 13.4,
+      "super_bowl_appearance_chance": 6.8,
       "super_bowl_win_chance": 2.7,
       "num_simulations": 100000,
       "significant_games": [
@@ -26342,19 +26236,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 3.1,
+          "impact": 2.5,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 2.21,
-              "division_pp": 6.69,
-              "top_seed_pp": 0.28,
-              "seed_value_pp": 2.44
+              "playoff_pp": 1.49,
+              "division_pp": 6.02,
+              "top_seed_pp": 0.18,
+              "seed_value_pp": 1.86
             },
             "weighted_contributions": {
-              "playoff": 1.104,
-              "division": 1.672,
-              "top_seed": 0.043,
-              "seed": 0.244
+              "playoff": 0.743,
+              "division": 1.505,
+              "top_seed": 0.027,
+              "seed": 0.186
             },
             "dominant_reason": "division",
             "conflict": false
@@ -26378,51 +26272,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 80.1,
-            "away_playoff_pct": 82.3,
-            "home_division_pct": 42.3,
-            "away_division_pct": 49.0,
-            "home_top_seed_pct": 13.3,
-            "away_top_seed_pct": 13.6,
-            "home_sb_appearance_pct": 7.0,
-            "away_sb_appearance_pct": 7.2,
-            "home_sb_win_pct": 2.7,
-            "away_sb_win_pct": 2.8,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 80.0,
+            "away_playoff_pct": 81.5,
+            "home_division_pct": 42.5,
+            "away_division_pct": 48.5,
+            "home_top_seed_pct": 13.4,
+            "away_top_seed_pct": 13.5,
+            "home_sb_appearance_pct": 6.9,
+            "away_sb_appearance_pct": 6.7,
+            "home_sb_win_pct": 2.8,
+            "away_sb_win_pct": 2.7,
             "home_seeds": {
-              "6": 12.74,
-              "2": 13.21,
-              "7": 9.74,
-              "3": 10.35,
-              "4": 5.42,
-              "1": 13.34,
-              "5": 15.31
+              "1": 13.35,
+              "5": 15.27,
+              "7": 9.61,
+              "6": 12.67,
+              "3": 10.13,
+              "2": 13.44,
+              "4": 5.56
             },
             "away_seeds": {
-              "7": 8.69,
-              "6": 11.26,
-              "1": 13.63,
-              "2": 14.64,
-              "4": 8.23,
+              "4": 8.13,
+              "7": 8.64,
+              "5": 13.01,
               "3": 12.52,
-              "5": 13.35
+              "6": 11.36,
+              "1": 13.54,
+              "2": 14.31
             },
             "home_expected_seed_value": 42.7,
-            "away_expected_seed_value": 45.1,
-            "seed_value_impact": 2.4,
+            "away_expected_seed_value": 44.6,
+            "seed_value_impact": 1.9,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 2.21,
-                "division_pp": 6.69,
-                "top_seed_pp": 0.28,
-                "seed_value_pp": 2.44
+                "playoff_pp": 1.49,
+                "division_pp": 6.02,
+                "top_seed_pp": 0.18,
+                "seed_value_pp": 1.86
               },
               "weighted_contributions": {
-                "playoff": 1.104,
-                "division": 1.672,
-                "top_seed": 0.043,
-                "seed": 0.244
+                "playoff": 0.743,
+                "division": 1.505,
+                "top_seed": 0.027,
+                "seed": 0.186
               },
               "dominant_reason": "division",
               "conflict": false
@@ -26911,11 +26805,11 @@
       "mascot": "Buccaneers",
       "conference": "NFC",
       "division": "NFC South",
-      "playoff_chance": 93.0,
+      "playoff_chance": 92.8,
       "division_chance": 85.0,
-      "top_seed_chance": 24.6,
+      "top_seed_chance": 24.8,
       "super_bowl_appearance_chance": 13.9,
-      "super_bowl_win_chance": 6.2,
+      "super_bowl_win_chance": 6.4,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -27136,19 +27030,19 @@
           "date": "2025-10-20",
           "away_team": "TB",
           "home_team": "DET",
-          "impact": 11.8,
+          "impact": 12.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 7.21,
-              "division_pp": 10.85,
-              "top_seed_pp": 23.94,
-              "seed_value_pp": 18.76
+              "playoff_pp": 7.41,
+              "division_pp": 11.13,
+              "top_seed_pp": 24.47,
+              "seed_value_pp": 18.88
             },
             "weighted_contributions": {
-              "playoff": 3.604,
-              "division": 2.712,
-              "top_seed": 3.591,
-              "seed": 1.876
+              "playoff": 3.705,
+              "division": 2.782,
+              "top_seed": 3.67,
+              "seed": 1.888
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -27172,51 +27066,51 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 90.7,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 90.5,
             "away_playoff_pct": 97.9,
             "home_division_pct": 81.5,
-            "away_division_pct": 92.4,
+            "away_division_pct": 92.6,
             "home_top_seed_pct": 17.0,
-            "away_top_seed_pct": 40.9,
-            "home_sb_appearance_pct": 11.0,
+            "away_top_seed_pct": 41.5,
+            "home_sb_appearance_pct": 11.1,
             "away_sb_appearance_pct": 20.1,
-            "home_sb_win_pct": 4.8,
-            "away_sb_win_pct": 9.2,
+            "home_sb_win_pct": 4.9,
+            "away_sb_win_pct": 9.5,
             "home_seeds": {
-              "2": 19.15,
-              "1": 16.98,
-              "4": 24.32,
-              "7": 3.49,
-              "3": 21.06,
-              "6": 3.44,
-              "5": 2.23
+              "6": 3.28,
+              "2": 19.1,
+              "7": 3.48,
+              "4": 24.03,
+              "3": 21.3,
+              "1": 17.02,
+              "5": 2.28
             },
             "away_seeds": {
-              "3": 16.16,
-              "2": 24.39,
-              "4": 10.89,
-              "1": 40.92,
-              "7": 1.39,
-              "6": 1.89,
-              "5": 2.24
+              "3": 16.56,
+              "1": 41.49,
+              "4": 11.06,
+              "2": 23.48,
+              "7": 1.25,
+              "6": 1.82,
+              "5": 2.26
             },
-            "home_expected_seed_value": 56.3,
-            "away_expected_seed_value": 75.0,
-            "seed_value_impact": 18.8,
+            "home_expected_seed_value": 56.2,
+            "away_expected_seed_value": 75.1,
+            "seed_value_impact": 18.9,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 7.21,
-                "division_pp": 10.85,
-                "top_seed_pp": 23.94,
-                "seed_value_pp": 18.76
+                "playoff_pp": 7.41,
+                "division_pp": 11.13,
+                "top_seed_pp": 24.47,
+                "seed_value_pp": 18.88
               },
               "weighted_contributions": {
-                "playoff": 3.604,
-                "division": 2.712,
-                "top_seed": 3.591,
-                "seed": 1.876
+                "playoff": 3.705,
+                "division": 2.782,
+                "top_seed": 3.67,
+                "seed": 1.888
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -27241,19 +27135,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 0.7,
+          "impact": 0.3,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 0.84,
-              "division_pp": -0.29,
-              "top_seed_pp": 1.34,
-              "seed_value_pp": 1.06
+              "playoff_pp": 0.64,
+              "division_pp": -0.57,
+              "top_seed_pp": 0.46,
+              "seed_value_pp": 0.64
             },
             "weighted_contributions": {
-              "playoff": 0.421,
-              "division": -0.073,
-              "top_seed": 0.2,
-              "seed": 0.106
+              "playoff": 0.32,
+              "division": -0.144,
+              "top_seed": 0.069,
+              "seed": 0.064
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -27277,51 +27171,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
+            "home_wins": 57233,
+            "away_wins": 42767,
             "home_playoff_pct": 92.6,
-            "away_playoff_pct": 93.5,
-            "home_division_pct": 85.1,
-            "away_division_pct": 84.8,
-            "home_top_seed_pct": 24.0,
-            "away_top_seed_pct": 25.4,
-            "home_sb_appearance_pct": 13.6,
-            "away_sb_appearance_pct": 14.2,
-            "home_sb_win_pct": 6.0,
-            "away_sb_win_pct": 6.5,
+            "away_playoff_pct": 93.2,
+            "home_division_pct": 85.2,
+            "away_division_pct": 84.6,
+            "home_top_seed_pct": 24.6,
+            "away_top_seed_pct": 25.0,
+            "home_sb_appearance_pct": 13.8,
+            "away_sb_appearance_pct": 14.1,
+            "home_sb_win_pct": 6.3,
+            "away_sb_win_pct": 6.4,
             "home_seeds": {
-              "2": 20.57,
-              "1": 24.03,
-              "4": 20.59,
-              "3": 19.91,
-              "6": 2.8,
-              "7": 2.63,
+              "6": 2.61,
+              "1": 24.57,
+              "4": 20.5,
+              "3": 20.03,
+              "2": 20.11,
+              "7": 2.64,
               "5": 2.1
             },
             "away_seeds": {
-              "2": 21.16,
-              "1": 25.36,
-              "3": 18.96,
-              "4": 19.32,
-              "7": 3.08,
-              "6": 3.15,
-              "5": 2.42
+              "2": 20.98,
+              "3": 19.49,
+              "7": 2.96,
+              "4": 19.14,
+              "1": 25.04,
+              "6": 3.1,
+              "5": 2.51
             },
-            "home_expected_seed_value": 61.8,
-            "away_expected_seed_value": 62.9,
-            "seed_value_impact": 1.1,
+            "home_expected_seed_value": 61.9,
+            "away_expected_seed_value": 62.6,
+            "seed_value_impact": 0.6,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 0.84,
-                "division_pp": -0.29,
-                "top_seed_pp": 1.34,
-                "seed_value_pp": 1.06
+                "playoff_pp": 0.64,
+                "division_pp": -0.57,
+                "top_seed_pp": 0.46,
+                "seed_value_pp": 0.64
               },
               "weighted_contributions": {
-                "playoff": 0.421,
-                "division": -0.073,
-                "top_seed": 0.2,
-                "seed": 0.106
+                "playoff": 0.32,
+                "division": -0.144,
+                "top_seed": 0.069,
+                "seed": 0.064
               },
               "dominant_reason": "playoff",
               "conflict": true
@@ -27999,19 +27893,19 @@
           "week": 6
         }
       },
-      "chaos_score": 47.3,
+      "chaos_score": 47.5,
       "chaos_details": {
-        "chaos_score": 47.3,
-        "playoff_swing": 7.2,
-        "division_swing": 17.3,
-        "seed_swing": 75.5,
+        "chaos_score": 47.5,
+        "playoff_swing": 7.4,
+        "division_swing": 17.5,
+        "seed_swing": 75.7,
         "best_case": {
           "playoff_pct": 97.9,
-          "division_pct": 92.4,
-          "seed_value": 75.5
+          "division_pct": 92.6,
+          "seed_value": 75.7
         },
         "worst_case": {
-          "playoff_pct": 90.7,
+          "playoff_pct": 90.5,
           "division_pct": 75.1,
           "seed_value": 0
         },
@@ -28024,7 +27918,7 @@
       "mascot": "Titans",
       "conference": "AFC",
       "division": "AFC South",
-      "playoff_chance": 0.3,
+      "playoff_chance": 0.4,
       "division_chance": 0.0,
       "top_seed_chance": 0.0,
       "super_bowl_appearance_chance": 0.0,
@@ -28280,11 +28174,11 @@
       "mascot": "Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "playoff_chance": 30.7,
-      "division_chance": 13.2,
-      "top_seed_chance": 0.4,
+      "playoff_chance": 31.0,
+      "division_chance": 13.4,
+      "top_seed_chance": 0.5,
       "super_bowl_appearance_chance": 4.5,
-      "super_bowl_win_chance": 2.3,
+      "super_bowl_win_chance": 2.4,
       "num_simulations": 100000,
       "significant_games": [
         {
@@ -28505,19 +28399,19 @@
           "date": "2025-10-20",
           "away_team": "TB",
           "home_team": "DET",
-          "impact": 0.9,
+          "impact": 1.1,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.82,
-              "division_pp": -0.23,
-              "top_seed_pp": -0.14,
-              "seed_value_pp": 0.39
+              "playoff_pp": 2.15,
+              "division_pp": 0.16,
+              "top_seed_pp": -0.17,
+              "seed_value_pp": 0.51
             },
             "weighted_contributions": {
-              "playoff": 0.911,
-              "division": -0.058,
-              "top_seed": -0.021,
-              "seed": 0.039
+              "playoff": 1.073,
+              "division": 0.039,
+              "top_seed": -0.026,
+              "seed": 0.051
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -28541,51 +28435,51 @@
           "espn_id": "401772816",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 68189,
-            "away_wins": 31811,
-            "home_playoff_pct": 30.1,
-            "away_playoff_pct": 31.9,
-            "home_division_pct": 13.3,
-            "away_division_pct": 13.0,
-            "home_top_seed_pct": 0.4,
+            "home_wins": 68337,
+            "away_wins": 31663,
+            "home_playoff_pct": 30.3,
+            "away_playoff_pct": 32.5,
+            "home_division_pct": 13.4,
+            "away_division_pct": 13.5,
+            "home_top_seed_pct": 0.5,
             "away_top_seed_pct": 0.3,
             "home_sb_appearance_pct": 4.5,
-            "away_sb_appearance_pct": 4.6,
+            "away_sb_appearance_pct": 4.7,
             "home_sb_win_pct": 2.3,
-            "away_sb_win_pct": 2.3,
+            "away_sb_win_pct": 2.5,
             "home_seeds": {
-              "4": 7.93,
-              "3": 3.39,
-              "5": 3.62,
-              "7": 7.67,
-              "1": 0.43,
-              "6": 5.55,
-              "2": 1.53
+              "4": 7.92,
+              "3": 3.45,
+              "6": 5.54,
+              "5": 3.49,
+              "7": 7.93,
+              "2": 1.5,
+              "1": 0.51
             },
             "away_seeds": {
-              "4": 8.11,
-              "5": 4.32,
-              "7": 7.96,
-              "6": 6.61,
-              "2": 1.39,
-              "3": 3.24,
-              "1": 0.3
+              "6": 6.47,
+              "4": 8.45,
+              "3": 3.42,
+              "7": 8.32,
+              "2": 1.34,
+              "5": 4.17,
+              "1": 0.33
             },
-            "home_expected_seed_value": 11.4,
-            "away_expected_seed_value": 11.8,
-            "seed_value_impact": 0.4,
+            "home_expected_seed_value": 11.5,
+            "away_expected_seed_value": 12.0,
+            "seed_value_impact": 0.5,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 1.82,
-                "division_pp": -0.23,
-                "top_seed_pp": -0.14,
-                "seed_value_pp": 0.39
+                "playoff_pp": 2.15,
+                "division_pp": 0.16,
+                "top_seed_pp": -0.17,
+                "seed_value_pp": 0.51
               },
               "weighted_contributions": {
-                "playoff": 0.911,
-                "division": -0.058,
-                "top_seed": -0.021,
-                "seed": 0.039
+                "playoff": 1.073,
+                "division": 0.039,
+                "top_seed": -0.026,
+                "seed": 0.051
               },
               "dominant_reason": "playoff",
               "conflict": true
@@ -28610,19 +28504,19 @@
           "date": "2025-10-20",
           "away_team": "HOU",
           "home_team": "SEA",
-          "impact": 1.5,
+          "impact": 1.3,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 2.64,
-              "division_pp": 0.35,
-              "top_seed_pp": 0.07,
-              "seed_value_pp": 0.92
+              "playoff_pp": 2.36,
+              "division_pp": 0.3,
+              "top_seed_pp": 0.08,
+              "seed_value_pp": 0.84
             },
             "weighted_contributions": {
-              "playoff": 1.32,
-              "division": 0.089,
-              "top_seed": 0.011,
-              "seed": 0.092
+              "playoff": 1.178,
+              "division": 0.075,
+              "top_seed": 0.012,
+              "seed": 0.084
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -28646,51 +28540,51 @@
           "espn_id": "401772826",
           "debug_stats": {
             "total_sims": 100000,
-            "home_wins": 57198,
-            "away_wins": 42802,
-            "home_playoff_pct": 29.6,
-            "away_playoff_pct": 32.2,
-            "home_division_pct": 13.1,
-            "away_division_pct": 13.4,
+            "home_wins": 57233,
+            "away_wins": 42767,
+            "home_playoff_pct": 30.0,
+            "away_playoff_pct": 32.4,
+            "home_division_pct": 13.3,
+            "away_division_pct": 13.6,
             "home_top_seed_pct": 0.4,
-            "away_top_seed_pct": 0.4,
+            "away_top_seed_pct": 0.5,
             "home_sb_appearance_pct": 4.4,
-            "away_sb_appearance_pct": 4.7,
+            "away_sb_appearance_pct": 4.8,
             "home_sb_win_pct": 2.3,
-            "away_sb_win_pct": 2.3,
+            "away_sb_win_pct": 2.5,
             "home_seeds": {
-              "3": 3.12,
-              "4": 8.16,
-              "7": 7.43,
-              "5": 3.66,
-              "1": 0.36,
-              "6": 5.43,
-              "2": 1.41
+              "4": 8.25,
+              "6": 5.48,
+              "2": 1.37,
+              "7": 7.76,
+              "5": 3.47,
+              "3": 3.27,
+              "1": 0.42
             },
             "away_seeds": {
-              "4": 7.75,
-              "5": 4.09,
-              "3": 3.64,
-              "7": 8.21,
-              "2": 1.59,
-              "6": 6.5,
-              "1": 0.43
+              "3": 3.66,
+              "6": 6.3,
+              "5": 4.02,
+              "7": 8.45,
+              "4": 7.88,
+              "2": 1.56,
+              "1": 0.5
             },
-            "home_expected_seed_value": 11.1,
-            "away_expected_seed_value": 12.0,
-            "seed_value_impact": 0.9,
+            "home_expected_seed_value": 11.3,
+            "away_expected_seed_value": 12.1,
+            "seed_value_impact": 0.8,
             "impact_breakdown": {
               "signed_swings": {
-                "playoff_pp": 2.64,
-                "division_pp": 0.35,
-                "top_seed_pp": 0.07,
-                "seed_value_pp": 0.92
+                "playoff_pp": 2.36,
+                "division_pp": 0.3,
+                "top_seed_pp": 0.08,
+                "seed_value_pp": 0.84
               },
               "weighted_contributions": {
-                "playoff": 1.32,
-                "division": 0.089,
-                "top_seed": 0.011,
-                "seed": 0.092
+                "playoff": 1.178,
+                "division": 0.075,
+                "top_seed": 0.012,
+                "seed": 0.084
               },
               "dominant_reason": "playoff",
               "conflict": false
@@ -29325,11 +29219,11 @@
           "week": 6
         }
       },
-      "chaos_score": 45.4,
+      "chaos_score": 45.0,
       "chaos_details": {
-        "chaos_score": 45.4,
-        "playoff_swing": 31.8,
-        "division_swing": 34.3,
+        "chaos_score": 45.0,
+        "playoff_swing": 31.4,
+        "division_swing": 34.0,
         "seed_swing": 32.0,
         "best_case": {
           "playoff_pct": 61.4,
@@ -29337,8 +29231,8 @@
           "seed_value": 32.0
         },
         "worst_case": {
-          "playoff_pct": 29.6,
-          "division_pct": 13.0,
+          "playoff_pct": 30.0,
+          "division_pct": 13.3,
           "seed_value": 0
         },
         "explanation": "Relatively stable"
@@ -29348,47 +29242,47 @@
   "playoff_odds": {
     "AFC": {
       "BAL": {
-        "playoff": 21.8,
-        "division": 17.9
+        "playoff": 22.1,
+        "division": 18.0
       },
       "BUF": {
-        "playoff": 85.0,
-        "division": 44.7
+        "playoff": 84.8,
+        "division": 44.6
       },
       "CIN": {
-        "playoff": 41.3,
+        "playoff": 41.2,
         "division": 30.3
       },
       "CLE": {
-        "playoff": 2.1,
-        "division": 1.2
+        "playoff": 2.0,
+        "division": 1.1
       },
       "DEN": {
-        "playoff": 79.8,
-        "division": 38.4
+        "playoff": 80.0,
+        "division": 38.6
       },
       "HOU": {
-        "playoff": 43.5,
+        "playoff": 43.2,
         "division": 11.9
       },
       "IND": {
-        "playoff": 90.2,
-        "division": 71.4
+        "playoff": 90.0,
+        "division": 71.5
       },
       "JAX": {
-        "playoff": 49.8,
+        "playoff": 49.9,
         "division": 16.6
       },
       "KC": {
-        "playoff": 75.5,
-        "division": 42.4
+        "playoff": 75.7,
+        "division": 42.5
       },
       "LAC": {
-        "playoff": 58.3,
-        "division": 18.9
+        "playoff": 58.2,
+        "division": 18.7
       },
       "LV": {
-        "playoff": 3.8,
+        "playoff": 3.6,
         "division": 0.3
       },
       "MIA": {
@@ -29396,8 +29290,8 @@
         "division": 0.0
       },
       "NE": {
-        "playoff": 82.1,
-        "division": 55.2
+        "playoff": 82.3,
+        "division": 55.4
       },
       "NYJ": {
         "playoff": 0.1,
@@ -29405,10 +29299,10 @@
       },
       "PIT": {
         "playoff": 66.2,
-        "division": 50.7
+        "division": 50.5
       },
       "TEN": {
-        "playoff": 0.3,
+        "playoff": 0.4,
         "division": 0.0
       }
     },
@@ -29418,36 +29312,36 @@
         "division": 0.4
       },
       "ATL": {
-        "playoff": 37.9,
-        "division": 10.4
+        "playoff": 38.3,
+        "division": 10.3
       },
       "CAR": {
         "playoff": 21.4,
-        "division": 4.6
+        "division": 4.7
       },
       "CHI": {
         "playoff": 36.6,
-        "division": 6.9
+        "division": 7.1
       },
       "DAL": {
-        "playoff": 4.8,
-        "division": 2.8
+        "playoff": 4.6,
+        "division": 2.6
       },
       "DET": {
-        "playoff": 79.2,
-        "division": 43.3
+        "playoff": 79.1,
+        "division": 43.2
       },
       "GB": {
-        "playoff": 77.8,
-        "division": 42.6
+        "playoff": 77.6,
+        "division": 42.4
       },
       "LAR": {
-        "playoff": 70.1,
+        "playoff": 70.2,
         "division": 34.0
       },
       "MIN": {
-        "playoff": 21.0,
-        "division": 7.2
+        "playoff": 21.2,
+        "division": 7.3
       },
       "NO": {
         "playoff": 0.1,
@@ -29458,58 +29352,58 @@
         "division": 0.2
       },
       "PHI": {
-        "playoff": 90.5,
+        "playoff": 90.4,
         "division": 83.8
       },
       "SEA": {
         "playoff": 52.0,
-        "division": 20.4
+        "division": 20.5
       },
       "SF": {
-        "playoff": 81.1,
-        "division": 45.2
+        "playoff": 80.7,
+        "division": 45.1
       },
       "TB": {
-        "playoff": 93.0,
+        "playoff": 92.8,
         "division": 85.0
       },
       "WAS": {
-        "playoff": 30.7,
-        "division": 13.2
+        "playoff": 31.0,
+        "division": 13.4
       }
     }
   },
   "super_bowl": {
     "appearances": {
       "ARI": 0.1,
-      "ATL": 2.1,
+      "ATL": 2.2,
       "BAL": 2.7,
-      "BUF": 18.4,
+      "BUF": 18.2,
       "CAR": 0.4,
       "CHI": 1.8,
-      "CIN": 2.3,
+      "CIN": 2.4,
       "CLE": 0.0,
       "DAL": 0.1,
-      "DEN": 15.2,
+      "DEN": 15.3,
       "DET": 18.0,
-      "GB": 14.5,
-      "HOU": 5.8,
-      "IND": 10.4,
+      "GB": 14.7,
+      "HOU": 5.9,
+      "IND": 10.2,
       "JAX": 3.5,
       "KC": 22.3,
-      "LAC": 5.7,
-      "LAR": 8.9,
+      "LAC": 5.8,
+      "LAR": 8.8,
       "LV": 0.1,
       "MIA": 0.0,
       "MIN": 1.6,
-      "NE": 7.4,
+      "NE": 7.7,
       "NO": 0.0,
       "NYG": 0.0,
       "NYJ": 0.0,
-      "PHI": 22.5,
-      "PIT": 6.1,
-      "SEA": 4.4,
-      "SF": 7.1,
+      "PHI": 22.4,
+      "PIT": 5.9,
+      "SEA": 4.5,
+      "SF": 6.8,
       "TB": 13.9,
       "TEN": 0.0,
       "WAS": 4.5
@@ -29518,35 +29412,35 @@
       "ARI": 0.0,
       "ATL": 0.8,
       "BAL": 1.4,
-      "BUF": 10.3,
+      "BUF": 10.2,
       "CAR": 0.1,
       "CHI": 0.6,
-      "CIN": 0.9,
+      "CIN": 1.0,
       "CLE": 0.0,
       "DAL": 0.0,
       "DEN": 8.0,
-      "DET": 10.0,
+      "DET": 9.9,
       "GB": 7.3,
       "HOU": 3.0,
-      "IND": 4.4,
+      "IND": 4.3,
       "JAX": 1.4,
-      "KC": 13.2,
-      "LAC": 2.5,
-      "LAR": 4.0,
-      "LV": 0.1,
+      "KC": 13.4,
+      "LAC": 2.6,
+      "LAR": 3.9,
+      "LV": 0.0,
       "MIA": 0.0,
       "MIN": 0.7,
-      "NE": 3.2,
+      "NE": 3.1,
       "NO": 0.0,
       "NYG": 0.0,
       "NYJ": 0.0,
-      "PHI": 12.1,
+      "PHI": 12.2,
       "PIT": 2.6,
       "SEA": 1.8,
       "SF": 2.7,
-      "TB": 6.2,
+      "TB": 6.4,
       "TEN": 0.0,
-      "WAS": 2.3
+      "WAS": 2.4
     }
   },
   "week_chaos": {
