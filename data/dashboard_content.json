@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-19T21:48:23.004559",
+  "timestamp": "2025-10-20T01:54:50.812146",
   "week": 7,
   "week_chaos": {
     "score": 29.2,
@@ -8,19 +8,19 @@
     "highest_chaos_teams": []
   },
   "league_pulse": {
-    "summary": "Week 7 has reshaped the NFL landscape with **Indianapolis** emerging as the class of the AFC, dominating their way to a league-best 6-1 record. The **NFC West** continues to be a powerhouse division with **San Francisco** and **Los Angeles** both sitting at 5-2, while the surprising **New England** Patriots have silenced critics with their 5-2 start. Meanwhile, the once-feared **Baltimore Ravens** have stumbled to a shocking 1-5 record, joining **Miami** and **New Orleans** in what's becoming a lost season. The **AFC West** remains fiercely competitive with three teams at or above .500, while the *complete collapse* of the **New York Jets** has them as the league's only winless team.",
+    "summary": "The **Colts** continue their stunning offensive dominance, riding high atop the AFC with a 6-1 record that few saw coming. Meanwhile, the **Buccaneers** have silently built an impressive 5-1 campaign in the NFC, setting up tonight's showdown with the resurgent **Lions** as a potential conference championship preview. The **Jets** remain the league's only winless team at 0-7, while once-mighty **Ravens** have shockingly stumbled to a 1-5 start. Perhaps most intriguing is the *ultra-competitive* NFC West, where the **49ers**, **Rams**, and **Seahawks** are all playing playoff-caliber football.",
     "key_storylines": [
       {
-        "title": "Colts Charging Ahead",
-        "description": "Indianapolis has emerged as the team to beat in the AFC, riding a high-powered offense that leads the league in scoring. Jonathan Taylor's dominance on the ground has fueled their attack, with the Colts looking like legitimate Super Bowl contenders."
+        "title": "Colts' Offensive Juggernaut Rolls On",
+        "description": "Indianapolis leads the league in scoring, third-down conversions, and point differential, establishing themselves as the AFC's team to beat. Jonathan Taylor's dominance on the ground has been the perfect complement to their explosive passing attack."
+      },
+      {
+        "title": "Monday Night Showdown",
+        "description": "Tonight's Tampa Bay-Detroit matchup features two of the NFC's top contenders with playoff implications already looming large in Week 7. The Lions' high-powered offense faces a stiff test against the conference-leading Buccaneers."
       },
       {
         "title": "Ravens in Free Fall",
-        "description": "Baltimore's 1-5 start represents one of the season's most shocking developments. A team many considered playoff-bound before the season now finds themselves in the AFC North cellar, with serious questions about their ability to salvage the campaign."
-      },
-      {
-        "title": "Patriots' Unexpected Renaissance",
-        "description": "New England has silenced doubters with their impressive 5-2 start, positioning themselves atop the AFC East. Their defensive prowess combined with efficient offense has them looking like the Patriots teams of old, despite preseason predictions of mediocrity."
+        "description": "Baltimore's shocking 1-5 start represents one of the season's biggest disappointments. A team expected to contend for the AFC North now finds itself looking up at the rest of the division with playoff hopes quickly fading."
       }
     ]
   },
@@ -29,18 +29,18 @@
     "away_team": "TB",
     "away_record": "5-1",
     "away_rank": 1,
-    "away_playoff_prob": 92.9,
+    "away_playoff_prob": 93.0,
     "home_team": "DET",
     "home_record": "4-2",
     "home_rank": 9,
-    "home_playoff_prob": 79.4,
+    "home_playoff_prob": 79.2,
     "betting_line": 5.5,
     "over_under": 52.5,
     "stadium": "Ford Field",
     "gametime": "19:00",
     "away_head_coach": "Todd Bowles",
     "home_head_coach": "Dan Campbell",
-    "quality_score": 152.2,
+    "quality_score": 152.1,
     "status": "upcoming",
     "away_score": null,
     "home_score": null,
@@ -50,7 +50,7 @@
     "home_offensive_coordinator": "John Morton",
     "away_defensive_coordinator": "Todd Bowles[a]",
     "home_defensive_coordinator": "Kelvin Sheppard",
-    "tagline": "NFC heavyweights clash as the undefeated Buccaneers bring their explosive offense to face the resurgent Lions in what promises to be a high-scoring showdown with major playoff implications in the conference hierarchy."
+    "tagline": "NFC heavyweights collide as the conference-leading Buccaneers (5-1) bring their potent offense to Ford Field against a Lions team (4-2) boasting the league's most accurate passing attack in a potential playoff preview with major seeding implications."
   },
   "game_of_the_meek": {
     "espn_id": "401772754",
@@ -61,7 +61,7 @@
     "home_team": "CLE",
     "home_record": "2-5",
     "home_rank": 25,
-    "home_playoff_prob": 2.0,
+    "home_playoff_prob": 2.1,
     "betting_line": 2.5,
     "over_under": 35.5,
     "stadium": "Huntington Bank Field",
@@ -78,7 +78,7 @@
     "home_offensive_coordinator": "Tommy Rees",
     "away_defensive_coordinator": "Anthony Weaver",
     "home_defensive_coordinator": "Jim Schwartz",
-    "tagline": "Browns finally found their footing against a hapless Dolphins squad, delivering a 31-6 beatdown that was every bit as lopsided as the score suggests."
+    "tagline": "The Browns demolished the hapless Dolphins 31-6 in a lopsided affair between two teams struggling to find their identity, temporarily pausing Cleveland's slide while extending Miami's misery to a 1-6 record."
   },
   "stat_leaders": {
     "offense": [
@@ -88,7 +88,7 @@
         "value": 33.1,
         "unit": "",
         "rank": 1,
-        "context": "Scoring machine in Indianapolis"
+        "context": "Scoring machine"
       },
       {
         "team": "DAL",
@@ -96,15 +96,15 @@
         "value": 396.7,
         "unit": " yds",
         "rank": 1,
-        "context": "Cowboys' offensive juggernaut"
+        "context": "Offensive powerhouse"
       },
       {
-        "team": "LAC",
+        "team": "SF",
         "stat": "Passing Yards Per Game",
-        "value": 279.6,
+        "value": 284.3,
         "unit": " yds",
         "rank": 1,
-        "context": "Air attack specialists"
+        "context": "Aerial dominance"
       },
       {
         "team": "BUF",
@@ -112,7 +112,7 @@
         "value": 151.0,
         "unit": " yds",
         "rank": 1,
-        "context": "Ground game dominance"
+        "context": "Ground game excellence"
       },
       {
         "team": "PHI",
@@ -130,7 +130,7 @@
         "value": 12.2,
         "unit": "",
         "rank": 1,
-        "context": "Defensive wall in Houston"
+        "context": "Fortress-like defense"
       },
       {
         "team": "DEN",
@@ -138,7 +138,7 @@
         "value": 34.0,
         "unit": "",
         "rank": 1,
-        "context": "Relentless pass rush"
+        "context": "Quarterback's nightmare"
       },
       {
         "team": "CHI",
@@ -146,7 +146,7 @@
         "value": 11.0,
         "unit": "",
         "rank": 1,
-        "context": "Ballhawk secondary"
+        "context": "Ballhawking secondary"
       },
       {
         "team": "TEN",
@@ -154,7 +154,7 @@
         "value": 28.6,
         "unit": "%",
         "rank": 1,
-        "context": "Drive-killing specialists"
+        "context": "Drive-killing defense"
       },
       {
         "team": "CHI",
@@ -162,7 +162,7 @@
         "value": 12,
         "unit": "",
         "rank": 1,
-        "context": "Turnover generation factory"
+        "context": "Takeaway specialists"
       }
     ],
     "efficiency": [
@@ -172,7 +172,7 @@
         "value": 49.3,
         "unit": "%",
         "rank": 1,
-        "context": "Third down conversion masters"
+        "context": "Drive-extending masters"
       },
       {
         "team": "DET",
@@ -180,7 +180,7 @@
         "value": 76.0,
         "unit": "%",
         "rank": 1,
-        "context": "Precision passing attack"
+        "context": "Pinpoint accuracy"
       },
       {
         "team": "PHI",
@@ -188,7 +188,7 @@
         "value": 82.4,
         "unit": "%",
         "rank": 1,
-        "context": "Goal line execution experts"
+        "context": "Touchdown conversion experts"
       },
       {
         "team": "IND",
@@ -196,7 +196,7 @@
         "value": 6.6,
         "unit": "",
         "rank": 1,
-        "context": "Maximum yards per play"
+        "context": "Maximum production"
       },
       {
         "team": "IND",
@@ -204,7 +204,7 @@
         "value": 92,
         "unit": "",
         "rank": 1,
-        "context": "Blowing teams out weekly"
+        "context": "Outscoring everyone"
       }
     ]
   },
@@ -216,7 +216,7 @@
       "leader_stat": "Passing Yards",
       "stat_line": "1913 pass yds, 13 TDs, 6 INTs",
       "season_projection": "6504 pass yds, 44 TDs",
-      "context": "Herbert is on pace for a record-setting season with 1,913 passing yards through seven weeks, projecting to an astonishing 6,504 yards by season's end."
+      "context": "Herbert is on pace for a career year with the Chargers, threatening to break the 6,000-yard mark while maintaining a solid TD-to-INT ratio."
     },
     {
       "player": "Matthew Stafford",
@@ -225,7 +225,7 @@
       "leader_stat": "Passing TDs",
       "stat_line": "1866 pass yds, 17 TDs, 2 INTs",
       "season_projection": "6344 pass yds, 57 TDs",
-      "context": "Stafford's TD-to-INT ratio has been exceptional, with 17 touchdowns to just 2 interceptions, putting him on track for a career-high 57 touchdown passes."
+      "context": "Stafford's remarkable efficiency has him on track for an astounding 57 touchdown passes, leading the Rams' high-powered aerial attack."
     },
     {
       "player": "Jonathan Taylor",
@@ -234,7 +234,7 @@
       "leader_stat": "Rushing Yards",
       "stat_line": "697 rush yds, 10 TDs",
       "season_projection": "2369 rush yds, 34 TDs",
-      "context": "Taylor has been unstoppable in the Colts' high-powered offense, already amassing 697 rushing yards and 10 touchdowns with projections showing a potential 2,000+ yard, 30+ TD campaign."
+      "context": "Taylor is the engine driving the Colts' league-best offense, with his rushing prowess putting him on pace for over 2,300 yards."
     },
     {
       "player": "Jonathan Taylor",
@@ -243,7 +243,7 @@
       "leader_stat": "Rushing TDs",
       "stat_line": "697 rush yds, 10 TDs",
       "season_projection": "2369 rush yds, 34 TDs",
-      "context": "With 10 rushing touchdowns already, Taylor is scoring at a historic rate that projects to 34 touchdowns, which would shatter the single-season rushing TD record."
+      "context": "With 10 rushing touchdowns in just 7 games, Taylor is scoring at a historic rate that projects to 34 TDs by season's end."
     },
     {
       "player": "Jaxon Smith-Njigba",
@@ -252,26 +252,26 @@
       "leader_stat": "Receiving Yards",
       "stat_line": "696 rec yds, 3 TDs",
       "season_projection": "2366 rec yds, 10 TDs",
-      "context": "Smith-Njigba has emerged as one of the league's premier receivers with 696 yards in six games, putting him on pace for an impressive 2,366-yard season."
+      "context": "Smith-Njigba has emerged as Seattle's primary receiving threat, averaging nearly 100 yards per game with a projection that would shatter rookie records."
     },
     {
-      "player": "Amon-Ra St. Brown",
-      "team": "DET",
-      "position": "WR",
+      "player": "Jake Ferguson",
+      "team": "DAL",
+      "position": "TE",
       "leader_stat": "Receiving TDs",
-      "stat_line": "452 rec yds, 6 TDs",
-      "season_projection": "1536 rec yds, 20 TDs",
-      "context": "St. Brown continues to be a touchdown machine for Detroit, with 6 receiving TDs already projecting to a remarkable 20-touchdown season."
+      "stat_line": "334 rec yds, 6 TDs",
+      "season_projection": "1135 rec yds, 20 TDs",
+      "context": "Ferguson has become a red zone nightmare for defenses, leading all receivers with 6 touchdowns and projecting for an unprecedented 20-TD season for a tight end."
     }
   ],
   "power_rankings": {
-    "last_updated": "2025-10-19T21:47:25.741919",
+    "last_updated": "2025-10-20T01:54:24.819322",
     "top_5": [
       {
         "rank": 1,
         "team": "TB",
         "team_name": "Tampa Bay Buccaneers",
-        "rating": 84.58,
+        "rating": 84.59,
         "record": "5-1",
         "trend": "steady",
         "previous_rank": 1,
@@ -297,7 +297,7 @@
         "rank": 3,
         "team": "PHI",
         "team_name": "Philadelphia Eagles",
-        "rating": 78.31,
+        "rating": 78.32,
         "record": "5-2",
         "trend": "up",
         "previous_rank": 5,
@@ -310,7 +310,7 @@
         "rank": 4,
         "team": "GB",
         "team_name": "Green Bay Packers",
-        "rating": 76.59,
+        "rating": 76.56,
         "record": "4-1-1",
         "trend": "steady",
         "previous_rank": 4,
@@ -323,7 +323,7 @@
         "rank": 5,
         "team": "SF",
         "team_name": "San Francisco 49ers",
-        "rating": 73.72,
+        "rating": 73.8,
         "record": "5-2",
         "trend": "up",
         "previous_rank": 11,
@@ -338,7 +338,7 @@
         "rank": 28,
         "team": "BAL",
         "team_name": "Baltimore Ravens",
-        "rating": 22.0,
+        "rating": 21.94,
         "record": "1-5",
         "trend": "steady",
         "previous_rank": 28,
@@ -405,7 +405,7 @@
         "rank": 1,
         "team": "TB",
         "team_name": "Tampa Bay Buccaneers",
-        "rating": 84.58,
+        "rating": 84.59,
         "record": "5-1",
         "trend": "steady",
         "previous_rank": 1,
@@ -431,7 +431,7 @@
         "rank": 3,
         "team": "PHI",
         "team_name": "Philadelphia Eagles",
-        "rating": 78.31,
+        "rating": 78.32,
         "record": "5-2",
         "trend": "up",
         "previous_rank": 5,
@@ -444,7 +444,7 @@
         "rank": 4,
         "team": "GB",
         "team_name": "Green Bay Packers",
-        "rating": 76.59,
+        "rating": 76.56,
         "record": "4-1-1",
         "trend": "steady",
         "previous_rank": 4,
@@ -457,7 +457,7 @@
         "rank": 5,
         "team": "SF",
         "team_name": "San Francisco 49ers",
-        "rating": 73.72,
+        "rating": 73.8,
         "record": "5-2",
         "trend": "up",
         "previous_rank": 11,
@@ -470,7 +470,7 @@
         "rank": 6,
         "team": "NE",
         "team_name": "New England Patriots",
-        "rating": 72.3,
+        "rating": 72.28,
         "record": "5-2",
         "trend": "up",
         "previous_rank": 8,
@@ -483,7 +483,7 @@
         "rank": 7,
         "team": "LAR",
         "team_name": "Los Angeles Rams",
-        "rating": 72.0,
+        "rating": 72.02,
         "record": "5-2",
         "trend": "up",
         "previous_rank": 13,
@@ -496,7 +496,7 @@
         "rank": 8,
         "team": "DEN",
         "team_name": "Denver Broncos",
-        "rating": 70.87,
+        "rating": 70.83,
         "record": "5-2",
         "trend": "up",
         "previous_rank": 9,
@@ -509,7 +509,7 @@
         "rank": 9,
         "team": "DET",
         "team_name": "Detroit Lions",
-        "rating": 67.6,
+        "rating": 67.57,
         "record": "4-2",
         "trend": "down",
         "previous_rank": 6,
@@ -522,7 +522,7 @@
         "rank": 10,
         "team": "PIT",
         "team_name": "Pittsburgh Steelers",
-        "rating": 66.0,
+        "rating": 66.01,
         "record": "4-2",
         "trend": "down",
         "previous_rank": 3,
@@ -535,7 +535,7 @@
         "rank": 11,
         "team": "SEA",
         "team_name": "Seattle Seahawks",
-        "rating": 63.55,
+        "rating": 63.52,
         "record": "4-2",
         "trend": "down",
         "previous_rank": 10,
@@ -548,7 +548,7 @@
         "rank": 12,
         "team": "BUF",
         "team_name": "Buffalo Bills",
-        "rating": 63.34,
+        "rating": 63.39,
         "record": "4-2",
         "trend": "up",
         "previous_rank": 14,
@@ -561,7 +561,7 @@
         "rank": 13,
         "team": "JAX",
         "team_name": "Jacksonville Jaguars",
-        "rating": 60.91,
+        "rating": 60.92,
         "record": "4-3",
         "trend": "down",
         "previous_rank": 7,
@@ -574,7 +574,7 @@
         "rank": 14,
         "team": "KC",
         "team_name": "Kansas City Chiefs",
-        "rating": 60.41,
+        "rating": 60.47,
         "record": "4-3",
         "trend": "up",
         "previous_rank": 16,
@@ -587,7 +587,7 @@
         "rank": 15,
         "team": "CHI",
         "team_name": "Chicago Bears",
-        "rating": 58.77,
+        "rating": 58.74,
         "record": "4-2",
         "trend": "up",
         "previous_rank": 18,
@@ -613,7 +613,7 @@
         "rank": 17,
         "team": "ATL",
         "team_name": "Atlanta Falcons",
-        "rating": 50.79,
+        "rating": 50.76,
         "record": "3-3",
         "trend": "down",
         "previous_rank": 15,
@@ -626,7 +626,7 @@
         "rank": 18,
         "team": "CAR",
         "team_name": "Carolina Panthers",
-        "rating": 48.8,
+        "rating": 48.83,
         "record": "4-3",
         "trend": "up",
         "previous_rank": 20,
@@ -639,7 +639,7 @@
         "rank": 19,
         "team": "CIN",
         "team_name": "Cincinnati Bengals",
-        "rating": 48.41,
+        "rating": 48.43,
         "record": "3-4",
         "trend": "up",
         "previous_rank": 22,
@@ -652,7 +652,7 @@
         "rank": 20,
         "team": "MIN",
         "team_name": "Minnesota Vikings",
-        "rating": 47.82,
+        "rating": 47.89,
         "record": "3-3",
         "trend": "down",
         "previous_rank": 17,
@@ -665,7 +665,7 @@
         "rank": 21,
         "team": "WAS",
         "team_name": "Washington Commanders",
-        "rating": 41.27,
+        "rating": 41.21,
         "record": "3-4",
         "trend": "down",
         "previous_rank": 19,
@@ -678,7 +678,7 @@
         "rank": 22,
         "team": "DAL",
         "team_name": "Dallas Cowboys",
-        "rating": 39.59,
+        "rating": 39.61,
         "record": "3-3-1",
         "trend": "up",
         "previous_rank": 25,
@@ -691,7 +691,7 @@
         "rank": 23,
         "team": "HOU",
         "team_name": "Houston Texans",
-        "rating": 38.21,
+        "rating": 38.14,
         "record": "2-3",
         "trend": "down",
         "previous_rank": 21,
@@ -717,7 +717,7 @@
         "rank": 25,
         "team": "CLE",
         "team_name": "Cleveland Browns",
-        "rating": 31.19,
+        "rating": 31.21,
         "record": "2-5",
         "trend": "up",
         "previous_rank": 27,
@@ -730,7 +730,7 @@
         "rank": 26,
         "team": "LV",
         "team_name": "Las Vegas Raiders",
-        "rating": 30.33,
+        "rating": 30.38,
         "record": "2-5",
         "trend": "down",
         "previous_rank": 24,
@@ -756,7 +756,7 @@
         "rank": 28,
         "team": "BAL",
         "team_name": "Baltimore Ravens",
-        "rating": 22.0,
+        "rating": 21.94,
         "record": "1-5",
         "trend": "steady",
         "previous_rank": 28,
@@ -823,85 +823,85 @@
       "previous_rank": 11,
       "current_rank": 5,
       "movement": "+6",
-      "rating": 73.72,
+      "rating": 73.8,
       "record": "5-2",
       "head_coach": "Kyle Shanahan",
       "offensive_coordinator": "Klay Kubiak",
       "defensive_coordinator": "Robert Saleh",
-      "reason": "The 49ers have surged up the rankings after dismantling the Falcons 20-10, showcasing their balanced attack and proving they remain elite despite early season inconsistency."
+      "reason": "The 49ers have surged up the rankings after their convincing 20-10 victory over Atlanta, showcasing their balanced attack and stifling defense that's making them look like legitimate NFC contenders once again."
     },
     "biggest_faller": {
       "team": "PIT",
       "previous_rank": 3,
       "current_rank": 10,
       "movement": "-7",
-      "rating": 66.0,
+      "rating": 66.01,
       "record": "4-2",
       "head_coach": "Mike Tomlin",
       "offensive_coordinator": "Arthur Smith",
       "defensive_coordinator": "Teryl Austin",
-      "reason": "Pittsburgh's surprising loss to division rival Cincinnati exposed defensive vulnerabilities and raised questions about their sustainability as a contender."
+      "reason": "Pittsburgh's shocking loss to division rival Cincinnati exposed defensive vulnerabilities and inconsistent offensive play, raising questions about their legitimacy as AFC North leaders."
     }
   },
   "playoff_snapshot": {
     "top_4": [
       {
         "team": "TB",
-        "probability": 92.9,
+        "probability": 93.0,
         "current_seed": 1,
         "record": "5-1",
-        "key_info": "Dominating the NFC with a nearly perfect record and top playoff odds"
+        "key_info": "Commanding the NFC with an efficient offense and remaining schedule advantage"
       },
       {
         "team": "PHI",
-        "probability": 90.4,
+        "probability": 90.5,
         "current_seed": 4,
         "record": "5-2",
-        "key_info": "Strong start has Philadelphia positioned as kings of the NFC East"
+        "key_info": "Riding a potent offense to control the NFC East despite defensive concerns"
       },
       {
         "team": "IND",
         "probability": 90.2,
         "current_seed": 1,
         "record": "6-1",
-        "key_info": "League's best record fueled by explosive offensive output"
+        "key_info": "Surprising everyone with the league's most explosive offense and MVP-caliber QB play"
       },
       {
         "team": "BUF",
-        "probability": 84.7,
+        "probability": 85.0,
         "current_seed": 5,
         "record": "4-2",
-        "key_info": "Strong AFC East contender despite not leading division"
+        "key_info": "Quietly building momentum with a balanced attack despite sitting second in division"
       }
     ],
     "middle_4": [
       {
         "team": "NE",
-        "probability": 82.2,
+        "probability": 82.1,
         "current_seed": 2,
         "record": "5-2",
-        "key_info": "Surprise AFC East leaders defying preseason expectations"
+        "key_info": "Exceeding expectations with rookies contributing immediately to both sides of ball"
       },
       {
         "team": "SF",
-        "probability": 80.6,
+        "probability": 81.1,
         "current_seed": 3,
         "record": "5-2",
-        "key_info": "NFC West powerhouse maintaining championship form"
+        "key_info": "Shaking off early injuries to reclaim position as NFC West powerhouse"
       },
       {
         "team": "DEN",
-        "probability": 80.1,
+        "probability": 79.8,
         "current_seed": 3,
         "record": "5-2",
-        "key_info": "AFC West leaders with a rock-solid defense"
+        "key_info": "Defense-first approach working brilliantly with pass rush leading the way"
       },
       {
         "team": "DET",
-        "probability": 79.4,
+        "probability": 79.2,
         "current_seed": 8,
         "record": "4-2",
-        "key_info": "Contending despite competitive NFC North race"
+        "key_info": "Offensive firepower keeping them competitive in loaded NFC North race"
       }
     ],
     "bottom_4": [
@@ -910,28 +910,28 @@
         "probability": 0.3,
         "current_seed": 14,
         "record": "1-6",
-        "key_info": "Season spiraling after six straight losses"
+        "key_info": "Season spiraling with quarterback questions and mounting injuries"
       },
       {
         "team": "TEN",
         "probability": 0.3,
         "current_seed": 15,
         "record": "1-6",
-        "key_info": "Struggling to find identity amid disappointing start"
+        "key_info": "Rebuilding year becoming increasingly evident with each passing week"
       },
       {
         "team": "NO",
         "probability": 0.1,
         "current_seed": 16,
         "record": "1-6",
-        "key_info": "Playoff hopes virtually extinguished after 1-6 beginning"
+        "key_info": "Complete offensive collapse has derailed any hopes for competitiveness"
       },
       {
         "team": "NYJ",
         "probability": 0.1,
         "current_seed": 16,
         "record": "0-7",
-        "key_info": "Winless start has completely derailed season expectations"
+        "key_info": "Winless start creating questions about organizational direction and draft position"
       }
     ]
   },
@@ -952,7 +952,7 @@
         "home_defensive_coordinator": "Aden Durde",
         "stadium": "Lumen Field",
         "gametime": "22:00",
-        "tagline": "Ryans returns as Texans challenge Seahawks"
+        "tagline": "Ryans returns to Seattle for prime-time showdown"
       }
     ],
     "total_games": 2
