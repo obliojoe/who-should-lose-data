@@ -1055,6 +1055,39 @@ but don't force it. Let the drama emerge naturally.
                 return str(value)
             return f"{total:.1f}".rstrip('0').rstrip('.')
 
+        def _compute_weekday(game_record):
+            weekday = game_record.get('weekday') or game_record.get('day_of_week')
+            if weekday:
+                return weekday
+            try:
+                return pd.to_datetime(game_record.get('game_date')).strftime('%A')
+            except Exception:
+                return None
+
+        remaining_games = []
+        for game in upcoming_games:
+            analysis = game_analyses.get(str(game['espn_id']), {})
+            betting = analysis.get('betting', {})
+
+            spread_value = betting.get('spread')
+            favorite = betting.get('favorite')
+            away_spread = None
+            if spread_value is not None and favorite:
+                if favorite == game['away_team']:
+                    away_spread = spread_value
+                elif favorite == game['home_team']:
+                    away_spread = -spread_value
+
+            remaining_games.append({
+                'away': game['away_team'],
+                'home': game['home_team'],
+                'day': _compute_weekday(game),
+                'gametime': game.get('gametime'),
+                'spread': _format_spread(game['away_team'], away_spread),
+                'over_under': _format_over_under(betting.get('over_under')),
+                'stadium': game.get('stadium')
+            })
+
         def _build_game_details(game_record, include_playoff_probs=False):
             lines = []
             status = game_record.get('status')
@@ -1112,11 +1145,31 @@ but don't force it. Let the drama emerge naturally.
         game_of_week_details = _build_game_details(game_of_week, include_playoff_probs=True)
         game_of_meek_details = _build_game_details(game_of_meek, include_playoff_probs=False)
 
+        # Describe current week status for the prompt
+        if remaining_games:
+            if completed_games:
+                week_status_note = f"Mid-week update — {len(remaining_games)} game(s) still remain this week."
+            else:
+                week_status_note = f"Early-week update — all {len(remaining_games)} game(s) are still upcoming."
+        else:
+            week_status_note = "Full-week wrap — every game on the schedule is final."
+
+        if completed_games:
+            completed_games_section = f"COMPLETED GAMES THIS WEEK:\n{json.dumps(completed_games, separators=(',', ':'))}\n\n"
+        else:
+            completed_games_section = "NOTE: No games have been completed this week yet.\n\n"
+
+        if remaining_games:
+            remaining_games_section = f"UPCOMING GAMES THIS WEEK:\n{json.dumps(remaining_games, separators=(',', ':'))}\n\n"
+        else:
+            remaining_games_section = "NOTE: No games remain on this week's schedule.\n\n"
+
         # Build prompt with comprehensive context
         # REFACTORED STRUCTURE: Put data inline with each request to reduce cognitive load
         ai_prompt = f"""You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
 
 Current Week: {current_week}
+Week Status: {week_status_note}
 
 === GENERAL LEAGUE CONTEXT ===
 This data is available for reference throughout all your responses.
@@ -1124,13 +1177,7 @@ This data is available for reference throughout all your responses.
 FULL LEAGUE STANDINGS (all 32 teams with records):
 {json.dumps(full_standings, separators=(',', ':'))}
 
-{f'''COMPLETED GAMES THIS WEEK:
-{json.dumps(completed_games, separators=(',', ':'))}
-
-''' if completed_games else '''NOTE: No games have been completed this week yet.
-
-'''}
-{f'''ALL 32 TEAMS (Power Rankings):
+{completed_games_section}{remaining_games_section}{f'''ALL 32 TEAMS (Power Rankings):
 {json.dumps(all_teams_context, separators=(',', ':'))}
 
 ''' if include_power_rankings_in_prompt else ''}{chaos_context}
