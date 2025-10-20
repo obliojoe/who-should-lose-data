@@ -2280,10 +2280,36 @@ def analyze_batch_game_impacts(batch_results, game_impacts, teams):
                         
                 impact['total_sims'] += 1
 
-def classify_goal_state(chance_pct: float) -> str:
+def _normalize_clincher(clincher: Optional[str]) -> str:
+    """Normalize clincher codes from ESPN standings."""
+    if clincher:
+        return str(clincher).strip().lower()
+    return ''
+
+
+def apply_playoff_floor(raw_pct: float, clincher: Optional[str], minimum: float = 0.1) -> float:
+    """Ensure teams without an elimination clincher never display 0% playoff odds."""
+    code = _normalize_clincher(clincher)
+    pct = round(raw_pct, 1)
+
+    if code == 'e':
+        return pct
+
+    if raw_pct <= 0:
+        return minimum
+
+    return max(pct, minimum)
+
+
+def classify_goal_state(chance_pct: float, clincher: Optional[str] = None) -> str:
+    code = _normalize_clincher(clincher)
+    if code in {'x', 'y', 'z', '*'}:
+        return 'clinched'
+    if code == 'e':
+        return 'eliminated'
     if chance_pct >= 99.5:
         return 'clinched'
-    if chance_pct <= 0.5:
+    if chance_pct <= 0.0:
         return 'eliminated'
     return 'open'
 
@@ -2480,6 +2506,16 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
     # Load required data
     teams = load_teams()
     schedule = load_schedule()
+    try:
+        with open(get_data_dir() / 'team_stats.json', 'r', encoding='utf-8') as fh:
+            team_stats_records = json.load(fh)
+        team_clincher_codes = {
+            record.get('team_abbr'): _normalize_clincher(record.get('clincher'))
+            for record in team_stats_records
+            if record.get('team_abbr')
+        }
+    except (FileNotFoundError, json.JSONDecodeError):
+        team_clincher_codes = {}
     if home_field_override is not None:
         home_field_advantage = float(home_field_override)
     else:
@@ -2685,8 +2721,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
             if conf not in cache_data['playoff_odds']:
                 cache_data['playoff_odds'][conf] = {}
                 
+            playoff_pct_raw = (playoff_appearances[team_abbr] / num_simulations) * 100 if num_simulations else 0.0
+            clincher_code = team_clincher_codes.get(team_abbr)
             cache_data['playoff_odds'][conf][team_abbr] = {
-                'playoff': round((playoff_appearances[team_abbr] / num_simulations) * 100, 1),
+                'playoff': apply_playoff_floor(playoff_pct_raw, clincher_code),
                 'division': round((division_wins[team_abbr] / num_simulations) * 100, 1)
             }
             
@@ -2713,16 +2751,18 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
             division_pct = (division_wins[team_abbr] / num_simulations) * 100
             top_seed_pct = (top_seed_wins[team_abbr] / num_simulations) * 100
 
+            clincher_code = team_clincher_codes.get(team_abbr)
+
             if team_abbr not in cache_data['team_analyses']:
                 cache_data['team_analyses'][team_abbr] = {
-                    'playoff_chance': round(playoff_pct, 1),
+                    'playoff_chance': apply_playoff_floor(playoff_pct, clincher_code),
                     'division_chance': round(division_pct, 1),
                     'top_seed_chance': round(top_seed_pct, 1),
                     'significant_games': []
                 }
 
             team_analysis = cache_data['team_analyses'][team_abbr]
-            team_analysis['playoff_chance'] = round(playoff_pct, 1)
+            team_analysis['playoff_chance'] = apply_playoff_floor(playoff_pct, clincher_code)
             team_analysis['division_chance'] = round(division_pct, 1)
             team_analysis['top_seed_chance'] = round(top_seed_pct, 1)
             team_analysis['significant_games'] = []
@@ -2731,12 +2771,14 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
         team_utility_weights: Dict[str, Dict[str, float]] = {}
 
         for team_abbr in teams:
-            playoff_chance = (playoff_appearances[team_abbr] / num_simulations) * 100
-            division_chance = (division_wins[team_abbr] / num_simulations) * 100
-            top_seed_chance = (top_seed_wins[team_abbr] / num_simulations) * 100
+            clincher_code = team_clincher_codes.get(team_abbr)
+            team_analysis = cache_data['team_analyses'][team_abbr]
+            playoff_chance = team_analysis.get('playoff_chance', 0.0)
+            division_chance = team_analysis.get('division_chance', 0.0)
+            top_seed_chance = team_analysis.get('top_seed_chance', 0.0)
 
             states = {
-                'playoffs': classify_goal_state(playoff_chance),
+                'playoffs': classify_goal_state(playoff_chance, clincher_code),
                 'division': classify_goal_state(division_chance),
                 'top_seed': classify_goal_state(top_seed_chance)
             }
@@ -2916,8 +2958,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
         # Only update probability values if not skipping sims
         if not skip_sims:
+            playoff_pct_raw = (playoff_appearances[team_abbr] / num_simulations) * 100 if num_simulations else 0.0
+            clincher_code = team_clincher_codes.get(team_abbr)
             update_values.update({
-                'playoff_chance': round((playoff_appearances[team_abbr] / num_simulations) * 100, 1),
+                'playoff_chance': apply_playoff_floor(playoff_pct_raw, clincher_code),
                 'division_chance': round((division_wins[team_abbr] / num_simulations) * 100, 1),
                 'top_seed_chance': round((top_seed_wins[team_abbr] / num_simulations) * 100, 1),
                 'super_bowl_appearance_chance': round((super_bowl_appearances[team_abbr] / num_simulations) * 100, 1),
