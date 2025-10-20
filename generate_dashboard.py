@@ -1055,15 +1055,36 @@ but don't force it. Let the drama emerge naturally.
                 return str(value)
             return f"{total:.1f}".rstrip('0').rstrip('.')
 
+        def _compute_weekday(game_record):
+            weekday = game_record.get('weekday') or game_record.get('day_of_week')
+            if weekday:
+                return weekday
+            try:
+                return pd.to_datetime(game_record.get('game_date')).strftime('%A')
+            except Exception:
+                return None
+
         remaining_games = []
         for game in upcoming_games:
+            analysis = game_analyses.get(str(game['espn_id']), {})
+            betting = analysis.get('betting', {})
+
+            spread_value = betting.get('spread')
+            favorite = betting.get('favorite')
+            away_spread = None
+            if spread_value is not None and favorite:
+                if favorite == game['away_team']:
+                    away_spread = spread_value
+                elif favorite == game['home_team']:
+                    away_spread = -spread_value
+
             remaining_games.append({
                 'away': game['away_team'],
                 'home': game['home_team'],
-                'day': game.get('day_of_week'),
+                'day': _compute_weekday(game),
                 'gametime': game.get('gametime'),
-                'spread': _format_spread(game['away_team'], game.get('betting_line')),
-                'over_under': _format_over_under(game.get('over_under')),
+                'spread': _format_spread(game['away_team'], away_spread),
+                'over_under': _format_over_under(betting.get('over_under')),
                 'stadium': game.get('stadium')
             })
 
