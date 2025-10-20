@@ -111,41 +111,24 @@ def get_game_context(team, game, teams):
     return " ".join(context)
 
 def get_relevant_games(schedule):
-    """Get all games from the current week (played and unplayed) plus unplayed games from next week"""
-    current_week_games = []
-    next_week_games = []
+    """Return games from the current week (including already-final games)."""
 
-    # Find the first unplayed game to determine current week
-    first_unplayed_game = None
+    # Find the first unplayed game to determine the current week
+    current_week_num = None
     for game in schedule:
         if not game['away_score'] and not game['home_score']:
-            first_unplayed_game = game
+            current_week_num = int(game['week_num'])
             break
 
-    if first_unplayed_game:
-        current_week_num = int(first_unplayed_game['week_num'])
-        next_week_num = current_week_num + 1
+    # If every game in the season has a score, default to the final week
+    if current_week_num is None:
+        if schedule:
+            current_week_num = int(schedule[-1]['week_num'])
+        else:
+            return []
 
-        # Get ALL games from current week (played and unplayed)
-        # Get only UNPLAYED games from next week
-        for game in schedule:
-            if int(game['week_num']) == current_week_num:
-                current_week_games.append(game)
-            elif int(game['week_num']) == next_week_num:
-                if not game['away_score'] and not game['home_score']:
-                    next_week_games.append(game)
-
-    # Start with current week's games (all of them)
-    relevant_games = current_week_games
-
-    # Count only unplayed games in current week for the threshold check
-    current_week_unplayed = [g for g in current_week_games if not g['away_score'] and not g['home_score']]
-
-    # If there are 2 or fewer unplayed games remaining in current week, include next week's games
-    if len(current_week_unplayed) <= 2:
-        relevant_games.extend(next_week_games)
-    
-    return relevant_games
+    # Return all games from the current week (played and unplayed)
+    return [game for game in schedule if int(game['week_num']) == current_week_num]
 
 def determine_wild_cards_with_tiebreakers(standings, teams, division_winners, simulation_result=None):
     """Determine wild card teams using full NFL tiebreaker rules."""

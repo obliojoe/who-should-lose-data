@@ -1209,6 +1209,9 @@ def save_pre_game_impact(week, espn_id, team_abbr, impact_data):
     cache[week_str][espn_id][team_abbr] = {
         'impact': impact_data.get('impact', 0),
         'root_against': impact_data.get('root_against'),
+        'impact_breakdown': impact_data.get('impact_breakdown'),
+        'utility_weights': impact_data.get('utility_weights'),
+        'clinch_state': impact_data.get('clinch_state'),
         'debug_stats': impact_data.get('debug_stats', {})
     }
 
@@ -2277,17 +2280,57 @@ def analyze_batch_game_impacts(batch_results, game_impacts, teams):
                         
                 impact['total_sims'] += 1
 
-def calculate_game_impact(game_id, team_abbr, game_impacts):
-    """Calculate the impact of a game on a team's playoff chances using expected seed value"""
+def classify_goal_state(chance_pct: float) -> str:
+    if chance_pct >= 99.5:
+        return 'clinched'
+    if chance_pct <= 0.5:
+        return 'eliminated'
+    return 'open'
+
+
+def pick_utility_weights(states: Dict[str, str], odds: Dict[str, float]) -> Dict[str, float]:
+    playoff_state = states.get('playoffs', 'open')
+    division_state = states.get('division', 'open')
+    top_state = states.get('top_seed', 'open')
+    playoff_chance = odds.get('playoffs', 0.0)
+    division_chance = odds.get('division', 0.0)
+    top_chance = odds.get('top_seed', 0.0)
+
+    if playoff_state == 'eliminated':
+        base = {'playoff': 0.70, 'division': 0.20, 'top_seed': 0.05, 'seed': 0.05}
+    elif playoff_state != 'clinched':
+        base = {'playoff': 0.50, 'division': 0.25, 'top_seed': 0.15, 'seed': 0.10}
+    elif division_state != 'clinched':
+        base = {'playoff': 0.10, 'division': 0.45, 'top_seed': 0.30, 'seed': 0.15}
+    elif top_state == 'open':
+        base = {'playoff': 0.10, 'division': 0.05, 'top_seed': 0.55, 'seed': 0.30}
+    else:
+        base = {'playoff': 0.05, 'division': 0.05, 'top_seed': 0.20, 'seed': 0.70}
+
+    # Zero out goals that are clinched or impossible
+    if playoff_state == 'clinched' or playoff_chance <= 0.0:
+        base['playoff'] = 0.0
+    if division_state == 'clinched' or division_chance <= 0.0:
+        base['division'] = 0.0
+    if top_state == 'clinched' or top_chance <= 0.0:
+        base['top_seed'] = 0.0
+
+    total = sum(base.values())
+    if total <= 0:
+        return {'playoff': 0.0, 'division': 0.0, 'top_seed': 0.0, 'seed': 1.0}
+
+    return {key: value / total for key, value in base.items()}
+
+
+def calculate_game_impact(game_id, team_abbr, game_impacts, utility_weights, clinch_state):
+    """Calculate the utility-based impact of a game on a team."""
     impact = game_impacts[game_id][team_abbr]
     total_sims = impact['total_sims']
     if total_sims == 0:
-        return 0, {}
+        return 0, team_abbr, {}
 
-    # Split game_id once
     away_team, home_team = game_id.split('@')
 
-    # Calculate seed percentages for each outcome
     home_seeds = defaultdict(float)
     away_seeds = defaultdict(float)
 
@@ -2299,7 +2342,6 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
         for seed, count in impact['away_wins_seeds'].items():
             away_seeds[seed] = round((count / impact['away_wins_count']) * 100, 2)
 
-    # Calculate percentages for each outcome
     home_playoff_pct = (impact['home_wins_playoff'] / impact['home_wins_count']) * 100 if impact['home_wins_count'] > 0 else 0
     away_playoff_pct = (impact['away_wins_playoff'] / impact['away_wins_count']) * 100 if impact['away_wins_count'] > 0 else 0
 
@@ -2309,48 +2351,68 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
     home_top_seed_pct = (impact['home_wins_top_seed'] / impact['home_wins_count']) * 100 if impact['home_wins_count'] > 0 else 0
     away_top_seed_pct = (impact['away_wins_top_seed'] / impact['away_wins_count']) * 100 if impact['away_wins_count'] > 0 else 0
 
-    # Super Bowl percentage calculations
     home_sb_appearance_pct = (impact['home_wins_sb_appearance'] / impact['home_wins_count']) * 100 if impact['home_wins_count'] > 0 else 0
     away_sb_appearance_pct = (impact['away_wins_sb_appearance'] / impact['away_wins_count']) * 100 if impact['away_wins_count'] > 0 else 0
     home_sb_win_pct = (impact['home_wins_sb_win'] / impact['home_wins_count']) * 100 if impact['home_wins_count'] > 0 else 0
     away_sb_win_pct = (impact['away_wins_sb_win'] / impact['away_wins_count']) * 100 if impact['away_wins_count'] > 0 else 0
 
-    # Calculate expected seed value for each outcome
-    # Account for missed playoffs (no seed = 0 value)
     home_expected_value = 0
     away_expected_value = 0
 
-    # Calculate expected value when home wins
     for seed, pct in home_seeds.items():
         home_expected_value += SEED_VALUES.get(seed, 0) * (pct / 100)
-    # Account for missed playoffs
-    home_miss_playoffs_pct = 100 - home_playoff_pct
-    home_expected_value += SEED_VALUES[0] * (home_miss_playoffs_pct / 100)
+    home_expected_value += SEED_VALUES[0] * ((100 - home_playoff_pct) / 100)
 
-    # Calculate expected value when away wins
     for seed, pct in away_seeds.items():
         away_expected_value += SEED_VALUES.get(seed, 0) * (pct / 100)
-    # Account for missed playoffs
-    away_miss_playoffs_pct = 100 - away_playoff_pct
-    away_expected_value += SEED_VALUES[0] * (away_miss_playoffs_pct / 100)
+    away_expected_value += SEED_VALUES[0] * ((100 - away_playoff_pct) / 100)
 
-    # Total impact is the absolute difference in expected seed values
-    total_impact = abs(home_expected_value - away_expected_value)
+    d_playoff = away_playoff_pct - home_playoff_pct
+    d_division = away_division_pct - home_division_pct
+    d_top_seed = away_top_seed_pct - home_top_seed_pct
+    d_seed_value = away_expected_value - home_expected_value
 
-    # Determine which outcome is better for this team
-    if home_expected_value > away_expected_value:
-        root_against = away_team
-    else:
+    contributions = {
+        'playoff': utility_weights['playoff'] * d_playoff,
+        'division': utility_weights['division'] * d_division,
+        'top_seed': utility_weights['top_seed'] * d_top_seed,
+        'seed': utility_weights['seed'] * d_seed_value,
+    }
+
+    utility_signed = sum(contributions.values())
+    impact_score = abs(utility_signed)
+
+    if utility_signed >= 0:
         root_against = home_team
+    else:
+        root_against = away_team
 
-    # Create clean debug stats dictionary
+    dominant_reason = max(contributions, key=lambda key: abs(contributions[key]))
+    prefer_away = any(value > 0 for value in contributions.values())
+    prefer_home = any(value < 0 for value in contributions.values())
+    conflict = prefer_away and prefer_home
+
+    impact_breakdown = {
+        'signed_swings': {
+            'playoff_pp': round(d_playoff, 2),
+            'division_pp': round(d_division, 2),
+            'top_seed_pp': round(d_top_seed, 2),
+            'seed_value_pp': round(d_seed_value, 2)
+        },
+        'weighted_contributions': {
+            'playoff': round(contributions['playoff'], 3),
+            'division': round(contributions['division'], 3),
+            'top_seed': round(contributions['top_seed'], 3),
+            'seed': round(contributions['seed'], 3)
+        },
+        'dominant_reason': dominant_reason,
+        'conflict': conflict
+    }
+
     debug_stats = {
-        # Simulation metadata
         'total_sims': total_sims,
         'home_wins': impact['home_wins_count'],
         'away_wins': impact['away_wins_count'],
-
-        # Outcome percentages (useful for UI display)
         'home_playoff_pct': round(home_playoff_pct, 1),
         'away_playoff_pct': round(away_playoff_pct, 1),
         'home_division_pct': round(home_division_pct, 1),
@@ -2361,21 +2423,19 @@ def calculate_game_impact(game_id, team_abbr, game_impacts):
         'away_sb_appearance_pct': round(away_sb_appearance_pct, 1),
         'home_sb_win_pct': round(home_sb_win_pct, 1),
         'away_sb_win_pct': round(away_sb_win_pct, 1),
-
-        # Seed distributions (needed for calculation transparency)
         'home_seeds': dict(home_seeds),
         'away_seeds': dict(away_seeds),
-
-        # Expected seed value metrics (the new core calculation)
         'home_expected_seed_value': round(home_expected_value, 1),
         'away_expected_seed_value': round(away_expected_value, 1),
-        'seed_value_impact': round(total_impact, 1),
-
-        # Root against (useful for UI)
-        'root_against': root_against
+        'seed_value_impact': round(abs(d_seed_value), 1),
+        'impact_breakdown': impact_breakdown,
+        'utility_weights': utility_weights,
+        'clinch_state': clinch_state,
+        'root_against': root_against,
+        'root_against_seed_only': home_team if d_seed_value >= 0 else away_team
     }
 
-    return total_impact, debug_stats
+    return impact_score, root_against, debug_stats
 
 def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, output_path='data/analysis_cache.json', copy_data=True, test_mode=False, regenerate_team_ai=None, seed=None, ai_model=None, force_sagarin=False, home_field_override=None):
     """Generate the analysis cache file"""
@@ -2649,15 +2709,44 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
         # Clear each team's significant games before adding new ones
         for team_abbr in teams:
-            if team_abbr in cache_data['team_analyses']:
-                cache_data['team_analyses'][team_abbr]['significant_games'] = []
+            playoff_pct = (playoff_appearances[team_abbr] / num_simulations) * 100
+            division_pct = (division_wins[team_abbr] / num_simulations) * 100
+            top_seed_pct = (top_seed_wins[team_abbr] / num_simulations) * 100
+
             if team_abbr not in cache_data['team_analyses']:
                 cache_data['team_analyses'][team_abbr] = {
-                    'playoff_chance': (playoff_appearances[team_abbr] / num_simulations) * 100,
-                    'division_chance': (division_wins[team_abbr] / num_simulations) * 100,
-                    'top_seed_chance': (top_seed_wins[team_abbr] / num_simulations) * 100,
+                    'playoff_chance': round(playoff_pct, 1),
+                    'division_chance': round(division_pct, 1),
+                    'top_seed_chance': round(top_seed_pct, 1),
                     'significant_games': []
                 }
+
+            team_analysis = cache_data['team_analyses'][team_abbr]
+            team_analysis['playoff_chance'] = round(playoff_pct, 1)
+            team_analysis['division_chance'] = round(division_pct, 1)
+            team_analysis['top_seed_chance'] = round(top_seed_pct, 1)
+            team_analysis['significant_games'] = []
+
+        team_clinch_states: Dict[str, Dict[str, str]] = {}
+        team_utility_weights: Dict[str, Dict[str, float]] = {}
+
+        for team_abbr in teams:
+            playoff_chance = (playoff_appearances[team_abbr] / num_simulations) * 100
+            division_chance = (division_wins[team_abbr] / num_simulations) * 100
+            top_seed_chance = (top_seed_wins[team_abbr] / num_simulations) * 100
+
+            states = {
+                'playoffs': classify_goal_state(playoff_chance),
+                'division': classify_goal_state(division_chance),
+                'top_seed': classify_goal_state(top_seed_chance)
+            }
+            odds = {
+                'playoffs': playoff_chance,
+                'division': division_chance,
+                'top_seed': top_seed_chance
+            }
+            team_clinch_states[team_abbr] = states
+            team_utility_weights[team_abbr] = pick_utility_weights(states, odds)
 
         # Load pre-game impact cache and determine current week
         pre_game_impacts = load_pre_game_impacts()
@@ -2676,32 +2765,43 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
 
             if not is_completed:  # Unplayed game - process normally
                 for team_abbr in teams:
-                    total_impact, debug_stats = calculate_game_impact(
-                        game_id, team_abbr, game_impacts
+                    impact_score, root_against, debug_stats = calculate_game_impact(
+                        game_id,
+                        team_abbr,
+                        game_impacts,
+                        team_utility_weights[team_abbr],
+                        team_clinch_states[team_abbr]
                     )
 
                     # Save to pre-game cache (overwrites until game completes)
                     if current_week and int(game['week_num']) == current_week:
                         save_pre_game_impact(current_week, game['espn_id'], team_abbr, {
-                            'impact': round(total_impact, 2),
-                            'root_against': debug_stats.get('root_against'),
+                            'impact': round(impact_score, 2),
+                            'root_against': root_against,
+                            'impact_breakdown': debug_stats.get('impact_breakdown'),
+                            'utility_weights': team_utility_weights[team_abbr],
+                            'clinch_state': team_clinch_states[team_abbr],
                             'debug_stats': debug_stats
                         })
 
                     # Include all games with any measurable impact (> 0)
                     # Let UI decide filtering/display thresholds
                     # Use 0.01 threshold to exclude true zeros while catching tiny impacts
-                    if total_impact >= 0.01:
+                    if impact_score >= 0.3:
+                        breakdown = debug_stats.get('impact_breakdown', {})
                         cache_data['team_analyses'][team_abbr]['significant_games'].append({
                             'date': game['game_date'],
                             'away_team': game['away_team'],
                             'home_team': game['home_team'],
-                            'impact': round(total_impact, 1),
+                            'impact': round(impact_score, 1),
+                            'impact_breakdown': breakdown,
+                            'utility_weights': team_utility_weights[team_abbr],
+                            'clinch_state': team_clinch_states[team_abbr],
                             'gametime': game['gametime'],
                             'stadium': game['stadium'],
                             'week': int(game['week_num']),
                             'day': game.get('day_of_week', 'Sunday'),
-                            'root_against': debug_stats['root_against'],
+                            'root_against': root_against,
                             'espn_id': game['espn_id'],
                             'debug_stats': debug_stats,
                             'completed': False
@@ -2717,7 +2817,13 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                                 impact_data = pre_game_impacts[week_str][game['espn_id']][team_abbr]
 
                     # Include game if it had impact > 0.01 (same threshold as unplayed games)
-                    if impact_data.get('impact', 0) >= 0.01:
+                    impact_value = impact_data.get('impact', 0)
+                    if impact_value >= 0.3:
+                        breakdown = impact_data.get('impact_breakdown')
+                        if not breakdown and impact_data.get('debug_stats'):
+                            breakdown = impact_data['debug_stats'].get('impact_breakdown')
+                        utility_weights = impact_data.get('utility_weights', team_utility_weights.get(team_abbr, {}))
+                        clinch_state = impact_data.get('clinch_state', team_clinch_states.get(team_abbr, {}))
                         # Add completed game with scores and pre-game impact
                         cache_data['team_analyses'][team_abbr]['significant_games'].append({
                             'date': game['game_date'],
@@ -2725,7 +2831,10 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                             'home_team': game['home_team'],
                             'away_score': int(game['away_score']),
                             'home_score': int(game['home_score']),
-                            'impact': impact_data.get('impact', 0),  # Use cached pre-game impact
+                            'impact': impact_value,
+                            'impact_breakdown': breakdown,
+                            'utility_weights': utility_weights,
+                            'clinch_state': clinch_state,
                             'gametime': game['gametime'],
                             'stadium': game['stadium'],
                             'week': int(game['week_num']),
