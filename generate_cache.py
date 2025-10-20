@@ -2288,10 +2288,13 @@ def classify_goal_state(chance_pct: float) -> str:
     return 'open'
 
 
-def pick_utility_weights(states: Dict[str, str]) -> Dict[str, float]:
+def pick_utility_weights(states: Dict[str, str], odds: Dict[str, float]) -> Dict[str, float]:
     playoff_state = states.get('playoffs', 'open')
     division_state = states.get('division', 'open')
     top_state = states.get('top_seed', 'open')
+    playoff_chance = odds.get('playoffs', 0.0)
+    division_chance = odds.get('division', 0.0)
+    top_chance = odds.get('top_seed', 0.0)
 
     if playoff_state == 'eliminated':
         base = {'playoff': 0.70, 'division': 0.20, 'top_seed': 0.05, 'seed': 0.05}
@@ -2305,11 +2308,11 @@ def pick_utility_weights(states: Dict[str, str]) -> Dict[str, float]:
         base = {'playoff': 0.05, 'division': 0.05, 'top_seed': 0.20, 'seed': 0.70}
 
     # Zero out goals that are clinched or impossible
-    if playoff_state != 'open':
+    if playoff_state == 'clinched' or playoff_chance <= 0.0:
         base['playoff'] = 0.0
-    if division_state != 'open':
+    if division_state == 'clinched' or division_chance <= 0.0:
         base['division'] = 0.0
-    if top_state != 'open':
+    if top_state == 'clinched' or top_chance <= 0.0:
         base['top_seed'] = 0.0
 
     total = sum(base.values())
@@ -2730,8 +2733,13 @@ def generate_cache(num_simulations=1000, skip_sims=False, skip_team_ai=False, ou
                 'division': classify_goal_state(division_chance),
                 'top_seed': classify_goal_state(top_seed_chance)
             }
+            odds = {
+                'playoffs': playoff_chance,
+                'division': division_chance,
+                'top_seed': top_seed_chance
+            }
             team_clinch_states[team_abbr] = states
-            team_utility_weights[team_abbr] = pick_utility_weights(states)
+            team_utility_weights[team_abbr] = pick_utility_weights(states, odds)
 
         # Load pre-game impact cache and determine current week
         pre_game_impacts = load_pre_game_impacts()
