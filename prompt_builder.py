@@ -71,7 +71,9 @@ def calculate_league_rankings(all_stats_df):
     if 'points_against_per_game' in all_stats_df.columns:
         all_stats_df['points_against_per_game_rank'] = all_stats_df['points_against_per_game'].rank(ascending=True, method='min').astype(int)
         for idx, row in all_stats_df.iterrows():
-            rankings[row['team_abbr']]['points_against_per_game_rank'] = int(row['points_against_per_game_rank'])
+            rank_value = int(row['points_against_per_game_rank'])
+            rankings[row['team_abbr']]['points_against_per_game_rank'] = rank_value
+            rankings[row['team_abbr']]['points_allowed_per_game_rank'] = rank_value
 
     # Sacks and interceptions: higher is better for defense
     for stat in ['def_sacks', 'def_interceptions']:
