@@ -361,19 +361,6 @@ def ask_questions(mode=None):
         if manifest_path:
             options['raw_manifest'] = manifest_path
 
-    run_collect_raw = ask_yes_no(
-        "Run collect_raw_data.py before generate_cache?",
-        default=not options.get('skip_data', False)
-    )
-    if run_collect_raw:
-        options['collect_raw_before'] = True
-        collect_args = ask_text(
-            "collect_raw_data.py arguments (leave blank for default auto-detect)",
-            default=""
-        )
-        if collect_args.strip():
-            options['collect_raw_args'] = collect_args.strip()
-
     print("\n🎲 SIMULATIONS")
     print("─" * 60)
     run_sims = ask_yes_no("Run simulations?", default=True)
@@ -684,6 +671,10 @@ def prompt_collect_raw(options):
 
     # Skip prompting when running a preset via CLI argument
     if options.get('_from_cli_preset'):
+        return options
+
+    # If preset already specified a preference, respect it without prompting again
+    if 'collect_raw_before' in options:
         return options
 
     default_run = not options.get('skip_data', False)
