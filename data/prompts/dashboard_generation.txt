@@ -169,7 +169,7 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
   {
     "team": "DET",
     "stat": "Completion Percentage",
-    "value": 76.0,
+    "value": 75.0,
     "unit": "%",
     "rank": 1
   },
@@ -241,16 +241,16 @@ Generate context for the following 6 individual stat leaders (PLAIN STRINGS expl
     "team": "SEA",
     "position": "WR",
     "leader_stat": "Receiving Yards",
-    "stat_line": "696 rec yds, 3 TDs",
-    "season_projection": "2366 rec yds, 10 TDs"
+    "stat_line": "819 rec yds, 4 TDs",
+    "season_projection": "2784 rec yds, 13 TDs"
   },
   {
-    "player": "Jake Ferguson",
-    "team": "DAL",
-    "position": "TE",
+    "player": "Amon-Ra St. Brown",
+    "team": "DET",
+    "position": "WR",
     "leader_stat": "Receiving TDs",
-    "stat_line": "334 rec yds, 6 TDs",
-    "season_projection": "1135 rec yds, 20 TDs"
+    "stat_line": "538 rec yds, 7 TDs",
+    "season_projection": "1829 rec yds, 23 TDs"
   }
 ]
 

@@ -1124,15 +1124,27 @@
     "position": "NT",
     "position_group": null,
     "espn_player_id": "3134362",
+    "weekly": {
+      "defense": {
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 2,
+        "def_tackles_for_loss": 1,
+        "def_tackles_for_loss_yards": 3,
+        "def_qb_hits": 2
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
         "def_tackles_solo": 7,
-        "def_tackle_assists": 7,
-        "def_tackles_for_loss": 2,
-        "def_tackles_for_loss_yards": 18,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 9,
+        "def_tackles_for_loss": 3,
+        "def_tackles_for_loss_yards": 21,
         "def_sacks": 2.5,
         "def_sack_yards": 23.0,
-        "def_qb_hits": 4
+        "def_qb_hits": 6
       },
       "misc": {
         "penalties": 2,
@@ -1141,7 +1153,7 @@
         "fumble_recovery_yards_opp": 1
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0038127",
@@ -1151,10 +1163,20 @@
     "position": "RDE",
     "position_group": null,
     "espn_player_id": "4360189",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 2,
+        "def_tackle_assists": 1,
+        "def_qb_hits": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
-        "def_tackles_solo": 4,
-        "def_tackle_assists": 7,
+        "def_tackles_solo": 6,
+        "def_tackle_assists": 8,
+        "def_qb_hits": 1,
         "def_pass_defended": 1
       },
       "misc": {
@@ -1162,7 +1184,7 @@
         "penalty_yards": 30
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039068",
@@ -1172,23 +1194,38 @@
     "position": "WLB",
     "position_group": null,
     "espn_player_id": "4686334",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 2,
+        "def_tackle_assists": 3,
+        "def_tackles_for_loss": 2,
+        "def_tackles_for_loss_yards": 6,
+        "def_fumbles_forced": 1,
+        "def_sacks": 1.0,
+        "def_sack_yards": 5.0,
+        "def_qb_hits": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
-        "def_tackles_solo": 12,
+        "def_tackles_solo": 14,
         "def_tackles_with_assist": 1,
-        "def_tackle_assists": 4,
-        "def_tackles_for_loss": 5,
-        "def_tackles_for_loss_yards": 25,
-        "def_sacks": 3.0,
-        "def_sack_yards": 23.0,
-        "def_qb_hits": 7
+        "def_tackle_assists": 7,
+        "def_tackles_for_loss": 7,
+        "def_tackles_for_loss_yards": 31,
+        "def_fumbles_forced": 1,
+        "def_sacks": 4.0,
+        "def_sack_yards": 28.0,
+        "def_qb_hits": 8
       },
       "misc": {
         "penalties": 2,
         "penalty_yards": 10
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039049",
@@ -1198,18 +1235,33 @@
     "position": "LILB",
     "position_group": null,
     "espn_player_id": "4429511",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 8,
+        "def_tackle_assists": 4,
+        "def_tackles_for_loss": 1,
+        "def_tackles_for_loss_yards": 12,
+        "def_sacks": 1.0,
+        "def_sack_yards": 12.0,
+        "def_qb_hits": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
-        "def_tackles_solo": 25,
+        "def_tackles_solo": 33,
         "def_tackles_with_assist": 4,
-        "def_tackle_assists": 11,
-        "def_tackles_for_loss": 5,
-        "def_tackles_for_loss_yards": 10,
-        "def_qb_hits": 2,
+        "def_tackle_assists": 15,
+        "def_tackles_for_loss": 6,
+        "def_tackles_for_loss_yards": 22,
+        "def_sacks": 1.0,
+        "def_sack_yards": 12.0,
+        "def_qb_hits": 3,
         "def_pass_defended": 2
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0029562",
@@ -1219,12 +1271,23 @@
     "position": "RILB",
     "position_group": null,
     "espn_player_id": "14985",
+    "weekly": {
+      "defense": {
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 6,
+        "def_tackles_for_loss": 1,
+        "def_tackles_for_loss_yards": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
         "def_tackles_solo": 21,
-        "def_tackle_assists": 19,
-        "def_tackles_for_loss": 5,
-        "def_tackles_for_loss_yards": 18,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 25,
+        "def_tackles_for_loss": 6,
+        "def_tackles_for_loss_yards": 19,
         "def_sacks": 2.5,
         "def_sack_yards": 18.0,
         "def_qb_hits": 5,
@@ -1237,7 +1300,7 @@
         "penalty_yards": 4
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0033875",
@@ -1247,6 +1310,13 @@
     "position": "SLB",
     "position_group": null,
     "espn_player_id": "2980504",
+    "weekly": {
+      "defense": {
+        "def_qb_hits": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
         "def_tackles_solo": 9,
@@ -1255,7 +1325,7 @@
         "def_tackles_for_loss_yards": 12,
         "def_sacks": 1.5,
         "def_sack_yards": 12.5,
-        "def_qb_hits": 4,
+        "def_qb_hits": 5,
         "def_pass_defended": 1
       },
       "misc": {
@@ -1263,7 +1333,7 @@
         "penalty_yards": 10
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0035699",
@@ -1273,27 +1343,42 @@
     "position": "LCB",
     "position_group": null,
     "espn_player_id": "3873935",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 1,
+        "def_tackle_assists": 1,
+        "def_interceptions": 1,
+        "def_interception_yards": 13,
+        "def_pass_defended": 1
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 5
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
-        "def_tackles_solo": 14,
-        "def_tackle_assists": 2,
+        "def_tackles_solo": 15,
+        "def_tackle_assists": 3,
         "def_tackles_for_loss": 1,
         "def_tackles_for_loss_yards": 5,
         "def_fumbles_forced": 1,
         "def_sacks": 1.0,
         "def_sack_yards": 8.0,
         "def_qb_hits": 1,
-        "def_interceptions": 2,
-        "def_interception_yards": 61,
-        "def_pass_defended": 5,
+        "def_interceptions": 3,
+        "def_interception_yards": 74,
+        "def_pass_defended": 6,
         "def_tds": 1
       },
       "misc": {
-        "penalties": 2,
-        "penalty_yards": 30
+        "penalties": 3,
+        "penalty_yards": 35
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0036411",
@@ -1303,10 +1388,18 @@
     "position": "SS",
     "position_group": null,
     "espn_player_id": "4034790",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 6,
+        "def_tackle_assists": 2
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
-        "def_tackles_solo": 16,
-        "def_tackle_assists": 11,
+        "def_tackles_solo": 22,
+        "def_tackle_assists": 13,
         "def_tackles_for_loss": 3,
         "def_tackles_for_loss_yards": 18,
         "def_fumbles_forced": 1,
@@ -1316,7 +1409,7 @@
         "def_pass_defended": 2
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039846",
@@ -1326,15 +1419,30 @@
     "position": "FS",
     "position_group": null,
     "espn_player_id": "4428522",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 27,
-        "def_tackle_assists": 18,
+        "def_tackles_solo": 7,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 5,
         "def_tackles_for_loss": 2,
-        "def_tackles_for_loss_yards": 10,
+        "def_tackles_for_loss_yards": 11,
         "def_sacks": 1.0,
         "def_sack_yards": 9.0,
-        "def_qb_hits": 1,
+        "def_qb_hits": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 34,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 23,
+        "def_tackles_for_loss": 4,
+        "def_tackles_for_loss_yards": 21,
+        "def_sacks": 2.0,
+        "def_sack_yards": 18.0,
+        "def_qb_hits": 2,
         "def_pass_defended": 7
       },
       "misc": {
@@ -1342,7 +1450,7 @@
         "fumble_recovery_yards_opp": 1
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0037268",
@@ -1352,10 +1460,18 @@
     "position": "RCB",
     "position_group": null,
     "espn_player_id": "4250392",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 1,
+        "def_tackle_assists": 4
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
-        "def_tackles_solo": 27,
-        "def_tackle_assists": 4,
+        "def_tackles_solo": 28,
+        "def_tackle_assists": 8,
         "def_tackles_for_loss": 1,
         "def_tackles_for_loss_yards": 3,
         "def_pass_defended": 1
@@ -1365,7 +1481,7 @@
         "penalty_yards": 5
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0040143",
@@ -1375,10 +1491,22 @@
     "position": "NB",
     "position_group": null,
     "espn_player_id": "4912847",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 2,
+        "def_tackle_assists": 3
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 5
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
-        "def_tackles_solo": 20,
-        "def_tackle_assists": 10,
+        "def_tackles_solo": 22,
+        "def_tackle_assists": 13,
         "def_tackles_for_loss": 3,
         "def_tackles_for_loss_yards": 14,
         "def_sacks": 1.0,
@@ -1387,11 +1515,11 @@
         "def_pass_defended": 3
       },
       "misc": {
-        "penalties": 1,
-        "penalty_yards": 12
+        "penalties": 2,
+        "penalty_yards": 17
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0031408",
@@ -1401,20 +1529,32 @@
     "position": "WR",
     "position_group": null,
     "espn_player_id": "16737",
+    "weekly": {
+      "receiving": {
+        "targets": 4,
+        "receiving_air_yards": 97,
+        "receiving_epa": -3.739014111459255,
+        "target_share": 0.08,
+        "air_yards_share": 0.2042105263157894,
+        "wopr": 0.2629473684210526
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "receiving": {
         "receptions": 14,
-        "targets": 28,
+        "targets": 32,
         "receiving_yards": 140,
         "receiving_tds": 1,
-        "receiving_air_yards": 333,
+        "receiving_air_yards": 430,
         "receiving_yards_after_catch": 18,
         "receiving_first_downs": 10,
-        "receiving_epa": 3.9069509227191497,
+        "receiving_epa": 0.16793681125989446,
         "racr": 1.3345033955096848,
-        "target_share": 0.882567049808429,
-        "air_yards_share": 1.1304324200962865,
-        "wopr": 2.1151532687800443
+        "target_share": 0.9625670498084291,
+        "air_yards_share": 1.334642946412076,
+        "wopr": 2.378100637201097
       },
       "misc": {
         "penalties": 2,
@@ -1425,7 +1565,7 @@
         "fantasy_points_ppr": 34.0
       }
     },
-    "games_played": 3
+    "games_played": 4
   },
   {
     "player_id": "00-0036406",
@@ -1435,13 +1575,23 @@
     "position": "LT",
     "position_group": null,
     "espn_player_id": "4240589",
+    "weekly": {
+      "misc": {
+        "fumble_recovery_own": 1,
+        "fumble_recovery_yards_own": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "misc": {
         "penalties": 1,
-        "penalty_yards": 10
+        "penalty_yards": 10,
+        "fumble_recovery_own": 1,
+        "fumble_recovery_yards_own": 1
       }
     },
-    "games_played": 1
+    "games_played": 2
   },
   {
     "player_id": "00-0036132",
@@ -1511,22 +1661,45 @@
     "position": "QB",
     "position_group": null,
     "espn_player_id": "3052587",
+    "weekly": {
+      "passing": {
+        "completions": 28,
+        "attempts": 50,
+        "passing_yards": 228,
+        "passing_tds": 1,
+        "passing_interceptions": 1,
+        "sacks_suffered": 4,
+        "sack_yards_lost": -18,
+        "passing_air_yards": 475,
+        "passing_yards_after_catch": 110,
+        "passing_first_downs": 11,
+        "passing_epa": -25.048290733687832,
+        "passing_cpoe": -9.030016958713531,
+        "pacr": 0.48
+      },
+      "fantasy": {
+        "fantasy_points": 11.12,
+        "fantasy_points_ppr": 11.12
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "passing": {
-        "completions": 129,
-        "attempts": 195,
-        "passing_yards": 1539,
-        "passing_tds": 12,
-        "passing_interceptions": 1,
-        "sacks_suffered": 10,
-        "sack_yards_lost": -74,
-        "passing_air_yards": 1685,
-        "passing_yards_after_catch": 820,
-        "passing_first_downs": 67,
-        "passing_epa": 46.00072506399374,
-        "passing_cpoe": 10.418992929844322,
+        "completions": 157,
+        "attempts": 245,
+        "passing_yards": 1767,
+        "passing_tds": 13,
+        "passing_interceptions": 2,
+        "sacks_suffered": 14,
+        "sack_yards_lost": -92,
+        "passing_air_yards": 2160,
+        "passing_yards_after_catch": 930,
+        "passing_first_downs": 78,
+        "passing_epa": 20.952434330305906,
+        "passing_cpoe": 1.3889759711307903,
         "passing_2pt_conversions": 1,
-        "pacr": 5.6633411781047105
+        "pacr": 6.14334117810471
       },
       "rushing": {
         "carries": 22,
@@ -1540,11 +1713,11 @@
         "fumble_recovery_yards_own": 1
       },
       "fantasy": {
-        "fantasy_points": 125.36,
-        "fantasy_points_ppr": 125.36
+        "fantasy_points": 136.48,
+        "fantasy_points_ppr": 136.48
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0038129",
@@ -1554,30 +1727,61 @@
     "position": "TE",
     "position_group": null,
     "espn_player_id": "4243331",
-    "season": {
+    "weekly": {
       "receiving": {
-        "receptions": 15,
-        "targets": 22,
-        "receiving_yards": 166,
-        "receiving_air_yards": 137,
-        "receiving_yards_after_catch": 98,
-        "receiving_first_downs": 7,
-        "receiving_epa": 3.731183903625,
-        "racr": 6.0434090909090905,
-        "target_share": 0.7307947788926049,
-        "air_yards_share": 0.48624070177599327,
-        "wopr": 1.4365606595821028
+        "receptions": 7,
+        "targets": 9,
+        "receiving_yards": 65,
+        "receiving_air_yards": 50,
+        "receiving_yards_after_catch": 24,
+        "receiving_first_downs": 4,
+        "receiving_epa": -1.956336214279756,
+        "racr": 1.3,
+        "target_share": 0.18,
+        "air_yards_share": 0.1052631578947368,
+        "wopr": 0.3436842105263158
+      },
+      "defense": {
+        "def_tackles_solo": 1
       },
       "misc": {
-        "penalties": 2,
-        "penalty_yards": 10
+        "penalties": 1,
+        "penalty_yards": 5
       },
       "fantasy": {
-        "fantasy_points": 16.6,
-        "fantasy_points_ppr": 31.6
+        "fantasy_points": 6.5,
+        "fantasy_points_ppr": 13.5
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "DET",
+    "season": {
+      "receiving": {
+        "receptions": 22,
+        "targets": 31,
+        "receiving_yards": 231,
+        "receiving_air_yards": 187,
+        "receiving_yards_after_catch": 122,
+        "receiving_first_downs": 11,
+        "receiving_epa": 1.7748476893452438,
+        "racr": 7.343409090909091,
+        "target_share": 0.910794778892605,
+        "air_yards_share": 0.59150385967073,
+        "wopr": 1.7802448701084186
+      },
+      "defense": {
+        "def_tackles_solo": 1
+      },
+      "misc": {
+        "penalties": 3,
+        "penalty_yards": 15
+      },
+      "fantasy": {
+        "fantasy_points": 23.1,
+        "fantasy_points_ppr": 45.1
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0039361",
@@ -1625,37 +1829,63 @@
     "position": "RB",
     "position_group": null,
     "espn_player_id": "4697815",
-    "season": {
+    "weekly": {
       "rushing": {
-        "carries": 54,
-        "rushing_yards": 214,
-        "rushing_tds": 4,
-        "rushing_first_downs": 18,
-        "rushing_epa": 3.9327139447295347
+        "carries": 10,
+        "rushing_yards": 38,
+        "rushing_first_downs": 2,
+        "rushing_epa": 1.8946647479897365
       },
       "receiving": {
-        "receptions": 15,
-        "targets": 16,
-        "receiving_yards": 85,
-        "receiving_air_yards": -46,
-        "receiving_yards_after_catch": 126,
+        "receptions": 4,
+        "targets": 6,
+        "receiving_yards": 6,
+        "receiving_air_yards": 10,
+        "receiving_yards_after_catch": 18,
+        "receiving_epa": -3.991055429214612,
+        "racr": 0.6,
+        "target_share": 0.12,
+        "air_yards_share": 0.0210526315789473,
+        "wopr": 0.1947368421052631
+      },
+      "fantasy": {
+        "fantasy_points": 4.4,
+        "fantasy_points_ppr": 8.4
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
+    "season": {
+      "rushing": {
+        "carries": 64,
+        "rushing_yards": 252,
+        "rushing_tds": 4,
+        "rushing_first_downs": 20,
+        "rushing_epa": 5.827378692719272
+      },
+      "receiving": {
+        "receptions": 19,
+        "targets": 22,
+        "receiving_yards": 91,
+        "receiving_air_yards": -36,
+        "receiving_yards_after_catch": 144,
         "receiving_first_downs": 4,
-        "receiving_epa": 0.331632185612583,
-        "racr": -11.660714285714285,
-        "target_share": 0.5070115583234022,
-        "air_yards_share": -0.1707449739119429,
-        "wopr": 0.6409958557467432
+        "receiving_epa": -3.659423243602029,
+        "racr": -11.060714285714285,
+        "target_share": 0.6270115583234022,
+        "air_yards_share": -0.1496923423329956,
+        "wopr": 0.8357326978520063
       },
       "misc": {
         "fumble_recovery_own": 2,
         "fumble_recovery_yards_own": 2
       },
       "fantasy": {
-        "fantasy_points": 53.9,
-        "fantasy_points_ppr": 68.9
+        "fantasy_points": 58.3,
+        "fantasy_points_ppr": 77.30000000000001
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0034810",
@@ -5948,16 +6178,24 @@
     "position": "LG",
     "position_group": null,
     "espn_player_id": "4693346",
-    "season": {
-      "defense": {
-        "def_tackles_solo": 1
-      },
+    "weekly": {
       "misc": {
         "penalties": 1,
         "penalty_yards": 10
       }
     },
-    "games_played": 1
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 1
+      },
+      "misc": {
+        "penalties": 2,
+        "penalty_yards": 20
+      }
+    },
+    "games_played": 2
   },
   {
     "player_id": "00-0039926",
@@ -5983,7 +6221,21 @@
     "position": "RG",
     "position_group": null,
     "espn_player_id": "4429211",
-    "games_played": 0
+    "weekly": {
+      "misc": {
+        "penalties": 2,
+        "penalty_yards": 15
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "misc": {
+        "penalties": 2,
+        "penalty_yards": 15
+      }
+    },
+    "games_played": 1
   },
   {
     "player_id": "00-0037812",
@@ -6003,34 +6255,62 @@
     "position": "QB",
     "position_group": null,
     "espn_player_id": "3912547",
-    "season": {
+    "weekly": {
       "passing": {
-        "completions": 114,
-        "attempts": 161,
-        "passing_yards": 1541,
-        "passing_tds": 11,
-        "passing_interceptions": 3,
-        "sacks_suffered": 7,
-        "sack_yards_lost": -43,
-        "passing_air_yards": 1493,
-        "passing_yards_after_catch": 536,
-        "passing_first_downs": 69,
-        "passing_epa": 56.84874733796407,
-        "passing_cpoe": 70.01954284355496,
-        "pacr": 6.332647264058762
+        "completions": 17,
+        "attempts": 31,
+        "passing_yards": 213,
+        "passing_tds": 1,
+        "passing_interceptions": 1,
+        "sacks_suffered": 2,
+        "sack_yards_lost": -15,
+        "passing_air_yards": 271,
+        "passing_yards_after_catch": 80,
+        "passing_first_downs": 9,
+        "passing_epa": -5.613761459817213,
+        "passing_cpoe": -2.2683278790542056,
+        "pacr": 0.7859778597785978
       },
       "rushing": {
-        "carries": 7,
-        "rushing_yards": 40,
-        "rushing_first_downs": 3,
-        "rushing_epa": -2.3753261476126566
+        "carries": 3,
+        "rushing_yards": 1,
+        "rushing_epa": 2.1308203345397487
       },
       "fantasy": {
-        "fantasy_points": 101.64,
-        "fantasy_points_ppr": 101.64
+        "fantasy_points": 8.62,
+        "fantasy_points_ppr": 8.62
       }
     },
-    "games_played": 6
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "passing": {
+        "completions": 131,
+        "attempts": 192,
+        "passing_yards": 1754,
+        "passing_tds": 12,
+        "passing_interceptions": 4,
+        "sacks_suffered": 9,
+        "sack_yards_lost": -58,
+        "passing_air_yards": 1764,
+        "passing_yards_after_catch": 616,
+        "passing_first_downs": 78,
+        "passing_epa": 51.23498587814686,
+        "passing_cpoe": 67.75121496450075,
+        "pacr": 7.118625123837361
+      },
+      "rushing": {
+        "carries": 10,
+        "rushing_yards": 41,
+        "rushing_first_downs": 3,
+        "rushing_epa": -0.24450581307290786
+      },
+      "fantasy": {
+        "fantasy_points": 110.26,
+        "fantasy_points_ppr": 110.26
+      }
+    },
+    "games_played": 7
   },
   {
     "player_id": "00-0039793",
@@ -6040,26 +6320,52 @@
     "position": "TE",
     "position_group": null,
     "espn_player_id": "4576297",
-    "season": {
+    "weekly": {
       "rushing": {
-        "carries": 2,
-        "rushing_yards": 4,
-        "rushing_first_downs": 2,
-        "rushing_epa": 1.9240964295458978
+        "carries": 1,
+        "rushing_yards": 2,
+        "rushing_first_downs": 1,
+        "rushing_epa": 2.17364382755477
       },
       "receiving": {
-        "receptions": 17,
-        "targets": 19,
-        "receiving_yards": 205,
+        "receptions": 1,
+        "targets": 3,
+        "receiving_yards": 7,
+        "receiving_air_yards": 13,
+        "receiving_yards_after_catch": 3,
+        "receiving_epa": -5.229470721678808,
+        "racr": 0.5384615384615384,
+        "target_share": 0.1034482758620689,
+        "air_yards_share": 0.0464285714285714,
+        "wopr": 0.1876724137931034
+      },
+      "fantasy": {
+        "fantasy_points": 0.9,
+        "fantasy_points_ppr": 1.9
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "rushing": {
+        "carries": 3,
+        "rushing_yards": 6,
+        "rushing_first_downs": 3,
+        "rushing_epa": 4.097740257100668
+      },
+      "receiving": {
+        "receptions": 18,
+        "targets": 22,
+        "receiving_yards": 212,
         "receiving_tds": 4,
-        "receiving_air_yards": 113,
-        "receiving_yards_after_catch": 86,
+        "receiving_air_yards": 126,
+        "receiving_yards_after_catch": 89,
         "receiving_first_downs": 10,
-        "receiving_epa": 10.84819865203559,
-        "racr": 6.2071316614420065,
-        "target_share": 0.6967914438502674,
-        "air_yards_share": 0.44323910176702364,
-        "wopr": 1.3554545370123177
+        "receiving_epa": 5.618727930356782,
+        "racr": 6.745593199903545,
+        "target_share": 0.8002397197123362,
+        "air_yards_share": 0.489667673195595,
+        "wopr": 1.543126950805421
       },
       "defense": {
         "def_tackles_solo": 1,
@@ -6070,11 +6376,11 @@
         "penalty_yards": 5
       },
       "fantasy": {
-        "fantasy_points": 44.9,
-        "fantasy_points_ppr": 61.9
+        "fantasy_points": 45.800000000000004,
+        "fantasy_points_ppr": 63.8
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0038134",
@@ -6084,13 +6390,27 @@
     "position": "RB",
     "position_group": null,
     "espn_player_id": "4567048",
+    "weekly": {
+      "rushing": {
+        "carries": 17,
+        "rushing_yards": 66,
+        "rushing_first_downs": 2,
+        "rushing_epa": -4.497770796413533
+      },
+      "fantasy": {
+        "fantasy_points": 6.6000000000000005,
+        "fantasy_points_ppr": 6.6000000000000005
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "rushing": {
-        "carries": 78,
-        "rushing_yards": 364,
+        "carries": 95,
+        "rushing_yards": 430,
         "rushing_tds": 3,
-        "rushing_first_downs": 18,
-        "rushing_epa": 0.19450986807351
+        "rushing_first_downs": 20,
+        "rushing_epa": -4.303260928340023
       },
       "receiving": {
         "receptions": 8,
@@ -6110,11 +6430,11 @@
         "penalty_yards": 15
       },
       "fantasy": {
-        "fantasy_points": 60.5,
-        "fantasy_points_ppr": 68.5
+        "fantasy_points": 67.1,
+        "fantasy_points_ppr": 75.1
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0040649",
@@ -6140,33 +6460,60 @@
     "position": "RB",
     "position_group": null,
     "espn_player_id": "4426385",
-    "season": {
+    "weekly": {
       "rushing": {
-        "carries": 60,
-        "rushing_yards": 156,
-        "rushing_tds": 3,
-        "rushing_first_downs": 11,
-        "rushing_epa": -16.349528239808052
+        "carries": 12,
+        "rushing_yards": 49,
+        "rushing_tds": 2,
+        "rushing_first_downs": 4,
+        "rushing_epa": -1.0061655454388427
       },
       "receiving": {
-        "receptions": 4,
-        "targets": 5,
-        "receiving_yards": 30,
-        "receiving_air_yards": 9,
-        "receiving_yards_after_catch": 23,
-        "receiving_first_downs": 1,
-        "receiving_epa": -1.4383928135537953,
-        "racr": 6.333333333333333,
-        "target_share": 0.1838235294117646,
-        "air_yards_share": 0.030128431125661,
-        "wopr": 0.2968251959056097
+        "receptions": 2,
+        "targets": 2,
+        "receiving_yards": 6,
+        "receiving_air_yards": -3,
+        "receiving_yards_after_catch": 9,
+        "receiving_epa": -0.5705690332106315,
+        "racr": -2.0,
+        "target_share": 0.0689655172413793,
+        "air_yards_share": -0.0107142857142857,
+        "wopr": 0.0959482758620689
       },
       "fantasy": {
-        "fantasy_points": 36.6,
-        "fantasy_points_ppr": 40.6
+        "fantasy_points": 17.5,
+        "fantasy_points_ppr": 19.5
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "rushing": {
+        "carries": 72,
+        "rushing_yards": 205,
+        "rushing_tds": 5,
+        "rushing_first_downs": 15,
+        "rushing_epa": -17.355693785246896
+      },
+      "receiving": {
+        "receptions": 6,
+        "targets": 7,
+        "receiving_yards": 36,
+        "receiving_air_yards": 6,
+        "receiving_yards_after_catch": 32,
+        "receiving_first_downs": 1,
+        "receiving_epa": -2.008961846764427,
+        "racr": 4.333333333333333,
+        "target_share": 0.2527890466531439,
+        "air_yards_share": 0.0194141454113753,
+        "wopr": 0.39277347176767863
+      },
+      "fantasy": {
+        "fantasy_points": 54.1,
+        "fantasy_points_ppr": 60.1
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0040660",
@@ -6250,7 +6597,21 @@
     "position": "LT",
     "position_group": null,
     "espn_player_id": "4426376",
-    "games_played": 0
+    "weekly": {
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 10
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 10
+      }
+    },
+    "games_played": 1
   },
   {
     "player_id": "00-0035717",
@@ -6626,6 +6987,35 @@
     "position": "WR",
     "position_group": null,
     "espn_player_id": "4430878",
+    "weekly": {
+      "receiving": {
+        "receptions": 8,
+        "targets": 14,
+        "receiving_yards": 123,
+        "receiving_tds": 1,
+        "receiving_air_yards": 167,
+        "receiving_yards_after_catch": 30,
+        "receiving_first_downs": 6,
+        "receiving_epa": 4.14155740221031,
+        "racr": 0.7365269461077845,
+        "target_share": 0.4827586206896552,
+        "air_yards_share": 0.5964285714285714,
+        "wopr": 1.1416379310344826
+      },
+      "defense": {
+        "def_tackles_solo": 2
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 15
+      },
+      "fantasy": {
+        "fantasy_points": 18.3,
+        "fantasy_points_ppr": 26.3
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "rushing": {
         "carries": 3,
@@ -6633,31 +7023,34 @@
         "rushing_epa": -0.1875272146426141
       },
       "receiving": {
-        "receptions": 42,
-        "targets": 56,
-        "receiving_yards": 696,
-        "receiving_tds": 3,
+        "receptions": 50,
+        "targets": 70,
+        "receiving_yards": 819,
+        "receiving_tds": 4,
         "receiving_fumbles": 2,
         "receiving_fumbles_lost": 1,
-        "receiving_air_yards": 728,
-        "receiving_yards_after_catch": 158,
-        "receiving_first_downs": 31,
-        "receiving_epa": 40.25722693073135,
-        "racr": 5.978635566488197,
-        "target_share": 2.2389483065953653,
-        "air_yards_share": 3.0280779716077078,
-        "wopr": 5.4780770400184435
+        "receiving_air_yards": 895,
+        "receiving_yards_after_catch": 188,
+        "receiving_first_downs": 37,
+        "receiving_epa": 44.39878433294166,
+        "racr": 6.715162512595982,
+        "target_share": 2.7217069272850205,
+        "air_yards_share": 3.6245065430362793,
+        "wopr": 6.619714971052926
+      },
+      "defense": {
+        "def_tackles_solo": 2
       },
       "misc": {
-        "penalties": 2,
-        "penalty_yards": 25
+        "penalties": 3,
+        "penalty_yards": 40
       },
       "fantasy": {
-        "fantasy_points": 86.7,
-        "fantasy_points_ppr": 128.7
+        "fantasy_points": 105.0,
+        "fantasy_points_ppr": 155.0
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039169",
@@ -6689,22 +7082,36 @@
     "position": "RCB",
     "position_group": null,
     "espn_player_id": "4372020",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 22,
-        "def_tackle_assists": 7,
-        "def_sacks": 0.5,
-        "def_sack_yards": 3.5,
+        "def_tackles_solo": 4,
+        "def_tackle_assists": 1,
         "def_qb_hits": 1,
-        "def_interceptions": 1,
-        "def_pass_defended": 4
+        "def_pass_defended": 2
       },
       "misc": {
-        "penalties": 3,
-        "penalty_yards": 15
+        "penalties": 1,
+        "penalty_yards": 5
       }
     },
-    "games_played": 6
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 26,
+        "def_tackle_assists": 8,
+        "def_sacks": 0.5,
+        "def_sack_yards": 3.5,
+        "def_qb_hits": 2,
+        "def_interceptions": 1,
+        "def_pass_defended": 6
+      },
+      "misc": {
+        "penalties": 4,
+        "penalty_yards": 20
+      }
+    },
+    "games_played": 7
   },
   {
     "player_id": "00-0036333",
@@ -7350,10 +7757,17 @@
     "position": "LDE",
     "position_group": null,
     "espn_player_id": "3115312",
+    "weekly": {
+      "defense": {
+        "def_tackle_assists": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "defense": {
         "def_tackles_solo": 5,
-        "def_tackle_assists": 10,
+        "def_tackle_assists": 11,
         "def_tackles_for_loss": 1,
         "def_tackles_for_loss_yards": 5,
         "def_sacks": 1.0,
@@ -7361,7 +7775,7 @@
         "def_qb_hits": 5
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0039309",
@@ -7371,12 +7785,24 @@
     "position": "NT",
     "position_group": null,
     "espn_player_id": "4570040",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 2,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 3,
+        "def_tackles_for_loss": 1,
+        "def_tackles_for_loss_yards": 5
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "defense": {
-        "def_tackles_solo": 8,
-        "def_tackle_assists": 15,
-        "def_tackles_for_loss": 3,
-        "def_tackles_for_loss_yards": 17,
+        "def_tackles_solo": 10,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 18,
+        "def_tackles_for_loss": 4,
+        "def_tackles_for_loss_yards": 22,
         "def_sacks": 4.5,
         "def_sack_yards": 24.0,
         "def_qb_hits": 9
@@ -7386,7 +7812,7 @@
         "penalty_yards": 16
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0031933",
@@ -7396,15 +7822,27 @@
     "position": "RDE",
     "position_group": null,
     "espn_player_id": "2971622",
+    "weekly": {
+      "defense": {
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 2,
+        "def_tackles_for_loss": 1,
+        "def_tackles_for_loss_yards": 1,
+        "def_qb_hits": 2
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "defense": {
         "def_tackles_solo": 13,
-        "def_tackle_assists": 14,
-        "def_tackles_for_loss": 2,
-        "def_tackles_for_loss_yards": 10,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 16,
+        "def_tackles_for_loss": 3,
+        "def_tackles_for_loss_yards": 11,
         "def_sacks": 3.0,
         "def_sack_yards": 18.5,
-        "def_qb_hits": 8,
+        "def_qb_hits": 10,
         "def_pass_defended": 1
       },
       "misc": {
@@ -7412,7 +7850,7 @@
         "penalty_yards": 45
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0031411",
@@ -7422,16 +7860,28 @@
     "position": "WLB",
     "position_group": null,
     "espn_player_id": "16802",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 2,
+        "def_tackles_for_loss": 2,
+        "def_tackles_for_loss_yards": 7,
+        "def_sacks": 1.0,
+        "def_sack_yards": 5.0,
+        "def_qb_hits": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "defense": {
-        "def_tackles_solo": 6,
+        "def_tackles_solo": 8,
         "def_tackles_with_assist": 1,
         "def_tackle_assists": 10,
-        "def_tackles_for_loss": 4,
-        "def_tackles_for_loss_yards": 19,
-        "def_sacks": 2.0,
-        "def_sack_yards": 16.5,
-        "def_qb_hits": 6
+        "def_tackles_for_loss": 6,
+        "def_tackles_for_loss_yards": 26,
+        "def_sacks": 3.0,
+        "def_sack_yards": 21.5,
+        "def_qb_hits": 7
       },
       "returns": {
         "misc_yards": 8
@@ -7441,7 +7891,7 @@
         "penalty_yards": 15
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0039815",
@@ -7451,16 +7901,23 @@
     "position": "LILB",
     "position_group": null,
     "espn_player_id": "4686540",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "defense": {
-        "def_tackles_solo": 18,
+        "def_tackles_solo": 19,
         "def_tackles_with_assist": 2,
         "def_tackle_assists": 10,
         "def_tackles_for_loss": 2,
         "def_tackles_for_loss_yards": 6
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0036994",
@@ -7470,21 +7927,42 @@
     "position": "RILB",
     "position_group": null,
     "espn_player_id": "4362851",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 24,
-        "def_tackles_with_assist": 2,
-        "def_tackle_assists": 22,
-        "def_tackles_for_loss": 2,
-        "def_tackles_for_loss_yards": 5,
-        "def_sacks": 0.5,
-        "def_qb_hits": 1,
-        "def_interceptions": 2,
-        "def_interception_yards": 36,
-        "def_pass_defended": 4
+        "def_tackles_solo": 4,
+        "def_tackle_assists": 8,
+        "def_tackles_for_loss": 1,
+        "def_tackles_for_loss_yards": 1,
+        "def_interceptions": 1,
+        "def_interception_yards": 23,
+        "def_pass_defended": 1
+      },
+      "misc": {
+        "penalties": 2,
+        "penalty_yards": 8
       }
     },
-    "games_played": 6
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 28,
+        "def_tackles_with_assist": 2,
+        "def_tackle_assists": 30,
+        "def_tackles_for_loss": 3,
+        "def_tackles_for_loss_yards": 6,
+        "def_sacks": 0.5,
+        "def_qb_hits": 1,
+        "def_interceptions": 3,
+        "def_interception_yards": 59,
+        "def_pass_defended": 5
+      },
+      "misc": {
+        "penalties": 2,
+        "penalty_yards": 8
+      }
+    },
+    "games_played": 7
   },
   {
     "player_id": "00-0038133",
@@ -7494,6 +7972,13 @@
     "position": "SLB",
     "position_group": null,
     "espn_player_id": "4240754",
+    "weekly": {
+      "defense": {
+        "def_pass_defended": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "defense": {
         "def_tackles_solo": 3,
@@ -7501,10 +7986,10 @@
         "def_tackles_for_loss": 1,
         "def_tackles_for_loss_yards": 8,
         "def_qb_hits": 2,
-        "def_pass_defended": 1
+        "def_pass_defended": 2
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0037079",
@@ -7514,19 +7999,27 @@
     "position": "LCB",
     "position_group": null,
     "espn_player_id": "4245185",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 2,
+        "def_pass_defended": 2
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "defense": {
-        "def_tackles_solo": 14,
+        "def_tackles_solo": 16,
         "def_tackles_with_assist": 1,
         "def_tackle_assists": 2,
-        "def_pass_defended": 1
+        "def_pass_defended": 3
       },
       "misc": {
         "penalties": 4,
         "penalty_yards": 49
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0038136",
@@ -7536,20 +8029,30 @@
     "position": "SS",
     "position_group": null,
     "espn_player_id": "4239094",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 4,
+        "def_tackles_with_assist": 1,
+        "def_tackles_for_loss": 1,
+        "def_tackles_for_loss_yards": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "defense": {
-        "def_tackles_solo": 22,
-        "def_tackles_with_assist": 1,
+        "def_tackles_solo": 26,
+        "def_tackles_with_assist": 2,
         "def_tackle_assists": 7,
-        "def_tackles_for_loss": 3,
-        "def_tackles_for_loss_yards": 5,
+        "def_tackles_for_loss": 4,
+        "def_tackles_for_loss_yards": 6,
         "def_interceptions": 2,
         "def_interception_yards": 43,
         "def_pass_defended": 4,
         "def_fumbles": 1
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0034974",
@@ -8337,23 +8840,40 @@
     "position": "LDE",
     "position_group": null,
     "espn_player_id": "4372099",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 1,
+        "def_tackle_assists": 1,
+        "def_qb_hits": 1,
+        "def_pass_defended": 1
+      },
+      "misc": {
+        "fumble_recovery_opp": 1,
+        "fumble_recovery_yards_opp": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
-        "def_tackles_solo": 10,
-        "def_tackle_assists": 4,
+        "def_tackles_solo": 11,
+        "def_tackle_assists": 5,
         "def_tackles_for_loss": 6,
         "def_tackles_for_loss_yards": 43,
         "def_fumbles_forced": 4,
         "def_sacks": 6.0,
         "def_sack_yards": 42.0,
-        "def_qb_hits": 12
+        "def_qb_hits": 13,
+        "def_pass_defended": 1
       },
       "misc": {
         "penalties": 3,
-        "penalty_yards": 25
+        "penalty_yards": 25,
+        "fumble_recovery_opp": 1,
+        "fumble_recovery_yards_opp": 1
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0040672",
@@ -8363,14 +8883,22 @@
     "position": "LDT",
     "position_group": null,
     "espn_player_id": "4431615",
+    "weekly": {
+      "defense": {
+        "def_qb_hits": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
         "def_tackles_solo": 1,
         "def_tackle_assists": 3,
+        "def_qb_hits": 1,
         "def_pass_defended": 3
       }
     },
-    "games_played": 4
+    "games_played": 5
   },
   {
     "player_id": "00-0032424",
@@ -8380,14 +8908,21 @@
     "position": "RDT",
     "position_group": null,
     "espn_player_id": "2977670",
+    "weekly": {
+      "defense": {
+        "def_qb_hits": 2
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
         "def_tackles_solo": 4,
         "def_tackle_assists": 5,
-        "def_qb_hits": 1
+        "def_qb_hits": 3
       }
     },
-    "games_played": 3
+    "games_played": 4
   },
   {
     "player_id": "00-0034344",
@@ -8419,10 +8954,18 @@
     "position": "WLB",
     "position_group": null,
     "espn_player_id": "3043107",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 3,
+        "def_tackle_assists": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
-        "def_tackles_solo": 19,
-        "def_tackle_assists": 16,
+        "def_tackles_solo": 22,
+        "def_tackle_assists": 17,
         "def_tackles_for_loss": 1,
         "def_tackles_for_loss_yards": 1,
         "def_sacks": 1.5,
@@ -8437,7 +8980,7 @@
         "penalty_yards": 4
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039018",
@@ -8447,24 +8990,39 @@
     "position": "MLB",
     "position_group": null,
     "espn_player_id": "4569465",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 3,
+        "def_tackle_assists": 5,
+        "def_tackles_for_loss": 2,
+        "def_tackles_for_loss_yards": 3,
+        "def_sacks": 1.0,
+        "def_sack_yards": 1.0,
+        "def_qb_hits": 1,
+        "def_pass_defended": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
-        "def_tackles_solo": 30,
+        "def_tackles_solo": 33,
         "def_tackles_with_assist": 1,
-        "def_tackle_assists": 25,
-        "def_tackles_for_loss": 3,
-        "def_tackles_for_loss_yards": 22,
+        "def_tackle_assists": 30,
+        "def_tackles_for_loss": 5,
+        "def_tackles_for_loss_yards": 25,
         "def_fumbles_forced": 2,
-        "def_sacks": 2.0,
-        "def_sack_yards": 18.0,
-        "def_qb_hits": 1
+        "def_sacks": 3.0,
+        "def_sack_yards": 19.0,
+        "def_qb_hits": 2,
+        "def_pass_defended": 1
       },
       "misc": {
         "fumble_recovery_opp": 1,
         "fumble_recovery_yards_opp": 1
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0036964",
@@ -8474,19 +9032,34 @@
     "position": "SLB",
     "position_group": null,
     "espn_player_id": "4260409",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 2,
+        "def_tackle_assists": 3,
+        "def_tackles_for_loss": 1,
+        "def_tackles_for_loss_yards": 6,
+        "def_sacks": 1.0,
+        "def_sack_yards": 6.0,
+        "def_qb_hits": 1,
+        "def_pass_defended": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
-        "def_tackles_solo": 19,
-        "def_tackle_assists": 19,
-        "def_tackles_for_loss": 2,
-        "def_tackles_for_loss_yards": 8,
-        "def_sacks": 2.0,
-        "def_sack_yards": 7.0,
-        "def_qb_hits": 3,
+        "def_tackles_solo": 21,
+        "def_tackle_assists": 22,
+        "def_tackles_for_loss": 3,
+        "def_tackles_for_loss_yards": 14,
+        "def_sacks": 3.0,
+        "def_sack_yards": 13.0,
+        "def_qb_hits": 4,
+        "def_pass_defended": 1,
         "def_safeties": 1
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039903",
@@ -9781,6 +10354,31 @@
     "position": "WR",
     "position_group": null,
     "espn_player_id": "4374302",
+    "weekly": {
+      "receiving": {
+        "receptions": 6,
+        "targets": 10,
+        "receiving_yards": 86,
+        "receiving_tds": 1,
+        "receiving_air_yards": 94,
+        "receiving_yards_after_catch": 46,
+        "receiving_first_downs": 3,
+        "receiving_epa": -0.0222463535610586,
+        "racr": 0.9148936170212766,
+        "target_share": 0.3571428571428571,
+        "air_yards_share": 0.5987261146496815,
+        "wopr": 0.9548225659690628
+      },
+      "defense": {
+        "def_tackles_solo": 1
+      },
+      "fantasy": {
+        "fantasy_points": 14.6,
+        "fantasy_points_ppr": 20.6
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "rushing": {
         "carries": 3,
@@ -9789,29 +10387,29 @@
         "rushing_epa": 0.5569902447750792
       },
       "receiving": {
-        "receptions": 44,
-        "targets": 51,
-        "receiving_yards": 452,
-        "receiving_tds": 6,
+        "receptions": 50,
+        "targets": 61,
+        "receiving_yards": 538,
+        "receiving_tds": 7,
         "receiving_fumbles": 1,
-        "receiving_air_yards": 359,
-        "receiving_yards_after_catch": 169,
-        "receiving_first_downs": 29,
-        "receiving_epa": 37.899264625111634,
-        "racr": 7.785466975756217,
-        "target_share": 1.900118905588013,
-        "air_yards_share": 2.0967972641922747,
-        "wopr": 4.317936443316612
+        "receiving_air_yards": 453,
+        "receiving_yards_after_catch": 215,
+        "receiving_first_downs": 32,
+        "receiving_epa": 37.877018271550575,
+        "racr": 8.700360592777493,
+        "target_share": 2.25726176273087,
+        "air_yards_share": 2.6955233788419566,
+        "wopr": 5.272759009285675
       },
       "defense": {
-        "def_tackles_solo": 1
+        "def_tackles_solo": 2
       },
       "fantasy": {
-        "fantasy_points": 82.10000000000001,
-        "fantasy_points_ppr": 126.1
+        "fantasy_points": 96.7,
+        "fantasy_points_ppr": 146.7
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039108",
@@ -9821,23 +10419,48 @@
     "position": "LDE",
     "position_group": null,
     "espn_player_id": "4685724",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 10,
-        "def_tackles_with_assist": 1,
-        "def_tackle_assists": 6,
-        "def_tackles_for_loss": 6,
-        "def_tackles_for_loss_yards": 51,
-        "def_sacks": 3.0,
-        "def_sack_yards": 27.0,
-        "def_qb_hits": 6
+        "def_tackles_solo": 3,
+        "def_tackle_assists": 2,
+        "def_tackles_for_loss": 1,
+        "def_tackles_for_loss_yards": 7,
+        "def_fumbles_forced": 1,
+        "def_sacks": 1.0,
+        "def_sack_yards": 7.0,
+        "def_qb_hits": 1
       },
       "misc": {
-        "penalties": 2,
-        "penalty_yards": 6
+        "penalties": 1,
+        "penalty_yards": 5,
+        "fumble_recovery_opp": 1,
+        "fumble_recovery_yards_opp": 1,
+        "fumble_recovery_tds": 1
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 13,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 8,
+        "def_tackles_for_loss": 7,
+        "def_tackles_for_loss_yards": 58,
+        "def_fumbles_forced": 1,
+        "def_sacks": 4.0,
+        "def_sack_yards": 34.0,
+        "def_qb_hits": 7
+      },
+      "misc": {
+        "penalties": 3,
+        "penalty_yards": 11,
+        "fumble_recovery_opp": 1,
+        "fumble_recovery_yards_opp": 1,
+        "fumble_recovery_tds": 1
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0032265",
@@ -9847,6 +10470,14 @@
     "position": "LDT",
     "position_group": null,
     "espn_player_id": "2969921",
+    "weekly": {
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 15
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
         "def_tackles_solo": 3,
@@ -9858,11 +10489,11 @@
         "def_qb_hits": 2
       },
       "misc": {
-        "penalties": 1,
-        "penalty_yards": 5
+        "penalties": 2,
+        "penalty_yards": 20
       }
     },
-    "games_played": 2
+    "games_played": 3
   },
   {
     "player_id": "00-0032759",
@@ -9872,11 +10503,19 @@
     "position": "RDT",
     "position_group": null,
     "espn_player_id": "2970204",
+    "weekly": {
+      "defense": {
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 3
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
         "def_tackles_solo": 4,
-        "def_tackles_with_assist": 1,
-        "def_tackle_assists": 3,
+        "def_tackles_with_assist": 2,
+        "def_tackle_assists": 6,
         "def_tackles_for_loss": 2,
         "def_tackles_for_loss_yards": 6,
         "def_sacks": 1.0,
@@ -9884,7 +10523,7 @@
         "def_qb_hits": 3
       }
     },
-    "games_played": 4
+    "games_played": 5
   },
   {
     "player_id": "00-0031565",
@@ -9894,16 +10533,25 @@
     "position": "RDE",
     "position_group": null,
     "espn_player_id": "2976560",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 2,
+        "def_tackle_assists": 2,
+        "def_qb_hits": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
-        "def_tackles_solo": 7,
-        "def_tackle_assists": 5,
+        "def_tackles_solo": 9,
+        "def_tackle_assists": 7,
         "def_tackles_for_loss": 4,
         "def_tackles_for_loss_yards": 26,
         "def_fumbles_forced": 1,
         "def_sacks": 4.0,
         "def_sack_yards": 26.0,
-        "def_qb_hits": 5
+        "def_qb_hits": 6
       },
       "misc": {
         "penalties": 1,
@@ -9912,7 +10560,7 @@
         "fumble_recovery_yards_opp": 1
       }
     },
-    "games_played": 4
+    "games_played": 5
   },
   {
     "player_id": "00-0038599",
@@ -9922,10 +10570,18 @@
     "position": "WLB",
     "position_group": null,
     "espn_player_id": "4426350",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 2,
+        "def_tackle_assists": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
-        "def_tackles_solo": 17,
-        "def_tackle_assists": 14,
+        "def_tackles_solo": 19,
+        "def_tackle_assists": 15,
         "def_tackles_for_loss": 3,
         "def_tackles_for_loss_yards": 9,
         "def_sacks": 1.0,
@@ -9938,7 +10594,7 @@
         "penalty_yards": 15
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0035166",
@@ -9948,16 +10604,37 @@
     "position": "MLB",
     "position_group": null,
     "espn_player_id": "3919117",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 19,
-        "def_tackle_assists": 13,
-        "def_fumbles_forced": 1,
-        "def_qb_hits": 1,
-        "def_pass_defended": 3
+        "def_tackles_solo": 2,
+        "def_tackle_assists": 4,
+        "def_pass_defended": 1
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 11,
+        "fumble_recovery_opp": 1,
+        "fumble_recovery_yards_opp": 1
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 21,
+        "def_tackle_assists": 17,
+        "def_fumbles_forced": 1,
+        "def_qb_hits": 1,
+        "def_pass_defended": 4
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 11,
+        "fumble_recovery_opp": 1,
+        "fumble_recovery_yards_opp": 1
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0037823",
@@ -9987,20 +10664,34 @@
     "position": "LCB",
     "position_group": null,
     "espn_player_id": "4426434",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 10,
-        "def_tackle_assists": 1,
+        "def_tackles_solo": 2,
         "def_interceptions": 1,
-        "def_interception_yards": 20,
-        "def_pass_defended": 4
+        "def_interception_yards": 17,
+        "def_pass_defended": 1
       },
       "misc": {
-        "penalties": 3,
-        "penalty_yards": 21
+        "penalties": 1,
+        "penalty_yards": 15
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 12,
+        "def_tackle_assists": 1,
+        "def_interceptions": 2,
+        "def_interception_yards": 37,
+        "def_pass_defended": 5
+      },
+      "misc": {
+        "penalties": 4,
+        "penalty_yards": 36
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0039838",
@@ -10010,15 +10701,28 @@
     "position": "SS",
     "position_group": null,
     "espn_player_id": "4431517",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 9,
-        "def_tackles_with_assist": 1,
+        "def_tackles_solo": 3,
         "def_tackle_assists": 1,
+        "def_interceptions": 1,
+        "def_interception_yards": 11,
         "def_pass_defended": 1
       }
     },
-    "games_played": 4
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 12,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 2,
+        "def_interceptions": 1,
+        "def_interception_yards": 11,
+        "def_pass_defended": 2
+      }
+    },
+    "games_played": 5
   },
   {
     "player_id": "00-0035253",
@@ -10046,20 +10750,38 @@
     "position": "RCB",
     "position_group": null,
     "espn_player_id": "4602699",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 18,
-        "def_tackles_with_assist": 1,
-        "def_tackle_assists": 9,
-        "def_interceptions": 1,
-        "def_pass_defended": 3
+        "def_tackles_solo": 4,
+        "def_tackles_with_assist": 3,
+        "def_tackle_assists": 3,
+        "def_tackles_for_loss": 3,
+        "def_tackles_for_loss_yards": 3,
+        "def_pass_defended": 1
       },
       "misc": {
-        "penalties": 2,
-        "penalty_yards": 10
+        "penalties": 1,
+        "penalty_yards": 15
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 22,
+        "def_tackles_with_assist": 4,
+        "def_tackle_assists": 12,
+        "def_tackles_for_loss": 3,
+        "def_tackles_for_loss_yards": 3,
+        "def_interceptions": 1,
+        "def_pass_defended": 4
+      },
+      "misc": {
+        "penalties": 3,
+        "penalty_yards": 25
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0037246",
@@ -10069,11 +10791,19 @@
     "position": "NB",
     "position_group": null,
     "espn_player_id": "4241223",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 4,
+        "def_tackle_assists": 4
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
-        "def_tackles_solo": 17,
+        "def_tackles_solo": 21,
         "def_tackles_with_assist": 1,
-        "def_tackle_assists": 4,
+        "def_tackle_assists": 8,
         "def_tackles_for_loss": 2,
         "def_tackles_for_loss_yards": 6,
         "def_interceptions": 3,
@@ -10081,7 +10811,7 @@
         "def_pass_defended": 5
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0038797",
@@ -10155,6 +10885,27 @@
     "position": "WR",
     "position_group": null,
     "espn_player_id": "4258173",
+    "weekly": {
+      "receiving": {
+        "receptions": 4,
+        "targets": 10,
+        "receiving_yards": 27,
+        "receiving_air_yards": 102,
+        "receiving_yards_after_catch": 8,
+        "receiving_first_downs": 2,
+        "receiving_epa": -6.48559154313989,
+        "racr": 0.2647058823529412,
+        "target_share": 0.217391304347826,
+        "air_yards_share": 0.240566037735849,
+        "wopr": 0.4944831829368334
+      },
+      "fantasy": {
+        "fantasy_points": 2.7,
+        "fantasy_points_ppr": 6.7
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "rushing": {
         "carries": 1,
@@ -10162,27 +10913,27 @@
         "rushing_epa": 0.5225130300968885
       },
       "receiving": {
-        "receptions": 22,
-        "targets": 36,
-        "receiving_yards": 312,
+        "receptions": 26,
+        "targets": 46,
+        "receiving_yards": 339,
         "receiving_tds": 3,
         "receiving_fumbles": 1,
         "receiving_fumbles_lost": 1,
-        "receiving_air_yards": 397,
-        "receiving_yards_after_catch": 100,
-        "receiving_first_downs": 10,
-        "receiving_epa": 8.984222883346835,
-        "racr": 3.9785723003817544,
-        "target_share": 1.257621125433187,
-        "air_yards_share": 1.7746234494781006,
-        "wopr": 3.128668102784451
+        "receiving_air_yards": 499,
+        "receiving_yards_after_catch": 108,
+        "receiving_first_downs": 12,
+        "receiving_epa": 2.4986313402069458,
+        "racr": 4.243278182734696,
+        "target_share": 1.475012429781013,
+        "air_yards_share": 2.0151894872139495,
+        "wopr": 3.6231512857212844
       },
       "fantasy": {
-        "fantasy_points": 48.0,
-        "fantasy_points_ppr": 70.0
+        "fantasy_points": 50.7,
+        "fantasy_points_ppr": 76.7
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0032234",
@@ -10250,34 +11001,62 @@
     "position": "QB",
     "position_group": null,
     "espn_player_id": "4432577",
-    "season": {
+    "weekly": {
       "passing": {
-        "completions": 102,
-        "attempts": 144,
-        "passing_yards": 1076,
-        "passing_tds": 8,
-        "passing_interceptions": 3,
-        "sacks_suffered": 12,
-        "sack_yards_lost": -108,
-        "passing_air_yards": 1043,
-        "passing_yards_after_catch": 474,
-        "passing_first_downs": 44,
-        "passing_epa": 13.722521117269283,
-        "passing_cpoe": 18.285732942221763,
-        "pacr": 5.327580850323004
+        "completions": 23,
+        "attempts": 49,
+        "passing_yards": 229,
+        "passing_tds": 1,
+        "passing_interceptions": 1,
+        "sacks_suffered": 3,
+        "sack_yards_lost": -31,
+        "passing_air_yards": 424,
+        "passing_yards_after_catch": 109,
+        "passing_first_downs": 13,
+        "passing_epa": -13.52440370475038,
+        "passing_cpoe": -14.157423377037048,
+        "pacr": 0.5400943396226415
       },
       "rushing": {
-        "carries": 18,
-        "rushing_yards": 122,
-        "rushing_first_downs": 9,
-        "rushing_epa": 14.751548316020731
+        "carries": 2,
+        "rushing_yards": 25,
+        "rushing_epa": 2.765487407683395
       },
       "fantasy": {
-        "fantasy_points": 81.24000000000001,
-        "fantasy_points_ppr": 81.24000000000001
+        "fantasy_points": 13.66,
+        "fantasy_points_ppr": 13.66
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "passing": {
+        "completions": 125,
+        "attempts": 193,
+        "passing_yards": 1305,
+        "passing_tds": 9,
+        "passing_interceptions": 4,
+        "sacks_suffered": 15,
+        "sack_yards_lost": -139,
+        "passing_air_yards": 1467,
+        "passing_yards_after_catch": 583,
+        "passing_first_downs": 57,
+        "passing_epa": 0.19811741251890247,
+        "passing_cpoe": 4.128309565184718,
+        "pacr": 5.867675189945645
+      },
+      "rushing": {
+        "carries": 20,
+        "rushing_yards": 147,
+        "rushing_first_downs": 9,
+        "rushing_epa": 17.517035723704126
+      },
+      "fantasy": {
+        "fantasy_points": 94.9,
+        "fantasy_points_ppr": 94.9
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0034383",
@@ -10287,19 +11066,40 @@
     "position": "TE",
     "position_group": null,
     "espn_player_id": "3117256",
+    "weekly": {
+      "receiving": {
+        "receptions": 9,
+        "targets": 10,
+        "receiving_yards": 98,
+        "receiving_air_yards": 33,
+        "receiving_yards_after_catch": 63,
+        "receiving_first_downs": 6,
+        "receiving_epa": 6.152288074782406,
+        "racr": 2.9696969696969697,
+        "target_share": 0.217391304347826,
+        "air_yards_share": 0.0778301886792452,
+        "wopr": 0.3805680885972108
+      },
+      "fantasy": {
+        "fantasy_points": 9.8,
+        "fantasy_points_ppr": 18.8
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "receiving": {
-        "receptions": 21,
-        "targets": 27,
-        "receiving_yards": 186,
-        "receiving_air_yards": 175,
-        "receiving_yards_after_catch": 68,
-        "receiving_first_downs": 10,
-        "receiving_epa": 9.953924668031096,
-        "racr": 5.599935315649601,
-        "target_share": 0.9335989967126008,
-        "air_yards_share": 0.815500101110566,
-        "wopr": 1.971248565846298
+        "receptions": 30,
+        "targets": 37,
+        "receiving_yards": 284,
+        "receiving_air_yards": 208,
+        "receiving_yards_after_catch": 131,
+        "receiving_first_downs": 16,
+        "receiving_epa": 16.1062127428135,
+        "racr": 8.569632285346572,
+        "target_share": 1.150990301060427,
+        "air_yards_share": 0.8933302897898112,
+        "wopr": 2.3518166544435086
       },
       "defense": {
         "def_tackles_solo": 1,
@@ -10310,11 +11110,11 @@
         "penalty_yards": 20
       },
       "fantasy": {
-        "fantasy_points": 18.6,
-        "fantasy_points_ppr": 39.6
+        "fantasy_points": 28.400000000000002,
+        "fantasy_points_ppr": 58.400000000000006
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0034791",
@@ -10324,33 +11124,64 @@
     "position": "RB",
     "position_group": null,
     "espn_player_id": "3128720",
-    "season": {
+    "weekly": {
       "rushing": {
-        "carries": 58,
-        "rushing_yards": 249,
-        "rushing_tds": 2,
-        "rushing_first_downs": 12,
-        "rushing_epa": -2.610436731862137
+        "carries": 5,
+        "rushing_yards": 16,
+        "rushing_epa": -1.1606980024371296
       },
       "receiving": {
-        "receptions": 7,
-        "targets": 10,
-        "receiving_yards": 46,
-        "receiving_air_yards": 3,
-        "receiving_yards_after_catch": 46,
-        "receiving_first_downs": 1,
-        "receiving_epa": -0.5004214514046907,
-        "racr": -2.7619047619047623,
-        "target_share": 0.3387913058319789,
-        "air_yards_share": 0.02990033702243,
-        "wopr": 0.5291171946636694
+        "receptions": 1,
+        "targets": 3,
+        "receiving_yards": -5,
+        "receiving_air_yards": 2,
+        "receiving_yards_after_catch": -1,
+        "receiving_epa": -2.23949954129057,
+        "racr": -2.5,
+        "target_share": 0.0652173913043478,
+        "air_yards_share": 0.0047169811320754,
+        "wopr": 0.1011279737489745
+      },
+      "defense": {
+        "def_tackles_solo": 1
       },
       "fantasy": {
-        "fantasy_points": 41.5,
-        "fantasy_points_ppr": 48.5
+        "fantasy_points": 1.1,
+        "fantasy_points_ppr": 2.1
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "rushing": {
+        "carries": 63,
+        "rushing_yards": 265,
+        "rushing_tds": 2,
+        "rushing_first_downs": 12,
+        "rushing_epa": -3.7711347342992667
+      },
+      "receiving": {
+        "receptions": 8,
+        "targets": 13,
+        "receiving_yards": 41,
+        "receiving_air_yards": 5,
+        "receiving_yards_after_catch": 45,
+        "receiving_first_downs": 1,
+        "receiving_epa": -2.739920992695261,
+        "racr": -5.261904761904763,
+        "target_share": 0.4040086971363267,
+        "air_yards_share": 0.0346173181545054,
+        "wopr": 0.6302451684126438
+      },
+      "defense": {
+        "def_tackles_solo": 1
+      },
+      "fantasy": {
+        "fantasy_points": 42.6,
+        "fantasy_points_ppr": 50.6
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0037258",
@@ -10749,13 +11580,21 @@
     "position": "LT",
     "position_group": null,
     "espn_player_id": "2976292",
-    "season": {
+    "weekly": {
       "misc": {
         "penalties": 1,
         "penalty_yards": 5
       }
     },
-    "games_played": 1
+    "week": 7,
+    "weekly_opponent": "TB",
+    "season": {
+      "misc": {
+        "penalties": 2,
+        "penalty_yards": 10
+      }
+    },
+    "games_played": 2
   },
   {
     "player_id": "00-0039408",
@@ -10813,7 +11652,21 @@
     "position": "RT",
     "position_group": null,
     "espn_player_id": "4373825",
-    "games_played": 0
+    "weekly": {
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 5
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
+    "season": {
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 5
+      }
+    },
+    "games_played": 1
   },
   {
     "player_id": "00-0033106",
@@ -10823,28 +11676,57 @@
     "position": "QB",
     "position_group": null,
     "espn_player_id": "3046779",
-    "season": {
+    "weekly": {
       "passing": {
-        "completions": 132,
-        "attempts": 174,
-        "passing_yards": 1390,
-        "passing_tds": 14,
-        "passing_interceptions": 2,
-        "sacks_suffered": 9,
-        "sack_yards_lost": -43,
-        "passing_air_yards": 1173,
-        "passing_yards_after_catch": 730,
-        "passing_first_downs": 75,
-        "passing_epa": 57.058547992974646,
-        "passing_cpoe": 68.88831643417515,
-        "pacr": 8.460673076003737
+        "completions": 20,
+        "attempts": 29,
+        "passing_yards": 241,
+        "passing_tds": 1,
+        "passing_interceptions": 1,
+        "sacks_suffered": 4,
+        "sack_yards_lost": -26,
+        "passing_air_yards": 157,
+        "passing_yards_after_catch": 187,
+        "passing_first_downs": 9,
+        "passing_epa": -8.635040956975383,
+        "passing_cpoe": -1.297557353973389,
+        "pacr": 1.535031847133758
       },
       "rushing": {
-        "carries": 9,
-        "rushing_yards": 16,
+        "carries": 2,
+        "rushing_yards": 7,
+        "rushing_first_downs": 1,
+        "rushing_epa": 0.3411501962691545
+      },
+      "fantasy": {
+        "fantasy_points": 10.34,
+        "fantasy_points_ppr": 10.34
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
+    "season": {
+      "passing": {
+        "completions": 152,
+        "attempts": 203,
+        "passing_yards": 1631,
+        "passing_tds": 15,
+        "passing_interceptions": 3,
+        "sacks_suffered": 13,
+        "sack_yards_lost": -69,
+        "passing_air_yards": 1330,
+        "passing_yards_after_catch": 917,
+        "passing_first_downs": 84,
+        "passing_epa": 48.423507035999265,
+        "passing_cpoe": 67.59075908020176,
+        "pacr": 9.995704923137493
+      },
+      "rushing": {
+        "carries": 11,
+        "rushing_yards": 23,
         "rushing_fumbles": 1,
-        "rushing_first_downs": 3,
-        "rushing_epa": -6.299263332775362
+        "rushing_first_downs": 4,
+        "rushing_epa": -5.958113136506207
       },
       "misc": {
         "penalties": 1,
@@ -10852,11 +11734,11 @@
         "fumble_recovery_yards_own": 1
       },
       "fantasy": {
-        "fantasy_points": 107.2,
-        "fantasy_points_ppr": 107.2
+        "fantasy_points": 117.54,
+        "fantasy_points_ppr": 117.54
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039065",
@@ -10866,30 +11748,51 @@
     "position": "TE",
     "position_group": null,
     "espn_player_id": "4430027",
+    "weekly": {
+      "receiving": {
+        "receptions": 3,
+        "targets": 3,
+        "receiving_yards": 15,
+        "receiving_air_yards": 10,
+        "receiving_yards_after_catch": 5,
+        "receiving_first_downs": 1,
+        "receiving_epa": 1.1246322391089052,
+        "racr": 1.5,
+        "target_share": 0.1071428571428571,
+        "air_yards_share": 0.0636942675159235,
+        "wopr": 0.2053002729754321
+      },
+      "fantasy": {
+        "fantasy_points": 1.5,
+        "fantasy_points_ppr": 4.5
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "receiving": {
-        "receptions": 26,
-        "targets": 33,
-        "receiving_yards": 324,
+        "receptions": 29,
+        "targets": 36,
+        "receiving_yards": 339,
         "receiving_tds": 2,
-        "receiving_air_yards": 193,
-        "receiving_yards_after_catch": 178,
-        "receiving_first_downs": 15,
-        "receiving_epa": 20.006540248720004,
-        "racr": 10.473519453519453,
-        "target_share": 1.1766371894060679,
-        "air_yards_share": 1.179168326277816,
-        "wopr": 2.5903736125035732
+        "receiving_air_yards": 203,
+        "receiving_yards_after_catch": 183,
+        "receiving_first_downs": 16,
+        "receiving_epa": 21.13117248782891,
+        "racr": 11.973519453519453,
+        "target_share": 1.2837800465489249,
+        "air_yards_share": 1.2428625937937396,
+        "wopr": 2.795673885479005
       },
       "defense": {
         "def_tackles_solo": 1
       },
       "fantasy": {
-        "fantasy_points": 44.4,
-        "fantasy_points_ppr": 70.4
+        "fantasy_points": 45.9,
+        "fantasy_points_ppr": 74.9
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039139",
@@ -10899,27 +11802,55 @@
     "position": "RB",
     "position_group": null,
     "espn_player_id": "4429795",
-    "season": {
+    "weekly": {
       "rushing": {
-        "carries": 87,
-        "rushing_yards": 390,
-        "rushing_tds": 4,
-        "rushing_first_downs": 22,
-        "rushing_epa": 0.412037448171759
+        "carries": 17,
+        "rushing_yards": 136,
+        "rushing_tds": 2,
+        "rushing_first_downs": 6,
+        "rushing_epa": 6.809116186923347
       },
       "receiving": {
-        "receptions": 23,
-        "targets": 25,
-        "receiving_yards": 112,
+        "receptions": 3,
+        "targets": 3,
+        "receiving_yards": 82,
+        "receiving_air_yards": -10,
+        "receiving_yards_after_catch": 92,
+        "receiving_first_downs": 3,
+        "receiving_epa": 6.412957304157317,
+        "racr": -8.2,
+        "target_share": 0.1071428571428571,
+        "air_yards_share": -0.0636942675159235,
+        "wopr": 0.1161282984531392
+      },
+      "fantasy": {
+        "fantasy_points": 33.8,
+        "fantasy_points_ppr": 36.8
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
+    "season": {
+      "rushing": {
+        "carries": 104,
+        "rushing_yards": 526,
+        "rushing_tds": 6,
+        "rushing_first_downs": 28,
+        "rushing_epa": 7.221153635095106
+      },
+      "receiving": {
+        "receptions": 26,
+        "targets": 28,
+        "receiving_yards": 194,
         "receiving_tds": 1,
-        "receiving_air_yards": -1,
-        "receiving_yards_after_catch": 131,
-        "receiving_first_downs": 4,
-        "receiving_epa": -2.0393313036474865,
-        "racr": -5.333333333333332,
-        "target_share": 0.8421005784621343,
-        "air_yards_share": 0.0385816354586126,
-        "wopr": 1.2901580125142302
+        "receiving_air_yards": -11,
+        "receiving_yards_after_catch": 223,
+        "receiving_first_downs": 7,
+        "receiving_epa": 4.37362600050983,
+        "racr": -13.533333333333331,
+        "target_share": 0.9492434356049914,
+        "air_yards_share": -0.025112632057310895,
+        "wopr": 1.4062863109673696
       },
       "misc": {
         "penalties": 1,
@@ -10928,11 +11859,11 @@
         "fumble_recovery_yards_own": 1
       },
       "fantasy": {
-        "fantasy_points": 80.19999999999999,
-        "fantasy_points_ppr": 103.2
+        "fantasy_points": 114.0,
+        "fantasy_points_ppr": 140.0
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0035685",
@@ -10942,6 +11873,32 @@
     "position": "RB",
     "position_group": null,
     "espn_player_id": "4035538",
+    "weekly": {
+      "rushing": {
+        "carries": 13,
+        "rushing_yards": 21,
+        "rushing_epa": -6.335497776046395
+      },
+      "receiving": {
+        "receptions": 2,
+        "targets": 3,
+        "receiving_yards": 18,
+        "receiving_air_yards": -10,
+        "receiving_yards_after_catch": 20,
+        "receiving_first_downs": 1,
+        "receiving_epa": -0.0713153594406321,
+        "racr": -1.8,
+        "target_share": 0.1071428571428571,
+        "air_yards_share": -0.0636942675159235,
+        "wopr": 0.1161282984531392
+      },
+      "fantasy": {
+        "fantasy_points": 3.9,
+        "fantasy_points_ppr": 5.9
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "passing": {
         "completions": 1,
@@ -10955,31 +11912,31 @@
         "pacr": 1.0
       },
       "rushing": {
-        "carries": 65,
-        "rushing_yards": 334,
+        "carries": 78,
+        "rushing_yards": 355,
         "rushing_tds": 4,
         "rushing_first_downs": 16,
-        "rushing_epa": 3.1018941811053082
+        "rushing_epa": -3.233603594941087
       },
       "receiving": {
-        "receptions": 9,
-        "targets": 10,
-        "receiving_yards": 78,
-        "receiving_air_yards": 4,
-        "receiving_yards_after_catch": 77,
-        "receiving_first_downs": 5,
-        "receiving_epa": 2.492286629977844,
-        "racr": -3.154761904761905,
-        "target_share": 0.3369913170142001,
-        "air_yards_share": 0.028313393566080397,
-        "wopr": 0.5253063510175566
+        "receptions": 11,
+        "targets": 13,
+        "receiving_yards": 96,
+        "receiving_air_yards": -6,
+        "receiving_yards_after_catch": 97,
+        "receiving_first_downs": 6,
+        "receiving_epa": 2.420971270537212,
+        "racr": -4.954761904761905,
+        "target_share": 0.4441341741570572,
+        "air_yards_share": -0.0353808739498431,
+        "wopr": 0.6414346494706957
       },
       "fantasy": {
-        "fantasy_points": 69.32,
-        "fantasy_points_ppr": 78.32
+        "fantasy_points": 73.22,
+        "fantasy_points_ppr": 84.22
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0034967",
@@ -11522,17 +12479,27 @@
     "position": "NB",
     "position_group": null,
     "espn_player_id": "4239694",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 13,
-        "def_tackles_with_assist": 1,
-        "def_tackle_assists": 1,
-        "def_interceptions": 1,
-        "def_interception_yards": 2,
-        "def_pass_defended": 2
+        "def_tackles_solo": 3,
+        "def_fumbles_forced": 1,
+        "def_pass_defended": 1
       }
     },
-    "games_played": 6
+    "week": 7,
+    "weekly_opponent": "TB",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 16,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 1,
+        "def_fumbles_forced": 1,
+        "def_interceptions": 1,
+        "def_interception_yards": 2,
+        "def_pass_defended": 3
+      }
+    },
+    "games_played": 7
   },
   {
     "player_id": "00-0038038",
@@ -20742,7 +21709,21 @@
     "position": "RG",
     "position_group": null,
     "espn_player_id": "4242227",
-    "games_played": 0
+    "weekly": {
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 15
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 15
+      }
+    },
+    "games_played": 1
   },
   {
     "player_id": "00-0036644",
@@ -24496,7 +25477,21 @@
     "position": "LDT",
     "position_group": null,
     "espn_player_id": "4361662",
-    "games_played": 0
+    "weekly": {
+      "defense": {
+        "def_tackle_assists": 1,
+        "def_pass_defended": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
+    "season": {
+      "defense": {
+        "def_tackle_assists": 1,
+        "def_pass_defended": 1
+      }
+    },
+    "games_played": 1
   },
   {
     "player_id": "00-0039465",
@@ -26620,16 +27615,31 @@
     "position": "LDT",
     "position_group": null,
     "espn_player_id": "3929956",
+    "weekly": {
+      "defense": {
+        "def_tackle_assists": 1
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 15
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
         "def_tackles_solo": 3,
-        "def_tackle_assists": 4,
+        "def_tackle_assists": 5,
         "def_tackles_for_loss": 1,
         "def_tackles_for_loss_yards": 1,
         "def_pass_defended": 2
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 15
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0034275",
@@ -26660,10 +27670,20 @@
     "position": "SLB",
     "position_group": null,
     "espn_player_id": "3071353",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 5,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
-        "def_tackles_solo": 10,
-        "def_tackle_assists": 6,
+        "def_tackles_solo": 15,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 7,
         "def_qb_hits": 2
       },
       "misc": {
@@ -26671,7 +27691,7 @@
         "penalty_yards": 5
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0039857",
@@ -26681,13 +27701,21 @@
     "position": "RT",
     "position_group": null,
     "espn_player_id": "4432699",
-    "season": {
+    "weekly": {
       "misc": {
         "penalties": 1,
-        "penalty_yards": 15
+        "penalty_yards": 4
       }
     },
-    "games_played": 1
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "misc": {
+        "penalties": 2,
+        "penalty_yards": 19
+      }
+    },
+    "games_played": 2
   },
   {
     "player_id": "00-0034968",
@@ -27602,13 +28630,21 @@
     "position": "RT",
     "position_group": null,
     "espn_player_id": "3895840",
-    "season": {
+    "weekly": {
       "misc": {
         "penalties": 1,
         "penalty_yards": 5
       }
     },
-    "games_played": 1
+    "week": 7,
+    "weekly_opponent": "DET",
+    "season": {
+      "misc": {
+        "penalties": 2,
+        "penalty_yards": 10
+      }
+    },
+    "games_played": 2
   },
   {
     "player_id": "00-0035409",
@@ -28101,18 +29137,27 @@
     "position": "RDE",
     "position_group": null,
     "espn_player_id": "3051942",
+    "weekly": {
+      "defense": {
+        "def_tackle_assists": 1,
+        "def_sacks": 0.5,
+        "def_qb_hits": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
         "def_tackles_solo": 7,
-        "def_tackle_assists": 5,
+        "def_tackle_assists": 6,
         "def_tackles_for_loss": 4,
         "def_tackles_for_loss_yards": 24,
-        "def_sacks": 4.5,
+        "def_sacks": 5.0,
         "def_sack_yards": 32.0,
-        "def_qb_hits": 9
+        "def_qb_hits": 10
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0035637",
@@ -28122,19 +29167,32 @@
     "position": "RCB",
     "position_group": null,
     "espn_player_id": "3910229",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 6,
-        "def_tackles_with_assist": 1,
-        "def_tackle_assists": 6,
+        "def_tackles_solo": 2,
+        "def_tackle_assists": 2,
         "def_pass_defended": 2
       },
       "misc": {
-        "penalties": 2,
-        "penalty_yards": 19
+        "penalties": 1,
+        "penalty_yards": 23
       }
     },
-    "games_played": 6
+    "week": 7,
+    "weekly_opponent": "TB",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 8,
+        "def_tackles_with_assist": 1,
+        "def_tackle_assists": 8,
+        "def_pass_defended": 4
+      },
+      "misc": {
+        "penalties": 3,
+        "penalty_yards": 42
+      }
+    },
+    "games_played": 7
   },
   {
     "player_id": "00-0036428",
@@ -28207,10 +29265,20 @@
     "position": "FS",
     "position_group": null,
     "espn_player_id": "3116679",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 4,
+        "def_tackle_assists": 2,
+        "def_fumbles_forced": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
-        "def_tackles_solo": 6,
-        "def_tackle_assists": 5,
+        "def_tackles_solo": 10,
+        "def_tackle_assists": 7,
+        "def_fumbles_forced": 1,
         "def_pass_defended": 1
       },
       "misc": {
@@ -28218,7 +29286,7 @@
         "penalty_yards": 5
       }
     },
-    "games_played": 4
+    "games_played": 5
   },
   {
     "player_id": "00-0040583",
@@ -28228,34 +29296,62 @@
     "position": "RB",
     "position_group": null,
     "espn_player_id": "4429059",
-    "season": {
+    "weekly": {
       "rushing": {
-        "carries": 36,
-        "rushing_yards": 137,
-        "rushing_tds": 1,
-        "rushing_first_downs": 7,
-        "rushing_epa": -6.358503033026367
+        "carries": 10,
+        "rushing_yards": 15,
+        "rushing_first_downs": 1,
+        "rushing_epa": -9.783833585184766
       },
       "receiving": {
-        "receptions": 6,
-        "targets": 9,
-        "receiving_yards": 96,
+        "receptions": 3,
+        "targets": 5,
+        "receiving_yards": 20,
         "receiving_tds": 1,
-        "receiving_air_yards": 11,
-        "receiving_yards_after_catch": 81,
-        "receiving_first_downs": 3,
-        "receiving_epa": 5.773014907427616,
-        "racr": 5.542857142857144,
-        "target_share": 0.3098633095126782,
-        "air_yards_share": 0.0606303418803418,
-        "wopr": 0.5072362035852567
+        "receiving_air_yards": 29,
+        "receiving_yards_after_catch": 19,
+        "receiving_first_downs": 1,
+        "receiving_epa": 1.6412108519289177,
+        "racr": 0.6896551724137931,
+        "target_share": 0.108695652173913,
+        "air_yards_share": 0.0683962264150943,
+        "wopr": 0.2109208367514356
       },
       "fantasy": {
-        "fantasy_points": 35.3,
-        "fantasy_points_ppr": 41.3
+        "fantasy_points": 9.5,
+        "fantasy_points_ppr": 12.5
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "rushing": {
+        "carries": 46,
+        "rushing_yards": 152,
+        "rushing_tds": 1,
+        "rushing_first_downs": 8,
+        "rushing_epa": -16.142336618211132
+      },
+      "receiving": {
+        "receptions": 9,
+        "targets": 14,
+        "receiving_yards": 116,
+        "receiving_tds": 2,
+        "receiving_air_yards": 40,
+        "receiving_yards_after_catch": 100,
+        "receiving_first_downs": 4,
+        "receiving_epa": 7.414225759356533,
+        "racr": 6.232512315270936,
+        "target_share": 0.41855896168659124,
+        "air_yards_share": 0.1290265682954361,
+        "wopr": 0.7181570403366923
+      },
+      "fantasy": {
+        "fantasy_points": 44.8,
+        "fantasy_points_ppr": 53.8
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0038936",
@@ -28265,13 +29361,21 @@
     "position": "LG",
     "position_group": null,
     "espn_player_id": "4361425",
-    "season": {
+    "weekly": {
       "misc": {
         "penalties": 1,
-        "penalty_yards": 10
+        "penalty_yards": 5
       }
     },
-    "games_played": 1
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "misc": {
+        "penalties": 2,
+        "penalty_yards": 15
+      }
+    },
+    "games_played": 2
   },
   {
     "player_id": "00-0036653",
@@ -28539,20 +29643,38 @@
     "position": "LDE",
     "position_group": null,
     "espn_player_id": "4690795",
-    "season": {
+    "weekly": {
       "defense": {
         "def_tackles_solo": 1,
+        "def_tackle_assists": 1,
+        "def_qb_hits": 1,
+        "def_pass_defended": 1
+      },
+      "misc": {
+        "fumble_recovery_opp": 1,
+        "fumble_recovery_yards_opp": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 2,
         "def_tackles_with_assist": 1,
-        "def_tackle_assists": 2,
+        "def_tackle_assists": 3,
         "def_tackles_for_loss": 1,
         "def_tackles_for_loss_yards": 2,
         "def_sacks": 1.0,
         "def_sack_yards": 9.0,
-        "def_qb_hits": 3,
-        "def_pass_defended": 1
+        "def_qb_hits": 4,
+        "def_pass_defended": 2
+      },
+      "misc": {
+        "fumble_recovery_opp": 1,
+        "fumble_recovery_yards_opp": 1
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0040186",
@@ -28632,9 +29754,16 @@
     "position": "FB",
     "position_group": null,
     "espn_player_id": "4243176",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 3
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "defense": {
-        "def_tackles_solo": 3,
+        "def_tackles_solo": 6,
         "def_tackles_with_assist": 2,
         "def_tackle_assists": 1
       },
@@ -28643,7 +29772,7 @@
         "penalty_yards": 5
       }
     },
-    "games_played": 4
+    "games_played": 5
   },
   {
     "player_id": "00-0038922",
@@ -28653,19 +29782,40 @@
     "position": "LILB",
     "position_group": null,
     "espn_player_id": "4428659",
-    "season": {
+    "weekly": {
       "defense": {
-        "def_tackles_solo": 14,
-        "def_tackle_assists": 13,
-        "def_tackles_for_loss": 3,
-        "def_tackles_for_loss_yards": 18,
-        "def_sacks": 2.0,
-        "def_sack_yards": 15.0,
-        "def_qb_hits": 2,
-        "def_pass_defended": 2
+        "def_tackles_solo": 3,
+        "def_tackles_with_assist": 2,
+        "def_tackles_for_loss": 2,
+        "def_tackles_for_loss_yards": 4,
+        "def_qb_hits": 1,
+        "def_pass_defended": 3
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 5
       }
     },
-    "games_played": 5
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 17,
+        "def_tackles_with_assist": 2,
+        "def_tackle_assists": 13,
+        "def_tackles_for_loss": 5,
+        "def_tackles_for_loss_yards": 22,
+        "def_sacks": 2.0,
+        "def_sack_yards": 15.0,
+        "def_qb_hits": 3,
+        "def_pass_defended": 5
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 5
+      }
+    },
+    "games_played": 6
   },
   {
     "player_id": "00-0039419",
@@ -30399,6 +31549,21 @@
     "position": "RB",
     "position_group": null,
     "espn_player_id": "2983509",
+    "weekly": {
+      "receiving": {
+        "targets": 1,
+        "receiving_air_yards": 4,
+        "receiving_epa": -1.8445517274085432,
+        "target_share": 0.0217391304347826,
+        "air_yards_share": 0.0094339622641509,
+        "wopr": 0.0392124692370795
+      },
+      "defense": {
+        "def_tackle_assists": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "rushing": {
         "carries": 2,
@@ -30407,29 +31572,29 @@
       },
       "receiving": {
         "receptions": 2,
-        "targets": 2,
+        "targets": 3,
         "receiving_yards": 17,
         "receiving_fumbles": 1,
         "receiving_fumbles_lost": 1,
-        "receiving_air_yards": 5,
+        "receiving_air_yards": 9,
         "receiving_yards_after_catch": 12,
         "receiving_first_downs": 1,
-        "receiving_epa": -4.106586049252655,
+        "receiving_epa": -5.951137776661199,
         "racr": 3.4,
-        "target_share": 0.074074074074074,
-        "air_yards_share": 0.0290697674418604,
-        "wopr": 0.1314599483204134
+        "target_share": 0.09581320450885661,
+        "air_yards_share": 0.0385037297060113,
+        "wopr": 0.1706724175574929
       },
       "defense": {
         "def_tackles_solo": 3,
-        "def_tackle_assists": 3
+        "def_tackle_assists": 4
       },
       "fantasy": {
         "fantasy_points": 0.6000000000000001,
         "fantasy_points_ppr": 2.6
       }
     },
-    "games_played": 4
+    "games_played": 5
   },
   {
     "player_id": "00-0034968",
@@ -30772,7 +31937,19 @@
     "position": "LS",
     "position_group": null,
     "espn_player_id": "4571755",
-    "games_played": 0
+    "weekly": {
+      "defense": {
+        "def_tackle_assists": 1
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
+    "season": {
+      "defense": {
+        "def_tackle_assists": 1
+      }
+    },
+    "games_played": 1
   },
   {
     "player_id": "00-0037837",
@@ -30838,12 +32015,15 @@
     "position": "P",
     "position_group": null,
     "espn_player_id": "3916370",
+    "weekly": {},
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
         "def_tackles_solo": 1
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0040154",
@@ -31765,10 +32945,17 @@
     "position": "KR",
     "position_group": null,
     "espn_player_id": "4240255",
+    "weekly": {
+      "defense": {
+        "def_tackle_assists": 2
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
         "def_tackles_solo": 2,
-        "def_tackle_assists": 7
+        "def_tackle_assists": 9
       },
       "returns": {
         "kickoff_returns": 3,
@@ -31779,7 +32966,7 @@
         "penalty_yards": 20
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039404",
@@ -31840,6 +33027,30 @@
     "position": "PR",
     "position_group": null,
     "espn_player_id": "2973405",
+    "weekly": {
+      "receiving": {
+        "receptions": 3,
+        "targets": 3,
+        "receiving_yards": 17,
+        "receiving_air_yards": 5,
+        "receiving_yards_after_catch": 12,
+        "receiving_epa": -0.8342901052674279,
+        "racr": 3.4,
+        "target_share": 0.1071428571428571,
+        "air_yards_share": 0.0318471337579617,
+        "wopr": 0.1830072793448589
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 6
+      },
+      "fantasy": {
+        "fantasy_points": 1.7000000000000002,
+        "fantasy_points_ppr": 4.7
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "rushing": {
         "carries": 1,
@@ -31847,17 +33058,17 @@
         "rushing_epa": 0.646679020836018
       },
       "receiving": {
-        "receptions": 6,
-        "targets": 9,
-        "receiving_yards": 47,
-        "receiving_air_yards": 62,
-        "receiving_yards_after_catch": 17,
+        "receptions": 9,
+        "targets": 12,
+        "receiving_yards": 64,
+        "receiving_air_yards": 67,
+        "receiving_yards_after_catch": 29,
         "receiving_first_downs": 3,
-        "receiving_epa": -0.14331411996869048,
-        "racr": 2.9525966183574877,
-        "target_share": 0.3115847310584152,
-        "air_yards_share": 0.2859714242881152,
-        "wopr": 0.6675570935893034
+        "receiving_epa": -0.9776042252361183,
+        "racr": 6.352596618357488,
+        "target_share": 0.4187275882012723,
+        "air_yards_share": 0.3178185580460769,
+        "wopr": 0.8505643729341623
       },
       "returns": {
         "punt_returns": 12,
@@ -31866,12 +33077,16 @@
         "kickoff_return_yards": 60,
         "special_teams_tds": 1
       },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 6
+      },
       "fantasy": {
-        "fantasy_points": 11.600000000000001,
-        "fantasy_points_ppr": 17.6
+        "fantasy_points": 13.3,
+        "fantasy_points_ppr": 22.3
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0035192",
@@ -32306,8 +33521,11 @@
     "position": "P",
     "position_group": null,
     "espn_player_id": "3915398",
+    "weekly": {},
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {},
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0035042",
@@ -32359,7 +33577,51 @@
     "position": "PR",
     "position_group": null,
     "espn_player_id": "3123075",
-    "games_played": 0
+    "weekly": {
+      "receiving": {
+        "receptions": 1,
+        "targets": 3,
+        "receiving_yards": -1,
+        "receiving_air_yards": -2,
+        "receiving_yards_after_catch": 6,
+        "receiving_epa": -1.6999980482505634,
+        "target_share": 0.0652173913043478,
+        "air_yards_share": -0.0047169811320754,
+        "wopr": 0.0945242001640689
+      },
+      "returns": {
+        "punt_returns": 3,
+        "punt_return_yards": 25
+      },
+      "fantasy": {
+        "fantasy_points": -0.1,
+        "fantasy_points_ppr": 0.9
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
+    "season": {
+      "receiving": {
+        "receptions": 1,
+        "targets": 3,
+        "receiving_yards": -1,
+        "receiving_air_yards": -2,
+        "receiving_yards_after_catch": 6,
+        "receiving_epa": -1.6999980482505634,
+        "target_share": 0.0652173913043478,
+        "air_yards_share": -0.0047169811320754,
+        "wopr": 0.0945242001640689
+      },
+      "returns": {
+        "punt_returns": 3,
+        "punt_return_yards": 25
+      },
+      "fantasy": {
+        "fantasy_points": -0.1,
+        "fantasy_points_ppr": 0.9
+      }
+    },
+    "games_played": 1
   },
   {
     "player_id": "00-0026858",
@@ -32404,33 +33666,53 @@
     "position": "PK",
     "position_group": null,
     "espn_player_id": "4689936",
+    "weekly": {
+      "kicking": {
+        "fg_made": 1,
+        "fg_att": 2,
+        "fg_missed": 1,
+        "fg_long": 58.0,
+        "fg_pct": 0.5,
+        "fg_made_50_59": 1,
+        "fg_missed_50_59": 1,
+        "fg_made_list": "58",
+        "fg_missed_list": 54.0,
+        "fg_made_distance": 58,
+        "fg_missed_distance": 54,
+        "pat_made": 3,
+        "pat_att": 3,
+        "pat_pct": 1.0
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "defense": {
         "def_tackles_solo": 2
       },
       "kicking": {
-        "fg_made": 7,
-        "fg_att": 9,
-        "fg_missed": 2,
-        "fg_long": 195.0,
-        "fg_pct": 4.0,
+        "fg_made": 8,
+        "fg_att": 11,
+        "fg_missed": 3,
+        "fg_long": 253.0,
+        "fg_pct": 4.5,
         "fg_made_20_29": 2,
         "fg_made_30_39": 2,
         "fg_made_40_49": 2,
-        "fg_made_50_59": 1,
-        "fg_missed_50_59": 1,
+        "fg_made_50_59": 2,
+        "fg_missed_50_59": 2,
         "fg_missed_60_": 1,
-        "fg_made_distance": 270,
-        "fg_missed_distance": 122,
-        "pat_made": 24,
-        "pat_att": 24,
-        "pat_pct": 6.0
+        "fg_made_distance": 328,
+        "fg_missed_distance": 176,
+        "pat_made": 27,
+        "pat_att": 27,
+        "pat_pct": 7.0
       },
       "misc": {
         "penalties": 3
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0032726",
@@ -32440,29 +33722,46 @@
     "position": "PK",
     "position_group": null,
     "espn_player_id": "2971573",
+    "weekly": {
+      "kicking": {
+        "fg_made": 2,
+        "fg_att": 2,
+        "fg_long": 46.0,
+        "fg_pct": 1.0,
+        "fg_made_30_39": 1,
+        "fg_made_40_49": 1,
+        "fg_made_list": "36;46",
+        "fg_made_distance": 82,
+        "pat_made": 1,
+        "pat_att": 1,
+        "pat_pct": 1.0
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
         "def_tackles_solo": 1
       },
       "kicking": {
-        "fg_made": 11,
-        "fg_att": 13,
+        "fg_made": 13,
+        "fg_att": 15,
         "fg_missed": 2,
-        "fg_long": 237.0,
-        "fg_pct": 4.166666666666666,
+        "fg_long": 283.0,
+        "fg_pct": 5.166666666666666,
         "fg_made_20_29": 1,
-        "fg_made_30_39": 2,
-        "fg_made_40_49": 3,
+        "fg_made_30_39": 3,
+        "fg_made_40_49": 4,
         "fg_made_50_59": 5,
         "fg_missed_50_59": 2,
-        "fg_made_distance": 495,
+        "fg_made_distance": 577,
         "fg_missed_distance": 106,
-        "pat_made": 9,
-        "pat_att": 9,
-        "pat_pct": 4.0
+        "pat_made": 10,
+        "pat_att": 10,
+        "pat_pct": 5.0
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0040200",
@@ -32763,6 +34062,14 @@
     "position": "KR",
     "position_group": null,
     "espn_player_id": "3134448",
+    "weekly": {
+      "returns": {
+        "kickoff_returns": 6,
+        "kickoff_return_yards": 154
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "defense": {
         "def_tackles_solo": 4,
@@ -32771,11 +34078,11 @@
         "def_tackles_for_loss_yards": 2
       },
       "returns": {
-        "kickoff_returns": 4,
-        "kickoff_return_yards": 93
+        "kickoff_returns": 10,
+        "kickoff_return_yards": 247
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0035190",
@@ -32886,36 +34193,60 @@
     "position": "KR",
     "position_group": null,
     "espn_player_id": "4430871",
-    "season": {
+    "weekly": {
       "rushing": {
-        "carries": 10,
-        "rushing_yards": 30,
-        "rushing_tds": 1,
-        "rushing_first_downs": 2,
-        "rushing_epa": -0.3256877501262352
+        "carries": 1,
+        "rushing_yards": 4,
+        "rushing_epa": -0.3290722458623349
       },
       "receiving": {
-        "receptions": 3,
-        "targets": 3,
-        "receiving_yards": -4,
-        "receiving_air_yards": -12,
+        "receptions": 1,
+        "targets": 1,
+        "receiving_yards": 2,
+        "receiving_air_yards": -6,
         "receiving_yards_after_catch": 8,
-        "receiving_epa": -2.835620791884139,
-        "racr": 0.3333333333333333,
-        "target_share": 0.09375,
-        "air_yards_share": -0.046692607003891,
-        "wopr": 0.1079401750972762
+        "receiving_epa": -0.4061701556202024,
+        "racr": -0.3333333333333333,
+        "target_share": 0.02,
+        "air_yards_share": -0.0126315789473684,
+        "wopr": 0.0211578947368421
+      },
+      "fantasy": {
+        "fantasy_points": 0.6000000000000001,
+        "fantasy_points_ppr": 1.6
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
+    "season": {
+      "rushing": {
+        "carries": 11,
+        "rushing_yards": 34,
+        "rushing_tds": 1,
+        "rushing_first_downs": 2,
+        "rushing_epa": -0.6547599959885702
+      },
+      "receiving": {
+        "receptions": 4,
+        "targets": 4,
+        "receiving_yards": -2,
+        "receiving_air_yards": -18,
+        "receiving_yards_after_catch": 16,
+        "receiving_epa": -3.2417909475043416,
+        "target_share": 0.11375,
+        "air_yards_share": -0.059324185951259406,
+        "wopr": 0.1290980698341183
       },
       "returns": {
         "kickoff_returns": 17,
         "kickoff_return_yards": 412
       },
       "fantasy": {
-        "fantasy_points": 8.6,
-        "fantasy_points_ppr": 11.6
+        "fantasy_points": 9.2,
+        "fantasy_points_ppr": 13.2
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0029008",
@@ -33141,8 +34472,11 @@
     "position": "H",
     "position_group": null,
     "espn_player_id": "2577619",
+    "weekly": {},
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {},
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0039816",
@@ -33208,6 +34542,27 @@
     "position": "PR",
     "position_group": null,
     "espn_player_id": "4586312",
+    "weekly": {
+      "receiving": {
+        "receptions": 4,
+        "targets": 7,
+        "receiving_yards": 77,
+        "receiving_air_yards": 126,
+        "receiving_yards_after_catch": 12,
+        "receiving_first_downs": 3,
+        "receiving_epa": 3.804672628582921,
+        "racr": 0.6111111111111112,
+        "target_share": 0.1521739130434782,
+        "air_yards_share": 0.2971698113207547,
+        "wopr": 0.4362797374897457
+      },
+      "fantasy": {
+        "fantasy_points": 7.7,
+        "fantasy_points_ppr": 11.7
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "SEA",
     "season": {
       "rushing": {
         "carries": 2,
@@ -33215,18 +34570,18 @@
         "rushing_epa": -0.1861670644721016
       },
       "receiving": {
-        "receptions": 5,
-        "targets": 7,
-        "receiving_yards": 22,
+        "receptions": 9,
+        "targets": 14,
+        "receiving_yards": 99,
         "receiving_tds": 1,
-        "receiving_air_yards": 9,
-        "receiving_yards_after_catch": 36,
-        "receiving_first_downs": 1,
-        "receiving_epa": -0.5821969785029069,
-        "racr": 4.15,
-        "target_share": 0.23434033111452449,
-        "air_yards_share": 0.025508545857383103,
-        "wopr": 0.3693664787719549
+        "receiving_air_yards": 135,
+        "receiving_yards_after_catch": 48,
+        "receiving_first_downs": 4,
+        "receiving_epa": 3.222475650080014,
+        "racr": 4.761111111111111,
+        "target_share": 0.3865142441580027,
+        "air_yards_share": 0.3226783571781378,
+        "wopr": 0.8056462162617006
       },
       "returns": {
         "punt_returns": 11,
@@ -33235,11 +34590,11 @@
         "kickoff_return_yards": 162
       },
       "fantasy": {
-        "fantasy_points": 8.9,
-        "fantasy_points_ppr": 13.9
+        "fantasy_points": 16.6,
+        "fantasy_points_ppr": 25.6
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0033260",
@@ -33259,6 +34614,24 @@
     "position": "PR",
     "position_group": null,
     "espn_player_id": "5097554",
+    "weekly": {
+      "receiving": {
+        "targets": 1,
+        "receiving_air_yards": 18,
+        "receiving_epa": -1.0585094643756747,
+        "target_share": 0.02,
+        "air_yards_share": 0.0378947368421052,
+        "wopr": 0.0565263157894736
+      },
+      "returns": {
+        "punt_returns": 3,
+        "punt_return_yards": 34,
+        "kickoff_returns": 4,
+        "kickoff_return_yards": 95
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "rushing": {
         "carries": 1,
@@ -33267,33 +34640,33 @@
       },
       "receiving": {
         "receptions": 4,
-        "targets": 4,
+        "targets": 5,
         "receiving_yards": 64,
         "receiving_tds": 1,
-        "receiving_air_yards": 44,
+        "receiving_air_yards": 62,
         "receiving_yards_after_catch": 20,
         "receiving_first_downs": 3,
-        "receiving_epa": 7.55446734988949,
+        "receiving_epa": 6.495957885513815,
         "racr": 1.4545454545454546,
-        "target_share": 0.1739130434782608,
-        "air_yards_share": 0.1841004184100418,
-        "wopr": 0.3897398581044206
+        "target_share": 0.1939130434782608,
+        "air_yards_share": 0.221995155252147,
+        "wopr": 0.44626617389389417
       },
       "defense": {
         "def_tackles_solo": 1
       },
       "returns": {
-        "punt_returns": 11,
-        "punt_return_yards": 165,
-        "kickoff_returns": 5,
-        "kickoff_return_yards": 115
+        "punt_returns": 14,
+        "punt_return_yards": 199,
+        "kickoff_returns": 9,
+        "kickoff_return_yards": 210
       },
       "fantasy": {
         "fantasy_points": 12.6,
         "fantasy_points_ppr": 16.599999999999998
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0032753",
@@ -33313,25 +34686,38 @@
     "position": "PK",
     "position_group": null,
     "espn_player_id": "3150744",
+    "weekly": {
+      "kicking": {
+        "fg_made": 1,
+        "fg_att": 1,
+        "fg_long": 53.0,
+        "fg_pct": 1.0,
+        "fg_made_50_59": 1,
+        "fg_made_list": "53",
+        "fg_made_distance": 53
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "defense": {
         "def_tackle_assists": 1
       },
       "kicking": {
-        "fg_made": 13,
-        "fg_att": 17,
+        "fg_made": 14,
+        "fg_att": 18,
         "fg_missed": 3,
         "fg_blocked": 1,
-        "fg_long": 252.0,
-        "fg_pct": 3.8333333333333335,
+        "fg_long": 305.0,
+        "fg_pct": 4.833333333333333,
         "fg_made_20_29": 1,
         "fg_made_30_39": 5,
         "fg_made_40_49": 3,
-        "fg_made_50_59": 3,
+        "fg_made_50_59": 4,
         "fg_made_60_": 1,
         "fg_missed_30_39": 1,
         "fg_missed_40_49": 2,
-        "fg_made_distance": 569,
+        "fg_made_distance": 622,
         "fg_missed_distance": 131,
         "fg_blocked_distance": 43,
         "pat_made": 14,
@@ -33343,7 +34729,7 @@
         "gwfg_distance": 75
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0037284",
@@ -33641,6 +35027,14 @@
     "position": "KR",
     "position_group": null,
     "espn_player_id": "4429835",
+    "weekly": {
+      "returns": {
+        "kickoff_returns": 3,
+        "kickoff_return_yards": 88
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "rushing": {
         "carries": 10,
@@ -33667,8 +35061,8 @@
         "def_tackle_assists": 2
       },
       "returns": {
-        "kickoff_returns": 11,
-        "kickoff_return_yards": 270,
+        "kickoff_returns": 14,
+        "kickoff_return_yards": 358,
         "special_teams_tds": 1
       },
       "fantasy": {
@@ -33676,7 +35070,7 @@
         "fantasy_points_ppr": 10.2
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0040648",
@@ -33686,32 +35080,56 @@
     "position": "PR",
     "position_group": null,
     "espn_player_id": "4597703",
+    "weekly": {
+      "receiving": {
+        "targets": 3,
+        "receiving_air_yards": 62,
+        "receiving_epa": -3.0890947374072963,
+        "target_share": 0.1034482758620689,
+        "air_yards_share": 0.2214285714285714,
+        "wopr": 0.3101724137931034
+      },
+      "returns": {
+        "punt_returns": 5,
+        "punt_return_yards": 67
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 5
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "receiving": {
         "receptions": 9,
-        "targets": 15,
+        "targets": 18,
         "receiving_yards": 113,
         "receiving_tds": 3,
-        "receiving_air_yards": 233,
+        "receiving_air_yards": 295,
         "receiving_yards_after_catch": 27,
         "receiving_first_downs": 4,
-        "receiving_epa": 6.814374854951186,
+        "receiving_epa": 3.72528011754389,
         "racr": 2.853548139624089,
-        "target_share": 0.5759803921568626,
-        "air_yards_share": 0.9267061586390081,
-        "wopr": 1.5126648992825997
+        "target_share": 0.6794286680189315,
+        "air_yards_share": 1.1481347300675795,
+        "wopr": 1.822837313075703
       },
       "returns": {
-        "punt_returns": 11,
-        "punt_return_yards": 171,
+        "punt_returns": 16,
+        "punt_return_yards": 238,
         "special_teams_tds": 1
+      },
+      "misc": {
+        "penalties": 1,
+        "penalty_yards": 5
       },
       "fantasy": {
         "fantasy_points": 35.3,
         "fantasy_points_ppr": 44.3
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0034160",
@@ -33721,8 +35139,11 @@
     "position": "H",
     "position_group": null,
     "espn_player_id": "3929851",
+    "weekly": {},
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {},
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0031492",
@@ -33732,31 +35153,59 @@
     "position": "PK",
     "position_group": null,
     "espn_player_id": "2473037",
-    "season": {
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 1
+      },
       "kicking": {
-        "fg_made": 11,
-        "fg_att": 14,
-        "fg_missed": 3,
-        "fg_long": 263.0,
-        "fg_pct": 4.25,
+        "fg_made": 2,
+        "fg_att": 3,
+        "fg_blocked": 1,
+        "fg_long": 47.0,
+        "fg_pct": 0.6666666666666666,
         "fg_made_20_29": 1,
+        "fg_made_40_49": 1,
+        "fg_made_list": "26;47",
+        "fg_blocked_list": 53.0,
+        "fg_made_distance": 73,
+        "fg_blocked_distance": 53,
+        "pat_made": 3,
+        "pat_att": 3,
+        "pat_pct": 1.0
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
+    "season": {
+      "defense": {
+        "def_tackles_solo": 1
+      },
+      "kicking": {
+        "fg_made": 13,
+        "fg_att": 17,
+        "fg_missed": 3,
+        "fg_blocked": 1,
+        "fg_long": 310.0,
+        "fg_pct": 4.916666666666667,
+        "fg_made_20_29": 2,
         "fg_made_30_39": 3,
-        "fg_made_40_49": 3,
+        "fg_made_40_49": 4,
         "fg_made_50_59": 4,
         "fg_missed_30_39": 1,
         "fg_missed_40_49": 1,
         "fg_missed_50_59": 1,
-        "fg_made_distance": 482,
+        "fg_made_distance": 555,
         "fg_missed_distance": 133,
-        "pat_made": 19,
-        "pat_att": 19,
-        "pat_pct": 6.0,
+        "fg_blocked_distance": 53,
+        "pat_made": 22,
+        "pat_att": 22,
+        "pat_pct": 7.0,
         "gwfg_made": 1,
         "gwfg_att": 1,
         "gwfg_distance": 52
       }
     },
-    "games_played": 6
+    "games_played": 7
   },
   {
     "player_id": "00-0033303",
@@ -34019,6 +35468,17 @@
     "position": "KR",
     "position_group": null,
     "espn_player_id": "4383429",
+    "weekly": {
+      "defense": {
+        "def_tackles_solo": 1
+      },
+      "returns": {
+        "kickoff_returns": 2,
+        "kickoff_return_yards": 54
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "TB",
     "season": {
       "rushing": {
         "carries": 2,
@@ -34027,19 +35487,19 @@
         "rushing_epa": -1.0589698900002986
       },
       "defense": {
-        "def_tackles_solo": 3,
+        "def_tackles_solo": 4,
         "def_tackle_assists": 1
       },
       "returns": {
-        "kickoff_returns": 12,
-        "kickoff_return_yards": 310
+        "kickoff_returns": 14,
+        "kickoff_return_yards": 364
       },
       "fantasy": {
         "fantasy_points": 1.1,
         "fantasy_points_ppr": 1.1
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0037224",
@@ -35289,6 +36749,14 @@
     "position": "KR",
     "position_group": null,
     "espn_player_id": "4401805",
+    "weekly": {
+      "returns": {
+        "kickoff_returns": 1,
+        "kickoff_return_yards": 28
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "HOU",
     "season": {
       "receiving": {
         "receptions": 2,
@@ -35307,15 +36775,15 @@
         "def_tackle_assists": 2
       },
       "returns": {
-        "kickoff_returns": 9,
-        "kickoff_return_yards": 294
+        "kickoff_returns": 10,
+        "kickoff_return_yards": 322
       },
       "fantasy": {
         "fantasy_points": 4.800000000000001,
         "fantasy_points_ppr": 6.8
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0036133",
@@ -35528,6 +36996,28 @@
     "position": "PR",
     "position_group": null,
     "espn_player_id": "4608810",
+    "weekly": {
+      "receiving": {
+        "receptions": 4,
+        "targets": 9,
+        "receiving_yards": 58,
+        "receiving_tds": 1,
+        "receiving_air_yards": 100,
+        "receiving_yards_after_catch": 32,
+        "receiving_first_downs": 3,
+        "receiving_epa": 2.2926338536601785,
+        "racr": 0.58,
+        "target_share": 0.18,
+        "air_yards_share": 0.2105263157894736,
+        "wopr": 0.4173684210526316
+      },
+      "fantasy": {
+        "fantasy_points": 11.8,
+        "fantasy_points_ppr": 15.8
+      }
+    },
+    "week": 7,
+    "weekly_opponent": "DET",
     "season": {
       "rushing": {
         "carries": 1,
@@ -35535,25 +37025,25 @@
         "rushing_epa": 0.0385623122565448
       },
       "receiving": {
-        "receptions": 6,
-        "targets": 10,
-        "receiving_yards": 112,
-        "receiving_tds": 1,
-        "receiving_air_yards": 161,
-        "receiving_yards_after_catch": 39,
-        "receiving_first_downs": 3,
-        "receiving_epa": 7.629522991774138,
-        "racr": 2.624384236453202,
-        "target_share": 0.34889190020374405,
-        "air_yards_share": 0.6646603505553599,
-        "wopr": 0.9886000956943684
+        "receptions": 10,
+        "targets": 19,
+        "receiving_yards": 170,
+        "receiving_tds": 2,
+        "receiving_air_yards": 261,
+        "receiving_yards_after_catch": 71,
+        "receiving_first_downs": 6,
+        "receiving_epa": 9.922156845434316,
+        "racr": 3.204384236453202,
+        "target_share": 0.5288919002037441,
+        "air_yards_share": 0.8751866663448334,
+        "wopr": 1.405968516747
       },
       "fantasy": {
-        "fantasy_points": 17.7,
-        "fantasy_points_ppr": 23.700000000000003
+        "fantasy_points": 29.5,
+        "fantasy_points_ppr": 39.5
       }
     },
-    "games_played": 5
+    "games_played": 6
   },
   {
     "player_id": "00-0040220",

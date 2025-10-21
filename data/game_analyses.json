@@ -7954,17 +7954,17 @@
     }
   },
   "401772826": {
-    "timestamp": "2025-10-18 00:40:33",
+    "timestamp": "2025-10-21 00:17:08",
     "game_date": "2025-10-20",
     "home_team": "SEA",
     "away_team": "HOU",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 27,
+    "away_score": 19,
     "stadium": "Lumen Field",
     "home_coach": "Mike Macdonald",
     "away_coach": "DeMeco Ryans",
-    "analysis_type": "preview",
-    "analysis": "**Monday Night Showdown: Seahawks Seek Home Redemption Against Surging Texans**\n\nThe **Seattle Seahawks** aim to reclaim their home-field advantage when they host the **Houston Texans** in a pivotal Monday night matchup that promises fireworks. Seattle's home struggles have become a glaring narrative this season, with the team sporting a disappointing 1-2 record at Lumen Field despite being a stellar 3-0 on the road. Head coach **Mike Macdonald** has made no secret of his desire to transform the once-intimidating home environment back into a fortress.\n\nThe **Texans**, riding momentum from a dominant 44-10 road victory over Baltimore, bring a rejuvenated **C.J. Stroud**-led offense that has found its rhythm after a slow start. Stroud, coming off an AFC Offensive Player of the Week performance, will test a **Seahawks** defense that has been opportunistic, generating 20 sacks and 7 interceptions this season. **Seattle's** defensive coordinator **Aden Durde** will likely deploy an aggressive game plan targeting the young quarterback, while keeping an eye on explosive receivers like **Nico Collins**. The Seahawks' defensive line, led by **Byron Murphy II** with 4.5 sacks, could be the key to disrupting Houston's offensive flow.\n\nInjury concerns could play a significant role in this contest. **Seahawks** cornerback **Riq Woolen** is questionable with a concussion, which could create vulnerabilities in pass coverage. For Houston, **Christian Kirk** is also listed as questionable, potentially impacting their receiving corps. **Sam Darnold** and the Seahawks' offense have been impressively efficient, with **Jaxon Smith-Njigba** emerging as a dynamic playmaker averaging over 16 yards per reception. Expect a closely contested battle where home-field advantage and defensive adaptability could tip the scales. While the Seahawks are slight favorites, the Texans have shown they can punch above their weight class, making this a must-watch Monday night thriller.",
+    "analysis_type": "post_game",
+    "analysis": "# Seahawks Survive Turnover-Fest to Defeat Texans 27-19\n\nThe Seattle Seahawks emerged victorious in a chaotic Monday Night Football matchup, defeating the Houston Texans 27-19 in a game that was far closer than the final score suggests. **Jaxon Smith-Njigba** led the way for Seattle, recording his NFL-leading fifth 100-yard receiving game of the season with 8 catches for 123 yards and a touchdown.\n\nThe game was a turnover extravaganza, with the Seahawks committing four turnovers but somehow managing to hold onto the win. **Sam Darnold** struggled, throwing an interception and losing a fumble, but **Zach Charbonnet** picked up the slack with two crucial rushing touchdowns. The Seahawks' defense made just enough plays to keep Houston at bay, including a pivotal fumble recovery in the end zone that gave Seattle some breathing room.\n\n## Key Statistics\n\n- **Turnovers**: Seahawks 4, Texans 1\n- **Rushing Yards**: Seahawks 118, Texans 56\n- **Third Down Efficiency**: Seahawks 2-14, Texans 2-15\n- **Jaxon Smith-Njigba**: 8 receptions, 123 yards, 1 TD\n- **C.J. Stroud**: 23/49, 229 yards, 1 TD, 1 INT\n\nThe win moves the Seahawks to 5-2 and into a tie for the top of the NFC West, while the Texans drop to 2-4. Despite the sloppy performance, Seattle showed remarkable resilience, turning potential disaster into a solid home victory. **Zach Charbonnet's** two short touchdown runs and the defense's ability to prevent Houston from fully capitalizing on Seattle's mistakes proved to be the difference-maker in this wild Monday night contest.",
     "ai_provider": "claude",
     "ai_model": "claude-3-7-sonnet-latest",
     "betting": {
@@ -7973,15 +7973,71 @@
       "provider": "ESPN BET",
       "favorite": "SEA",
       "underdog": "HOU",
-      "moneyline_favorite": -185,
-      "moneyline_underdog": 155
+      "moneyline_favorite": -155,
+      "moneyline_underdog": 135
     },
     "weather": {
       "is_indoor": false
+    },
+    "leaders": {
+      "passingLeader": [
+        {
+          "player": "Sam Darnold",
+          "team": "SEA",
+          "position": "QB",
+          "jersey": "14",
+          "display_value": "17/31, 213 YDS, 1 TD, 1 INT",
+          "summary": "17/31, 1 TD, 1 INT"
+        },
+        {
+          "player": "C.J. Stroud",
+          "team": "HOU",
+          "position": "QB",
+          "jersey": "7",
+          "display_value": "23/49, 229 YDS, 1 TD, 1 INT",
+          "summary": "23/49, 1 TD, 1 INT"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "player": "Kenneth Walker III",
+          "team": "SEA",
+          "position": "RB",
+          "jersey": "9",
+          "display_value": "17 CAR, 66 YDS",
+          "summary": "17 CAR"
+        },
+        {
+          "player": "C.J. Stroud",
+          "team": "HOU",
+          "position": "QB",
+          "jersey": "7",
+          "display_value": "2 CAR, 25 YDS",
+          "summary": "2 CAR"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "player": "Jaxon Smith-Njigba",
+          "team": "SEA",
+          "position": "WR",
+          "jersey": "11",
+          "display_value": "8 REC, 123 YDS, 1 TD",
+          "summary": "8 REC, 1 TD"
+        },
+        {
+          "player": "Dalton Schultz",
+          "team": "HOU",
+          "position": "TE",
+          "jersey": "86",
+          "display_value": "9 REC, 98 YDS",
+          "summary": "9 REC"
+        }
+      ]
     }
   },
   "401772816": {
-    "timestamp": "2025-10-20 20:25:25",
+    "timestamp": "2025-10-21 00:17:06",
     "game_date": "2025-10-20",
     "home_team": "DET",
     "away_team": "TB",
@@ -7991,7 +8047,7 @@
     "home_coach": "Dan Campbell",
     "away_coach": "Todd Bowles",
     "analysis_type": "post_game",
-    "analysis": "# Lions Dominate Buccaneers in Monday Night Football Showdown\n\nThe **Detroit Lions** crushed the **Tampa Bay Buccaneers** 24-9 in a decisive Monday night performance at Ford Field, thoroughly outplaying their opponents in every phase of the game. **Jahmyr Gibbs** was the standout star, delivering a spectacular performance that will be remembered as a breakout moment in his young career.\n\nThe Lions' offensive explosion was led by Gibbs, who torched the Buccaneers' defense with two electrifying touchdowns - including a jaw-dropping 78-yard sprint that completely changed the game's momentum. **Jared Goff** managed the offense with precision, throwing for 241 yards and a touchdown while avoiding critical mistakes. The Lions' ground game was dominant, rushing for 164 yards and consistently moving the chains when it mattered most.\n\n## Key Statistics\n\n- **Jahmyr Gibbs**: 17 carries, **136 yards**, 2 touchdowns (including a 78-yard run)\n- **Amon-Ra St. Brown**: 6 receptions, 86 yards, 1 touchdown\n- **Baker Mayfield**: 28/50, 228 yards, 1 touchdown, 1 interception\n- **Total Lions Rushing**: 32 attempts, 164 yards (5.1 yards per carry)\n\nThe victory solidifies the Lions' status as a legitimate NFC contender, while raising questions about the Buccaneers' offensive consistency and defensive resilience. **Dan Campbell's** aggressive coaching style continues to pay dividends, transforming the Lions into a team that no opponent can take lightly.",
+    "analysis": "# Lions Dominate Buccaneers in Monday Night Football Showcase\n\nThe **Detroit Lions** thoroughly dismantled the **Tampa Bay Buccaneers** 24-9 in a primetime performance that was equal parts spectacular and methodical. **Jahmyr Gibbs** was the undisputed star of the evening, turning in a career-defining performance that will be remembered as one of the most electrifying individual displays of the 2025 NFL season.\n\nGibbs was simply otherworldly, racking up a career-high 218 yards from scrimmage and two touchdowns. His 78-yard touchdown run in the second quarter was a jaw-dropping display of speed and vision that effectively broke the Buccaneers' spirit. **Jared Goff** complemented Gibbs' ground assault with an efficient passing performance, connecting on 20 of 29 attempts for 241 yards and a touchdown. The Lions' victory continues their remarkable streak of never losing two consecutive regular-season games, a testament to their resilience and Coach **Dan Campbell's** leadership.\n\n## Key Statistics\n- **Jahmyr Gibbs**: 136 rushing yards, 82 receiving yards, 2 touchdowns\n- **Amon-Ra St. Brown**: 6 receptions, 86 yards, 1 touchdown\n- **Baker Mayfield**: 28/50, 228 yards, 1 touchdown, 1 interception\n\nThe betting line had Detroit favored by 6.5 points, and they not only covered but dominated. This win solidifies the Lions' status as a legitimate contender in the NFC and sends a powerful message to the rest of the league about their offensive firepower and competitive spirit.",
     "ai_provider": "claude",
     "ai_model": "claude-3-7-sonnet-latest",
     "betting": {
