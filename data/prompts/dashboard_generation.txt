@@ -1,19 +1,21 @@
 You are generating creative text for an NFL dashboard. Generate ONLY the requested text fields in JSON format.
 
-Current Week: 7
-Week Status: Mid-week update — 1 game(s) still remain this week.
+Current Week: 8
+Week Status: Early-week update — all 13 game(s) are still upcoming.
 
 === GENERAL LEAGUE CONTEXT ===
 This data is available for reference throughout all your responses.
 
 FULL LEAGUE STANDINGS (all 32 teams with records):
-[{"team":"PIT","conference":"AFC","division":"AFC North","record":"4-2","division_rank":1,"conference_rank":4,"playoff_seed":4},{"team":"CIN","conference":"AFC","division":"AFC North","record":"3-4","division_rank":2,"conference_rank":9,"playoff_seed":9},{"team":"CLE","conference":"AFC","division":"AFC North","record":"2-5","division_rank":3,"conference_rank":12,"playoff_seed":12},{"team":"BAL","conference":"AFC","division":"AFC North","record":"1-5","division_rank":4,"conference_rank":13,"playoff_seed":13},{"team":"IND","conference":"AFC","division":"AFC South","record":"6-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"JAX","conference":"AFC","division":"AFC South","record":"4-3","division_rank":2,"conference_rank":7,"playoff_seed":7},{"team":"HOU","conference":"AFC","division":"AFC South","record":"2-3","division_rank":3,"conference_rank":10,"playoff_seed":10},{"team":"TEN","conference":"AFC","division":"AFC South","record":"1-6","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"NE","conference":"AFC","division":"AFC East","record":"5-2","division_rank":1,"conference_rank":2,"playoff_seed":2},{"team":"BUF","conference":"AFC","division":"AFC East","record":"4-2","division_rank":2,"conference_rank":5,"playoff_seed":5},{"team":"MIA","conference":"AFC","division":"AFC East","record":"1-6","division_rank":3,"conference_rank":14,"playoff_seed":14},{"team":"NYJ","conference":"AFC","division":"AFC East","record":"0-7","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"DEN","conference":"AFC","division":"AFC West","record":"5-2","division_rank":1,"conference_rank":3,"playoff_seed":3},{"team":"LAC","conference":"AFC","division":"AFC West","record":"4-3","division_rank":2,"conference_rank":6,"playoff_seed":6},{"team":"KC","conference":"AFC","division":"AFC West","record":"4-3","division_rank":3,"conference_rank":8,"playoff_seed":8},{"team":"LV","conference":"AFC","division":"AFC West","record":"2-5","division_rank":4,"conference_rank":11,"playoff_seed":11},{"team":"GB","conference":"NFC","division":"NFC North","record":"4-1-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"DET","conference":"NFC","division":"NFC North","record":"5-2","division_rank":2,"conference_rank":4,"playoff_seed":5},{"team":"CHI","conference":"NFC","division":"NFC North","record":"4-2","division_rank":3,"conference_rank":7,"playoff_seed":7},{"team":"MIN","conference":"NFC","division":"NFC North","record":"3-3","division_rank":4,"conference_rank":12,"playoff_seed":12},{"team":"TB","conference":"NFC","division":"NFC South","record":"5-2","division_rank":1,"conference_rank":5,"playoff_seed":4},{"team":"CAR","conference":"NFC","division":"NFC South","record":"4-3","division_rank":2,"conference_rank":9,"playoff_seed":9},{"team":"ATL","conference":"NFC","division":"NFC South","record":"3-3","division_rank":3,"conference_rank":11,"playoff_seed":11},{"team":"NO","conference":"NFC","division":"NFC South","record":"1-6","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"PHI","conference":"NFC","division":"NFC East","record":"5-2","division_rank":1,"conference_rank":3,"playoff_seed":3},{"team":"DAL","conference":"NFC","division":"NFC East","record":"3-3-1","division_rank":2,"conference_rank":10,"playoff_seed":10},{"team":"WAS","conference":"NFC","division":"NFC East","record":"3-4","division_rank":3,"conference_rank":13,"playoff_seed":13},{"team":"NYG","conference":"NFC","division":"NFC East","record":"2-5","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"SF","conference":"NFC","division":"NFC West","record":"5-2","division_rank":1,"conference_rank":2,"playoff_seed":2},{"team":"LAR","conference":"NFC","division":"NFC West","record":"5-2","division_rank":2,"conference_rank":6,"playoff_seed":6},{"team":"SEA","conference":"NFC","division":"NFC West","record":"4-2","division_rank":3,"conference_rank":8,"playoff_seed":8},{"team":"ARI","conference":"NFC","division":"NFC West","record":"2-5","division_rank":4,"conference_rank":14,"playoff_seed":14}]
+[{"team":"PIT","conference":"AFC","division":"AFC North","record":"4-2","division_rank":1,"conference_rank":4,"playoff_seed":4},{"team":"CIN","conference":"AFC","division":"AFC North","record":"3-4","division_rank":2,"conference_rank":9,"playoff_seed":9},{"team":"CLE","conference":"AFC","division":"AFC North","record":"2-5","division_rank":3,"conference_rank":12,"playoff_seed":12},{"team":"BAL","conference":"AFC","division":"AFC North","record":"1-5","division_rank":4,"conference_rank":13,"playoff_seed":13},{"team":"IND","conference":"AFC","division":"AFC South","record":"6-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"JAX","conference":"AFC","division":"AFC South","record":"4-3","division_rank":2,"conference_rank":7,"playoff_seed":7},{"team":"HOU","conference":"AFC","division":"AFC South","record":"2-4","division_rank":3,"conference_rank":10,"playoff_seed":10},{"team":"TEN","conference":"AFC","division":"AFC South","record":"1-6","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"NE","conference":"AFC","division":"AFC East","record":"5-2","division_rank":1,"conference_rank":2,"playoff_seed":2},{"team":"BUF","conference":"AFC","division":"AFC East","record":"4-2","division_rank":2,"conference_rank":5,"playoff_seed":5},{"team":"MIA","conference":"AFC","division":"AFC East","record":"1-6","division_rank":3,"conference_rank":14,"playoff_seed":14},{"team":"NYJ","conference":"AFC","division":"AFC East","record":"0-7","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"DEN","conference":"AFC","division":"AFC West","record":"5-2","division_rank":1,"conference_rank":3,"playoff_seed":3},{"team":"LAC","conference":"AFC","division":"AFC West","record":"4-3","division_rank":2,"conference_rank":6,"playoff_seed":6},{"team":"KC","conference":"AFC","division":"AFC West","record":"4-3","division_rank":3,"conference_rank":8,"playoff_seed":8},{"team":"LV","conference":"AFC","division":"AFC West","record":"2-5","division_rank":4,"conference_rank":11,"playoff_seed":11},{"team":"GB","conference":"NFC","division":"NFC North","record":"4-1-1","division_rank":1,"conference_rank":1,"playoff_seed":1},{"team":"DET","conference":"NFC","division":"NFC North","record":"5-2","division_rank":2,"conference_rank":4,"playoff_seed":5},{"team":"CHI","conference":"NFC","division":"NFC North","record":"4-2","division_rank":3,"conference_rank":8,"playoff_seed":8},{"team":"MIN","conference":"NFC","division":"NFC North","record":"3-3","division_rank":4,"conference_rank":12,"playoff_seed":12},{"team":"TB","conference":"NFC","division":"NFC South","record":"5-2","division_rank":1,"conference_rank":5,"playoff_seed":4},{"team":"CAR","conference":"NFC","division":"NFC South","record":"4-3","division_rank":2,"conference_rank":9,"playoff_seed":9},{"team":"ATL","conference":"NFC","division":"NFC South","record":"3-3","division_rank":3,"conference_rank":11,"playoff_seed":11},{"team":"NO","conference":"NFC","division":"NFC South","record":"1-6","division_rank":4,"conference_rank":16,"playoff_seed":16},{"team":"PHI","conference":"NFC","division":"NFC East","record":"5-2","division_rank":1,"conference_rank":3,"playoff_seed":3},{"team":"DAL","conference":"NFC","division":"NFC East","record":"3-3-1","division_rank":2,"conference_rank":10,"playoff_seed":10},{"team":"WAS","conference":"NFC","division":"NFC East","record":"3-4","division_rank":3,"conference_rank":13,"playoff_seed":13},{"team":"NYG","conference":"NFC","division":"NFC East","record":"2-5","division_rank":4,"conference_rank":15,"playoff_seed":15},{"team":"SF","conference":"NFC","division":"NFC West","record":"5-2","division_rank":1,"conference_rank":2,"playoff_seed":2},{"team":"SEA","conference":"NFC","division":"NFC West","record":"5-2","division_rank":2,"conference_rank":6,"playoff_seed":6},{"team":"LAR","conference":"NFC","division":"NFC West","record":"5-2","division_rank":3,"conference_rank":7,"playoff_seed":7},{"team":"ARI","conference":"NFC","division":"NFC West","record":"2-5","division_rank":4,"conference_rank":14,"playoff_seed":14}]
 
-COMPLETED GAMES THIS WEEK:
-[{"away":"PIT","away_score":31,"home":"CIN","home_score":33},{"away":"LAR","away_score":35,"home":"JAX","home_score":7},{"away":"CAR","away_score":13,"home":"NYJ","home_score":6},{"away":"LV","away_score":0,"home":"KC","home_score":31},{"away":"MIA","away_score":6,"home":"CLE","home_score":31},{"away":"NE","away_score":31,"home":"TEN","home_score":13},{"away":"NO","away_score":14,"home":"CHI","home_score":26},{"away":"PHI","away_score":28,"home":"MIN","home_score":22},{"away":"IND","away_score":38,"home":"LAC","home_score":24},{"away":"NYG","away_score":32,"home":"DEN","home_score":33},{"away":"GB","away_score":27,"home":"ARI","home_score":23},{"away":"WAS","away_score":22,"home":"DAL","home_score":44},{"away":"ATL","away_score":10,"home":"SF","home_score":20},{"away":"TB","away_score":9,"home":"DET","home_score":24}]
+NOTE: No games have been completed this week yet.
 
 UPCOMING GAMES THIS WEEK:
-[{"away":"HOU","home":"SEA","day":"Monday","gametime":"22:00","spread":"HOU +3.5","over_under":"41.5","stadium":"Lumen Field"}]
+[{"away":"MIN","home":"LAC","day":"Thursday","gametime":"20:15","spread":"MIN N/A","over_under":"N/A","stadium":"SoFi Stadium"},{"away":"BUF","home":"CAR","day":"Sunday","gametime":"13:00","spread":"BUF N/A","over_under":"N/A","stadium":"Bank of America Stadium"},{"away":"CHI","home":"BAL","day":"Sunday","gametime":"13:00","spread":"CHI N/A","over_under":"N/A","stadium":"M&T Bank Stadium"},{"away":"CLE","home":"NE","day":"Sunday","gametime":"13:00","spread":"CLE N/A","over_under":"N/A","stadium":"Gillette Stadium"},{"away":"MIA","home":"ATL","day":"Sunday","gametime":"13:00","spread":"MIA N/A","over_under":"N/A","stadium":"Mercedes-Benz Stadium"},{"away":"NYG","home":"PHI","day":"Sunday","gametime":"13:00","spread":"NYG N/A","over_under":"N/A","stadium":"Lincoln Financial Field"},{"away":"NYJ","home":"CIN","day":"Sunday","gametime":"13:00","spread":"NYJ N/A","over_under":"N/A","stadium":"Paycor Stadium"},{"away":"SF","home":"HOU","day":"Sunday","gametime":"13:00","spread":"SF N/A","over_under":"N/A","stadium":"NRG Stadium"},{"away":"TB","home":"NO","day":"Sunday","gametime":"16:05","spread":"TB N/A","over_under":"N/A","stadium":"Mercedes-Benz Superdome"},{"away":"DAL","home":"DEN","day":"Sunday","gametime":"16:25","spread":"DAL N/A","over_under":"N/A","stadium":"Empower Field at Mile High"},{"away":"TEN","home":"IND","day":"Sunday","gametime":"16:25","spread":"TEN N/A","over_under":"N/A","stadium":"Lucas Oil Stadium"},{"away":"GB","home":"PIT","day":"Sunday","gametime":"20:20","spread":"GB N/A","over_under":"N/A","stadium":"Acrisure Stadium"},{"away":"WAS","home":"KC","day":"Monday","gametime":"20:15","spread":"WAS N/A","over_under":"N/A","stadium":"GEHA Field at Arrowhead Stadium"}]
+
+ALL 32 TEAMS (Power Rankings):
+[{"team":"IND","rank":1,"rating":83.38,"record":"6-1","playoff_prob":90.8,"playoff_seed":1,"head_coach":"Shane Steichen","offensive_coordinator":"Jim Bob Cooter","defensive_coordinator":"Lou Anarumo","stadium":"Lucas Oil Stadium"},{"team":"GB","rank":2,"rating":77.37,"record":"4-1-1","playoff_prob":76.9,"playoff_seed":1,"head_coach":"Matt LaFleur","offensive_coordinator":"Adam Stenavich","defensive_coordinator":"Jeff Hafley","stadium":"Lambeau Field"},{"team":"PHI","rank":3,"rating":77.05,"record":"5-2","playoff_prob":90.2,"playoff_seed":3,"head_coach":"Nick Sirianni","offensive_coordinator":"Kevin Patullo","defensive_coordinator":"Vic Fangio","stadium":"Lincoln Financial Field"},{"team":"DET","rank":4,"rating":75.62,"record":"5-2","playoff_prob":85.8,"playoff_seed":5,"head_coach":"Dan Campbell","offensive_coordinator":"John Morton","defensive_coordinator":"Kelvin Sheppard","stadium":"Ford Field"},{"team":"SF","rank":5,"rating":73.16,"record":"5-2","playoff_prob":79.8,"playoff_seed":2,"head_coach":"Kyle Shanahan","offensive_coordinator":"Klay Kubiak","defensive_coordinator":"Robert Saleh","stadium":"Levi's Stadium"},{"team":"TB","rank":6,"rating":72.87,"record":"5-2","playoff_prob":89.7,"playoff_seed":4,"head_coach":"Todd Bowles","offensive_coordinator":"Josh Grizzard","defensive_coordinator":"Todd Bowles[a]","stadium":"Raymond James Stadium"},{"team":"NE","rank":7,"rating":72.39,"record":"5-2","playoff_prob":82.8,"playoff_seed":2,"head_coach":"Mike Vrabel","offensive_coordinator":"Josh McDaniels","defensive_coordinator":"Terrell Williams","stadium":"Gillette Stadium"},{"team":"LAR","rank":8,"rating":71.51,"record":"5-2","playoff_prob":68.8,"playoff_seed":7,"head_coach":"Sean McVay","offensive_coordinator":"Mike LaFleur","defensive_coordinator":"Chris Shula","stadium":"SoFi Stadium"},{"team":"DEN","rank":9,"rating":70.93,"record":"5-2","playoff_prob":80.5,"playoff_seed":3,"head_coach":"Sean Payton","offensive_coordinator":"Joe Lombardi","defensive_coordinator":"Vance Joseph","stadium":"Empower Field at Mile High"},{"team":"SEA","rank":10,"rating":68.91,"record":"5-2","playoff_prob":58.1,"playoff_seed":6,"head_coach":"Mike Macdonald","offensive_coordinator":"Klint Kubiak","defensive_coordinator":"Aden Durde","stadium":"Lumen Field"},{"team":"PIT","rank":11,"rating":66.13,"record":"4-2","playoff_prob":67.0,"playoff_seed":4,"head_coach":"Mike Tomlin","offensive_coordinator":"Arthur Smith","defensive_coordinator":"Teryl Austin","stadium":"Acrisure Stadium"},{"team":"BUF","rank":12,"rating":63.42,"record":"4-2","playoff_prob":85.2,"playoff_seed":5,"head_coach":"Sean McDermott","offensive_coordinator":"Joe Brady","defensive_coordinator":"Bobby Babich","stadium":"New Era Field"},{"team":"KC","rank":13,"rating":60.87,"record":"4-3","playoff_prob":76.3,"playoff_seed":8,"head_coach":"Andy Reid","offensive_coordinator":"Matt Nagy","defensive_coordinator":"Steve Spagnuolo","stadium":"GEHA Field at Arrowhead Stadium"},{"team":"JAX","rank":14,"rating":60.7,"record":"4-3","playoff_prob":50.9,"playoff_seed":7,"head_coach":"Liam Coen","offensive_coordinator":"Grant Udinski","defensive_coordinator":"Anthony Campanile","stadium":"EverBank Stadium"},{"team":"LAC","rank":15,"rating":58.48,"record":"4-3","playoff_prob":59.1,"playoff_seed":6,"head_coach":"Jim Harbaugh","offensive_coordinator":"Greg Roman","defensive_coordinator":"Jesse Minter","stadium":"SoFi Stadium"},{"team":"CHI","rank":16,"rating":58.41,"record":"4-2","playoff_prob":34.4,"playoff_seed":8,"head_coach":"Ben Johnson","offensive_coordinator":"Declan Doyle","defensive_coordinator":"Dennis Allen","stadium":"Soldier Field"},{"team":"ATL","rank":17,"rating":50.62,"record":"3-3","playoff_prob":37.0,"playoff_seed":11,"head_coach":"Raheem Morris","offensive_coordinator":"Zac Robinson","defensive_coordinator":"Jeff Ulbrich","stadium":"Mercedes-Benz Stadium"},{"team":"CAR","rank":18,"rating":48.8,"record":"4-3","playoff_prob":21.2,"playoff_seed":9,"head_coach":"Dave Canales","offensive_coordinator":"Brad Idzik","defensive_coordinator":"Ejiro Evero","stadium":"Bank of America Stadium"},{"team":"CIN","rank":19,"rating":48.52,"record":"3-4","playoff_prob":41.9,"playoff_seed":9,"head_coach":"Zac Taylor","offensive_coordinator":"Dan Pitcher","defensive_coordinator":"Al Golden","stadium":"Paycor Stadium"},{"team":"MIN","rank":20,"rating":47.76,"record":"3-3","playoff_prob":20.1,"playoff_seed":12,"head_coach":"Kevin O'Connell","offensive_coordinator":"Wes Phillips","defensive_coordinator":"Brian Flores","stadium":"U.S. Bank Stadium"},{"team":"WAS","rank":21,"rating":41.07,"record":"3-4","playoff_prob":29.8,"playoff_seed":13,"head_coach":"Dan Quinn","offensive_coordinator":"Kliff Kingsbury","defensive_coordinator":"Joe Whitt Jr.","stadium":"FedExField"},{"team":"DAL","rank":22,"rating":39.56,"record":"3-3-1","playoff_prob":4.5,"playoff_seed":10,"head_coach":"Brian Schottenheimer","offensive_coordinator":"Klayton Adams","defensive_coordinator":"Matt Eberflus","stadium":"AT&T Stadium"},{"team":"HOU","rank":23,"rating":33.09,"record":"2-4","playoff_prob":36.5,"playoff_seed":10,"head_coach":"DeMeco Ryans","offensive_coordinator":"Nick Caley","defensive_coordinator":"Matt Burke","stadium":"NRG Stadium"},{"team":"NYG","rank":24,"rating":32.94,"record":"2-5","playoff_prob":0.9,"playoff_seed":15,"head_coach":"Brian Daboll","offensive_coordinator":"Mike Kafka","defensive_coordinator":"Shane Bowen","stadium":"MetLife Stadium"},{"team":"CLE","rank":25,"rating":31.21,"record":"2-5","playoff_prob":2.1,"playoff_seed":12,"head_coach":"Kevin Stefanski","offensive_coordinator":"Tommy Rees","defensive_coordinator":"Jim Schwartz","stadium":"FirstEnergy Stadium"},{"team":"LV","rank":26,"rating":30.41,"record":"2-5","playoff_prob":4.0,"playoff_seed":11,"head_coach":"Pete Carroll","offensive_coordinator":"Chip Kelly","defensive_coordinator":"Patrick Graham","stadium":"Allegiant Stadium"},{"team":"ARI","rank":27,"rating":27.21,"record":"2-5","playoff_prob":2.7,"playoff_seed":14,"head_coach":"Jonathan Gannon","offensive_coordinator":"Drew Petzing","defensive_coordinator":"Nick Rallis","stadium":"State Farm Stadium"},{"team":"BAL","rank":28,"rating":22.01,"record":"1-5","playoff_prob":22.3,"playoff_seed":13,"head_coach":"John Harbaugh","offensive_coordinator":"Todd Monken","defensive_coordinator":"Zach Orr","stadium":"M&T Bank Stadium"},{"team":"TEN","rank":29,"rating":15.96,"record":"1-6","playoff_prob":0.4,"playoff_seed":15,"head_coach":"Brian Callahan","offensive_coordinator":"Nick Holz","defensive_coordinator":"Dennard Wilson","stadium":"Nissan Stadium"},{"team":"NO","rank":30,"rating":15.25,"record":"1-6","playoff_prob":0.1,"playoff_seed":16,"head_coach":"Kellen Moore","offensive_coordinator":"Doug Nussmeier","defensive_coordinator":"Brandon Staley","stadium":"Caesars Superdome"},{"team":"NYJ","rank":31,"rating":11.68,"record":"0-7","playoff_prob":0.1,"playoff_seed":16,"head_coach":"Aaron Glenn","offensive_coordinator":"Tanner Engstrand","defensive_coordinator":"Steve Wilks","stadium":"MetLife Stadium"},{"team":"MIA","rank":32,"rating":9.95,"record":"1-6","playoff_prob":0.3,"playoff_seed":14,"head_coach":"Mike McDaniel","offensive_coordinator":"Frank Smith","defensive_coordinator":"Anthony Weaver","stadium":"Hard Rock Stadium"}]
 
 
 === END GENERAL CONTEXT ===
@@ -41,14 +43,14 @@ Generate two fields summarizing the current league landscape:
 
 SECTION 2: GAME OF THE WEEK
 
-Game: TB @ DET
-Status: completed
-FINAL SCORE: TB 9 - DET 24
-TB Record: 5-2, Playoff Prob: 90%
-DET Record: 5-2, Playoff Prob: 86.3%
-Head Coaches: TB - Todd Bowles, DET - Dan Campbell
-Coordinators (OC/DC): TB - Josh Grizzard/Todd Bowles[a]; DET - John Morton/Kelvin Sheppard
-Venue: Ford Field
+Game: GB @ PIT
+Status: upcoming
+Spread: GB N/A, Over/Under: N/A
+GB Record: 4-1-1, Playoff Prob: 76.9%
+PIT Record: 4-2, Playoff Prob: 67%
+Head Coaches: GB - Matt LaFleur, PIT - Mike Tomlin
+Coordinators (OC/DC): GB - Adam Stenavich/Jeff Hafley; PIT - Arthur Smith/Teryl Austin
+Venue: Acrisure Stadium
 
 2. game_of_week_tagline (1-2 sentences)
    - If completed: Brief recap highlighting what made it the best game or why it did not live up to expectations
@@ -59,14 +61,14 @@ Venue: Ford Field
 
 SECTION 3: GAME OF THE MEEK
 
-Game: MIA @ CLE
-Status: completed
-FINAL SCORE: MIA 6 - CLE 31
+Game: MIA @ ATL
+Status: upcoming
+Spread: MIA N/A, Over/Under: N/A
 MIA Record: 1-6
-CLE Record: 2-5
-Head Coaches: MIA - Mike McDaniel, CLE - Kevin Stefanski
-Coordinators (OC/DC): MIA - Frank Smith/Anthony Weaver; CLE - Tommy Rees/Jim Schwartz
-Venue: Huntington Bank Field
+ATL Record: 3-3
+Head Coaches: MIA - Mike McDaniel, ATL - Raheem Morris
+Coordinators (OC/DC): MIA - Frank Smith/Anthony Weaver; ATL - Zac Robinson/Jeff Ulbrich
+Venue: Mercedes-Benz Stadium
 
 3. game_of_meek_tagline (1-2 sentences)
    - If completed: Humorous recap of why it was forgettable or why it was better than expected
@@ -121,7 +123,7 @@ Generate brief context phrases (2-6 words each) for the following stat leaders:
   {
     "team": "HOU",
     "stat": "Points Allowed Per Game",
-    "value": 12.2,
+    "value": 14.7,
     "unit": "",
     "rank": 1
   },
@@ -266,7 +268,7 @@ Generate 1-sentence reasons for biggest movers:
    Moved from #11 to #5 (Record: 5-2)
 
 6b. Biggest Faller: PIT
-   Moved from #3 to #10 (Record: 4-2)
+   Moved from #3 to #11 (Record: 4-2)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -274,20 +276,20 @@ SECTION 7: PLAYOFF PICTURE
 Generate brief context (PLAIN STRING) for these specific 12 teams in playoff race:
 
 7a. TOP 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. PHI - Record: 5-2, Playoff Prob: 90.5%, Current Seed: 3
-   2. IND - Record: 6-1, Playoff Prob: 90.3%, Current Seed: 1
-   3. TB - Record: 5-2, Playoff Prob: 90.0%, Current Seed: 4
-   4. DET - Record: 5-2, Playoff Prob: 86.3%, Current Seed: 5
+   1. IND - Record: 6-1, Playoff Prob: 90.8%, Current Seed: 1
+   2. PHI - Record: 5-2, Playoff Prob: 90.2%, Current Seed: 3
+   3. TB - Record: 5-2, Playoff Prob: 89.7%, Current Seed: 4
+   4. DET - Record: 5-2, Playoff Prob: 85.8%, Current Seed: 5
 
 7b. MIDDLE 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. BUF - Record: 4-2, Playoff Prob: 84.9%, Current Seed: 5
-   2. NE - Record: 5-2, Playoff Prob: 82.2%, Current Seed: 2
-   3. SF - Record: 5-2, Playoff Prob: 80.7%, Current Seed: 2
-   4. DEN - Record: 5-2, Playoff Prob: 80.1%, Current Seed: 3
+   1. BUF - Record: 4-2, Playoff Prob: 85.2%, Current Seed: 5
+   2. NE - Record: 5-2, Playoff Prob: 82.8%, Current Seed: 2
+   3. DEN - Record: 5-2, Playoff Prob: 80.5%, Current Seed: 3
+   4. SF - Record: 5-2, Playoff Prob: 79.8%, Current Seed: 2
 
 7c. BOTTOM 4 PLAYOFF TEAMS (provide contexts in this exact order):
-   1. TEN - Record: 1-6, Playoff Prob: 0.3%, Current Seed: 15
-   2. MIA - Record: 1-6, Playoff Prob: 0.2%, Current Seed: 14
+   1. TEN - Record: 1-6, Playoff Prob: 0.4%, Current Seed: 15
+   2. MIA - Record: 1-6, Playoff Prob: 0.3%, Current Seed: 14
    3. NO - Record: 1-6, Playoff Prob: 0.1%, Current Seed: 16
    4. NYJ - Record: 0-7, Playoff Prob: 0.1%, Current Seed: 16
 
@@ -299,24 +301,68 @@ SECTION 8: WEEK PREVIEW
 Generate brief taglines (5-8 words) for the following games:
 
 8a. Thursday Night Game:
-None
+{
+  "espn_id": "401772942",
+  "away_team": "MIN",
+  "away_record": "3-3",
+  "home_team": "LAC",
+  "home_record": "4-3",
+  "away_head_coach": "Kevin O'Connell",
+  "home_head_coach": "Jim Harbaugh",
+  "away_offensive_coordinator": "Wes Phillips",
+  "home_offensive_coordinator": "Greg Roman",
+  "away_defensive_coordinator": "Brian Flores",
+  "home_defensive_coordinator": "Jesse Minter",
+  "stadium": "SoFi Stadium",
+  "gametime": "20:15"
+}
 
-8b. Sunday Spotlight Games (provide 1 taglines):
+8b. Sunday Spotlight Games (provide 3 taglines):
 [
   {
-    "espn_id": "401772826",
-    "away_team": "HOU",
-    "away_record": "2-3",
-    "home_team": "SEA",
-    "home_record": "4-2",
-    "away_head_coach": "DeMeco Ryans",
-    "home_head_coach": "Mike Macdonald",
-    "away_offensive_coordinator": "Nick Caley",
-    "home_offensive_coordinator": "Klint Kubiak",
-    "away_defensive_coordinator": "Matt Burke",
-    "home_defensive_coordinator": "Aden Durde",
-    "stadium": "Lumen Field",
-    "gametime": "22:00"
+    "espn_id": "401772866",
+    "away_team": "SF",
+    "away_record": "5-2",
+    "home_team": "HOU",
+    "home_record": "2-4",
+    "away_head_coach": "Kyle Shanahan",
+    "home_head_coach": "DeMeco Ryans",
+    "away_offensive_coordinator": "Klay Kubiak",
+    "home_offensive_coordinator": "Nick Caley",
+    "away_defensive_coordinator": "Robert Saleh",
+    "home_defensive_coordinator": "Matt Burke",
+    "stadium": "NRG Stadium",
+    "gametime": "13:00"
+  },
+  {
+    "espn_id": "401772865",
+    "away_team": "BUF",
+    "away_record": "4-2",
+    "home_team": "CAR",
+    "home_record": "4-3",
+    "away_head_coach": "Sean McDermott",
+    "home_head_coach": "Dave Canales",
+    "away_offensive_coordinator": "Joe Brady",
+    "home_offensive_coordinator": "Brad Idzik",
+    "away_defensive_coordinator": "Bobby Babich",
+    "home_defensive_coordinator": "Ejiro Evero",
+    "stadium": "Bank of America Stadium",
+    "gametime": "13:00"
+  },
+  {
+    "espn_id": "401772817",
+    "away_team": "WAS",
+    "away_record": "3-4",
+    "home_team": "KC",
+    "home_record": "4-3",
+    "away_head_coach": "Dan Quinn",
+    "home_head_coach": "Andy Reid",
+    "away_offensive_coordinator": "Kliff Kingsbury",
+    "home_offensive_coordinator": "Matt Nagy",
+    "away_defensive_coordinator": "Joe Whitt Jr.",
+    "home_defensive_coordinator": "Steve Spagnuolo",
+    "stadium": "GEHA Field at Arrowhead Stadium",
+    "gametime": "20:15"
   }
 ]
 
