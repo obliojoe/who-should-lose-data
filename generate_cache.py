@@ -1994,12 +1994,12 @@ def generate_team_analysis_prompt(team_abbr, team_info, team_record, teams, cach
         team_data = None
         exit()
 
-    # get current week from last played game in the schedule data
-    current_week = 0
-    for game in schedule:
-        if game['home_score'] == '' and game['away_score'] == '':
-            current_week = int(game['week_num'])
-            break
+    # determine the current NFL week and whether this team has a bye coming up
+    current_week = get_current_week_from_schedule(schedule) or 0
+    next_game_week = int(next_game.get('week_num')) if next_game and next_game.get('week_num') else None
+    upcoming_bye_week = None
+    if current_week and next_game_week and next_game_week > current_week:
+        upcoming_bye_week = current_week
 
     playoff_chance = format_percentage(team_data['playoff_chance'])
     division_chance = format_percentage(team_data['division_chance'])
@@ -2169,7 +2169,8 @@ If {home} wins:
         team_depth_alerts=team_depth_alerts,
         opponent_depth_alerts=opponent_depth_alerts,
         team_recent_form=team_recent_form,
-        opponent_recent_form=opponent_recent_form
+        opponent_recent_form=opponent_recent_form,
+        upcoming_bye_week=upcoming_bye_week
     )
 
         

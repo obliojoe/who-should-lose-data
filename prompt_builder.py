@@ -518,7 +518,8 @@ def build_team_analysis_prompt(
     team_depth_alerts=None,
     opponent_depth_alerts=None,
     team_recent_form=None,
-    opponent_recent_form=None
+    opponent_recent_form=None,
+    upcoming_bye_week=None
 ):
     """
     Build AI analysis prompt using 5-section structure.
@@ -595,6 +596,17 @@ COACHING STAFF
 """
 
     opponent_name = opponent_stats_json.get('team', {}).get('name', 'NO OPPONENT') if opponent_abbr != "NONE" else "NO OPPONENT"
+    bye_note_section = ""
+    if upcoming_bye_week is not None:
+        if opponent_abbr != "NONE":
+            next_game_desc = opponent_name
+        else:
+            next_game_desc = "no remaining opponents on the schedule"
+        bye_note_section = (
+            "IMPORTANT BYE WEEK NOTE:\n"
+            f"- The {team_info['city']} {team_info['mascot']} are idle in Week {upcoming_bye_week}.\n"
+            f"- Their next opponent after the bye: {next_game_desc}.\n\n"
+        )
 
     prompt = f"""{'=' * 70}
 {team_info['city'].upper()} {team_info['mascot'].upper()} ANALYSIS - V2.0
@@ -602,6 +614,7 @@ COACHING STAFF
 Current Date: {datetime.now().strftime('%B %d, %Y')}
 Current Season: 2025/26 NFL Season
 Week: {current_week}
+{bye_note_section}
 
 {'=' * 70}
 YOUR ROLE & VOICE
