@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-20T16:49:28.323353",
+  "generated_at": "2025-10-20T20:23:42.482696",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -9,7 +9,7 @@
       "team_name": "Arizona Cardinals",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-20T22:25Z",
+      "last_updated": "2025-10-20T23:28Z",
       "injuries": [
         {
           "athlete_id": "4362478",
@@ -86,9 +86,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Davis-Gaither (foot) was a full participant in practice Thursday.",
-          "long_comment": "The linebacker was limited during Wednesday's session. Davis-Gaither played in Week 6 against the Colts, recording six tackles (three solo), so his return to full participation should indicate that his injury is not serious. The linebacker has 44 tackles (21 solo) and two pass breakups this season.",
-          "last_updated": "2025-10-17T00:05Z",
+          "short_comment": "Davis-Gaither compiled eight total tackles (four solo), a pass defensed and a forced fumble in Sunday's 27-23 loss to the Packers.",
+          "long_comment": "Davis-Gaither finished tied for the team lead in takedowns with safety Budda Baker, securing at least eight stops for the fourth time in the last five games. The linebacker was also able to strip quarterback Jordan Love in the third quarter, but Arizona's recovery was nullified by a penalty in the secondary. Davis-Gaither has now produced 52 total tackles (25 solo), three passes defensed and a forced fumble over seven games this season.",
+          "last_updated": "2025-10-20T23:23Z",
           "source": "basic/manual"
         },
         {
@@ -124,6 +124,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "3127287",
+          "name": "Budda Baker",
+          "position": "S",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Baker recorded eight total tackles (four solo) in Sunday's 27-23 loss to the Packers.",
+          "long_comment": "Baker remained productive in Week 7, finishing tied for the team lead in stops with linebacker Akeem Davis-Gaither. The safety is as steady as it gets, registering at least five tackles in all seven games this season. Baker has now compiled 49 total tackles (23 solo) and two passes defensed this year.",
+          "last_updated": "2025-10-20T23:28Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4363538",
           "name": "Chad Ryland",
           "position": "PK",
@@ -137,22 +153,6 @@
           "short_comment": "Ryland made all three of his field-goal attempts and both of his extra-point tries during the Cardinals' 27-23 loss to the Packers.",
           "long_comment": "Ryland opened Sunday's scoring with a 32-yard chip shot midway through the first quarter, and the third-year kicker connected on two more field goals from 40 and 39 yards in the second and fourth quarters, respectively. It was the first time this season that Ryland connected on three field goals in a game, and he has not missed a kick in each of his last four outings. The 2023 fourth-rounder is 13-for-15 on field-goal tries and 16-for-16 on extra-point attempts through the first seven games of the regular season.",
           "last_updated": "2025-10-20T00:48Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3139602",
-          "name": "D'Ernest Johnson",
-          "position": "RB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "The Cardinals elevated  Johnson from the practice squad to the active roster Saturday.",
-          "long_comment": "Emari Demercado (ankle) will be sidelined for Sunday's game, so the Cardinals are in need of depth at running back. Johnson has a chance to be active for the first time this season for Sunday's game against the Packers, though he'd likely work behind Michael Carter and Bam Knight.",
-          "last_updated": "2025-10-19T01:03Z",
           "source": "basic/manual"
         },
         {
@@ -419,7 +419,7 @@
       "team_name": "Atlanta Falcons",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-20T22:18Z",
+      "last_updated": "2025-10-21T02:03Z",
       "injuries": [
         {
           "athlete_id": "4431194",
@@ -614,6 +614,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "3919512",
+          "name": "Jessie Bates III",
+          "position": "S",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Bates registered 10 tackles (four solo) during the Falcons' 20-10 loss to the 49ers on Sunday.",
+          "long_comment": "Bates played every single defensive snap for a third consecutive game, and his 10 tackles were tied for most in the game with JD Bertrand and Malik Mustapha. Bates has recorded at least seven tackles in four of the first six games of the regular season, and he leads the Falcons with 39 tackles on the year.",
+          "last_updated": "2025-10-21T00:09Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4360248",
           "name": "Kyle Pitts Sr.",
           "position": "TE",
@@ -659,22 +675,6 @@
           "short_comment": "",
           "long_comment": "",
           "last_updated": "2025-10-16T23:06Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4689989",
-          "name": "Natrone Brooks",
-          "position": "CB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Brooks (concussion) is active for Monday night's game against the Bills.",
-          "long_comment": "Brooks was placed in the concussion protocol after being injured in Week 4, but the Week 5 bye came at the right time for the cornerback. He's logged 26 special-teams snaps this season.",
-          "last_updated": "2025-10-13T22:01Z",
           "source": "basic/manual"
         },
         {
@@ -818,7 +818,7 @@
           },
           "short_comment": "ir",
           "long_comment": "ir",
-          "last_updated": "2025-10-20T22:18Z",
+          "last_updated": "2025-10-21T02:03Z",
           "source": "basic/manual"
         }
       ]
@@ -2059,7 +2059,7 @@
       "team_name": "Chicago Bears",
       "conference": "NFC",
       "division": "NFC North",
-      "last_updated": "2025-10-20T15:10Z",
+      "last_updated": "2025-10-21T01:03Z",
       "injuries": [
         {
           "athlete_id": "17427",
@@ -2248,9 +2248,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Moody made all four of his field-goal attempts and both of his extra-point tries during the Bears' 26-14 win over the Saints on Sunday.",
-          "long_comment": "Moody was elevated from the practice squad to the Bears' active roster for a second consecutive week in place of Cairo Santos (thigh). Moody was responsible for the Bears' first six points of the game with field goals from 27 and 39 yards in the first half, and he helped expand Chicago's lead in the second half after connecting on two more field goals. Moody is now 8-for-9 on field-goal attempts and 3-for-3 on extra-point tries across two games with the Bears. He is eligible to be elevated from the practice squad by Chicago one more time this season, which could happen as soon as Week 8 against the Ravens on Sunday, Oct. 26.",
-          "last_updated": "2025-10-19T22:41Z",
+          "short_comment": "Moody reverted to the Bears' practice squad Monday, per the NFL's official transaction log.",
+          "long_comment": "Moody filled in for Cairos Santos (thigh) for the second straight week, going 4-for-4 on field-goal tries while making both of his PATs in Sunday's 26-14 win over New Orleans. The kicker can be elevated from the practice squad one more time before he'd have to be officially signed to the active roster.",
+          "last_updated": "2025-10-21T01:03Z",
           "source": "basic/manual"
         },
         {
@@ -2879,7 +2879,7 @@
       "team_name": "Cleveland Browns",
       "conference": "AFC",
       "division": "AFC North",
-      "last_updated": "2025-10-20T21:09Z",
+      "last_updated": "2025-10-21T00:04Z",
       "injuries": [
         {
           "athlete_id": "3123076",
@@ -2975,6 +2975,22 @@
           "short_comment": "Whiteheart caught his lone target for four yards in Sunday's 31-6 win over the Dolphins in Week 7.",
           "long_comment": "The tight end got a bump in playing time, playing a season-high 35 snaps (61 percent), due to David Njoku (knee) being inactive. Whiteheart is a blocker first at the position and a receiver second, however. He has two catches on three targets for four yards in 2025.",
           "last_updated": "2025-10-20T11:44Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4876017",
+          "name": "Carson Schwesinger",
+          "position": "LB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Schwesinger registered seven tackles (three solo) during the Browns' 31-6 win over the Browns on Sunday.",
+          "long_comment": "Schwesinger's seven tackles were his lowest since Week 2 against the Ravens (five), but he still led the Browns in that category while playing every single snap for a third straight game. The rookie second-rounder leads the Browns with 59 total tackles through seven regular-season games, which is tied with Alex Singleton and Quay Walker for 10th most in the NFL.",
+          "last_updated": "2025-10-21T00:04Z",
           "source": "basic/manual"
         },
         {
@@ -3151,22 +3167,6 @@
           "short_comment": "Jeudy secured two of four targets for 17 yards in the Browns' 31-6 win over the Dolphins on Sunday.",
           "long_comment": "Jeudy tied with multiple teammates for second in receptions and was also the runner-up for the Browns in targets. However, with Dillon Gabriel barely clearing the 100-yard mark through the air, those numbers were exceedingly modest. Jeudy's five-catch, 66-yard tally back in Week 1 against the Bengals remains his best performance of the season, and he'll head into a Week 8 road matchup against the Patriots having fallen short of 20 receiving yards in two of the last three games.",
           "last_updated": "2025-10-20T02:31Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4243333",
-          "name": "Joe Tryon-Shoyinka",
-          "position": "DE",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Tryon-Shoyinka (hip) is active for Sunday's game against the Dolphins.",
-          "long_comment": "Tryon-Shoyinka sustained a hip injury during last week's loss to the Browns. He logged consecutive limited practice sessions to start Week 7 prep, finished as a full participant Friday and has received the green light to suit up Sunday. Tryon-Shoyinka has appeared in all six of Cleveland's games this season, recording eight total tackles while primarily contributing on special teams.",
-          "last_updated": "2025-10-19T15:37Z",
           "source": "basic/manual"
         },
         {
@@ -3699,7 +3699,7 @@
       "team_name": "Denver Broncos",
       "conference": "AFC",
       "division": "AFC West",
-      "last_updated": "2025-10-20T22:17Z",
+      "last_updated": "2025-10-21T00:14Z",
       "injuries": [
         {
           "athlete_id": "4687592",
@@ -3744,9 +3744,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Singleton registered seven tackles (five solo) during the Broncos' 13-11 win over the Jets on Sunday.",
-          "long_comment": "Singleton co-led the Broncos in tackles with Brandon Jones during Sunday's win. Singleton has recorded at least six stops in each of the first six games of the regular season and is up to 51 tackles (25 solo), including 1.0 sacks, and one pass defense on the year.",
-          "last_updated": "2025-10-12T17:30Z",
+          "short_comment": "Singleton recorded eight total tackles (three solo) in Sunday's 33-32 win over the Giants.",
+          "long_comment": "Singleton led the team in takedowns in the contest, securing at least eight stops for the fourth time this season. The linebacker has now compiled 59 total tackles (28 solo), including 1.0 sacks, while also adding a pass defensed over seven games this year.",
+          "last_updated": "2025-10-21T00:05Z",
           "source": "basic/manual"
         },
         {
@@ -3936,9 +3936,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Strnad recorded six tackles (two solo), including 1.5 sacks, during the Broncos' 13-11 win over the Jets on Sunday.",
-          "long_comment": "Strnad combined with Jonathon Cooper for an eight-yard sack on Justin Fields on the last play in the third quarter, and Strnad tacked on another by himself late in the fourth frame. Strnad is now up to 3.5 sacks through six regular-season games, which has already surpassed his total from 2024 (3.0 sacks through 17 regular-season games).",
-          "last_updated": "2025-10-14T23:49Z",
+          "short_comment": "Strnad recorded five total tackles (two solo) and an interception in Sunday's 33-32 win over the Giants.",
+          "long_comment": "Strnad played a season-low 54 percent of the team's defensive snaps, but he had a major impact on the game, picking off Jaxson Dart late in the fourth quarter. The linebacker has now compiled 30 total tackles (10 solo), including 3.5 sacks, while also adding two passes defensed, one of which was an interception, over seven games this season.",
+          "last_updated": "2025-10-20T23:57Z",
           "source": "basic/manual"
         },
         {
@@ -4006,9 +4006,9 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4431280",
-          "name": "Troy Franklin",
-          "position": "WR",
+          "athlete_id": "4360853",
+          "name": "Talanoa Hufanga",
+          "position": "S",
           "status": "Active",
           "status_code": {
             "id": "0",
@@ -4016,9 +4016,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Franklin brought in three of four targets for 19 yards and a lost fumble while taking one carry for two yards in Sunday's 13-11 win over the Jets.",
-          "long_comment": "Franklin's day in London got off to a rubbish start when he coughed up the first fumble of his career on his first reception of the contest. The silver lining for fantasy managers was that the wideout remained involved offensively following the turnover, receiving three more touches in the narrow win. Franklin has shown flashes of upside early in his sophomore campaign, but Sunday's dud is an example of the inconsistency he can exhibit. The 22-year-old's value is likely limited to deeper formats in next Sunday's tilt against the Giants.",
-          "last_updated": "2025-10-12T18:05Z",
+          "short_comment": "Hufanga recorded five total tackles (four solo) and two passes defensed in Sunday's 33-32 victory over the Giants.",
+          "long_comment": "Hufanga was on the field for all 69 of the team's defensive snaps, securing at least five takedowns for the sixth time this year. The safety has now compiled 45 total tackles (29 solo), including 1.0 sacks, while also adding six passes defensed and a forced fumble over seven contests this season.",
+          "last_updated": "2025-10-21T00:14Z",
           "source": "basic/manual"
         },
         {
@@ -4064,9 +4064,9 @@
             "description": "Suspension",
             "name": "INJURY_STATUS_SUSPENSION"
           },
-          "short_comment": "reserve-sus",
-          "long_comment": "reserve-sus",
-          "last_updated": "2025-10-20T22:17Z",
+          "short_comment": "The NFL suspended Greenlaw for one game for unsportsmanlike conduct following the Broncos' 33-32 win over the Giants on Sunday, Ian Rapoport of NFL Network reports.",
+          "long_comment": "Greenlaw was served the suspension due to his actions following Sunday's win, when he chased and verbally threatened a game official while leaving the field. The veteran linebacker was cleared to make his 2025 regular-season debut in Week 7 after starting the season on IR due to a quadriceps injury, but his suspension means he will be sidelined for the Broncos' Week 8 clash against the Cowboys. Greenlaw finished Sunday's game with six tackles (one solo) while playing 21 snaps on defense.",
+          "last_updated": "2025-10-20T22:36Z",
           "source": "basic/manual"
         },
         {
@@ -4109,7 +4109,7 @@
       "team_name": "Detroit Lions",
       "conference": "NFC",
       "division": "NFC North",
-      "last_updated": "2025-10-20T21:46Z",
+      "last_updated": "2025-10-21T01:41Z",
       "injuries": [
         {
           "athlete_id": "3123938",
@@ -4272,6 +4272,54 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "4421446",
+          "name": "Craig Reynolds",
+          "position": "RB",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "Reynolds (hamstring) is questionable to return to Monday night's contest against the Buccaneers.",
+          "long_comment": "Reynolds suffered an apparent hamstring injury in the first half, and his status for the rest of the game is now up in the air. The running back operates almost exclusively as a special-teams option, so his absence doesn't carry much of an impact on offense.",
+          "last_updated": "2025-10-21T00:33Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3910229",
+          "name": "Rock Ya-Sin",
+          "position": "CB",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "Ya-Sin is questionable to return to Monday's game against Tampa Bay due to cramps, Justin Rogers of DetroitFootball.net reports.",
+          "long_comment": "Ya-Sin has come in and out of the game for much of the second half. He's made several postiive plays in coverage filling in for a beat-up Detroit secondary, but his night may be done early.",
+          "last_updated": "2025-10-21T01:41Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3051750",
+          "name": "Zach Cunningham",
+          "position": "LB",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "Cunningham is questionable to return to Monday's game against the Buccaneers due to a hamstring injury, Justin Rogers of DetroitFootball.net reports.",
+          "long_comment": "Cunningham returned from a three-game absence caused by a hamstring injury for Monday's game but has seemingly aggravated the issue. That would suggest he's unlikely to return, though he hasn't officially been ruled out.",
+          "last_updated": "2025-10-21T01:39Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "3043107",
           "name": "Alex Anzalone",
           "position": "LB",
@@ -4400,38 +4448,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4917439",
-          "name": "Loren Strickland",
-          "position": "S",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "",
-          "long_comment": "",
-          "last_updated": "2025-10-13T15:16Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4430027",
-          "name": "Sam LaPorta",
-          "position": "TE",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "LaPorta recorded five receptions on six targets for 55 yards and a touchdown in Sunday's 30-17 loss to the Chiefs.",
-          "long_comment": "LaPorta was one of the more effective pass catchers in the Detroit offense, delivering two key receptions. The first was a 26-yard catch and run to end the first quarter, which ultimately helped set up a touchdown. LaPorta caught a touchdown of his own early in the fourth quarter on an impressive one-handed, toe-tapping grab in the back of the end zone from four yards away. LaPorta has put together consecutive strong showings, combining to record 10 receptions for 147 yards and two touchdowns in his last two contests.",
-          "last_updated": "2025-10-13T04:23Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "2976292",
           "name": "Taylor Decker",
           "position": "OT",
@@ -4445,22 +4461,6 @@
           "short_comment": "Decker (shoulder) is active for Sunday's game against the Buccaneers.",
           "long_comment": "Decker missed the Lions' last two games while tending to a shoulder injury, but he has progressed enough in his recovery to make his return Monday. Decker will slide back into his starting spot at left tackle, which means Dan Skipper will operate in a reserve role.",
           "last_updated": "2025-10-20T21:46Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3051750",
-          "name": "Zach Cunningham",
-          "position": "LB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Cunningham (hamstring) was a full participant in Thursday's practice.",
-          "long_comment": "Cunningham missed the Lions' last three games due to a hamstring injury. His ability to practice in full Thursday indicates that he is past the issue and on track to play against the Buccaneers on Monday. The veteran linebacker mostly served on special teams prior to his injury and has six tackles (four solo) through three regular-season games.",
-          "last_updated": "2025-10-16T21:21Z",
           "source": "basic/manual"
         },
         {
@@ -4535,6 +4535,22 @@
           "short_comment": "Belton (ankle) is inactive for Sunday's game against the Cardinals, Mike Spofford of the Packers' official site reports.",
           "long_comment": "Belton logged three limited practices ahead of Sunday's game after missing both Week 5 and Week 6 with an ankle injury, but ultimately will not be active against the Cardinals.",
           "last_updated": "2025-10-19T19:42Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "16339",
+          "name": "Brandon McManus",
+          "position": "PK",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "McManus (right quadriceps) is inactive for Sunday's game in Arizona, Mike Spofford of the Packers' official site reports.",
+          "long_comment": "McManus thus will miss his second contest in a row due to the right quadriceps that he tweaked at the beginning of Week 6 prep. In McManus' stead, Lucas Havrisik will fill again after striking true on both field-goal attempts and all three point-after tries during last Sunday's win against the Bengals. McManus' next opportunity for game action is next Sunday's road matchup with the Steelers.",
+          "last_updated": "2025-10-19T19:09Z",
           "source": "basic/manual"
         },
         {
@@ -4826,22 +4842,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4249836",
-          "name": "Pierre Strong Jr.",
-          "position": "RB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Strong (coach's decision) is inactive for Sunday's game against the Cardinals, Mike Spofford of the Packers' official site reports.",
-          "long_comment": "With Josh Jacbos (calf/illness) officially cleared to play, Strong will observe Sunday's game in street clothes while Emanuel Wilson and Chris Brooks provide depth out of the backfield. The Packers elevated Strong from the practice squad Saturday, and he can be brought up twice more by Green Bay this season.",
-          "last_updated": "2025-10-19T19:20Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4379416",
           "name": "Quay Walker",
           "position": "LB",
@@ -4929,7 +4929,7 @@
       "team_name": "Houston Texans",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-20T18:37Z",
+      "last_updated": "2025-10-21T00:44Z",
       "injuries": [
         {
           "athlete_id": "4577494",
@@ -4958,9 +4958,73 @@
             "description": "out",
             "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "Kirk (hamstring) has been ruled out for Monday's game against the Seahawks, Adam Schefter of ESPN reports.",
-          "long_comment": "Kirk appeared to tweak his hamstring during Friday's practice, and the injury was severe enough to keep the veteran wide receiver off the field for Saturday's session and rule him out for Monday night's game. Kirk's absence opens the door for Xavier Hutchinson, Jayden Higgins and Jaylin Noel to see more offensive snaps and looks in the passing game from quarterback C.J. Stroud, especially if the Seahawks' defense hones in on top wideout Nico Collins. Kirk will look to progress enough in his recovery to play in the Texans' Week 8 home clash against the 49ers on Sunday, Oct. 26.",
-          "last_updated": "2025-10-18T21:01Z",
+          "short_comment": "inactive",
+          "long_comment": "inactive",
+          "last_updated": "2025-10-21T00:35Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4360238",
+          "name": "Dameon Pierce",
+          "position": "RB",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "Pierce (coach's decision) is inactive for Monday night's contest against the Seahawks.",
+          "long_comment": "Pierce will be a healthy scratch for the fourth time this season, taking a seat after having appeared in the team's Week 5 win over the Ravens. Woody Marks and Nick Chubb will handle the backfield touches versus Seattle on Monday Night Football.",
+          "last_updated": "2025-10-21T00:38Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3915396",
+          "name": "Darrell Taylor",
+          "position": "DE",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "inactive",
+          "long_comment": "inactive",
+          "last_updated": "2025-10-21T00:36Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4426335",
+          "name": "Graham Mertz",
+          "position": "QB",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "inactive",
+          "long_comment": "inactive",
+          "last_updated": "2025-10-21T00:35Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4373474",
+          "name": "Jarrett Kingston",
+          "position": "G",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "inactive",
+          "long_comment": "inactive",
+          "last_updated": "2025-10-21T00:35Z",
           "source": "basic/manual"
         },
         {
@@ -4980,35 +5044,19 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "17447",
-          "name": "Denico Autry",
-          "position": "DE",
-          "status": "Questionable",
+          "athlete_id": "3043109",
+          "name": "Trent Brown",
+          "position": "OT",
+          "status": "Out",
           "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "Autry (knee) was activated to the Texans' active roster Monday.",
-          "long_comment": "The 35-year-old began Houston's 2025 campaign on the reserve/PUP list due to a knee injury. However, he's since been activated to the Texans' active roster and has a chance to make his season debut in Monday night's matchup against the Seahawks. Autry recorded 13 total tackles, including 3.0 sacks, and three passes defended over 10 regular-season games in 2024. If active in Week 7, he's expected to play a reserve role on Houston's defensive line.",
-          "last_updated": "2025-10-20T18:32Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4432758",
-          "name": "Jaylen Reed",
-          "position": "S",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Reed (knee) was activated to the Texans' active roster Monday.",
-          "long_comment": "The rookie safety from Penn State was activated to Houston's active roster Monday after missing the team's first five games due to a knee injury. He's still listed as questionable for Monday night's matchup against the Seahawks, but it appears he's trending toward making his NFL debut in Week 7. If active, Reed is expected to play a depth role in the Texans' secondary, serving as the team's No. 2 strong safety.",
-          "last_updated": "2025-10-20T18:37Z",
+          "short_comment": "inactive",
+          "long_comment": "inactive",
+          "last_updated": "2025-10-21T00:35Z",
           "source": "basic/manual"
         },
         {
@@ -5028,38 +5076,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "3123075",
-          "name": "Braxton Berrios",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "",
-          "long_comment": "",
-          "last_updated": "2025-10-06T15:16Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4362603",
-          "name": "Brenden Bates",
-          "position": "TE",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Bates caught both of his targets for 23 yards in Sunday's 44-10 win over Baltimore in Week 5.",
-          "long_comment": "Bates served as the third tight end for the second consecutive week, playing 13 snaps behind Dalton Schultz and Harrison Bryant. Bates' two catches came on the final drive of the game.",
-          "last_updated": "2025-10-06T12:16Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "2976560",
           "name": "Danielle Hunter",
           "position": "DE",
@@ -5076,9 +5092,9 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4426335",
-          "name": "Graham Mertz",
-          "position": "QB",
+          "athlete_id": "17447",
+          "name": "Denico Autry",
+          "position": "DE",
           "status": "Active",
           "status_code": {
             "id": "0",
@@ -5086,9 +5102,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "",
-          "long_comment": "",
-          "last_updated": "2025-10-06T15:16Z",
+          "short_comment": "Autry (knee) is active for Monday night's contest in Seattle.",
+          "long_comment": "Autry will make his regular-season debut after missing the team's first five games of the year while on the reserve/PUP list with a knee injury. The 35-year-old will operate in a depth role on the defensive line behind Will Anderson and Danielle Hunter against the Seahawks in Week 7.",
+          "last_updated": "2025-10-21T00:41Z",
           "source": "basic/manual"
         },
         {
@@ -5124,22 +5140,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4373474",
-          "name": "Jarrett Kingston",
-          "position": "G",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "",
-          "long_comment": "",
-          "last_updated": "2025-10-06T15:16Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4877706",
           "name": "Jayden Higgins",
           "position": "WR",
@@ -5153,6 +5153,22 @@
           "short_comment": "The Texans have ruled Christian Kirk (hamstring) out for Week 7, per Sam Warren of the Houston Chronicle, which may lead to more playing time for Higgins and the rest of the receivers in Monday's game at Seattle.",
           "long_comment": "Higgins' playing time was already on the rise, including a season-high 39 snaps (56 percent) in the Week 5 win over Baltimore, and could reach new heights in Week 7. The activity against the Ravens didn't lead to a touchdown, but Higgins had  season highs in targets (four), catches (four) and tied his season high in yards (32). With Kirk unavailable, Higgins, Xavier Hutchinson and Jaylin Noel should all see increased playing time.",
           "last_updated": "2025-10-19T13:18Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4432758",
+          "name": "Jaylen Reed",
+          "position": "S",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Reed (knee) is active for Monday Night Football versus Seattle.",
+          "long_comment": "Reed is all geared up to make his NFL debut after missing the team's first five games of the year while on injured reserve with a knee injury. The 2025 sixth-round pick will operate as a top reserve option behind M.J. Stewart and Calen Bullock at safety against the Seahawks.",
+          "last_updated": "2025-10-21T00:44Z",
           "source": "basic/manual"
         },
         {
@@ -5217,22 +5233,6 @@
           "short_comment": "Smith (personal) does not have an injury designation ahead of Monday's game against the Seahawks, per the NFL's transaction log.",
           "long_comment": "Smith did not practice Friday but returned to action one day later. He should work primarily on special teams.",
           "last_updated": "2025-10-19T03:01Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3043109",
-          "name": "Trent Brown",
-          "position": "OT",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "",
-          "long_comment": "",
-          "last_updated": "2025-10-06T15:16Z",
           "source": "basic/manual"
         },
         {
@@ -5339,7 +5339,7 @@
       "team_name": "Indianapolis Colts",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-20T21:16Z",
+      "last_updated": "2025-10-20T23:24Z",
       "injuries": [
         {
           "athlete_id": "4061956",
@@ -5518,6 +5518,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "4046536",
+          "name": "David Long Jr.",
+          "position": "CB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "",
+          "long_comment": "",
+          "last_updated": "2025-10-20T22:45Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "2971282",
           "name": "DeForest Buckner",
           "position": "DT",
@@ -5528,8 +5544,8 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Buckner had two sacks, five total tackles and four QB hits in Sunday's win over the Chargers.",
-          "long_comment": "After failing to register a sack in his first four games, Buckner has three sacks over his last three games.",
+          "short_comment": "Buckner registered five tackles (four solo), including 2.0 sacks, and four quarterback hits during the Colts' 38-24 win over the Chargers on Sunday.",
+          "long_comment": "After failing to register a sack in his first four games, Buckner has three sacks over his last three games. The veteran defensive tackle is up to 36 total tackles through seven regular-season games, and he is well on pace to surpass his mark from the 2024 campaign (61 tackles over 12 regular-season games).",
           "last_updated": "2025-10-20T21:16Z",
           "source": "basic/manual"
         },
@@ -5598,22 +5614,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "3051889",
-          "name": "Laquon Treadwell",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "The Colts elevated Treadwell to the active roster from the practice squad Saturday.",
-          "long_comment": "Josh Downs (concussion) and Ashton Dulin (chest) have been ruled out for Sunday's matchup against the Chargers, leaving the Colts shorthanded at wide receiver. Treadwell has spent the entire season on the team's practice squad, with this elevation marking his first of the year.",
-          "last_updated": "2025-10-19T00:16Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4361979",
           "name": "Luke Tenuta",
           "position": "OT",
@@ -5662,6 +5662,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "4426403",
+          "name": "Nick Cross",
+          "position": "S",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Cross logged six solo tackles and an interception during the Colts' 38-24 win over the Chargers on Sunday.",
+          "long_comment": "Cross stopped the Chargers' red zone possession in its tracks late in the second quarter after picking off a Justin Herbert pass intended for Quinten Johnston, and Daniel Jones capitalized on the turnover by leading the Colts' offense on a nine-play drive that resulted in a 36-yard field goal from Michael Badgley. It was Cross's first interception of the 2025 regular season and the fifth of his four-year NFL career. The 2022 third-rounder is up to 53 tackles (33 solo), including 1.5 sacks, and three pass defenses through the first seven games of the regular season.",
+          "last_updated": "2025-10-20T23:18Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4692970",
           "name": "Reuben Lowery III",
           "position": "S",
@@ -5675,22 +5691,6 @@
           "short_comment": "",
           "long_comment": "",
           "last_updated": "2025-10-20T15:12Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4683423",
-          "name": "Riley Leonard",
-          "position": "QB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Leonard appears in line to serve as the top backup to starting quarterback Daniel Jones for a second straight game Sunday against the Chargers after the Colts placed Anthony Richardson (orbital) on injured reserve Monday, Stephen Holder of ESPN.com reports.",
-          "long_comment": "After being inactive for the first five games of the season, Leonard suited up as the Colts' No. 2 quarterback during this past Sunday's 31-27 win over the Cardinals due to Richardson sustaining an orbital fracture in a freak pregame accident. With Richardson's injury now set to keep him out for at least four more games, Leonard is the lone healthy option at quarterback on the 53-man roster beyond Jones, though Indianapolis signed veteran Brett Rypien to its practice squad Wednesday. Rypien brings more experience to the table and could eventually make a push for the No. 2 role if he's able to quickly familiarize himself with head coach Shane Steichen's playbook, but Leonard, a rookie sixth-round pick out of Notre Dame, would offer far more fantasy upside if he's forced into action in the event of an injury to Jones. Leonard put his dual-threat abilities on full display during the preseason, carrying seven times for 58 yards while completing 34 of 56 pass attempts (60.7 percent) for 345 yards, one touchdown and one interception over three games.",
-          "last_updated": "2025-10-15T15:02Z",
           "source": "basic/manual"
         },
         {
@@ -5726,19 +5726,19 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4037361",
-          "name": "Charvarius Ward",
-          "position": "CB",
-          "status": "Injured Reserve",
+          "athlete_id": "3124005",
+          "name": "Zaire Franklin",
+          "position": "LB",
+          "status": "Active",
           "status_code": {
-            "id": "5",
-            "abbreviation": "IR",
-            "description": "Injured Reserve",
-            "name": "INJURY_STATUS_IR"
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Ward (concussion) was placed  on injured reserve Saturday.",
-          "long_comment": "Ward suffered a concussion during warmups for Week 6 and had already been ruled out for Sunday's matchup against the Chargers. He'll now be sidelined for the next four games, ruling him out until at least a Week 12 matchup against the Chiefs. Ward's absence is a significant blow for the Colts' secondary, as he had played at least 80 percent of defensive snaps in all four of his healthy contests this season.",
-          "last_updated": "2025-10-19T00:03Z",
+          "short_comment": "Franklin finished Sunday's 38-24 win over the Chargers with five tackles (two solo) and one pass defense.",
+          "long_comment": "Franklin played every single defensive snap for a second consecutive game, and the veteran linebacker has tallied at least five tackles in six consecutive contests. He is up to 42 total tackles through seven regular-season games, which puts him on pace to reach 100-plus tackles for a fourth consecutive season, though he is unlikely to match his total from the 2024 season (173 tackles across 17 regular-season games).",
+          "last_updated": "2025-10-20T23:24Z",
           "source": "basic/manual"
         }
       ]
@@ -5749,7 +5749,7 @@
       "team_name": "Jacksonville Jaguars",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-20T16:26Z",
+      "last_updated": "2025-10-20T23:04Z",
       "injuries": [
         {
           "athlete_id": "4243256",
@@ -5954,9 +5954,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Oluokun recorded nine total tackles (six solo) and one pass defended in Sunday's 20-12 loss to the Seahawks.",
-          "long_comment": "The veteran inside linebacker from Yale played 100 percent of the Jaguars' defensive snaps and led his team in total tackles for the second consecutive week. Oluokun has now tallied 53 total tackles, including 1.0 sacks, three passes defended and two forced fumbles through Jacksonville's first six games this season. He's expected to remain one of the league's top defensive playmakers in the Week 7 matchup against the Rams.",
-          "last_updated": "2025-10-13T17:10Z",
+          "short_comment": "Oluokun logged two tackles (one solo) and one pass defense during the Jaguars' 35-7 loss to the Rams on Sunday.",
+          "long_comment": "Oluokun played every single defensive snap for a third consecutive game, but his two stops were his lowest in a regular-season game since Week 8 of the 2019 season. The veteran linebacker is up to 55 tackles (29 solo), including 1.0 sacks, four pass defenses (one interception), two forced fumbles and one fumble recovery through the first seven games of the regular season.",
+          "last_updated": "2025-10-20T23:04Z",
           "source": "basic/manual"
         },
         {
@@ -6159,7 +6159,7 @@
       "team_name": "Kansas City Chiefs",
       "conference": "AFC",
       "division": "AFC West",
-      "last_updated": "2025-10-20T18:20Z",
+      "last_updated": "2025-10-20T23:21Z",
       "injuries": [
         {
           "athlete_id": "4569659",
@@ -6460,9 +6460,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Bolton recorded seven tackles (three solo) in Sunday night's win over the Lions.",
-          "long_comment": "Bolton played all 54 defensive snaps against Detroit and also recorded one QB hit on Jared Goff. The veteran linebacker has piled up 53 tackles (28 solo), including four TFLs, two pass breakups and two QB hits on 99 percent of the Chiefs' defensive snaps through six starts this season.",
-          "last_updated": "2025-10-14T16:08Z",
+          "short_comment": "Bolton recorded two tackles (one solo) in Sunday's 31-0 win over the Raiders.",
+          "long_comment": "Bolton played 95 percent of defensive snaps, but he still had limited opportunity because the Raiders ran only 30 offensive plays. While it was a disappointing performance, he had recorded at least six tackles in all of his games prior to Sunday. Bolton should be in for a bounceback performance in Week 8 against the Commanders.",
+          "last_updated": "2025-10-20T23:21Z",
           "source": "basic/manual"
         },
         {
@@ -6569,7 +6569,7 @@
       "team_name": "Los Angeles Chargers",
       "conference": "AFC",
       "division": "AFC West",
-      "last_updated": "2025-10-20T21:26Z",
+      "last_updated": "2025-10-21T01:38Z",
       "injuries": [
         {
           "athlete_id": "4243328",
@@ -6934,9 +6934,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "The Chargers elevated Hines from the practice squad to the active roster Saturday.",
-          "long_comment": "Hines will be elevated to the Chargers' active roster for a second straight week and will be available to play against the Colts, the team that drafted him in the fourth round of the 2018 NFL Draft. Hines primarily served on special teams during the Chargers' Week 6 win over the Dolphins, when he turned three kickoff returns into 97 yards. However, the veteran running back could be deployed out of the backfield to spell Kimani Vidal if Hassan Haskins (chest) is not cleared to play Sunday.",
-          "last_updated": "2025-10-19T00:33Z",
+          "short_comment": "Hines reverted to the Chargers' practice squad Monday, per the NFL's official transaction log.",
+          "long_comment": "Hines was back with the active roster for a second straight game, playing just one snap with the offense in Sunday's 38-24 loss to the Colts. The running back was able to produce 98 yards on four kickoff returns while logging six snaps with the special-teams unit. With Hassan Haskins (hamstring) listed as a non-participant on Monday's estimated injury report, it's possible that Hines will be elevated for a third straight week ahead of Thursday night's matchup with Minnesota.",
+          "last_updated": "2025-10-21T01:38Z",
           "source": "basic/manual"
         },
         {
@@ -7389,7 +7389,7 @@
       "team_name": "Las Vegas Raiders",
       "conference": "AFC",
       "division": "AFC West",
-      "last_updated": "2025-10-20T22:11Z",
+      "last_updated": "2025-10-20T23:54Z",
       "injuries": [
         {
           "athlete_id": "4432665",
@@ -7546,9 +7546,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "White tallied nine total tackles (five solo), including 1.0 sacks, one forced fumble and one interception in Sunday's 20-10 win over the Titans.",
-          "long_comment": "The seventh-year pro created two turnovers for Las Vegas' defense, recording a strip-sack on Cam Ward and intercepting a pass intended for Chimere Dike in the second quarter of Sunday's win. After playing in just seven games and recording 19 total tackles for the Texans in 2024, White appears to have re-emerged as one of the league's premier inside linebackers. The 2019 first-round pick from LSU has now logged 48 total tackles, including 1.0 sacks, two passes defended, including one interception, and one forced fumble while playing 100 percent of the Raiders' defensive snaps through six games. He's expected to remain a key part of Las Vegas' defense in the Week 7 matchup against the Chiefs.",
-          "last_updated": "2025-10-13T18:31Z",
+          "short_comment": "White registered 16 tackles (six solo) during the Raiders' 31-0 loss to the Chiefs on Sunday.",
+          "long_comment": "White played all 81 defensive snaps during Sunday's blowout loss. His 16 tackles were the second most in his NFL career (18 tackles in Week 10 of the 2021 season), but the veteran linebacker still finished second in that category behind Elandon Roberts (18). White has registered at least eight tackles in five of the first seven games of the regular season, and his 64 tackles on the year is sixth most in the NFL.",
+          "last_updated": "2025-10-20T23:43Z",
           "source": "basic/manual"
         },
         {
@@ -7581,6 +7581,22 @@
           "short_comment": "Laube (hamstring) does not carry an injury designation ahead of Sunday's game at Kansas City.",
           "long_comment": "Laube hurt his hamstring in Week 6 versus the Titans and started the Raiders' new week of practice on the sideline, but he'll ultimately be healthy enough to suit up in Week 7. He has not played any offensive snaps over his last three games, so he figures to factor in mostly on special teams.",
           "last_updated": "2025-10-17T23:38Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "2987743",
+          "name": "Elandon Roberts",
+          "position": "LB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Roberts finished Sunday's 31-0 loss to the Chiefs with 18 tackles (seven solo), including one stop for a loss.",
+          "long_comment": "Roberts was on the field for 75 of 81 defensive snaps (92.6 percent) and joined three other Raiders defenders in registering double-digit stops. His 18 tackles were the most of his 10-year NFL career and just the sixth time he has logged double-digit tackles in a game. Roberts is up to 40 stops through seven regular-season games, and he should surpass his total from the 2024 campaign (46 tackles across 17 regular-season games) as a member of the Steelers.",
+          "last_updated": "2025-10-20T23:32Z",
           "source": "basic/manual"
         },
         {
@@ -7648,6 +7664,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "4043169",
+          "name": "Jeremy Chinn",
+          "position": "S",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Chinn finished Sunday's 31-0 loss to the Chiefs with 10 tackles (eight solo) and one forced fumble.",
+          "long_comment": "Chinn was one of play Raiders defenders to play every single defensive snap and finished third in tackles behind Elandon Roberts (18) and Devin White (16). Chinn has recorded 10 tackles in two of his last three games and is up to 48 stops through seven regular-season games, which puts him on pace to surpass 100 tackles for a second consecutive year.",
+          "last_updated": "2025-10-20T23:54Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4361426",
           "name": "Justin Shorter",
           "position": "WR",
@@ -7693,38 +7725,6 @@
           "short_comment": "Mayer brought in one of two targets for 10 yards in the Raiders' 31-0 loss to the Chiefs on Sunday.",
           "long_comment": "Mayer drew a second consecutive start in place of Brock Bowers (knee), but his numbers paled in comparison to the 5-50-1 line on seven targets he generated against the Titans in his initial turn with the first unit. Mayer's run as the top tight end may have come to an end Sunday, considering Bowers is expected to be healthy enough to play in a Week 9 home matchup against the Jaguars on Sunday, Nov. 2 following a Week 8 bye.",
           "last_updated": "2025-10-20T02:34Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "2576414",
-          "name": "Raheem Mostert",
-          "position": "RB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Mostert lost four yards on five carries in Sunday's 20-10 win over the Titans.",
-          "long_comment": "Mostert played 13 offensive snaps behind rookie Ashton Jeanty, who handled a bulk of the workload out of the Raiders' backfield with 25 touches for 86 total yards and a score. Expect a similarly one-sided split during a tough Week 7 matchup in Kansas City.",
-          "last_updated": "2025-10-14T14:47Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4361332",
-          "name": "Shedrick Jackson",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "The Raiders elevated  Jackson from the practice squad to the active roster Saturday.",
-          "long_comment": "Las Vegas could be without Jakobi Meyers (knee) and Alex Bachman (ankle), both of whom are listed as questionable, so Jackson will be added to the roster for the first time this season. Whether he's active on game day will likely come down to Meyers' and Bachman's status.",
-          "last_updated": "2025-10-18T23:08Z",
           "source": "basic/manual"
         },
         {
@@ -8619,7 +8619,7 @@
       "team_name": "New England Patriots",
       "conference": "AFC",
       "division": "AFC East",
-      "last_updated": "2025-10-20T18:14Z",
+      "last_updated": "2025-10-21T02:01Z",
       "injuries": [
         {
           "athlete_id": "4368113",
@@ -8984,9 +8984,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "The Patriots elevated Jennings from the practice squad to the active roster Saturday.",
-          "long_comment": "Jennings will be elevated for a second straight week and be available to play against the Titans on Sunday. He played seven snaps on special teams against the Saints in Week 6, and the 24-year-old running back will likely be limited to that role while TreVeyon Henderson and Rhamondre Stevenson handle the work out of the backfield.",
-          "last_updated": "2025-10-19T00:12Z",
+          "short_comment": "Jennings reverted to the Patriots' practice squad Monday, per the NFL's official transaction log.",
+          "long_comment": "Jennings was elevated to the active roster for the second straight week, recording 18 yards on five carries in the late moments of Sunday's 31-13 win over the Titans. The running back played nine snaps on offense, which matched TreVeyon Henderson in the contest, while Rhamondre Stevenson led the backfield with 49 offensive snaps. Additionally, Jennings logged eight snaps on special teams, and he can be elevated one more time before he'd have to be officially signed to the active roster.",
+          "last_updated": "2025-10-21T02:01Z",
           "source": "basic/manual"
         },
         {
@@ -9029,7 +9029,7 @@
       "team_name": "New Orleans Saints",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-20T22:18Z",
+      "last_updated": "2025-10-20T23:14Z",
       "injuries": [
         {
           "athlete_id": "3122797",
@@ -9202,9 +9202,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Davis recorded three total tackles (two solo) in Sunday's 25-19 loss to the Patriots.",
-          "long_comment": "Davis was uncharacteristically quiet in Week 6, securing a season-low three stops in the loss. The three tackles were his lowest total since Week 13 of last season and four fewer than the seven he posted in Week 4 of this year. Davis is still off to a strong start to the campaign though, compiling 51 total tackles (27 solo), a pass defensed, a forced fumble and a fumble recovery over six games this season.",
-          "last_updated": "2025-10-14T03:59Z",
+          "short_comment": "Davis recorded 10 total tackles (six solo) in Sunday's 26-14 loss to the Bears.",
+          "long_comment": "Davis was once again the team's leader in tackles, finishing with at least 10 stops for the fourth time this season. The linebacker has now registered 61 total tackles (33 solo), a pass defensed, a forced fumble and a fumble recovery over seven games this year.",
+          "last_updated": "2025-10-20T23:14Z",
           "source": "basic/manual"
         },
         {
@@ -9439,7 +9439,7 @@
       "team_name": "New York Giants",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-20T22:17Z",
+      "last_updated": "2025-10-21T02:13Z",
       "injuries": [
         {
           "athlete_id": "4361748",
@@ -9454,7 +9454,7 @@
           },
           "short_comment": "out",
           "long_comment": "out",
-          "last_updated": "2025-10-20T22:17Z",
+          "last_updated": "2025-10-21T02:02Z",
           "source": "basic/manual"
         },
         {
@@ -9602,9 +9602,9 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4038544",
-          "name": "Austin Schlottmann",
-          "position": "C",
+          "athlete_id": "3117253",
+          "name": "Bobby Okereke",
+          "position": "LB",
           "status": "Active",
           "status_code": {
             "id": "0",
@@ -9612,9 +9612,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Schlottmann is expected to start at center Sunday against the Broncos, Ryan Dunleavy of the New York Post reports.",
-          "long_comment": "John Michael Schmitz (concussion) has been ruled out and won't travel with the team to Denver. That leaves Schlottmann next in line at center. He played 32 snaps after Schmitz departed in Week 6, so Schlottmann should have some chemistry with Jaxson Dart.",
-          "last_updated": "2025-10-19T02:16Z",
+          "short_comment": "Okereke recorded six total tackles (four solo) in Sunday's 33-32 loss to the Broncos.",
+          "long_comment": "Okereke was once again on the field for every defensive snap in Week 7, playing 76 total while finishing tied for third on the team in stops with fellow linebacker Darius Muasau. Okereke has now registered 60 total tackles (29 solo) and two passes defensed over seven games this season.",
+          "last_updated": "2025-10-20T23:39Z",
           "source": "basic/manual"
         },
         {
@@ -9634,9 +9634,9 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4242899",
-          "name": "D.J. Davidson",
-          "position": "DT",
+          "athlete_id": "4426686",
+          "name": "Dane Belton",
+          "position": "S",
           "status": "Active",
           "status_code": {
             "id": "0",
@@ -9644,9 +9644,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Davidson (knee) has no injury designation ahead of Sunday's matchup against the Broncos, Dan Salomone of the Giants' official site reports.",
-          "long_comment": "Despite logging a DNP at Thursday's practice due to a knee injury, Davidson is set to face the Broncos in Week 7. The Arizona State product has logged 106 defensive snaps over the Giants' first six games this season, tallying three total tackles. He's expected to serve as New York's top reserve nose tackle Sunday, playing behind Dexter Lawrence.",
-          "last_updated": "2025-10-17T19:13Z",
+          "short_comment": "Belton recorded 10 total tackles (six solo) in Sunday's 33-32 loss to the Broncos.",
+          "long_comment": "Belton entered the weekend having been limited by a neck injury during the week, but he showed no signs of it against Denver. The safety led the team in takedowns, notching double-digit stops for the first time this year. Belton has now compiled 36 total tackles (17 solo), two passes defensed and a forced fumble over seven games this season.",
+          "last_updated": "2025-10-20T23:33Z",
           "source": "basic/manual"
         },
         {
@@ -9772,9 +9772,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "The Giants have elevated Humphrey from the practice squad to the active roster ahead of Sunday's road matchup against the Broncos, Dan Salomone of the team's official site reports.",
-          "long_comment": "New York will be without Darius Slayton (hamstring) for a second consecutive game, while Malik Nabers (knee) is already done for the year, which positions Humphrey to again join Wan'Dale Robinson, Jalin Hyatt, Beaux Collins and Gunner Olszewski in the wide receiver corps. Humphrey was elevated Week 6 against the Eagles due to the same circumstance, a game in which he played 77 percent of offensive snaps and secured four of eight targets for 55 yards.",
-          "last_updated": "2025-10-18T23:09Z",
+          "short_comment": "Humphrey reverted to the Giants' practice squad Monday, per the NFL's transaction log.",
+          "long_comment": "In this past Sunday's loss to Denver, Humphrey led New York's wideouts with 74 offensive snaps (out of a possible 77), though he got only two targets and didn't catch either of him. Malik Nabers (knee) is out for the season, so Humphrey could eventually be signed to the active roster to provide every-week receiver depth. His role could be reduced, however, when Darius Slayton (hamstring) is ready to return to action.",
+          "last_updated": "2025-10-21T02:13Z",
           "source": "basic/manual"
         },
         {
@@ -9849,7 +9849,7 @@
       "team_name": "New York Jets",
       "conference": "AFC",
       "division": "AFC East",
-      "last_updated": "2025-10-20T15:18Z",
+      "last_updated": "2025-10-20T23:09Z",
       "injuries": [
         {
           "athlete_id": "4371959",
@@ -10076,6 +10076,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "4361331",
+          "name": "Jamien Sherwood",
+          "position": "LB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Sherwood registered 10 tackles (seven solo), including 1.0 sacks, and one pass defense during Sunday's 13-6 loss to the Panthers.",
+          "long_comment": "Sherwood led the Jets in tackles Sunday, and he recorded his first sack of the season early in the fourth quarter, when he took down Andy Dalton for a nine-yard loss that forced the Panthers to punt on the next play. Sherwood has played every single defensive snap through the first seven games of the regular season, and his 70 combined tackles is third most in the NFL behind Jordyn Brooks (75) and Bobby Wagner (73).",
+          "last_updated": "2025-10-20T23:09Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4241410",
           "name": "Jelani Woods",
           "position": "TE",
@@ -10137,22 +10153,6 @@
           "short_comment": "Jets coach Aaron Glenn said Monday that he has not yet decided whether Fields or Tyrod Taylor will draw the start on the road against Cincinnati in Week 8.",
           "long_comment": "Fields has turned in back-to-back disastrous performances under center for New York, culminating in his being benched at halftime during the team's 12-6 loss to the Panthers in Week 6. Prior to being replaced by Taylor, Fields completed six of 12 passes for just 46 yards, with no touchdowns or interceptions, while adding 22 rushing yards on four carries. While part of Fields' struggles versus Carolina can be attributed to Garrett Wilson (knee) being inactive, he had been even worse in Week 6 versus Denver in London, a loss in which he completed just nine of 17 pass attempts for 45 yards with zero touchdowns or interceptions while getting sacked an incredible nine times. The Jets will continue to evaluate the quarterback position before announcing a Week 8 starter, but at this stage, even with his rushing upside, Fields will be difficult to trust for fantasy purposes if he remains in the lineup.",
           "last_updated": "2025-10-20T14:43Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4035886",
-          "name": "Khalil Herbert",
-          "position": "RB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "",
-          "long_comment": "",
-          "last_updated": "2025-10-13T15:23Z",
           "source": "basic/manual"
         },
         {
@@ -10259,7 +10259,7 @@
       "team_name": "Philadelphia Eagles",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-20T21:42Z",
+      "last_updated": "2025-10-20T22:58Z",
       "injuries": [
         {
           "athlete_id": "4241374",
@@ -10438,22 +10438,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4248557",
-          "name": "E.J. Jenkins",
-          "position": "TE",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "The Eagles elevated Jenkins from the practice squad to the active roster Saturday,  Chris McPherson of the team's official site reports.",
-          "long_comment": "Jenkins has been on the Eagles' practice squad all season with Saturday's elevation marking his first of the campaign. He's likely to serve primarily on special teams, if he is active Sunday against the Vikings.",
-          "last_updated": "2025-10-19T01:32Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4361409",
           "name": "Jahan Dotson",
           "position": "WR",
@@ -10515,6 +10499,22 @@
           "short_comment": "Hurts completed 19 of 23 passes for 326 yards with three touchdowns and no interceptions while adding four carries for minus-10 yards in the Eagles' 28-22 win over the Vikings on Sunday.",
           "long_comment": "Hurts took three sacks, but otherwise he had a near-flawless day that allowed him to finish with a perfect 158.3 passer rating. The reigning Super Bowl MVP had to get aggressive through the air for the third straight game, ultimately setting a new season high in passing yardage yet again after also doing so in Weeks 5 and 6. Hurts was clicking with both of his top receivers, as DeVonta Smith and A.J. Brown accounted for 13 of his completions, 304 of his yards and all three of his touchdown passes. In addition to his 37- and 26-yard scoring strikes to Brown, Hurts also hit the star wideout for a critical 45-yard gain up the left sideline on third down with just under two minutes remaining, a play that would go on to allow Philadelphia to run out the clock. Hurts also connected with Smith for a 79-yard touchdown, the game's longest play through the air, in the third quarter, and the talented signal-caller will head into a Week 8 home rematch with the Giants boasting an 11:1 TD:INT on the campaign.",
           "last_updated": "2025-10-19T20:48Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4571162",
+          "name": "Jalyx Hunt",
+          "position": "LB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Hunt tallied one tackle and a pick-six during the Eagles' 28-22 win over the Vikings on Sunday.",
+          "long_comment": "Hunt gave the Eagles a 14-3 lead early in the second quarter, when he picked off a Carson Wentz pass intended for Justin Jefferson and returned it 42 yards for the touchdown. It was Hunt's first interception of his two-year NFL career, and he has opened the 2025 regular season with 15 tackles (three solo), one interception and one forced fumble through seven games.",
+          "last_updated": "2025-10-20T22:56Z",
           "source": "basic/manual"
         },
         {
@@ -10646,9 +10646,9 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4427278",
-          "name": "Xavier Gipson",
-          "position": "WR",
+          "athlete_id": "3917657",
+          "name": "Zack Baun",
+          "position": "LB",
           "status": "Active",
           "status_code": {
             "id": "0",
@@ -10656,9 +10656,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "",
-          "long_comment": "",
-          "last_updated": "2025-10-13T15:23Z",
+          "short_comment": "Baun finished Sunday's 28-22 win over the Vikings with 10 tackles (six solo).",
+          "long_comment": "Baun played every single defensive snap during Sunday's win and finished as the Eagles' leading tackler. He has recorded double-digit tackles in two of his last three outings, and his 58 total tackles leads the Eagles and is 13th most in the NFL.",
+          "last_updated": "2025-10-20T22:58Z",
           "source": "basic/manual"
         }
       ]
@@ -11079,7 +11079,7 @@
       "team_name": "Seattle Seahawks",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-19T01:58Z",
+      "last_updated": "2025-10-21T02:02Z",
       "injuries": [
         {
           "athlete_id": "4567226",
@@ -11092,57 +11092,105 @@
             "description": "out",
             "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "Hall (oblique) has been ruled out for Monday's game against the Texans, Bob Condotta of The Seattle Times reports.",
-          "long_comment": "Hall was held out of practice all week and will miss a second consecutive game due to an oblique injury. Head coach Mike Macdonald said Saturday that he \"expects [Hall] back after the bye,\" which puts the 2023 second-rounder on track to return for the Seahawks' Week 9 road contest against the Commanders, per Michael-Shawn Dugar of The Athletic. Uchenna Nwosu will continue to see more rotational snaps at outside linebacker behind starters Boye Mafe and DeMarcus Lawrence while Hall is sidelined.",
-          "last_updated": "2025-10-19T01:58Z",
+          "short_comment": "inactive",
+          "long_comment": "inactive",
+          "last_updated": "2025-10-21T00:35Z",
           "source": "basic/manual"
         },
         {
           "athlete_id": "4575431",
           "name": "Devon Witherspoon",
           "position": "CB",
-          "status": "Questionable",
+          "status": "Out",
           "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "Witherspoon (knee) is listed as questionable for Monday's game against the Texans, Bob Condotta of The Seattle Times reports.",
-          "long_comment": "Witherspoon has been working through a lingering knee injury that has sidelined him for four of the Seahawks' last five games. He ended the week with back-to-back full practices, which indicates that he is leaning more toward the probable side of playing Monday. Witherspoon's return would mean less snaps to go around at cornerback for Nehemiah Pritchett and Derion Kendrick.",
-          "last_updated": "2025-10-19T01:34Z",
+          "short_comment": "Witherspoon (knee) is inactive for Monday's game against the Texans.",
+          "long_comment": "Witherspoon appeared to be trending toward being active for Monday's contest after finishing the week with back-to-back full practices, but the third-year corner is not quite ready to return from a lingering knee injury. The Seahawks are on a bye for Week 8, so he'll have more time to heal and recover ahead of Seattle's Week 9 clash against Washington on Sunday, Nov. 2. Shaquill Griffin is in line to start at outside corner for a second straight game in Witherspoon's absence.",
+          "last_updated": "2025-10-21T00:39Z",
           "source": "basic/manual"
         },
         {
-          "athlete_id": "3914630",
-          "name": "Josh Jones",
-          "position": "G",
-          "status": "Questionable",
+          "athlete_id": "4432734",
+          "name": "Jalen Milroe",
+          "position": "QB",
+          "status": "Out",
           "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "questionable",
-          "long_comment": "questionable",
-          "last_updated": "2025-10-14T11:39Z",
+          "short_comment": "Milroe (coach's decision) is inactive but will serve as the Seahawks' emergency third quarterback for Monday's game against the Texans, John Boyle of the Seahawks' official site reports.",
+          "long_comment": "Milroe will be dispatched as the emergency third QB for a second consecutive game, which means he'll only see the field Monday if Sam Darnold and Drew Lock were both to leave the game due to illness, injury or ejection.",
+          "last_updated": "2025-10-21T00:45Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4605478",
+          "name": "Jared Ivey",
+          "position": "LB",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "inactive",
+          "long_comment": "inactive",
+          "last_updated": "2025-10-21T02:02Z",
           "source": "basic/manual"
         },
         {
           "athlete_id": "4046675",
           "name": "Julian Love",
           "position": "S",
-          "status": "Questionable",
+          "status": "Out",
           "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "Love (hamstring) has been listed as questionable for Monday's game against the Texans, Bob Condotta of The Seattle Times reports.",
-          "long_comment": "Love missed three of the Seahawks' last four games due to a hamstring injury. He was limited in practice all week, and his status for Monday night's game may not be officially known until the Seahawks announce their list of inactive players approximately 90 minutes prior to the 10:00 p.m. ET kickoff. Nick Emmanwori and Ty Okada would see their snaps on defense decrease if Love is cleared to return.",
-          "last_updated": "2025-10-19T01:41Z",
+          "short_comment": "Love (hamstring) is inactive for Monday's game against the Texans.",
+          "long_comment": "Love will now miss his fourth game in five weeks due to a lingering hamstring injury. With Seattle on a bye Week 8, the seventh-year safety will have more time to heal from his injury and be available for Week 9 against the Commanders on Sunday, Nov. 2. Ty Okada and Nick Emmanwori are the top candidates to start at safety alongside Coby Bryant in Love's absence.",
+          "last_updated": "2025-10-21T00:41Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4432525",
+          "name": "Mason Richman",
+          "position": "G",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "inactive",
+          "long_comment": "inactive",
+          "last_updated": "2025-10-21T00:35Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4569547",
+          "name": "Nick Kallerup",
+          "position": "TE",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "inactive",
+          "long_comment": "inactive",
+          "last_updated": "2025-10-21T00:35Z",
           "source": "basic/manual"
         },
         {
@@ -11191,22 +11239,6 @@
           "short_comment": "Kupp secured two of three targets for 40 yards and a touchdown in the Seahawks' 20-12 win over the Jaguars on Sunday.",
           "long_comment": "Kupp got into the end zone for the first time as a member of the Seahawks, recording an 11-yard touchdown grab early in the third quarter. The veteran wideout remains a distant No. 2 in the offense's pecking order behind No. 1 receiver Jaxon Smith-Njigba, who had another prolific afternoon Sunday and has logged 56 targets to Kupp's 32. Kupp has now been under 60 receiving yards for four straight games heading into a challenging Week 7 home matchup against the Texans on Monday night, Oct. 20.",
           "last_updated": "2025-10-13T02:28Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4401805",
-          "name": "Dareke Young",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Young hauled in his lone target for a 36-yard reception and returned five kickoffs for 154 yards in Sunday's 38-35 loss to the Buccaneers.",
-          "long_comment": "Young logged just four of the Seahawks' 61 offensive snaps, but he made a big impact during his time on the field, connecting with quarterback Sam Darnold on a deep ball early in the third quarter to set up an eventual Zach Charbonnet touchdown run. The Seahawks could continue to sprinkle Young into the offensive game as a downfield threat, but the 26-year-old projects to deliver most of his impact as a return man.",
-          "last_updated": "2025-10-08T15:13Z",
           "source": "basic/manual"
         },
         {
@@ -11290,22 +11322,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4432734",
-          "name": "Jalen Milroe",
-          "position": "QB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Milroe (coach's decision) is inactive for Sunday's matchup with the Jaguars but will serve as the emergency third quarterback.",
-          "long_comment": "Milroe would need starter Sam Darnold and backup Drew Lock to get injured, sick or ejected to have a chance to play. The Alabama product and 2025 third-round pick has yet to attempt a pass in his pro career.",
-          "last_updated": "2025-10-12T15:58Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "2473037",
           "name": "Jason Myers",
           "position": "PK",
@@ -11338,6 +11354,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "3914630",
+          "name": "Josh Jones",
+          "position": "G",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Jones (ankle) is active for Monday's game against the Texans.",
+          "long_comment": "Jones has been cleared to return from a three-game absence due to an ankle injury, and he will give the Seahawks depth on the offensive line for Monday night's contest.",
+          "last_updated": "2025-10-21T00:43Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4567048",
           "name": "Kenneth Walker III",
           "position": "RB",
@@ -11351,22 +11383,6 @@
           "short_comment": "Walker rushed 10 times for 34 yards and brought in his only target for three yards in the Seahawks' 20-12 win over the Jaguars on Sunday.",
           "long_comment": "Walker logged two fewer carries than Zach Charbonnet, but he outgained his teammate by 10 rushing yards, as neither back was particularly efficient during the defense-centric battle. The fourth-year pro's yardage total represented quite the downturn after he'd topped the 80-yard mark in each of the previous two games, and Charbonnet's workload is somewhat of a concern for the moment for Walker's fantasy managers. It remains to be seen if a similar timeshare will apply moving forward, but neither player has a particularly bright outlook for a Week 7 home matchup against a tough Texans defense on Monday night, Oct. 20.",
           "last_updated": "2025-10-13T00:04Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "2971622",
-          "name": "Leonard Williams",
-          "position": "DE",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Williams recorded four tackles (one solo) during Sunday's 38-35 loss versus the Buccaneers.",
-          "long_comment": "Tampa Bay provided quarterback Baker Mayfield with excellent protection in Week 5, breaking Williams' three-game streak of at least 0.5 sacks. He'll be rushing against a less stout offensive line in Week 6 at Jacksonville, possibly giving him a good opportunity to get back on track.",
-          "last_updated": "2025-10-08T01:17Z",
           "source": "basic/manual"
         },
         {
@@ -11399,22 +11415,6 @@
           "short_comment": "Emmanwori posted nine tackles (six solo) in Sunday's 20-12 win over Jacksonville.",
           "long_comment": "Emmanwori tied with Drake Thomas for the team leads in tackles. Emmanwori logged a season-high 94 percent defensive snap share for a banged-up Seahawks secondary that was without starters Riq Woolen (concussion), Devon Witherspoon (knee) and Julian Love (hamstring).",
           "last_updated": "2025-10-15T01:16Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4569547",
-          "name": "Nick Kallerup",
-          "position": "TE",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "",
-          "long_comment": "",
-          "last_updated": "2025-10-13T15:23Z",
           "source": "basic/manual"
         },
         {
@@ -11489,7 +11489,7 @@
       "team_name": "San Francisco 49ers",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-20T22:20Z",
+      "last_updated": "2025-10-21T00:04Z",
       "injuries": [
         {
           "athlete_id": "4361741",
@@ -11582,9 +11582,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Brendel has a hamstring injury and has been ruled out for the rest of Sunday night's matchup with the Falcons, Matt Maiocco of NBC Sports Bay Area reports.",
-          "long_comment": "The veteran has started all seven games this season and every 49ers game dating back to 2021. Matt Hennessy is his backup.",
-          "last_updated": "2025-10-20T01:34Z",
+          "short_comment": "Head coach Kyle Shanahan said Monday that Brendel is expected to be sidelined for a couple of weeks due to a hamstring injury, Matt Maiocco of NBC Sports Bay Area reports.",
+          "long_comment": "Brendel sustained the injury during the 49ers' 20-10 win over the Falcons on Sunday. He started at center in each of the first seven games of the regular season, and his absence means Matt Hennessy will likely take over the as the 49ers' center for as long as Brendel is on the shelf.",
+          "last_updated": "2025-10-20T22:44Z",
           "source": "basic/manual"
         },
         {
@@ -11828,22 +11828,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "3115928",
-          "name": "Malik Turner",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "The 49ers elevated Turner from the practice squad to the active roster Saturday.",
-          "long_comment": "Turner will be elevated by the 49ers for the third time this season, which is the maximum amount of times for a player on a team's practice squad. Turner will provide support on special teams while adding depth to a 49ers wide receiver corps that is without Ricky Pearsall (knee) for Sunday's game against the Falcons.",
-          "last_updated": "2025-10-19T01:17Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4430191",
           "name": "Skyy Moore",
           "position": "WR",
@@ -11857,6 +11841,22 @@
           "short_comment": "Moore does not have an injury designation ahead of Sunday's game against the Falcons, Briana Jeannael of the 49ers' official site reports.",
           "long_comment": "Moore began the week unable to practice due to an ankle injury, but he was able to get in some work both Thursday and Friday. He will be set to work primarily on special teams against the Falcons.",
           "last_updated": "2025-10-18T00:02Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4426698",
+          "name": "Tatum Bethune",
+          "position": "LB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Bethune recorded 10 tackles (four solo), including one tackle for loss, in Sunday's 20-10 win over the Falcons.",
+          "long_comment": "Bethune remained the 49ers' most productive linebacker with Fred Warner (ankle) sidelined. He's logged at least an 85 percent defensive snap rate in each of the last two games, racking up 10 tackles in each. Bethune should remain a strong IDP option so long as Warner is sidelined.",
+          "last_updated": "2025-10-21T00:04Z",
           "source": "basic/manual"
         },
         {
@@ -11899,7 +11899,7 @@
       "team_name": "Tampa Bay Buccaneers",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-20T21:42Z",
+      "last_updated": "2025-10-21T01:54Z",
       "injuries": [
         {
           "athlete_id": "4596448",
@@ -11998,6 +11998,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "16737",
+          "name": "Mike Evans",
+          "position": "WR",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "Evans will not return to Monday's game against the Lions due to concussion and shoulder injuries, Mike Garafolo of NFL Network reports.",
+          "long_comment": "Evans was hurt on an attempted catch deep down the field in the second quarter. He remained on the field for several minutes and was then carted to the locker room after walking to the sideline. Evans was quickly ruled out and is presumably set to undergo imaging to get further information on the shoulderinjury.",
+          "last_updated": "2025-10-21T00:26Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4426882",
           "name": "Sebastian Castro",
           "position": "S",
@@ -12014,6 +12030,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "2980504",
+          "name": "Haason Reddick",
+          "position": "LB",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "Reddick (knee/ankle) is questionable to return to Monday night's contest against the Lions, Brianna Dix of the Buccaneers' official site reports.",
+          "long_comment": "Reddick was landed on by Lions offensive tackle Penei Sewell in the fourth quarter, potentially suffering both knee and ankle injuries as a result. Considering that the linebacker exited so late in the game, it seems unlikely that he'll be able to return. In his absence, Anthony Nelson is a top candidate to see an increase in workload with Tampa Bay's defense.",
+          "last_updated": "2025-10-21T01:54Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4034790",
           "name": "Antoine Winfield Jr.",
           "position": "S",
@@ -12027,22 +12059,6 @@
           "short_comment": "Winfield recorded nine tackles (five solo) in the Buccaneers' 30-19 win over the 49ers in Week 6.",
           "long_comment": "Winfield paced the Buccaneers in stops on a busy day for the defense, one that saw six players record at least five tackles. The star safety hadn't posted more than four stops in any of the first five games of the season, but he had a big surge in that department while playing on all 69 of the defensive snaps. Winfield could well be busy again in Week 7, as the Buccaneers visit the Lions and their typically prolific offense for a Monday night showdown.",
           "last_updated": "2025-10-15T04:25Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3052587",
-          "name": "Baker Mayfield",
-          "position": "QB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Mayfield completed 17 of 23 pass attempts for 256 yards and two touchdowns while taking three carries for 14 yards in Sunday's 30-19 win over the 49ers.",
-          "long_comment": "Mayfield produced a sterling 139.0 passer rating against a 49ers defense that was helpless after losing LB Fred Warner (ankle) early in the contest. The Buccaneers also suffered a key loss early on when WR Emeka Egbuka (hamstring) exited the game after recording just two receptions. This meant that Mayfield had to finish off the win sans his three top weapons, with Mike Evans (hamstring) and Chris Godwin (fibula) in street clothes Sunday. The 30-year-old Mayfield overcame expectations and produced his fifth multi-score game through six starts. With the Buccaneers visiting the Lions on Monday Night Football in Week 7, it will be important for fantasy managers to note which receivers Mayfield will have at his disposal before making roster decisions.",
-          "last_updated": "2025-10-13T00:11Z",
           "source": "basic/manual"
         },
         {
@@ -12155,22 +12171,6 @@
           "short_comment": "David (knee) is active for Monday night's game against the Lions.",
           "long_comment": "David has been battling the knee issue for most of the regular season, but he's yet to miss a contest. Across six games this season, David has recorded 40 tackles (21 solo), including 2.5 sacks, and a pair of pass breakups, including one interception, on 99.7 percent of the Bucs' defensive snaps.",
           "last_updated": "2025-10-20T21:42Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "16737",
-          "name": "Mike Evans",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Evans (hamstring) is active for Monday's game at Detroit.",
-          "long_comment": "Evans thus is back in action for the first time since Week 3, when he initially strained his left hamstring. He'll be joined by rookie first-round pick Emeka Egbuka (hamstring) in Tampa Bay's receiving corps, while Chris Godwin (fibula) won't be available. Both Evans and Egbuka will be priority plays versus a Lions secondary that is down all four starters.",
-          "last_updated": "2025-10-20T21:35Z",
           "source": "basic/manual"
         },
         {
@@ -12309,7 +12309,7 @@
       "team_name": "Tennessee Titans",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-20T15:19Z",
+      "last_updated": "2025-10-20T23:58Z",
       "injuries": [
         {
           "athlete_id": "3843843",
@@ -12466,9 +12466,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Gray notched 12 tackles (three solo) and two defensed passes Sunday in a loss to Las Vegas.",
-          "long_comment": "Gray led Tennessee in tackles in the 10-point loss. He's now recorded double-digit stops in three straight games, totaling 41 tackles during that span. That's put him firmly on the map in IDP fantasy leagues.",
-          "last_updated": "2025-10-15T00:44Z",
+          "short_comment": "Gray recorded 10 tackles (seven solo) during the Titans' 31-13 loss to the Patriots on Sunday.",
+          "long_comment": "Gray continued his productive 2025 season Sunday by leading the Titans in tackles. He has posted double-digit stops in four consecutive games, and his 70 tackles through seven regular-season games is tied with Jamien Sherwood for third most in the NFL behind Jordyn Brooks (75) and Bobby Wagner (73).",
+          "last_updated": "2025-10-20T23:58Z",
           "source": "basic/manual"
         },
         {
@@ -12719,7 +12719,7 @@
       "team_name": "Washington Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-20T21:13Z",
+      "last_updated": "2025-10-20T23:07Z",
       "injuries": [
         {
           "athlete_id": "3126486",
@@ -12799,6 +12799,22 @@
           "short_comment": "",
           "long_comment": "",
           "last_updated": "2025-10-20T15:21Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "14979",
+          "name": "Bobby Wagner",
+          "position": "LB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Wagner recorded eight total tackles (three solo) in Sunday's 44-22 loss to the Cowboys.",
+          "long_comment": "Wagner was able to lead the team in takedowns once again in Week 7, but the eight stops were actually a season low for the 35-year-old. The linebacker has remained incredibly productive in his 14th season in the NFL, racking up 73 total tackles (33 solo), including 2.0 sacks, over seven games to this point.",
+          "last_updated": "2025-10-20T23:07Z",
           "source": "basic/manual"
         },
         {
@@ -13023,22 +13039,6 @@
           "short_comment": "Gay went 2-for-2 on extra-point tries in Sunday's 44-22 loss to the Cowboys.",
           "long_comment": "The kicker did not get a chance to attempt a field goal. Gay has yet to miss an extra point this year, going 18-for-18, though he has missed four field goals (10-for-14).",
           "last_updated": "2025-10-20T02:48Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4428414",
-          "name": "Mike Sainristil",
-          "position": "CB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Sainristil logged three tackles and a pass defense during the Commanders' 25-24 loss to the Bears on Monday.",
-          "long_comment": "Sainristil played 62 of 64 defensive snaps in Monday's loss, but his three stops were his lowest since Week 1 against the Giants (three). The 2024 second-rounder is up to 32 tackles through six regular-season games, which is barely on track to match his total from 2024 (93 tackles across 17 regular-season games).",
-          "last_updated": "2025-10-15T01:00Z",
           "source": "basic/manual"
         },
         {

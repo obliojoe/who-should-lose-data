@@ -7981,30 +7981,86 @@
     }
   },
   "401772816": {
-    "timestamp": "2025-10-18 00:40:29",
+    "timestamp": "2025-10-20 20:25:25",
     "game_date": "2025-10-20",
     "home_team": "DET",
     "away_team": "TB",
-    "home_score": null,
-    "away_score": null,
+    "home_score": 24,
+    "away_score": 9,
     "stadium": "Ford Field",
     "home_coach": "Dan Campbell",
     "away_coach": "Todd Bowles",
-    "analysis_type": "preview",
-    "analysis": "In a Monday Night Football showdown that feels like a potential playoff preview, the **Detroit Lions** host the **Tampa Bay Buccaneers** in a clash of resilient teams looking to make statements. The Lions enter this primetime matchup with their league-leading streak of 50 consecutive games without back-to-back losses on the line, while the Buccaneers arrive as the NFC's top seed with a remarkable ability to win nail-biters.\n\nThe narrative of redemption runs deep in this game, with both quarterbacks - **Jared Goff** and **Baker Mayfield** - looking to prove they're more than just former first-overall draft picks who were traded away. Mayfield, in particular, has been spectacular this season, throwing for 1,539 yards with 12 touchdowns and just one interception. The Buccaneers' passing attack will be tested by a Lions defense that has been opportunistic, recording 19 sacks and 6 interceptions. However, Detroit's secondary is severely depleted, with **Brian Branch** suspended and multiple defensive backs nursing injuries, which could create exploitable matchups for Tampa Bay's passing game.\n\n**Rachaad White** will likely be the focal point of Tampa Bay's rushing attack with **Bucky Irving** doubtful, while the Lions will counter with their dynamic backfield led by **Jahmyr Gibbs**. The Buccaneers' defense, which has been stout with 16 sacks and multiple game-changing plays, will look to disrupt Detroit's high-powered offense. Expect a hard-fought, potentially close game where both teams' resilience and adaptability will be tested. With the Lions seeking to maintain their remarkable streak and the Buccaneers aiming to prove they're legitimate contenders, this Monday night matchup promises fireworks.",
+    "analysis_type": "post_game",
+    "analysis": "# Lions Dominate Buccaneers in Monday Night Football Showdown\n\nThe **Detroit Lions** crushed the **Tampa Bay Buccaneers** 24-9 in a decisive Monday night performance at Ford Field, thoroughly outplaying their opponents in every phase of the game. **Jahmyr Gibbs** was the standout star, delivering a spectacular performance that will be remembered as a breakout moment in his young career.\n\nThe Lions' offensive explosion was led by Gibbs, who torched the Buccaneers' defense with two electrifying touchdowns - including a jaw-dropping 78-yard sprint that completely changed the game's momentum. **Jared Goff** managed the offense with precision, throwing for 241 yards and a touchdown while avoiding critical mistakes. The Lions' ground game was dominant, rushing for 164 yards and consistently moving the chains when it mattered most.\n\n## Key Statistics\n\n- **Jahmyr Gibbs**: 17 carries, **136 yards**, 2 touchdowns (including a 78-yard run)\n- **Amon-Ra St. Brown**: 6 receptions, 86 yards, 1 touchdown\n- **Baker Mayfield**: 28/50, 228 yards, 1 touchdown, 1 interception\n- **Total Lions Rushing**: 32 attempts, 164 yards (5.1 yards per carry)\n\nThe victory solidifies the Lions' status as a legitimate NFC contender, while raising questions about the Buccaneers' offensive consistency and defensive resilience. **Dan Campbell's** aggressive coaching style continues to pay dividends, transforming the Lions into a team that no opponent can take lightly.",
     "ai_provider": "claude",
     "ai_model": "claude-3-7-sonnet-latest",
     "betting": {
-      "spread": -5.5,
-      "over_under": 52.5,
+      "spread": -6.5,
+      "over_under": 54.5,
       "provider": "ESPN BET",
       "favorite": "DET",
       "underdog": "TB",
-      "moneyline_favorite": -280,
-      "moneyline_underdog": 230
+      "moneyline_favorite": -290,
+      "moneyline_underdog": 240
     },
     "weather": {
       "is_indoor": true
+    },
+    "leaders": {
+      "passingLeader": [
+        {
+          "player": "Jared Goff",
+          "team": "DET",
+          "position": "QB",
+          "jersey": "16",
+          "display_value": "20/29, 241 YDS, 1 TD, 1 INT",
+          "summary": "20/29, 1 TD, 1 INT"
+        },
+        {
+          "player": "Baker Mayfield",
+          "team": "TB",
+          "position": "QB",
+          "jersey": "6",
+          "display_value": "28/50, 228 YDS, 1 TD, 1 INT",
+          "summary": "28/50, 1 TD, 1 INT"
+        }
+      ],
+      "rushingLeader": [
+        {
+          "player": "Jahmyr Gibbs",
+          "team": "DET",
+          "position": "RB",
+          "jersey": "0",
+          "display_value": "17 CAR, 136 YDS, 2 TD",
+          "summary": "17 CAR, 2 TD"
+        },
+        {
+          "player": "Rachaad White",
+          "team": "TB",
+          "position": "RB",
+          "jersey": "1",
+          "display_value": "10 CAR, 38 YDS",
+          "summary": "10 CAR"
+        }
+      ],
+      "receivingLeader": [
+        {
+          "player": "Amon-Ra St. Brown",
+          "team": "DET",
+          "position": "WR",
+          "jersey": "14",
+          "display_value": "6 REC, 86 YDS, 1 TD",
+          "summary": "6 REC, 1 TD"
+        },
+        {
+          "player": "Cade Otton",
+          "team": "TB",
+          "position": "TE",
+          "jersey": "88",
+          "display_value": "7 REC, 65 YDS",
+          "summary": "7 REC"
+        }
+      ]
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-19T21:25:05.446068",
+  "timestamp": "2025-10-20T20:23:43.677381",
   "standings": {
     "divisional": {
       "AFC": {
@@ -64,7 +64,7 @@
               "JAX",
               "PIT"
             ],
-            "strength_of_schedule": 0.5888888888888889,
+            "strength_of_schedule": 0.5978260869565217,
             "strength_of_victory": 0.5,
             "tiebreaker_explanation": null
           },
@@ -95,7 +95,7 @@
               "GB",
               "MIA"
             ],
-            "strength_of_schedule": 0.4659090909090909,
+            "strength_of_schedule": 0.4777777777777778,
             "strength_of_victory": 0.4230769230769231,
             "tiebreaker_explanation": null
           },
@@ -124,7 +124,7 @@
             "defeated_opponents": [
               "CLE"
             ],
-            "strength_of_schedule": 0.5526315789473685,
+            "strength_of_schedule": 0.5641025641025641,
             "strength_of_victory": 0.2857142857142857,
             "tiebreaker_explanation": null
           }
@@ -223,7 +223,7 @@
               "BAL",
               "TEN"
             ],
-            "strength_of_schedule": 0.48484848484848486,
+            "strength_of_schedule": 0.47058823529411764,
             "strength_of_victory": 0.15384615384615385,
             "tiebreaker_explanation": null
           },
@@ -379,7 +379,7 @@
               "TB"
             ],
             "defeated_opponents": [],
-            "strength_of_schedule": 0.5760869565217391,
+            "strength_of_schedule": 0.5638297872340425,
             "strength_of_victory": 0.0,
             "tiebreaker_explanation": null
           }
@@ -481,8 +481,8 @@
               "LV",
               "NYG"
             ],
-            "strength_of_schedule": 0.46808510638297873,
-            "strength_of_victory": 0.34615384615384615,
+            "strength_of_schedule": 0.4791666666666667,
+            "strength_of_victory": 0.37037037037037035,
             "tiebreaker_explanation": null
           },
           {
@@ -548,41 +548,43 @@
               "DET",
               "WAS"
             ],
-            "strength_of_schedule": 0.4268292682926829,
-            "strength_of_victory": 0.4444444444444444,
+            "strength_of_schedule": 0.44047619047619047,
+            "strength_of_victory": 0.4642857142857143,
             "tiebreaker_explanation": null
           },
           {
             "team": "DET",
             "rank": 2,
-            "wins": 4,
+            "wins": 5,
             "losses": 2,
             "ties": 0,
             "division_wins": 1,
             "division_losses": 1,
             "division_ties": 0,
-            "conference_wins": 1,
+            "conference_wins": 2,
             "conference_losses": 1,
             "conference_ties": 0,
-            "points_for": 191,
-            "points_against": 142,
+            "points_for": 215,
+            "points_against": 151,
             "opponents": [
               "BAL",
               "CHI",
               "CIN",
               "CLE",
               "GB",
-              "KC"
+              "KC",
+              "TB"
             ],
             "defeated_opponents": [
               "BAL",
               "CHI",
               "CIN",
-              "CLE"
+              "CLE",
+              "TB"
             ],
-            "strength_of_schedule": 0.47435897435897434,
-            "strength_of_victory": 0.38461538461538464,
-            "tiebreaker_explanation": "Head-to-head vs all tied teams"
+            "strength_of_schedule": 0.5108695652173914,
+            "strength_of_victory": 0.45454545454545453,
+            "tiebreaker_explanation": null
           },
           {
             "team": "CHI",
@@ -612,7 +614,7 @@
               "NO",
               "WAS"
             ],
-            "strength_of_schedule": 0.4125,
+            "strength_of_schedule": 0.4268292682926829,
             "strength_of_victory": 0.3392857142857143,
             "tiebreaker_explanation": null
           },
@@ -653,18 +655,19 @@
             "team": "TB",
             "rank": 1,
             "wins": 5,
-            "losses": 1,
+            "losses": 2,
             "ties": 0,
             "division_wins": 1,
             "division_losses": 0,
             "division_ties": 0,
             "conference_wins": 3,
-            "conference_losses": 1,
+            "conference_losses": 2,
             "conference_ties": 0,
-            "points_for": 165,
-            "points_against": 151,
+            "points_for": 174,
+            "points_against": 175,
             "opponents": [
               "ATL",
+              "DET",
               "HOU",
               "NYJ",
               "PHI",
@@ -678,7 +681,7 @@
               "SEA",
               "SF"
             ],
-            "strength_of_schedule": 0.5,
+            "strength_of_schedule": 0.5333333333333333,
             "strength_of_victory": 0.45161290322580644,
             "tiebreaker_explanation": null
           },
@@ -742,7 +745,7 @@
               "MIN",
               "WAS"
             ],
-            "strength_of_schedule": 0.6153846153846154,
+            "strength_of_schedule": 0.6,
             "strength_of_victory": 0.5263157894736842,
             "tiebreaker_explanation": null
           },
@@ -808,8 +811,8 @@
               "MIN",
               "TB"
             ],
-            "strength_of_schedule": 0.5851063829787234,
-            "strength_of_victory": 0.6212121212121212,
+            "strength_of_schedule": 0.5729166666666666,
+            "strength_of_victory": 0.6029411764705882,
             "tiebreaker_explanation": null
           },
           {
@@ -939,7 +942,7 @@
               "NO",
               "SEA"
             ],
-            "strength_of_schedule": 0.5217391304347826,
+            "strength_of_schedule": 0.5106382978723404,
             "strength_of_victory": 0.45454545454545453,
             "tiebreaker_explanation": "Head-to-head vs all tied teams"
           },
@@ -1005,7 +1008,7 @@
               "NO",
               "PIT"
             ],
-            "strength_of_schedule": 0.525,
+            "strength_of_schedule": 0.5121951219512195,
             "strength_of_victory": 0.4074074074074074,
             "tiebreaker_explanation": null
           },
@@ -1314,8 +1317,8 @@
             "LV",
             "NYG"
           ],
-          "strength_of_schedule": 0.46808510638297873,
-          "strength_of_victory": 0.34615384615384615,
+          "strength_of_schedule": 0.4791666666666667,
+          "strength_of_victory": 0.37037037037037035,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
         },
@@ -1347,7 +1350,7 @@
             "JAX",
             "PIT"
           ],
-          "strength_of_schedule": 0.5888888888888889,
+          "strength_of_schedule": 0.5978260869565217,
           "strength_of_victory": 0.5,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
@@ -1377,7 +1380,7 @@
             "BAL",
             "TEN"
           ],
-          "strength_of_schedule": 0.48484848484848486,
+          "strength_of_schedule": 0.47058823529411764,
           "strength_of_victory": 0.15384615384615385,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
@@ -1441,7 +1444,7 @@
             "GB",
             "MIA"
           ],
-          "strength_of_schedule": 0.4659090909090909,
+          "strength_of_schedule": 0.4777777777777778,
           "strength_of_victory": 0.4230769230769231,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
@@ -1471,7 +1474,7 @@
           "defeated_opponents": [
             "CLE"
           ],
-          "strength_of_schedule": 0.5526315789473685,
+          "strength_of_schedule": 0.5641025641025641,
           "strength_of_victory": 0.2857142857142857,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
@@ -1562,7 +1565,7 @@
             "TB"
           ],
           "defeated_opponents": [],
-          "strength_of_schedule": 0.5760869565217391,
+          "strength_of_schedule": 0.5638297872340425,
           "strength_of_victory": 0.0,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
@@ -1570,42 +1573,8 @@
       ],
       "NFC": [
         {
-          "team": "TB",
-          "rank": 1,
-          "wins": 5,
-          "losses": 1,
-          "ties": 0,
-          "division_wins": 1,
-          "division_losses": 0,
-          "division_ties": 0,
-          "conference_wins": 3,
-          "conference_losses": 1,
-          "conference_ties": 0,
-          "points_for": 165,
-          "points_against": 151,
-          "opponents": [
-            "ATL",
-            "HOU",
-            "NYJ",
-            "PHI",
-            "SEA",
-            "SF"
-          ],
-          "defeated_opponents": [
-            "ATL",
-            "HOU",
-            "NYJ",
-            "SEA",
-            "SF"
-          ],
-          "strength_of_schedule": 0.5,
-          "strength_of_victory": 0.45161290322580644,
-          "tiebreaker_explanation": null,
-          "conference_tiebreaker_explanation": null
-        },
-        {
           "team": "GB",
-          "rank": 2,
+          "rank": 1,
           "wins": 4,
           "losses": 1,
           "ties": 1,
@@ -1631,14 +1600,14 @@
             "DET",
             "WAS"
           ],
-          "strength_of_schedule": 0.4268292682926829,
-          "strength_of_victory": 0.4444444444444444,
+          "strength_of_schedule": 0.44047619047619047,
+          "strength_of_victory": 0.4642857142857143,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
         },
         {
           "team": "SF",
-          "rank": 3,
+          "rank": 2,
           "wins": 5,
           "losses": 2,
           "ties": 0,
@@ -1666,14 +1635,14 @@
             "NO",
             "SEA"
           ],
-          "strength_of_schedule": 0.5217391304347826,
+          "strength_of_schedule": 0.5106382978723404,
           "strength_of_victory": 0.45454545454545453,
           "tiebreaker_explanation": "Head-to-head vs all tied teams",
           "conference_tiebreaker_explanation": "Better conference record (5-1-0)"
         },
         {
           "team": "PHI",
-          "rank": 4,
+          "rank": 3,
           "wins": 5,
           "losses": 2,
           "ties": 0,
@@ -1701,14 +1670,84 @@
             "MIN",
             "TB"
           ],
-          "strength_of_schedule": 0.5851063829787234,
-          "strength_of_victory": 0.6212121212121212,
+          "strength_of_schedule": 0.5729166666666666,
+          "strength_of_victory": 0.6029411764705882,
           "tiebreaker_explanation": null,
-          "conference_tiebreaker_explanation": "Head-to-head vs LAR"
+          "conference_tiebreaker_explanation": "Better conference record (4-1-0)"
+        },
+        {
+          "team": "DET",
+          "rank": 4,
+          "wins": 5,
+          "losses": 2,
+          "ties": 0,
+          "division_wins": 1,
+          "division_losses": 1,
+          "division_ties": 0,
+          "conference_wins": 2,
+          "conference_losses": 1,
+          "conference_ties": 0,
+          "points_for": 215,
+          "points_against": 151,
+          "opponents": [
+            "BAL",
+            "CHI",
+            "CIN",
+            "CLE",
+            "GB",
+            "KC",
+            "TB"
+          ],
+          "defeated_opponents": [
+            "BAL",
+            "CHI",
+            "CIN",
+            "CLE",
+            "TB"
+          ],
+          "strength_of_schedule": 0.5108695652173914,
+          "strength_of_victory": 0.45454545454545453,
+          "tiebreaker_explanation": null,
+          "conference_tiebreaker_explanation": "Better conference record (2-1-0)"
+        },
+        {
+          "team": "TB",
+          "rank": 5,
+          "wins": 5,
+          "losses": 2,
+          "ties": 0,
+          "division_wins": 1,
+          "division_losses": 0,
+          "division_ties": 0,
+          "conference_wins": 3,
+          "conference_losses": 2,
+          "conference_ties": 0,
+          "points_for": 174,
+          "points_against": 175,
+          "opponents": [
+            "ATL",
+            "DET",
+            "HOU",
+            "NYJ",
+            "PHI",
+            "SEA",
+            "SF"
+          ],
+          "defeated_opponents": [
+            "ATL",
+            "HOU",
+            "NYJ",
+            "SEA",
+            "SF"
+          ],
+          "strength_of_schedule": 0.5333333333333333,
+          "strength_of_victory": 0.45161290322580644,
+          "tiebreaker_explanation": null,
+          "conference_tiebreaker_explanation": "Better conference record (3-2-0)"
         },
         {
           "team": "LAR",
-          "rank": 5,
+          "rank": 6,
           "wins": 5,
           "losses": 2,
           "ties": 0,
@@ -1743,7 +1782,7 @@
         },
         {
           "team": "CHI",
-          "rank": 6,
+          "rank": 7,
           "wins": 4,
           "losses": 2,
           "ties": 0,
@@ -1769,14 +1808,14 @@
             "NO",
             "WAS"
           ],
-          "strength_of_schedule": 0.4125,
+          "strength_of_schedule": 0.4268292682926829,
           "strength_of_victory": 0.3392857142857143,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": "Better conference record (3-2-0)"
         },
         {
           "team": "SEA",
-          "rank": 7,
+          "rank": 8,
           "wins": 4,
           "losses": 2,
           "ties": 0,
@@ -1802,43 +1841,10 @@
             "NO",
             "PIT"
           ],
-          "strength_of_schedule": 0.525,
+          "strength_of_schedule": 0.5121951219512195,
           "strength_of_victory": 0.4074074074074074,
           "tiebreaker_explanation": null,
-          "conference_tiebreaker_explanation": "Better strength of victory (0.407)"
-        },
-        {
-          "team": "DET",
-          "rank": 8,
-          "wins": 4,
-          "losses": 2,
-          "ties": 0,
-          "division_wins": 1,
-          "division_losses": 1,
-          "division_ties": 0,
-          "conference_wins": 1,
-          "conference_losses": 1,
-          "conference_ties": 0,
-          "points_for": 191,
-          "points_against": 142,
-          "opponents": [
-            "BAL",
-            "CHI",
-            "CIN",
-            "CLE",
-            "GB",
-            "KC"
-          ],
-          "defeated_opponents": [
-            "BAL",
-            "CHI",
-            "CIN",
-            "CLE"
-          ],
-          "strength_of_schedule": 0.47435897435897434,
-          "strength_of_victory": 0.38461538461538464,
-          "tiebreaker_explanation": "Head-to-head vs all tied teams",
-          "conference_tiebreaker_explanation": "Better strength of victory (0.407)"
+          "conference_tiebreaker_explanation": null
         },
         {
           "team": "CAR",
@@ -1934,7 +1940,7 @@
             "MIN",
             "WAS"
           ],
-          "strength_of_schedule": 0.6153846153846154,
+          "strength_of_schedule": 0.6,
           "strength_of_victory": 0.5263157894736842,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": "Head-to-head vs MIN"
@@ -2385,8 +2391,8 @@
               "LV",
               "NYG"
             ],
-            "strength_of_schedule": 0.46808510638297873,
-            "strength_of_victory": 0.34615384615384615,
+            "strength_of_schedule": 0.4791666666666667,
+            "strength_of_victory": 0.37037037037037035,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
           },
@@ -2419,7 +2425,7 @@
               "JAX",
               "PIT"
             ],
-            "strength_of_schedule": 0.5888888888888889,
+            "strength_of_schedule": 0.5978260869565217,
             "strength_of_victory": 0.5,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
@@ -2450,7 +2456,7 @@
               "BAL",
               "TEN"
             ],
-            "strength_of_schedule": 0.48484848484848486,
+            "strength_of_schedule": 0.47058823529411764,
             "strength_of_victory": 0.15384615384615385,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
@@ -2516,7 +2522,7 @@
               "GB",
               "MIA"
             ],
-            "strength_of_schedule": 0.4659090909090909,
+            "strength_of_schedule": 0.4777777777777778,
             "strength_of_victory": 0.4230769230769231,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
@@ -2547,7 +2553,7 @@
             "defeated_opponents": [
               "CLE"
             ],
-            "strength_of_schedule": 0.5526315789473685,
+            "strength_of_schedule": 0.5641025641025641,
             "strength_of_victory": 0.2857142857142857,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
@@ -2641,7 +2647,7 @@
               "TB"
             ],
             "defeated_opponents": [],
-            "strength_of_schedule": 0.5760869565217391,
+            "strength_of_schedule": 0.5638297872340425,
             "strength_of_victory": 0.0,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
@@ -2651,43 +2657,8 @@
       "NFC": {
         "division_winners": [
           {
-            "team": "TB",
-            "seed": 1,
-            "division": "NFC South",
-            "wins": 5,
-            "losses": 1,
-            "ties": 0,
-            "division_wins": 1,
-            "division_losses": 0,
-            "division_ties": 0,
-            "conference_wins": 3,
-            "conference_losses": 1,
-            "conference_ties": 0,
-            "points_for": 165,
-            "points_against": 151,
-            "opponents": [
-              "ATL",
-              "HOU",
-              "NYJ",
-              "PHI",
-              "SEA",
-              "SF"
-            ],
-            "defeated_opponents": [
-              "ATL",
-              "HOU",
-              "NYJ",
-              "SEA",
-              "SF"
-            ],
-            "strength_of_schedule": 0.5,
-            "strength_of_victory": 0.45161290322580644,
-            "tiebreaker_explanation": null,
-            "conference_tiebreaker_explanation": null
-          },
-          {
             "team": "GB",
-            "seed": 2,
+            "seed": 1,
             "division": "NFC North",
             "wins": 4,
             "losses": 1,
@@ -2714,14 +2685,14 @@
               "DET",
               "WAS"
             ],
-            "strength_of_schedule": 0.4268292682926829,
-            "strength_of_victory": 0.4444444444444444,
+            "strength_of_schedule": 0.44047619047619047,
+            "strength_of_victory": 0.4642857142857143,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
           },
           {
             "team": "SF",
-            "seed": 3,
+            "seed": 2,
             "division": "NFC West",
             "wins": 5,
             "losses": 2,
@@ -2750,14 +2721,14 @@
               "NO",
               "SEA"
             ],
-            "strength_of_schedule": 0.5217391304347826,
+            "strength_of_schedule": 0.5106382978723404,
             "strength_of_victory": 0.45454545454545453,
             "tiebreaker_explanation": "Better conference record (5-1-0)",
             "conference_tiebreaker_explanation": "Better conference record (5-1-0)"
           },
           {
             "team": "PHI",
-            "seed": 4,
+            "seed": 3,
             "division": "NFC East",
             "wins": 5,
             "losses": 2,
@@ -2786,16 +2757,88 @@
               "MIN",
               "TB"
             ],
-            "strength_of_schedule": 0.5851063829787234,
-            "strength_of_victory": 0.6212121212121212,
+            "strength_of_schedule": 0.5729166666666666,
+            "strength_of_victory": 0.6029411764705882,
+            "tiebreaker_explanation": "Head-to-head vs all tied teams",
+            "conference_tiebreaker_explanation": "Better conference record (4-1-0)"
+          },
+          {
+            "team": "TB",
+            "seed": 4,
+            "division": "NFC South",
+            "wins": 5,
+            "losses": 2,
+            "ties": 0,
+            "division_wins": 1,
+            "division_losses": 0,
+            "division_ties": 0,
+            "conference_wins": 3,
+            "conference_losses": 2,
+            "conference_ties": 0,
+            "points_for": 174,
+            "points_against": 175,
+            "opponents": [
+              "ATL",
+              "DET",
+              "HOU",
+              "NYJ",
+              "PHI",
+              "SEA",
+              "SF"
+            ],
+            "defeated_opponents": [
+              "ATL",
+              "HOU",
+              "NYJ",
+              "SEA",
+              "SF"
+            ],
+            "strength_of_schedule": 0.5333333333333333,
+            "strength_of_victory": 0.45161290322580644,
             "tiebreaker_explanation": null,
-            "conference_tiebreaker_explanation": "Head-to-head vs LAR"
+            "conference_tiebreaker_explanation": "Better conference record (3-2-0)"
           }
         ],
         "wild_cards": [
           {
-            "team": "LAR",
+            "team": "DET",
             "seed": 5,
+            "division": "NFC North",
+            "wins": 5,
+            "losses": 2,
+            "ties": 0,
+            "division_wins": 1,
+            "division_losses": 1,
+            "division_ties": 0,
+            "conference_wins": 2,
+            "conference_losses": 1,
+            "conference_ties": 0,
+            "points_for": 215,
+            "points_against": 151,
+            "opponents": [
+              "BAL",
+              "CHI",
+              "CIN",
+              "CLE",
+              "GB",
+              "KC",
+              "TB"
+            ],
+            "defeated_opponents": [
+              "BAL",
+              "CHI",
+              "CIN",
+              "CLE",
+              "TB"
+            ],
+            "strength_of_schedule": 0.5108695652173914,
+            "strength_of_victory": 0.45454545454545453,
+            "tiebreaker_explanation": "Better conference record (2-1-0)",
+            "conference_tiebreaker_explanation": "Better conference record (2-1-0)"
+          },
+          {
+            "team": "LAR",
+            "seed": 6,
             "division": "NFC West",
             "wins": 5,
             "losses": 2,
@@ -2831,7 +2874,7 @@
           },
           {
             "team": "CHI",
-            "seed": 6,
+            "seed": 7,
             "division": "NFC North",
             "wins": 4,
             "losses": 2,
@@ -2858,14 +2901,16 @@
               "NO",
               "WAS"
             ],
-            "strength_of_schedule": 0.4125,
+            "strength_of_schedule": 0.4268292682926829,
             "strength_of_victory": 0.3392857142857143,
             "tiebreaker_explanation": "Better conference record (3-2-0)",
             "conference_tiebreaker_explanation": "Better conference record (3-2-0)"
-          },
+          }
+        ],
+        "eliminated": [
           {
             "team": "SEA",
-            "seed": 7,
+            "seed": 8,
             "division": "NFC West",
             "wins": 4,
             "losses": 2,
@@ -2892,46 +2937,10 @@
               "NO",
               "PIT"
             ],
-            "strength_of_schedule": 0.525,
+            "strength_of_schedule": 0.5121951219512195,
             "strength_of_victory": 0.4074074074074074,
-            "tiebreaker_explanation": "Better strength of victory (0.407)",
-            "conference_tiebreaker_explanation": "Better strength of victory (0.407)"
-          }
-        ],
-        "eliminated": [
-          {
-            "team": "DET",
-            "seed": 8,
-            "division": "NFC North",
-            "wins": 4,
-            "losses": 2,
-            "ties": 0,
-            "division_wins": 1,
-            "division_losses": 1,
-            "division_ties": 0,
-            "conference_wins": 1,
-            "conference_losses": 1,
-            "conference_ties": 0,
-            "points_for": 191,
-            "points_against": 142,
-            "opponents": [
-              "BAL",
-              "CHI",
-              "CIN",
-              "CLE",
-              "GB",
-              "KC"
-            ],
-            "defeated_opponents": [
-              "BAL",
-              "CHI",
-              "CIN",
-              "CLE"
-            ],
-            "strength_of_schedule": 0.47435897435897434,
-            "strength_of_victory": 0.38461538461538464,
-            "tiebreaker_explanation": "Better strength of victory (0.407)",
-            "conference_tiebreaker_explanation": "Better strength of victory (0.407)"
+            "tiebreaker_explanation": null,
+            "conference_tiebreaker_explanation": null
           },
           {
             "team": "CAR",
@@ -3030,7 +3039,7 @@
               "MIN",
               "WAS"
             ],
-            "strength_of_schedule": 0.6153846153846154,
+            "strength_of_schedule": 0.6,
             "strength_of_victory": 0.5263157894736842,
             "tiebreaker_explanation": "Head-to-head vs MIN",
             "conference_tiebreaker_explanation": "Head-to-head vs MIN"
