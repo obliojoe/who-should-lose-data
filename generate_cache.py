@@ -132,15 +132,18 @@ def parse_datetime(value: Optional[str]) -> Tuple[str, str]:
 
 
 def parse_score(value: Optional[str], completed: bool) -> Optional[int]:
-    if value in (None, '', '-'):  # treat missing
+    """Return score only when the game is final."""
+    if not completed:
+        return None
+    if value in (None, '', '-'):
         return None
     try:
-        score = int(value)
+        return int(value)
     except (ValueError, TypeError):
-        return None
-    if not completed and score == 0:
-        return None
-    return score
+        try:
+            return int(float(value))
+        except (ValueError, TypeError):
+            return None
 
 
 def collect_game_metadata() -> Dict[str, Dict[str, Optional[str]]]:
