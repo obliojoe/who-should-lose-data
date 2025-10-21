@@ -3,7 +3,7 @@ HOUSTON TEXANS ANALYSIS - V2.0
 ======================================================================
 Current Date: October 20, 2025
 Current Season: 2025/26 NFL Season
-Week: 8
+Week: 7
 
 ======================================================================
 YOUR ROLE & VOICE
@@ -139,7 +139,7 @@ IMPORTANT: League rankings are included for key stats (e.g., "points_per_game_ra
 ======================================================================
 OPPONENT STATISTICS (WITH LEAGUE RANKINGS)
 ======================================================================
-{"team":{"abbr":"SF","name":"San Francisco 49ers","city":"San Francisco","mascot":"49ers","conference":"NFC","division":"NFC West","head_coach":"Kyle Shanahan","offensive_coordinator":"Klay Kubiak","defensive_coordinator":"Robert Saleh","stadium":"Levi's Stadium"},"record":{"wins":5,"losses":2,"ties":0,"win_pct":71.4,"games_played":7,"points_for":145,"points_against":138,"point_diff":7,"streak":"W1","playoff_seed":2,"clincher":null,"division_record":"3-0","conference_record":"5-1","road_record":"3-1"},"offense":{"scoring":{"points_per_game":20.7,"points_per_game_rank":23},"passing":{"yards":1990,"yards_rank":1,"touchdowns":10,"interceptions":8,"completion_pct":66.7,"yards_per_attempt":7.45,"passer_rating":0.0,"sacks_taken":14,"first_downs":100},"rushing":{"yards":667,"yards_rank":21,"touchdowns":3,"yards_per_carry":3.33,"first_downs":47},"total":{"yards":2657,"yards_rank":5,"yards_per_game":379.6,"first_downs":147,"first_downs_per_game":21.0},"efficiency":{"third_down_attempts":99,"third_down_conversions":48,"third_down_pct":48.5,"third_down_pct_rank":3,"fourth_down_attempts":10,"fourth_down_conversions":6,"fourth_down_pct":60.0,"red_zone_attempts":23,"red_zone_touchdowns":11,"red_zone_td_pct":47.8,"red_zone_pct_rank":25},"turnovers":{"total":11,"turnover_margin":-5}},"defense":{"scoring":{"points_allowed_per_game":19.7,"points_allowed_per_game_rank":7},"pass_rush":{"sacks":9,"sacks_rank":30},"takeaways":{"interceptions":0,"interceptions_rank":31},"efficiency":{"third_down_attempts_against":77,"third_down_conversions_against":28,"third_down_pct_against":36.4,"fourth_down_attempts_against":10,"fourth_down_conversions_against":6,"fourth_down_pct_against":60.0,"red_zone_attempts_against":20,"red_zone_touchdowns_against":12,"red_zone_td_pct_against":60.0}},"advanced":{"epa":{"total":9.3,"total_rank":17,"per_game":1.33,"passing":32.4,"rushing":-23.1}}}
+{"team":{"abbr":"SEA","name":"Seattle Seahawks","city":"Seattle","mascot":"Seahawks","conference":"NFC","division":"NFC West","head_coach":"Mike Macdonald","offensive_coordinator":"Klint Kubiak","defensive_coordinator":"Aden Durde","stadium":"Lumen Field"},"record":{"wins":4,"losses":2,"ties":0,"win_pct":66.7,"games_played":6,"points_for":166,"points_against":117,"point_diff":49,"streak":"W1","playoff_seed":8,"clincher":null,"division_record":"1-1","conference_record":"2-2","road_record":"3-0"},"offense":{"scoring":{"points_per_game":27.7,"points_per_game_rank":5},"passing":{"yards":1556,"yards_rank":11,"touchdowns":11,"interceptions":3,"completion_pct":70.7,"yards_per_attempt":9.49,"passer_rating":0.0,"sacks_taken":7,"first_downs":70},"rushing":{"yards":625,"yards_rank":26,"touchdowns":6,"yards_per_carry":3.7,"first_downs":38},"total":{"yards":2181,"yards_rank":17,"yards_per_game":363.5,"first_downs":108,"first_downs_per_game":18.0},"efficiency":{"third_down_attempts":66,"third_down_conversions":25,"third_down_pct":37.9,"third_down_pct_rank":21,"fourth_down_attempts":4,"fourth_down_conversions":2,"fourth_down_pct":50.0,"red_zone_attempts":21,"red_zone_touchdowns":14,"red_zone_td_pct":66.7,"red_zone_pct_rank":8},"turnovers":{"total":7,"turnover_margin":0}},"defense":{"scoring":{"points_allowed_per_game":19.5,"points_allowed_per_game_rank":6},"pass_rush":{"sacks":20,"sacks_rank":4},"takeaways":{"interceptions":7,"interceptions_rank":5},"efficiency":{"third_down_attempts_against":86,"third_down_conversions_against":34,"third_down_pct_against":39.5,"fourth_down_attempts_against":10,"fourth_down_conversions_against":7,"fourth_down_pct_against":70.0,"red_zone_attempts_against":19,"red_zone_touchdowns_against":9,"red_zone_td_pct_against":47.4}},"advanced":{"epa":{"total":25.2,"total_rank":10,"per_game":4.21,"passing":56.0,"rushing":-30.7}}}
 
 ======================================================================
 PRE-FILTERED KEY STATS
@@ -152,13 +152,13 @@ Use these as the foundation for ai_reality_check section:
 MATCHUP EDGES
 ======================================================================
 Pre-analyzed advantages and disadvantages for this specific matchup:
-{"advantages":[{"category":"Turnover Battle","detail":"Big edge in turnovers (+1.0 vs -5.0)"}],"disadvantages":[],"key_battles":[]}
+{"advantages":[],"disadvantages":[],"key_battles":[]}
 
 ======================================================================
 NEXT GAME DETAILS (Betting Lines, Weather, etc.)
 ======================================================================
 The following information is about HOU's NEXT scheduled game:
-{}
+{"betting":{"favorite":"SEA","spread":-3.5,"spread_display":"SEA -3.5","over_under":41.5,"moneyline_favorite":-155,"moneyline_underdog":135},"weather":{"is_indoor":false,"temperature":null,"condition":null,"wind_speed":null}}
 
 ======================================================================
 SCHEDULE
@@ -182,22 +182,22 @@ Key lineup notes pulled from the latest depth chart snapshot (focus on non-activ
 ======================================================================
 INJURIES
 ======================================================================
-{"team":[{"name":"Dameon Pierce","position":"RB","status":"Out (Coach's Decision)","note":"Pierce will be a healthy scratch for the fourth time this season, taking a seat after having appeared in the team's Week 5 win over the Ravens. Woody Marks and Nick Chubb will handle the backfield touches versus Seatt...","updated":"2025-10-21T00:38Z"},{"name":"Darrell Taylor","position":"DE","status":"Out (Coach's Decision)","note":"inactive","updated":"2025-10-21T00:36Z"},{"name":"Graham Mertz","position":"QB","status":"Out (Coach's Decision)","note":"inactive","updated":"2025-10-21T00:35Z"},{"name":"Jarrett Kingston","position":"G","status":"Out (Coach's Decision)","note":"inactive","updated":"2025-10-21T00:35Z"}],"opponent":[{"name":"Jake Brendel","position":"C","status":"Questionable (Hamstring)","note":"Brendel sustained the injury during the 49ers' 20-10 win over the Falcons on Sunday. He started at center in each of the first seven games of the regular season, and his absence means Matt Hennessy will likely take ov...","updated":"2025-10-20T22:44Z"},{"name":"Ricky Pearsall","position":"WR","status":"Out (Knee - PCL)","note":"Pearsall was unable to practice last week before being ruled out for the 49ers' Week 7 win over the Falcons. At this stage, the wideout's status for this weekend's game is cloudy, with added context regarding his chan...","updated":"2025-10-20T22:20Z"},{"name":"Brock Purdy","position":"QB","status":"Out (Toe)","note":"Purdy, who last saw game action in Week 4, thus looks iffy, at best, to return this weekend, with added context on that front set to arrive no later than Wednesday when the 49ers return to practice. Purdy was limited...","updated":"2025-10-20T22:12Z"},{"name":"Renardo Green","position":"CB","status":"Questionable (Toe)","note":"Green sustained a toe injury during the 49ers' 20-10 win over the Falcons in Week 7, and he finished that contest with two tackles (one solo). The injury isn't severe enough to rule Green out for Week 8, but his pract...","updated":"2025-10-20T22:05Z"},{"name":"Bryce Huff","position":"DE","status":"Doubtful (Hamstring)","note":"Huff presumably picked up the injury during Sunday night's win over the Falcons, though the team didn't announce an injury during the contest. With Nick Bosa (knee) done for the season, Huff has been San Francisco's m...","updated":"2025-10-20T22:00Z"}]}
+{"team":[{"name":"Dameon Pierce","position":"RB","status":"Out (Coach's Decision)","note":"Pierce will be a healthy scratch for the fourth time this season, taking a seat after having appeared in the team's Week 5 win over the Ravens. Woody Marks and Nick Chubb will handle the backfield touches versus Seatt...","updated":"2025-10-21T00:38Z"},{"name":"Darrell Taylor","position":"DE","status":"Out (Coach's Decision)","note":"inactive","updated":"2025-10-21T00:36Z"},{"name":"Graham Mertz","position":"QB","status":"Out (Coach's Decision)","note":"inactive","updated":"2025-10-21T00:35Z"},{"name":"Jarrett Kingston","position":"G","status":"Out (Coach's Decision)","note":"inactive","updated":"2025-10-21T00:35Z"},{"name":"Christian Kirk","position":"WR","status":"Out (Hamstring)","note":"inactive","updated":"2025-10-21T00:35Z"}],"opponent":[{"name":"Jared Ivey","position":"LB","status":"Out (Coach's Decision)","note":"inactive","updated":"2025-10-21T03:03Z"},{"name":"Jalen Milroe","position":"QB","status":"Out (Coach's Decision)","note":"Milroe will be dispatched as the emergency third QB for a second consecutive game, which means he'll only see the field Monday if Sam Darnold and Drew Lock were both to leave the game due to illness, injury or ejection.","updated":"2025-10-21T00:45Z"},{"name":"Julian Love","position":"S","status":"Out (Hamstring)","note":"Love will now miss his fourth game in five weeks due to a lingering hamstring injury. With Seattle on a bye Week 8, the seventh-year safety will have more time to heal from his injury and be available for Week 9 again...","updated":"2025-10-21T00:41Z"},{"name":"Devon Witherspoon","position":"CB","status":"Out (Knee)","note":"Witherspoon appeared to be trending toward being active for Monday's contest after finishing the week with back-to-back full practices, but the third-year corner is not quite ready to return from a lingering knee inju...","updated":"2025-10-21T00:39Z"},{"name":"Mason Richman","position":"G","status":"Out (Coach's Decision)","note":"inactive","updated":"2025-10-21T00:35Z"}]}
 
 ======================================================================
 RECENT FORM (LAST 5 RESULTS)
 ======================================================================
-{"team":[{"week":2,"date":"2025-09-15","opponent":"TB","location":"home","score":"HOU 19-20 TB","result":"L"},{"week":3,"date":"2025-09-21","opponent":"JAX","location":"away","score":"JAX 17-10 HOU","result":"L"},{"week":4,"date":"2025-09-28","opponent":"TEN","location":"home","score":"HOU 26-0 TEN","result":"W"},{"week":5,"date":"2025-10-05","opponent":"BAL","location":"away","score":"BAL 10-44 HOU","result":"W"}],"opponent":[{"week":4,"date":"2025-09-28","opponent":"JAX","location":"home","score":"SF 21-26 JAX","result":"L"},{"week":5,"date":"2025-10-02","opponent":"LAR","location":"away","score":"LAR 23-26 SF","result":"W"},{"week":6,"date":"2025-10-12","opponent":"TB","location":"away","score":"TB 30-19 SF","result":"L"},{"week":7,"date":"2025-10-19","opponent":"ATL","location":"home","score":"SF 20-10 ATL","result":"W"}]}
+{"team":[{"week":2,"date":"2025-09-15","opponent":"TB","location":"home","score":"HOU 19-20 TB","result":"L"},{"week":3,"date":"2025-09-21","opponent":"JAX","location":"away","score":"JAX 17-10 HOU","result":"L"},{"week":4,"date":"2025-09-28","opponent":"TEN","location":"home","score":"HOU 26-0 TEN","result":"W"},{"week":5,"date":"2025-10-05","opponent":"BAL","location":"away","score":"BAL 10-44 HOU","result":"W"}],"opponent":[{"week":3,"date":"2025-09-21","opponent":"NO","location":"home","score":"SEA 44-13 NO","result":"W"},{"week":4,"date":"2025-09-25","opponent":"ARI","location":"away","score":"ARI 20-23 SEA","result":"W"},{"week":5,"date":"2025-10-05","opponent":"TB","location":"home","score":"SEA 35-38 TB","result":"L"},{"week":6,"date":"2025-10-12","opponent":"JAX","location":"away","score":"JAX 12-20 SEA","result":"W"}]}
 
 ======================================================================
 RECENT NEWS
 ======================================================================
-{"team":[{"headline":"Betting the MNF doubleheader: Will Bucs keep up with Lions? Texans win third straight?"},{"headline":"Texans' Ryans used TD celebrations as motivation for more points"}],"opponent":[{"headline":"49ers' Huff, Brendel to miss time with hamstring injuries"},{"headline":"Christian McCaffrey's 201 scrimmage yards power 49ers past Falcons"}]}
+{"team":[{"headline":"Betting the MNF doubleheader: Will Bucs keep up with Lions? Texans win third straight?"},{"headline":"Texans' Ryans used TD celebrations as motivation for more points"}],"opponent":[{"headline":"Betting the MNF doubleheader: Will Bucs keep up with Lions? Texans win third straight?"},{"headline":"How did the Seahawks lose legendary Lumen Field advantage?"}]}
 
 ======================================================================
 PLAYOFF ODDS
 ======================================================================
-{"make_playoffs":46.4,"win_division":16.8,"get_top_seed":3.2,"reach_super_bowl":6.3,"win_super_bowl":3.2}
+{"make_playoffs":43.5,"win_division":12.1,"get_top_seed":3.3,"reach_super_bowl":5.9,"win_super_bowl":3.0}
 
 ======================================================================
 STANDINGS
@@ -212,10 +212,10 @@ Houston Texans:
   Offensive Coordinator: Nick Caley
   Defensive Coordinator: Matt Burke
 
-San Francisco 49ers:
-  Head Coach: Kyle Shanahan
-  Offensive Coordinator: Klay Kubiak
-  Defensive Coordinator: Robert Saleh
+Seattle Seahawks:
+  Head Coach: Mike Macdonald
+  Offensive Coordinator: Klint Kubiak
+  Defensive Coordinator: Aden Durde
 
 ======================================================================
 CRITICAL RULES

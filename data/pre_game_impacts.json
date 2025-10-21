@@ -60571,20 +60571,20 @@
     },
     "401772826": {
       "ARI": {
-        "impact": 0.36,
+        "impact": 0.38,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 0.45,
-            "division_pp": 0.27,
-            "top_seed_pp": -0.0,
-            "seed_value_pp": 0.18
+            "playoff_pp": 0.5,
+            "division_pp": 0.22,
+            "top_seed_pp": 0.01,
+            "seed_value_pp": 0.17
           },
           "weighted_contributions": {
-            "playoff": 0.263,
-            "division": 0.079,
-            "top_seed": -0.0,
-            "seed": 0.021
+            "playoff": 0.295,
+            "division": 0.065,
+            "top_seed": 0.0,
+            "seed": 0.02
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -60601,13 +60601,13 @@
           "top_seed": "eliminated"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 2.8,
-          "away_playoff_pct": 3.3,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 2.7,
+          "away_playoff_pct": 3.2,
           "home_division_pct": 0.3,
-          "away_division_pct": 0.6,
+          "away_division_pct": 0.5,
           "home_top_seed_pct": 0.0,
           "away_top_seed_pct": 0.0,
           "home_sb_appearance_pct": 0.1,
@@ -60615,37 +60615,38 @@
           "home_sb_win_pct": 0.0,
           "away_sb_win_pct": 0.0,
           "home_seeds": {
-            "7": 1.5,
+            "7": 1.37,
             "6": 0.78,
-            "5": 0.25,
-            "4": 0.19,
+            "4": 0.15,
+            "5": 0.28,
             "3": 0.09,
-            "2": 0.03,
+            "2": 0.04,
             "1": 0.0
           },
           "away_seeds": {
-            "7": 1.55,
-            "6": 0.85,
-            "5": 0.31,
-            "4": 0.36,
-            "2": 0.06,
-            "3": 0.15
+            "7": 1.65,
+            "5": 0.25,
+            "6": 0.8,
+            "4": 0.32,
+            "2": 0.04,
+            "3": 0.15,
+            "1": 0.01
           },
           "home_expected_seed_value": 0.8,
-          "away_expected_seed_value": 1.0,
+          "away_expected_seed_value": 0.9,
           "seed_value_impact": 0.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 0.45,
-              "division_pp": 0.27,
-              "top_seed_pp": -0.0,
-              "seed_value_pp": 0.18
+              "playoff_pp": 0.5,
+              "division_pp": 0.22,
+              "top_seed_pp": 0.01,
+              "seed_value_pp": 0.17
             },
             "weighted_contributions": {
-              "playoff": 0.263,
-              "division": 0.079,
-              "top_seed": -0.0,
-              "seed": 0.021
+              "playoff": 0.295,
+              "division": 0.065,
+              "top_seed": 0.0,
+              "seed": 0.02
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -60666,20 +60667,20 @@
         }
       },
       "ATL": {
-        "impact": 2.28,
+        "impact": 1.54,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 3.96,
-            "division_pp": 0.53,
-            "top_seed_pp": 0.12,
-            "seed_value_pp": 1.46
+            "playoff_pp": 2.72,
+            "division_pp": 0.23,
+            "top_seed_pp": 0.14,
+            "seed_value_pp": 0.99
           },
           "weighted_contributions": {
-            "playoff": 1.982,
-            "division": 0.132,
-            "top_seed": 0.018,
-            "seed": 0.146
+            "playoff": 1.36,
+            "division": 0.059,
+            "top_seed": 0.021,
+            "seed": 0.099
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -60696,52 +60697,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 36.6,
-          "away_playoff_pct": 40.5,
-          "home_division_pct": 10.1,
-          "away_division_pct": 10.6,
-          "home_top_seed_pct": 1.0,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 36.4,
+          "away_playoff_pct": 39.1,
+          "home_division_pct": 11.1,
+          "away_division_pct": 11.4,
+          "home_top_seed_pct": 0.9,
           "away_top_seed_pct": 1.1,
-          "home_sb_appearance_pct": 2.1,
-          "away_sb_appearance_pct": 2.3,
+          "home_sb_appearance_pct": 2.0,
+          "away_sb_appearance_pct": 2.2,
           "home_sb_win_pct": 0.8,
           "away_sb_win_pct": 0.9,
           "home_seeds": {
-            "3": 3.17,
-            "5": 7.18,
-            "7": 10.43,
-            "6": 8.88,
-            "2": 2.0,
-            "4": 3.92,
-            "1": 0.99
+            "5": 6.25,
+            "6": 8.56,
+            "4": 4.48,
+            "7": 10.44,
+            "2": 2.28,
+            "3": 3.43,
+            "1": 0.94
           },
           "away_seeds": {
-            "5": 8.13,
-            "2": 2.43,
-            "7": 11.24,
-            "6": 10.56,
-            "3": 3.32,
-            "4": 3.74,
-            "1": 1.11
+            "7": 11.12,
+            "4": 4.1,
+            "5": 6.86,
+            "1": 1.08,
+            "6": 9.76,
+            "3": 3.64,
+            "2": 2.54
           },
-          "home_expected_seed_value": 13.2,
-          "away_expected_seed_value": 14.7,
-          "seed_value_impact": 1.5,
+          "home_expected_seed_value": 13.3,
+          "away_expected_seed_value": 14.3,
+          "seed_value_impact": 1.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 3.96,
-              "division_pp": 0.53,
-              "top_seed_pp": 0.12,
-              "seed_value_pp": 1.46
+              "playoff_pp": 2.72,
+              "division_pp": 0.23,
+              "top_seed_pp": 0.14,
+              "seed_value_pp": 0.99
             },
             "weighted_contributions": {
-              "playoff": 1.982,
-              "division": 0.132,
-              "top_seed": 0.018,
-              "seed": 0.146
+              "playoff": 1.36,
+              "division": 0.059,
+              "top_seed": 0.021,
+              "seed": 0.099
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -60762,23 +60763,23 @@
         }
       },
       "BAL": {
-        "impact": 0.28,
+        "impact": 0.65,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -0.57,
-            "division_pp": 0.13,
-            "top_seed_pp": -0.05,
-            "seed_value_pp": -0.15
+            "playoff_pp": -1.05,
+            "division_pp": -0.37,
+            "top_seed_pp": -0.0,
+            "seed_value_pp": -0.34
           },
           "weighted_contributions": {
-            "playoff": -0.287,
-            "division": 0.033,
-            "top_seed": -0.007,
-            "seed": -0.015
+            "playoff": -0.525,
+            "division": -0.093,
+            "top_seed": -0.001,
+            "seed": -0.034
           },
           "dominant_reason": "playoff",
-          "conflict": true
+          "conflict": false
         },
         "utility_weights": {
           "playoff": 0.5,
@@ -60792,55 +60793,55 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 22.3,
-          "away_playoff_pct": 21.8,
-          "home_division_pct": 18.0,
-          "away_division_pct": 18.1,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 22.4,
+          "away_playoff_pct": 21.4,
+          "home_division_pct": 18.2,
+          "away_division_pct": 17.8,
           "home_top_seed_pct": 0.1,
-          "away_top_seed_pct": 0.0,
-          "home_sb_appearance_pct": 2.8,
-          "away_sb_appearance_pct": 2.7,
-          "home_sb_win_pct": 1.4,
-          "away_sb_win_pct": 1.3,
+          "away_top_seed_pct": 0.1,
+          "home_sb_appearance_pct": 3.0,
+          "away_sb_appearance_pct": 2.6,
+          "home_sb_win_pct": 1.6,
+          "away_sb_win_pct": 1.5,
           "home_seeds": {
-            "4": 15.3,
-            "7": 2.86,
-            "3": 2.18,
-            "5": 0.3,
-            "6": 1.18,
-            "2": 0.44,
-            "1": 0.07
+            "4": 15.5,
+            "6": 1.08,
+            "3": 2.23,
+            "7": 2.9,
+            "5": 0.26,
+            "2": 0.4,
+            "1": 0.06
           },
           "away_seeds": {
-            "4": 15.64,
-            "7": 2.42,
-            "3": 2.05,
-            "6": 0.99,
-            "2": 0.41,
+            "4": 15.26,
+            "6": 0.95,
             "5": 0.22,
-            "1": 0.03
+            "3": 2.11,
+            "7": 2.39,
+            "2": 0.39,
+            "1": 0.05
           },
-          "home_expected_seed_value": 9.4,
-          "away_expected_seed_value": 9.3,
-          "seed_value_impact": 0.1,
+          "home_expected_seed_value": 9.5,
+          "away_expected_seed_value": 9.1,
+          "seed_value_impact": 0.3,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -0.57,
-              "division_pp": 0.13,
-              "top_seed_pp": -0.05,
-              "seed_value_pp": -0.15
+              "playoff_pp": -1.05,
+              "division_pp": -0.37,
+              "top_seed_pp": -0.0,
+              "seed_value_pp": -0.34
             },
             "weighted_contributions": {
-              "playoff": -0.287,
-              "division": 0.033,
-              "top_seed": -0.007,
-              "seed": -0.015
+              "playoff": -0.525,
+              "division": -0.093,
+              "top_seed": -0.001,
+              "seed": -0.034
             },
             "dominant_reason": "playoff",
-            "conflict": true
+            "conflict": false
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -60858,20 +60859,20 @@
         }
       },
       "BUF": {
-        "impact": 1.54,
+        "impact": 1.34,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -2.08,
-            "division_pp": -1.0,
-            "top_seed_pp": -0.71,
-            "seed_value_pp": -1.46
+            "playoff_pp": -1.96,
+            "division_pp": -0.26,
+            "top_seed_pp": -1.13,
+            "seed_value_pp": -1.29
           },
           "weighted_contributions": {
-            "playoff": -1.038,
-            "division": -0.25,
-            "top_seed": -0.106,
-            "seed": -0.146
+            "playoff": -0.98,
+            "division": -0.065,
+            "top_seed": -0.169,
+            "seed": -0.129
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -60888,52 +60889,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 85.7,
-          "away_playoff_pct": 83.6,
-          "home_division_pct": 45.0,
-          "away_division_pct": 44.0,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 85.8,
+          "away_playoff_pct": 83.8,
+          "home_division_pct": 44.5,
+          "away_division_pct": 44.2,
           "home_top_seed_pct": 18.6,
-          "away_top_seed_pct": 17.9,
-          "home_sb_appearance_pct": 18.6,
-          "away_sb_appearance_pct": 17.6,
-          "home_sb_win_pct": 10.4,
+          "away_top_seed_pct": 17.4,
+          "home_sb_appearance_pct": 18.9,
+          "away_sb_appearance_pct": 17.4,
+          "home_sb_win_pct": 10.7,
           "away_sb_win_pct": 9.9,
           "home_seeds": {
-            "7": 8.58,
-            "1": 18.57,
-            "5": 20.22,
-            "3": 8.64,
-            "2": 13.36,
-            "6": 11.88,
-            "4": 4.41
+            "2": 12.99,
+            "1": 18.56,
+            "3": 8.6,
+            "7": 8.53,
+            "6": 12.26,
+            "5": 20.49,
+            "4": 4.33
           },
           "away_seeds": {
-            "3": 8.62,
-            "5": 18.18,
-            "1": 17.86,
+            "6": 12.4,
+            "5": 18.24,
+            "1": 17.43,
+            "7": 8.95,
+            "2": 13.24,
             "4": 4.52,
-            "6": 12.21,
-            "2": 12.98,
-            "7": 9.22
+            "3": 9.04
           },
-          "home_expected_seed_value": 47.9,
+          "home_expected_seed_value": 47.8,
           "away_expected_seed_value": 46.5,
-          "seed_value_impact": 1.5,
+          "seed_value_impact": 1.3,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -2.08,
-              "division_pp": -1.0,
-              "top_seed_pp": -0.71,
-              "seed_value_pp": -1.46
+              "playoff_pp": -1.96,
+              "division_pp": -0.26,
+              "top_seed_pp": -1.13,
+              "seed_value_pp": -1.29
             },
             "weighted_contributions": {
-              "playoff": -1.038,
-              "division": -0.25,
-              "top_seed": -0.106,
-              "seed": -0.146
+              "playoff": -0.98,
+              "division": -0.065,
+              "top_seed": -0.169,
+              "seed": -0.129
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -60954,20 +60955,20 @@
         }
       },
       "CAR": {
-        "impact": 1.25,
+        "impact": 1.53,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 2.3,
-            "division_pp": 0.07,
-            "top_seed_pp": 0.07,
-            "seed_value_pp": 0.7
+            "playoff_pp": 2.73,
+            "division_pp": 0.29,
+            "top_seed_pp": 0.04,
+            "seed_value_pp": 0.87
           },
           "weighted_contributions": {
-            "playoff": 1.15,
-            "division": 0.017,
-            "top_seed": 0.01,
-            "seed": 0.07
+            "playoff": 1.363,
+            "division": 0.073,
+            "top_seed": 0.006,
+            "seed": 0.087
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -60984,13 +60985,13 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 20.5,
-          "away_playoff_pct": 22.8,
-          "home_division_pct": 4.7,
-          "away_division_pct": 4.7,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 20.7,
+          "away_playoff_pct": 23.4,
+          "home_division_pct": 9.1,
+          "away_division_pct": 9.4,
           "home_top_seed_pct": 0.3,
           "away_top_seed_pct": 0.4,
           "home_sb_appearance_pct": 0.4,
@@ -60998,38 +60999,38 @@
           "home_sb_win_pct": 0.1,
           "away_sb_win_pct": 0.1,
           "home_seeds": {
-            "7": 7.04,
-            "6": 5.12,
-            "4": 2.26,
-            "5": 3.62,
-            "1": 0.32,
-            "2": 0.78,
-            "3": 1.31
+            "4": 5.48,
+            "6": 3.83,
+            "5": 1.79,
+            "2": 1.03,
+            "3": 2.29,
+            "7": 5.98,
+            "1": 0.32
           },
           "away_seeds": {
-            "6": 5.89,
-            "2": 0.83,
-            "7": 7.96,
-            "5": 4.17,
-            "3": 1.34,
-            "4": 2.18,
-            "1": 0.39
+            "4": 5.39,
+            "6": 4.74,
+            "7": 7.03,
+            "3": 2.45,
+            "5": 2.26,
+            "1": 0.36,
+            "2": 1.21
           },
-          "home_expected_seed_value": 6.8,
-          "away_expected_seed_value": 7.5,
-          "seed_value_impact": 0.7,
+          "home_expected_seed_value": 7.7,
+          "away_expected_seed_value": 8.6,
+          "seed_value_impact": 0.9,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 2.3,
-              "division_pp": 0.07,
-              "top_seed_pp": 0.07,
-              "seed_value_pp": 0.7
+              "playoff_pp": 2.73,
+              "division_pp": 0.29,
+              "top_seed_pp": 0.04,
+              "seed_value_pp": 0.87
             },
             "weighted_contributions": {
-              "playoff": 1.15,
-              "division": 0.017,
-              "top_seed": 0.01,
-              "seed": 0.07
+              "playoff": 1.363,
+              "division": 0.073,
+              "top_seed": 0.006,
+              "seed": 0.087
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -61050,23 +61051,23 @@
         }
       },
       "CHI": {
-        "impact": 1.13,
+        "impact": 1.87,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 2.22,
-            "division_pp": -0.22,
-            "top_seed_pp": 0.04,
-            "seed_value_pp": 0.69
+            "playoff_pp": 3.16,
+            "division_pp": 0.59,
+            "top_seed_pp": 0.16,
+            "seed_value_pp": 1.21
           },
           "weighted_contributions": {
-            "playoff": 1.111,
-            "division": -0.054,
-            "top_seed": 0.007,
-            "seed": 0.069
+            "playoff": 1.578,
+            "division": 0.148,
+            "top_seed": 0.024,
+            "seed": 0.121
           },
           "dominant_reason": "playoff",
-          "conflict": true
+          "conflict": false
         },
         "utility_weights": {
           "playoff": 0.5,
@@ -61080,55 +61081,55 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 35.6,
-          "away_playoff_pct": 37.8,
-          "home_division_pct": 7.2,
-          "away_division_pct": 6.9,
-          "home_top_seed_pct": 1.3,
-          "away_top_seed_pct": 1.3,
-          "home_sb_appearance_pct": 1.8,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 34.2,
+          "away_playoff_pct": 37.4,
+          "home_division_pct": 5.8,
+          "away_division_pct": 6.4,
+          "home_top_seed_pct": 1.4,
+          "away_top_seed_pct": 1.5,
+          "home_sb_appearance_pct": 1.6,
           "away_sb_appearance_pct": 1.8,
           "home_sb_win_pct": 0.6,
-          "away_sb_win_pct": 0.6,
+          "away_sb_win_pct": 0.7,
           "home_seeds": {
-            "7": 10.48,
-            "3": 2.05,
-            "5": 8.47,
-            "6": 9.48,
-            "1": 1.28,
-            "4": 1.98,
-            "2": 1.86
+            "6": 9.67,
+            "3": 1.54,
+            "7": 10.88,
+            "5": 7.9,
+            "2": 1.56,
+            "4": 1.29,
+            "1": 1.37
           },
           "away_seeds": {
-            "7": 10.7,
-            "6": 10.43,
-            "5": 9.74,
-            "2": 1.83,
-            "3": 1.99,
-            "4": 1.81,
-            "1": 1.33
+            "6": 10.67,
+            "7": 11.44,
+            "5": 8.9,
+            "3": 1.71,
+            "4": 1.29,
+            "2": 1.82,
+            "1": 1.53
           },
-          "home_expected_seed_value": 12.6,
-          "away_expected_seed_value": 13.3,
-          "seed_value_impact": 0.7,
+          "home_expected_seed_value": 11.8,
+          "away_expected_seed_value": 13.0,
+          "seed_value_impact": 1.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 2.22,
-              "division_pp": -0.22,
-              "top_seed_pp": 0.04,
-              "seed_value_pp": 0.69
+              "playoff_pp": 3.16,
+              "division_pp": 0.59,
+              "top_seed_pp": 0.16,
+              "seed_value_pp": 1.21
             },
             "weighted_contributions": {
-              "playoff": 1.111,
-              "division": -0.054,
-              "top_seed": 0.007,
-              "seed": 0.069
+              "playoff": 1.578,
+              "division": 0.148,
+              "top_seed": 0.024,
+              "seed": 0.121
             },
             "dominant_reason": "playoff",
-            "conflict": true
+            "conflict": false
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -61146,20 +61147,20 @@
         }
       },
       "CIN": {
-        "impact": 1.18,
+        "impact": 0.95,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -2.06,
-            "division_pp": -0.21,
+            "playoff_pp": -1.58,
+            "division_pp": -0.27,
             "top_seed_pp": -0.18,
-            "seed_value_pp": -0.72
+            "seed_value_pp": -0.61
           },
           "weighted_contributions": {
-            "playoff": -1.029,
-            "division": -0.052,
-            "top_seed": -0.028,
-            "seed": -0.072
+            "playoff": -0.792,
+            "division": -0.068,
+            "top_seed": -0.027,
+            "seed": -0.061
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -61176,52 +61177,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 42.1,
-          "away_playoff_pct": 40.0,
-          "home_division_pct": 30.4,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 41.9,
+          "away_playoff_pct": 40.4,
+          "home_division_pct": 30.5,
           "away_division_pct": 30.2,
           "home_top_seed_pct": 1.0,
-          "away_top_seed_pct": 0.8,
-          "home_sb_appearance_pct": 2.5,
-          "away_sb_appearance_pct": 2.2,
-          "home_sb_win_pct": 1.0,
+          "away_top_seed_pct": 0.9,
+          "home_sb_appearance_pct": 2.3,
+          "away_sb_appearance_pct": 2.4,
+          "home_sb_win_pct": 0.9,
           "away_sb_win_pct": 0.9,
           "home_seeds": {
-            "4": 20.58,
-            "6": 3.73,
-            "7": 6.34,
-            "3": 6.16,
-            "2": 2.67,
-            "5": 1.64,
-            "1": 0.96
+            "4": 20.51,
+            "7": 6.07,
+            "3": 6.18,
+            "6": 3.81,
+            "2": 2.77,
+            "1": 1.04,
+            "5": 1.57
           },
           "away_seeds": {
-            "7": 5.53,
-            "6": 3.04,
-            "2": 2.52,
-            "5": 1.29,
-            "4": 20.61,
-            "3": 6.27,
-            "1": 0.78
+            "2": 2.63,
+            "3": 6.09,
+            "4": 20.65,
+            "7": 5.46,
+            "1": 0.86,
+            "6": 3.15,
+            "5": 1.53
           },
-          "home_expected_seed_value": 18.4,
-          "away_expected_seed_value": 17.7,
-          "seed_value_impact": 0.7,
+          "home_expected_seed_value": 18.5,
+          "away_expected_seed_value": 17.9,
+          "seed_value_impact": 0.6,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -2.06,
-              "division_pp": -0.21,
+              "playoff_pp": -1.58,
+              "division_pp": -0.27,
               "top_seed_pp": -0.18,
-              "seed_value_pp": -0.72
+              "seed_value_pp": -0.61
             },
             "weighted_contributions": {
-              "playoff": -1.029,
-              "division": -0.052,
-              "top_seed": -0.028,
-              "seed": -0.072
+              "playoff": -0.792,
+              "division": -0.068,
+              "top_seed": -0.027,
+              "seed": -0.061
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -61242,20 +61243,20 @@
         }
       },
       "CLE": {
-        "impact": 0.15,
+        "impact": 0.17,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -0.23,
-            "division_pp": -0.02,
+            "playoff_pp": -0.2,
+            "division_pp": -0.14,
             "top_seed_pp": -0.0,
-            "seed_value_pp": -0.07
+            "seed_value_pp": -0.08
           },
           "weighted_contributions": {
-            "playoff": -0.136,
-            "division": -0.005,
+            "playoff": -0.115,
+            "division": -0.04,
             "top_seed": -0.0,
-            "seed": -0.008
+            "seed": -0.01
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -61272,12 +61273,12 @@
           "top_seed": "eliminated"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
           "home_playoff_pct": 2.1,
           "away_playoff_pct": 1.9,
-          "home_division_pct": 1.1,
+          "home_division_pct": 1.2,
           "away_division_pct": 1.1,
           "home_top_seed_pct": 0.0,
           "away_top_seed_pct": 0.0,
@@ -61286,20 +61287,20 @@
           "home_sb_win_pct": 0.0,
           "away_sb_win_pct": 0.0,
           "home_seeds": {
-            "4": 1.03,
-            "3": 0.1,
-            "7": 0.67,
-            "6": 0.26,
+            "7": 0.52,
+            "4": 1.08,
+            "6": 0.27,
+            "3": 0.12,
             "5": 0.07,
-            "2": 0.01,
+            "2": 0.03,
             "1": 0.0
           },
           "away_seeds": {
-            "7": 0.52,
-            "3": 0.09,
-            "4": 1.01,
-            "6": 0.22,
-            "5": 0.04,
+            "4": 1.0,
+            "7": 0.58,
+            "6": 0.18,
+            "5": 0.05,
+            "3": 0.1,
             "2": 0.01
           },
           "home_expected_seed_value": 0.8,
@@ -61307,16 +61308,16 @@
           "seed_value_impact": 0.1,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -0.23,
-              "division_pp": -0.02,
+              "playoff_pp": -0.2,
+              "division_pp": -0.14,
               "top_seed_pp": -0.0,
-              "seed_value_pp": -0.07
+              "seed_value_pp": -0.08
             },
             "weighted_contributions": {
-              "playoff": -0.136,
-              "division": -0.005,
+              "playoff": -0.115,
+              "division": -0.04,
               "top_seed": -0.0,
-              "seed": -0.008
+              "seed": -0.01
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -61337,23 +61338,23 @@
         }
       },
       "DAL": {
-        "impact": 0.31,
+        "impact": 0.24,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 0.48,
-            "division_pp": 0.04,
-            "top_seed_pp": 0.01,
-            "seed_value_pp": 0.15
+            "playoff_pp": 0.39,
+            "division_pp": -0.0,
+            "top_seed_pp": 0.0,
+            "seed_value_pp": 0.1
           },
           "weighted_contributions": {
-            "playoff": 0.283,
-            "division": 0.01,
+            "playoff": 0.228,
+            "division": -0.001,
             "top_seed": 0.0,
-            "seed": 0.018
+            "seed": 0.012
           },
           "dominant_reason": "playoff",
-          "conflict": false
+          "conflict": true
         },
         "utility_weights": {
           "playoff": 0.5882352941176471,
@@ -61367,55 +61368,55 @@
           "top_seed": "eliminated"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
           "home_playoff_pct": 4.4,
-          "away_playoff_pct": 4.9,
+          "away_playoff_pct": 4.8,
           "home_division_pct": 2.6,
           "away_division_pct": 2.6,
           "home_top_seed_pct": 0.0,
           "away_top_seed_pct": 0.0,
           "home_sb_appearance_pct": 0.1,
-          "away_sb_appearance_pct": 0.1,
+          "away_sb_appearance_pct": 0.2,
           "home_sb_win_pct": 0.0,
-          "away_sb_win_pct": 0.0,
+          "away_sb_win_pct": 0.1,
           "home_seeds": {
-            "4": 2.21,
-            "5": 0.14,
-            "7": 1.23,
-            "3": 0.3,
+            "7": 1.16,
             "6": 0.49,
+            "4": 2.19,
+            "3": 0.35,
             "2": 0.06,
+            "5": 0.16,
             "1": 0.01
           },
           "away_seeds": {
-            "3": 0.35,
-            "7": 1.43,
-            "4": 2.17,
-            "6": 0.65,
-            "5": 0.22,
+            "6": 0.66,
+            "4": 2.21,
+            "7": 1.31,
+            "5": 0.23,
+            "3": 0.31,
             "2": 0.07,
-            "1": 0.03
+            "1": 0.01
           },
-          "home_expected_seed_value": 1.6,
+          "home_expected_seed_value": 1.7,
           "away_expected_seed_value": 1.8,
-          "seed_value_impact": 0.2,
+          "seed_value_impact": 0.1,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 0.48,
-              "division_pp": 0.04,
-              "top_seed_pp": 0.01,
-              "seed_value_pp": 0.15
+              "playoff_pp": 0.39,
+              "division_pp": -0.0,
+              "top_seed_pp": 0.0,
+              "seed_value_pp": 0.1
             },
             "weighted_contributions": {
-              "playoff": 0.283,
-              "division": 0.01,
+              "playoff": 0.228,
+              "division": -0.001,
               "top_seed": 0.0,
-              "seed": 0.018
+              "seed": 0.012
             },
             "dominant_reason": "playoff",
-            "conflict": false
+            "conflict": true
           },
           "utility_weights": {
             "playoff": 0.5882352941176471,
@@ -61433,23 +61434,23 @@
         }
       },
       "DEN": {
-        "impact": 1.9,
+        "impact": 1.26,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -3.0,
-            "division_pp": -0.35,
-            "top_seed_pp": -0.94,
-            "seed_value_pp": -1.71
+            "playoff_pp": -2.44,
+            "division_pp": 0.77,
+            "top_seed_pp": -0.86,
+            "seed_value_pp": -1.08
           },
           "weighted_contributions": {
-            "playoff": -1.501,
-            "division": -0.088,
-            "top_seed": -0.14,
-            "seed": -0.171
+            "playoff": -1.218,
+            "division": 0.191,
+            "top_seed": -0.13,
+            "seed": -0.108
           },
           "dominant_reason": "playoff",
-          "conflict": false
+          "conflict": true
         },
         "utility_weights": {
           "playoff": 0.5,
@@ -61463,55 +61464,55 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 81.3,
-          "away_playoff_pct": 78.3,
-          "home_division_pct": 38.7,
-          "away_division_pct": 38.4,
-          "home_top_seed_pct": 12.5,
-          "away_top_seed_pct": 11.6,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 81.2,
+          "away_playoff_pct": 78.7,
+          "home_division_pct": 38.3,
+          "away_division_pct": 39.1,
+          "home_top_seed_pct": 12.3,
+          "away_top_seed_pct": 11.4,
           "home_sb_appearance_pct": 15.6,
-          "away_sb_appearance_pct": 14.8,
-          "home_sb_win_pct": 8.3,
+          "away_sb_appearance_pct": 14.4,
+          "home_sb_win_pct": 7.9,
           "away_sb_win_pct": 7.6,
           "home_seeds": {
-            "4": 3.64,
-            "3": 9.92,
-            "6": 14.24,
-            "7": 10.53,
-            "2": 12.67,
-            "5": 17.76,
-            "1": 12.52
+            "3": 9.79,
+            "7": 10.81,
+            "1": 12.3,
+            "2": 12.69,
+            "5": 17.67,
+            "4": 3.52,
+            "6": 14.38
           },
           "away_seeds": {
-            "3": 10.21,
-            "2": 12.47,
-            "7": 11.12,
-            "6": 13.44,
-            "5": 15.32,
-            "1": 11.58,
-            "4": 4.13
+            "3": 10.85,
+            "2": 12.89,
+            "4": 3.89,
+            "6": 13.48,
+            "1": 11.44,
+            "5": 15.33,
+            "7": 10.85
           },
-          "home_expected_seed_value": 41.8,
-          "away_expected_seed_value": 40.1,
-          "seed_value_impact": 1.7,
+          "home_expected_seed_value": 41.6,
+          "away_expected_seed_value": 40.5,
+          "seed_value_impact": 1.1,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -3.0,
-              "division_pp": -0.35,
-              "top_seed_pp": -0.94,
-              "seed_value_pp": -1.71
+              "playoff_pp": -2.44,
+              "division_pp": 0.77,
+              "top_seed_pp": -0.86,
+              "seed_value_pp": -1.08
             },
             "weighted_contributions": {
-              "playoff": -1.501,
-              "division": -0.088,
-              "top_seed": -0.14,
-              "seed": -0.171
+              "playoff": -1.218,
+              "division": 0.191,
+              "top_seed": -0.13,
+              "seed": -0.108
             },
             "dominant_reason": "playoff",
-            "conflict": false
+            "conflict": true
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -61529,20 +61530,20 @@
         }
       },
       "DET": {
-        "impact": 0.79,
+        "impact": 0.92,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 1.34,
-            "division_pp": -0.19,
-            "top_seed_pp": 0.6,
-            "seed_value_pp": 0.84
+            "playoff_pp": 1.71,
+            "division_pp": -0.26,
+            "top_seed_pp": 0.33,
+            "seed_value_pp": 0.79
           },
           "weighted_contributions": {
-            "playoff": 0.668,
-            "division": -0.048,
-            "top_seed": 0.09,
-            "seed": 0.084
+            "playoff": 0.857,
+            "division": -0.066,
+            "top_seed": 0.049,
+            "seed": 0.079
           },
           "dominant_reason": "playoff",
           "conflict": true
@@ -61559,52 +61560,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 78.6,
-          "away_playoff_pct": 79.9,
-          "home_division_pct": 43.3,
-          "away_division_pct": 43.1,
-          "home_top_seed_pct": 12.5,
-          "away_top_seed_pct": 13.1,
-          "home_sb_appearance_pct": 17.7,
-          "away_sb_appearance_pct": 18.5,
-          "home_sb_win_pct": 9.7,
-          "away_sb_win_pct": 10.2,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 85.6,
+          "away_playoff_pct": 87.3,
+          "home_division_pct": 47.6,
+          "away_division_pct": 47.4,
+          "home_top_seed_pct": 18.3,
+          "away_top_seed_pct": 18.6,
+          "home_sb_appearance_pct": 18.1,
+          "away_sb_appearance_pct": 18.7,
+          "home_sb_win_pct": 9.9,
+          "away_sb_win_pct": 10.0,
           "home_seeds": {
-            "5": 14.5,
-            "2": 11.95,
-            "3": 10.45,
-            "7": 9.2,
-            "1": 12.47,
-            "4": 8.4,
-            "6": 11.58
+            "2": 13.53,
+            "1": 18.29,
+            "7": 8.16,
+            "4": 5.66,
+            "5": 17.41,
+            "3": 10.16,
+            "6": 12.36
           },
           "away_seeds": {
-            "5": 16.27,
-            "1": 13.07,
-            "3": 10.39,
-            "6": 11.87,
-            "2": 11.93,
-            "7": 8.66,
-            "4": 7.7
+            "4": 5.22,
+            "7": 7.78,
+            "5": 19.85,
+            "1": 18.61,
+            "2": 13.48,
+            "6": 12.28,
+            "3": 10.06
           },
-          "home_expected_seed_value": 41.4,
-          "away_expected_seed_value": 42.3,
+          "home_expected_seed_value": 48.2,
+          "away_expected_seed_value": 49.0,
           "seed_value_impact": 0.8,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.34,
-              "division_pp": -0.19,
-              "top_seed_pp": 0.6,
-              "seed_value_pp": 0.84
+              "playoff_pp": 1.71,
+              "division_pp": -0.26,
+              "top_seed_pp": 0.33,
+              "seed_value_pp": 0.79
             },
             "weighted_contributions": {
-              "playoff": 0.668,
-              "division": -0.048,
-              "top_seed": 0.09,
-              "seed": 0.084
+              "playoff": 0.857,
+              "division": -0.066,
+              "top_seed": 0.049,
+              "seed": 0.079
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -61625,23 +61626,23 @@
         }
       },
       "GB": {
-        "impact": 1.13,
+        "impact": 0.9,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 1.87,
-            "division_pp": 0.07,
-            "top_seed_pp": 0.4,
-            "seed_value_pp": 1.16
+            "playoff_pp": 1.77,
+            "division_pp": -0.72,
+            "top_seed_pp": 0.8,
+            "seed_value_pp": 0.76
           },
           "weighted_contributions": {
-            "playoff": 0.935,
-            "division": 0.017,
-            "top_seed": 0.061,
-            "seed": 0.116
+            "playoff": 0.884,
+            "division": -0.18,
+            "top_seed": 0.121,
+            "seed": 0.076
           },
           "dominant_reason": "playoff",
-          "conflict": false
+          "conflict": true
         },
         "utility_weights": {
           "playoff": 0.5,
@@ -61655,55 +61656,55 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 76.8,
-          "away_playoff_pct": 78.7,
-          "home_division_pct": 42.4,
-          "away_division_pct": 42.5,
-          "home_top_seed_pct": 14.5,
-          "away_top_seed_pct": 14.9,
-          "home_sb_appearance_pct": 14.6,
-          "away_sb_appearance_pct": 14.8,
-          "home_sb_win_pct": 7.2,
-          "away_sb_win_pct": 7.4,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 76.7,
+          "away_playoff_pct": 78.5,
+          "home_division_pct": 40.1,
+          "away_division_pct": 39.4,
+          "home_top_seed_pct": 15.1,
+          "away_top_seed_pct": 15.9,
+          "home_sb_appearance_pct": 14.4,
+          "away_sb_appearance_pct": 14.9,
+          "home_sb_win_pct": 7.4,
+          "away_sb_win_pct": 7.2,
           "home_seeds": {
-            "1": 14.45,
-            "6": 11.17,
-            "3": 9.47,
-            "2": 11.67,
-            "5": 14.6,
-            "7": 8.6,
-            "4": 6.83
+            "6": 11.64,
+            "2": 11.39,
+            "5": 16.11,
+            "1": 15.13,
+            "3": 8.35,
+            "7": 8.83,
+            "4": 5.27
           },
           "away_seeds": {
-            "6": 10.98,
-            "5": 16.78,
-            "3": 9.1,
-            "7": 8.41,
-            "2": 12.38,
-            "1": 14.86,
-            "4": 6.15
+            "7": 8.61,
+            "6": 12.24,
+            "1": 15.94,
+            "4": 4.98,
+            "2": 10.82,
+            "5": 18.21,
+            "3": 7.69
           },
-          "home_expected_seed_value": 41.8,
-          "away_expected_seed_value": 42.9,
-          "seed_value_impact": 1.2,
+          "home_expected_seed_value": 41.7,
+          "away_expected_seed_value": 42.4,
+          "seed_value_impact": 0.8,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.87,
-              "division_pp": 0.07,
-              "top_seed_pp": 0.4,
-              "seed_value_pp": 1.16
+              "playoff_pp": 1.77,
+              "division_pp": -0.72,
+              "top_seed_pp": 0.8,
+              "seed_value_pp": 0.76
             },
             "weighted_contributions": {
-              "playoff": 0.935,
-              "division": 0.017,
-              "top_seed": 0.061,
-              "seed": 0.116
+              "playoff": 0.884,
+              "division": -0.18,
+              "top_seed": 0.121,
+              "seed": 0.076
             },
             "dominant_reason": "playoff",
-            "conflict": false
+            "conflict": true
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -61721,20 +61722,20 @@
         }
       },
       "HOU": {
-        "impact": 16.9,
+        "impact": 16.95,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 24.32,
-            "division_pp": 10.95,
-            "top_seed_pp": 4.7,
-            "seed_value_pp": 13.0
+            "playoff_pp": 24.28,
+            "division_pp": 11.24,
+            "top_seed_pp": 4.66,
+            "seed_value_pp": 13.05
           },
           "weighted_contributions": {
-            "playoff": 12.162,
-            "division": 2.737,
-            "top_seed": 0.705,
-            "seed": 1.3
+            "playoff": 12.138,
+            "division": 2.809,
+            "top_seed": 0.699,
+            "seed": 1.305
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -61751,52 +61752,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 32.8,
-          "away_playoff_pct": 57.1,
-          "home_division_pct": 7.2,
-          "away_division_pct": 18.2,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 33.1,
+          "away_playoff_pct": 57.4,
+          "home_division_pct": 7.3,
+          "away_division_pct": 18.5,
           "home_top_seed_pct": 1.3,
-          "away_top_seed_pct": 6.0,
-          "home_sb_appearance_pct": 3.8,
-          "away_sb_appearance_pct": 8.6,
-          "home_sb_win_pct": 1.9,
-          "away_sb_win_pct": 4.4,
+          "away_top_seed_pct": 5.9,
+          "home_sb_appearance_pct": 3.7,
+          "away_sb_appearance_pct": 8.8,
+          "home_sb_win_pct": 1.7,
+          "away_sb_win_pct": 4.8,
           "home_seeds": {
-            "1": 1.28,
-            "6": 8.57,
-            "5": 7.03,
-            "7": 9.95,
-            "4": 1.64,
-            "2": 2.08,
-            "3": 2.24
+            "7": 9.94,
+            "5": 7.23,
+            "2": 2.11,
+            "6": 8.67,
+            "3": 2.32,
+            "1": 1.27,
+            "4": 1.59
           },
           "away_seeds": {
-            "7": 12.04,
-            "5": 14.13,
-            "6": 12.76,
-            "1": 5.98,
-            "2": 5.59,
-            "3": 4.32,
-            "4": 2.29
+            "6": 12.67,
+            "1": 5.93,
+            "7": 11.94,
+            "5": 14.28,
+            "3": 4.54,
+            "4": 2.38,
+            "2": 5.68
           },
-          "home_expected_seed_value": 11.8,
-          "away_expected_seed_value": 24.8,
+          "home_expected_seed_value": 12.0,
+          "away_expected_seed_value": 25.0,
           "seed_value_impact": 13.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 24.32,
-              "division_pp": 10.95,
-              "top_seed_pp": 4.7,
-              "seed_value_pp": 13.0
+              "playoff_pp": 24.28,
+              "division_pp": 11.24,
+              "top_seed_pp": 4.66,
+              "seed_value_pp": 13.05
             },
             "weighted_contributions": {
-              "playoff": 12.162,
-              "division": 2.737,
-              "top_seed": 0.705,
-              "seed": 1.3
+              "playoff": 12.138,
+              "division": 2.809,
+              "top_seed": 0.699,
+              "seed": 1.305
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -61817,20 +61818,20 @@
         }
       },
       "IND": {
-        "impact": 3.2,
+        "impact": 3.53,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -1.64,
-            "division_pp": -7.85,
-            "top_seed_pp": -0.93,
-            "seed_value_pp": -2.8
+            "playoff_pp": -2.02,
+            "division_pp": -8.49,
+            "top_seed_pp": -0.57,
+            "seed_value_pp": -3.09
           },
           "weighted_contributions": {
-            "playoff": -0.819,
-            "division": -1.963,
-            "top_seed": -0.139,
-            "seed": -0.28
+            "playoff": -1.009,
+            "division": -2.123,
+            "top_seed": -0.085,
+            "seed": -0.309
           },
           "dominant_reason": "division",
           "conflict": false
@@ -61847,52 +61848,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 90.7,
-          "away_playoff_pct": 89.1,
-          "home_division_pct": 74.8,
-          "away_division_pct": 67.0,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 91.2,
+          "away_playoff_pct": 89.2,
+          "home_division_pct": 75.2,
+          "away_division_pct": 66.7,
           "home_top_seed_pct": 29.0,
-          "away_top_seed_pct": 28.0,
-          "home_sb_appearance_pct": 10.3,
-          "away_sb_appearance_pct": 10.0,
+          "away_top_seed_pct": 28.4,
+          "home_sb_appearance_pct": 10.4,
+          "away_sb_appearance_pct": 9.9,
           "home_sb_win_pct": 4.4,
-          "away_sb_win_pct": 4.3,
+          "away_sb_win_pct": 4.1,
           "home_seeds": {
-            "3": 17.45,
-            "6": 5.63,
-            "2": 20.35,
-            "1": 28.95,
-            "7": 5.12,
-            "4": 8.06,
-            "5": 5.13
+            "6": 5.71,
+            "2": 20.55,
+            "1": 28.99,
+            "3": 17.64,
+            "4": 7.98,
+            "5": 5.11,
+            "7": 5.22
           },
           "away_seeds": {
-            "6": 7.67,
-            "1": 28.02,
-            "2": 18.85,
-            "5": 8.21,
-            "4": 5.48,
-            "3": 14.61,
-            "7": 6.22
+            "3": 14.33,
+            "1": 28.42,
+            "4": 5.61,
+            "2": 18.32,
+            "5": 8.5,
+            "6": 7.54,
+            "7": 6.48
           },
-          "home_expected_seed_value": 62.1,
+          "home_expected_seed_value": 62.4,
           "away_expected_seed_value": 59.3,
-          "seed_value_impact": 2.8,
+          "seed_value_impact": 3.1,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -1.64,
-              "division_pp": -7.85,
-              "top_seed_pp": -0.93,
-              "seed_value_pp": -2.8
+              "playoff_pp": -2.02,
+              "division_pp": -8.49,
+              "top_seed_pp": -0.57,
+              "seed_value_pp": -3.09
             },
             "weighted_contributions": {
-              "playoff": -0.819,
-              "division": -1.963,
-              "top_seed": -0.139,
-              "seed": -0.28
+              "playoff": -1.009,
+              "division": -2.123,
+              "top_seed": -0.085,
+              "seed": -0.309
             },
             "dominant_reason": "division",
             "conflict": false
@@ -61913,116 +61914,20 @@
         }
       },
       "JAX": {
-        "impact": 3.16,
+        "impact": 2.61,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -4.31,
-            "division_pp": -3.06,
-            "top_seed_pp": -0.23,
-            "seed_value_pp": -2.04
+            "playoff_pp": -3.5,
+            "division_pp": -2.73,
+            "top_seed_pp": 0.01,
+            "seed_value_pp": -1.76
           },
           "weighted_contributions": {
-            "playoff": -2.153,
-            "division": -0.766,
-            "top_seed": -0.034,
-            "seed": -0.204
-          },
-          "dominant_reason": "playoff",
-          "conflict": false
-        },
-        "utility_weights": {
-          "playoff": 0.5,
-          "division": 0.25,
-          "top_seed": 0.15,
-          "seed": 0.1
-        },
-        "clinch_state": {
-          "playoffs": "open",
-          "division": "open",
-          "top_seed": "open"
-        },
-        "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 51.7,
-          "away_playoff_pct": 47.4,
-          "home_division_pct": 17.9,
-          "away_division_pct": 14.8,
-          "home_top_seed_pct": 3.3,
-          "away_top_seed_pct": 3.1,
-          "home_sb_appearance_pct": 3.5,
-          "away_sb_appearance_pct": 3.4,
-          "home_sb_win_pct": 1.5,
-          "away_sb_win_pct": 1.3,
-          "home_seeds": {
-            "6": 11.91,
-            "2": 4.98,
-            "5": 9.14,
-            "7": 12.78,
-            "1": 3.29,
-            "4": 4.02,
-            "3": 5.6
-          },
-          "away_seeds": {
-            "3": 4.31,
-            "1": 3.06,
-            "6": 11.36,
-            "7": 12.36,
-            "2": 4.64,
-            "4": 2.81,
-            "5": 8.86
-          },
-          "home_expected_seed_value": 21.2,
-          "away_expected_seed_value": 19.2,
-          "seed_value_impact": 2.0,
-          "impact_breakdown": {
-            "signed_swings": {
-              "playoff_pp": -4.31,
-              "division_pp": -3.06,
-              "top_seed_pp": -0.23,
-              "seed_value_pp": -2.04
-            },
-            "weighted_contributions": {
-              "playoff": -2.153,
-              "division": -0.766,
-              "top_seed": -0.034,
-              "seed": -0.204
-            },
-            "dominant_reason": "playoff",
-            "conflict": false
-          },
-          "utility_weights": {
-            "playoff": 0.5,
-            "division": 0.25,
-            "top_seed": 0.15,
-            "seed": 0.1
-          },
-          "clinch_state": {
-            "playoffs": "open",
-            "division": "open",
-            "top_seed": "open"
-          },
-          "root_against": "HOU",
-          "root_against_seed_only": "HOU"
-        }
-      },
-      "KC": {
-        "impact": 1.58,
-        "root_against": "HOU",
-        "impact_breakdown": {
-          "signed_swings": {
-            "playoff_pp": -2.75,
-            "division_pp": 0.06,
-            "top_seed_pp": -0.62,
-            "seed_value_pp": -1.28
-          },
-          "weighted_contributions": {
-            "playoff": -1.374,
-            "division": 0.016,
-            "top_seed": -0.093,
-            "seed": -0.128
+            "playoff": -1.751,
+            "division": -0.683,
+            "top_seed": 0.002,
+            "seed": -0.176
           },
           "dominant_reason": "playoff",
           "conflict": true
@@ -62039,52 +61944,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 76.9,
-          "away_playoff_pct": 74.1,
-          "home_division_pct": 42.5,
-          "away_division_pct": 42.5,
-          "home_top_seed_pct": 9.6,
-          "away_top_seed_pct": 9.0,
-          "home_sb_appearance_pct": 22.9,
-          "away_sb_appearance_pct": 21.6,
-          "home_sb_win_pct": 13.8,
-          "away_sb_win_pct": 13.0,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 51.1,
+          "away_playoff_pct": 47.6,
+          "home_division_pct": 17.5,
+          "away_division_pct": 14.8,
+          "home_top_seed_pct": 3.1,
+          "away_top_seed_pct": 3.2,
+          "home_sb_appearance_pct": 3.5,
+          "away_sb_appearance_pct": 3.3,
+          "home_sb_win_pct": 1.4,
+          "away_sb_win_pct": 1.3,
           "home_seeds": {
-            "2": 12.67,
-            "3": 13.47,
-            "7": 11.41,
-            "6": 12.0,
-            "1": 9.64,
-            "5": 11.02,
-            "4": 6.67
+            "1": 3.14,
+            "5": 9.03,
+            "7": 12.65,
+            "6": 11.91,
+            "4": 3.87,
+            "3": 5.52,
+            "2": 4.98
           },
           "away_seeds": {
-            "5": 10.1,
-            "4": 7.15,
-            "7": 10.61,
-            "1": 9.02,
-            "3": 14.25,
-            "6": 10.91,
-            "2": 12.1
+            "7": 12.68,
+            "6": 11.71,
+            "5": 8.43,
+            "4": 2.87,
+            "3": 4.44,
+            "1": 3.16,
+            "2": 4.32
           },
-          "home_expected_seed_value": 39.3,
-          "away_expected_seed_value": 38.0,
-          "seed_value_impact": 1.3,
+          "home_expected_seed_value": 20.9,
+          "away_expected_seed_value": 19.1,
+          "seed_value_impact": 1.8,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -2.75,
-              "division_pp": 0.06,
-              "top_seed_pp": -0.62,
-              "seed_value_pp": -1.28
+              "playoff_pp": -3.5,
+              "division_pp": -2.73,
+              "top_seed_pp": 0.01,
+              "seed_value_pp": -1.76
             },
             "weighted_contributions": {
-              "playoff": -1.374,
-              "division": 0.016,
-              "top_seed": -0.093,
-              "seed": -0.128
+              "playoff": -1.751,
+              "division": -0.683,
+              "top_seed": 0.002,
+              "seed": -0.176
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -62104,21 +62009,117 @@
           "root_against_seed_only": "HOU"
         }
       },
-      "LAC": {
-        "impact": 1.84,
+      "KC": {
+        "impact": 2.17,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -3.56,
-            "division_pp": 0.26,
-            "top_seed_pp": -0.05,
-            "seed_value_pp": -1.18
+            "playoff_pp": -3.13,
+            "division_pp": -1.13,
+            "top_seed_pp": -0.9,
+            "seed_value_pp": -1.87
           },
           "weighted_contributions": {
-            "playoff": -1.782,
-            "division": 0.065,
-            "top_seed": -0.007,
-            "seed": -0.118
+            "playoff": -1.564,
+            "division": -0.283,
+            "top_seed": -0.135,
+            "seed": -0.187
+          },
+          "dominant_reason": "playoff",
+          "conflict": false
+        },
+        "utility_weights": {
+          "playoff": 0.5,
+          "division": 0.25,
+          "top_seed": 0.15,
+          "seed": 0.1
+        },
+        "clinch_state": {
+          "playoffs": "open",
+          "division": "open",
+          "top_seed": "open"
+        },
+        "debug_stats": {
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 76.8,
+          "away_playoff_pct": 73.7,
+          "home_division_pct": 42.8,
+          "away_division_pct": 41.7,
+          "home_top_seed_pct": 9.7,
+          "away_top_seed_pct": 8.8,
+          "home_sb_appearance_pct": 22.7,
+          "away_sb_appearance_pct": 21.5,
+          "home_sb_win_pct": 13.7,
+          "away_sb_win_pct": 12.9,
+          "home_seeds": {
+            "7": 11.23,
+            "3": 13.62,
+            "1": 9.67,
+            "6": 11.83,
+            "5": 10.95,
+            "2": 12.72,
+            "4": 6.81
+          },
+          "away_seeds": {
+            "5": 10.18,
+            "7": 10.61,
+            "4": 7.21,
+            "6": 11.22,
+            "3": 13.86,
+            "1": 8.77,
+            "2": 11.85
+          },
+          "home_expected_seed_value": 39.3,
+          "away_expected_seed_value": 37.5,
+          "seed_value_impact": 1.9,
+          "impact_breakdown": {
+            "signed_swings": {
+              "playoff_pp": -3.13,
+              "division_pp": -1.13,
+              "top_seed_pp": -0.9,
+              "seed_value_pp": -1.87
+            },
+            "weighted_contributions": {
+              "playoff": -1.564,
+              "division": -0.283,
+              "top_seed": -0.135,
+              "seed": -0.187
+            },
+            "dominant_reason": "playoff",
+            "conflict": false
+          },
+          "utility_weights": {
+            "playoff": 0.5,
+            "division": 0.25,
+            "top_seed": 0.15,
+            "seed": 0.1
+          },
+          "clinch_state": {
+            "playoffs": "open",
+            "division": "open",
+            "top_seed": "open"
+          },
+          "root_against": "HOU",
+          "root_against_seed_only": "HOU"
+        }
+      },
+      "LAC": {
+        "impact": 2.25,
+        "root_against": "HOU",
+        "impact_breakdown": {
+          "signed_swings": {
+            "playoff_pp": -4.37,
+            "division_pp": 0.38,
+            "top_seed_pp": -0.15,
+            "seed_value_pp": -1.44
+          },
+          "weighted_contributions": {
+            "playoff": -2.184,
+            "division": 0.095,
+            "top_seed": -0.022,
+            "seed": -0.144
           },
           "dominant_reason": "playoff",
           "conflict": true
@@ -62135,52 +62136,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 59.7,
-          "away_playoff_pct": 56.2,
-          "home_division_pct": 18.5,
-          "away_division_pct": 18.8,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 60.1,
+          "away_playoff_pct": 55.7,
+          "home_division_pct": 18.6,
+          "away_division_pct": 19.0,
           "home_top_seed_pct": 4.2,
-          "away_top_seed_pct": 4.2,
-          "home_sb_appearance_pct": 6.0,
-          "away_sb_appearance_pct": 5.6,
-          "home_sb_win_pct": 2.7,
-          "away_sb_win_pct": 2.5,
+          "away_top_seed_pct": 4.0,
+          "home_sb_appearance_pct": 5.8,
+          "away_sb_appearance_pct": 5.8,
+          "home_sb_win_pct": 2.6,
+          "away_sb_win_pct": 2.6,
           "home_seeds": {
-            "7": 13.7,
-            "3": 6.18,
-            "1": 4.2,
-            "6": 14.36,
-            "2": 6.21,
-            "5": 13.13,
-            "4": 1.96
+            "5": 13.36,
+            "6": 14.05,
+            "7": 14.0,
+            "3": 6.2,
+            "2": 6.32,
+            "1": 4.17,
+            "4": 1.95
           },
           "away_seeds": {
-            "1": 4.15,
-            "6": 12.81,
-            "2": 5.98,
-            "5": 11.21,
+            "4": 2.27,
+            "3": 6.61,
             "7": 13.35,
-            "4": 2.07,
-            "3": 6.6
+            "5": 11.06,
+            "2": 6.12,
+            "6": 12.25,
+            "1": 4.02
           },
-          "home_expected_seed_value": 24.8,
-          "away_expected_seed_value": 23.6,
-          "seed_value_impact": 1.2,
+          "home_expected_seed_value": 24.9,
+          "away_expected_seed_value": 23.5,
+          "seed_value_impact": 1.4,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -3.56,
-              "division_pp": 0.26,
-              "top_seed_pp": -0.05,
-              "seed_value_pp": -1.18
+              "playoff_pp": -4.37,
+              "division_pp": 0.38,
+              "top_seed_pp": -0.15,
+              "seed_value_pp": -1.44
             },
             "weighted_contributions": {
-              "playoff": -1.782,
-              "division": 0.065,
-              "top_seed": -0.007,
-              "seed": -0.118
+              "playoff": -2.184,
+              "division": 0.095,
+              "top_seed": -0.022,
+              "seed": -0.144
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -62201,22 +62202,22 @@
         }
       },
       "LAR": {
-        "impact": 4.62,
+        "impact": 4.25,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 4.16,
-            "division_pp": 8.24,
-            "top_seed_pp": 0.75,
-            "seed_value_pp": 3.67
+            "playoff_pp": 3.72,
+            "division_pp": 7.65,
+            "top_seed_pp": 0.9,
+            "seed_value_pp": 3.46
           },
           "weighted_contributions": {
-            "playoff": 2.081,
-            "division": 2.06,
-            "top_seed": 0.113,
-            "seed": 0.367
+            "playoff": 1.858,
+            "division": 1.911,
+            "top_seed": 0.135,
+            "seed": 0.346
           },
-          "dominant_reason": "playoff",
+          "dominant_reason": "division",
           "conflict": false
         },
         "utility_weights": {
@@ -62231,54 +62232,54 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 68.4,
-          "away_playoff_pct": 72.6,
-          "home_division_pct": 30.5,
-          "away_division_pct": 38.7,
-          "home_top_seed_pct": 7.9,
-          "away_top_seed_pct": 8.6,
-          "home_sb_appearance_pct": 8.5,
-          "away_sb_appearance_pct": 9.3,
-          "home_sb_win_pct": 3.7,
-          "away_sb_win_pct": 4.1,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 68.1,
+          "away_playoff_pct": 71.8,
+          "home_division_pct": 30.3,
+          "away_division_pct": 38.0,
+          "home_top_seed_pct": 8.2,
+          "away_top_seed_pct": 9.1,
+          "home_sb_appearance_pct": 8.6,
+          "away_sb_appearance_pct": 8.9,
+          "home_sb_win_pct": 3.9,
+          "away_sb_win_pct": 3.9,
           "home_seeds": {
-            "2": 8.92,
-            "7": 10.42,
-            "6": 12.59,
-            "1": 7.86,
-            "4": 5.66,
-            "5": 14.96,
-            "3": 8.03
+            "7": 10.73,
+            "2": 8.54,
+            "5": 14.93,
+            "1": 8.2,
+            "4": 5.92,
+            "6": 12.12,
+            "3": 7.64
           },
           "away_seeds": {
-            "1": 8.62,
-            "2": 10.59,
-            "6": 11.17,
-            "5": 13.65,
-            "4": 9.12,
-            "3": 10.37,
-            "7": 9.08
+            "5": 13.5,
+            "3": 10.22,
+            "7": 9.44,
+            "6": 10.91,
+            "2": 10.0,
+            "1": 9.1,
+            "4": 8.63
           },
-          "home_expected_seed_value": 32.7,
-          "away_expected_seed_value": 36.3,
-          "seed_value_impact": 3.7,
+          "home_expected_seed_value": 32.5,
+          "away_expected_seed_value": 36.0,
+          "seed_value_impact": 3.5,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 4.16,
-              "division_pp": 8.24,
-              "top_seed_pp": 0.75,
-              "seed_value_pp": 3.67
+              "playoff_pp": 3.72,
+              "division_pp": 7.65,
+              "top_seed_pp": 0.9,
+              "seed_value_pp": 3.46
             },
             "weighted_contributions": {
-              "playoff": 2.081,
-              "division": 2.06,
-              "top_seed": 0.113,
-              "seed": 0.367
+              "playoff": 1.858,
+              "division": 1.911,
+              "top_seed": 0.135,
+              "seed": 0.346
             },
-            "dominant_reason": "playoff",
+            "dominant_reason": "division",
             "conflict": false
           },
           "utility_weights": {
@@ -62297,23 +62298,23 @@
         }
       },
       "LV": {
-        "impact": 0.41,
+        "impact": 0.4,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -0.67,
-            "division_pp": 0.03,
+            "playoff_pp": -0.64,
+            "division_pp": -0.01,
             "top_seed_pp": -0.0,
             "seed_value_pp": -0.17
           },
           "weighted_contributions": {
-            "playoff": -0.393,
-            "division": 0.008,
+            "playoff": -0.378,
+            "division": -0.004,
             "top_seed": -0.0,
             "seed": -0.02
           },
           "dominant_reason": "playoff",
-          "conflict": true
+          "conflict": false
         },
         "utility_weights": {
           "playoff": 0.5882352941176471,
@@ -62327,55 +62328,54 @@
           "top_seed": "eliminated"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
           "home_playoff_pct": 3.9,
           "away_playoff_pct": 3.2,
-          "home_division_pct": 0.3,
-          "away_division_pct": 0.3,
+          "home_division_pct": 0.2,
+          "away_division_pct": 0.2,
           "home_top_seed_pct": 0.0,
           "away_top_seed_pct": 0.0,
-          "home_sb_appearance_pct": 0.2,
+          "home_sb_appearance_pct": 0.1,
           "away_sb_appearance_pct": 0.1,
-          "home_sb_win_pct": 0.1,
+          "home_sb_win_pct": 0.0,
           "away_sb_win_pct": 0.0,
           "home_seeds": {
-            "7": 2.0,
-            "2": 0.03,
-            "6": 1.16,
-            "4": 0.1,
-            "5": 0.5,
+            "6": 1.19,
+            "7": 2.03,
+            "5": 0.38,
             "3": 0.12,
-            "1": 0.01
-          },
-          "away_seeds": {
-            "7": 1.65,
-            "6": 0.91,
-            "4": 0.13,
-            "5": 0.4,
-            "3": 0.1,
-            "2": 0.05,
+            "4": 0.11,
+            "2": 0.02,
             "1": 0.0
           },
-          "home_expected_seed_value": 1.1,
+          "away_seeds": {
+            "6": 0.86,
+            "5": 0.37,
+            "7": 1.75,
+            "3": 0.14,
+            "4": 0.08,
+            "2": 0.01
+          },
+          "home_expected_seed_value": 1.0,
           "away_expected_seed_value": 0.9,
           "seed_value_impact": 0.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -0.67,
-              "division_pp": 0.03,
+              "playoff_pp": -0.64,
+              "division_pp": -0.01,
               "top_seed_pp": -0.0,
               "seed_value_pp": -0.17
             },
             "weighted_contributions": {
-              "playoff": -0.393,
-              "division": 0.008,
+              "playoff": -0.378,
+              "division": -0.004,
               "top_seed": -0.0,
               "seed": -0.02
             },
             "dominant_reason": "playoff",
-            "conflict": true
+            "conflict": false
           },
           "utility_weights": {
             "playoff": 0.5882352941176471,
@@ -62398,15 +62398,15 @@
         "impact_breakdown": {
           "signed_swings": {
             "playoff_pp": -0.06,
-            "division_pp": 0.01,
+            "division_pp": -0.01,
             "top_seed_pp": 0.0,
-            "seed_value_pp": -0.01
+            "seed_value_pp": -0.02
           },
           "weighted_contributions": {
-            "playoff": -0.053,
-            "division": 0.0,
+            "playoff": -0.047,
+            "division": -0.0,
             "top_seed": 0.0,
-            "seed": -0.002
+            "seed": -0.003
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -62423,13 +62423,13 @@
           "top_seed": "eliminated"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 0.3,
-          "away_playoff_pct": 0.3,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 0.2,
+          "away_playoff_pct": 0.2,
           "home_division_pct": 0.0,
-          "away_division_pct": 0.1,
+          "away_division_pct": 0.0,
           "home_top_seed_pct": 0.0,
           "away_top_seed_pct": 0.0,
           "home_sb_appearance_pct": 0.0,
@@ -62437,20 +62437,19 @@
           "home_sb_win_pct": 0.0,
           "away_sb_win_pct": 0.0,
           "home_seeds": {
-            "7": 0.2,
+            "6": 0.05,
+            "5": 0.02,
+            "7": 0.14,
             "4": 0.03,
-            "6": 0.06,
-            "3": 0.01,
-            "5": 0.01,
-            "2": 0.0
+            "3": 0.01
           },
           "away_seeds": {
-            "7": 0.14,
-            "4": 0.04,
-            "6": 0.05,
-            "2": 0.0,
-            "5": 0.01,
-            "3": 0.01
+            "4": 0.02,
+            "7": 0.13,
+            "6": 0.03,
+            "2": 0.01,
+            "3": 0.0,
+            "5": 0.0
           },
           "home_expected_seed_value": 0.1,
           "away_expected_seed_value": 0.1,
@@ -62458,15 +62457,15 @@
           "impact_breakdown": {
             "signed_swings": {
               "playoff_pp": -0.06,
-              "division_pp": 0.01,
+              "division_pp": -0.01,
               "top_seed_pp": 0.0,
-              "seed_value_pp": -0.01
+              "seed_value_pp": -0.02
             },
             "weighted_contributions": {
-              "playoff": -0.053,
-              "division": 0.0,
+              "playoff": -0.047,
+              "division": -0.0,
               "top_seed": 0.0,
-              "seed": -0.002
+              "seed": -0.003
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -62487,20 +62486,20 @@
         }
       },
       "MIN": {
-        "impact": 1.41,
+        "impact": 1.13,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 2.44,
-            "division_pp": 0.34,
-            "top_seed_pp": 0.11,
-            "seed_value_pp": 0.9
+            "playoff_pp": 1.9,
+            "division_pp": 0.39,
+            "top_seed_pp": 0.02,
+            "seed_value_pp": 0.77
           },
           "weighted_contributions": {
-            "playoff": 1.218,
-            "division": 0.085,
-            "top_seed": 0.017,
-            "seed": 0.09
+            "playoff": 0.948,
+            "division": 0.098,
+            "top_seed": 0.004,
+            "seed": 0.077
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -62517,52 +62516,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 20.1,
-          "away_playoff_pct": 22.6,
-          "home_division_pct": 7.1,
-          "away_division_pct": 7.5,
-          "home_top_seed_pct": 0.4,
-          "away_top_seed_pct": 0.5,
-          "home_sb_appearance_pct": 1.6,
-          "away_sb_appearance_pct": 1.7,
-          "home_sb_win_pct": 0.7,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 19.9,
+          "away_playoff_pct": 21.8,
+          "home_division_pct": 6.4,
+          "away_division_pct": 6.8,
+          "home_top_seed_pct": 0.6,
+          "away_top_seed_pct": 0.6,
+          "home_sb_appearance_pct": 1.4,
+          "away_sb_appearance_pct": 1.6,
+          "home_sb_win_pct": 0.6,
           "away_sb_win_pct": 0.7,
           "home_seeds": {
-            "5": 2.5,
-            "6": 4.2,
-            "4": 3.45,
-            "3": 2.17,
-            "7": 6.29,
-            "2": 1.09,
-            "1": 0.43
+            "5": 2.51,
+            "6": 4.5,
+            "7": 6.46,
+            "3": 1.92,
+            "4": 2.86,
+            "2": 1.1,
+            "1": 0.56
           },
           "away_seeds": {
-            "3": 2.36,
-            "4": 3.27,
-            "6": 5.1,
-            "7": 6.81,
-            "1": 0.54,
-            "5": 3.18,
-            "2": 1.3
+            "3": 2.19,
+            "4": 2.69,
+            "6": 4.99,
+            "7": 6.7,
+            "2": 1.38,
+            "5": 3.29,
+            "1": 0.58
           },
-          "home_expected_seed_value": 7.3,
-          "away_expected_seed_value": 8.2,
-          "seed_value_impact": 0.9,
+          "home_expected_seed_value": 7.2,
+          "away_expected_seed_value": 8.0,
+          "seed_value_impact": 0.8,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 2.44,
-              "division_pp": 0.34,
-              "top_seed_pp": 0.11,
-              "seed_value_pp": 0.9
+              "playoff_pp": 1.9,
+              "division_pp": 0.39,
+              "top_seed_pp": 0.02,
+              "seed_value_pp": 0.77
             },
             "weighted_contributions": {
-              "playoff": 1.218,
-              "division": 0.085,
-              "top_seed": 0.017,
-              "seed": 0.09
+              "playoff": 0.948,
+              "division": 0.098,
+              "top_seed": 0.004,
+              "seed": 0.077
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -62583,20 +62582,20 @@
         }
       },
       "NE": {
-        "impact": 0.68,
+        "impact": 1.2,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -1.46,
-            "division_pp": 1.0,
-            "top_seed_pp": -0.89,
-            "seed_value_pp": -0.67
+            "playoff_pp": -1.93,
+            "division_pp": 0.26,
+            "top_seed_pp": -1.19,
+            "seed_value_pp": -1.22
           },
           "weighted_contributions": {
-            "playoff": -0.73,
-            "division": 0.249,
-            "top_seed": -0.133,
-            "seed": -0.067
+            "playoff": -0.963,
+            "division": 0.066,
+            "top_seed": -0.178,
+            "seed": -0.122
           },
           "dominant_reason": "playoff",
           "conflict": true
@@ -62613,52 +62612,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
           "home_playoff_pct": 83.0,
-          "away_playoff_pct": 81.5,
-          "home_division_pct": 55.0,
-          "away_division_pct": 56.0,
-          "home_top_seed_pct": 13.3,
+          "away_playoff_pct": 81.1,
+          "home_division_pct": 55.5,
+          "away_division_pct": 55.7,
+          "home_top_seed_pct": 13.6,
           "away_top_seed_pct": 12.4,
-          "home_sb_appearance_pct": 7.7,
-          "away_sb_appearance_pct": 7.6,
-          "home_sb_win_pct": 3.2,
-          "away_sb_win_pct": 3.1,
+          "home_sb_appearance_pct": 7.9,
+          "away_sb_appearance_pct": 7.7,
+          "home_sb_win_pct": 3.3,
+          "away_sb_win_pct": 3.2,
           "home_seeds": {
-            "1": 13.26,
-            "5": 10.6,
-            "4": 11.38,
-            "7": 7.97,
-            "3": 15.27,
-            "2": 15.04,
-            "6": 9.44
+            "5": 10.32,
+            "6": 9.26,
+            "1": 13.6,
+            "4": 11.58,
+            "2": 15.01,
+            "7": 7.99,
+            "3": 15.29
           },
           "away_seeds": {
-            "2": 15.46,
-            "3": 15.83,
-            "4": 12.29,
-            "7": 7.88,
-            "1": 12.37,
-            "5": 9.04,
-            "6": 8.63
+            "2": 15.05,
+            "5": 8.94,
+            "1": 12.41,
+            "3": 15.61,
+            "6": 8.64,
+            "4": 12.66,
+            "7": 7.8
           },
-          "home_expected_seed_value": 46.2,
-          "away_expected_seed_value": 45.5,
-          "seed_value_impact": 0.7,
+          "home_expected_seed_value": 46.5,
+          "away_expected_seed_value": 45.2,
+          "seed_value_impact": 1.2,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -1.46,
-              "division_pp": 1.0,
-              "top_seed_pp": -0.89,
-              "seed_value_pp": -0.67
+              "playoff_pp": -1.93,
+              "division_pp": 0.26,
+              "top_seed_pp": -1.19,
+              "seed_value_pp": -1.22
             },
             "weighted_contributions": {
-              "playoff": -0.73,
-              "division": 0.249,
-              "top_seed": -0.133,
-              "seed": -0.067
+              "playoff": -0.963,
+              "division": 0.066,
+              "top_seed": -0.178,
+              "seed": -0.122
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -62679,20 +62678,20 @@
         }
       },
       "NO": {
-        "impact": 0.01,
-        "root_against": "HOU",
+        "impact": 0.02,
+        "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -0.01,
-            "division_pp": -0.02,
+            "playoff_pp": 0.02,
+            "division_pp": 0.01,
             "top_seed_pp": 0.0,
-            "seed_value_pp": -0.0
+            "seed_value_pp": 0.01
           },
           "weighted_contributions": {
-            "playoff": -0.011,
-            "division": -0.0,
+            "playoff": 0.021,
+            "division": 0.0,
             "top_seed": 0.0,
-            "seed": -0.001
+            "seed": 0.001
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -62709,9 +62708,9 @@
           "top_seed": "eliminated"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
           "home_playoff_pct": 0.1,
           "away_playoff_pct": 0.1,
           "home_division_pct": 0.0,
@@ -62724,15 +62723,15 @@
           "away_sb_win_pct": 0.0,
           "home_seeds": {
             "4": 0.03,
+            "7": 0.02,
+            "5": 0.01,
             "3": 0.0,
-            "7": 0.04,
-            "5": 0.0,
-            "6": 0.01
+            "6": 0.0
           },
           "away_seeds": {
-            "3": 0.0,
-            "7": 0.04,
-            "4": 0.02,
+            "4": 0.04,
+            "5": 0.01,
+            "7": 0.02,
             "6": 0.01
           },
           "home_expected_seed_value": 0.0,
@@ -62740,16 +62739,16 @@
           "seed_value_impact": 0.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -0.01,
-              "division_pp": -0.02,
+              "playoff_pp": 0.02,
+              "division_pp": 0.01,
               "top_seed_pp": 0.0,
-              "seed_value_pp": -0.0
+              "seed_value_pp": 0.01
             },
             "weighted_contributions": {
-              "playoff": -0.011,
-              "division": -0.0,
+              "playoff": 0.021,
+              "division": 0.0,
               "top_seed": 0.0,
-              "seed": -0.001
+              "seed": 0.001
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -62765,25 +62764,25 @@
             "division": "eliminated",
             "top_seed": "eliminated"
           },
-          "root_against": "HOU",
-          "root_against_seed_only": "HOU"
+          "root_against": "SEA",
+          "root_against_seed_only": "SEA"
         }
       },
       "NYG": {
-        "impact": 0.06,
+        "impact": 0.04,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 0.11,
-            "division_pp": -0.02,
+            "playoff_pp": 0.07,
+            "division_pp": -0.01,
             "top_seed_pp": 0.0,
-            "seed_value_pp": 0.02
+            "seed_value_pp": 0.01
           },
           "weighted_contributions": {
-            "playoff": 0.065,
-            "division": -0.007,
+            "playoff": 0.043,
+            "division": -0.002,
             "top_seed": 0.0,
-            "seed": 0.002
+            "seed": 0.001
           },
           "dominant_reason": "playoff",
           "conflict": true
@@ -62800,11 +62799,11 @@
           "top_seed": "eliminated"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 0.9,
-          "away_playoff_pct": 1.0,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 0.8,
+          "away_playoff_pct": 0.9,
           "home_division_pct": 0.2,
           "away_division_pct": 0.2,
           "home_top_seed_pct": 0.0,
@@ -62814,35 +62813,35 @@
           "home_sb_win_pct": 0.0,
           "away_sb_win_pct": 0.0,
           "home_seeds": {
-            "7": 0.39,
-            "6": 0.19,
+            "4": 0.15,
+            "7": 0.38,
+            "6": 0.2,
             "3": 0.02,
-            "5": 0.06,
-            "4": 0.18,
-            "2": 0.01
+            "5": 0.08,
+            "2": 0.0
           },
           "away_seeds": {
-            "7": 0.44,
-            "4": 0.14,
-            "5": 0.1,
-            "6": 0.23,
-            "3": 0.04
+            "7": 0.48,
+            "4": 0.16,
+            "6": 0.2,
+            "5": 0.06,
+            "3": 0.01
           },
-          "home_expected_seed_value": 0.3,
+          "home_expected_seed_value": 0.2,
           "away_expected_seed_value": 0.3,
           "seed_value_impact": 0.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 0.11,
-              "division_pp": -0.02,
+              "playoff_pp": 0.07,
+              "division_pp": -0.01,
               "top_seed_pp": 0.0,
-              "seed_value_pp": 0.02
+              "seed_value_pp": 0.01
             },
             "weighted_contributions": {
-              "playoff": 0.065,
-              "division": -0.007,
+              "playoff": 0.043,
+              "division": -0.002,
               "top_seed": 0.0,
-              "seed": 0.002
+              "seed": 0.001
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -62863,20 +62862,20 @@
         }
       },
       "NYJ": {
-        "impact": 0.03,
+        "impact": 0.01,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -0.04,
-            "division_pp": -0.01,
+            "playoff_pp": -0.01,
+            "division_pp": 0.0,
             "top_seed_pp": 0.0,
-            "seed_value_pp": -0.01
+            "seed_value_pp": -0.0
           },
           "weighted_contributions": {
-            "playoff": -0.032,
-            "division": -0.0,
+            "playoff": -0.012,
+            "division": 0.0,
             "top_seed": 0.0,
-            "seed": -0.001
+            "seed": -0.0
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -62893,9 +62892,9 @@
           "top_seed": "eliminated"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
           "home_playoff_pct": 0.1,
           "away_playoff_pct": 0.0,
           "home_division_pct": 0.0,
@@ -62907,31 +62906,32 @@
           "home_sb_win_pct": 0.0,
           "away_sb_win_pct": 0.0,
           "home_seeds": {
-            "7": 0.04,
             "6": 0.01,
-            "4": 0.01,
-            "5": 0.0
+            "7": 0.03,
+            "4": 0.0,
+            "2": 0.0,
+            "3": 0.0
           },
           "away_seeds": {
-            "6": 0.01,
+            "4": 0.01,
             "7": 0.02,
-            "4": 0.0
+            "3": 0.0
           },
           "home_expected_seed_value": 0.0,
           "away_expected_seed_value": 0.0,
           "seed_value_impact": 0.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -0.04,
-              "division_pp": -0.01,
+              "playoff_pp": -0.01,
+              "division_pp": 0.0,
               "top_seed_pp": 0.0,
-              "seed_value_pp": -0.01
+              "seed_value_pp": -0.0
             },
             "weighted_contributions": {
-              "playoff": -0.032,
-              "division": -0.0,
+              "playoff": -0.012,
+              "division": 0.0,
               "top_seed": 0.0,
-              "seed": -0.001
+              "seed": -0.0
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -62952,20 +62952,20 @@
         }
       },
       "PHI": {
-        "impact": 0.53,
+        "impact": 0.37,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 0.72,
-            "division_pp": -0.31,
-            "top_seed_pp": 1.09,
-            "seed_value_pp": 0.78
+            "playoff_pp": 0.44,
+            "division_pp": -0.52,
+            "top_seed_pp": 1.23,
+            "seed_value_pp": 0.95
           },
           "weighted_contributions": {
-            "playoff": 0.362,
-            "division": -0.077,
-            "top_seed": 0.164,
-            "seed": 0.078
+            "playoff": 0.22,
+            "division": -0.131,
+            "top_seed": 0.185,
+            "seed": 0.095
           },
           "dominant_reason": "playoff",
           "conflict": true
@@ -62982,52 +62982,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 90.1,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 90.4,
           "away_playoff_pct": 90.8,
-          "home_division_pct": 83.9,
+          "home_division_pct": 84.1,
           "away_division_pct": 83.6,
-          "home_top_seed_pct": 18.9,
-          "away_top_seed_pct": 20.0,
-          "home_sb_appearance_pct": 22.2,
-          "away_sb_appearance_pct": 22.8,
-          "home_sb_win_pct": 12.1,
-          "away_sb_win_pct": 12.4,
+          "home_top_seed_pct": 20.0,
+          "away_top_seed_pct": 21.2,
+          "home_sb_appearance_pct": 22.9,
+          "away_sb_appearance_pct": 23.8,
+          "home_sb_win_pct": 12.3,
+          "away_sb_win_pct": 12.6,
           "home_seeds": {
-            "4": 24.66,
-            "3": 21.28,
-            "1": 18.87,
-            "2": 19.09,
-            "7": 2.72,
-            "5": 1.24,
-            "6": 2.25
+            "4": 24.08,
+            "1": 20.01,
+            "2": 18.46,
+            "3": 21.55,
+            "5": 1.19,
+            "7": 2.89,
+            "6": 2.18
           },
           "away_seeds": {
-            "4": 23.56,
-            "2": 19.24,
-            "6": 2.5,
-            "5": 1.64,
-            "1": 19.96,
-            "7": 3.11,
-            "3": 20.82
+            "3": 20.45,
+            "2": 19.23,
+            "1": 21.24,
+            "4": 22.66,
+            "6": 2.58,
+            "5": 1.6,
+            "7": 3.04
           },
-          "home_expected_seed_value": 57.5,
-          "away_expected_seed_value": 58.3,
-          "seed_value_impact": 0.8,
+          "home_expected_seed_value": 58.0,
+          "away_expected_seed_value": 59.0,
+          "seed_value_impact": 1.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 0.72,
-              "division_pp": -0.31,
-              "top_seed_pp": 1.09,
-              "seed_value_pp": 0.78
+              "playoff_pp": 0.44,
+              "division_pp": -0.52,
+              "top_seed_pp": 1.23,
+              "seed_value_pp": 0.95
             },
             "weighted_contributions": {
-              "playoff": 0.362,
-              "division": -0.077,
-              "top_seed": 0.164,
-              "seed": 0.078
+              "playoff": 0.22,
+              "division": -0.131,
+              "top_seed": 0.185,
+              "seed": 0.095
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -63048,20 +63048,20 @@
         }
       },
       "PIT": {
-        "impact": 0.97,
+        "impact": 0.38,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -1.81,
-            "division_pp": 0.09,
-            "top_seed_pp": -0.1,
-            "seed_value_pp": -0.7
+            "playoff_pp": -1.25,
+            "division_pp": 0.78,
+            "top_seed_pp": 0.31,
+            "seed_value_pp": -0.01
           },
           "weighted_contributions": {
-            "playoff": -0.903,
-            "division": 0.023,
-            "top_seed": -0.016,
-            "seed": -0.07
+            "playoff": -0.623,
+            "division": 0.195,
+            "top_seed": 0.046,
+            "seed": -0.001
           },
           "dominant_reason": "playoff",
           "conflict": true
@@ -63078,52 +63078,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 67.0,
-          "away_playoff_pct": 65.2,
-          "home_division_pct": 50.5,
-          "away_division_pct": 50.6,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 66.7,
+          "away_playoff_pct": 65.4,
+          "home_division_pct": 50.1,
+          "away_division_pct": 50.9,
           "home_top_seed_pct": 7.2,
-          "away_top_seed_pct": 7.1,
+          "away_top_seed_pct": 7.5,
           "home_sb_appearance_pct": 6.1,
-          "away_sb_appearance_pct": 5.7,
+          "away_sb_appearance_pct": 6.2,
           "home_sb_win_pct": 2.6,
-          "away_sb_win_pct": 2.6,
+          "away_sb_win_pct": 2.8,
           "home_seeds": {
-            "5": 3.4,
-            "3": 12.65,
-            "2": 9.48,
-            "4": 21.12,
-            "1": 7.24,
-            "6": 5.48,
-            "7": 7.61
+            "6": 5.36,
+            "4": 21.11,
+            "5": 3.51,
+            "2": 9.4,
+            "7": 7.72,
+            "3": 12.37,
+            "1": 7.2
           },
           "away_seeds": {
-            "2": 8.93,
-            "4": 21.8,
-            "3": 12.71,
-            "1": 7.14,
-            "6": 4.93,
-            "7": 6.71,
-            "5": 2.96
+            "1": 7.51,
+            "2": 9.48,
+            "3": 12.3,
+            "7": 6.87,
+            "4": 21.57,
+            "6": 4.86,
+            "5": 2.84
           },
-          "home_expected_seed_value": 35.0,
-          "away_expected_seed_value": 34.3,
-          "seed_value_impact": 0.7,
+          "home_expected_seed_value": 34.8,
+          "away_expected_seed_value": 34.8,
+          "seed_value_impact": 0.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -1.81,
-              "division_pp": 0.09,
-              "top_seed_pp": -0.1,
-              "seed_value_pp": -0.7
+              "playoff_pp": -1.25,
+              "division_pp": 0.78,
+              "top_seed_pp": 0.31,
+              "seed_value_pp": -0.01
             },
             "weighted_contributions": {
-              "playoff": -0.903,
-              "division": 0.023,
-              "top_seed": -0.016,
-              "seed": -0.07
+              "playoff": -0.623,
+              "division": 0.195,
+              "top_seed": 0.046,
+              "seed": -0.001
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -63144,20 +63144,20 @@
         }
       },
       "SEA": {
-        "impact": 17.87,
+        "impact": 17.4,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -24.52,
-            "division_pp": -14.53,
-            "top_seed_pp": -3.93,
-            "seed_value_pp": -13.86
+            "playoff_pp": -23.91,
+            "division_pp": -14.11,
+            "top_seed_pp": -3.87,
+            "seed_value_pp": -13.38
           },
           "weighted_contributions": {
-            "playoff": -12.261,
-            "division": -3.632,
-            "top_seed": -0.589,
-            "seed": -1.386
+            "playoff": -11.955,
+            "division": -3.528,
+            "top_seed": -0.581,
+            "seed": -1.338
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -63174,52 +63174,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 62.5,
-          "away_playoff_pct": 38.0,
-          "home_division_pct": 26.7,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 60.6,
+          "away_playoff_pct": 36.7,
+          "home_division_pct": 26.4,
           "away_division_pct": 12.2,
-          "home_top_seed_pct": 4.9,
-          "away_top_seed_pct": 1.0,
-          "home_sb_appearance_pct": 5.9,
+          "home_top_seed_pct": 4.8,
+          "away_top_seed_pct": 0.9,
+          "home_sb_appearance_pct": 6.0,
           "away_sb_appearance_pct": 2.5,
           "home_sb_win_pct": 2.5,
           "away_sb_win_pct": 1.0,
           "home_seeds": {
-            "2": 7.64,
-            "5": 11.63,
-            "7": 11.65,
-            "3": 8.23,
-            "4": 5.94,
-            "1": 4.94,
-            "6": 12.49
+            "7": 11.66,
+            "3": 7.9,
+            "6": 12.05,
+            "1": 4.81,
+            "4": 6.39,
+            "5": 10.51,
+            "2": 7.24
           },
           "away_seeds": {
-            "4": 4.61,
-            "5": 6.27,
-            "7": 10.54,
-            "3": 4.1,
-            "6": 8.97,
-            "2": 2.5,
-            "1": 1.01
+            "3": 4.21,
+            "7": 10.49,
+            "6": 8.53,
+            "4": 4.55,
+            "1": 0.94,
+            "5": 5.39,
+            "2": 2.55
           },
-          "home_expected_seed_value": 28.0,
-          "away_expected_seed_value": 14.1,
-          "seed_value_impact": 13.9,
+          "home_expected_seed_value": 27.1,
+          "away_expected_seed_value": 13.7,
+          "seed_value_impact": 13.4,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -24.52,
-              "division_pp": -14.53,
-              "top_seed_pp": -3.93,
-              "seed_value_pp": -13.86
+              "playoff_pp": -23.91,
+              "division_pp": -14.11,
+              "top_seed_pp": -3.87,
+              "seed_value_pp": -13.38
             },
             "weighted_contributions": {
-              "playoff": -12.261,
-              "division": -3.632,
-              "top_seed": -0.589,
-              "seed": -1.386
+              "playoff": -11.955,
+              "division": -3.528,
+              "top_seed": -0.581,
+              "seed": -1.338
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -63240,23 +63240,23 @@
         }
       },
       "SF": {
-        "impact": 2.46,
+        "impact": 2.49,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 1.49,
-            "division_pp": 6.02,
-            "top_seed_pp": 0.18,
-            "seed_value_pp": 1.86
+            "playoff_pp": 1.48,
+            "division_pp": 6.24,
+            "top_seed_pp": -0.04,
+            "seed_value_pp": 1.91
           },
           "weighted_contributions": {
-            "playoff": 0.743,
-            "division": 1.505,
-            "top_seed": 0.027,
-            "seed": 0.186
+            "playoff": 0.741,
+            "division": 1.561,
+            "top_seed": -0.006,
+            "seed": 0.191
           },
           "dominant_reason": "division",
-          "conflict": false
+          "conflict": true
         },
         "utility_weights": {
           "playoff": 0.5,
@@ -63270,55 +63270,55 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
           "home_playoff_pct": 80.0,
           "away_playoff_pct": 81.5,
-          "home_division_pct": 42.5,
-          "away_division_pct": 48.5,
-          "home_top_seed_pct": 13.4,
-          "away_top_seed_pct": 13.5,
-          "home_sb_appearance_pct": 6.9,
-          "away_sb_appearance_pct": 6.7,
+          "home_division_pct": 43.0,
+          "away_division_pct": 49.3,
+          "home_top_seed_pct": 14.2,
+          "away_top_seed_pct": 14.2,
+          "home_sb_appearance_pct": 7.1,
+          "away_sb_appearance_pct": 7.3,
           "home_sb_win_pct": 2.8,
-          "away_sb_win_pct": 2.7,
+          "away_sb_win_pct": 2.8,
           "home_seeds": {
-            "1": 13.35,
-            "5": 15.27,
-            "7": 9.61,
-            "6": 12.67,
-            "3": 10.13,
-            "2": 13.44,
-            "4": 5.56
+            "1": 14.23,
+            "6": 12.77,
+            "5": 14.65,
+            "4": 5.48,
+            "2": 13.49,
+            "3": 9.85,
+            "7": 9.57
           },
           "away_seeds": {
-            "4": 8.13,
-            "7": 8.64,
-            "5": 13.01,
-            "3": 12.52,
-            "6": 11.36,
-            "1": 13.54,
-            "2": 14.31
+            "1": 14.19,
+            "6": 10.88,
+            "5": 12.68,
+            "2": 14.78,
+            "4": 8.29,
+            "3": 12.03,
+            "7": 8.66
           },
-          "home_expected_seed_value": 42.7,
-          "away_expected_seed_value": 44.6,
+          "home_expected_seed_value": 43.3,
+          "away_expected_seed_value": 45.2,
           "seed_value_impact": 1.9,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 1.49,
-              "division_pp": 6.02,
-              "top_seed_pp": 0.18,
-              "seed_value_pp": 1.86
+              "playoff_pp": 1.48,
+              "division_pp": 6.24,
+              "top_seed_pp": -0.04,
+              "seed_value_pp": 1.91
             },
             "weighted_contributions": {
-              "playoff": 0.743,
-              "division": 1.505,
-              "top_seed": 0.027,
-              "seed": 0.186
+              "playoff": 0.741,
+              "division": 1.561,
+              "top_seed": -0.006,
+              "seed": 0.191
             },
             "dominant_reason": "division",
-            "conflict": false
+            "conflict": true
           },
           "utility_weights": {
             "playoff": 0.5,
@@ -63336,20 +63336,20 @@
         }
       },
       "TB": {
-        "impact": 0.31,
+        "impact": 0.28,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 0.64,
-            "division_pp": -0.57,
-            "top_seed_pp": 0.46,
-            "seed_value_pp": 0.64
+            "playoff_pp": 0.66,
+            "division_pp": -0.53,
+            "top_seed_pp": 0.22,
+            "seed_value_pp": 0.48
           },
           "weighted_contributions": {
-            "playoff": 0.32,
-            "division": -0.144,
-            "top_seed": 0.069,
-            "seed": 0.064
+            "playoff": 0.331,
+            "division": -0.134,
+            "top_seed": 0.032,
+            "seed": 0.048
           },
           "dominant_reason": "playoff",
           "conflict": true
@@ -63366,52 +63366,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 92.6,
-          "away_playoff_pct": 93.2,
-          "home_division_pct": 85.2,
-          "away_division_pct": 84.6,
-          "home_top_seed_pct": 24.6,
-          "away_top_seed_pct": 25.0,
-          "home_sb_appearance_pct": 13.8,
-          "away_sb_appearance_pct": 14.1,
-          "home_sb_win_pct": 6.3,
-          "away_sb_win_pct": 6.4,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 89.7,
+          "away_playoff_pct": 90.4,
+          "home_division_pct": 79.7,
+          "away_division_pct": 79.2,
+          "home_top_seed_pct": 15.7,
+          "away_top_seed_pct": 15.9,
+          "home_sb_appearance_pct": 12.8,
+          "away_sb_appearance_pct": 12.9,
+          "home_sb_win_pct": 5.8,
+          "away_sb_win_pct": 5.9,
           "home_seeds": {
-            "6": 2.61,
-            "1": 24.57,
-            "4": 20.5,
-            "3": 20.03,
-            "2": 20.11,
-            "7": 2.64,
-            "5": 2.1
+            "3": 21.46,
+            "4": 22.75,
+            "2": 19.84,
+            "1": 15.66,
+            "7": 3.89,
+            "6": 3.58,
+            "5": 2.54
           },
           "away_seeds": {
-            "2": 20.98,
-            "3": 19.49,
-            "7": 2.96,
-            "4": 19.14,
-            "1": 25.04,
-            "6": 3.1,
-            "5": 2.51
+            "2": 20.53,
+            "4": 21.57,
+            "3": 21.19,
+            "7": 3.95,
+            "1": 15.88,
+            "6": 4.32,
+            "5": 2.93
           },
-          "home_expected_seed_value": 61.9,
-          "away_expected_seed_value": 62.6,
-          "seed_value_impact": 0.6,
+          "home_expected_seed_value": 55.2,
+          "away_expected_seed_value": 55.7,
+          "seed_value_impact": 0.5,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 0.64,
-              "division_pp": -0.57,
-              "top_seed_pp": 0.46,
-              "seed_value_pp": 0.64
+              "playoff_pp": 0.66,
+              "division_pp": -0.53,
+              "top_seed_pp": 0.22,
+              "seed_value_pp": 0.48
             },
             "weighted_contributions": {
-              "playoff": 0.32,
-              "division": -0.144,
-              "top_seed": 0.069,
-              "seed": 0.064
+              "playoff": 0.331,
+              "division": -0.134,
+              "top_seed": 0.032,
+              "seed": 0.048
             },
             "dominant_reason": "playoff",
             "conflict": true
@@ -63432,20 +63432,20 @@
         }
       },
       "TEN": {
-        "impact": 0.08,
+        "impact": 0.13,
         "root_against": "HOU",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": -0.09,
-            "division_pp": -0.04,
+            "playoff_pp": -0.15,
+            "division_pp": -0.01,
             "top_seed_pp": 0.0,
-            "seed_value_pp": -0.03
+            "seed_value_pp": -0.05
           },
           "weighted_contributions": {
-            "playoff": -0.074,
+            "playoff": -0.122,
             "division": -0.0,
             "top_seed": 0.0,
-            "seed": -0.005
+            "seed": -0.008
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -63462,12 +63462,12 @@
           "top_seed": "eliminated"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
           "home_playoff_pct": 0.4,
           "away_playoff_pct": 0.3,
-          "home_division_pct": 0.1,
+          "home_division_pct": 0.0,
           "away_division_pct": 0.0,
           "home_top_seed_pct": 0.0,
           "away_top_seed_pct": 0.0,
@@ -63476,34 +63476,35 @@
           "home_sb_win_pct": 0.0,
           "away_sb_win_pct": 0.0,
           "home_seeds": {
-            "7": 0.23,
-            "6": 0.1,
-            "4": 0.05,
-            "5": 0.03,
-            "3": 0.01
+            "7": 0.22,
+            "6": 0.14,
+            "3": 0.01,
+            "4": 0.03,
+            "5": 0.01
           },
           "away_seeds": {
-            "7": 0.22,
+            "7": 0.15,
             "6": 0.07,
-            "3": 0.01,
-            "4": 0.01,
-            "5": 0.03
+            "5": 0.02,
+            "3": 0.0,
+            "2": 0.0,
+            "4": 0.01
           },
           "home_expected_seed_value": 0.1,
           "away_expected_seed_value": 0.1,
           "seed_value_impact": 0.0,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": -0.09,
-              "division_pp": -0.04,
+              "playoff_pp": -0.15,
+              "division_pp": -0.01,
               "top_seed_pp": 0.0,
-              "seed_value_pp": -0.03
+              "seed_value_pp": -0.05
             },
             "weighted_contributions": {
-              "playoff": -0.074,
+              "playoff": -0.122,
               "division": -0.0,
               "top_seed": 0.0,
-              "seed": -0.005
+              "seed": -0.008
             },
             "dominant_reason": "playoff",
             "conflict": false
@@ -63524,20 +63525,20 @@
         }
       },
       "WAS": {
-        "impact": 1.35,
+        "impact": 1.55,
         "root_against": "SEA",
         "impact_breakdown": {
           "signed_swings": {
-            "playoff_pp": 2.36,
-            "division_pp": 0.3,
-            "top_seed_pp": 0.08,
-            "seed_value_pp": 0.84
+            "playoff_pp": 2.64,
+            "division_pp": 0.53,
+            "top_seed_pp": 0.06,
+            "seed_value_pp": 0.9
           },
           "weighted_contributions": {
-            "playoff": 1.178,
-            "division": 0.075,
-            "top_seed": 0.012,
-            "seed": 0.084
+            "playoff": 1.32,
+            "division": 0.133,
+            "top_seed": 0.009,
+            "seed": 0.09
           },
           "dominant_reason": "playoff",
           "conflict": false
@@ -63554,52 +63555,52 @@
           "top_seed": "open"
         },
         "debug_stats": {
-          "total_sims": 100000,
-          "home_wins": 57233,
-          "away_wins": 42767,
-          "home_playoff_pct": 30.0,
-          "away_playoff_pct": 32.4,
-          "home_division_pct": 13.3,
-          "away_division_pct": 13.6,
-          "home_top_seed_pct": 0.4,
+          "total_sims": 50000,
+          "home_wins": 28628,
+          "away_wins": 21372,
+          "home_playoff_pct": 29.7,
+          "away_playoff_pct": 32.3,
+          "home_division_pct": 13.1,
+          "away_division_pct": 13.7,
+          "home_top_seed_pct": 0.5,
           "away_top_seed_pct": 0.5,
           "home_sb_appearance_pct": 4.4,
           "away_sb_appearance_pct": 4.8,
           "home_sb_win_pct": 2.3,
           "away_sb_win_pct": 2.5,
           "home_seeds": {
-            "4": 8.25,
-            "6": 5.48,
-            "2": 1.37,
-            "7": 7.76,
-            "5": 3.47,
-            "3": 3.27,
-            "1": 0.42
+            "6": 5.3,
+            "7": 7.58,
+            "3": 3.42,
+            "4": 7.8,
+            "5": 3.68,
+            "2": 1.43,
+            "1": 0.47
           },
           "away_seeds": {
-            "3": 3.66,
-            "6": 6.3,
-            "5": 4.02,
-            "7": 8.45,
+            "7": 8.27,
+            "2": 1.55,
+            "5": 3.98,
+            "3": 3.69,
+            "6": 6.41,
             "4": 7.88,
-            "2": 1.56,
-            "1": 0.5
+            "1": 0.53
           },
-          "home_expected_seed_value": 11.3,
+          "home_expected_seed_value": 11.2,
           "away_expected_seed_value": 12.1,
-          "seed_value_impact": 0.8,
+          "seed_value_impact": 0.9,
           "impact_breakdown": {
             "signed_swings": {
-              "playoff_pp": 2.36,
-              "division_pp": 0.3,
-              "top_seed_pp": 0.08,
-              "seed_value_pp": 0.84
+              "playoff_pp": 2.64,
+              "division_pp": 0.53,
+              "top_seed_pp": 0.06,
+              "seed_value_pp": 0.9
             },
             "weighted_contributions": {
-              "playoff": 1.178,
-              "division": 0.075,
-              "top_seed": 0.012,
-              "seed": 0.084
+              "playoff": 1.32,
+              "division": 0.133,
+              "top_seed": 0.009,
+              "seed": 0.09
             },
             "dominant_reason": "playoff",
             "conflict": false

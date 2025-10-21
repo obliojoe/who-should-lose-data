@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-20T20:28:22.232231",
+  "generated_at": "2025-10-20T22:12:24.148493",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -419,7 +419,7 @@
       "team_name": "Atlanta Falcons",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-21T02:03Z",
+      "last_updated": "2025-10-21T03:04Z",
       "injuries": [
         {
           "athlete_id": "4431194",
@@ -818,7 +818,7 @@
           },
           "short_comment": "ir",
           "long_comment": "ir",
-          "last_updated": "2025-10-21T02:03Z",
+          "last_updated": "2025-10-21T03:04Z",
           "source": "basic/manual"
         }
       ]
@@ -4109,7 +4109,7 @@
       "team_name": "Detroit Lions",
       "conference": "NFC",
       "division": "NFC North",
-      "last_updated": "2025-10-21T01:41Z",
+      "last_updated": "2025-10-21T03:56Z",
       "injuries": [
         {
           "athlete_id": "3123938",
@@ -4173,22 +4173,6 @@
           "short_comment": "inactive",
           "long_comment": "inactive",
           "last_updated": "2025-10-20T21:42Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4241411",
-          "name": "Malcolm Rodriguez",
-          "position": "LB",
-          "status": "Out",
-          "status_code": {
-            "id": "4",
-            "abbreviation": "O",
-            "description": "out",
-            "name": "INJURY_STATUS_OUT"
-          },
-          "short_comment": "Coach Dan Campbell said Tuesday the Lions are hopeful to get Rodriguez (knee) back at practice following the Week 8 bye, Justin Rogers of Detroit Football Network reports.",
-          "long_comment": "Rodriguez suffered a torn ACL in Week 13 last season and underwent a second, cleanup procedure on the knee over the summer, delaying his return to action. He remains on the reserve/PUP list, but it sounds like a November return could be in the cards for the veteran linebacker and special-teams standout.",
-          "last_updated": "2025-10-14T18:07Z",
           "source": "basic/manual"
         },
         {
@@ -4320,22 +4304,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "3043107",
-          "name": "Alex Anzalone",
-          "position": "LB",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Anzalone tallied 12 tackles (seven solo) in a Week 6 loss to Kansas City on Sunday.",
-          "long_comment": "Anzalone finished as Detroit's leading tackler in the contest. He not only posted a season-high figure in stops, he doubled his previous top mark. Through six weeks, Anzalone has 35 tackles (including 1.5 sacks) and four defensed passes, including an interception.",
-          "last_updated": "2025-10-14T01:08Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4361662",
           "name": "Alim McNeill",
           "position": "DT",
@@ -4349,6 +4317,22 @@
           "short_comment": "McNeill (knee) is active for Monday's game against the Buccaneers.",
           "long_comment": "McNeill has fully recovered from a torn ACL in his right knee that he sustained in December. He started in all 14 regular-season games he played in 2024 and figures to reprise that role in his return Monday, which will likely lead to a decrease in snaps at defensive tackle for Tyleik Williams, Roy Lopez and Patrick O'Connor.",
           "last_updated": "2025-10-20T21:43Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4374302",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "St. Brown finished with six receptions on 10 targets for 86 yards and a touchdown in Monday's 24-9 win over Tampa Bay.",
+          "long_comment": "St. Brown found his way back in to the end zone after being held scoreless in Detroit's last two contests. The superstar wideout continued dominating QB Jared Goff's target share, finishing the primetime win with seven more targets than any other Lions' receiver. St. Brown's mini scoring slump hasn't stopped him from posting a WR1 numbers (50-538-7) heading into his team's bye week. Fantasy managers will have to fill the Sun God's roster spot in Week 8 until Detroit returns to action against Minnesota on Nov. 2.",
+          "last_updated": "2025-10-21T03:14Z",
           "source": "basic/manual"
         },
         {
@@ -4368,6 +4352,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "4035538",
+          "name": "David Montgomery",
+          "position": "RB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Montgomery was held to 21 yards on 13 carries while catching two of three targets for 18 yards in Monday's 24-9 win over the Buccaneers.",
+          "long_comment": "Jahmyr Gibbs went off for 218 yards and two touchdowns on Monday Night Football, leaving scraps for Montgomery's fantasy managers in Week 7. The latter still received 15 touches, highlighting his continued involvement in Detroit's two-pronged backfield. Both talented rushers have recorded a 100-plus yard rushing game this season, with Gibbs having the edge in total yards (+269) and touchdowns (+3). Montgomery may not be as tantalizing an asset as Gibbs, but he should continue providing flex value in fantasy when the Lions resume play in Week 9.",
+          "last_updated": "2025-10-21T03:43Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4260409",
           "name": "Derrick Barnes",
           "position": "LB",
@@ -4384,22 +4384,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "5123663",
-          "name": "Isaac TeSlaa",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "TeSlaa didn't garner a target in Sunday night's 30-17 loss to the Chiefs.",
-          "long_comment": "TeSlaa played a season-high 25 snaps on offense, but he didn't see a target for the second time in three weeks. The wide receiver continues to be a non-factor from a fantasy perspective this season, operating as a depth option behind Amon-Ra St. Brown and Jameson Williams. Through six games, TeSlaa has caught three of five targets for 54 yards and two touchdowns.",
-          "last_updated": "2025-10-13T20:22Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4569465",
           "name": "Jack Campbell",
           "position": "LB",
@@ -4410,9 +4394,25 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Campbell recorded eight tackles (four solo), including 1.0 sacks, in Sunday's loss to the Chiefs.",
-          "long_comment": "Campbell finished second on Detroit in stops behind Alex Anzalone (12). Campbell also notched his second sack of the campaign when he brought down Patrick Mahomes in the second quarter. Through six games, Campbell has recorded 56 tackles.",
-          "last_updated": "2025-10-14T01:14Z",
+          "short_comment": "Campbell recorded eight total tackles (three solo), including 1.0 sacks, in Monday night's 24-9 win over the Buccaneers.",
+          "long_comment": "Campbell finished tied for the team lead in takedowns with safety Erick Hallett, securing at least eight stops for the seventh game in a row to start the year. Additionally, the linebacker was able to get to quarterback Baker Mayfield in the first quarter, notching a sack for the second week in a row. Campbell has now registered 64 total tackles (34 solo), including 3.0 sacks, while also adding two forced fumbles and a fumble recovery over seven contests this season.",
+          "last_updated": "2025-10-21T02:57Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4429795",
+          "name": "Jahmyr Gibbs",
+          "position": "RB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Gibbs took 17 carries for 136 yards and a pair of touchdowns while adding three receptions for 82 yards in Monday's 24-9 win over the Buccaneers.",
+          "long_comment": "Gibbs saved his best for the bright lights of Monday Night Football, generating his first 100-yard rushing game this season while going over 200 all-purpose yards for the first time in his career. The fantasy stud had cooled off over the Lions' last two contests, so managers have to feel elated receiving Monday's late boon to their scores. David Montgomery struggled to generate 39 yards on 15 touches, but he remains a steady presence as part of Detroit's thunder and lightning backfield. Gibbs sprints into the upcoming bye week tallying 720 combined yards from scrimmage and seven total touchdowns through seven starts in 2025. Fantasy GMs will have to hold things together until the Lions resume play against the Vikings on Nov. 2.",
+          "last_updated": "2025-10-21T02:57Z",
           "source": "basic/manual"
         },
         {
@@ -4426,14 +4426,14 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Bates made his lone field-goal attempt and both of his point-after tries in Sunday night's 30-17 loss to the Chiefs.",
-          "long_comment": "The 26-year-old from Arkansas hasn't missed a kick since the Lions' Week 3 win over the Ravens, converting on seven of nine field-goal tries and all 24 of his extra-point attempts through the team's first six games. Bates lines up for a potentially busy night in a Week 7 home matchup against the high-powered Buccaneers next Monday night.",
-          "last_updated": "2025-10-13T16:38Z",
+          "short_comment": "Bates went 1-for-2 on field-goal tries and made all three of his PATs in Monday's 24-9 win over the Buccaneers.",
+          "long_comment": "Bates missed a 54-yard field-goal attempt wide left in the late moments of the second quarter before later adding a 58-yard make in the fourth. The kicker has now gone 8-for-11 on field-goal tries, including 2-for-5 from 50-plus yards, while making all 27 of his extra-point attempts over seven games this season.",
+          "last_updated": "2025-10-21T02:41Z",
           "source": "basic/manual"
         },
         {
-          "athlete_id": "2973405",
-          "name": "Kalif Raymond",
+          "athlete_id": "4426388",
+          "name": "Jameson Williams",
           "position": "WR",
           "status": "Active",
           "status_code": {
@@ -4442,9 +4442,41 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Raymond didn't garner a target during Sunday night's 30-17 loss to Kansas City.",
-          "long_comment": "Raymond was cleared to play after suffering a neck injury in Week 5, but he only logged two snaps on offense and one snap with the special-teams unit. The wide receiver will look to be more involved Week 7 versus the Buccaneers after having an additional week to return to form following his injury.",
-          "last_updated": "2025-10-13T20:36Z",
+          "short_comment": "Williams failed to bring in either of his two targets in Monday's 24-9 win over Tampa Bay.",
+          "long_comment": "The usually sure-handed Williams failed to haul in either of his targets on a low-volume passing night dominated by Detroit's run game. The 24-year-old has been a hit-or-miss fantasy asset through seven weeks, doing most of his damage in two big scoring games. Williams couldn't improve on his 17-289-2 receiving line Monday as the Lions prepare to enter a bye week. The Alabama product should continue to be treated as a risky high-upside play against the Vikings in Week 9.",
+          "last_updated": "2025-10-21T03:56Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3046779",
+          "name": "Jared Goff",
+          "position": "QB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Goff completed 20 of 29 pass attempts for 241 yards, one touchdown and one interception while adding two rush attempts for seven yards and a lost fumble in Monday's 24-9 win over the Buccaneers.",
+          "long_comment": "Goff was able to lead his team to victory on Monday Night Football, but it came at the expense of his first multi-turnover game of the season. It was also the veteran signal-caller's third time scoring one touchdown or less this year. Goff has thrown 12 touchdowns to just one interception in his four other starts, so his whole body of work has been positive as Detroit enters its Week 8 bye. The 30-year-old should continue to be treated as a starting-level option in fantasy when the Lions host the Vikings on Nov. 2.",
+          "last_updated": "2025-10-21T03:28Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4430027",
+          "name": "Sam LaPorta",
+          "position": "TE",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "LaPorta finished with three receptions on as many targets for 15 yards in Monday's 24-9 win over the Buccaneers.",
+          "long_comment": "LaPorta came out of Monday's primetime matchup with his worst receiving line of the season. The 24-year-old's targets and yardage both represented new lows in seven starts this year. LaPorta's dud comes on the heels of the tight end's best two fantasy outings in which he scored a touchdown apiece, so managers should hang tight through the Lions' upcoming bye week. Detroit resumes play against Minnesota on Nov. 2 in Week 9.",
+          "last_updated": "2025-10-21T03:49Z",
           "source": "basic/manual"
         },
         {
@@ -4477,38 +4509,6 @@
           "short_comment": "The NFL's one-game suspension of Branch was upheld Wednesday, Ian Rapoport of NFL Network reports.",
           "long_comment": "Branch was suspended for one game after getting into an altercation with multiple Chiefs players after their game in Week 6, and his appeal of the decision was unsuccessful. In his absence, Thomas Harper projects to start at safety alongside Kerby Joseph in Week 7. Branch should be eligible to return to game action in Week 9 versus the Vikings after Detroit's Week 8 bye.",
           "last_updated": "2025-10-16T01:16Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4035505",
-          "name": "Daniel Thomas",
-          "position": "S",
-          "status": "Injured Reserve",
-          "status_code": {
-            "id": "5",
-            "abbreviation": "IR",
-            "description": "Injured Reserve",
-            "name": "INJURY_STATUS_IR"
-          },
-          "short_comment": "Thomas underwent surgery on his broken forearm but could return from injured reserve when eligible in Week 9 versus Minnesota, Justin Rogers of Detroit Football Network reports.",
-          "long_comment": "Thomas suffered the injury on special teams in Week 3 against the Ravens. He'd previously been dealing with a broken hand on the same side. Thomas is a special-teams asset and reserve safety for the Lions.",
-          "last_updated": "2025-10-14T18:27Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3124058",
-          "name": "Marcus Davenport",
-          "position": "DE",
-          "status": "Injured Reserve",
-          "status_code": {
-            "id": "5",
-            "abbreviation": "IR",
-            "description": "Injured Reserve",
-            "name": "INJURY_STATUS_IR"
-          },
-          "short_comment": "Coach Dan Campbell said Davenport (chest) will not return ahead of the Lions' Week 8 bye, Justin Rogers of Detroit Football Network reports.",
-          "long_comment": "Davenport was injured in Week 2 and remains on injured reserve. \"He's doing well,\" Campbell said of Davenport. \"He's getting better. ... But I don't see him being ready before the bye for sure.\" In his lone healthy game this season, Davenport started and logged 69 percent of the defensive snaps in Week 1 versus Green Bay.",
-          "last_updated": "2025-10-14T18:10Z",
           "source": "basic/manual"
         }
       ]
@@ -9439,7 +9439,7 @@
       "team_name": "New York Giants",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-21T02:13Z",
+      "last_updated": "2025-10-21T03:03Z",
       "injuries": [
         {
           "athlete_id": "4361748",
@@ -9454,7 +9454,7 @@
           },
           "short_comment": "out",
           "long_comment": "out",
-          "last_updated": "2025-10-21T02:02Z",
+          "last_updated": "2025-10-21T03:03Z",
           "source": "basic/manual"
         },
         {
@@ -11079,7 +11079,7 @@
       "team_name": "Seattle Seahawks",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-21T02:02Z",
+      "last_updated": "2025-10-21T03:03Z",
       "injuries": [
         {
           "athlete_id": "4567226",
@@ -11142,7 +11142,7 @@
           },
           "short_comment": "inactive",
           "long_comment": "inactive",
-          "last_updated": "2025-10-21T02:02Z",
+          "last_updated": "2025-10-21T03:03Z",
           "source": "basic/manual"
         },
         {
@@ -11695,7 +11695,7 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Kittle (hamstring) failed to bring in either of his targets in Sunday's 20-10 win over the Falcons.",
-          "long_comment": "It was a Christian McCaffrey focused gameplan out of the gates Sunday, resulting in no San Francisco receiver topping 31 yards in the win. Kittle's managers were hoping for more after he spent the last five-plus weeks tending to his injured hamstring on IR. The star tight end didn't appear limited while running routes, which is the only silver lining from Sunday's bagel in the box score. Kittle will look to get more involved offensively against the Texans next Sunday for a 49ers' squad that is still banged-up at the receiver position.",
+          "long_comment": "It was a Christian McCaffrey focused gameplan out of the gates Sunday, resulting in no San Francisco receiver topping 31 yards in the win. Kittle's managers were hoping for more after he spent the last five-plus weeks tending to his injured hamstring on IR. The star tight end didn't appear limited while running routes, which is the only silver lining from Sunday's bagel in the box score. Kittle will look to get more involved offensively against the Texans next Sunday for a 49ers squad that is still banged-up at the receiver position.",
           "last_updated": "2025-10-20T03:50Z",
           "source": "basic/manual"
         },
@@ -11899,7 +11899,7 @@
       "team_name": "Tampa Bay Buccaneers",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-21T01:54Z",
+      "last_updated": "2025-10-21T03:43Z",
       "injuries": [
         {
           "athlete_id": "4596448",
@@ -12008,9 +12008,9 @@
             "description": "out",
             "name": "INJURY_STATUS_OUT"
           },
-          "short_comment": "Evans will not return to Monday's game against the Lions due to concussion and shoulder injuries, Mike Garafolo of NFL Network reports.",
-          "long_comment": "Evans was hurt on an attempted catch deep down the field in the second quarter. He remained on the field for several minutes and was then carted to the locker room after walking to the sideline. Evans was quickly ruled out and is presumably set to undergo imaging to get further information on the shoulderinjury.",
-          "last_updated": "2025-10-21T00:26Z",
+          "short_comment": "Evans will be sidelined for most of the year after suffering a broken collarbone in Monday's 24-9 loss to the Lions, Rick Stroud of the Tampa Bay Timesreports.",
+          "long_comment": "Evans suffered the injury in the second quarter of Monday's loss while attempting to reel in a deep target. His absence will be a big blow to the Tampa Bay receiving corps, with Chris Godwin (leg) also banged up. Evans' streak of 11 straight campaigns with 1,000 receiving yards will also almost certainly come to an end.",
+          "last_updated": "2025-10-21T02:39Z",
           "source": "basic/manual"
         },
         {
@@ -12062,6 +12062,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "3052587",
+          "name": "Baker Mayfield",
+          "position": "QB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Mayfield completed 28 of 50 passes for 228 yards with a touchdown and an interception in the Buccaneers' 24-9 loss to the Lions on Monday night. He also committed a fumble recovered by Tampa Bay.",
+          "long_comment": "Mayfield went into the game with both Mike Evans and Emeka Egbuka available despite their respective hamstring injuries, but he ended up losing the former to a shoulder injury and concussion in the first half. Mayfield had already been struggling to get the ball to Evans -- the pass on which he suffered the pair of injuries was his fourth target without a catch -- and he saw only marginal improvement over the rest of the night even though the Lions were playing with an extremely short-handed secondary. Mayfield saw a two-game interception-less streak come to an end as well, and it remains to be seen if he'll have either Evans or Chris Godwin (fibula) at his disposal for a Week 8 road matchup versus the Saints on Sunday.",
+          "last_updated": "2025-10-21T02:35Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4816107",
           "name": "Benjamin Morrison",
           "position": "CB",
@@ -12088,9 +12104,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Otton had five receptions on six targets for 51 yards in Sunday's 30-19 win over the 49ers.",
-          "long_comment": "Otton paced the Buccaneers in targets and receptions while finishing with his second-highest yardage total of the season. Part of the reason the tight end was featured so prominently Sunday was the early departure of star rookie Emeka Egbuka. Otton remained scoreless through six starts, but he is getting involved downfield more often as Tampa Bay deals with injuries at the wideout position. Otton will look to build a hot streak with another strong showing against the Lions next Monday.",
-          "last_updated": "2025-10-13T02:28Z",
+          "short_comment": "Otton secured seven of nine targets for 65 yards in the Buccaneers' 24-9 loss to the Lions on Monday night.",
+          "long_comment": "Otton led the Buccaneers in receptions and receiving yards while tying for second in targets. The veteran tight end benefited from the absence of Chris Godwin (fibula) and the early exit of Mike Evans (concussion/collarbone), helping lead to Otton's season-high catch total. Otton also had what appeared to be a reception ultimately deemed an interception, but he could be due for another busy day in a Week 8 road divisional clash against the Saints if Godwin remains out and exacerbates the confirmed absence of Evans.",
+          "last_updated": "2025-10-21T03:43Z",
           "source": "basic/manual"
         },
         {
@@ -12120,9 +12136,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Egbuka (hamstring) is listed as active Monday at Detroit.",
-          "long_comment": "After emerging from a Week 6 win against the 49ers with a strained hamstring, Egbuka managed just one limited practice (Saturday) before being listed as questionable for Monday's contest. On Saturday, coach Todd Bowles called Egbuka a game-time decision for Week 7 action, per Adam Schefter of ESPN, but now that the rookie wide receiver is cleared, he'll be pacing a receiving corps that also features the return of Mike Evans (hamstring) for the first time since Week 3. Both Egbuka and Evans will be priority plays in fantasy against a Lions secondary that is down all four starters.",
-          "last_updated": "2025-10-20T21:33Z",
+          "short_comment": "Egbuka (hamstring) brought in four of 12 targets for 58 yards during the Buccaneers' 24-9 loss to the Lions on Monday night.",
+          "long_comment": "The rookie was surprisingly able to play through his hamstring strain, and he finished with a team-high target total while tying for second in both receptions and receiving yards. Egbuka also provided a team-high 30-yard catch, and given Ian Rapoport of NFL Network reports Mike Evans has been diagnosed with a broken collarbone following his first-half exit from Monday's game, the 2025 first-round pick is set to play an elevated role for the rest of the season. Egbuka could be especially busy in Sunday's Week 8 road matchup against the Saints, considering Chris Godwin (fibula) could remain sidelined for that divisional clash.",
+          "last_updated": "2025-10-21T02:44Z",
           "source": "basic/manual"
         },
         {
@@ -12200,15 +12216,15 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "White rushed 17 times for 65 yards and a touchdown while corralling all three of his targets for 21 yards in Sunday's 30-19 win over the 49ers.",
-          "long_comment": "White got the nod in place of injured starter Bucky Irving (foot/shoulder) for the second consecutive week, rewarding fantasy managers with his third touchdown over that span. The 26-year-old White finished below four yards per carry in both spot-starts, but his nose for the goal line helped cement another strong fantasy score. No. 3 RB Sean Tucker (6-25-1) remained a distant second in carries behind White, but the former was able to vulture a touchdown from the fill-in starter this time around. The Buccaneers have an extra day off before hosting the Lions on Monday Night Football in Week 7, so White's managers should monitor Irving's availability leading up to that contest before deciding whether to deploy White in their lineups.",
-          "last_updated": "2025-10-13T01:18Z",
+          "short_comment": "White rushed 10 times for 38 yards and brought in four of six targets for six yards in the Buccaneers' 24-9 loss to the Lions on Monday night.",
+          "long_comment": "White drew another start for Bucky Irving (foot/shoulder) but partly fell victim to game script, as the Lions had jumped out to a 14-3 lead by halftime. White also tied for second in receptions on the night for the Buccaneers, who lost Mike Evans to a concussion and what was ultimately diagnosed as a broken collarbone in the first half. Irving may be ready to return for the Week 8 road matchup against the Saints on Sunday, a development that would relegate White back to his customary No. 2 role.",
+          "last_updated": "2025-10-21T02:39Z",
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4430871",
-          "name": "Sean Tucker",
-          "position": "RB",
+          "athlete_id": "4429511",
+          "name": "SirVocea Dennis",
+          "position": "LB",
           "status": "Active",
           "status_code": {
             "id": "0",
@@ -12216,25 +12232,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Tucker took six carries for 25 yards and a touchdown and was not targeted as a receiver in Sunday's 30-19 win over San Francisco.",
-          "long_comment": "Tucker made his mark on the box score when he took a nine-yard scamper for an easy touchdown in Sunday's victory. Rachaad White (17-6-1) made the most of Bucky Irving's (foot/shoulder) second missed game of the season, producing the superior fantasy line in the process. Even if Irving remains sidelined in Week 7, Tucker won't check in any higher than second on Tampa Bay's depth chart against the Lions next Monday.",
-          "last_updated": "2025-10-13T02:36Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "2976592",
-          "name": "Sterling Shepard",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Shepard had two receptions on three targets for 51 yards in Sunday's 30-19 win over the 49ers.",
-          "long_comment": "Shepard was elevated to second on the receiver depth chart after Mike Evans (hamstring) and Chris Godwin (fibula) were ruled out for Sunday's tilt. Things could have opened up more for the veteran after Emeka Egbuka (hamstring) left the contest early, but it was fellow wideouts Kameron Johnson and Tez Johnson who cashed in a pair of Baker Mayfield passing touchdowns Sunday. While things didn't pan out for Shepard in Week 6 (given his elevated opportunities), Egbuka's potential absence moving forward means that Shepard is worth holding for next Monday's tilt against the Lions.",
-          "last_updated": "2025-10-13T02:19Z",
+          "short_comment": "Dennis recorded 12 tackles (eight solo), including 1.0 sacks, in Monday's loss to the Lions.",
+          "long_comment": "Dennis finished second on Tampa Bay in tackles and recorded a new season-high mark. He also logged his first sack of the campaign when he brought down Jared Goff for a 12-yard loss early in the second quarter. On the season, Dennis has tallied 52 tackles and two pass defenses through seven contests.",
+          "last_updated": "2025-10-21T02:54Z",
           "source": "basic/manual"
         },
         {
@@ -12280,9 +12280,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Smith registered six tackles (five solo) in the Buccaneers' win over the 49ers on Sunday.",
-          "long_comment": "Smith continued his strong start to the season, as he's now recorded at least six tackles in each of his first six outings. The 24-year-old has totaled 45 tackles (27 solo), including 1.0 sacks, and will look to add to his totals in the team's Week 7 matchup against the Lions.",
-          "last_updated": "2025-10-15T01:15Z",
+          "short_comment": "Smith tallied 13 tackles (eight solo), including 1.0 sacks, in Monday's Week 7 loss to Detroit.",
+          "long_comment": "Smith paced the Bucs in tackles with a season-high tally. Among his stops was a sack of Jared Goff late in the second quarter that was immediately followed by a Tampa Bay interception. Smith has emerged as a viable IDP asset early in the season, totaling 58 tackles, including 2.0 sacks, through seven games.",
+          "last_updated": "2025-10-21T02:49Z",
           "source": "basic/manual"
         },
         {
@@ -12309,7 +12309,7 @@
       "team_name": "Tennessee Titans",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-20T23:58Z",
+      "last_updated": "2025-10-21T03:25Z",
       "injuries": [
         {
           "athlete_id": "3843843",
@@ -12520,9 +12520,9 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4686728",
-          "name": "Gunnar Helm",
-          "position": "TE",
+          "athlete_id": "4883647",
+          "name": "Elic Ayomanor",
+          "position": "WR",
           "status": "Active",
           "status_code": {
             "id": "0",
@@ -12530,9 +12530,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Helm recorded two receptions on three targets for 15 yards in Sunday's 20-10 loss to the Raiders.",
-          "long_comment": "Helm saw a slight downturn in snap rate relative to his Week 5 performance, as he was on the field for only 49 percent of offensive snaps. He still managed to earn three targets, but he was less involved than veteran tight end Chig Okonkwo. Helm remains inconsistent, though he could see his role expand as the Titans turn their attention to developing Cam Ward and auditioning players for a role in 2026.",
-          "last_updated": "2025-10-14T06:40Z",
+          "short_comment": "Ayomanor recorded two receptions on five targets for 29 yards in Sunday's 31-13 loss to the Patriots.",
+          "long_comment": "Ayomanor had a chance to step up in the absence of Calvin Ridley (hamstring) but it was Chimere Dike who instead had a relatively big performance. Ayomanor managed to tie for second on the team in targets, but he had a very quiet day after recording a 20-yard catch on the Titans' opening possession. He now has fewer than 30 receiving yards in three straight games.",
+          "last_updated": "2025-10-21T03:25Z",
           "source": "basic/manual"
         },
         {
@@ -12616,22 +12616,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4057082",
-          "name": "Mason Kinsey",
-          "position": "WR",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "The Titans have elevated Kinsey from the practice squad to the active roster for Sunday's matchup against New England, Jim Wyatt of the team's official site reports.",
-          "long_comment": "Kinsey will provide Tennessee with extra depth at the wide receiver position, with both Calvin Ridley (hamstring) and Bryce Oliver (knee) unavailable Week 7. After Sunday's home game, Kinsey will be slated to revert to the Titans' practice squad.",
-          "last_updated": "2025-10-19T00:24Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4280416",
           "name": "Samuel Womack III",
           "position": "CB",
@@ -12675,8 +12659,24 @@
             "name": "INJURY_STATUS_ACTIVE"
           },
           "short_comment": "Pollard rushed the ball six times for 18 yards in Sunday's 31-13 loss to the Patriots. He added six receptions on six targets for 43 yards.",
-          "long_comment": "Pollard slipped into an even workload with Tyjae Spears on the ground, though the Titans attempted only 12 rushes as a team. Instead, Pollard earned most of his fantasy value as a pass catcher, with six catches marking his highest total since Week 14 of the 2023 campaign. While it was a positive for Week 7, the likelihood of Pollard repeating this performance consistently moving forward is slim. Given the state of the Titans' offense and the split in workload, Pollard has lost much of his fantasy appeal since Spears has returned.",
+          "long_comment": "Pollard slipped into an even workload with Tyjae Spears on the ground, though the Titans attempted only 12 rushes as a team. Instead, Pollard earned most of his fantasy value as a pass catcher, with six catches marking his highest total since Week 14 of the 2023 campaign. While it was a positive for Week 7, the likelihood of Pollard repeating this performance in the passing game consistently moving forward is slim. Given the state of the Titans' offense and the split in workload, Pollard has lost much of his fantasy appeal since Spears has returned.",
           "last_updated": "2025-10-20T03:35Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4428557",
+          "name": "Tyjae Spears",
+          "position": "RB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Spears rushed the ball five times for 22 yards in Sunday's 31-13 loss to the Patriots. He added three receptions on four targets for 18 yards.",
+          "long_comment": "The Titans attempted only 12 rushes in the game, with Spears splitting the workload almost exactly evenly with Tony Pollard. More surprising was that Pollard out-produced him as a pass catcher, a role that Spears had seemingly taken over since his return to the field. While he's added an element to the Tennessee offense, the unit is poor enough that Spears won't be able to sustain fantasy vlaue so long as he's in a split with Pollard.",
+          "last_updated": "2025-10-21T03:07Z",
           "source": "basic/manual"
         },
         {
@@ -12719,7 +12719,7 @@
       "team_name": "Washington Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-20T23:07Z",
+      "last_updated": "2025-10-21T02:31Z",
       "injuries": [
         {
           "athlete_id": "3126486",
@@ -13052,9 +13052,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "The Commanders elevated  Chosen from the practice squad to the active roster Saturday.",
-          "long_comment": "Chosen joined the Commanders' practice squad at the end of September, but he has yet to appear in a game with the team. With both Deebo Samuel (heel) and Terry McLaurin (quadriceps)  both sidelined, Chosen should have a chance to be active Sunday against the Cowboys.",
-          "last_updated": "2025-10-19T00:45Z",
+          "short_comment": "Chosen reverted to Washington's practice squad Monday, per the NFL's transaction log.",
+          "long_comment": "Chosen got his first chance of the campaign to log action on gameday this past Sunday versus Dallas and played 33 of 67 offensive snaps to rank fourth among Commanders wideouts. He caught all four of his targets for 36 yards, with the reception total leading all Washington players. Chosen's opportunity came as a result of Washington's wideout corps being depleted by injuries -- each of Terry McLaurin (quadriceps), Deebo Samuel (heel) and Noah Brown (groin, IR) was unable to play. Chosen's path to additional opportunity likely depends on when the team's injured wideouts are able to return.",
+          "last_updated": "2025-10-21T02:31Z",
           "source": "basic/manual"
         },
         {
