@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-21T00:53:15.933714",
+  "generated_at": "2025-10-21T16:04:20.486155",
   "players": [
     {
       "player_id": "00-0037157",
@@ -18,9 +18,9 @@
           "rush_yards": 57,
           "avg_rush_yards": 4.384615384615385,
           "rush_touchdowns": 0,
-          "expected_rush_yards": 57.3191031549527,
-          "rush_yards_over_expected": -0.3191031549526997,
-          "rush_yards_over_expected_per_att": -0.024546396534823,
+          "expected_rush_yards": 57.31910315495271,
+          "rush_yards_over_expected": -0.3191031549527068,
+          "rush_yards_over_expected_per_att": -0.0245463965348236,
           "rush_pct_over_expected": 0.4615384615384615
         }
       }
@@ -33,13 +33,13 @@
       "number": 7,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 2.880527777777777,
-          "avg_completed_air_yards": 6.239199999999999,
-          "avg_intended_air_yards": 8.220571428571427,
-          "avg_air_yards_differential": -1.9813714285714283,
+          "avg_time_to_throw": 2.906777777777778,
+          "avg_completed_air_yards": 6.794399999999999,
+          "avg_intended_air_yards": 8.617142857142856,
+          "avg_air_yards_differential": -1.822742857142857,
           "aggressiveness": 8.333333333333332,
           "max_completed_air_distance": 54.44367089019623,
-          "avg_air_yards_to_sticks": -1.3222857142857152,
+          "avg_air_yards_to_sticks": -0.9257142857142864,
           "attempts": 36,
           "pass_yards": 279,
           "pass_touchdowns": 2,
@@ -47,9 +47,9 @@
           "passer_rating": 110.7638888888889,
           "completions": 25,
           "completion_percentage": 69.44444444444444,
-          "expected_completion_percentage": 64.53805555555554,
-          "completion_percentage_above_expectation": 4.906388888888898,
-          "avg_air_distance": 21.61057896234295,
+          "expected_completion_percentage": 63.86527777777778,
+          "completion_percentage_above_expectation": 5.579166666666659,
+          "avg_air_distance": 21.60041198162556,
           "max_air_distance": 54.44367089019623
         }
       }
@@ -65,7 +65,7 @@
           "avg_cushion": 5.053333333333334,
           "avg_separation": 2.8874238932959817,
           "avg_intended_air_yards": 19.025,
-          "percent_share_of_intended_air_yards": 39.673988600027805,
+          "percent_share_of_intended_air_yards": 37.84814323607427,
           "receptions": 2,
           "targets": 6,
           "catch_percentage": 33.33333333333333,
@@ -85,10 +85,10 @@
       "number": 85,
       "stats": {
         "receiving": {
-          "avg_cushion": 5.251818181818183,
+          "avg_cushion": 5.251818181818182,
           "avg_separation": 3.195736107099262,
           "avg_intended_air_yards": 6.084615384615384,
-          "percent_share_of_intended_air_yards": 27.492006117058253,
+          "percent_share_of_intended_air_yards": 26.226790450928384,
           "receptions": 10,
           "targets": 13,
           "catch_percentage": 76.92307692307693,
@@ -110,14 +110,14 @@
         "rushing": {
           "efficiency": 6.876749999999999,
           "percent_attempts_gte_eight_defenders": 14.285714285714285,
-          "avg_time_to_los": 3.6707692307692303,
+          "avg_time_to_los": 3.670769230769231,
           "rush_attempts": 14,
           "rush_yards": 40,
           "avg_rush_yards": 2.857142857142857,
           "rush_touchdowns": 0,
-          "expected_rush_yards": 70.55716333203422,
-          "rush_yards_over_expected": -30.55716333203422,
-          "rush_yards_over_expected_per_att": -2.1826545237167303,
+          "expected_rush_yards": 70.55716333203424,
+          "rush_yards_over_expected": -30.55716333203424,
+          "rush_yards_over_expected_per_att": -2.182654523716731,
           "rush_pct_over_expected": 0.2857142857142857
         }
       }
@@ -250,28 +250,6 @@
       }
     },
     {
-      "player_id": "00-0036555",
-      "player_name": "Chuba Hubbard",
-      "team_abbr": "CAR",
-      "position": "RB",
-      "number": 30,
-      "stats": {
-        "rushing": {
-          "efficiency": 5.377096774193549,
-          "percent_attempts_gte_eight_defenders": 28.57142857142857,
-          "avg_time_to_los": 2.493363636363636,
-          "rush_attempts": 14,
-          "rush_yards": 31,
-          "avg_rush_yards": 2.2142857142857144,
-          "rush_touchdowns": 0,
-          "expected_rush_yards": 51.62726454501598,
-          "rush_yards_over_expected": -20.627264545015983,
-          "rush_yards_over_expected_per_att": -1.473376038929713,
-          "rush_pct_over_expected": 0.3571428571428571
-        }
-      }
-    },
-    {
       "player_id": "00-0036139",
       "player_name": "Rico Dowdle",
       "team_abbr": "CAR",
@@ -286,9 +264,9 @@
           "rush_yards": 79,
           "avg_rush_yards": 4.647058823529412,
           "rush_touchdowns": 0,
-          "expected_rush_yards": 63.073447770385,
-          "rush_yards_over_expected": 15.926552229614998,
-          "rush_yards_over_expected_per_att": 0.9368560135067646,
+          "expected_rush_yards": 63.07344777038501,
+          "rush_yards_over_expected": 15.926552229614993,
+          "rush_yards_over_expected_per_att": 0.9368560135067642,
           "rush_pct_over_expected": 0.4705882352941176
         }
       }
@@ -347,10 +325,10 @@
       "number": 18,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 3.742423076923077,
-          "avg_completed_air_yards": 5.258666666666667,
+          "avg_time_to_throw": 3.7424230769230777,
+          "avg_completed_air_yards": 5.258666666666668,
           "avg_intended_air_yards": 7.883200000000001,
-          "avg_air_yards_differential": -2.6245333333333347,
+          "avg_air_yards_differential": -2.624533333333334,
           "aggressiveness": 15.384615384615383,
           "max_completed_air_distance": 29.874812133300512,
           "avg_air_yards_to_sticks": -1.5968,
@@ -361,8 +339,8 @@
           "passer_rating": 61.69871794871794,
           "completions": 15,
           "completion_percentage": 57.692307692307686,
-          "expected_completion_percentage": 66.33961538461539,
-          "completion_percentage_above_expectation": -8.647307692307699,
+          "expected_completion_percentage": 66.33961538461537,
+          "completion_percentage_above_expectation": -8.647307692307685,
           "avg_air_distance": 20.96183749642573,
           "max_air_distance": 38.64481465863176
         }
@@ -384,8 +362,8 @@
           "avg_rush_yards": 6.526315789473684,
           "rush_touchdowns": 1,
           "expected_rush_yards": 93.9604739758868,
-          "rush_yards_over_expected": 30.03952602411321,
-          "rush_yards_over_expected_per_att": 1.5810276854796428,
+          "rush_yards_over_expected": 30.0395260241132,
+          "rush_yards_over_expected_per_att": 1.581027685479642,
           "rush_pct_over_expected": 0.4210526315789473
         }
       }
@@ -421,7 +399,7 @@
       "number": 25,
       "stats": {
         "rushing": {
-          "efficiency": 2.6933333333333334,
+          "efficiency": 2.693333333333333,
           "percent_attempts_gte_eight_defenders": 23.07692307692308,
           "avg_time_to_los": 2.407153846153846,
           "rush_attempts": 13,
@@ -429,8 +407,8 @@
           "avg_rush_yards": 6.230769230769231,
           "rush_touchdowns": 1,
           "expected_rush_yards": 58.00429025743341,
-          "rush_yards_over_expected": 22.99570974256659,
-          "rush_yards_over_expected_per_att": 1.7689007494281992,
+          "rush_yards_over_expected": 22.9957097425666,
+          "rush_yards_over_expected_per_att": 1.7689007494281996,
           "rush_pct_over_expected": 0.3846153846153846
         }
       }
@@ -563,7 +541,7 @@
       "number": 8,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 2.720388888888889,
+          "avg_time_to_throw": 2.7203888888888894,
           "avg_completed_air_yards": 1.8761538461538447,
           "avg_intended_air_yards": 4.267777777777777,
           "avg_air_yards_differential": -2.3916239316239323,
@@ -577,8 +555,8 @@
           "passer_rating": 89.12037037037037,
           "completions": 13,
           "completion_percentage": 72.22222222222221,
-          "expected_completion_percentage": 70.19666666666667,
-          "completion_percentage_above_expectation": 2.025555555555542,
+          "expected_completion_percentage": 70.19666666666666,
+          "completion_percentage_above_expectation": 2.025555555555556,
           "avg_air_distance": 17.32402930360898,
           "max_air_distance": 43.2210411720958
         }
@@ -615,9 +593,9 @@
       "number": 10,
       "stats": {
         "rushing": {
-          "efficiency": 4.131666666666667,
+          "efficiency": 4.108809523809525,
           "percent_attempts_gte_eight_defenders": 52.0,
-          "avg_time_to_los": 3.0565789473684206,
+          "avg_time_to_los": 2.943526315789474,
           "rush_attempts": 25,
           "rush_yards": 84,
           "avg_rush_yards": 3.36,
@@ -637,10 +615,10 @@
       "number": 88,
       "stats": {
         "receiving": {
-          "avg_cushion": 5.361250000000001,
+          "avg_cushion": 5.36125,
           "avg_separation": 2.271791430084298,
           "avg_intended_air_yards": 10.06375,
-          "percent_share_of_intended_air_yards": 39.13381616682057,
+          "percent_share_of_intended_air_yards": 39.13381616682059,
           "receptions": 5,
           "targets": 8,
           "catch_percentage": 62.5,
@@ -662,8 +640,8 @@
         "passing": {
           "avg_time_to_throw": 2.7616,
           "avg_completed_air_yards": 5.90904761904762,
-          "avg_intended_air_yards": 6.8576666666666695,
-          "avg_air_yards_differential": -0.94861904761905,
+          "avg_intended_air_yards": 6.857666666666668,
+          "avg_air_yards_differential": -0.948619047619048,
           "aggressiveness": 20.0,
           "max_completed_air_distance": 48.58177641873545,
           "avg_air_yards_to_sticks": -2.0756666666666663,
@@ -676,7 +654,7 @@
           "completion_percentage": 70.0,
           "expected_completion_percentage": 66.59866666666666,
           "completion_percentage_above_expectation": 3.4013333333333406,
-          "avg_air_distance": 20.09051076833348,
+          "avg_air_distance": 20.090510768333484,
           "max_air_distance": 48.58177641873545
         }
       }
@@ -689,10 +667,10 @@
       "number": 3,
       "stats": {
         "receiving": {
-          "avg_cushion": 4.669999999999999,
+          "avg_cushion": 4.67,
           "avg_separation": 1.9637189398896409,
           "avg_intended_air_yards": 17.305000000000003,
-          "percent_share_of_intended_air_yards": 50.46906139114372,
+          "percent_share_of_intended_air_yards": 50.46906139114373,
           "receptions": 4,
           "targets": 6,
           "catch_percentage": 66.66666666666666,
@@ -715,7 +693,7 @@
           "avg_cushion": 8.133333333333335,
           "avg_separation": 3.3376505997037,
           "avg_intended_air_yards": 1.4571428571428575,
-          "percent_share_of_intended_air_yards": 4.957954600690225,
+          "percent_share_of_intended_air_yards": 4.9579546006902255,
           "receptions": 7,
           "targets": 7,
           "catch_percentage": 100.0,
@@ -735,9 +713,9 @@
       "number": 33,
       "stats": {
         "rushing": {
-          "efficiency": 2.8331896551724136,
+          "efficiency": 2.823620689655172,
           "percent_attempts_gte_eight_defenders": 26.31578947368421,
-          "avg_time_to_los": 2.913294117647059,
+          "avg_time_to_los": 2.9132941176470597,
           "rush_attempts": 19,
           "rush_yards": 116,
           "avg_rush_yards": 6.105263157894737,
@@ -763,7 +741,7 @@
           "avg_air_yards_differential": -3.2164323507180645,
           "aggressiveness": 18.0,
           "max_completed_air_distance": 43.69609822398333,
-          "avg_air_yards_to_sticks": -0.2908163265306121,
+          "avg_air_yards_to_sticks": -0.290816326530612,
           "attempts": 50,
           "pass_yards": 279,
           "pass_touchdowns": 2,
@@ -771,8 +749,8 @@
           "passer_rating": 83.66666666666667,
           "completions": 27,
           "completion_percentage": 54.0,
-          "expected_completion_percentage": 62.924600000000005,
-          "completion_percentage_above_expectation": -8.924600000000005,
+          "expected_completion_percentage": 62.9246,
+          "completion_percentage_above_expectation": -8.924599999999998,
           "avg_air_distance": 21.56328777418569,
           "max_air_distance": 59.62083528431985
         }
@@ -787,9 +765,9 @@
       "stats": {
         "receiving": {
           "avg_cushion": 6.337,
-          "avg_separation": 1.8131961442190143,
-          "avg_intended_air_yards": 11.610000000000005,
-          "percent_share_of_intended_air_yards": 28.128407026044837,
+          "avg_separation": 1.8131961442190137,
+          "avg_intended_air_yards": 11.61,
+          "percent_share_of_intended_air_yards": 28.128407026044822,
           "receptions": 6,
           "targets": 10,
           "catch_percentage": 60.0,
@@ -812,7 +790,7 @@
           "avg_cushion": 7.024000000000001,
           "avg_separation": 6.457053846110068,
           "avg_intended_air_yards": 0.8787499999999997,
-          "percent_share_of_intended_air_yards": 1.7032101756511202,
+          "percent_share_of_intended_air_yards": 1.7032101756511198,
           "receptions": 5,
           "targets": 8,
           "catch_percentage": 62.5,
@@ -832,16 +810,16 @@
       "number": 27,
       "stats": {
         "rushing": {
-          "efficiency": 2.8962962962962964,
+          "efficiency": 2.896296296296297,
           "percent_attempts_gte_eight_defenders": 14.285714285714285,
-          "avg_time_to_los": 2.7207142857142865,
+          "avg_time_to_los": 2.720714285714286,
           "rush_attempts": 14,
           "rush_yards": 81,
           "avg_rush_yards": 5.785714285714286,
           "rush_touchdowns": 0,
-          "expected_rush_yards": 52.92032117181444,
-          "rush_yards_over_expected": 28.07967882818556,
-          "rush_yards_over_expected_per_att": 2.005691344870397,
+          "expected_rush_yards": 52.92032117181445,
+          "rush_yards_over_expected": 28.07967882818555,
+          "rush_yards_over_expected_per_att": 2.0056913448703964,
           "rush_pct_over_expected": 0.5714285714285714
         }
       }
@@ -856,7 +834,7 @@
         "receiving": {
           "avg_cushion": 8.5875,
           "avg_separation": 3.7051537788512334,
-          "avg_intended_air_yards": 12.577142857142857,
+          "avg_intended_air_yards": 12.577142857142858,
           "percent_share_of_intended_air_yards": 21.330102967898245,
           "receptions": 6,
           "targets": 7,
@@ -893,6 +871,102 @@
       }
     },
     {
+      "player_id": "00-0036963",
+      "player_name": "Amon-Ra St. Brown",
+      "team_abbr": "DET",
+      "position": "WR",
+      "number": 14,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 4.382,
+          "avg_separation": 2.8077650787185267,
+          "avg_intended_air_yards": 9.36,
+          "percent_share_of_intended_air_yards": 58.20895522388061,
+          "receptions": 6,
+          "targets": 10,
+          "catch_percentage": 60.0,
+          "yards": 86,
+          "rec_touchdowns": 1,
+          "avg_yac": 7.863333333333332,
+          "avg_expected_yac": 7.577303344072409,
+          "avg_yac_above_expectation": 0.286029989260923
+        }
+      }
+    },
+    {
+      "player_id": "00-0035685",
+      "player_name": "David Montgomery",
+      "team_abbr": "DET",
+      "position": "RB",
+      "number": 5,
+      "stats": {
+        "rushing": {
+          "efficiency": 7.9085714285714275,
+          "percent_attempts_gte_eight_defenders": 84.61538461538461,
+          "avg_time_to_los": 2.7143636363636365,
+          "rush_attempts": 13,
+          "rush_yards": 21,
+          "avg_rush_yards": 1.6153846153846154,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 54.78405229301221,
+          "rush_yards_over_expected": -33.78405229301221,
+          "rush_yards_over_expected_per_att": -2.5987732533086314,
+          "rush_pct_over_expected": 0.0769230769230769
+        }
+      }
+    },
+    {
+      "player_id": "00-0039139",
+      "player_name": "Jahmyr Gibbs",
+      "team_abbr": "DET",
+      "position": "RB",
+      "number": 0,
+      "stats": {
+        "rushing": {
+          "efficiency": 2.7141176470588237,
+          "percent_attempts_gte_eight_defenders": 52.94117647058824,
+          "avg_time_to_los": 2.8020624999999995,
+          "rush_attempts": 17,
+          "rush_yards": 136,
+          "avg_rush_yards": 8.0,
+          "rush_touchdowns": 2,
+          "expected_rush_yards": 77.7668058141318,
+          "rush_yards_over_expected": 54.2331941858682,
+          "rush_yards_over_expected_per_att": 3.3895746366167625,
+          "rush_pct_over_expected": 0.375
+        }
+      }
+    },
+    {
+      "player_id": "00-0033106",
+      "player_name": "Jared Goff",
+      "team_abbr": "DET",
+      "position": "QB",
+      "number": 16,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.4991379310344826,
+          "avg_completed_air_yards": 2.4025,
+          "avg_intended_air_yards": 5.742857142857142,
+          "avg_air_yards_differential": -3.340357142857142,
+          "aggressiveness": 13.79310344827586,
+          "max_completed_air_distance": 29.655105799844996,
+          "avg_air_yards_to_sticks": -3.3642857142857143,
+          "attempts": 29,
+          "pass_yards": 241,
+          "pass_touchdowns": 1,
+          "interceptions": 1,
+          "passer_rating": 91.30747126436782,
+          "completions": 20,
+          "completion_percentage": 68.96551724137932,
+          "expected_completion_percentage": 68.43413793103448,
+          "completion_percentage_above_expectation": 0.5313793103448319,
+          "avg_air_distance": 18.346915741440444,
+          "max_air_distance": 41.07825945679783
+        }
+      }
+    },
+    {
       "player_id": "00-0036264",
       "player_name": "Jordan Love",
       "team_abbr": "GB",
@@ -900,13 +974,13 @@
       "number": 10,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 2.908931034482759,
+          "avg_time_to_throw": 2.9089310344827584,
           "avg_completed_air_yards": 5.447368421052632,
-          "avg_intended_air_yards": 7.233571428571427,
-          "avg_air_yards_differential": -1.786203007518797,
+          "avg_intended_air_yards": 7.233571428571429,
+          "avg_air_yards_differential": -1.7862030075187976,
           "aggressiveness": 13.79310344827586,
           "max_completed_air_distance": 36.12729992678667,
-          "avg_air_yards_to_sticks": -0.3735714285714285,
+          "avg_air_yards_to_sticks": -0.3735714285714286,
           "attempts": 29,
           "pass_yards": 179,
           "pass_touchdowns": 1,
@@ -914,8 +988,8 @@
           "passer_rating": 93.89367816091956,
           "completions": 19,
           "completion_percentage": 65.51724137931035,
-          "expected_completion_percentage": 66.43172413793103,
-          "completion_percentage_above_expectation": -0.9144827586206788,
+          "expected_completion_percentage": 66.43172413793104,
+          "completion_percentage_above_expectation": -0.914482758620693,
           "avg_air_distance": 20.24986835442371,
           "max_air_distance": 48.157953652538026
         }
@@ -929,16 +1003,16 @@
       "number": 8,
       "stats": {
         "rushing": {
-          "efficiency": 3.7092727272727264,
+          "efficiency": 3.709272727272728,
           "percent_attempts_gte_eight_defenders": 23.07692307692308,
-          "avg_time_to_los": 2.5464166666666666,
+          "avg_time_to_los": 2.546416666666667,
           "rush_attempts": 13,
           "rush_yards": 55,
           "avg_rush_yards": 4.230769230769231,
           "rush_touchdowns": 2,
-          "expected_rush_yards": 53.72706350955776,
-          "rush_yards_over_expected": 1.272936490442241,
-          "rush_yards_over_expected_per_att": 0.09791819157248,
+          "expected_rush_yards": 53.727063509557766,
+          "rush_yards_over_expected": 1.272936490442234,
+          "rush_yards_over_expected_per_att": 0.0979181915724795,
           "rush_pct_over_expected": 0.4615384615384615
         }
       }
@@ -951,10 +1025,10 @@
       "number": 87,
       "stats": {
         "receiving": {
-          "avg_cushion": 6.394999999999999,
+          "avg_cushion": 6.395,
           "avg_separation": 2.080933517682699,
           "avg_intended_air_yards": 15.4675,
-          "percent_share_of_intended_air_yards": 61.09410486817419,
+          "percent_share_of_intended_air_yards": 61.094104868174185,
           "receptions": 6,
           "targets": 8,
           "catch_percentage": 75.0,
@@ -974,10 +1048,10 @@
       "number": 85,
       "stats": {
         "receiving": {
-          "avg_cushion": 7.731999999999999,
+          "avg_cushion": 7.732000000000001,
           "avg_separation": 3.47081039294194,
           "avg_intended_air_yards": 4.432,
-          "percent_share_of_intended_air_yards": 21.882097363483755,
+          "percent_share_of_intended_air_yards": 21.88209736348375,
           "receptions": 5,
           "targets": 10,
           "catch_percentage": 50.0,
@@ -986,6 +1060,126 @@
           "avg_yac": 6.556000000000003,
           "avg_expected_yac": 5.454144678545978,
           "avg_yac_above_expectation": 1.1018553214540248
+        }
+      }
+    },
+    {
+      "player_id": "00-0039163",
+      "player_name": "C.J. Stroud",
+      "team_abbr": "HOU",
+      "position": "QB",
+      "number": 7,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.9256326530612253,
+          "avg_completed_air_yards": 4.9278260869565225,
+          "avg_intended_air_yards": 8.007608695652175,
+          "avg_air_yards_differential": -3.079782608695653,
+          "aggressiveness": 24.489795918367346,
+          "max_completed_air_distance": 35.56153118188248,
+          "avg_air_yards_to_sticks": -0.9706521739130436,
+          "attempts": 49,
+          "pass_yards": 229,
+          "pass_touchdowns": 1,
+          "interceptions": 1,
+          "passer_rating": 58.97108843537416,
+          "completions": 23,
+          "completion_percentage": 46.93877551020408,
+          "expected_completion_percentage": 55.51795918367348,
+          "completion_percentage_above_expectation": -8.579183673469402,
+          "avg_air_distance": 21.517499626851112,
+          "max_air_distance": 52.639134681337616
+        }
+      }
+    },
+    {
+      "player_id": "00-0034383",
+      "player_name": "Dalton Schultz",
+      "team_abbr": "HOU",
+      "position": "TE",
+      "number": 86,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.250000000000001,
+          "avg_separation": 4.684159555030639,
+          "avg_intended_air_yards": 4.257,
+          "percent_share_of_intended_air_yards": 11.556943124745484,
+          "receptions": 9,
+          "targets": 10,
+          "catch_percentage": 90.0,
+          "yards": 98,
+          "rec_touchdowns": 0,
+          "avg_yac": 7.313333333333333,
+          "avg_expected_yac": 7.293710863821335,
+          "avg_yac_above_expectation": 0.0196224695119973
+        }
+      }
+    },
+    {
+      "player_id": "00-0040138",
+      "player_name": "Jaylin Noel",
+      "team_abbr": "HOU",
+      "position": "WR",
+      "number": 14,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.3,
+          "avg_separation": 1.9572970666499525,
+          "avg_intended_air_yards": 17.565714285714286,
+          "percent_share_of_intended_air_yards": 33.38129496402877,
+          "receptions": 4,
+          "targets": 7,
+          "catch_percentage": 57.14285714285714,
+          "yards": 77,
+          "rec_touchdowns": 0,
+          "avg_yac": 3.7975,
+          "avg_expected_yac": 3.876551847908747,
+          "avg_yac_above_expectation": -0.0790518479087465
+        }
+      }
+    },
+    {
+      "player_id": "00-0036554",
+      "player_name": "Nico Collins",
+      "team_abbr": "HOU",
+      "position": "WR",
+      "number": 12,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 3.945,
+          "avg_separation": 2.2002246920966213,
+          "avg_intended_air_yards": 9.59,
+          "percent_share_of_intended_air_yards": 26.035021039771948,
+          "receptions": 4,
+          "targets": 10,
+          "catch_percentage": 40.0,
+          "yards": 27,
+          "rec_touchdowns": 0,
+          "avg_yac": 1.795,
+          "avg_expected_yac": 1.7334263669129228,
+          "avg_yac_above_expectation": 0.061573633087077
+        }
+      }
+    },
+    {
+      "player_id": "00-0040583",
+      "player_name": "Woody Marks",
+      "team_abbr": "HOU",
+      "position": "RB",
+      "number": 27,
+      "stats": {
+        "rushing": {
+          "efficiency": 7.765999999999999,
+          "percent_attempts_gte_eight_defenders": 40.0,
+          "avg_time_to_los": 2.2931666666666666,
+          "rush_attempts": 10,
+          "rush_yards": 15,
+          "avg_rush_yards": 1.5,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 32.58511836162846,
+          "rush_yards_over_expected": -17.58511836162846,
+          "rush_yards_over_expected_per_att": -1.758511836162846,
+          "rush_pct_over_expected": 0.0
         }
       }
     },
@@ -1020,10 +1214,10 @@
       "number": 17,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 2.883818181818182,
+          "avg_time_to_throw": 2.8838181818181816,
           "avg_completed_air_yards": 6.830869565217392,
-          "avg_intended_air_yards": 10.960312500000002,
-          "avg_air_yards_differential": -4.1294429347826105,
+          "avg_intended_air_yards": 10.9603125,
+          "avg_air_yards_differential": -4.129442934782609,
           "aggressiveness": 17.647058823529413,
           "max_completed_air_distance": 54.057407448008455,
           "avg_air_yards_to_sticks": 2.272812500000001,
@@ -1034,32 +1228,10 @@
           "passer_rating": 113.3578431372549,
           "completions": 23,
           "completion_percentage": 67.64705882352942,
-          "expected_completion_percentage": 59.18617647058824,
-          "completion_percentage_above_expectation": 8.460882352941184,
-          "avg_air_distance": 23.816144691055868,
+          "expected_completion_percentage": 59.18617647058825,
+          "completion_percentage_above_expectation": 8.46088235294117,
+          "avg_air_distance": 23.816144691055865,
           "max_air_distance": 63.29454399867337
-        }
-      }
-    },
-    {
-      "player_id": "00-0036223",
-      "player_name": "Jonathan Taylor",
-      "team_abbr": "IND",
-      "position": "RB",
-      "number": 28,
-      "stats": {
-        "rushing": {
-          "efficiency": 3.2103191489361707,
-          "percent_attempts_gte_eight_defenders": 25.0,
-          "avg_time_to_los": 2.767071428571428,
-          "rush_attempts": 16,
-          "rush_yards": 94,
-          "avg_rush_yards": 5.875,
-          "rush_touchdowns": 3,
-          "expected_rush_yards": 65.64368996459287,
-          "rush_yards_over_expected": 28.35631003540713,
-          "rush_yards_over_expected_per_att": 1.772269377212946,
-          "rush_pct_over_expected": 0.5
         }
       }
     },
@@ -1097,7 +1269,7 @@
           "avg_cushion": 5.8100000000000005,
           "avg_separation": 5.164829772732562,
           "avg_intended_air_yards": 8.808,
-          "percent_share_of_intended_air_yards": 12.556667522025483,
+          "percent_share_of_intended_air_yards": 12.556667522025489,
           "receptions": 4,
           "targets": 5,
           "catch_percentage": 80.0,
@@ -1208,28 +1380,6 @@
       }
     },
     {
-      "player_id": "00-0040078",
-      "player_name": "Brashard Smith",
-      "team_abbr": "KC",
-      "position": "RB",
-      "number": 24,
-      "stats": {
-        "rushing": {
-          "efficiency": 4.858205128205128,
-          "percent_attempts_gte_eight_defenders": 50.0,
-          "avg_time_to_los": 2.8203333333333336,
-          "rush_attempts": 14,
-          "rush_yards": 39,
-          "avg_rush_yards": 2.7857142857142856,
-          "rush_touchdowns": 0,
-          "expected_rush_yards": 44.973190207658746,
-          "rush_yards_over_expected": -5.973190207658746,
-          "rush_yards_over_expected_per_att": -0.4266564434041961,
-          "rush_pct_over_expected": 0.3571428571428571
-        }
-      }
-    },
-    {
       "player_id": "00-0037197",
       "player_name": "Isiah Pacheco",
       "team_abbr": "KC",
@@ -1239,7 +1389,7 @@
         "rushing": {
           "efficiency": 3.742456140350877,
           "percent_attempts_gte_eight_defenders": 20.0,
-          "avg_time_to_los": 2.7802857142857147,
+          "avg_time_to_los": 2.7802857142857142,
           "rush_attempts": 15,
           "rush_yards": 57,
           "avg_rush_yards": 3.8,
@@ -1260,12 +1410,12 @@
       "stats": {
         "passing": {
           "avg_time_to_throw": 2.2681714285714283,
-          "avg_completed_air_yards": 4.181538461538461,
-          "avg_intended_air_yards": 5.543235294117644,
+          "avg_completed_air_yards": 4.181538461538462,
+          "avg_intended_air_yards": 5.543235294117645,
           "avg_air_yards_differential": -1.3616968325791827,
           "aggressiveness": 8.571428571428571,
           "max_completed_air_distance": 40.42114793026047,
-          "avg_air_yards_to_sticks": -3.0744117647058817,
+          "avg_air_yards_to_sticks": -3.074411764705882,
           "attempts": 35,
           "pass_yards": 286,
           "pass_touchdowns": 3,
@@ -1327,7 +1477,7 @@
           "completion_percentage": 67.27272727272727,
           "expected_completion_percentage": 60.888909090909095,
           "completion_percentage_above_expectation": 6.383818181818171,
-          "avg_air_distance": 21.483019832492488,
+          "avg_air_distance": 21.483019832492484,
           "max_air_distance": 46.50064623206865
         }
       }
@@ -1341,7 +1491,7 @@
       "stats": {
         "receiving": {
           "avg_cushion": 6.042142857142857,
-          "avg_separation": 2.4764468971568028,
+          "avg_separation": 2.476446897156804,
           "avg_intended_air_yards": 9.117857142857142,
           "percent_share_of_intended_air_yards": 26.53901328509948,
           "receptions": 11,
@@ -1364,7 +1514,7 @@
       "stats": {
         "receiving": {
           "avg_cushion": 5.648571428571429,
-          "avg_separation": 3.154444499764934,
+          "avg_separation": 3.1544444997649337,
           "avg_intended_air_yards": 10.877333333333333,
           "percent_share_of_intended_air_yards": 33.92170315391172,
           "receptions": 9,
@@ -1477,16 +1627,16 @@
       "number": 23,
       "stats": {
         "rushing": {
-          "efficiency": 3.5296296296296306,
+          "efficiency": 3.5296296296296297,
           "percent_attempts_gte_eight_defenders": 25.0,
-          "avg_time_to_los": 2.606272727272727,
+          "avg_time_to_los": 2.6062727272727275,
           "rush_attempts": 12,
           "rush_yards": 54,
           "avg_rush_yards": 4.5,
           "rush_touchdowns": 0,
-          "expected_rush_yards": 54.00527179733957,
-          "rush_yards_over_expected": -0.0052717973395743,
-          "rush_yards_over_expected_per_att": -0.0004393164449645,
+          "expected_rush_yards": 54.00527179733958,
+          "rush_yards_over_expected": -0.0052717973395814,
+          "rush_yards_over_expected_per_att": -0.0004393164449651,
           "rush_pct_over_expected": 0.4166666666666667
         }
       }
@@ -1557,7 +1707,7 @@
           "avg_air_yards_differential": -3.823,
           "aggressiveness": 12.5,
           "max_completed_air_distance": 25.74092655675005,
-          "avg_air_yards_to_sticks": -9.456666666666663,
+          "avg_air_yards_to_sticks": -9.456666666666669,
           "attempts": 16,
           "pass_yards": 67,
           "pass_touchdowns": 0,
@@ -1603,16 +1753,16 @@
       "number": 28,
       "stats": {
         "rushing": {
-          "efficiency": 3.598292682926829,
+          "efficiency": 3.5982926829268287,
           "percent_attempts_gte_eight_defenders": 23.07692307692308,
-          "avg_time_to_los": 3.091181818181818,
+          "avg_time_to_los": 3.091181818181819,
           "rush_attempts": 13,
           "rush_yards": 82,
           "avg_rush_yards": 6.307692307692308,
           "rush_touchdowns": 0,
-          "expected_rush_yards": 48.47786275921212,
-          "rush_yards_over_expected": 33.52213724078788,
-          "rush_yards_over_expected_per_att": 2.5786259415990678,
+          "expected_rush_yards": 48.47786275921213,
+          "rush_yards_over_expected": 33.52213724078787,
+          "rush_yards_over_expected_per_att": 2.578625941599067,
           "rush_pct_over_expected": 0.2307692307692307
         }
       }
@@ -1626,7 +1776,7 @@
       "stats": {
         "receiving": {
           "avg_cushion": 5.5175,
-          "avg_separation": 2.728468764726292,
+          "avg_separation": 2.7284687647262915,
           "avg_intended_air_yards": 5.478571428571428,
           "percent_share_of_intended_air_yards": 20.16192629199306,
           "receptions": 5,
@@ -1677,13 +1827,13 @@
       "number": 11,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 2.961428571428572,
+          "avg_time_to_throw": 2.9614285714285717,
           "avg_completed_air_yards": 7.397307692307692,
           "avg_intended_air_yards": 10.46125,
-          "avg_air_yards_differential": -3.063942307692308,
+          "avg_air_yards_differential": -3.06394230769231,
           "aggressiveness": 21.428571428571427,
           "max_completed_air_distance": 48.4544662544125,
-          "avg_air_yards_to_sticks": 1.46125,
+          "avg_air_yards_to_sticks": 1.4612500000000002,
           "attempts": 42,
           "pass_yards": 313,
           "pass_touchdowns": 0,
@@ -1691,9 +1841,9 @@
           "passer_rating": 64.88095238095238,
           "completions": 26,
           "completion_percentage": 61.90476190476191,
-          "expected_completion_percentage": 60.52690476190475,
-          "completion_percentage_above_expectation": 1.3778571428571524,
-          "avg_air_distance": 24.090934917273056,
+          "expected_completion_percentage": 60.56904761904759,
+          "completion_percentage_above_expectation": 1.3357142857143174,
+          "avg_air_distance": 24.09093491727306,
           "max_air_distance": 54.13103453657615
         }
       }
@@ -1706,8 +1856,8 @@
       "number": 3,
       "stats": {
         "receiving": {
-          "avg_cushion": 6.722727272727272,
-          "avg_separation": 2.792229733130993,
+          "avg_cushion": 6.725454545454545,
+          "avg_separation": 2.7912203924739405,
           "avg_intended_air_yards": 16.231666666666666,
           "percent_share_of_intended_air_yards": 46.547974668419165,
           "receptions": 9,
@@ -1716,8 +1866,8 @@
           "yards": 128,
           "rec_touchdowns": 0,
           "avg_yac": 1.198888888888889,
-          "avg_expected_yac": 1.6607325860882964,
-          "avg_yac_above_expectation": -0.4618436971994075
+          "avg_expected_yac": 1.6650910080139705,
+          "avg_yac_above_expectation": -0.4662021191250813
         }
       }
     },
@@ -1729,17 +1879,17 @@
       "number": 27,
       "stats": {
         "rushing": {
-          "efficiency": 4.825263157894736,
+          "efficiency": 4.825263157894737,
           "percent_attempts_gte_eight_defenders": 6.666666666666667,
           "avg_time_to_los": 2.889153846153846,
           "rush_attempts": 15,
           "rush_yards": 57,
           "avg_rush_yards": 3.8,
           "rush_touchdowns": 1,
-          "expected_rush_yards": 61.187513089909054,
-          "rush_yards_over_expected": -5.187513089909054,
-          "rush_yards_over_expected_per_att": -0.3705366492792181,
-          "rush_pct_over_expected": 0.4285714285714285
+          "expected_rush_yards": 60.144564613901096,
+          "rush_yards_over_expected": -4.144564613901096,
+          "rush_yards_over_expected_per_att": -0.296040329564364,
+          "rush_pct_over_expected": 0.5
         }
       }
     },
@@ -1751,18 +1901,18 @@
       "number": 18,
       "stats": {
         "receiving": {
-          "avg_cushion": 5.335555555555555,
-          "avg_separation": 2.023489284457924,
+          "avg_cushion": 5.336666666666667,
+          "avg_separation": 2.0211165913972224,
           "avg_intended_air_yards": 11.831,
-          "percent_share_of_intended_air_yards": 28.27338989126538,
+          "percent_share_of_intended_air_yards": 28.273389891265374,
           "receptions": 5,
           "targets": 10,
           "catch_percentage": 50.0,
           "yards": 79,
           "rec_touchdowns": 0,
           "avg_yac": 12.246000000000004,
-          "avg_expected_yac": 5.146374127708761,
-          "avg_yac_above_expectation": 7.099625872291243
+          "avg_expected_yac": 5.125601377249301,
+          "avg_yac_above_expectation": 7.120398622750703
         }
       }
     },
@@ -1774,8 +1924,8 @@
       "number": 87,
       "stats": {
         "receiving": {
-          "avg_cushion": 5.061428571428571,
-          "avg_separation": 4.219026617856188,
+          "avg_cushion": 5.064285714285715,
+          "avg_separation": 4.217979861261059,
           "avg_intended_air_yards": 4.047777777777778,
           "percent_share_of_intended_air_yards": 8.705938582865338,
           "receptions": 6,
@@ -1784,8 +1934,8 @@
           "yards": 43,
           "rec_touchdowns": 0,
           "avg_yac": 4.401666666666666,
-          "avg_expected_yac": 5.752196399099527,
-          "avg_yac_above_expectation": -1.350529732432861
+          "avg_expected_yac": 5.769316046195589,
+          "avg_yac_above_expectation": -1.3676493795289222
         }
       }
     },
@@ -1797,13 +1947,13 @@
       "number": 10,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 2.5989565217391304,
-          "avg_completed_air_yards": 7.812380952380953,
-          "avg_intended_air_yards": 8.156521739130437,
+          "avg_time_to_throw": 2.598956521739131,
+          "avg_completed_air_yards": 7.812380952380951,
+          "avg_intended_air_yards": 8.156521739130435,
           "avg_air_yards_differential": -0.3441407867494837,
           "aggressiveness": 17.391304347826086,
           "max_completed_air_distance": 52.57733447028292,
-          "avg_air_yards_to_sticks": -0.147826086956522,
+          "avg_air_yards_to_sticks": -0.1478260869565221,
           "attempts": 23,
           "pass_yards": 222,
           "pass_touchdowns": 2,
@@ -1811,8 +1961,8 @@
           "passer_rating": 135.86956521739128,
           "completions": 21,
           "completion_percentage": 91.30434782608695,
-          "expected_completion_percentage": 66.91869565217391,
-          "completion_percentage_above_expectation": 24.385652173913044,
+          "expected_completion_percentage": 66.91869565217392,
+          "completion_percentage_above_expectation": 24.38565217391303,
           "avg_air_distance": 19.94397682105975,
           "max_air_distance": 52.57733447028292
         }
@@ -1829,7 +1979,7 @@
           "avg_cushion": 5.1275,
           "avg_separation": 4.263312692684577,
           "avg_intended_air_yards": 5.366,
-          "percent_share_of_intended_air_yards": 13.423053832299376,
+          "percent_share_of_intended_air_yards": 13.42305383229938,
           "receptions": 4,
           "targets": 5,
           "catch_percentage": 80.0,
@@ -1849,16 +1999,16 @@
       "number": 38,
       "stats": {
         "rushing": {
-          "efficiency": 3.730681818181819,
+          "efficiency": 3.7306818181818175,
           "percent_attempts_gte_eight_defenders": 22.22222222222222,
-          "avg_time_to_los": 2.913875,
+          "avg_time_to_los": 2.9138749999999995,
           "rush_attempts": 18,
           "rush_yards": 88,
           "avg_rush_yards": 4.888888888888889,
           "rush_touchdowns": 1,
-          "expected_rush_yards": 57.55969516799384,
-          "rush_yards_over_expected": 30.440304832006163,
-          "rush_yards_over_expected_per_att": 1.6911280462225646,
+          "expected_rush_yards": 57.55969516799382,
+          "rush_yards_over_expected": 30.440304832006177,
+          "rush_yards_over_expected_per_att": 1.6911280462225653,
           "rush_pct_over_expected": 0.5555555555555556
         }
       }
@@ -1874,7 +2024,7 @@
           "avg_cushion": 7.081428571428572,
           "avg_separation": 2.472133391910464,
           "avg_intended_air_yards": 6.54,
-          "percent_share_of_intended_air_yards": 22.903742245347207,
+          "percent_share_of_intended_air_yards": 22.90374224534721,
           "receptions": 7,
           "targets": 7,
           "catch_percentage": 100.0,
@@ -1883,28 +2033,6 @@
           "avg_yac": 3.3171428571428563,
           "avg_expected_yac": 2.977096152123717,
           "avg_yac_above_expectation": 0.3400467050191391
-        }
-      }
-    },
-    {
-      "player_id": "00-0033906",
-      "player_name": "Alvin Kamara",
-      "team_abbr": "NO",
-      "position": "RB",
-      "number": 41,
-      "stats": {
-        "rushing": {
-          "efficiency": 5.832142857142856,
-          "percent_attempts_gte_eight_defenders": 0.0,
-          "avg_time_to_los": 2.7161,
-          "rush_attempts": 11,
-          "rush_yards": 28,
-          "avg_rush_yards": 2.5454545454545454,
-          "rush_touchdowns": 0,
-          "expected_rush_yards": 42.00202631873002,
-          "rush_yards_over_expected": -16.002026318730017,
-          "rush_yards_over_expected_per_att": -1.6002026318730018,
-          "rush_pct_over_expected": 0.2
         }
       }
     },
@@ -1939,7 +2067,7 @@
       "number": 83,
       "stats": {
         "receiving": {
-          "avg_cushion": 7.388333333333333,
+          "avg_cushion": 7.3883333333333345,
           "avg_separation": 4.563016008410038,
           "avg_intended_air_yards": 8.494285714285716,
           "percent_share_of_intended_air_yards": 16.32216091575394,
@@ -1962,10 +2090,10 @@
       "number": 22,
       "stats": {
         "receiving": {
-          "avg_cushion": 6.707777777777777,
-          "avg_separation": 2.497678526598242,
-          "avg_intended_air_yards": 14.67111111111111,
-          "percent_share_of_intended_air_yards": 36.24584808806171,
+          "avg_cushion": 6.707777777777778,
+          "avg_separation": 2.497678526598241,
+          "avg_intended_air_yards": 14.671111111111108,
+          "percent_share_of_intended_air_yards": 36.245848088061706,
           "receptions": 4,
           "targets": 9,
           "catch_percentage": 44.44444444444444,
@@ -1985,10 +2113,10 @@
       "number": 2,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 2.8387187500000004,
-          "avg_completed_air_yards": 8.220500000000001,
+          "avg_time_to_throw": 2.83871875,
+          "avg_completed_air_yards": 8.2205,
           "avg_intended_air_yards": 11.751290322580644,
-          "avg_air_yards_differential": -3.5307903225806427,
+          "avg_air_yards_differential": -3.5307903225806445,
           "aggressiveness": 12.5,
           "max_completed_air_distance": 54.88874565883247,
           "avg_air_yards_to_sticks": 1.783548387096774,
@@ -1999,32 +2127,10 @@
           "passer_rating": 66.27604166666666,
           "completions": 20,
           "completion_percentage": 62.5,
-          "expected_completion_percentage": 61.28500000000001,
-          "completion_percentage_above_expectation": 1.2149999999999892,
+          "expected_completion_percentage": 61.28499999999999,
+          "completion_percentage_above_expectation": 1.2150000000000103,
           "avg_air_distance": 22.909955618361547,
           "max_air_distance": 56.99244248143784
-        }
-      }
-    },
-    {
-      "player_id": "00-0040715",
-      "player_name": "Cam Skattebo",
-      "team_abbr": "NYG",
-      "position": "RB",
-      "number": 44,
-      "stats": {
-        "rushing": {
-          "efficiency": 4.454666666666666,
-          "percent_attempts_gte_eight_defenders": 25.0,
-          "avg_time_to_los": 2.8468,
-          "rush_attempts": 16,
-          "rush_yards": 60,
-          "avg_rush_yards": 3.75,
-          "rush_touchdowns": 0,
-          "expected_rush_yards": 48.305403250605366,
-          "rush_yards_over_expected": 11.694596749394634,
-          "rush_yards_over_expected_per_att": 0.7309122968371646,
-          "rush_pct_over_expected": 0.5
         }
       }
     },
@@ -2042,7 +2148,7 @@
           "avg_air_yards_differential": -2.4303030303030297,
           "aggressiveness": 9.090909090909092,
           "max_completed_air_distance": 45.24987624292469,
-          "avg_air_yards_to_sticks": 0.9709090909090908,
+          "avg_air_yards_to_sticks": 0.970909090909091,
           "attempts": 33,
           "pass_yards": 283,
           "pass_touchdowns": 3,
@@ -2050,9 +2156,9 @@
           "passer_rating": 93.37121212121212,
           "completions": 15,
           "completion_percentage": 45.45454545454545,
-          "expected_completion_percentage": 63.563333333333325,
-          "completion_percentage_above_expectation": -18.108787878787872,
-          "avg_air_distance": 23.070020917984397,
+          "expected_completion_percentage": 63.56333333333332,
+          "completion_percentage_above_expectation": -18.108787878787865,
+          "avg_air_distance": 23.07002091798439,
           "max_air_distance": 55.06288859113731
         }
       }
@@ -2089,7 +2195,7 @@
       "stats": {
         "receiving": {
           "avg_cushion": 7.09909090909091,
-          "avg_separation": 2.59796606473747,
+          "avg_separation": 2.5979660647374696,
           "avg_intended_air_yards": 10.456666666666663,
           "percent_share_of_intended_air_yards": 35.950034380013754,
           "receptions": 6,
@@ -2104,28 +2210,6 @@
       }
     },
     {
-      "player_id": "00-0038120",
-      "player_name": "Breece Hall",
-      "team_abbr": "NYJ",
-      "position": "RB",
-      "number": 20,
-      "stats": {
-        "rushing": {
-          "efficiency": 4.3539473684210535,
-          "percent_attempts_gte_eight_defenders": 18.181818181818183,
-          "avg_time_to_los": 2.497636363636363,
-          "rush_attempts": 11,
-          "rush_yards": 38,
-          "avg_rush_yards": 3.4545454545454546,
-          "rush_touchdowns": 0,
-          "expected_rush_yards": 54.08493773397588,
-          "rush_yards_over_expected": -16.084937733975877,
-          "rush_yards_over_expected_per_att": -1.4622670667250797,
-          "rush_pct_over_expected": 0.2727272727272727
-        }
-      }
-    },
-    {
       "player_id": "00-0033943",
       "player_name": "Josh Reynolds",
       "team_abbr": "NYJ",
@@ -2136,7 +2220,7 @@
           "avg_cushion": 8.283333333333333,
           "avg_separation": 0.9905868196754984,
           "avg_intended_air_yards": 18.01777777777778,
-          "percent_share_of_intended_air_yards": 43.52587502684133,
+          "percent_share_of_intended_air_yards": 43.52587502684131,
           "receptions": 3,
           "targets": 9,
           "catch_percentage": 33.33333333333333,
@@ -2159,7 +2243,7 @@
           "avg_cushion": 8.898,
           "avg_separation": 3.509793826949285,
           "avg_intended_air_yards": 5.780000000000001,
-          "percent_share_of_intended_air_yards": 7.757139789564099,
+          "percent_share_of_intended_air_yards": 7.757139789564098,
           "receptions": 3,
           "targets": 5,
           "catch_percentage": 60.0,
@@ -2231,10 +2315,10 @@
       "number": 6,
       "stats": {
         "receiving": {
-          "avg_cushion": 6.619,
+          "avg_cushion": 6.618999999999998,
           "avg_separation": 3.019333879132826,
-          "avg_intended_air_yards": 15.435454545454546,
-          "percent_share_of_intended_air_yards": 61.22971510998919,
+          "avg_intended_air_yards": 15.435454545454547,
+          "percent_share_of_intended_air_yards": 61.229715109989215,
           "receptions": 9,
           "targets": 11,
           "catch_percentage": 81.81818181818183,
@@ -2254,10 +2338,10 @@
       "number": 1,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 3.3875652173913045,
+          "avg_time_to_throw": 3.387565217391305,
           "avg_completed_air_yards": 12.196315789473685,
-          "avg_intended_air_yards": 12.056521739130432,
-          "avg_air_yards_differential": 0.1397940503432497,
+          "avg_intended_air_yards": 12.05652173913043,
+          "avg_air_yards_differential": 0.1397940503432533,
           "aggressiveness": 17.391304347826086,
           "max_completed_air_distance": 54.55135195391587,
           "avg_air_yards_to_sticks": 2.143478260869565,
@@ -2272,28 +2356,6 @@
           "completion_percentage_above_expectation": 25.0408695652174,
           "avg_air_distance": 25.56402802805217,
           "max_air_distance": 54.55135195391587
-        }
-      }
-    },
-    {
-      "player_id": "00-0034844",
-      "player_name": "Saquon Barkley",
-      "team_abbr": "PHI",
-      "position": "RB",
-      "number": 26,
-      "stats": {
-        "rushing": {
-          "efficiency": 6.315454545454545,
-          "percent_attempts_gte_eight_defenders": 50.0,
-          "avg_time_to_los": 2.9289333333333336,
-          "rush_attempts": 18,
-          "rush_yards": 44,
-          "avg_rush_yards": 2.4444444444444446,
-          "rush_touchdowns": 0,
-          "expected_rush_yards": 34.509311361890134,
-          "rush_yards_over_expected": 3.490688638109866,
-          "rush_yards_over_expected_per_att": 0.232712575873991,
-          "rush_pct_over_expected": 0.4
         }
       }
     },
@@ -2382,7 +2444,7 @@
         "rushing": {
           "efficiency": 2.4763779527559056,
           "percent_attempts_gte_eight_defenders": 6.25,
-          "avg_time_to_los": 2.921625,
+          "avg_time_to_los": 2.9216250000000006,
           "rush_attempts": 16,
           "rush_yards": 127,
           "avg_rush_yards": 7.9375,
@@ -2441,24 +2503,99 @@
       }
     },
     {
-      "player_id": "00-0033280",
-      "player_name": "Christian McCaffrey",
-      "team_abbr": "SF",
+      "player_id": "00-0040739",
+      "player_name": "Elijah Arroyo",
+      "team_abbr": "SEA",
+      "position": "TE",
+      "number": 18,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.956666666666667,
+          "avg_separation": 2.381835597364901,
+          "avg_intended_air_yards": 7.215999999999999,
+          "percent_share_of_intended_air_yards": 12.152649129307152,
+          "receptions": 4,
+          "targets": 5,
+          "catch_percentage": 80.0,
+          "yards": 42,
+          "rec_touchdowns": 0,
+          "avg_yac": 2.725000000000003,
+          "avg_expected_yac": 2.683846840695651,
+          "avg_yac_above_expectation": 0.0411531593043523
+        }
+      }
+    },
+    {
+      "player_id": "00-0038543",
+      "player_name": "Jaxon Smith-Njigba",
+      "team_abbr": "SEA",
+      "position": "WR",
+      "number": 11,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 6.47357142857143,
+          "avg_separation": 2.1601801462368497,
+          "avg_intended_air_yards": 11.639285714285716,
+          "percent_share_of_intended_air_yards": 54.88564788305433,
+          "receptions": 8,
+          "targets": 14,
+          "catch_percentage": 57.14285714285714,
+          "yards": 123,
+          "rec_touchdowns": 1,
+          "avg_yac": 4.3175,
+          "avg_expected_yac": 3.2861681224902606,
+          "avg_yac_above_expectation": 1.031331877509739
+        }
+      }
+    },
+    {
+      "player_id": "00-0038134",
+      "player_name": "Kenneth Walker III",
+      "team_abbr": "SEA",
       "position": "RB",
-      "number": 23,
+      "number": 9,
       "stats": {
         "rushing": {
-          "efficiency": 3.287751937984496,
-          "percent_attempts_gte_eight_defenders": 41.66666666666667,
-          "avg_time_to_los": 2.7007727272727275,
-          "rush_attempts": 24,
-          "rush_yards": 129,
-          "avg_rush_yards": 5.375,
-          "rush_touchdowns": 2,
-          "expected_rush_yards": 111.777903376321,
-          "rush_yards_over_expected": 17.222096623679008,
-          "rush_yards_over_expected_per_att": 0.7175873593199587,
-          "rush_pct_over_expected": 0.625
+          "efficiency": 4.641666666666667,
+          "percent_attempts_gte_eight_defenders": 5.88235294117647,
+          "avg_time_to_los": 2.5614615384615385,
+          "rush_attempts": 17,
+          "rush_yards": 66,
+          "avg_rush_yards": 3.882352941176471,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 82.11359786927495,
+          "rush_yards_over_expected": -19.113597869274955,
+          "rush_yards_over_expected_per_att": -1.1945998668296849,
+          "rush_pct_over_expected": 0.25
+        }
+      }
+    },
+    {
+      "player_id": "00-0034869",
+      "player_name": "Sam Darnold",
+      "team_abbr": "SEA",
+      "position": "QB",
+      "number": 14,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 2.7281290322580647,
+          "avg_completed_air_yards": 8.235294117647058,
+          "avg_intended_air_yards": 10.326071428571428,
+          "avg_air_yards_differential": -2.09077731092437,
+          "aggressiveness": 16.129032258064516,
+          "max_completed_air_distance": 36.59689877571596,
+          "avg_air_yards_to_sticks": 0.5760714285714281,
+          "attempts": 31,
+          "pass_yards": 213,
+          "pass_touchdowns": 1,
+          "interceptions": 1,
+          "passer_rating": 73.72311827956989,
+          "completions": 17,
+          "completion_percentage": 54.83870967741935,
+          "expected_completion_percentage": 54.406774193548365,
+          "completion_percentage_above_expectation": 0.431935483870987,
+          "avg_air_distance": 22.860360934393302,
+          "max_air_distance": 50.27966686444928
         }
       }
     },
@@ -2515,6 +2652,149 @@
       }
     },
     {
+      "player_id": "00-0034855",
+      "player_name": "Baker Mayfield",
+      "team_abbr": "TB",
+      "position": "QB",
+      "number": 6,
+      "stats": {
+        "passing": {
+          "avg_time_to_throw": 3.1505,
+          "avg_completed_air_yards": 4.1864285714285705,
+          "avg_intended_air_yards": 9.293,
+          "avg_air_yards_differential": -5.106571428571429,
+          "aggressiveness": 20.0,
+          "max_completed_air_distance": 30.49558984509072,
+          "avg_air_yards_to_sticks": 0.2730000000000004,
+          "attempts": 50,
+          "pass_yards": 228,
+          "pass_touchdowns": 1,
+          "interceptions": 1,
+          "passer_rating": 66.08333333333334,
+          "completions": 28,
+          "completion_percentage": 56.00000000000001,
+          "expected_completion_percentage": 64.1392,
+          "completion_percentage_above_expectation": -8.139199999999995,
+          "avg_air_distance": 23.068375265054577,
+          "max_air_distance": 47.13577197840298
+        }
+      }
+    },
+    {
+      "player_id": "00-0038129",
+      "player_name": "Cade Otton",
+      "team_abbr": "TB",
+      "position": "TE",
+      "number": 88,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 5.828749999999999,
+          "avg_separation": 3.2166856568414217,
+          "avg_intended_air_yards": 4.77,
+          "percent_share_of_intended_air_yards": 9.239212310341118,
+          "receptions": 7,
+          "targets": 9,
+          "catch_percentage": 77.77777777777779,
+          "yards": 65,
+          "rec_touchdowns": 0,
+          "avg_yac": 4.225714285714287,
+          "avg_expected_yac": 4.404442232297307,
+          "avg_yac_above_expectation": -0.1787279465830202
+        }
+      }
+    },
+    {
+      "player_id": "00-0040129",
+      "player_name": "Emeka Egbuka",
+      "team_abbr": "TB",
+      "position": "WR",
+      "number": 2,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 4.1625000000000005,
+          "avg_separation": 2.1496064425023502,
+          "avg_intended_air_yards": 14.799166666666666,
+          "percent_share_of_intended_air_yards": 38.22016571613042,
+          "receptions": 4,
+          "targets": 12,
+          "catch_percentage": 33.33333333333333,
+          "yards": 58,
+          "rec_touchdowns": 0,
+          "avg_yac": 5.067500000000001,
+          "avg_expected_yac": 2.4132780126598163,
+          "avg_yac_above_expectation": 2.6542219873401844
+        }
+      }
+    },
+    {
+      "player_id": "00-0037256",
+      "player_name": "Rachaad White",
+      "team_abbr": "TB",
+      "position": "RB",
+      "number": 1,
+      "stats": {
+        "rushing": {
+          "efficiency": 3.7905263157894735,
+          "percent_attempts_gte_eight_defenders": 40.0,
+          "avg_time_to_los": 2.4095,
+          "rush_attempts": 10,
+          "rush_yards": 38,
+          "avg_rush_yards": 3.8,
+          "rush_touchdowns": 0,
+          "expected_rush_yards": 50.69599948827828,
+          "rush_yards_over_expected": -12.695999488278282,
+          "rush_yards_over_expected_per_att": -1.2695999488278282,
+          "rush_pct_over_expected": 0.2
+        }
+      }
+    },
+    {
+      "player_id": "00-0032385",
+      "player_name": "Sterling Shepard",
+      "team_abbr": "TB",
+      "position": "WR",
+      "number": 17,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 4.2371428571428575,
+          "avg_separation": 3.3339106597749293,
+          "avg_intended_air_yards": 3.068571428571429,
+          "percent_share_of_intended_air_yards": 4.622834391477458,
+          "receptions": 7,
+          "targets": 7,
+          "catch_percentage": 100.0,
+          "yards": 25,
+          "rec_touchdowns": 0,
+          "avg_yac": 0.8157142857142848,
+          "avg_expected_yac": 2.5397901064071187,
+          "avg_yac_above_expectation": -1.7240758206928335
+        }
+      }
+    },
+    {
+      "player_id": "00-0040237",
+      "player_name": "Tez Johnson",
+      "team_abbr": "TB",
+      "position": "WR",
+      "number": 15,
+      "stats": {
+        "receiving": {
+          "avg_cushion": 4.1850000000000005,
+          "avg_separation": 3.478265074930099,
+          "avg_intended_air_yards": 10.104444444444448,
+          "percent_share_of_intended_air_yards": 19.57172064995158,
+          "receptions": 4,
+          "targets": 9,
+          "catch_percentage": 44.44444444444444,
+          "yards": 58,
+          "rec_touchdowns": 1,
+          "avg_yac": 7.924999999999999,
+          "avg_expected_yac": 6.67593418154047,
+          "avg_yac_above_expectation": 1.2490658184595294
+        }
+      }
+    },
+    {
       "player_id": "00-0040676",
       "player_name": "Cam Ward",
       "team_abbr": "TEN",
@@ -2523,8 +2803,8 @@
       "stats": {
         "passing": {
           "avg_time_to_throw": 2.847235294117646,
-          "avg_completed_air_yards": 4.587599999999999,
-          "avg_intended_air_yards": 5.6171875,
+          "avg_completed_air_yards": 4.587599999999998,
+          "avg_intended_air_yards": 5.617187499999999,
           "avg_air_yards_differential": -1.0295875000000008,
           "aggressiveness": 8.823529411764707,
           "max_completed_air_distance": 50.04696394387975,
@@ -2536,8 +2816,8 @@
           "passer_rating": 92.15686274509804,
           "completions": 25,
           "completion_percentage": 73.52941176470588,
-          "expected_completion_percentage": 67.38911764705881,
-          "completion_percentage_above_expectation": 6.140294117647073,
+          "expected_completion_percentage": 67.38911764705882,
+          "completion_percentage_above_expectation": 6.140294117647059,
           "avg_air_distance": 19.223508332527334,
           "max_air_distance": 50.04696394387975
         }
@@ -2554,7 +2834,7 @@
           "avg_cushion": 7.029999999999999,
           "avg_separation": 2.5275779381932084,
           "avg_intended_air_yards": 7.82,
-          "percent_share_of_intended_air_yards": 21.752433936022253,
+          "percent_share_of_intended_air_yards": 21.752433936022257,
           "receptions": 2,
           "targets": 5,
           "catch_percentage": 40.0,
@@ -2577,7 +2857,7 @@
           "avg_cushion": 5.3275,
           "avg_separation": 3.2559985495996115,
           "avg_intended_air_yards": 8.059999999999999,
-          "percent_share_of_intended_air_yards": 22.42002781641168,
+          "percent_share_of_intended_air_yards": 22.42002781641169,
           "receptions": 4,
           "targets": 5,
           "catch_percentage": 80.0,
@@ -2600,7 +2880,7 @@
           "avg_cushion": 8.09,
           "avg_separation": 2.644953239338009,
           "avg_intended_air_yards": 13.86,
-          "percent_share_of_intended_air_yards": 23.344337398100105,
+          "percent_share_of_intended_air_yards": 23.34433739810012,
           "receptions": 2,
           "targets": 5,
           "catch_percentage": 40.0,
@@ -2622,14 +2902,14 @@
         "rushing": {
           "efficiency": 4.606363636363636,
           "percent_attempts_gte_eight_defenders": 38.46153846153847,
-          "avg_time_to_los": 2.9028181818181817,
+          "avg_time_to_los": 2.902818181818182,
           "rush_attempts": 13,
           "rush_yards": 33,
           "avg_rush_yards": 2.5384615384615383,
           "rush_touchdowns": 0,
-          "expected_rush_yards": 31.67875091916133,
-          "rush_yards_over_expected": 1.321249080838669,
-          "rush_yards_over_expected_per_att": 0.1016345446798976,
+          "expected_rush_yards": 31.678750919161327,
+          "rush_yards_over_expected": 1.3212490808386723,
+          "rush_yards_over_expected_per_att": 0.1016345446798978,
           "rush_pct_over_expected": 0.3846153846153846
         }
       }
@@ -2642,13 +2922,13 @@
       "number": 5,
       "stats": {
         "passing": {
-          "avg_time_to_throw": 3.1235000000000004,
+          "avg_time_to_throw": 3.1235,
           "avg_completed_air_yards": 6.748333333333334,
           "avg_intended_air_yards": 8.00952380952381,
           "avg_air_yards_differential": -1.2611904761904755,
           "aggressiveness": 9.090909090909092,
           "max_completed_air_distance": 47.1414096098112,
-          "avg_air_yards_to_sticks": -0.0380952380952377,
+          "avg_air_yards_to_sticks": -0.0380952380952376,
           "attempts": 22,
           "pass_yards": 156,
           "pass_touchdowns": 1,
@@ -2658,7 +2938,7 @@
           "completion_percentage": 54.54545454545454,
           "expected_completion_percentage": 69.13,
           "completion_percentage_above_expectation": -14.584545454545456,
-          "avg_air_distance": 21.73546884972717,
+          "avg_air_distance": 21.735468849727177,
           "max_air_distance": 47.1414096098112
         }
       }
@@ -2674,7 +2954,7 @@
           "avg_cushion": 5.846,
           "avg_separation": 3.165291174716742,
           "avg_intended_air_yards": 18.94833333333333,
-          "percent_share_of_intended_air_yards": 38.297513979653694,
+          "percent_share_of_intended_air_yards": 38.29751397965372,
           "receptions": 3,
           "targets": 6,
           "catch_percentage": 50.0,
@@ -2697,7 +2977,7 @@
           "avg_cushion": 6.335714285714286,
           "avg_separation": 2.788690205098733,
           "avg_intended_air_yards": 8.58857142857143,
-          "percent_share_of_intended_air_yards": 20.25197062588425,
+          "percent_share_of_intended_air_yards": 20.251970625884265,
           "receptions": 3,
           "targets": 7,
           "catch_percentage": 42.85714285714285,
