@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 7,
-  "generated_at": "2025-10-21T00:16:30.813105",
+  "generated_at": "2025-10-21T00:53:15.872823",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -4929,7 +4929,7 @@
       "team_name": "Houston Texans",
       "conference": "AFC",
       "division": "AFC South",
-      "last_updated": "2025-10-21T05:20Z",
+      "last_updated": "2025-10-21T06:24Z",
       "injuries": [
         {
           "athlete_id": "4577494",
@@ -5054,8 +5054,8 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Collins was ruled out for the rest of Monday's game against Seattle due to a concussion.",
-          "long_comment": "Collins hit his head hard on the turf on a contested catch attempt early in the fourth quarter. He was evaluated in the medical tent before walking to the locker room for further evaluation. Collins will now face a short week to pass the league's protocols ahead of a Week 8 matchup against San Francisco.",
+          "short_comment": "Collins was ruled out for the rest of Monday's game at Seattle due to a concussion.",
+          "long_comment": "Collins hit his head hard on the turf on a contested catch attempt early in the fourth quarter. He was evaluated in the medical tent before walking to the locker room for further evaluation. Collins now will face a short week to pass the league's protocols ahead of a Week 8 matchup against San Francisco.",
           "last_updated": "2025-10-21T05:20Z",
           "source": "basic/manual"
         },
@@ -5073,6 +5073,22 @@
           "short_comment": "Al-Shaair registered four tackles (two solo) and one pass defense during the Texans' 44-10 win over the Ravens on Sunday.",
           "long_comment": "Al-Shaair played a season-low 38 defensive snaps Sunday, but the Texans had just 43 snaps on defense as the offense dominated time of possession in a Week 5 blowout win. The veteran linebacker has just seven tackles over the past two games and is up to 32 tackles (19 solo), three pass defenses and one forced fumble over the first five games of the regular season.",
           "last_updated": "2025-10-07T23:14Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4432577",
+          "name": "C.J. Stroud",
+          "position": "QB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Stroud completed 23 of 49 pass attempts for 229 yards, one touchdown and one interception while taking two carries for 25 yards in Monday's 27-19 loss to Seattle.",
+          "long_comment": "Fresh off of a season-high, four-touchdown performance against the Ravens, Stroud reverted to inconsistent pocket play in a deflating loss to the Seahawks. The 23-year-old failed to complete 50 percent of his passes while finishing as many touchdown drives as the dominant defense playing behind him. Stroud didn't get much help from his ground game, actually finishing Monday's loss as the Texans' leading rusher ahead of Woody Marks (10-15-0) and Nick Chubb (5-16-0). He also lost top wideout Nico Collins early in the fourth quarter to a concussion, a situation worth monitoring ahead of next Sunday's tilt against the 49ers. Stroud's stock would suffer further in Week 8 if Collins is unable to clear the league's concussion protocol.",
+          "last_updated": "2025-10-21T06:24Z",
           "source": "basic/manual"
         },
         {
@@ -5121,22 +5137,6 @@
           "short_comment": "To'oTo'o recorded five total tackles (three solo) in Sunday's 44-10 win over the Ravens.",
           "long_comment": "To'oTo'o played a reduced amount of snaps on defense for the second week in a row, but he was still able to notch at least five takedowns for the fourth time this season. The linebacker has now registered 31 total tackles (17 solo), including 1.0 sacks, and a pass defensed over five games this year.",
           "last_updated": "2025-10-08T03:14Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4241223",
-          "name": "Jalen Pitre",
-          "position": "S",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Pitre logged four tackles (three solo) and two interceptions during the Texans' 44-10 win over the Ravens on Sunday.",
-          "long_comment": "Both of Pitre's interceptions off Cooper Rush came in the second half of Sunday's blowout win and resulted in 10 points for the Texans. Pitre is now up to three picks through the first five games of the regular season, which is tied with Kevin Byard and Kerby Joseph for second most in the NFL behind Devin Lloyd (four).",
-          "last_updated": "2025-10-07T22:44Z",
           "source": "basic/manual"
         },
         {
@@ -11079,7 +11079,7 @@
       "team_name": "Seattle Seahawks",
       "conference": "NFC",
       "division": "NFC West",
-      "last_updated": "2025-10-21T06:06Z",
+      "last_updated": "2025-10-21T06:45Z",
       "injuries": [
         {
           "athlete_id": "4567226",
@@ -11338,22 +11338,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "2473037",
-          "name": "Jason Myers",
-          "position": "PK",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Myers went 2-for-2 on field-goal tries and made both of his PATs in Sunday's 20-12 win over the Jaguars.",
-          "long_comment": "Myers made field goals from 24 and 53 yards, getting back on track after missing his only field-goal try in Week 5. The kicker has now made multiple field goals in four of the team's six contests this year, and he'll look to continue to deliver on his opportunities in Week 7 versus Houston on Monday Night Football.",
-          "last_updated": "2025-10-13T02:11Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4430878",
           "name": "Jaxon Smith-Njigba",
           "position": "WR",
@@ -11364,8 +11348,8 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Smith-Njigba finished with eight receptions on 14 targets for 123 yards and a touchdown in Monday's27-19 win over the Texans.",
-          "long_comment": "Smith-Njigba turned in another stellar fantasy performance while pacing the Seahawks in every receiving category on Monday Night Football. It was the budding superstar's third-consecutive game recording at least 100 receiving yards while also scoring a touchdown. Smith-Njigba bumped his season totals up to 50-819-4 heading into Seattle's upcoming Week 8 bye, which has the Ohio State product on pace to finish 11 yards shy of a 2,000-yard campaign. JSN will continue his ascension towards the peak of fantasy stardom when the Seahawks take on the Commanders on Nov. 2.",
+          "short_comment": "Smith-Njigba finished with eight receptions (on 14 targets) for 123 yards and a touchdown in Monday's 27-19 win over the Texans.",
+          "long_comment": "Smith-Njigba turned in another stellar fantasy performance while pacing the Seahawks in every receiving category on Monday Night Football. It was the budding superstar's third consecutive game recording at least 100 receiving yards while also scoring a touchdown. Smith-Njigba bumped his season totals up to 50-819-4 heading into Seattle's upcoming Week 8 bye, which has the Ohio State product on pace to finish 11 yards shy of a 2,000-yard campaign. He'll continue his ascension towards the peak of fantasy stardom when the Seahawks take on the Commanders on Sunday, Nov. 2.",
           "last_updated": "2025-10-21T05:50Z",
           "source": "basic/manual"
         },
@@ -11383,6 +11367,22 @@
           "short_comment": "Jones (ankle) is active for Monday's game against the Texans.",
           "long_comment": "Jones has been cleared to return from a three-game absence due to an ankle injury, and he will give the Seahawks depth on the offensive line for Monday night's contest.",
           "last_updated": "2025-10-21T00:43Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4567048",
+          "name": "Kenneth Walker III",
+          "position": "RB",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "Walker took 17 carries for 66 yards and was not targeted as a receiver in Monday's 27-19 win over Houston.",
+          "long_comment": "Walked finished as the Seahawks' leading rusher with a team-high 17 carries on Monday Night Football. The veteran starter's fantasy managers will still feel jealous of teammate Zach Charbonnet's 12-49-2 rushing line after the latter cashed in a pair of goal-line carries. Walker is still providing more volume out of Seattle's backfield through seven weeks, generating 430 rushing yards off of a career-best 4.7 YPC with three trips to the end zone himself. Both talented rushers will be worth starting in fantasy when the Seahawks return from the upcoming bye week to face the Commanders on Nov. 2.",
+          "last_updated": "2025-10-21T06:45Z",
           "source": "basic/manual"
         },
         {
@@ -11444,8 +11444,8 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Darnold completed 17 of 31 pass attempts for 213 yards, one touchdown, one interception and one lost fumble while gaining one yard on three carries in Monday's 27-19 win over the Texans.",
-          "long_comment": "Darnold escaped Monday's primetime tilt with a win, but he couldn't escape the teeth of Houston's elite defense. In addition to his fourth interception of the season, the veteran signal-caller was strip-sacked in his own end zone after making an ill-advised decision to roll out to DE Will Anderson's side. Darnold's 54.8 completion percentage also checks in as the lowest mark through seven starts with Seattle. The overall results have been positive from the 28-year-old this year, so fantasy managers can chalk this one up to a tough defensive matchup. They will, however, need to find a replacement for Darnold in Week 8 until the Seahawks return from the upcoming bye week on Nov. 2.",
+          "short_comment": "Darnold completed 17 of 31 pass attempts for 213 yards, one touchdown and one interception while losing a fumble and gaining one yard on three carries in Monday's 27-19 win over the Texans.",
+          "long_comment": "Darnold escaped Monday's primetime tilt with a win, but he couldn't escape the teeth of Houston's elite defense. In addition to his fourth interception of the season, the veteran signal-caller was strip sacked in his own end zone after making an ill-advised decision to roll out to DE Will Anderson's side. Darnold's 54.8 completion percentage also checks in as his lowest mark through seven starts with Seattle. The overall results have been positive from the 28-year-old this year, so fantasy managers can chalk this one up to a tough matchup. They will, however, need to find a replacement for Darnold in Week 8 until the Seahawks return from the upcoming bye week on Sunday, Nov. 2.",
           "last_updated": "2025-10-21T06:06Z",
           "source": "basic/manual"
         },
