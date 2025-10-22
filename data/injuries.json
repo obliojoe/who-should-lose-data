@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 8,
-  "generated_at": "2025-10-22T11:02:47.181943",
+  "generated_at": "2025-10-22T11:11:18.097543",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -419,7 +419,7 @@
       "team_name": "Atlanta Falcons",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-22T16:48Z",
+      "last_updated": "2025-10-22T17:03Z",
       "injuries": [
         {
           "athlete_id": "4037626",
@@ -818,7 +818,7 @@
           },
           "short_comment": "ir",
           "long_comment": "ir",
-          "last_updated": "2025-10-22T16:48Z",
+          "last_updated": "2025-10-22T17:03Z",
           "source": "basic/manual"
         }
       ]
@@ -11899,8 +11899,40 @@
       "team_name": "Tampa Bay Buccaneers",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-22T15:25Z",
+      "last_updated": "2025-10-22T16:59Z",
       "injuries": [
+        {
+          "athlete_id": "4596448",
+          "name": "Bucky Irving",
+          "position": "RB",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "Buccaneers head coach Todd Bowles said Wednesday that Irving (foot) will not suit up for Sunday's road matchup against the Saints, Greg Auman of Fox Sports reports.",
+          "long_comment": "Irving won't practice Wednesday or be a candidate to return Week 8, but it would at least be encouraging to see him resume handling limited reps at some point before Tampa Bay's bye in Week 9. Versus New Orleans, Rashaad White will be slated to draw another start, while Sean Tucker handles No. 2 reps. Irving's next opportunity to retake the field will come Sunday, Nov. 9 versus the Patriots in Week 10.",
+          "last_updated": "2025-10-22T16:52Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "3116165",
+          "name": "Chris Godwin Jr.",
+          "position": "WR",
+          "status": "Out",
+          "status_code": {
+            "id": "4",
+            "abbreviation": "O",
+            "description": "out",
+            "name": "INJURY_STATUS_OUT"
+          },
+          "short_comment": "out",
+          "long_comment": "out",
+          "last_updated": "2025-10-22T16:59Z",
+          "source": "basic/manual"
+        },
         {
           "athlete_id": "16737",
           "name": "Mike Evans",
@@ -11915,38 +11947,6 @@
           "short_comment": "Evans will be sidelined for most of the year after suffering a broken collarbone in Monday's 24-9 loss to the Lions, Rick Stroud of the Tampa Bay Times reports.",
           "long_comment": "Evans suffered the injury in the second quarter of Monday's loss while attempting to reel in a deep target. His absence will be a big blow to the Tampa Bay receiving corps, with Chris Godwin (leg) also banged up. Evans' streak of 11 straight campaigns with 1,000 receiving yards will also almost certainly come to an end.",
           "last_updated": "2025-10-21T02:39Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4596448",
-          "name": "Bucky Irving",
-          "position": "RB",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Irving (foot/shoulder) is not participating in the early portion of Wednesday's practice open to the media, Rick Stroud of the Tampa Bay Times reports.",
-          "long_comment": "The Buccaneers are only holding a walkthrough practice Wednesday, but it doesn't appear Irving is yet ready to resume handling on-field reps. He's missed three consecutive games due to lingering foot and shoulder injuries, and has been held out of practice throughout that span. If Irving can get back on the field as at least a limited participant ahead of Sunday's road matchup against the Saints he could have a chance at returning to action, but it's worth noting that Tampa Bay will benefit from a Week 9 bye, meaning the team could be motivated to allow the second-year running back to rest up.",
-          "last_updated": "2025-10-22T15:25Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "3116165",
-          "name": "Chris Godwin Jr.",
-          "position": "WR",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Godwin (lower leg) is not participating in Wednesday's practice, Rick Stroud of the Tampa Bay Times reports.",
-          "long_comment": "Godwin hasn't practiced since suffering a fibula injury Week 5 against the Buccaneers, and he's since missed back-to-back games. With the Buccaneers set to go on bye Week 9, the team could take a cautious approach to Godwin's health and hold him out again during Sunday's road matchup against the Saints. With Mike Evans (collarbone) expected to miss most of the season due to a broken collarbone suffered during Monday's 24-9 loss to the Lions, Godwin's long-term health has become an increasingly crucial factor for Tampa Bay.",
-          "last_updated": "2025-10-22T15:22Z",
           "source": "basic/manual"
         },
         {
