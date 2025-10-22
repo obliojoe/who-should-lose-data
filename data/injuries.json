@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 8,
-  "generated_at": "2025-10-22T10:33:47.499874",
+  "generated_at": "2025-10-22T11:02:47.181943",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -419,7 +419,7 @@
       "team_name": "Atlanta Falcons",
       "conference": "NFC",
       "division": "NFC South",
-      "last_updated": "2025-10-22T16:18Z",
+      "last_updated": "2025-10-22T16:48Z",
       "injuries": [
         {
           "athlete_id": "4037626",
@@ -818,7 +818,7 @@
           },
           "short_comment": "ir",
           "long_comment": "ir",
-          "last_updated": "2025-10-22T16:18Z",
+          "last_updated": "2025-10-22T16:48Z",
           "source": "basic/manual"
         }
       ]
@@ -1239,7 +1239,7 @@
       "team_name": "Buffalo Bills",
       "conference": "AFC",
       "division": "AFC East",
-      "last_updated": "2025-10-22T16:26Z",
+      "last_updated": "2025-10-22T16:44Z",
       "injuries": [
         {
           "athlete_id": "3121427",
@@ -1252,9 +1252,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "questionable",
-          "long_comment": "questionable",
-          "last_updated": "2025-10-21T12:10Z",
+          "short_comment": "Samuel (neck) will be a limited participant in Wednesday's practice, Maddy Glab of the Bills' official site reports.",
+          "long_comment": "The Ohio State product was inactive for Buffalo's Week 6 loss to the Falcons due to a neck injury, but following the Week 7 bye, he's returned to limited action. Samuel has played a depth role in the Bills' wide-receiver corps this season, catching three of four targets for 35 yards and a touchdown while also logging 166 kick-return yards over just two contests. He'll likely carry an injury designation into Sunday's matchup against the Panthers if he's unable to upgrade to full practice either Thursday or Friday.",
+          "last_updated": "2025-10-22T16:31Z",
           "source": "basic/manual"
         },
         {
@@ -1268,9 +1268,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "Coach Sean McDermott said Tuesday that Jones (calf) is week-to-week, Maddy Glab of the Bills' official site reports.",
-          "long_comment": "Jones was injured in pregame warmups ahead of Monday night's game against the Falcons and was in a walking boot after the loss. With Jones sidelined, Deone Walker and Jordan Phillips picked up the slack alongside Ed Oliver at defensive tackle.",
-          "last_updated": "2025-10-14T21:34Z",
+          "short_comment": "Head coach Sean McDermott told reporters that Jones (calf) will not practice Wednesday, Maddy Glab of the Bills' official site reports.",
+          "long_comment": "The 33-year-old's DNP on Wednesday comes as no surprise, as McDermott told reporters that Jones was considered \"week-to-week\" following the Bills' Week 6 loss to the Falcons. He's appeared in five of Buffalo's six contests this season, recording eight total tackles over 181 defensive snaps. If Jones is forced to miss his second consecutive game in Week 8 against the Panthers, expect Deone Walker to serve as one of the Bills' top interior defensive linemen.",
+          "last_updated": "2025-10-22T16:37Z",
           "source": "basic/manual"
         },
         {
@@ -1284,9 +1284,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "questionable",
-          "long_comment": "questionable",
-          "last_updated": "2025-10-21T12:10Z",
+          "short_comment": "Kincaid (oblique) will be limited at practice Wednesday, Maddy Glab of the Bills' official sitereports.",
+          "long_comment": "Kincaid was inactive for the Bills' Week 6 loss to the Falcons after logging three straight limited practice listings. On the heels of the team's bye, the tight end will remain limited Wednesday, as the his team prepares for Sunday's game against the Panthers. In his absence versus Atlanta, fellow TE Dawson Knox caught one of his two targets for 19 yards, while Jackson Hawes wasn't targeted.",
+          "last_updated": "2025-10-22T16:41Z",
           "source": "basic/manual"
         },
         {
@@ -1322,6 +1322,22 @@
           "source": "basic/manual"
         },
         {
+          "athlete_id": "4039007",
+          "name": "Taylor Rapp",
+          "position": "S",
+          "status": "Questionable",
+          "status_code": {
+            "id": "2",
+            "abbreviation": "Q",
+            "description": "questionable",
+            "name": "INJURY_STATUS_QUESTIONABLE"
+          },
+          "short_comment": "Head coach Sean McDermott told reporters that Rapp (knee) won't practice Wednesday, Maddy Glab of the Bills' official site reports.",
+          "long_comment": "The Washington product is now dealing with an apparent knee injury following the Bills' Week 7 bye. McDermott noted that Rapp's injury is still being evaluated, but it's serious enough to hold him out of Wednesday's practice. He's played 342 defensive snaps over the Bills' first six games this season, recording 26 total tackles. Rapp likely needs to upgrade to at least limited practice participation Thursday or Friday to have a chance at playing in Sunday's matchup against the Panthers.",
+          "last_updated": "2025-10-22T16:44Z",
+          "source": "basic/manual"
+        },
+        {
           "athlete_id": "4259166",
           "name": "Terrel Bernard",
           "position": "LB",
@@ -1351,22 +1367,6 @@
           "short_comment": "",
           "long_comment": "",
           "last_updated": "2025-10-14T11:36Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4676004",
-          "name": "Cole Bishop",
-          "position": "S",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "Bishop (lower body) has returned to Monday's Week 6 contest versus Atlanta, Alaina Getzenberg of ESPN.com reports.",
-          "long_comment": "Bishop temporarily left the game due to lower-body cramps, but he's since returned to the contest. He should thus resume his every-down role at safety.",
-          "last_updated": "2025-10-14T02:07Z",
           "source": "basic/manual"
         },
         {
@@ -7799,24 +7799,8 @@
       "team_name": "Miami Dolphins",
       "conference": "AFC",
       "division": "AFC East",
-      "last_updated": "2025-10-22T00:05Z",
+      "last_updated": "2025-10-22T16:34Z",
       "injuries": [
-        {
-          "athlete_id": "2576925",
-          "name": "Darren Waller",
-          "position": "TE",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Waller is considered week-to-week due to a strained pectoral that the Dolphins do not believe will require surgery, Adam Schefter of ESPN reports.",
-          "long_comment": "Waller was forced out of Miami's loss to the Browns in Week 7 after playing just 15 offensive snaps without recording a catch, and he now appears to be trending in the wrong direction for Sunday's matchup against the Falcons. With the Dolphins already without Tyreek Hill (torn ACL) for the rest of the season, an absence for any stretch of time on Waller's part will be a significant blow to a passing game that's already struggling. Tight ends Julian Hill and Tanner Conner will benefit from increased workloads Week 8 if Waller can't go, as will wide receiver Nick Westbrook-Ikhine in the No. 3 role behind Jaylen Waddle and Malik Washington. Head coach Mike McDaniel said Monday that Waller isn't expected to be available versus Atlanta or on Thursday Night Football against the Ravens in Week 9, per Cameron Wolfe of NFL Network.",
-          "last_updated": "2025-10-20T18:04Z",
-          "source": "basic/manual"
-        },
         {
           "athlete_id": "3932901",
           "name": "Elijah Campbell",
@@ -7882,22 +7866,6 @@
           "source": "basic/manual"
         },
         {
-          "athlete_id": "4431664",
-          "name": "Dante Trader Jr.",
-          "position": "S",
-          "status": "Active",
-          "status_code": {
-            "id": "0",
-            "abbreviation": "A",
-            "description": "active",
-            "name": "INJURY_STATUS_ACTIVE"
-          },
-          "short_comment": "",
-          "long_comment": "",
-          "last_updated": "2025-10-16T20:22Z",
-          "source": "basic/manual"
-        },
-        {
           "athlete_id": "4429160",
           "name": "De'Von Achane",
           "position": "RB",
@@ -7911,6 +7879,22 @@
           "short_comment": "Achane rushed 13 times for 82 yards and brought in three of five targets for 16 yards in the Dolphins' 31-6 loss to the Browns on Sunday.",
           "long_comment": "The Dolphins' point total and the fact Tua Tagovailoa managed only 100 passing yards while throwing three interceptions essentially tells the tale of the type of day it was for Miami's offense as a whole. Therefore, Achane's solid numbers served as the one bright spot for Mike McDaniel's squad, and the speedy running back gained well more than half his total on a 46-yard run late in the first quarter. Achane has rattled off 210 rushing yards and a pair of Week 6 rushing touchdowns on 29 carries over his last two games, but the Dolphins' reeling offensive unit faces an unenviable Week 8 road matchup against the Falcons next Sunday afternoon.",
           "last_updated": "2025-10-19T20:34Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "4367209",
+          "name": "Greg Dulcich",
+          "position": "TE",
+          "status": "Active",
+          "status_code": {
+            "id": "0",
+            "abbreviation": "A",
+            "description": "active",
+            "name": "INJURY_STATUS_ACTIVE"
+          },
+          "short_comment": "The Dolphins signed Dulcich to the 53-man roster from the practice squad Wednesday.",
+          "long_comment": "Dulchich has spent the entire regular season so far on Miami's practice squad, and he now joins Julian Hill and Tanner Conner on the active roster following the placement of Darren Waller (pectoral) on IR, where he will remain for at least four games. With the Dolphins' passing game already having lost Tyreek Hill (knee - ACL) for the season, all of Dulchich, Hill and Conner will be candidates to draw targets, especially in the short areas of the field, beginning Sunday on the road against Atlanta.",
+          "last_updated": "2025-10-22T16:34Z",
           "source": "basic/manual"
         },
         {
@@ -8199,6 +8183,22 @@
           "short_comment": "",
           "long_comment": "",
           "last_updated": "2025-10-20T15:15Z",
+          "source": "basic/manual"
+        },
+        {
+          "athlete_id": "2576925",
+          "name": "Darren Waller",
+          "position": "TE",
+          "status": "Injured Reserve",
+          "status_code": {
+            "id": "5",
+            "abbreviation": "IR",
+            "description": "Injured Reserve",
+            "name": "INJURY_STATUS_IR"
+          },
+          "short_comment": "The Dolphins placed Waller (pectoral) on IR on Wednesday.",
+          "long_comment": "With Waller slated to miss at least four games due to the  strained pectoral he sustained during Week 7 action, Julian Hill, Tanner Conner and Greg Dulcich are slated to handle Miami's TE duties in the meantime. The soonest Waller can return from IR is Nov. 30, following the Dolphins' Week 12 bye.",
+          "last_updated": "2025-10-22T16:33Z",
           "source": "basic/manual"
         }
       ]
@@ -9439,7 +9439,7 @@
       "team_name": "New York Giants",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-22T16:17Z",
+      "last_updated": "2025-10-22T16:56Z",
       "injuries": [
         {
           "athlete_id": "4361748",
@@ -9454,7 +9454,7 @@
           },
           "short_comment": "out",
           "long_comment": "out",
-          "last_updated": "2025-10-22T16:17Z",
+          "last_updated": "2025-10-22T16:56Z",
           "source": "basic/manual"
         },
         {
@@ -9836,9 +9836,9 @@
             "description": "Injured Reserve",
             "name": "INJURY_STATUS_IR"
           },
-          "short_comment": "Gano (groin) was scheduled to do some kicking Tuesday and could be activated from injured reserve ahead of Sunday's game in Philadelphia, Paul Schwartz of the New York Post reports.",
-          "long_comment": "The Giants haven't yet opened Gano's 21-day practice window, but since he's already missed four games, the team could clear him to practice at any time. Jude McAtamney had served as the Giants' kicker during that time, but after missing two extra-point attempts in Sunday's 33-32 loss to the Broncos, he was cut loose Tuesday. While Gano will step back in as the team's kicker whenever he's deemed fully healthy, Younghoe Koo could be elevated from the practice squad to handle kicking duties in Week 8 if Gano isn't ready.",
-          "last_updated": "2025-10-21T21:07Z",
+          "short_comment": "The Giants Dan Salomone of the Giants' official site Wednesday that Gano (groin) has been designated for return from IR and is slated to practice.",
+          "long_comment": "Gano has missed four consecutive games due to a lingering groin injury. The transaction kicks off a 21-day window wherein he can practice without counting against the 53-man roster limit. He can be fully activated from IR at any point in that span, making Gano potentially eligible to retake the field as early as Sunday versus the Eagles. Jude McAtamney has filled in as New York's top placekicker with Gano sidelined, and across four regular-season appearances has completed both of his field-goal tries but missed three of his 12 extra-point attempts.",
+          "last_updated": "2025-10-22T16:41Z",
           "source": "basic/manual"
         }
       ]
@@ -9849,7 +9849,7 @@
       "team_name": "New York Jets",
       "conference": "AFC",
       "division": "AFC East",
-      "last_updated": "2025-10-22T16:16Z",
+      "last_updated": "2025-10-22T16:25Z",
       "injuries": [
         {
           "athlete_id": "4371959",
@@ -9878,9 +9878,9 @@
             "description": "questionable",
             "name": "INJURY_STATUS_QUESTIONABLE"
           },
-          "short_comment": "questionable",
-          "long_comment": "questionable",
-          "last_updated": "2025-10-21T12:10Z",
+          "short_comment": "Wilson (knee) is considered day-to-day ahead of Sunday's game against the Bengals, Eric Allen of the Jets' official site reports.",
+          "long_comment": "Wilson, who approached Week 7 action with a 'doubtful' designation, was predictably inactive for the Jets' loss to the Panthers, but as the wideout distances himself from the hyperextended knee he sustained in Week 5, it's possible he could rejoin the mix this weekend. A return to practice in the coming days, in any capacity, would support that notion after Wilson logged three straight 'DNPs' last week.",
+          "last_updated": "2025-10-22T16:25Z",
           "source": "basic/manual"
         },
         {
@@ -12719,8 +12719,24 @@
       "team_name": "Washington Commanders",
       "conference": "NFC",
       "division": "NFC East",
-      "last_updated": "2025-10-22T15:51Z",
+      "last_updated": "2025-10-22T16:53Z",
       "injuries": [
+        {
+          "athlete_id": "4426348",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "status": "Doubtful",
+          "status_code": {
+            "id": "3",
+            "abbreviation": "D",
+            "description": "doubtful",
+            "name": "INJURY_STATUS_DOUBTFUL"
+          },
+          "short_comment": "Daniels (hamstring) is expected to sit out Monday's road matchup against the Chiefs, Ian Rapoport of NFL Network reports.",
+          "long_comment": "Daniels suffered a low-grade right hamstring strain during Washington's loss to the Cowboys in Week 7, and while it's encouraging for the second-year quarterback to have avoided a long-term injury, it looks as though he'll miss at least one contest while working his way back to health. That positions backup quarterback Marcus Mariota for a likely start on Monday Night Football versus Kansas City. Meanwhile, coach Dan Quinn said Wednesday that top wide receivers Terry McLaurin (quadriceps) and Deebo Samuel (heel) are both trending in the right direction and expected to practice this week, Nicki Jhabvala of The Washington Post reports.",
+          "last_updated": "2025-10-22T16:45Z",
+          "source": "basic/manual"
+        },
         {
           "athlete_id": "3126486",
           "name": "Deebo Samuel",
@@ -12735,22 +12751,6 @@
           "short_comment": "Commanders coach Dan Quinn said Wednesday that Samuel (heel) is \"trending right\" for Monday's game against the Chiefs, Nicki Jhabvala of The Washington Post reports.",
           "long_comment": "Quinn said that Samuel and Terry McLaurin (quadriceps) are both expected to practice throughout Week 8 as Monday's road matchup at Kansas City approaches. Washington's first official practice report will be released Thursday, at which point Samuel is on track to be listed as at least a limited participant. He wasn't able to suit up Week 7 versus the Cowboys despite having played through his heel injury the prior two games. Meanwhile, the status of quarterback Jayden Daniels (hamstring) remains uncertain, meaning Marcus Mariota could step into the starting lineup versus the Chiefs.",
           "last_updated": "2025-10-22T15:51Z",
-          "source": "basic/manual"
-        },
-        {
-          "athlete_id": "4426348",
-          "name": "Jayden Daniels",
-          "position": "QB",
-          "status": "Questionable",
-          "status_code": {
-            "id": "2",
-            "abbreviation": "Q",
-            "description": "questionable",
-            "name": "INJURY_STATUS_QUESTIONABLE"
-          },
-          "short_comment": "Coach Dan Quinn said Monday that Daniels' hamstring injury isn't considered significant and won't be a long-term issue, but the quarterback's status for next Monday night's game against the Chiefs is uncertain, Nicki Jhabvala of The Washington Post reports.",
-          "long_comment": "Daniels' MRI on Monday came back clean after he was injured on the opening drive of the second half of Sunday's loss to the Cowboys. He wanted to go back in the game against Dallas, but the score was already somewhat lopsided, so the Commanders kept him out and let Marcus Mariota play the bulk of the second half. If Daniels is unable to play against Kansas City, Mariota would likely draw the start.",
-          "last_updated": "2025-10-20T19:45Z",
           "source": "basic/manual"
         },
         {
@@ -13004,9 +13004,9 @@
             "description": "active",
             "name": "INJURY_STATUS_ACTIVE"
           },
-          "short_comment": "Mariota completed four of 10 pass attempts for 63 yards and an interception while rushing twice for 34 yards in Sunday's 44-22 loss to Dallas.",
-          "long_comment": "Mariota stepped in for Jayden Daniels (hamstring) in the third quarter after Washington's starter exited the contest with an apparent hamstring injury. The 31-year-old Mariota flashed his mobility on a team-high 25-yard scramble, but he didn't do much else after entering the contest in the second half of a blowout loss. Daniels is set to undergo an MRI on his injured hamstring Monday, which should shed more light on the starter's availability for Week 8. If Daniels is unable to go, Mariota would become an enticing stream option against the Chiefs next Monday.",
-          "last_updated": "2025-10-20T03:00Z",
+          "short_comment": "Mariota is in line to start Monday night's game against the Chiefs, Nicki Jhabvala of The Washington Post reports.",
+          "long_comment": "Per Jhabvala, Jayden Daniels is dealing with a low-grade hamstring strain and is not on track to get the start versus Kansas City. Mariota thus represents a Week 8 fantasy lineup option for those who roster Daniels or who are otherwise in need of QB help, with six teams on bye this week.",
+          "last_updated": "2025-10-22T16:53Z",
           "source": "basic/manual"
         },
         {

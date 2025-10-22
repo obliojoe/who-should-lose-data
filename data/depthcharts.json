@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 8,
-  "generated_at": "2025-10-22T10:33:47.512826",
+  "generated_at": "2025-10-22T11:02:47.194895",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -6896,19 +6896,19 @@
                   "status_code": "Active"
                 },
                 {
+                  "athlete_id": "4430681",
+                  "name": "Jared Wayne",
+                  "position": "WR",
+                  "jersey": "14",
+                  "rank": 7,
+                  "status": "Practice Squad",
+                  "status_code": "Practice Squad"
+                },
+                {
                   "athlete_id": "4366031",
                   "name": "Tank Dell",
                   "position": "WR",
                   "jersey": "3",
-                  "rank": 7,
-                  "status": "Day-To-Day",
-                  "status_code": "Day-To-Day"
-                },
-                {
-                  "athlete_id": "3118892",
-                  "name": "Justin Watson",
-                  "position": "WR",
-                  "jersey": "84",
                   "rank": 8,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
@@ -10461,20 +10461,29 @@
               "display_name": "Tight End",
               "players": [
                 {
-                  "athlete_id": "2576925",
-                  "name": "Darren Waller",
+                  "athlete_id": "4365395",
+                  "name": "Julian Hill",
                   "position": "TE",
-                  "jersey": "83",
+                  "jersey": "89",
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
+                },
+                {
+                  "athlete_id": "4367209",
+                  "name": "Greg Dulcich",
+                  "position": "TE",
+                  "jersey": null,
+                  "rank": 3,
+                  "status": "Practice Squad",
+                  "status_code": "Practice Squad"
                 },
                 {
                   "athlete_id": "4431044",
                   "name": "Jalin Conyers",
                   "position": "TE",
                   "jersey": "47",
-                  "rank": 4,
+                  "rank": 5,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
