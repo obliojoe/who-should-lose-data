@@ -1,0 +1,52 @@
+name: Slate Refresh
+
+on:
+  workflow_dispatch:
+    inputs:
+      preset:
+        description: Preset to run via generate_cache_cli
+        required: true
+        default: weekly-refresh
+      sleep_seconds:
+        description: Polling interval in seconds (default 60)
+        required: false
+        default: "60"
+      lead_minutes:
+        description: Include games starting within this many minutes
+        required: false
+        default: "0"
+      max_wait:
+        description: Max minutes to wait before exiting (0 = unlimited within job timeout)
+        required: false
+        default: "0"
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run slate watcher
+        run: |
+          python scripts/slate_watcher.py \
+            --preset "${{ github.event.inputs.preset }}" \
+            --sleep "${{ github.event.inputs.sleep_seconds }}" \
+            --lead-minutes "${{ github.event.inputs.lead_minutes }}" \
+            --max-wait "${{ github.event.inputs.max_wait }}"
