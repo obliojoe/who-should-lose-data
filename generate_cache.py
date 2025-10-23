@@ -3538,8 +3538,12 @@ def main():
             regenerate_type = None
             force_reanalyze = False
 
-            if args.regenerate_game_ai.lower() in ['analysis', 'preview', 'all']:
-                regenerate_type = args.regenerate_game_ai.lower()
+            regen_value = args.regenerate_game_ai.lower()
+            if regen_value in ['analysis', 'preview', 'all']:
+                regenerate_type = regen_value
+                force_reanalyze = True
+            elif regen_value == 'weekly-refresh':
+                regenerate_type = 'weekly-refresh'
                 force_reanalyze = True
             elif args.regenerate_game_ai.startswith('team:'):
                 # Extract team abbreviations and get their game IDs
@@ -3631,8 +3635,12 @@ def main():
                 force_reanalyze = False
 
                 if args.regenerate_game_ai:
-                    if args.regenerate_game_ai.lower() in ['analysis', 'preview', 'all']:
-                        regenerate_type = args.regenerate_game_ai.lower()
+                    regen_value = args.regenerate_game_ai.lower()
+                    if regen_value in ['analysis', 'preview', 'all']:
+                        regenerate_type = regen_value
+                        force_reanalyze = True
+                    elif regen_value == 'weekly-refresh':
+                        regenerate_type = 'weekly-refresh'
                         force_reanalyze = True
                     elif args.regenerate_game_ai.startswith('team:'):
                         # Extract team abbreviations and get their game IDs

@@ -1215,7 +1215,10 @@ def batch_analyze_games(
     week_from_now = current_date + timedelta(days=7)
 
     completed_games = schedule_df[
-        schedule_df['away_score'].notna() & schedule_df['home_score'].notna()
+        schedule_df['away_score'].notna()
+        & schedule_df['home_score'].notna()
+        & schedule_df['away_score'].astype(str).str.strip().ne('')
+        & schedule_df['home_score'].astype(str).str.strip().ne('')
     ]
     current_week = None
     if not completed_games.empty and 'week_num' in completed_games.columns:
