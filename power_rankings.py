@@ -248,6 +248,68 @@ class PowerRankings:
         return rankings
 
 
+    def r1_sov_pointdiff_rankings(self) -> List[Dict]:
+        """
+        Extended R1+SOV variant that adds point differential context.
+
+        Weights:
+        - Win%: 50%
+        - Playoff probability: 15%
+        - Current playoff seed: 10%
+        - Strength of victory: 15%
+        - Point differential: 10%
+
+        Returns:
+            List of team rankings sorted by composite score
+        """
+
+        point_diffs = [stats['point_diff'] for stats in self.teams.values()]
+        min_pd = min(point_diffs)
+        max_pd = max(point_diffs)
+
+        base_rankings = self.r1_sov_rankings()
+        base_lookup = {row['team']: row for row in base_rankings}
+
+        weights = {
+            'win_pct': 0.55,
+            'playoff_prob': 0.10,
+            'seed': 0.10,
+            'sov': 0.10,
+            'point_diff': 0.15,
+        }
+
+        enriched: List[Dict] = []
+        for team, stats in self.teams.items():
+            base = base_lookup[team]
+            breakdown = base['breakdown'].copy()
+            breakdown['point_diff'] = self.normalize_to_scale(stats['point_diff'], min_pd, max_pd)
+
+            composite = sum(
+                breakdown[key] * weights[key]
+                for key in ['win_pct', 'playoff_prob', 'seed', 'sov']
+            ) + breakdown['point_diff'] * weights['point_diff']
+
+            enriched.append(
+                {
+                    'team': team,
+                    'record': stats['record'],
+                    'composite_score': composite,
+                    'win_pct': stats['win_pct'],
+                    'playoff_prob': self.playoff_probs.get(team, 0.0),
+                    'playoff_seed': stats['playoff_seed'],
+                    'sov': self.calculate_strength_of_victory(team),
+                    'point_diff': stats['point_diff'],
+                    'breakdown': breakdown,
+                }
+            )
+
+        enriched.sort(key=lambda x: x['composite_score'], reverse=True)
+        for rank, row in enumerate(enriched, 1):
+            row['rank'] = rank
+
+        return enriched
+
+
 if __name__ == "__main__":
     # Quick test
     pr = PowerRankings()
