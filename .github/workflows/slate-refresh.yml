@@ -6,7 +6,20 @@ on:
       preset:
         description: Preset to run via generate_cache_cli
         required: true
-        default: weekly-refresh
+        type: choice
+        options:
+          - full-production-50k
+          - full-production-100k
+          - full-dev-50k-copy-local-no-deploy
+          - regenerate-detroit-no-deploy
+          - quick-test-sims-no-ai
+          - regenerate-all-ai-no-sims-deploy
+          - gen-ai-haiku-no-sims-no-deploy
+          - gen-ai-opus-no-sims-no-deploy
+          - regenerate-dashboard-only-no-deploy
+          - regenerate-dashboard-only-and-deploy
+          - refresh-ai-weekly-no-sims-deploy
+        default: full-production-50k
       sleep_seconds:
         description: Polling interval in seconds (default 60)
         required: false
