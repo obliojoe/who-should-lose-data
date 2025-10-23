@@ -316,7 +316,8 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
     if weekly_team_stats is None or weekly_team_stats.empty:
         logger.warning(
             'No nflreadpy_team_stats data available in raw snapshot. '
-            'Team stats will be generated from schedules only.'
+            'Team stats will be generated from available data sources (schedules, play-by-play, standings) '
+            'excluding aggregated team statistics.'
         )
         aggregated_stats = pd.DataFrame()
     else:
