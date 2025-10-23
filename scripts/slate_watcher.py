@@ -320,31 +320,43 @@ def main(argv: Optional[List[str]] = None) -> int:
         action="store_true",
         help="Watch the slate but do not run the preset",
     )
+    parser.add_argument(
+        "--force-run",
+        action="store_true",
+        help="Skip slate detection and run the preset immediately",
+    )
     args = parser.parse_args(argv)
 
     lead = timedelta(minutes=max(0, args.lead_minutes))
     max_wait = timedelta(minutes=args.max_wait) if args.max_wait else None
 
-    try:
-        finals = slate_watch(
-            season=args.season,
-            week=args.week,
-            sleep_seconds=args.sleep,
-            lead=lead,
-            max_wait=max_wait,
-        )
-    except RuntimeError as exc:
-        _log(str(exc))
-        return 1
-
-    if finals:
-        _log(f"Detected {len(finals)} completed game(s) in this slate.")
+    if args.force_run:
+        _log("Force run enabled; skipping slate detection.")
+        finals = {"forced"}
+        if args.dry_run:
+            _log("Dry run complete; exiting without running preset.")
+            return 0
     else:
-        return 0
+        try:
+            finals = slate_watch(
+                season=args.season,
+                week=args.week,
+                sleep_seconds=args.sleep,
+                lead=lead,
+                max_wait=max_wait,
+            )
+        except RuntimeError as exc:
+            _log(str(exc))
+            return 1
 
-    if args.dry_run:
-        _log("Dry run complete; exiting without running preset.")
-        return 0
+        if finals:
+            _log(f"Detected {len(finals)} completed game(s) in this slate.")
+        else:
+            return 0
+
+        if args.dry_run:
+            _log("Dry run complete; exiting without running preset.")
+            return 0
 
     if not args.no_collect:
         rc = run_command([sys.executable, "collect_raw_data.py"])
