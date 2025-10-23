@@ -33,9 +33,10 @@ on:
         required: false
         default: "0"
       force_run:
-        description: "Set to true to bypass slate detection and run immediately"
+        description: "Bypass slate detection and run immediately"
         required: false
-        default: "false"
+        type: boolean
+        default: false
 
 jobs:
   refresh:
