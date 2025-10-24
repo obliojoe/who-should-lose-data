@@ -544,9 +544,9 @@ def collect_nflreadpy_datasets(
     extras: Optional[Set[str]] = None,
 ) -> List[Tuple[str, Path, Dict[str, Any]]]:
     dataset_plan: List[Dict] = [
-        {"name": "schedules", "loader": nfl.load_schedules, "filter_week": False},
-        {"name": "team_stats", "loader": nfl.load_team_stats, "filter_week": True},
-        {"name": "pbp", "loader": nfl.load_pbp, "filter_week": True},
+        {"name": "schedules", "loader": nfl.load_schedules, "filter_week": False, "required": True},
+        {"name": "team_stats", "loader": nfl.load_team_stats, "filter_week": True, "required": True},
+        {"name": "pbp", "loader": nfl.load_pbp, "filter_week": True, "required": True},
         {"name": "player_stats", "loader": nfl.load_player_stats, "filter_week": True},
         {"name": "snap_counts", "loader": nfl.load_snap_counts, "filter_week": True},
         {
@@ -566,6 +566,7 @@ def collect_nflreadpy_datasets(
         dataset_name = cfg["name"]
         loader = cfg["loader"]
         filter_by_week = cfg.get("filter_week", False)
+        is_required = cfg.get("required", False)
         min_season = cfg.get("min_season")
         max_season = cfg.get("max_season")
 
@@ -588,6 +589,12 @@ def collect_nflreadpy_datasets(
             try:
                 frame = loader([season], **loader_kwargs).to_pandas()
             except Exception as exc:  # pragma: no cover - upstream data variability
+                if is_required:
+                    LOGGER.error("Failed to load required dataset %s: %s", suffix, exc)
+                    raise RuntimeError(
+                        f"Failed to load required nflreadpy dataset '{suffix}' for season {season}, week {week}. "
+                        f"Error: {exc}"
+                    ) from exc
                 LOGGER.warning("Failed to load %s: %s", suffix, exc)
                 continue
 

@@ -310,28 +310,20 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
         teams_df = pd.DataFrame(json.load(fh))
 
     weekly_team_stats = _load_weekly_csvs(manifest, 'nflreadpy_team_stats', upto_week=week)
-    
-    # If nflreadpy_team_stats is unavailable or empty, use an empty aggregated_stats dict
-    # This can happen when games haven't been played yet or data collection failed
     if weekly_team_stats is None or weekly_team_stats.empty:
-        logger.warning(
-            'No nflreadpy_team_stats data available in raw snapshot. '
-            'Team stats will be generated from available data sources (schedules, play-by-play, standings) '
-            'excluding aggregated team statistics.'
-        )
-        aggregated_stats = pd.DataFrame()
-    else:
-        weekly_team_stats['team_abbr'] = weekly_team_stats['team'].replace(TEAM_ALIAS)
+        raise RuntimeError('No nflreadpy_team_stats data available in raw snapshot')
 
-        # Convert numeric columns from string/object payloads so aggregation retains base stats
-        non_numeric_cols = {'team', 'team_abbr', 'opponent_team', 'season_type'}
-        for col in weekly_team_stats.columns:
-            if col not in non_numeric_cols:
-                weekly_team_stats[col] = pd.to_numeric(weekly_team_stats[col], errors='coerce')
+    weekly_team_stats['team_abbr'] = weekly_team_stats['team'].replace(TEAM_ALIAS)
 
-        aggregated_stats = (
-            weekly_team_stats.groupby('team_abbr').sum(numeric_only=True).fillna(0)
-        )
+    # Convert numeric columns from string/object payloads so aggregation retains base stats
+    non_numeric_cols = {'team', 'team_abbr', 'opponent_team', 'season_type'}
+    for col in weekly_team_stats.columns:
+        if col not in non_numeric_cols:
+            weekly_team_stats[col] = pd.to_numeric(weekly_team_stats[col], errors='coerce')
+
+    aggregated_stats = (
+        weekly_team_stats.groupby('team_abbr').sum(numeric_only=True).fillna(0)
+    )
 
     schedule_df = _load_single_csv(manifest, 'nflreadpy_schedules')
     if schedule_df is None or schedule_df.empty:
