@@ -311,19 +311,24 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
 
     weekly_team_stats = _load_weekly_csvs(manifest, 'nflreadpy_team_stats', upto_week=week)
     if weekly_team_stats is None or weekly_team_stats.empty:
-        raise RuntimeError('No nflreadpy_team_stats data available in raw snapshot')
+        logger.warning(
+            "No nflreadpy_team_stats data available for week %s; continuing with schedule-derived stats only",
+            week,
+        )
+        aggregated_stats = pd.DataFrame(index=pd.Index([], name='team_abbr'))
+    else:
+        weekly_team_stats = weekly_team_stats.copy()
+        weekly_team_stats['team_abbr'] = weekly_team_stats['team'].replace(TEAM_ALIAS)
 
-    weekly_team_stats['team_abbr'] = weekly_team_stats['team'].replace(TEAM_ALIAS)
+        # Convert numeric columns from string/object payloads so aggregation retains base stats
+        non_numeric_cols = {'team', 'team_abbr', 'opponent_team', 'season_type'}
+        for col in weekly_team_stats.columns:
+            if col not in non_numeric_cols:
+                weekly_team_stats[col] = pd.to_numeric(weekly_team_stats[col], errors='coerce')
 
-    # Convert numeric columns from string/object payloads so aggregation retains base stats
-    non_numeric_cols = {'team', 'team_abbr', 'opponent_team', 'season_type'}
-    for col in weekly_team_stats.columns:
-        if col not in non_numeric_cols:
-            weekly_team_stats[col] = pd.to_numeric(weekly_team_stats[col], errors='coerce')
-
-    aggregated_stats = (
-        weekly_team_stats.groupby('team_abbr').sum(numeric_only=True).fillna(0)
-    )
+        aggregated_stats = (
+            weekly_team_stats.groupby('team_abbr').sum(numeric_only=True).fillna(0)
+        )
 
     schedule_df = _load_single_csv(manifest, 'nflreadpy_schedules')
     if schedule_df is None or schedule_df.empty:
