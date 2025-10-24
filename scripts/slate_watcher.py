@@ -359,7 +359,7 @@ def main(argv: Optional[List[str]] = None) -> int:
             return 0
 
     if not args.no_collect:
-        rc = run_command([sys.executable, "collect_raw_data.py"])
+        rc = run_command([sys.executable, "collect_raw_data.py", "--verbose"])
         if rc != 0:
             return rc
 

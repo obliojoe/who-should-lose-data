@@ -587,9 +587,14 @@ def collect_nflreadpy_datasets(
                 suffix = f"{dataset_name}_{stat_type}"
 
             try:
+                LOGGER.info("Loading nflreadpy dataset: %s (season=%s, week=%s)", suffix, season, week)
                 frame = loader([season], **loader_kwargs).to_pandas()
+                LOGGER.info("Successfully loaded %s: %d rows", suffix, len(frame))
             except Exception as exc:  # pragma: no cover - upstream data variability
                 if is_required:
+                    LOGGER.error("CRITICAL: Failed to load required dataset %s", suffix)
+                    LOGGER.error("Exception type: %s", type(exc).__name__)
+                    LOGGER.error("Exception details: %s", str(exc))
                     raise RuntimeError(
                         f"Failed to load required nflreadpy dataset '{suffix}' for season {season}, week {week}. "
                         f"This is a critical dataset needed for analysis. "
@@ -600,6 +605,15 @@ def collect_nflreadpy_datasets(
 
             if filter_by_week and "week" in frame.columns:
                 frame = frame[frame["week"] == week] if not frame.empty else frame
+                LOGGER.info("After filtering to week %s: %d rows", week, len(frame))
+                
+                # Warn if required dataset is empty after filtering
+                if is_required and len(frame) == 0:
+                    LOGGER.warning(
+                        "WARNING: Required dataset %s is empty after filtering to week %s. "
+                        "This may indicate no games have been played yet or data is not available for this week.",
+                        suffix, week
+                    )
 
             subdir = output_dir / "nflreadpy" / dataset_name
             if stat_type:
@@ -608,6 +622,7 @@ def collect_nflreadpy_datasets(
 
             path = subdir / f"season_{season}_week_{week}.csv"
             write_dataframe(path, frame)
+            LOGGER.info("Saved %s to %s (%d records)", suffix, path, len(frame))
             results.append((suffix, path, {"records": len(frame)}))
 
     extras = extras or set()
@@ -641,6 +656,15 @@ def collect_nflreadpy_datasets(
             metadata['season'] = season
         results.append((extra, path, metadata))
 
+    # Log summary of collected datasets
+    LOGGER.info("=" * 60)
+    LOGGER.info("NFLREADPY COLLECTION SUMMARY")
+    LOGGER.info("Successfully collected %d dataset(s):", len(results))
+    for dataset_name, path, metadata in results:
+        records = metadata.get('records', 0)
+        LOGGER.info("  - %s: %d records", dataset_name, records)
+    LOGGER.info("=" * 60)
+    
     return results
 
 
