@@ -15,6 +15,190 @@ TEAM_ALIAS = {
     'WSH': 'WAS',
 }
 
+TEAM_STATS_FALLBACK_NUMERIC_COLUMNS = [
+    'season',
+    'week',
+    'completions',
+    'attempts',
+    'passing_yards',
+    'passing_tds',
+    'passing_interceptions',
+    'sacks_suffered',
+    'sack_yards_lost',
+    'sack_fumbles',
+    'sack_fumbles_lost',
+    'passing_air_yards',
+    'passing_yards_after_catch',
+    'passing_first_downs',
+    'passing_epa',
+    'passing_cpoe',
+    'passing_2pt_conversions',
+    'carries',
+    'rushing_yards',
+    'rushing_tds',
+    'rushing_fumbles',
+    'rushing_fumbles_lost',
+    'rushing_first_downs',
+    'rushing_epa',
+    'rushing_2pt_conversions',
+    'receptions',
+    'targets',
+    'receiving_yards',
+    'receiving_tds',
+    'receiving_fumbles',
+    'receiving_fumbles_lost',
+    'receiving_air_yards',
+    'receiving_yards_after_catch',
+    'receiving_first_downs',
+    'receiving_epa',
+    'receiving_2pt_conversions',
+    'special_teams_tds',
+    'def_tackles_solo',
+    'def_tackles_with_assist',
+    'def_tackle_assists',
+    'def_tackles_for_loss',
+    'def_tackles_for_loss_yards',
+    'def_fumbles_forced',
+    'def_sacks',
+    'def_sack_yards',
+    'def_qb_hits',
+    'def_interceptions',
+    'def_interception_yards',
+    'def_pass_defended',
+    'def_tds',
+    'def_fumbles',
+    'def_safeties',
+    'misc_yards',
+    'fumble_recovery_own',
+    'fumble_recovery_yards_own',
+    'fumble_recovery_opp',
+    'fumble_recovery_yards_opp',
+    'fumble_recovery_tds',
+    'penalties',
+    'penalty_yards',
+    'timeouts',
+    'punt_returns',
+    'punt_return_yards',
+    'kickoff_returns',
+    'kickoff_return_yards',
+    'fg_made',
+    'fg_att',
+    'fg_missed',
+    'fg_blocked',
+    'fg_long',
+    'fg_pct',
+    'fg_made_0_19',
+    'fg_made_20_29',
+    'fg_made_30_39',
+    'fg_made_40_49',
+    'fg_made_50_59',
+    'fg_made_60_',
+    'fg_missed_0_19',
+    'fg_missed_20_29',
+    'fg_missed_30_39',
+    'fg_missed_40_49',
+    'fg_missed_50_59',
+    'fg_missed_60_',
+    'fg_made_list',
+    'fg_missed_list',
+    'fg_blocked_list',
+    'fg_made_distance',
+    'fg_missed_distance',
+    'fg_blocked_distance',
+    'pat_made',
+    'pat_att',
+    'pat_missed',
+    'pat_blocked',
+    'pat_pct',
+    'gwfg_made',
+    'gwfg_att',
+    'gwfg_missed',
+    'gwfg_blocked',
+    'gwfg_distance',
+]
+
+TEAM_STATS_CONVERSION_COLUMNS = [
+    'third_down_attempts',
+    'third_down_conversions',
+    'third_down_pct',
+    'fourth_down_attempts',
+    'fourth_down_conversions',
+    'fourth_down_pct',
+    'third_down_attempts_against',
+    'third_down_conversions_against',
+    'third_down_pct_against',
+    'fourth_down_attempts_against',
+    'fourth_down_conversions_against',
+    'fourth_down_pct_against',
+]
+
+TEAM_STATS_RED_ZONE_COLUMNS = [
+    'red_zone_trips',
+    'red_zone_tds',
+    'red_zone_pct',
+    'red_zone_trips_against',
+    'red_zone_tds_against',
+    'red_zone_pct_against',
+]
+
+TEAM_STATS_DERIVED_COLUMNS = [
+    'games_played',
+    'wins',
+    'losses',
+    'ties',
+    'win_pct',
+    'points_for',
+    'points_against',
+    'point_diff',
+    'points_per_game',
+    'points_against_per_game',
+    'completion_pct',
+    'yards_per_attempt',
+    'yards_per_carry',
+    'passer_rating',
+    'total_yards',
+    'yards_per_game',
+    'total_first_downs',
+    'first_downs_per_game',
+    'total_epa',
+    'epa_per_game',
+    'total_turnovers',
+    'turnover_margin',
+    'sacks_taken',
+    'interceptions',
+]
+
+TEAM_STATS_ESPN_COLUMNS = [
+    'espn_api_id',
+    'league_win_pct',
+    'div_win_pct',
+    'games_behind',
+    'ot_wins',
+    'ot_losses',
+    'playoff_seed',
+    'clincher',
+    'streak_display',
+    'road_record',
+    'conf_record',
+    'div_record',
+]
+
+TEAM_STATS_TEXT_COLUMNS = {
+    'clincher',
+    'conf_record',
+    'div_record',
+    'road_record',
+    'streak_display',
+}
+
+TEAM_STATS_EXPECTED_OUTPUT_COLUMNS = sorted(
+    set(TEAM_STATS_FALLBACK_NUMERIC_COLUMNS)
+    | set(TEAM_STATS_CONVERSION_COLUMNS)
+    | set(TEAM_STATS_RED_ZONE_COLUMNS)
+    | set(TEAM_STATS_DERIVED_COLUMNS)
+    | set(TEAM_STATS_ESPN_COLUMNS)
+)
+
 
 def _require_manifest(manifest: Optional[RawDataManifest]) -> RawDataManifest:
     if manifest:
@@ -101,6 +285,43 @@ def _load_single_csv(
         frame = frame[frame['season'] == season]
 
     return frame
+
+
+def _ensure_team_stats_schema(
+    stats_df: pd.DataFrame,
+    season: Optional[int],
+    week: Optional[int],
+) -> pd.DataFrame:
+    """Guarantee all downstream consumers see the expected columns."""
+
+    season_value = season if season is not None else 0
+    week_value = week if week is not None else 0
+
+    missing_columns = []
+    column_defaults = {}
+
+    for column in TEAM_STATS_EXPECTED_OUTPUT_COLUMNS:
+        if column in stats_df.columns:
+            continue
+        if column == 'season':
+            default = season_value
+        elif column == 'week':
+            default = week_value
+        elif column in TEAM_STATS_TEXT_COLUMNS:
+            default = ''
+        else:
+            default = 0
+        missing_columns.append(column)
+        column_defaults[column] = default
+
+    if missing_columns:
+        filler = pd.DataFrame(
+            {col: column_defaults[col] for col in missing_columns},
+            index=stats_df.index,
+        )
+        stats_df = pd.concat([stats_df, filler], axis=1)
+
+    return stats_df
 
 def calculate_conversion_rates(pbp_data, team):
     """Calculate offensive and defensive conversion rates"""
@@ -310,18 +531,14 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
         teams_df = pd.DataFrame(json.load(fh))
 
     weekly_team_stats = _load_weekly_csvs(manifest, 'nflreadpy_team_stats', upto_week=week)
-    if weekly_team_stats is None or weekly_team_stats.empty:
-        logger.warning(
-            "No nflreadpy_team_stats data available for week %s; continuing with schedule-derived stats only",
-            week,
-        )
-        aggregated_stats = pd.DataFrame(index=pd.Index([], name='team_abbr'))
-    else:
+
+    non_numeric_cols = {'team', 'team_abbr', 'opponent_team', 'season_type'}
+
+    if weekly_team_stats is not None and not weekly_team_stats.empty:
         weekly_team_stats = weekly_team_stats.copy()
         weekly_team_stats['team_abbr'] = weekly_team_stats['team'].replace(TEAM_ALIAS)
 
         # Convert numeric columns from string/object payloads so aggregation retains base stats
-        non_numeric_cols = {'team', 'team_abbr', 'opponent_team', 'season_type'}
         for col in weekly_team_stats.columns:
             if col not in non_numeric_cols:
                 weekly_team_stats[col] = pd.to_numeric(weekly_team_stats[col], errors='coerce')
@@ -329,6 +546,13 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
         aggregated_stats = (
             weekly_team_stats.groupby('team_abbr').sum(numeric_only=True).fillna(0)
         )
+    else:
+        logger.warning(
+            "No nflreadpy_team_stats data available for week %s; continuing with schedule-derived stats only",
+            week,
+        )
+        aggregated_stats = pd.DataFrame(columns=TEAM_STATS_FALLBACK_NUMERIC_COLUMNS)
+        aggregated_stats.index.name = 'team_abbr'
 
     schedule_df = _load_single_csv(manifest, 'nflreadpy_schedules')
     if schedule_df is None or schedule_df.empty:
@@ -492,6 +716,8 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
     if espn_stats:
         espn_df = pd.DataFrame.from_dict(espn_stats, orient='index')
         stats_df = stats_df.join(espn_df, how='left')
+
+    stats_df = _ensure_team_stats_schema(stats_df, season, week)
 
     default_values = {
         'ot_wins': 0,
