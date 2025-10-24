@@ -560,7 +560,7 @@ def collect_nflreadpy_datasets(
         {"name": "rosters_weekly", "loader": nfl.load_rosters_weekly, "filter_week": True},
     ]
 
-    results: List[Tuple[str, Path, int]] = []
+    results: List[Tuple[str, Path, Dict[str, Any]]] = []
 
     for cfg in tqdm(dataset_plan, desc="nflreadpy datasets", unit="dataset"):
         dataset_name = cfg["name"]
@@ -586,22 +586,44 @@ def collect_nflreadpy_datasets(
                 suffix = f"{dataset_name}_{stat_type}"
 
             try:
-                frame = loader([season], **loader_kwargs).to_pandas()
+                season_frame = loader([season], **loader_kwargs).to_pandas()
             except Exception as exc:  # pragma: no cover - upstream data variability
                 LOGGER.warning("Failed to load %s: %s", suffix, exc)
                 continue
 
-            if filter_by_week and "week" in frame.columns:
-                frame = frame[frame["week"] == week] if not frame.empty else frame
+            week_frame = season_frame
+            if filter_by_week and "week" in season_frame.columns:
+                week_frame = season_frame[season_frame["week"] == week] if not season_frame.empty else season_frame
 
             subdir = output_dir / "nflreadpy" / dataset_name
             if stat_type:
                 subdir = subdir / stat_type
             ensure_dir(subdir)
 
-            path = subdir / f"season_{season}_week_{week}.csv"
-            write_dataframe(path, frame)
-            results.append((suffix, path, {"records": len(frame)}))
+            week_path = subdir / f"season_{season}_week_{week}.csv"
+            write_dataframe(week_path, week_frame)
+            results.append((
+                suffix,
+                week_path,
+                {
+                    "records": len(week_frame),
+                    "scope": "week",
+                    "week": week,
+                },
+            ))
+
+            if filter_by_week:
+                season_path = subdir / f"season_{season}_through_week_{week}.csv"
+                write_dataframe(season_path, season_frame)
+                results.append((
+                    f"{suffix}_season",
+                    season_path,
+                    {
+                        "records": len(season_frame),
+                        "scope": "season_to_date",
+                        "through_week": week,
+                    },
+                ))
 
     extras = extras or set()
     for extra in sorted(extras):

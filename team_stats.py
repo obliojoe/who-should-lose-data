@@ -234,6 +234,8 @@ def _load_weekly_csvs(
 
     frames = []
     pattern = f"season_{season}_week_*.csv"
+    has_non_empty_frame = False
+
     for path in sorted(base_dir.glob(pattern)):
         week_value: Optional[int] = None
         try:
@@ -251,12 +253,33 @@ def _load_weekly_csvs(
             continue
 
         frames.append(frame)
+        if not frame.empty:
+            has_non_empty_frame = True
 
-    if not frames:
-        logger.warning("No CSV files loaded for %s", dataset)
-        return None
+    if not frames or not has_non_empty_frame:
+        logger.warning("No usable weekly CSV data loaded for %s", dataset)
+
+        season_entries = manifest.entries(f"{dataset}_season")
+        if not season_entries:
+            return None
+
+        season_frames = []
+        for entry in season_entries:
+            try:
+                frame = pd.read_csv(entry.path, usecols=usecols)
+            except Exception as exc:
+                logger.warning("Failed to load %s: %s", entry.path, exc)
+                continue
+
+            if upto_week is not None and 'week' in frame.columns:
+                frame = frame[frame['week'] <= upto_week]
+            season_frames.append(frame)
+        frames = [frame for frame in season_frames if not frame.empty]
+        if not frames:
+            return None
 
     data = pd.concat(frames, ignore_index=True)
+
     if 'season' in data.columns:
         data = data[data['season'] == season]
     return data

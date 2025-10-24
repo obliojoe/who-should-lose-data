@@ -111,7 +111,7 @@ python generate_cache.py --raw-manifest data/raw/manifest/latest.json --simulati
 Artifacts saved in `data/raw/` include:
 
 - ESPN scoreboard, per-game summaries, box scores, team leaders, injuries, depth charts, and news
-- nflreadpy tables (schedules, team stats, **play-by-play**, player stats, snap counts, depth charts, rosters, etc.) filtered to the requested week
+- nflreadpy tables (schedules, team stats, **play-by-play**, player stats, snap counts, depth charts, rosters, etc.) filtered to the requested week, plus a season-to-date CSV (e.g., `season_2025_through_week_8.csv`) so fresh environments have historical rows available immediately
 - Source HTML for the Sagarin ratings page (reused by the cache builder when present)
 - A manifest linking each dataset to its on-disk path
 
