@@ -590,9 +590,9 @@ def collect_nflreadpy_datasets(
                 frame = loader([season], **loader_kwargs).to_pandas()
             except Exception as exc:  # pragma: no cover - upstream data variability
                 if is_required:
-                    LOGGER.error("Failed to load required dataset %s: %s", suffix, exc)
                     raise RuntimeError(
                         f"Failed to load required nflreadpy dataset '{suffix}' for season {season}, week {week}. "
+                        f"This is a critical dataset needed for analysis. "
                         f"Error: {exc}"
                     ) from exc
                 LOGGER.warning("Failed to load %s: %s", suffix, exc)

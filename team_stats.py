@@ -311,7 +311,11 @@ def generate_team_stats(manifest: Optional[RawDataManifest] = None) -> pd.DataFr
 
     weekly_team_stats = _load_weekly_csvs(manifest, 'nflreadpy_team_stats', upto_week=week)
     if weekly_team_stats is None or weekly_team_stats.empty:
-        raise RuntimeError('No nflreadpy_team_stats data available in raw snapshot')
+        raise RuntimeError(
+            'No nflreadpy_team_stats data available in raw snapshot. '
+            'This indicates data collection failed in collect_raw_data.py. '
+            'Check the collect_raw_data logs for the root cause.'
+        )
 
     weekly_team_stats['team_abbr'] = weekly_team_stats['team'].replace(TEAM_ALIAS)
 
