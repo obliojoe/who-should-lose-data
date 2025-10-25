@@ -3,7 +3,7 @@ import logging
 import json
 import numpy as np
 from pathlib import Path
-from typing import Dict, Optional, Sequence
+from typing import Dict, Optional, Sequence, List
 
 from raw_data_manifest import RawDataManifest
 
@@ -218,12 +218,13 @@ def _load_weekly_csvs(
     upto_week: Optional[int] = None,
     usecols: Optional[Sequence[str]] = None,
 ) -> Optional[pd.DataFrame]:
-    entries = manifest.entries(dataset)
-    if not entries:
+    weekly_entries = manifest.entries(dataset)
+    season_entries = manifest.entries(f"{dataset}_season")
+
+    if not weekly_entries and not season_entries:
         logger.warning("Dataset %s not available in manifest", dataset)
         return None
 
-    base_dir = entries[0].path.parent
     season = manifest.season
     if season is None:
         logger.warning("Manifest missing season metadata; cannot resolve %s", dataset)
@@ -232,31 +233,54 @@ def _load_weekly_csvs(
     if upto_week is None:
         upto_week = manifest.week
 
-    frames = []
-    pattern = f"season_{season}_week_*.csv"
-    for path in sorted(base_dir.glob(pattern)):
-        week_value: Optional[int] = None
+    season_frames: List[pd.DataFrame] = []
+    for entry in season_entries:
         try:
-            week_value = int(path.stem.split('_')[-1])
-        except (ValueError, IndexError):
-            week_value = None
-
-        if upto_week is not None and week_value is not None and week_value > upto_week:
-            continue
-
-        try:
-            frame = pd.read_csv(path, usecols=usecols)
+            frame = pd.read_csv(entry.path, usecols=usecols)
         except Exception as exc:
-            logger.warning("Failed to load %s: %s", path, exc)
+            logger.warning("Failed to load %s: %s", entry.path, exc)
             continue
 
-        frames.append(frame)
+        if upto_week is not None and 'week' in frame.columns:
+            frame = frame[frame['week'] <= upto_week]
+        if not frame.empty:
+            season_frames.append(frame)
 
-    if not frames:
-        logger.warning("No CSV files loaded for %s", dataset)
-        return None
+    if season_frames:
+        data = pd.concat(season_frames, ignore_index=True)
+    else:
+        if not weekly_entries:
+            logger.warning("No CSV files loaded for %s", dataset)
+            return None
 
-    data = pd.concat(frames, ignore_index=True)
+        base_dir = weekly_entries[0].path.parent
+        frames = []
+        pattern = f"season_{season}_week_*.csv"
+        for path in sorted(base_dir.glob(pattern)):
+            week_value: Optional[int] = None
+            try:
+                week_value = int(path.stem.split('_')[-1])
+            except (ValueError, IndexError):
+                week_value = None
+
+            if upto_week is not None and week_value is not None and week_value > upto_week:
+                continue
+
+            try:
+                frame = pd.read_csv(path, usecols=usecols)
+            except Exception as exc:
+                logger.warning("Failed to load %s: %s", path, exc)
+                continue
+
+            if not frame.empty:
+                frames.append(frame)
+
+        if not frames:
+            logger.warning("No usable weekly CSV data loaded for %s", dataset)
+            return None
+
+        data = pd.concat(frames, ignore_index=True)
+
     if 'season' in data.columns:
         data = data[data['season'] == season]
     return data
