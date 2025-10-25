@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-20T23:44:00.790450",
+  "timestamp": "2025-10-25T08:11:54.017800",
   "standings": {
     "divisional": {
       "AFC": {
@@ -32,8 +32,8 @@
               "NE",
               "NYJ"
             ],
-            "strength_of_schedule": 0.43902439024390244,
-            "strength_of_victory": 0.37037037037037035,
+            "strength_of_schedule": 0.42857142857142855,
+            "strength_of_victory": 0.35714285714285715,
             "tiebreaker_explanation": null
           },
           {
@@ -64,7 +64,7 @@
               "JAX",
               "PIT"
             ],
-            "strength_of_schedule": 0.5978260869565217,
+            "strength_of_schedule": 0.5851063829787234,
             "strength_of_victory": 0.5,
             "tiebreaker_explanation": null
           },
@@ -95,7 +95,7 @@
               "GB",
               "MIA"
             ],
-            "strength_of_schedule": 0.4777777777777778,
+            "strength_of_schedule": 0.4673913043478261,
             "strength_of_victory": 0.4230769230769231,
             "tiebreaker_explanation": null
           },
@@ -161,8 +161,8 @@
               "MIA",
               "TEN"
             ],
-            "strength_of_schedule": 0.40816326530612246,
-            "strength_of_victory": 0.35714285714285715,
+            "strength_of_schedule": 0.42,
+            "strength_of_victory": 0.37209302325581395,
             "tiebreaker_explanation": null
           },
           {
@@ -352,7 +352,7 @@
             "defeated_opponents": [
               "NYJ"
             ],
-            "strength_of_schedule": 0.5208333333333334,
+            "strength_of_schedule": 0.5306122448979592,
             "strength_of_victory": 0.0,
             "tiebreaker_explanation": null
           },
@@ -416,14 +416,14 @@
               "PHI",
               "TEN"
             ],
-            "strength_of_schedule": 0.42857142857142855,
+            "strength_of_schedule": 0.44,
             "strength_of_victory": 0.3142857142857143,
             "tiebreaker_explanation": null
           },
           {
             "team": "LAC",
             "rank": 2,
-            "wins": 4,
+            "wins": 5,
             "losses": 3,
             "ties": 0,
             "division_wins": 3,
@@ -432,14 +432,15 @@
             "conference_wins": 4,
             "conference_losses": 1,
             "conference_ties": 0,
-            "points_for": 151,
-            "points_against": 163,
+            "points_for": 188,
+            "points_against": 173,
             "opponents": [
               "DEN",
               "IND",
               "KC",
               "LV",
               "MIA",
+              "MIN",
               "NYG",
               "WAS"
             ],
@@ -447,11 +448,12 @@
               "DEN",
               "KC",
               "LV",
-              "MIA"
+              "MIA",
+              "MIN"
             ],
-            "strength_of_schedule": 0.46938775510204084,
+            "strength_of_schedule": 0.4642857142857143,
             "strength_of_victory": 0.42857142857142855,
-            "tiebreaker_explanation": "Head-to-head vs all tied teams"
+            "tiebreaker_explanation": null
           },
           {
             "team": "KC",
@@ -482,7 +484,7 @@
               "LV",
               "NYG"
             ],
-            "strength_of_schedule": 0.4791666666666667,
+            "strength_of_schedule": 0.4897959183673469,
             "strength_of_victory": 0.37037037037037035,
             "tiebreaker_explanation": null
           },
@@ -513,7 +515,7 @@
               "NE",
               "TEN"
             ],
-            "strength_of_schedule": 0.5625,
+            "strength_of_schedule": 0.5714285714285714,
             "strength_of_victory": 0.42857142857142855,
             "tiebreaker_explanation": null
           }
@@ -615,7 +617,7 @@
               "NO",
               "WAS"
             ],
-            "strength_of_schedule": 0.4268292682926829,
+            "strength_of_schedule": 0.4166666666666667,
             "strength_of_victory": 0.3392857142857143,
             "tiebreaker_explanation": null
           },
@@ -623,7 +625,7 @@
             "team": "MIN",
             "rank": 4,
             "wins": 3,
-            "losses": 3,
+            "losses": 4,
             "ties": 0,
             "division_wins": 1,
             "division_losses": 0,
@@ -631,13 +633,14 @@
             "conference_wins": 1,
             "conference_losses": 2,
             "conference_ties": 0,
-            "points_for": 145,
-            "points_against": 125,
+            "points_for": 155,
+            "points_against": 162,
             "opponents": [
               "ATL",
               "CHI",
               "CIN",
               "CLE",
+              "LAC",
               "PHI",
               "PIT"
             ],
@@ -646,7 +649,7 @@
               "CIN",
               "CLE"
             ],
-            "strength_of_schedule": 0.5384615384615384,
+            "strength_of_schedule": 0.5531914893617021,
             "strength_of_victory": 0.45,
             "tiebreaker_explanation": null
           }
@@ -746,8 +749,8 @@
               "MIN",
               "WAS"
             ],
-            "strength_of_schedule": 0.6,
-            "strength_of_victory": 0.5263157894736842,
+            "strength_of_schedule": 0.5853658536585366,
+            "strength_of_victory": 0.5,
             "tiebreaker_explanation": null
           },
           {
@@ -812,8 +815,8 @@
               "MIN",
               "TB"
             ],
-            "strength_of_schedule": 0.5729166666666666,
-            "strength_of_victory": 0.6029411764705882,
+            "strength_of_schedule": 0.5612244897959183,
+            "strength_of_victory": 0.5857142857142857,
             "tiebreaker_explanation": null
           },
           {
@@ -876,8 +879,8 @@
               "LV",
               "NYG"
             ],
-            "strength_of_schedule": 0.5,
-            "strength_of_victory": 0.38095238095238093,
+            "strength_of_schedule": 0.5106382978723404,
+            "strength_of_victory": 0.4090909090909091,
             "tiebreaker_explanation": null
           },
           {
@@ -907,8 +910,8 @@
               "LAC",
               "PHI"
             ],
-            "strength_of_schedule": 0.5204081632653061,
-            "strength_of_victory": 0.6428571428571429,
+            "strength_of_schedule": 0.53,
+            "strength_of_victory": 0.6666666666666666,
             "tiebreaker_explanation": null
           }
         ],
@@ -1082,8 +1085,8 @@
             "MIA",
             "TEN"
           ],
-          "strength_of_schedule": 0.40816326530612246,
-          "strength_of_victory": 0.35714285714285715,
+          "strength_of_schedule": 0.42,
+          "strength_of_victory": 0.37209302325581395,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
         },
@@ -1152,7 +1155,7 @@
             "PHI",
             "TEN"
           ],
-          "strength_of_schedule": 0.42857142857142855,
+          "strength_of_schedule": 0.44,
           "strength_of_victory": 0.3142857142857143,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": "Better strength of victory (0.324)"
@@ -1185,10 +1188,10 @@
             "NE",
             "NYJ"
           ],
-          "strength_of_schedule": 0.43902439024390244,
-          "strength_of_victory": 0.37037037037037035,
+          "strength_of_schedule": 0.42857142857142855,
+          "strength_of_victory": 0.35714285714285715,
           "tiebreaker_explanation": null,
-          "conference_tiebreaker_explanation": "Better strength of victory (0.370)"
+          "conference_tiebreaker_explanation": "Better strength of victory (0.357)"
         },
         {
           "team": "BUF",
@@ -1221,12 +1224,12 @@
           "strength_of_schedule": 0.275,
           "strength_of_victory": 0.1111111111111111,
           "tiebreaker_explanation": null,
-          "conference_tiebreaker_explanation": "Better strength of victory (0.370)"
+          "conference_tiebreaker_explanation": "Better strength of victory (0.357)"
         },
         {
           "team": "LAC",
           "rank": 6,
-          "wins": 4,
+          "wins": 5,
           "losses": 3,
           "ties": 0,
           "division_wins": 3,
@@ -1235,14 +1238,15 @@
           "conference_wins": 4,
           "conference_losses": 1,
           "conference_ties": 0,
-          "points_for": 151,
-          "points_against": 163,
+          "points_for": 188,
+          "points_against": 173,
           "opponents": [
             "DEN",
             "IND",
             "KC",
             "LV",
             "MIA",
+            "MIN",
             "NYG",
             "WAS"
           ],
@@ -1250,12 +1254,13 @@
             "DEN",
             "KC",
             "LV",
-            "MIA"
+            "MIA",
+            "MIN"
           ],
-          "strength_of_schedule": 0.46938775510204084,
+          "strength_of_schedule": 0.4642857142857143,
           "strength_of_victory": 0.42857142857142855,
-          "tiebreaker_explanation": "Head-to-head vs all tied teams",
-          "conference_tiebreaker_explanation": "Better conference record (4-1-0)"
+          "tiebreaker_explanation": null,
+          "conference_tiebreaker_explanation": null
         },
         {
           "team": "JAX",
@@ -1320,7 +1325,7 @@
             "LV",
             "NYG"
           ],
-          "strength_of_schedule": 0.4791666666666667,
+          "strength_of_schedule": 0.4897959183673469,
           "strength_of_victory": 0.37037037037037035,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
@@ -1353,7 +1358,7 @@
             "JAX",
             "PIT"
           ],
-          "strength_of_schedule": 0.5978260869565217,
+          "strength_of_schedule": 0.5851063829787234,
           "strength_of_victory": 0.5,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
@@ -1416,7 +1421,7 @@
             "NE",
             "TEN"
           ],
-          "strength_of_schedule": 0.5625,
+          "strength_of_schedule": 0.5714285714285714,
           "strength_of_victory": 0.42857142857142855,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": "Better conference record (2-3-0)"
@@ -1448,7 +1453,7 @@
             "GB",
             "MIA"
           ],
-          "strength_of_schedule": 0.4777777777777778,
+          "strength_of_schedule": 0.4673913043478261,
           "strength_of_victory": 0.4230769230769231,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
@@ -1509,7 +1514,7 @@
           "defeated_opponents": [
             "NYJ"
           ],
-          "strength_of_schedule": 0.5208333333333334,
+          "strength_of_schedule": 0.5306122448979592,
           "strength_of_victory": 0.0,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": "Better conference record (1-5-0)"
@@ -1674,8 +1679,8 @@
             "MIN",
             "TB"
           ],
-          "strength_of_schedule": 0.5729166666666666,
-          "strength_of_victory": 0.6029411764705882,
+          "strength_of_schedule": 0.5612244897959183,
+          "strength_of_victory": 0.5857142857142857,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": "Better conference record (4-1-0)"
         },
@@ -1847,7 +1852,7 @@
             "NO",
             "WAS"
           ],
-          "strength_of_schedule": 0.4268292682926829,
+          "strength_of_schedule": 0.4166666666666667,
           "strength_of_victory": 0.3392857142857143,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
@@ -1946,16 +1951,16 @@
             "MIN",
             "WAS"
           ],
-          "strength_of_schedule": 0.6,
-          "strength_of_victory": 0.5263157894736842,
+          "strength_of_schedule": 0.5853658536585366,
+          "strength_of_victory": 0.5,
           "tiebreaker_explanation": null,
-          "conference_tiebreaker_explanation": "Head-to-head vs MIN"
+          "conference_tiebreaker_explanation": null
         },
         {
           "team": "MIN",
           "rank": 12,
           "wins": 3,
-          "losses": 3,
+          "losses": 4,
           "ties": 0,
           "division_wins": 1,
           "division_losses": 0,
@@ -1963,13 +1968,14 @@
           "conference_wins": 1,
           "conference_losses": 2,
           "conference_ties": 0,
-          "points_for": 145,
-          "points_against": 125,
+          "points_for": 155,
+          "points_against": 162,
           "opponents": [
             "ATL",
             "CHI",
             "CIN",
             "CLE",
+            "LAC",
             "PHI",
             "PIT"
           ],
@@ -1978,10 +1984,10 @@
             "CIN",
             "CLE"
           ],
-          "strength_of_schedule": 0.5384615384615384,
+          "strength_of_schedule": 0.5531914893617021,
           "strength_of_victory": 0.45,
           "tiebreaker_explanation": null,
-          "conference_tiebreaker_explanation": null
+          "conference_tiebreaker_explanation": "Better conference record (1-2-0)"
         },
         {
           "team": "WAS",
@@ -2011,8 +2017,8 @@
             "LV",
             "NYG"
           ],
-          "strength_of_schedule": 0.5,
-          "strength_of_victory": 0.38095238095238093,
+          "strength_of_schedule": 0.5106382978723404,
+          "strength_of_victory": 0.4090909090909091,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
         },
@@ -2075,8 +2081,8 @@
             "LAC",
             "PHI"
           ],
-          "strength_of_schedule": 0.5204081632653061,
-          "strength_of_victory": 0.6428571428571429,
+          "strength_of_schedule": 0.53,
+          "strength_of_victory": 0.6666666666666666,
           "tiebreaker_explanation": null,
           "conference_tiebreaker_explanation": null
         },
@@ -2148,8 +2154,8 @@
               "MIA",
               "TEN"
             ],
-            "strength_of_schedule": 0.40816326530612246,
-            "strength_of_victory": 0.35714285714285715,
+            "strength_of_schedule": 0.42,
+            "strength_of_victory": 0.37209302325581395,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
           },
@@ -2220,7 +2226,7 @@
               "PHI",
               "TEN"
             ],
-            "strength_of_schedule": 0.42857142857142855,
+            "strength_of_schedule": 0.44,
             "strength_of_victory": 0.3142857142857143,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": "Better strength of victory (0.324)"
@@ -2254,10 +2260,10 @@
               "NE",
               "NYJ"
             ],
-            "strength_of_schedule": 0.43902439024390244,
-            "strength_of_victory": 0.37037037037037035,
+            "strength_of_schedule": 0.42857142857142855,
+            "strength_of_victory": 0.35714285714285715,
             "tiebreaker_explanation": null,
-            "conference_tiebreaker_explanation": "Better strength of victory (0.370)"
+            "conference_tiebreaker_explanation": "Better strength of victory (0.357)"
           }
         ],
         "wild_cards": [
@@ -2293,13 +2299,13 @@
             "strength_of_schedule": 0.275,
             "strength_of_victory": 0.1111111111111111,
             "tiebreaker_explanation": null,
-            "conference_tiebreaker_explanation": "Better strength of victory (0.370)"
+            "conference_tiebreaker_explanation": "Better strength of victory (0.357)"
           },
           {
             "team": "LAC",
             "seed": 6,
             "division": "AFC West",
-            "wins": 4,
+            "wins": 5,
             "losses": 3,
             "ties": 0,
             "division_wins": 3,
@@ -2308,14 +2314,15 @@
             "conference_wins": 4,
             "conference_losses": 1,
             "conference_ties": 0,
-            "points_for": 151,
-            "points_against": 163,
+            "points_for": 188,
+            "points_against": 173,
             "opponents": [
               "DEN",
               "IND",
               "KC",
               "LV",
               "MIA",
+              "MIN",
               "NYG",
               "WAS"
             ],
@@ -2323,12 +2330,13 @@
               "DEN",
               "KC",
               "LV",
-              "MIA"
+              "MIA",
+              "MIN"
             ],
-            "strength_of_schedule": 0.46938775510204084,
+            "strength_of_schedule": 0.4642857142857143,
             "strength_of_victory": 0.42857142857142855,
-            "tiebreaker_explanation": "Better conference record (4-1-0)",
-            "conference_tiebreaker_explanation": "Better conference record (4-1-0)"
+            "tiebreaker_explanation": null,
+            "conference_tiebreaker_explanation": null
           },
           {
             "team": "JAX",
@@ -2397,7 +2405,7 @@
               "LV",
               "NYG"
             ],
-            "strength_of_schedule": 0.4791666666666667,
+            "strength_of_schedule": 0.4897959183673469,
             "strength_of_victory": 0.37037037037037035,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
@@ -2431,7 +2439,7 @@
               "JAX",
               "PIT"
             ],
-            "strength_of_schedule": 0.5978260869565217,
+            "strength_of_schedule": 0.5851063829787234,
             "strength_of_victory": 0.5,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
@@ -2496,7 +2504,7 @@
               "NE",
               "TEN"
             ],
-            "strength_of_schedule": 0.5625,
+            "strength_of_schedule": 0.5714285714285714,
             "strength_of_victory": 0.42857142857142855,
             "tiebreaker_explanation": "Better conference record (2-3-0)",
             "conference_tiebreaker_explanation": "Better conference record (2-3-0)"
@@ -2529,7 +2537,7 @@
               "GB",
               "MIA"
             ],
-            "strength_of_schedule": 0.4777777777777778,
+            "strength_of_schedule": 0.4673913043478261,
             "strength_of_victory": 0.4230769230769231,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
@@ -2592,7 +2600,7 @@
             "defeated_opponents": [
               "NYJ"
             ],
-            "strength_of_schedule": 0.5208333333333334,
+            "strength_of_schedule": 0.5306122448979592,
             "strength_of_victory": 0.0,
             "tiebreaker_explanation": "Better conference record (1-5-0)",
             "conference_tiebreaker_explanation": "Better conference record (1-5-0)"
@@ -2764,8 +2772,8 @@
               "MIN",
               "TB"
             ],
-            "strength_of_schedule": 0.5729166666666666,
-            "strength_of_victory": 0.6029411764705882,
+            "strength_of_schedule": 0.5612244897959183,
+            "strength_of_victory": 0.5857142857142857,
             "tiebreaker_explanation": "Head-to-head vs all tied teams",
             "conference_tiebreaker_explanation": "Better conference record (4-1-0)"
           },
@@ -2946,7 +2954,7 @@
               "NO",
               "WAS"
             ],
-            "strength_of_schedule": 0.4268292682926829,
+            "strength_of_schedule": 0.4166666666666667,
             "strength_of_victory": 0.3392857142857143,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
@@ -3048,17 +3056,17 @@
               "MIN",
               "WAS"
             ],
-            "strength_of_schedule": 0.6,
-            "strength_of_victory": 0.5263157894736842,
-            "tiebreaker_explanation": "Head-to-head vs MIN",
-            "conference_tiebreaker_explanation": "Head-to-head vs MIN"
+            "strength_of_schedule": 0.5853658536585366,
+            "strength_of_victory": 0.5,
+            "tiebreaker_explanation": null,
+            "conference_tiebreaker_explanation": null
           },
           {
             "team": "MIN",
             "seed": 12,
             "division": "NFC North",
             "wins": 3,
-            "losses": 3,
+            "losses": 4,
             "ties": 0,
             "division_wins": 1,
             "division_losses": 0,
@@ -3066,13 +3074,14 @@
             "conference_wins": 1,
             "conference_losses": 2,
             "conference_ties": 0,
-            "points_for": 145,
-            "points_against": 125,
+            "points_for": 155,
+            "points_against": 162,
             "opponents": [
               "ATL",
               "CHI",
               "CIN",
               "CLE",
+              "LAC",
               "PHI",
               "PIT"
             ],
@@ -3081,10 +3090,10 @@
               "CIN",
               "CLE"
             ],
-            "strength_of_schedule": 0.5384615384615384,
+            "strength_of_schedule": 0.5531914893617021,
             "strength_of_victory": 0.45,
-            "tiebreaker_explanation": null,
-            "conference_tiebreaker_explanation": null
+            "tiebreaker_explanation": "Better conference record (1-2-0)",
+            "conference_tiebreaker_explanation": "Better conference record (1-2-0)"
           },
           {
             "team": "WAS",
@@ -3115,8 +3124,8 @@
               "LV",
               "NYG"
             ],
-            "strength_of_schedule": 0.5,
-            "strength_of_victory": 0.38095238095238093,
+            "strength_of_schedule": 0.5106382978723404,
+            "strength_of_victory": 0.4090909090909091,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
           },
@@ -3181,8 +3190,8 @@
               "LAC",
               "PHI"
             ],
-            "strength_of_schedule": 0.5204081632653061,
-            "strength_of_victory": 0.6428571428571429,
+            "strength_of_schedule": 0.53,
+            "strength_of_victory": 0.6666666666666666,
             "tiebreaker_explanation": null,
             "conference_tiebreaker_explanation": null
           },

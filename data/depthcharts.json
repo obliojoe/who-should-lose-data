@@ -1,7 +1,7 @@
 {
   "season": 2025,
   "week": 8,
-  "generated_at": "2025-10-22T16:29:15.731334",
+  "generated_at": "2025-10-25T09:02:39.227009",
   "teams": [
     {
       "team_abbr": "ARI",
@@ -1834,20 +1834,11 @@
               "display_name": "Strong Safety",
               "players": [
                 {
-                  "athlete_id": "4039007",
-                  "name": "Taylor Rapp",
-                  "position": "S",
-                  "jersey": "9",
-                  "rank": 1,
-                  "status": "Active",
-                  "status_code": "Active"
-                },
-                {
                   "athlete_id": "4036060",
                   "name": "Damar Hamlin",
                   "position": "S",
                   "jersey": "3",
-                  "rank": 2,
+                  "rank": 1,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 },
@@ -1856,6 +1847,15 @@
                   "name": "Wande Owens",
                   "position": "S",
                   "jersey": "30",
+                  "rank": 2,
+                  "status": "Day-To-Day",
+                  "status_code": "Day-To-Day"
+                },
+                {
+                  "athlete_id": "4039007",
+                  "name": "Taylor Rapp",
+                  "position": "S",
+                  "jersey": "9",
                   "rank": 3,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
@@ -4396,15 +4396,6 @@
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
-                },
-                {
-                  "athlete_id": "4362088",
-                  "name": "DeMarvion Overshown",
-                  "position": "LB",
-                  "jersey": "0",
-                  "rank": 2,
-                  "status": "Day-To-Day",
-                  "status_code": "Day-To-Day"
                 }
               ]
             },
@@ -4428,13 +4419,22 @@
               "display_name": "Weakside Linebacker",
               "players": [
                 {
-                  "athlete_id": "4362636",
-                  "name": "Damone Clark",
+                  "athlete_id": "4427816",
+                  "name": "Marist Liufau",
                   "position": "LB",
-                  "jersey": "18",
+                  "jersey": "35",
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
+                },
+                {
+                  "athlete_id": "4362088",
+                  "name": "DeMarvion Overshown",
+                  "position": "LB",
+                  "jersey": "0",
+                  "rank": 2,
+                  "status": "Day-To-Day",
+                  "status_code": "Day-To-Day"
                 }
               ]
             }
@@ -6006,10 +6006,10 @@
               "display_name": "Right Cornerback",
               "players": [
                 {
-                  "athlete_id": "4430965",
-                  "name": "Carrington Valentine",
+                  "athlete_id": "4240542",
+                  "name": "Nate Hobbs",
                   "position": "CB",
-                  "jersey": "24",
+                  "jersey": "21",
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
@@ -10046,19 +10046,19 @@
                   "status_code": "Active"
                 },
                 {
-                  "athlete_id": "4291489",
-                  "name": "Kader Kohou",
+                  "athlete_id": "4432730",
+                  "name": "Jason Marshall Jr.",
                   "position": "CB",
-                  "jersey": "4",
+                  "jersey": "33",
                   "rank": 2,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 },
                 {
-                  "athlete_id": "4360213",
-                  "name": "Jason Maitre",
+                  "athlete_id": "4291489",
+                  "name": "Kader Kohou",
                   "position": "CB",
-                  "jersey": "43",
+                  "jersey": "4",
                   "rank": 3,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
@@ -10933,15 +10933,6 @@
                   "status_code": "Active"
                 },
                 {
-                  "athlete_id": "3042519",
-                  "name": "Aaron Jones Sr.",
-                  "position": "RB",
-                  "jersey": "33",
-                  "rank": 3,
-                  "status": "Day-To-Day",
-                  "status_code": "Day-To-Day"
-                },
-                {
                   "athlete_id": "4242431",
                   "name": "Ty Chandler",
                   "position": "RB",
@@ -11807,7 +11798,7 @@
                   "name": "Kendre Miller",
                   "position": "RB",
                   "jersey": "5",
-                  "rank": 3,
+                  "rank": 2,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -11992,7 +11983,7 @@
                   "name": "Kendre Miller",
                   "position": "RB",
                   "jersey": "5",
-                  "rank": 4,
+                  "rank": 3,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -12055,7 +12046,7 @@
                   "name": "Mason Pline",
                   "position": "TE",
                   "jersey": "85",
-                  "rank": 5,
+                  "rank": 6,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -12461,6 +12452,15 @@
                   "rank": 1,
                   "status": "Active",
                   "status_code": "Active"
+                },
+                {
+                  "athlete_id": "4373280",
+                  "name": "Joshua Ezeudu",
+                  "position": "G",
+                  "jersey": "75",
+                  "rank": 3,
+                  "status": "Day-To-Day",
+                  "status_code": "Day-To-Day"
                 }
               ]
             },
@@ -12791,7 +12791,7 @@
                   "name": "Quincy Williams",
                   "position": "LB",
                   "jersey": "56",
-                  "rank": 2,
+                  "rank": 3,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -13471,7 +13471,7 @@
                   "name": "Willie Lampkin",
                   "position": "C",
                   "jersey": "61",
-                  "rank": 3,
+                  "rank": 4,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }
@@ -15808,13 +15808,22 @@
               "display_name": "Left Cornerback",
               "players": [
                 {
+                  "athlete_id": "4570469",
+                  "name": "Marcus Harris",
+                  "position": "CB",
+                  "jersey": "26",
+                  "rank": 1,
+                  "status": "Active",
+                  "status_code": "Active"
+                },
+                {
                   "athlete_id": "4040432",
                   "name": "L'Jarius Sneed",
                   "position": "CB",
                   "jersey": "38",
-                  "rank": 1,
-                  "status": "Active",
-                  "status_code": "Active"
+                  "rank": 2,
+                  "status": "Day-To-Day",
+                  "status_code": "Day-To-Day"
                 }
               ]
             },
@@ -15926,7 +15935,7 @@
                   "name": "Anfernee Orji",
                   "position": "LB",
                   "jersey": "59",
-                  "rank": 3,
+                  "rank": 4,
                   "status": "Day-To-Day",
                   "status_code": "Day-To-Day"
                 }

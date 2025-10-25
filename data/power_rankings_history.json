@@ -4073,7 +4073,589 @@
         }
       ],
       "calculated_at": "2025-10-22T16:38:26.673384"
+    },
+    "8": {
+      "week": 8,
+      "rankings": [
+        {
+          "team": "IND",
+          "record": "6-1",
+          "composite_score": 83.77357142857143,
+          "win_pct": 0.8571428571428571,
+          "playoff_prob": 94.3,
+          "playoff_seed": 1,
+          "sov": 0.36607142857142855,
+          "breakdown": {
+            "win_pct": 85.71428571428571,
+            "playoff_prob": 94.3,
+            "seed": 100.0,
+            "sov": 54.666666666666664
+          },
+          "rank": 1,
+          "previous_rank": 1,
+          "movement": 0
+        },
+        {
+          "team": "GB",
+          "record": "4-1-1",
+          "composite_score": 77.08500000000001,
+          "win_pct": 0.75,
+          "playoff_prob": 77.9,
+          "playoff_seed": 1,
+          "sov": 0.4642857142857143,
+          "breakdown": {
+            "win_pct": 75.0,
+            "playoff_prob": 77.9,
+            "seed": 100.0,
+            "sov": 69.33333333333333
+          },
+          "rank": 2,
+          "previous_rank": 2,
+          "movement": 0
+        },
+        {
+          "team": "PHI",
+          "record": "5-2",
+          "composite_score": 76.39880952380952,
+          "win_pct": 0.7142857142857143,
+          "playoff_prob": 91.7,
+          "playoff_seed": 6,
+          "sov": 0.5857142857142856,
+          "breakdown": {
+            "win_pct": 71.42857142857143,
+            "playoff_prob": 91.7,
+            "seed": 66.66666666666666,
+            "sov": 87.46666666666665
+          },
+          "rank": 3,
+          "previous_rank": 3,
+          "movement": 0
+        },
+        {
+          "team": "DET",
+          "record": "5-2",
+          "composite_score": 75.64380952380951,
+          "win_pct": 0.7142857142857143,
+          "playoff_prob": 88.8,
+          "playoff_seed": 2,
+          "sov": 0.4523809523809524,
+          "breakdown": {
+            "win_pct": 71.42857142857143,
+            "playoff_prob": 88.8,
+            "seed": 93.33333333333333,
+            "sov": 67.55555555555554
+          },
+          "rank": 4,
+          "previous_rank": 4,
+          "movement": 0
+        },
+        {
+          "team": "NE",
+          "record": "5-2",
+          "composite_score": 72.84214285714286,
+          "win_pct": 0.7142857142857143,
+          "playoff_prob": 87.9,
+          "playoff_seed": 2,
+          "sov": 0.3333333333333333,
+          "breakdown": {
+            "win_pct": 71.42857142857143,
+            "playoff_prob": 87.9,
+            "seed": 93.33333333333333,
+            "sov": 49.77777777777777
+          },
+          "rank": 5,
+          "previous_rank": 5,
+          "movement": 0
+        },
+        {
+          "team": "SF",
+          "record": "5-2",
+          "composite_score": 72.51047619047618,
+          "win_pct": 0.7142857142857143,
+          "playoff_prob": 78.4,
+          "playoff_seed": 5,
+          "sov": 0.4714285714285714,
+          "breakdown": {
+            "win_pct": 71.42857142857143,
+            "playoff_prob": 78.4,
+            "seed": 73.33333333333333,
+            "sov": 70.39999999999999
+          },
+          "rank": 6,
+          "previous_rank": 6,
+          "movement": 0
+        },
+        {
+          "team": "TB",
+          "record": "5-2",
+          "composite_score": 72.32547619047618,
+          "win_pct": 0.7142857142857143,
+          "playoff_prob": 88.9,
+          "playoff_seed": 7,
+          "sov": 0.4523809523809524,
+          "breakdown": {
+            "win_pct": 71.42857142857143,
+            "playoff_prob": 88.9,
+            "seed": 60.0,
+            "sov": 67.55555555555554
+          },
+          "rank": 7,
+          "previous_rank": 7,
+          "movement": 0
+        },
+        {
+          "team": "LAR",
+          "record": "5-2",
+          "composite_score": 72.26380952380953,
+          "win_pct": 0.7142857142857143,
+          "playoff_prob": 76.4,
+          "playoff_seed": 3,
+          "sov": 0.41428571428571426,
+          "breakdown": {
+            "win_pct": 71.42857142857143,
+            "playoff_prob": 76.4,
+            "seed": 86.66666666666667,
+            "sov": 61.86666666666666
+          },
+          "rank": 8,
+          "previous_rank": 8,
+          "movement": 0
+        },
+        {
+          "team": "DEN",
+          "record": "5-2",
+          "composite_score": 70.74380952380952,
+          "win_pct": 0.7142857142857143,
+          "playoff_prob": 81.2,
+          "playoff_seed": 3,
+          "sov": 0.3142857142857142,
+          "breakdown": {
+            "win_pct": 71.42857142857143,
+            "playoff_prob": 81.2,
+            "seed": 86.66666666666667,
+            "sov": 46.93333333333332
+          },
+          "rank": 9,
+          "previous_rank": 9,
+          "movement": 0
+        },
+        {
+          "team": "SEA",
+          "record": "5-2",
+          "composite_score": 69.11714285714285,
+          "win_pct": 0.7142857142857143,
+          "playoff_prob": 62.0,
+          "playoff_seed": 4,
+          "sov": 0.4,
+          "breakdown": {
+            "win_pct": 71.42857142857143,
+            "playoff_prob": 62.0,
+            "seed": 80.0,
+            "sov": 59.73333333333333
+          },
+          "rank": 10,
+          "previous_rank": 10,
+          "movement": 0
+        },
+        {
+          "team": "PIT",
+          "record": "4-2",
+          "composite_score": 65.30833333333332,
+          "win_pct": 0.6666666666666666,
+          "playoff_prob": 66.5,
+          "playoff_seed": 5,
+          "sov": 0.3571428571428571,
+          "breakdown": {
+            "win_pct": 66.66666666666666,
+            "playoff_prob": 66.5,
+            "seed": 73.33333333333333,
+            "sov": 53.33333333333332
+          },
+          "rank": 11,
+          "previous_rank": 11,
+          "movement": 0
+        },
+        {
+          "team": "BUF",
+          "record": "4-2",
+          "composite_score": 63.04333333333332,
+          "win_pct": 0.6666666666666666,
+          "playoff_prob": 83.4,
+          "playoff_seed": 4,
+          "sov": 0.1130952380952381,
+          "breakdown": {
+            "win_pct": 66.66666666666666,
+            "playoff_prob": 83.4,
+            "seed": 80.0,
+            "sov": 16.888888888888886
+          },
+          "rank": 12,
+          "previous_rank": 12,
+          "movement": 0
+        },
+        {
+          "team": "LAC",
+          "record": "5-3",
+          "composite_score": 61.656666666666666,
+          "win_pct": 0.625,
+          "playoff_prob": 52.6,
+          "playoff_seed": 6,
+          "sov": 0.42857142857142855,
+          "breakdown": {
+            "win_pct": 62.5,
+            "playoff_prob": 52.6,
+            "seed": 66.66666666666666,
+            "sov": 63.99999999999999
+          },
+          "rank": 13,
+          "previous_rank": 16,
+          "movement": 3
+        },
+        {
+          "team": "KC",
+          "record": "4-3",
+          "composite_score": 60.64404761904762,
+          "win_pct": 0.5714285714285714,
+          "playoff_prob": 81.5,
+          "playoff_seed": 7,
+          "sov": 0.363095238095238,
+          "breakdown": {
+            "win_pct": 57.14285714285714,
+            "playoff_prob": 81.5,
+            "seed": 60.0,
+            "sov": 54.22222222222221
+          },
+          "rank": 14,
+          "previous_rank": 13,
+          "movement": -1
+        },
+        {
+          "team": "JAX",
+          "record": "4-3",
+          "composite_score": 58.90571428571429,
+          "win_pct": 0.5714285714285714,
+          "playoff_prob": 46.8,
+          "playoff_seed": 8,
+          "sov": 0.5476190476190477,
+          "breakdown": {
+            "win_pct": 57.14285714285714,
+            "playoff_prob": 46.8,
+            "seed": 53.333333333333336,
+            "sov": 81.77777777777779
+          },
+          "rank": 15,
+          "previous_rank": 14,
+          "movement": -1
+        },
+        {
+          "team": "CHI",
+          "record": "4-2",
+          "composite_score": 58.03333333333333,
+          "win_pct": 0.6666666666666666,
+          "playoff_prob": 34.0,
+          "playoff_seed": 8,
+          "sov": 0.33928571428571425,
+          "breakdown": {
+            "win_pct": 66.66666666666666,
+            "playoff_prob": 34.0,
+            "seed": 53.333333333333336,
+            "sov": 50.66666666666666
+          },
+          "rank": 16,
+          "previous_rank": 15,
+          "movement": -1
+        },
+        {
+          "team": "ATL",
+          "record": "3-3",
+          "composite_score": 49.58611111111111,
+          "win_pct": 0.5,
+          "playoff_prob": 32.5,
+          "playoff_seed": 11,
+          "sov": 0.5079365079365079,
+          "breakdown": {
+            "win_pct": 50.0,
+            "playoff_prob": 32.5,
+            "seed": 33.33333333333333,
+            "sov": 75.85185185185183
+          },
+          "rank": 17,
+          "previous_rank": 17,
+          "movement": 0
+        },
+        {
+          "team": "CAR",
+          "record": "4-3",
+          "composite_score": 48.667380952380945,
+          "win_pct": 0.5714285714285714,
+          "playoff_prob": 22.1,
+          "playoff_seed": 9,
+          "sov": 0.2857142857142857,
+          "breakdown": {
+            "win_pct": 57.14285714285714,
+            "playoff_prob": 22.1,
+            "seed": 46.666666666666664,
+            "sov": 42.66666666666666
+          },
+          "rank": 18,
+          "previous_rank": 18,
+          "movement": 0
+        },
+        {
+          "team": "CIN",
+          "record": "3-4",
+          "composite_score": 47.63873015873015,
+          "win_pct": 0.42857142857142855,
+          "playoff_prob": 39.2,
+          "playoff_seed": 9,
+          "sov": 0.5079365079365079,
+          "breakdown": {
+            "win_pct": 42.857142857142854,
+            "playoff_prob": 39.2,
+            "seed": 46.666666666666664,
+            "sov": 75.85185185185183
+          },
+          "rank": 19,
+          "previous_rank": 19,
+          "movement": 0
+        },
+        {
+          "team": "DAL",
+          "record": "3-3-1",
+          "composite_score": 40.53333333333333,
+          "win_pct": 0.5,
+          "playoff_prob": 8.0,
+          "playoff_seed": 10,
+          "sov": 0.23809523809523805,
+          "breakdown": {
+            "win_pct": 50.0,
+            "playoff_prob": 8.0,
+            "seed": 40.0,
+            "sov": 35.55555555555554
+          },
+          "rank": 20,
+          "previous_rank": 21,
+          "movement": 1
+        },
+        {
+          "team": "MIN",
+          "record": "3-4",
+          "composite_score": 40.47039682539682,
+          "win_pct": 0.42857142857142855,
+          "playoff_prob": 16.3,
+          "playoff_seed": 13,
+          "sov": 0.4603174603174603,
+          "breakdown": {
+            "win_pct": 42.857142857142854,
+            "playoff_prob": 16.3,
+            "seed": 20.0,
+            "sov": 68.74074074074073
+          },
+          "rank": 21,
+          "previous_rank": 20,
+          "movement": -1
+        },
+        {
+          "team": "WAS",
+          "record": "3-4",
+          "composite_score": 40.32928571428571,
+          "win_pct": 0.42857142857142855,
+          "playoff_prob": 20.1,
+          "playoff_seed": 12,
+          "sov": 0.3988095238095238,
+          "breakdown": {
+            "win_pct": 42.857142857142854,
+            "playoff_prob": 20.1,
+            "seed": 26.666666666666668,
+            "sov": 59.55555555555555
+          },
+          "rank": 22,
+          "previous_rank": 22,
+          "movement": 0
+        },
+        {
+          "team": "HOU",
+          "record": "2-4",
+          "composite_score": 33.151666666666664,
+          "win_pct": 0.3333333333333333,
+          "playoff_prob": 37.9,
+          "playoff_seed": 10,
+          "sov": 0.15476190476190477,
+          "breakdown": {
+            "win_pct": 33.33333333333333,
+            "playoff_prob": 37.9,
+            "seed": 40.0,
+            "sov": 23.11111111111111
+          },
+          "rank": 23,
+          "previous_rank": 23,
+          "movement": 0
+        },
+        {
+          "team": "NYG",
+          "record": "2-5",
+          "composite_score": 32.944523809523815,
+          "win_pct": 0.2857142857142857,
+          "playoff_prob": 0.9,
+          "playoff_seed": 15,
+          "sov": 0.6696428571428572,
+          "breakdown": {
+            "win_pct": 28.57142857142857,
+            "playoff_prob": 0.9,
+            "seed": 6.666666666666667,
+            "sov": 100.0
+          },
+          "rank": 24,
+          "previous_rank": 24,
+          "movement": 0
+        },
+        {
+          "team": "CLE",
+          "record": "2-5",
+          "composite_score": 30.95619047619047,
+          "win_pct": 0.2857142857142857,
+          "playoff_prob": 3.2,
+          "playoff_seed": 11,
+          "sov": 0.4464285714285714,
+          "breakdown": {
+            "win_pct": 28.57142857142857,
+            "playoff_prob": 3.2,
+            "seed": 33.33333333333333,
+            "sov": 66.66666666666666
+          },
+          "rank": 25,
+          "previous_rank": 25,
+          "movement": 0
+        },
+        {
+          "team": "LV",
+          "record": "2-5",
+          "composite_score": 29.76952380952381,
+          "win_pct": 0.2857142857142857,
+          "playoff_prob": 2.4,
+          "playoff_seed": 12,
+          "sov": 0.4285714285714286,
+          "breakdown": {
+            "win_pct": 28.57142857142857,
+            "playoff_prob": 2.4,
+            "seed": 26.666666666666668,
+            "sov": 64.0
+          },
+          "rank": 26,
+          "previous_rank": 26,
+          "movement": 0
+        },
+        {
+          "team": "ARI",
+          "record": "2-5",
+          "composite_score": 26.77619047619047,
+          "win_pct": 0.2857142857142857,
+          "playoff_prob": 2.0,
+          "playoff_seed": 14,
+          "sov": 0.3571428571428571,
+          "breakdown": {
+            "win_pct": 28.57142857142857,
+            "playoff_prob": 2.0,
+            "seed": 13.333333333333334,
+            "sov": 53.33333333333332
+          },
+          "rank": 27,
+          "previous_rank": 27,
+          "movement": 0
+        },
+        {
+          "team": "BAL",
+          "record": "1-5",
+          "composite_score": 21.804999999999996,
+          "win_pct": 0.16666666666666666,
+          "playoff_prob": 22.7,
+          "playoff_seed": 13,
+          "sov": 0.2857142857142857,
+          "breakdown": {
+            "win_pct": 16.666666666666664,
+            "playoff_prob": 22.7,
+            "seed": 20.0,
+            "sov": 42.66666666666666
+          },
+          "rank": 28,
+          "previous_rank": 28,
+          "movement": 0
+        },
+        {
+          "team": "TEN",
+          "record": "1-6",
+          "composite_score": 15.668095238095235,
+          "win_pct": 0.14285714285714285,
+          "playoff_prob": 0.2,
+          "playoff_seed": 15,
+          "sov": 0.2857142857142857,
+          "breakdown": {
+            "win_pct": 14.285714285714285,
+            "playoff_prob": 0.2,
+            "seed": 6.666666666666667,
+            "sov": 42.66666666666666
+          },
+          "rank": 29,
+          "previous_rank": 29,
+          "movement": 0
+        },
+        {
+          "team": "NO",
+          "record": "1-6",
+          "composite_score": 14.98642857142857,
+          "win_pct": 0.14285714285714285,
+          "playoff_prob": 0.1,
+          "playoff_seed": 16,
+          "sov": 0.2857142857142857,
+          "breakdown": {
+            "win_pct": 14.285714285714285,
+            "playoff_prob": 0.1,
+            "seed": 0.0,
+            "sov": 42.66666666666666
+          },
+          "rank": 30,
+          "previous_rank": 30,
+          "movement": 0
+        },
+        {
+          "team": "NYJ",
+          "record": "0-7",
+          "composite_score": 11.214999999999998,
+          "win_pct": 0.0,
+          "playoff_prob": 0.1,
+          "playoff_seed": 16,
+          "sov": 0.5,
+          "breakdown": {
+            "win_pct": 0.0,
+            "playoff_prob": 0.1,
+            "seed": 0.0,
+            "sov": 74.66666666666666
+          },
+          "rank": 31,
+          "previous_rank": 31,
+          "movement": 0
+        },
+        {
+          "team": "MIA",
+          "record": "1-6",
+          "composite_score": 9.934761904761904,
+          "win_pct": 0.14285714285714285,
+          "playoff_prob": 0.2,
+          "playoff_seed": 14,
+          "sov": 0.0,
+          "breakdown": {
+            "win_pct": 14.285714285714285,
+            "playoff_prob": 0.2,
+            "seed": 13.333333333333334,
+            "sov": 0.0
+          },
+          "rank": 32,
+          "previous_rank": 32,
+          "movement": 0
+        }
+      ],
+      "calculated_at": "2025-10-25T09:03:02.720825"
     }
   },
-  "last_updated": "2025-10-22T16:38:26.673400"
+  "last_updated": "2025-10-25T09:03:02.720833"
 }
